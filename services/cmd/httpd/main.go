@@ -45,6 +45,9 @@ func main() {
 	mux.HandleFunc("GET /validation", func(w http.ResponseWriter, r *http.Request) {
 		writeJSON(w, http.StatusOK, svc.RunValidation(r.Context()))
 	})
+	mux.HandleFunc("GET /discovery-map", func(w http.ResponseWriter, r *http.Request) {
+		writeJSON(w, http.StatusOK, svc.DiscoveryMap(r.Context()))
+	})
 	mux.HandleFunc("GET /pathway", func(w http.ResponseWriter, r *http.Request) {
 		id := r.URL.Query().Get("aop")
 		if id == "" {

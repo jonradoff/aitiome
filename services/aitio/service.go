@@ -17,6 +17,7 @@ type Service struct {
 	compounds []contract.Compound
 	resolver  *resolver
 	pathways  map[string]contract.Pathway
+	evidence  *evidenceStore
 }
 
 // New constructs the service, loading the ground-truth validation set (27
@@ -32,10 +33,15 @@ func New() (*Service, error) {
 	if err != nil {
 		return nil, fmt.Errorf("aitio: load pathways: %w", err)
 	}
+	evidence, err := loadEvidence()
+	if err != nil {
+		return nil, fmt.Errorf("aitio: load evidence: %w", err)
+	}
 	return &Service{
 		compounds: compounds,
 		resolver:  newResolver(compounds),
 		pathways:  pathways,
+		evidence:  evidence,
 	}, nil
 }
 

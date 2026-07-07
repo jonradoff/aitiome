@@ -90,6 +90,15 @@ func main() {
 	)
 
 	s.AddTool(
+		mcp.NewTool("discovery_map",
+			mcp.WithDescription("The honest negative-results discovery map: seven axes tested for an annotation-independent discovery signal on this chemical class, each coverage- or confounder-killed, plus the two live leads (neural-specific subset, Boltz-2 Q-site). Discovery is a map, not a predictor. Read-only."),
+		),
+		func(ctx context.Context, _ mcp.CallToolRequest) (*mcp.CallToolResult, error) {
+			return jsonResult(svc.DiscoveryMap(ctx))
+		},
+	)
+
+	s.AddTool(
 		mcp.NewTool("get_pathway",
 			mcp.WithDescription("Reconstruct an endorsed OECD AOP as a positioned, grounded graph (nodes = key events MIE->KE->AO, edges = key-event relationships). Defaults to the MVP anchor AOP-3 (complex-I inhibition -> nigrostriatal dopaminergic degeneration -> parkinsonian deficits). MIE grounded in MitoCarta Complex-I Q-site subunits; AO grounded in SOX6/AGTR1 vulnerable DA neurons. Read-only."),
 			mcp.WithString("aop", mcp.Description("AOP id (e.g. \"3\"). Omit for the AOP-3 anchor.")),

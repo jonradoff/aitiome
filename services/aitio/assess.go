@@ -31,10 +31,14 @@ func (s *Service) assessCompound(c contract.Compound) contract.CompoundResult {
 	}
 
 	if rec.Call == "positive" {
-		p := s.pickPathway(c)
-		res.Pathway = p
+		res.Pathway = s.pickPathway(c)
 	}
-	res.Trace = s.buildTrace(c, rec, res.Pathway)
+
+	strands, rejection := s.enrich(c, rec, res.Pathway)
+	res.Strands = strands
+	res.Rejection = rejection
+
+	res.Trace = s.buildTrace(c, rec, res.Pathway, strands, rejection)
 	return res
 }
 
@@ -55,7 +59,7 @@ func (s *Service) pickPathway(c contract.Compound) *contract.Pathway {
 	return &p
 }
 
-func (s *Service) buildTrace(c contract.Compound, rec contract.RecoveryDecision, p *contract.Pathway) []contract.TraceEvent {
+func (s *Service) buildTrace(c contract.Compound, rec contract.RecoveryDecision, p *contract.Pathway, strands []contract.EvidenceStrand, rej *contract.Rejection) []contract.TraceEvent {
 	tr := []contract.TraceEvent{
 		{Kind: "resolve", Compound: c.Name, ResolvedForm: resolvedForm(c),
 			Label: "Resolved " + c.Name + " (DTXSID-first, salt-form correct)"},
@@ -85,6 +89,18 @@ func (s *Service) buildTrace(c contract.Compound, rec contract.RecoveryDecision,
 		if cells := aoCellTypes(p); len(cells) > 0 {
 			tr = append(tr, contract.TraceEvent{Kind: "ao_resolve", CellTypes: cells,
 				Label: "Resolves into the SOX6/AGTR1 vulnerable dopaminergic-neuron population"})
+		}
+	}
+
+	// Convergent-evidence strands report as they land.
+	for _, st := range strands {
+		tr = append(tr, contract.TraceEvent{Kind: "strand", StrandKind: st.Kind, StrandStatus: st.Status, Label: st.Detail})
+	}
+
+	// Decoy rejection: each independent line, one at a time (the centerpiece).
+	if rej != nil {
+		for _, ln := range rej.Lines {
+			tr = append(tr, contract.TraceEvent{Kind: "reject_line", StrandKind: ln.Kind, Line: ln.Detail, Label: ln.Detail})
 		}
 	}
 
