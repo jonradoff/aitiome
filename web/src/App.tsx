@@ -1,7 +1,8 @@
 import { useState } from "react";
-import { getValidation, getHealth, getPathway, assess } from "./data";
+import { getValidation, getHealth, getPathway, getDiscoveryMap, assess } from "./data";
 import { useAsync } from "./useAsync";
 import { Hero } from "./hero/Hero";
+import { EvidencePanel, TracePanel, ValidationPanel, DiscoveryPanel, MCPPanel } from "./components/Panels";
 
 const KNOWN = ["rotenone", "paraquat", "MPTP", "chlorpyrifos", "6-hydroxydopamine"];
 const DECOYS = ["simvastatin", "troglitazone", "warfarin", "fenofibrate"];
@@ -13,6 +14,7 @@ export function App() {
   const health = useAsync(getHealth, []);
   const validation = useAsync(getValidation, []);
   const pathway = useAsync(getPathway, []);
+  const discovery = useAsync(getDiscoveryMap, []);
   const active = useAsync(() => assess(activeId), [activeId]);
 
   function toggleTheme() {
@@ -54,6 +56,13 @@ export function App() {
               <Readout result={result} />
             </div>
           )}
+
+          {result && (
+            <div style={{ marginTop: 18, display: "grid", gridTemplateColumns: "1.15fr 0.85fr", gap: 16 }} className="two-col">
+              <EvidencePanel result={result} />
+              <TracePanel result={result} />
+            </div>
+          )}
         </section>
 
         <section className="wrap section">
@@ -71,6 +80,21 @@ export function App() {
               errors={s.falsePositives + s.falseNegatives}
             />
           )}
+          {validation && (
+            <div style={{ marginTop: 26 }}>
+              <ValidationPanel data={validation.data} activeId={activeId} onSelect={setActiveId} />
+            </div>
+          )}
+        </section>
+
+        {discovery && (
+          <section className="wrap section">
+            <DiscoveryPanel map={discovery.data} />
+          </section>
+        )}
+
+        <section className="wrap section">
+          <MCPPanel example={result} />
         </section>
       </main>
 

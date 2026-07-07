@@ -37,7 +37,7 @@ if (clickText) {
 // let the cascade animation play
 await new Promise((r) => setTimeout(r, 3200));
 
-await page.screenshot({ path: out });
+await page.screenshot({ path: out, fullPage: process.env.FULL === "1" });
 console.log("shot:", out);
 console.log("console errors:", errors.length ? JSON.stringify(errors.slice(0, 10), null, 2) : "none");
 await browser.close();
