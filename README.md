@@ -108,6 +108,26 @@ Truthfully per compound: **warfarin and fenofibrate** fail all three (no curated
 non-penetrance + zero FAERS parkinsonism signal), while **simvastatin and troglitazone** fail two each
 (the data does not support claiming a third, and the app says so).
 
+### The falsification harness (why bioactivity cannot do this)
+
+The strongest evidence that the engine is not "just detecting bioactivity" is computed live from the
+validation set (`make validate`, `/benchmark`). The AUROC of every bioactivity signal separating the 12
+positives from the 6 adversarial decoys:
+
+| signal | AUROC vs decoys | AUROC vs all negatives |
+|---|---|---|
+| Mitochondrial assays | 0.16 | 0.41 |
+| Membrane potential (MMP) | 0.12 | 0.39 |
+| Oxidative stress | 0.20 | 0.40 |
+| Mechanistic assays (total) | 0.39 | 0.57 |
+| ToxCast active (all) | 0.15 | 0.45 |
+
+Every signal is **at or below chance (0.5)**: the decoys are, if anything, more bioactive than the real
+neurotoxicants, because the true positives are environmental toxicants under-represented in ToxCast.
+Bioactivity is anti-diagnostic here; the curated rule is perfect on the same set. The harness also
+encodes the adversarial challenges as tests (no bioactivity threshold separates the decoys; both
+predicate terms are load-bearing; every result invariant holds). See `learnings.md`.
+
 ### Discovery, represented as an honest map
 
 The discovery view ships the seven axes tested during recon, each with its coverage- or
@@ -210,6 +230,7 @@ specificity centerpiece, discovery map, and MCP panel are all live.
 make run-http                # HTTP API on :8787
 make run-mcp                 # MCP server over stdio
 make test                    # Go tests (harness fp=fn=0, salt-form guard, decoy rejection, synthesis)
+make validate                # judge-facing red-team report (bioactivity AUROC vs decoys, invariants)
 make fixtures                # regenerate contract/fixtures from the live engine
 ```
 
@@ -234,13 +255,13 @@ domain steps.
 
 ### HTTP endpoints
 
-`/health` `/compounds` `/resolve?id=` `/assess?id=` `/synthesis?id=` `/validation` `/pathway[?aop=3]`
+`/health` `/compounds` `/resolve?id=` `/assess?id=` `/synthesis?id=` `/validation` `/benchmark` `/pathway[?aop=3]`
 `/discovery-map`
 
 ### MCP tools
 
 `health` `list_compounds` `resolve_compound` `assess_compound` `synthesize_assessment`
-`run_validation` `get_pathway` `discovery_map`
+`run_validation` `benchmark` `get_pathway` `discovery_map`
 
 ## Project layout
 
@@ -249,6 +270,7 @@ contract/     the versioned core<->viz seam: goapi (Go), ts (TypeScript), fixtur
 services/     Go: aitio service package + cmd/httpd (HTTP) + cmd/mcpd (MCP) adapters
 web/          React + TypeScript + Three.js app (hero/ + components/), runs live or on fixtures
 docs/         the reconnaissance assets, the master brief, and decision records (docs/decisions/)
+learnings.md  a running log of what we learn building + red-teaming (findings, open critiques)
 CLAUDE.md     always-loaded constraint memory: the settled recon findings and the hard rules
 run.sh        one command to build and start everything
 ```

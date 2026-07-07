@@ -1,9 +1,16 @@
 # Aitiome (AITIO) — Always-Loaded Constraint Memory
 
 > Read `VIBECTL.md` for live project status. Read `docs/build-kickoff.md` (the MASTER BRIEF) before building.
+> Read `learnings.md` for what we've learned building and red-teaming this (findings, gotchas, open critiques).
 > This file is the non-negotiable constraint memory: every session inherits it. `docs/` holds the detail.
 > The reconnaissance is **settled input**. Never silently contradict a recon finding — if you think one
 > should be revisited, **stop and flag it to Jon**, don't work around it.
+
+**Current state (2026-07-07):** engine + hero + panels + Claude evidence-reasoner shipped; deployed live
+at https://aitiome.fly.dev (single Go binary serves web + `/api/*` + MCP sibling). Contract at v1.1.0.
+Private repo `jonradoff/aitiome`. A **falsification harness** (`make validate`, `/benchmark`) quantifies
+the anti-diagnostic claim: bioactivity is at-or-below-chance vs the adversarial decoys while the curated
+rule is perfect. Red-team findings and open critiques (esp. circularity) are logged in `learnings.md`.
 
 ## Identity & the three win conditions
 
