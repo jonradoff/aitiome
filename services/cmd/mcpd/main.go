@@ -62,6 +62,24 @@ func main() {
 		},
 	)
 
+	s.AddTool(
+		mcp.NewTool("get_pathway",
+			mcp.WithDescription("Reconstruct an endorsed OECD AOP as a positioned, grounded graph (nodes = key events MIE->KE->AO, edges = key-event relationships). Defaults to the MVP anchor AOP-3 (complex-I inhibition -> nigrostriatal dopaminergic degeneration -> parkinsonian deficits). MIE grounded in MitoCarta Complex-I Q-site subunits; AO grounded in SOX6/AGTR1 vulnerable DA neurons. Read-only."),
+			mcp.WithString("aop", mcp.Description("AOP id (e.g. \"3\"). Omit for the AOP-3 anchor.")),
+		),
+		func(ctx context.Context, req mcp.CallToolRequest) (*mcp.CallToolResult, error) {
+			id := req.GetString("aop", "")
+			if id == "" {
+				return jsonResult(svc.AnchorPathway(ctx))
+			}
+			p, ok := svc.GetPathway(ctx, id)
+			if !ok {
+				return mcp.NewToolResultError("unknown AOP: " + id), nil
+			}
+			return jsonResult(p)
+		},
+	)
+
 	log.Println("aitiome mcpd serving on stdio")
 	if err := server.ServeStdio(s); err != nil {
 		log.Fatalf("mcpd: %v", err)

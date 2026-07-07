@@ -33,6 +33,19 @@ func main() {
 		}
 		writeJSON(w, http.StatusOK, c)
 	})
+	mux.HandleFunc("GET /pathway", func(w http.ResponseWriter, r *http.Request) {
+		id := r.URL.Query().Get("aop")
+		if id == "" {
+			writeJSON(w, http.StatusOK, svc.AnchorPathway(r.Context()))
+			return
+		}
+		p, ok := svc.GetPathway(r.Context(), id)
+		if !ok {
+			writeJSON(w, http.StatusNotFound, map[string]string{"error": "unknown AOP: " + id})
+			return
+		}
+		writeJSON(w, http.StatusOK, p)
+	})
 
 	addr := envOr("AITIO_HTTP_ADDR", ":8787")
 	srv := &http.Server{Addr: addr, Handler: withCORS(mux)}

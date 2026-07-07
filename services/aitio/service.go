@@ -16,20 +16,38 @@ import (
 type Service struct {
 	compounds []contract.Compound
 	resolver  *resolver
+	pathways  map[string]contract.Pathway
 }
 
 // New constructs the service, loading the ground-truth validation set (27
-// compounds) and building the DTXSID-first resolver index. Returns an error if
-// the embedded data is malformed — the engine must not silently start empty.
+// compounds), the DTXSID-first resolver index, and the endorsed AOP scaffold.
+// Returns an error if the embedded data is malformed — the engine must not
+// silently start empty.
 func New() (*Service, error) {
 	compounds, err := loadValidationSet()
 	if err != nil {
 		return nil, fmt.Errorf("aitio: load validation set: %w", err)
 	}
+	pathways, err := loadPathways()
+	if err != nil {
+		return nil, fmt.Errorf("aitio: load pathways: %w", err)
+	}
 	return &Service{
 		compounds: compounds,
 		resolver:  newResolver(compounds),
+		pathways:  pathways,
 	}, nil
+}
+
+// GetPathway returns a reconstructed, grounded AOP pathway by id (e.g. "3").
+func (s *Service) GetPathway(ctx context.Context, aopID string) (contract.Pathway, bool) {
+	p, ok := s.pathways[aopID]
+	return p, ok
+}
+
+// AnchorPathway returns the MVP anchor (AOP-3) — the demo spine.
+func (s *Service) AnchorPathway(ctx context.Context) contract.Pathway {
+	return s.pathways[MVPAnchorAOP]
 }
 
 // Health surfaces status, contract version, and the loaded compound count.
