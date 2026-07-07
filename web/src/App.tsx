@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { getValidation, getHealth, getPathway, getDiscoveryMap, assess, synthesize } from "./data";
+import { getValidation, getHealth, getPathway, getDiscoveryMap, assess, synthesize, resolveCompound } from "./data";
 import { useAsync } from "./useAsync";
 import { Hero } from "./hero/Hero";
 import { EvidencePanel, TracePanel, ValidationPanel, DiscoveryPanel, MCPPanel, SynthesisPanel } from "./components/Panels";
@@ -43,6 +43,10 @@ export function App() {
           </div>
 
           <div style={{ marginTop: 26 }}>
+            <SearchBox onResolve={setActiveId} />
+          </div>
+
+          <div style={{ marginTop: 18 }}>
             <Selector activeId={activeId} onSelect={setActiveId} />
           </div>
 
@@ -106,6 +110,52 @@ export function App() {
       </main>
 
       <Footer source={source} />
+    </div>
+  );
+}
+
+function SearchBox(props: { onResolve: (name: string) => void }) {
+  const [q, setQ] = useState("");
+  const [note, setNote] = useState<{ text: string; ok: boolean } | null>(null);
+
+  async function run() {
+    const id = q.trim();
+    if (!id) return;
+    const c = await resolveCompound(id);
+    if (c) {
+      props.onResolve(c.name);
+      const salt = c.toxcastCas && c.toxcastCas !== c.cas ? ` / tested as CAS ${c.toxcastCas}` : "";
+      setNote({ text: `resolved to ${c.name} (${c.dtxsid})${salt}`, ok: true });
+    } else {
+      setNote({ text: `"${id}" is not in the validation set (the honest scope is the 27-compound ground truth)`, ok: false });
+    }
+  }
+
+  return (
+    <div style={{ display: "flex", flexDirection: "column", gap: 8, maxWidth: 620 }}>
+      <div style={{ display: "flex", gap: 8 }}>
+        <input
+          value={q}
+          onChange={(e) => setQ(e.target.value)}
+          onKeyDown={(e) => e.key === "Enter" && run()}
+          placeholder="Resolve a chemical: name, CAS, DTXSID, or InChIKey"
+          aria-label="Resolve a chemical"
+          className="mono"
+          style={{
+            flex: 1, padding: "11px 14px", fontSize: 13.5,
+            background: "var(--bg-2)", color: "var(--ink)",
+            border: "1px solid var(--line-2)", borderRadius: "var(--radius-sm)", outline: "none",
+          }}
+          onFocus={(e) => (e.currentTarget.style.borderColor = "var(--signal)")}
+          onBlur={(e) => (e.currentTarget.style.borderColor = "var(--line-2)")}
+        />
+        <button className="btn primary" onClick={run}>Resolve</button>
+      </div>
+      {note && (
+        <span className="mono" style={{ fontSize: 11.5, color: note.ok ? "var(--recovered)" : "var(--ink-faint)" }}>
+          {note.text}
+        </span>
+      )}
     </div>
   );
 }

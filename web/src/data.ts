@@ -61,3 +61,24 @@ export async function synthesize(id: string): Promise<{ data: Synthesis | null; 
   const fx = fxSynthesis[id.toLowerCase()];
   return { data: fx ?? null, source: "fixture" };
 }
+
+// resolveCompound maps any identifier (name, CAS, DTXSID, InChIKey, CID) to the
+// one salt-form-correct record. Demonstrates the DTXSID-first resolver: e.g. the
+// paraquat dichloride CAS 1910-42-5 resolves to the paraquat record.
+export async function resolveCompound(id: string): Promise<Compound | null> {
+  const live = await tryLive<Compound>(`/resolve?id=${encodeURIComponent(id)}`);
+  if (live) return live;
+  const q = id.trim().toLowerCase();
+  if (!q) return null;
+  return (
+    fxCompounds.find(
+      (c) =>
+        c.name.toLowerCase() === q ||
+        (c.cas ?? "").toLowerCase() === q ||
+        c.dtxsid.toLowerCase() === q ||
+        (c.inchikey ?? "").toLowerCase() === q ||
+        (c.toxcastCas ?? "").toLowerCase() === q ||
+        String(c.cid ?? "") === q,
+    ) ?? null
+  );
+}
