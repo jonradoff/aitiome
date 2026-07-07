@@ -2,6 +2,8 @@
 
 **An honest mechanistic-reasoning engine for the environmental exposome of neurodegeneration.**
 
+**Live:** https://aitiome.fly.dev (custom domain https://aitiome.metavert.io pending one DNS record).
+
 Given a chemical, Aitiome reconstructs the OECD-endorsed causal pathway from molecular initiating
 event to a neurodegeneration hallmark, grounds each step in queryable evidence, rates confidence,
 and proves itself two ways: it recovers the known neurotoxicants, and it refuses to be fooled by
