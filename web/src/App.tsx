@@ -2,7 +2,7 @@ import { useState } from "react";
 import { getValidation, getHealth, getPathway, getDiscoveryMap, assess, synthesize, resolveCompound } from "./data";
 import { useAsync } from "./useAsync";
 import { Hero } from "./hero/Hero";
-import { EvidencePanel, TracePanel, ValidationPanel, DiscoveryPanel, MCPPanel, SynthesisPanel, ProvenanceDrawer } from "./components/Panels";
+import { EvidencePanel, TracePanel, ValidationPanel, DiscoveryPanel, MCPPanel, SynthesisPanel, ProvenanceDrawer, SpecificityCenterpiece } from "./components/Panels";
 import type { EvidenceStrand } from "@contract";
 
 const KNOWN = ["rotenone", "paraquat", "MPTP", "chlorpyrifos", "6-hydroxydopamine"];
@@ -12,6 +12,7 @@ export function App() {
   const [theme, setTheme] = useState<"dark" | "light">("dark");
   const [activeId, setActiveId] = useState("rotenone");
   const [provenance, setProvenance] = useState<EvidenceStrand | null>(null);
+  const [decoyId, setDecoyId] = useState("warfarin");
 
   const health = useAsync(getHealth, []);
   const validation = useAsync(getValidation, []);
@@ -19,6 +20,7 @@ export function App() {
   const discovery = useAsync(getDiscoveryMap, []);
   const active = useAsync(() => assess(activeId), [activeId]);
   const synthesis = useAsync(() => synthesize(activeId), [activeId]);
+  const decoy = useAsync(() => assess(decoyId), [decoyId]);
 
   function toggleTheme() {
     const next = theme === "dark" ? "light" : "dark";
@@ -98,6 +100,10 @@ export function App() {
               <ValidationPanel data={validation.data} activeId={activeId} onSelect={setActiveId} />
             </div>
           )}
+        </section>
+
+        <section className="wrap section">
+          <SpecificityCenterpiece result={decoy?.data ?? null} decoyId={decoyId} onSelect={setDecoyId} />
         </section>
 
         {discovery && (

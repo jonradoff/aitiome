@@ -29,7 +29,7 @@ fetch "discovery-map"                "discovery-map.json"
 
 # Demo compound set (the 5-beat demo + a couple extras).
 for c in rotenone paraquat mptp 6-hydroxydopamine chlorpyrifos \
-         simvastatin troglitazone warfarin fenofibrate acetaminophen; do
+         simvastatin troglitazone warfarin fenofibrate prochloraz propiconazole acetaminophen; do
   curl -s "$base/assess?id=$c" | python3 -m json.tool > "$OUT/assess/$c.json"
   echo "  assess/$c.json"
   curl -s "$base/synthesis?id=$c" | python3 -m json.tool > "$OUT/synthesis/$c.json"

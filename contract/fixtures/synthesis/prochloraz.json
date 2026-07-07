@@ -1,0 +1,28 @@
+{
+    "compound": "prochloraz",
+    "call": "negative",
+    "tier": "adversarial_negative",
+    "prose": "This case is best read as an evidence-ranked negative: the curated layer returns no Parkinson's DirectEvidence and no registered neuro-AOP stressor status for prochloraz [E1], and it is that curated absence \u2014 not any downstream activity \u2014 that governs the call. The compound is genuinely bioactive, with 16 mechanistic assay hits including 3 mitochondrial signals [E2], and mitochondrial perturbation is a superficially plausible neurodegeneration hypothesis; however, this bioactivity is treated strictly as anti-diagnostic corroboration and cannot substitute for a curated mechanistic anchor. Acting on it would amount to inferring disease relevance from assay promiscuity, precisely the imposter pattern this tier is designed to resist. Brain penetrance [E3] is consistent with exposure but does not discriminate, since penetrance without a curated pathway carries no directional weight. Absent an attached AOP and any curated mechanism, the correctly-withheld negative stands as the calibrated conclusion.",
+    "citations": [
+        {
+            "marker": "E1",
+            "kind": "curated_mechanism",
+            "detail": "No curated Parkinson's DirectEvidence and not a registered neuro-AOP stressor.",
+            "source": "CTD curated DirectEvidence / AOP-Wiki"
+        },
+        {
+            "marker": "E2",
+            "kind": "assay_corroboration",
+            "detail": "Bioactive: 16 mechanistic assay hits (incl. 3 mitochondrial). This is the imposter signal the engine correctly does NOT act on.",
+            "source": "EPA ToxCast via NICEATM ICE"
+        },
+        {
+            "marker": "E3",
+            "kind": "bbb",
+            "detail": "Brain-penetrant, but penetrance is not a discriminator here.",
+            "source": "B3DB / BOILED-Egg (structure-based)"
+        }
+    ],
+    "model": "claude-opus-4-8",
+    "source": "claude"
+}

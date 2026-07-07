@@ -24,6 +24,8 @@ import synSimvastatin from "@fixtures/synthesis/simvastatin.json";
 import synTroglitazone from "@fixtures/synthesis/troglitazone.json";
 import synWarfarin from "@fixtures/synthesis/warfarin.json";
 import synFenofibrate from "@fixtures/synthesis/fenofibrate.json";
+import synProchloraz from "@fixtures/synthesis/prochloraz.json";
+import synPropiconazole from "@fixtures/synthesis/propiconazole.json";
 import synAcetaminophen from "@fixtures/synthesis/acetaminophen.json";
 
 import rotenone from "@fixtures/assess/rotenone.json";
@@ -35,6 +37,8 @@ import simvastatin from "@fixtures/assess/simvastatin.json";
 import troglitazone from "@fixtures/assess/troglitazone.json";
 import warfarin from "@fixtures/assess/warfarin.json";
 import fenofibrate from "@fixtures/assess/fenofibrate.json";
+import prochloraz from "@fixtures/assess/prochloraz.json";
+import propiconazole from "@fixtures/assess/propiconazole.json";
 import acetaminophen from "@fixtures/assess/acetaminophen.json";
 
 export const fxValidation = validation as unknown as ValidationResult;
@@ -44,7 +48,7 @@ export const fxCompounds = compounds as unknown as Compound[];
 
 const list = [
   rotenone, paraquat, mptp, ohda, chlorpyrifos,
-  simvastatin, troglitazone, warfarin, fenofibrate, acetaminophen,
+  simvastatin, troglitazone, warfarin, fenofibrate, prochloraz, propiconazole, acetaminophen,
 ] as unknown as CompoundResult[];
 
 export const fxAssess: Record<string, CompoundResult> = Object.fromEntries(
@@ -53,7 +57,7 @@ export const fxAssess: Record<string, CompoundResult> = Object.fromEntries(
 
 const synList = [
   synRotenone, synParaquat, synMptp, synOhda, synChlorpyrifos,
-  synSimvastatin, synTroglitazone, synWarfarin, synFenofibrate, synAcetaminophen,
+  synSimvastatin, synTroglitazone, synWarfarin, synFenofibrate, synProchloraz, synPropiconazole, synAcetaminophen,
 ] as unknown as Synthesis[];
 
 export const fxSynthesis: Record<string, Synthesis> = Object.fromEntries(

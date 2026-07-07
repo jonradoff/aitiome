@@ -1,0 +1,139 @@
+{
+    "mode": "validation",
+    "compound": {
+        "name": "prochloraz",
+        "role": "negative",
+        "confidenceTier": "adversarial_negative",
+        "mech": "none_neuro",
+        "note": "imidazole fungicide; endocrine, non-neuro",
+        "cid": 73665,
+        "cas": "67747-09-5",
+        "inchikey": "TVLSRXXIMLFWEO-UHFFFAOYSA-N",
+        "smiles": "CCCN(CCOC1=C(C=C(C=C1Cl)Cl)Cl)C(=O)N2C=CN=C2",
+        "dtxsid": "DTXSID4024270",
+        "toxcastCas": "67747-09-5",
+        "pdDirect": 0,
+        "adDirect": 0,
+        "aopStressorOf": null,
+        "aop3Stressor": false,
+        "inNeurotoxkb": false,
+        "toxcastTested": 532,
+        "toxcastActive": 230,
+        "mitoActive": 3,
+        "mmpActive": 4,
+        "oxStressActive": 1,
+        "neuroActive": 8,
+        "mechActiveTotal": 16,
+        "geneIxnsHuman": 86,
+        "aop3GeneHits": 1,
+        "coverageGrade": "ADVERSARIAL_NEGATIVE"
+    },
+    "role": "negative",
+    "confidenceTier": "adversarial_negative",
+    "recovery": {
+        "call": "negative",
+        "predicate": {
+            "ctdPdDirectEvidence": false,
+            "neuroAopStressor": false
+        },
+        "diagnostic": true,
+        "gatedOnAssay": false,
+        "corroboration": {
+            "assayActive": true,
+            "mitoActive": 3,
+            "mechActiveTotal": 16,
+            "note": "",
+            "antiDiagnostic": true
+        },
+        "rationale": "No curated diagnostic signal despite bioactivity (3 mito, 16 mechanistic assay hits). Correctly NOT flagged \u2014 the engine reasons on curated mechanism, not activity."
+    },
+    "strands": [
+        {
+            "kind": "curated_mechanism",
+            "status": "absent",
+            "detail": "No curated Parkinson's DirectEvidence and not a registered neuro-AOP stressor.",
+            "source": "CTD curated DirectEvidence / AOP-Wiki",
+            "provenance": "CTD curated chemical-disease DirectEvidence (bulk report; MESH:D010300 Parkinson Disease) + AOP-Wiki registered neuro-AOP stressors",
+            "isGate": false
+        },
+        {
+            "kind": "assay_corroboration",
+            "status": "supports",
+            "detail": "Bioactive: 16 mechanistic assay hits (incl. 3 mitochondrial). This is the imposter signal the engine correctly does NOT act on.",
+            "source": "EPA ToxCast via NICEATM ICE",
+            "provenance": "EPA ToxCast / invitroDB v4.2 via NICEATM ICE (hitcall Active; queried on the salt-form-correct CAS)",
+            "isGate": false
+        },
+        {
+            "kind": "bbb",
+            "status": "not_assessable",
+            "detail": "Brain-penetrant, but penetrance is not a discriminator here.",
+            "source": "B3DB / BOILED-Egg (structure-based)",
+            "provenance": "B3DB classification + RDKit BOILED-Egg (TPSA / MolLogP), structure-based",
+            "isGate": false
+        }
+    ],
+    "rejection": {
+        "lines": [
+            {
+                "kind": "curated_mechanism",
+                "status": "absent",
+                "detail": "No curated Parkinson's DirectEvidence and not a registered neuro-AOP stressor.",
+                "source": "CTD curated DirectEvidence / AOP-Wiki",
+                "provenance": "CTD curated chemical-disease DirectEvidence (bulk report; MESH:D010300 Parkinson Disease) + AOP-Wiki registered neuro-AOP stressors",
+                "isGate": false
+            }
+        ],
+        "count": 1
+    },
+    "trace": [
+        {
+            "kind": "resolve",
+            "compound": "prochloraz",
+            "resolvedForm": "prochloraz",
+            "label": "Resolved prochloraz (DTXSID-first, salt-form correct)"
+        },
+        {
+            "kind": "predicate_eval",
+            "term": "ctd_pd_direct",
+            "hit": false,
+            "label": "CTD Parkinson's curated DirectEvidence"
+        },
+        {
+            "kind": "predicate_eval",
+            "term": "neuro_aop_stressor",
+            "hit": false,
+            "label": "Registered neuro-AOP stressor"
+        },
+        {
+            "kind": "strand",
+            "strandKind": "curated_mechanism",
+            "strandStatus": "absent",
+            "label": "No curated Parkinson's DirectEvidence and not a registered neuro-AOP stressor."
+        },
+        {
+            "kind": "strand",
+            "strandKind": "assay_corroboration",
+            "strandStatus": "supports",
+            "label": "Bioactive: 16 mechanistic assay hits (incl. 3 mitochondrial). This is the imposter signal the engine correctly does NOT act on."
+        },
+        {
+            "kind": "strand",
+            "strandKind": "bbb",
+            "strandStatus": "not_assessable",
+            "label": "Brain-penetrant, but penetrance is not a discriminator here."
+        },
+        {
+            "kind": "reject_line",
+            "strandKind": "curated_mechanism",
+            "line": "No curated Parkinson's DirectEvidence and not a registered neuro-AOP stressor.",
+            "label": "No curated Parkinson's DirectEvidence and not a registered neuro-AOP stressor."
+        },
+        {
+            "kind": "verdict",
+            "call": "negative",
+            "tier": "adversarial_negative",
+            "label": "Correctly not flagged \u2014 adversarial_negative"
+        }
+    ]
+}

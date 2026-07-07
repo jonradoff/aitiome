@@ -1,0 +1,28 @@
+{
+    "compound": "propiconazole",
+    "call": "negative",
+    "tier": "adversarial_negative",
+    "prose": "The evidence-ranked mechanistic hypothesis for propiconazole is negative, and this call rests entirely on the absence of curated diagnostic signal [E1]: there is no CTD curated Parkinson's DirectEvidence, and the compound is not a registered neurodegeneration AOP stressor. That curated silence is the decisive basis. Propiconazole is measurably bioactive\u201414 mechanistic assay hits including 3 mitochondrial [E2]\u2014and it may seem tempting to treat mitochondrial activity as a red flag, but this is precisely the imposter signal the engine is designed not to act on; assay bioactivity is corroboration only and cannot, by itself, establish a neurodegeneration-relevant mechanism. Similarly, structure-based prediction suggests brain penetrance [E3], yet penetrance is a permissive property shared by countless benign compounds and is not a discriminator here. With no curated mechanistic anchor and no attached AOP pathway, the calibrated conclusion remains a confidently reasoned negative.",
+    "citations": [
+        {
+            "marker": "E1",
+            "kind": "curated_mechanism",
+            "detail": "No curated Parkinson's DirectEvidence and not a registered neuro-AOP stressor.",
+            "source": "CTD curated DirectEvidence / AOP-Wiki"
+        },
+        {
+            "marker": "E2",
+            "kind": "assay_corroboration",
+            "detail": "Bioactive: 14 mechanistic assay hits (incl. 3 mitochondrial). This is the imposter signal the engine correctly does NOT act on.",
+            "source": "EPA ToxCast via NICEATM ICE"
+        },
+        {
+            "marker": "E3",
+            "kind": "bbb",
+            "detail": "Brain-penetrant, but penetrance is not a discriminator here.",
+            "source": "B3DB / BOILED-Egg (structure-based)"
+        }
+    ],
+    "model": "claude-opus-4-8",
+    "source": "claude"
+}

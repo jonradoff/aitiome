@@ -290,6 +290,105 @@ export function DiscoveryPanel({ map }: { map: DiscoveryMap }) {
   );
 }
 
+// ---- Adversarial-specificity centerpiece ----
+const DECOYS = ["troglitazone", "prochloraz", "propiconazole", "simvastatin", "fenofibrate", "warfarin"];
+
+export function SpecificityCenterpiece({ result, decoyId, onSelect }: { result: CompoundResult | null; decoyId: string; onSelect: (id: string) => void }) {
+  return (
+    <div>
+      <SectionHead kicker="The specificity result" title="It is not fooled by the imposters" />
+      <p className="dim" style={{ fontSize: 16, maxWidth: "70ch", marginBottom: 22 }}>
+        Every profiling and similarity axis failed here because the decoys are genuinely bioactive,
+        even mitochondria-active. Aitiome withholds the call anyway, because it reasons on curated
+        mechanism. Pick a decoy: the left shows what fools an activity model; the right shows why the
+        engine does not.
+      </p>
+
+      <div style={{ display: "flex", gap: 8, flexWrap: "wrap", marginBottom: 18 }}>
+        {DECOYS.map((d) => {
+          const on = decoyId.toLowerCase() === d;
+          return (
+            <button key={d} className="btn" onClick={() => onSelect(d)}
+              style={{ padding: "7px 13px", fontSize: 13, borderColor: on ? "var(--reject)" : "var(--line-2)", background: on ? "color-mix(in srgb, var(--reject) 15%, var(--bg-3))" : "var(--bg-3)" }}>
+              {d}
+            </button>
+          );
+        })}
+      </div>
+
+      {result && (
+        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16 }} className="two-col">
+          <ImposterCard c={result} />
+          <RejectionCard result={result} />
+        </div>
+      )}
+    </div>
+  );
+}
+
+function ImposterCard({ c }: { c: CompoundResult }) {
+  const cc = c.compound;
+  const rows = [
+    { label: "Mitochondrial assays", v: cc.mitoActive },
+    { label: "Membrane potential (MMP)", v: cc.mmpActive },
+    { label: "Oxidative stress", v: cc.oxStressActive },
+    { label: "Mechanistic assays (total)", v: cc.mechActiveTotal },
+    { label: "ToxCast active (all)", v: cc.toxcastActive },
+  ];
+  const max = Math.max(1, ...rows.map((r) => r.v));
+  return (
+    <div className="panel" style={{ padding: 22 }}>
+      <span className="mono" style={{ fontSize: 11, letterSpacing: "0.05em", textTransform: "uppercase", color: "var(--uncertain)" }}>What fools an activity model</span>
+      <div style={{ marginTop: 16, display: "flex", flexDirection: "column", gap: 13 }}>
+        {rows.map((r) => (
+          <div key={r.label}>
+            <div style={{ display: "flex", justifyContent: "space-between", marginBottom: 5 }}>
+              <span style={{ fontSize: 13 }}>{r.label}</span>
+              <span className="mono" style={{ fontSize: 12.5, color: r.v > 0 ? "var(--uncertain)" : "var(--ink-faint)" }}>{r.v}</span>
+            </div>
+            <div style={{ height: 3, borderRadius: 2, background: "var(--line)" }}>
+              <div style={{ height: "100%", width: `${(r.v / max) * 100}%`, background: "var(--uncertain)", borderRadius: 2 }} />
+            </div>
+          </div>
+        ))}
+      </div>
+      <p className="faint" style={{ fontSize: 12, marginTop: 16, lineHeight: 1.5 }}>
+        Bioactive, and often mitochondria-active. On multi-assay fingerprint similarity the decoys
+        collapse into the positives (0.53), which is why bioactivity cannot be the discriminator.
+      </p>
+    </div>
+  );
+}
+
+function RejectionCard({ result }: { result: CompoundResult }) {
+  const rej = result.rejection;
+  const curated = (result.strands ?? []).find((s) => s.kind === "curated_mechanism");
+  const lines = rej?.lines ?? (curated ? [curated] : []);
+  return (
+    <div className="panel" style={{ padding: 22 }}>
+      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", marginBottom: 16 }}>
+        <span className="mono" style={{ fontSize: 11, letterSpacing: "0.05em", textTransform: "uppercase", color: "var(--recovered)" }}>Why Aitiome does not</span>
+        {rej && <span className="chip reject"><span className="dot" />{rej.count} independent line{rej.count === 1 ? "" : "s"}</span>}
+      </div>
+      <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
+        {lines.map((ln, i) => (
+          <div key={i} style={{ display: "flex", gap: 11, alignItems: "flex-start" }}>
+            <span style={{ width: 8, height: 8, borderRadius: 999, background: "var(--reject)", marginTop: 6, flex: "0 0 auto" }} />
+            <div>
+              <span style={{ fontSize: 13.5, fontWeight: 500 }}>{STRAND_LABEL[ln.kind] ?? ln.kind}</span>
+              <p className="dim" style={{ fontSize: 13, margin: "3px 0 0", lineHeight: 1.5 }}>{ln.detail}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+      <p className="faint" style={{ fontSize: 12, marginTop: 16, lineHeight: 1.5 }}>
+        The call rests on curated mechanism. Where the decoy is also non-penetrant or shows no
+        pharmacovigilance signal, those are independent confirmations, not the reason.
+      </p>
+    </div>
+  );
+}
+
 // ---- Dual interface (MCP) ----
 export function MCPPanel({ example }: { example: CompoundResult | null }) {
   const tools = [
