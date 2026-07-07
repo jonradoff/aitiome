@@ -16,12 +16,24 @@ correctly refuses to flag bioactive-but-non-neurotoxic decoys.
 - `viz/` — semi-independent Three.js visualization module, own dev server, runs on fixtures. *(later)*
 - `docs/` — recon assets, the master brief, and ADRs (`docs/decisions/`).
 
-## Run (current: Commit 1 — dual-adapter proof)
+## Play with it (one command)
 ```sh
-cp .env.example .env   # then add your ANTHROPIC_API_KEY
-make run-http          # GET http://localhost:8787/health
-make run-mcp           # MCP server over stdio, exposes the `health` tool
-make smoke             # verify both adapters return the same Health payload
+./run.sh               # builds + starts the engine, then the web app
+# open http://localhost:5273
+```
+Click a **known neurotoxicant** to watch the endorsed AOP-3 cascade reconstruct and
+ignite the SOX6/AGTR1 vulnerable-neuron terminal; click a **bioactive decoy** to see
+it withheld and rejected on independent lines. The all-27 grid, the convergent
+evidence, the reasoning trace, the honest discovery map, and the MCP interface are
+all live.
+
+## Engine only
+```sh
+make run-http          # HTTP API on :8787  (/health /compounds /resolve /assess /validation /pathway /discovery-map)
+make run-mcp           # MCP server over stdio (health, resolve_compound, assess_compound, run_validation, get_pathway, discovery_map)
+make test              # Go tests: validation harness (fp=fn=0), salt-form guard, decoy rejection
+make fixtures          # regenerate contract/fixtures from the live engine
 ```
 
-Requires Go 1.26+. Node 22+ is used later for `web/` and `viz/`.
+Requires Go 1.26+ and Node 22+. Optional: `cp .env.example .env` and add
+`ANTHROPIC_API_KEY` for the (optional) LLM evidence-reasoner role.

@@ -225,7 +225,7 @@ function Cascade({ pathway, result, onStep }: { pathway: Pathway; result: Compou
     if (neuronMat.current) {
       neuronMat.current.uniforms.uTime.value = t;
       neuronMat.current.uniforms.uIgnite.value = ignite;
-      neuronMat.current.uniforms.uOpacity.value = 0.15 + ignite * 0.85;
+      neuronMat.current.uniforms.uOpacity.value = 0.12 + ignite * 0.6;
     }
 
     // rejection lines reveal one by one

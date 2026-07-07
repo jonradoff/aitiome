@@ -19,7 +19,7 @@ export const pointVert = /* glsl */ `
     vec4 mv = modelViewMatrix * vec4(p, 1.0);
     float twinkle = 0.6 + 0.4 * sin(uTime * 1.4 + aSeed * 20.0);
     vTwinkle = twinkle * (0.5 + 0.5 * uIgnite);
-    gl_PointSize = uSize * aScale * (1.0 + uIgnite * 1.6) * (300.0 / -mv.z);
+    gl_PointSize = uSize * aScale * (1.0 + uIgnite * 1.1) * (300.0 / -mv.z);
     gl_Position = projectionMatrix * mv;
   }
 `;

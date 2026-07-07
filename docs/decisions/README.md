@@ -29,3 +29,4 @@ flag it to Jon.
 
 - [ADR-0001](0001-constraint-memory-and-recon-lock.md) — Lock recon findings into `/CLAUDE.md` constraint memory
 - [ADR-0002](0002-monorepo-contract-and-stack.md) — Monorepo layout, contract v1 seam, and stack choices
+- [ADR-0003](0003-frontend-and-hero.md) — Frontend architecture and the hero visualization
