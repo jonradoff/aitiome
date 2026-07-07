@@ -8,12 +8,14 @@ import type {
   Compound,
   CompoundResult,
   Synthesis,
+  Benchmark,
 } from "@contract";
 
 import validation from "@fixtures/validation.json";
 import discovery from "@fixtures/discovery-map.json";
 import pathway from "@fixtures/pathway-aop3.json";
 import compounds from "@fixtures/compounds.json";
+import benchmark from "@fixtures/benchmark.json";
 
 import synRotenone from "@fixtures/synthesis/rotenone.json";
 import synParaquat from "@fixtures/synthesis/paraquat.json";
@@ -45,6 +47,7 @@ export const fxValidation = validation as unknown as ValidationResult;
 export const fxDiscovery = discovery as unknown as DiscoveryMap;
 export const fxPathway = pathway as unknown as Pathway;
 export const fxCompounds = compounds as unknown as Compound[];
+export const fxBenchmark = benchmark as unknown as Benchmark;
 
 const list = [
   rotenone, paraquat, mptp, ohda, chlorpyrifos,

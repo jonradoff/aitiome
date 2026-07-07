@@ -1,8 +1,8 @@
 import { useState } from "react";
-import { getValidation, getHealth, getPathway, getDiscoveryMap, assess, synthesize, resolveCompound } from "./data";
+import { getValidation, getHealth, getPathway, getDiscoveryMap, getBenchmark, assess, synthesize, resolveCompound } from "./data";
 import { useAsync } from "./useAsync";
 import { Hero } from "./hero/Hero";
-import { EvidencePanel, TracePanel, ValidationPanel, DiscoveryPanel, MCPPanel, SynthesisPanel, ProvenanceDrawer, SpecificityCenterpiece } from "./components/Panels";
+import { EvidencePanel, TracePanel, ValidationPanel, DiscoveryPanel, MCPPanel, SynthesisPanel, ProvenanceDrawer, SpecificityCenterpiece, FalsificationPanel, AnticipatedCritiques } from "./components/Panels";
 import type { EvidenceStrand } from "@contract";
 
 const KNOWN = ["rotenone", "paraquat", "MPTP", "chlorpyrifos", "6-hydroxydopamine"];
@@ -18,6 +18,7 @@ export function App() {
   const validation = useAsync(getValidation, []);
   const pathway = useAsync(getPathway, []);
   const discovery = useAsync(getDiscoveryMap, []);
+  const benchmark = useAsync(getBenchmark, []);
   const active = useAsync(() => assess(activeId), [activeId]);
   const synthesis = useAsync(() => synthesize(activeId), [activeId]);
   const decoy = useAsync(() => assess(decoyId), [decoyId]);
@@ -106,11 +107,21 @@ export function App() {
           <SpecificityCenterpiece result={decoy?.data ?? null} decoyId={decoyId} onSelect={setDecoyId} />
         </section>
 
+        {benchmark && (
+          <section className="wrap section">
+            <FalsificationPanel b={benchmark.data} />
+          </section>
+        )}
+
         {discovery && (
           <section className="wrap section">
             <DiscoveryPanel map={discovery.data} />
           </section>
         )}
+
+        <section className="wrap section">
+          <AnticipatedCritiques />
+        </section>
 
         <section className="wrap section">
           <MCPPanel example={result} />

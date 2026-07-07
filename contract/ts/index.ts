@@ -203,6 +203,30 @@ export interface DiscoveryMap {
   note: string;
 }
 
+export interface Discriminator {
+  name: string;
+  aurocVsAdversarial: number;
+  aurocVsAllNegatives: number;
+  coverage?: string;
+}
+
+export interface Confusion {
+  tp: number;
+  fp: number;
+  fn: number;
+  tn: number;
+  accuracy: number;
+}
+
+export interface Benchmark {
+  curatedRule: Confusion;
+  bioactivity: Discriminator[];
+  positives: number;
+  adversarial: number;
+  allNegatives: number;
+  interpretation: string;
+}
+
 export interface Citation {
   marker: string;
   kind: string;

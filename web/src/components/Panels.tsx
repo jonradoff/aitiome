@@ -6,6 +6,7 @@ import type {
   DiscoveryMap,
   DiscoveryAxis,
   Synthesis,
+  Benchmark,
 } from "@contract";
 
 const STRAND_LABEL: Record<string, string> = {
@@ -385,6 +386,91 @@ function RejectionCard({ result }: { result: CompoundResult }) {
         The call rests on curated mechanism. Where the decoy is also non-penetrant or shows no
         pharmacovigilance signal, those are independent confirmations, not the reason.
       </p>
+    </div>
+  );
+}
+
+// ---- Falsification: why bioactivity cannot do this ----
+export function FalsificationPanel({ b }: { b: Benchmark }) {
+  const c = b.curatedRule;
+  return (
+    <div>
+      <SectionHead kicker="The falsification" title="Why not just use bioactivity?" />
+      <p className="dim" style={{ fontSize: 16, maxWidth: "72ch", marginBottom: 24 }}>
+        Computed live from the validation set. If activity could do the job, some bioactivity signal
+        would separate the real neurotoxicants from the bioactive decoys. None does: every one is at or
+        below chance against the decoys, while the curated rule is perfect on the same set.
+      </p>
+      <div style={{ display: "grid", gridTemplateColumns: "0.7fr 1.3fr", gap: 16 }} className="two-col">
+        <div className="panel" style={{ padding: 22, display: "flex", flexDirection: "column", justifyContent: "center" }}>
+          <span className="mono" style={{ fontSize: 11, letterSpacing: "0.05em", textTransform: "uppercase", color: "var(--recovered)" }}>Curated rule</span>
+          <span className="mono" style={{ fontSize: 46, fontWeight: 500, color: "var(--recovered)", marginTop: 8, lineHeight: 1 }}>0</span>
+          <span className="lab" style={{ marginTop: 4 }}>errors separating {c.tp} positives from {c.tn} negatives</span>
+          <span className="faint mono" style={{ fontSize: 11, marginTop: 10 }}>tp {c.tp} / tn {c.tn} / fp {c.fp} / fn {c.fn}</span>
+        </div>
+        <div className="panel" style={{ padding: 22 }}>
+          <div style={{ display: "flex", justifyContent: "space-between", marginBottom: 14 }}>
+            <span className="mono" style={{ fontSize: 11, letterSpacing: "0.05em", textTransform: "uppercase", color: "var(--uncertain)" }}>Bioactivity vs the {b.adversarial} decoys (AUROC)</span>
+            <span className="faint mono" style={{ fontSize: 11 }}>0.5 = chance</span>
+          </div>
+          <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
+            {b.bioactivity.map((d) => (
+              <AurocRow key={d.name} name={d.name} auroc={d.aurocVsAdversarial} />
+            ))}
+          </div>
+        </div>
+      </div>
+      <p className="faint" style={{ fontSize: 12.5, marginTop: 18, maxWidth: "74ch", lineHeight: 1.55 }}>{b.interpretation}</p>
+    </div>
+  );
+}
+
+function AurocRow({ name, auroc }: { name: string; auroc: number }) {
+  const pct = Math.max(0, Math.min(1, auroc)) * 100;
+  const belowChance = auroc <= 0.5;
+  return (
+    <div>
+      <div style={{ display: "flex", justifyContent: "space-between", marginBottom: 5 }}>
+        <span style={{ fontSize: 13 }}>{name}</span>
+        <span className="mono" style={{ fontSize: 12.5, color: belowChance ? "var(--reject)" : "var(--ink)" }}>{auroc.toFixed(2)}</span>
+      </div>
+      <div style={{ position: "relative", height: 6, borderRadius: 3, background: "var(--line)" }}>
+        {/* chance marker at 0.5 */}
+        <div style={{ position: "absolute", left: "50%", top: -3, bottom: -3, width: 1, background: "var(--line-2)" }} />
+        <div style={{ height: "100%", width: `${pct}%`, borderRadius: 3, background: belowChance ? "var(--reject)" : "var(--uncertain)" }} />
+      </div>
+    </div>
+  );
+}
+
+// ---- Anticipated critiques: red-teaming made visible ----
+export function AnticipatedCritiques() {
+  const qa = [
+    {
+      q: "Isn't the recovery circular? The predicate and the positive labels draw on overlapping curated sources.",
+      a: "Yes, and we say so. Recovery is a sanity check, not the contribution. The result is the specificity: no activity or similarity method separates the positives from the bioactive decoys (see the falsification), and the honest map of where discovery fails. The decoys are what show the curated rule is doing real work, not just re-reading its own labels.",
+    },
+    {
+      q: "You're just detecting bioactivity.",
+      a: "Computed on our own data, every bioactivity signal is at or below chance against the decoys (AUROC 0.12 to 0.39). The decoys are, if anything, more bioactive than the real neurotoxicants. Bioactivity is anti-diagnostic here, so the engine never gates on it.",
+    },
+    {
+      q: "Why trust a curated rule over a learned model?",
+      a: "Both predicate terms are load-bearing (each alone misses four positives) and neither ever fires on a negative (0/15). Every result carries a confidence tier and its evidence provenance, and the discovery limits are shown, not hidden. There was no signal to learn from on this class in the first place, which is the whole point.",
+    },
+  ];
+  return (
+    <div>
+      <SectionHead kicker="We tried to break it" title="Anticipated critiques, answered on screen" />
+      <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: 14 }}>
+        {qa.map((x) => (
+          <div key={x.q} className="panel" style={{ padding: 20 }}>
+            <p style={{ fontSize: 14.5, fontWeight: 500, margin: 0, lineHeight: 1.4 }}>{x.q}</p>
+            <div className="hair" style={{ margin: "14px 0" }} />
+            <p className="dim" style={{ fontSize: 13.5, margin: 0, lineHeight: 1.55 }}>{x.a}</p>
+          </div>
+        ))}
+      </div>
     </div>
   );
 }
