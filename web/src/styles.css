@@ -1,0 +1,134 @@
+@import "@fontsource-variable/space-grotesk";
+@import "@fontsource/ibm-plex-mono/400.css";
+@import "@fontsource/ibm-plex-mono/500.css";
+
+/* ============================================================================
+   Aitiome design tokens - a calm, premium scientific instrument.
+   Dark by default. One accent (signal cyan) for chrome. Gold + rose are used
+   ONLY as data-semantic colors (recovered neuron / rejection), desaturated.
+   Drama comes from the data viz, not the chrome.
+   ========================================================================== */
+:root {
+  --bg:        #0a0c10;
+  --bg-1:      #0d1015;
+  --bg-2:      #12161d;
+  --bg-3:      #171c25;
+  --line:      rgba(255, 255, 255, 0.075);
+  --line-2:    rgba(255, 255, 255, 0.13);
+
+  --ink:       #e9edf3;
+  --ink-dim:   #9fabbb;
+  --ink-faint: #616d7e;
+
+  --signal:    #55d6c6;   /* the one accent - endorsed / evidence / chrome */
+  --signal-dim:#2f6f69;
+  --recovered: #66d19b;   /* positive recovery (data-semantic) */
+  --neuron:    #e7b168;   /* vulnerable dopaminergic neuron / grounding (data-semantic) */
+  --reject:    #e07a8f;   /* decoy rejection (data-semantic) */
+  --uncertain: #d6a444;   /* qualified / uncertain (data-semantic) */
+
+  --radius:    12px;
+  --radius-sm: 8px;
+  --shadow:    0 1px 0 rgba(255,255,255,0.03) inset, 0 18px 50px -30px rgba(0,0,0,0.9);
+
+  --font-display: "Space Grotesk Variable", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, "SF Mono", monospace;
+
+  --maxw: 1320px;
+}
+
+[data-theme="light"] {
+  --bg:        #f4f6f9;
+  --bg-1:      #eef1f5;
+  --bg-2:      #ffffff;
+  --bg-3:      #f7f9fc;
+  --line:      rgba(10, 14, 22, 0.09);
+  --line-2:    rgba(10, 14, 22, 0.16);
+  --ink:       #10151d;
+  --ink-dim:   #4a5666;
+  --ink-faint: #7a8698;
+  --signal-dim:#bfe6e1;
+  --shadow:    0 1px 0 rgba(255,255,255,0.6) inset, 0 18px 40px -30px rgba(20,30,50,0.35);
+}
+
+* { box-sizing: border-box; }
+html, body, #root { height: 100%; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-display);
+  font-synthesis: none;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  line-height: 1.5;
+}
+
+h1, h2, h3 { font-weight: 600; letter-spacing: -0.02em; line-height: 1.08; margin: 0; }
+a { color: inherit; }
+
+.mono { font-family: var(--font-mono); }
+.dim { color: var(--ink-dim); }
+.faint { color: var(--ink-faint); }
+
+/* Layout */
+.shell { min-height: 100dvh; display: flex; flex-direction: column; }
+.wrap { width: 100%; max-width: var(--maxw); margin: 0 auto; padding: 0 28px; }
+.section { padding: 68px 0; border-top: 1px solid var(--line); }
+
+/* Panels */
+.panel {
+  background: linear-gradient(180deg, var(--bg-2), var(--bg-1));
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+/* Eyebrow - used sparingly (skill: max 1 per 3 sections) */
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--signal);
+}
+
+/* Chips */
+.chip {
+  display: inline-flex; align-items: center; gap: 7px;
+  font-family: var(--font-mono);
+  font-size: 11.5px; letter-spacing: 0.03em;
+  padding: 4px 10px; border-radius: 999px;
+  border: 1px solid var(--line-2);
+  color: var(--ink-dim);
+  white-space: nowrap;
+}
+.chip .dot { width: 7px; height: 7px; border-radius: 999px; background: currentColor; }
+.chip.recovered { color: var(--recovered); border-color: color-mix(in srgb, var(--recovered) 40%, transparent); }
+.chip.reject    { color: var(--reject);    border-color: color-mix(in srgb, var(--reject) 40%, transparent); }
+.chip.signal    { color: var(--signal);    border-color: color-mix(in srgb, var(--signal) 40%, transparent); }
+.chip.neuron    { color: var(--neuron);    border-color: color-mix(in srgb, var(--neuron) 40%, transparent); }
+.chip.uncertain { color: var(--uncertain); border-color: color-mix(in srgb, var(--uncertain) 40%, transparent); }
+
+/* Buttons */
+.btn {
+  font-family: var(--font-display);
+  font-size: 14px; font-weight: 500;
+  padding: 10px 16px; border-radius: var(--radius-sm);
+  border: 1px solid var(--line-2); background: var(--bg-3); color: var(--ink);
+  cursor: pointer; transition: transform .12s ease, border-color .12s ease, background .12s ease;
+}
+.btn:hover { border-color: var(--signal); }
+.btn:active { transform: translateY(1px); }
+.btn.primary { background: color-mix(in srgb, var(--signal) 16%, var(--bg-3)); border-color: color-mix(in srgb, var(--signal) 45%, transparent); color: var(--ink); }
+
+/* Numeric readouts */
+.stat { display: flex; flex-direction: column; gap: 2px; }
+.stat .num { font-family: var(--font-mono); font-size: 34px; font-weight: 500; letter-spacing: -0.01em; }
+.stat .lab { font-size: 12.5px; color: var(--ink-faint); letter-spacing: 0.02em; }
+
+.hair { height: 1px; background: var(--line); border: 0; margin: 0; }
+
+@media (prefers-reduced-motion: reduce) {
+  * { animation-duration: 0.001ms !important; transition-duration: 0.001ms !important; }
+}
