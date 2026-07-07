@@ -10,6 +10,26 @@ const GOLD = new THREE.Color("#e7b168");
 const ROSE = new THREE.Color("#e07a8f");
 const GREY = new THREE.Color("#39424e");
 
+// A soft radial-gradient texture for the node halo. Rendered as a billboarded
+// sprite placed BEHIND the node, so the opaque core occludes its center and the
+// glow reads as a halo around the node rather than washing over it.
+function makeGlowTexture(): THREE.Texture {
+  const s = 128;
+  const cv = document.createElement("canvas");
+  cv.width = cv.height = s;
+  const ctx = cv.getContext("2d")!;
+  const g = ctx.createRadialGradient(s / 2, s / 2, 0, s / 2, s / 2, s / 2);
+  g.addColorStop(0.0, "rgba(255,255,255,1)");
+  g.addColorStop(0.4, "rgba(255,255,255,0.35)");
+  g.addColorStop(1.0, "rgba(255,255,255,0)");
+  ctx.fillStyle = g;
+  ctx.fillRect(0, 0, s, s);
+  const tex = new THREE.CanvasTexture(cv);
+  tex.needsUpdate = true;
+  return tex;
+}
+const GLOW_TEX = makeGlowTexture();
+
 const clamp = (x: number, a = 0, b = 1) => Math.min(b, Math.max(a, x));
 const smooth = (e0: number, e1: number, x: number) => {
   const t = clamp((x - e0) / (e1 - e0));
@@ -122,7 +142,8 @@ function useScene(pathway: Pathway) {
       const base = n.role === "AO" ? GOLD.clone() : n.eventId === "188" ? CYAN.clone().multiplyScalar(0.7) : CYAN.clone();
       const r = n.role === "MIE" || n.role === "AO" ? 0.26 : 0.18;
       const core = new THREE.MeshBasicMaterial({ color: base.clone().multiplyScalar(0.4) });
-      const glow = new THREE.MeshBasicMaterial({
+      const glow = new THREE.SpriteMaterial({
+        map: GLOW_TEX,
         color: base,
         transparent: true,
         opacity: 0.05,
@@ -135,7 +156,7 @@ function useScene(pathway: Pathway) {
 
   // neuron terminal cluster near the adverse outcome
   const neuron = useMemo(() => {
-    const n = 700;
+    const n = 420;
     const pos = new Float32Array(n * 3);
     const scale = new Float32Array(n);
     const seed = new Float32Array(n);
@@ -157,7 +178,7 @@ function useScene(pathway: Pathway) {
     g.setAttribute("aSeed", new THREE.BufferAttribute(seed, 1));
     const uniforms = {
       uTime: { value: 0 },
-      uSize: { value: 1.5 },
+      uSize: { value: 1.2 },
       uIgnite: { value: 0 },
       uColor: { value: GOLD.clone() },
       uOpacity: { value: 0.9 },
@@ -274,7 +295,7 @@ function Cascade({ pathway, result, onStep, labelRefs }: { pathway: Pathway; res
     if (neuronMat.current) {
       neuronMat.current.uniforms.uTime.value = t;
       neuronMat.current.uniforms.uIgnite.value = ignite;
-      neuronMat.current.uniforms.uOpacity.value = 0.05 + ignite * 0.26;
+      neuronMat.current.uniforms.uOpacity.value = 0.04 + ignite * 0.18;
     }
     // dendrites light up with the ignition
     dendrites.forEach((d) => {
@@ -323,11 +344,10 @@ function Cascade({ pathway, result, onStep, labelRefs }: { pathway: Pathway; res
       ))}
       {nodes.map(({ node, p, r, core, glow }) => (
         <group key={node.eventId} position={[p.x, p.y, p.z]}>
+          {/* halo sprite BEHIND the node; the opaque core occludes its center */}
+          <sprite material={glow} position={[0, 0, -0.6]} scale={[r * 6, r * 6, 1]} />
           <mesh material={core}>
             <icosahedronGeometry args={[r, 1]} />
-          </mesh>
-          <mesh material={glow}>
-            <sphereGeometry args={[r * 2.0, 16, 16]} />
           </mesh>
         </group>
       ))}
