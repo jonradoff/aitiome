@@ -1,0 +1,74 @@
+{
+    "headline": "No shippable unsupervised-discovery signal exists for this chemical class on public data \u2014 and mapping exactly why is itself the contribution.",
+    "axes": [
+        {
+            "name": "LINCS L1000 (transcriptomic signatures)",
+            "verdict": "coverage_killed",
+            "coverage": "3/12 positives",
+            "reason": "Drug/tool-compound library; environmental toxicants (pesticides, metals, MPTP/MPP+) are largely absent \u2014 wrong chemical universe.",
+            "isLead": false
+        },
+        {
+            "name": "EPA HTTr (whole-transcriptome TempO-Seq)",
+            "verdict": "coverage_killed",
+            "coverage": "4/12 positives",
+            "reason": "Non-neuronal cell lines (MCF7/U-2 OS); sparse for our positives; cytotoxicity confound.",
+            "isLead": false
+        },
+        {
+            "name": "EPA HTPP (Cell Painting morphology)",
+            "verdict": "coverage_killed",
+            "coverage": "4/12 positives",
+            "reason": "Same non-neuronal screens as HTTr; visually rich but underpowered here.",
+            "isLead": false
+        },
+        {
+            "name": "Structure / QSAR (fingerprint similarity)",
+            "verdict": "confounder_killed",
+            "metric": "AUROC 0.47 (chance)",
+            "coverage": "12/12",
+            "reason": "Positives share a mechanism class, not a scaffold; only trivial analog pairs hit.",
+            "isLead": false
+        },
+        {
+            "name": "Full ToxCast fingerprint (multi-assay bioactivity)",
+            "verdict": "confounder_killed",
+            "metric": "0.76 vs inert \u2192 0.53 vs adversarials",
+            "coverage": "native",
+            "reason": "Separates positives from inert but collapses against the adversarial decoys after cytotox control \u2014 the confound is GENERAL bioactivity, not just cytotoxicity. The deepest negative result.",
+            "isLead": false
+        },
+        {
+            "name": "ComptoxAI + Alzheimer's KG (link prediction)",
+            "verdict": "coverage_killed",
+            "reason": "Public graph empty, ML layer is stub code \u2014 and circular: edges are CTD/AOP-derived, the same provenance as our recovery predicate.",
+            "isLead": false
+        },
+        {
+            "name": "PrimeKG / Hetionet (biomedical KGs)",
+            "verdict": "skip",
+            "coverage": "~1/12 positives",
+            "reason": "DrugBank-keyed; rich for drugs, poor for environmental chemicals. CTD + AOP-Wiki already ground all 12 better.",
+            "isLead": false
+        },
+        {
+            "name": "Neural-specific ToxCast subset (DNT battery)",
+            "verdict": "qualified_lead",
+            "metric": "AUROC 0.72 (excl. viability), perm-p 0.155",
+            "coverage": "7/12",
+            "reason": "The one axis that partly held \u2014 directionally right but underpowered (CI includes chance); developmental != adult neurodegeneration. Worth it only with a materially larger reference set.",
+            "isLead": true
+        },
+        {
+            "name": "Boltz-2 target engagement (physics-based Complex-I binding)",
+            "verdict": "conditional_lead",
+            "reason": "The only basis that is neither annotation nor bioactivity \u2014 physics. Prepped to one step (5XTD Q-site ND1/NDUFS2/NDUFS7 + 19-ligand benchmark); needs a ~48 GB GPU; not run. Report with explicit N if attempted.",
+            "isLead": true
+        }
+    ],
+    "liveLeads": [
+        "Neural-specific ToxCast subset (needs a larger reference set)",
+        "Boltz-2 Q-site engagement benchmark (bounded, optional, non-load-bearing)"
+    ],
+    "note": "Discovery is represented honestly as a map, not shipped as a predictor. Novel candidates would be analogy-based hypotheses benchmarked against the adversarial-negative set as a permanent false-positive control \u2014 leads for lab follow-up, never claims."
+}

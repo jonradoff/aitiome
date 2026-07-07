@@ -1,0 +1,161 @@
+{
+    "mode": "validation",
+    "compound": {
+        "name": "simvastatin",
+        "role": "negative",
+        "confidenceTier": "adversarial_negative",
+        "mech": "none_neuro",
+        "note": "statin (test: may carry curated AD/PD research link)",
+        "cid": 54454,
+        "cas": "79902-63-9",
+        "inchikey": "RYMZZMVNJRMUDD-HGQWONQESA-N",
+        "smiles": "CCC(C)(C)C(=O)O[C@H]1C[C@H](C=C2[C@H]1[C@H]([C@H](C=C2)C)CC[C@@H]3C[C@H](CC(=O)O3)O)C",
+        "dtxsid": "DTXSID0023581",
+        "toxcastCas": "79902-63-9",
+        "pdDirect": 0,
+        "adDirect": 0,
+        "aopStressorOf": null,
+        "aop3Stressor": false,
+        "inNeurotoxkb": false,
+        "toxcastTested": 454,
+        "toxcastActive": 160,
+        "mitoActive": 2,
+        "mmpActive": 4,
+        "oxStressActive": 0,
+        "neuroActive": 11,
+        "mechActiveTotal": 17,
+        "geneIxnsHuman": 1146,
+        "aop3GeneHits": 8,
+        "coverageGrade": "ADVERSARIAL_NEGATIVE"
+    },
+    "role": "negative",
+    "confidenceTier": "adversarial_negative",
+    "recovery": {
+        "call": "negative",
+        "predicate": {
+            "ctdPdDirectEvidence": false,
+            "neuroAopStressor": false
+        },
+        "diagnostic": true,
+        "gatedOnAssay": false,
+        "corroboration": {
+            "assayActive": true,
+            "mitoActive": 2,
+            "mechActiveTotal": 17,
+            "note": "",
+            "antiDiagnostic": true
+        },
+        "rationale": "No curated diagnostic signal despite bioactivity (2 mito, 17 mechanistic assay hits). Correctly NOT flagged \u2014 the engine reasons on curated mechanism, not activity."
+    },
+    "strands": [
+        {
+            "kind": "curated_mechanism",
+            "status": "absent",
+            "detail": "No curated Parkinson's DirectEvidence and not a registered neuro-AOP stressor.",
+            "source": "CTD curated DirectEvidence / AOP-Wiki",
+            "isGate": false
+        },
+        {
+            "kind": "assay_corroboration",
+            "status": "supports",
+            "detail": "Bioactive: 17 mechanistic assay hits (incl. 2 mitochondrial). This is the imposter signal the engine correctly does NOT act on.",
+            "source": "EPA ToxCast via NICEATM ICE",
+            "isGate": false
+        },
+        {
+            "kind": "faers",
+            "status": "absent",
+            "detail": "Zero parkinsonism signal across 261343 FAERS reports (ROR 1.07, not elevated).",
+            "source": "openFDA FAERS",
+            "isGate": false
+        },
+        {
+            "kind": "bbb",
+            "status": "not_assessable",
+            "detail": "Brain-penetrant, but penetrance is not a discriminator here.",
+            "source": "B3DB / BOILED-Egg (structure-based)",
+            "isGate": false
+        }
+    ],
+    "rejection": {
+        "lines": [
+            {
+                "kind": "curated_mechanism",
+                "status": "absent",
+                "detail": "No curated Parkinson's DirectEvidence and not a registered neuro-AOP stressor.",
+                "source": "CTD curated DirectEvidence / AOP-Wiki",
+                "isGate": false
+            },
+            {
+                "kind": "faers",
+                "status": "absent",
+                "detail": "Zero parkinsonism signal across 261343 FAERS reports (ROR 1.07, not elevated).",
+                "source": "openFDA FAERS",
+                "isGate": false
+            }
+        ],
+        "count": 2
+    },
+    "trace": [
+        {
+            "kind": "resolve",
+            "compound": "simvastatin",
+            "resolvedForm": "simvastatin",
+            "label": "Resolved simvastatin (DTXSID-first, salt-form correct)"
+        },
+        {
+            "kind": "predicate_eval",
+            "term": "ctd_pd_direct",
+            "hit": false,
+            "label": "CTD Parkinson's curated DirectEvidence"
+        },
+        {
+            "kind": "predicate_eval",
+            "term": "neuro_aop_stressor",
+            "hit": false,
+            "label": "Registered neuro-AOP stressor"
+        },
+        {
+            "kind": "strand",
+            "strandKind": "curated_mechanism",
+            "strandStatus": "absent",
+            "label": "No curated Parkinson's DirectEvidence and not a registered neuro-AOP stressor."
+        },
+        {
+            "kind": "strand",
+            "strandKind": "assay_corroboration",
+            "strandStatus": "supports",
+            "label": "Bioactive: 17 mechanistic assay hits (incl. 2 mitochondrial). This is the imposter signal the engine correctly does NOT act on."
+        },
+        {
+            "kind": "strand",
+            "strandKind": "faers",
+            "strandStatus": "absent",
+            "label": "Zero parkinsonism signal across 261343 FAERS reports (ROR 1.07, not elevated)."
+        },
+        {
+            "kind": "strand",
+            "strandKind": "bbb",
+            "strandStatus": "not_assessable",
+            "label": "Brain-penetrant, but penetrance is not a discriminator here."
+        },
+        {
+            "kind": "reject_line",
+            "strandKind": "curated_mechanism",
+            "line": "No curated Parkinson's DirectEvidence and not a registered neuro-AOP stressor.",
+            "label": "No curated Parkinson's DirectEvidence and not a registered neuro-AOP stressor."
+        },
+        {
+            "kind": "reject_line",
+            "strandKind": "faers",
+            "line": "Zero parkinsonism signal across 261343 FAERS reports (ROR 1.07, not elevated).",
+            "label": "Zero parkinsonism signal across 261343 FAERS reports (ROR 1.07, not elevated)."
+        },
+        {
+            "kind": "verdict",
+            "call": "negative",
+            "tier": "adversarial_negative",
+            "label": "Correctly not flagged \u2014 adversarial_negative"
+        }
+    ]
+}

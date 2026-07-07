@@ -17,6 +17,10 @@ run-mcp:
 test:
 	go test ./...
 
+# Regenerate contract fixtures from the live engine (viz/web build on these).
+fixtures:
+	bash scripts/dump-fixtures.sh
+
 # Smoke-test both adapters expose the same Health payload.
 smoke:
 	@echo "== HTTP ==" && (go run ./services/cmd/httpd & echo $$! > /tmp/aitio_http.pid; sleep 1; \

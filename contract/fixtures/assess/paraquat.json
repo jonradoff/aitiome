@@ -1,0 +1,299 @@
+{
+    "mode": "validation",
+    "compound": {
+        "name": "paraquat",
+        "role": "positive",
+        "confidenceTier": "assay_mechanism_recovered",
+        "mech": "oxidative_stress",
+        "note": "redox cycling",
+        "cid": 15939,
+        "cas": "4685-14-7",
+        "inchikey": "INFDPOAKFNIJBF-UHFFFAOYSA-N",
+        "smiles": "C[N+]1=CC=C(C=C1)C2=CC=[N+](C=C2)C",
+        "dtxsid": "DTXSID3034799",
+        "toxcastCas": "1910-42-5",
+        "pdDirect": 1,
+        "adDirect": 0,
+        "aopStressorOf": [
+            "593"
+        ],
+        "aop3Stressor": false,
+        "inNeurotoxkb": true,
+        "toxcastTested": 50,
+        "toxcastActive": 32,
+        "mitoActive": 0,
+        "mmpActive": 0,
+        "oxStressActive": 0,
+        "neuroActive": 32,
+        "mechActiveTotal": 32,
+        "geneIxnsHuman": 1957,
+        "aop3GeneHits": 25,
+        "coverageGrade": "STRONG"
+    },
+    "role": "positive",
+    "confidenceTier": "assay_mechanism_recovered",
+    "recovery": {
+        "call": "positive",
+        "predicate": {
+            "ctdPdDirectEvidence": true,
+            "neuroAopStressor": true
+        },
+        "diagnostic": true,
+        "gatedOnAssay": false,
+        "corroboration": {
+            "assayActive": true,
+            "mitoActive": 0,
+            "mechActiveTotal": 32,
+            "note": "",
+            "antiDiagnostic": true
+        },
+        "rationale": "Curated convergence: CTD Parkinson's DirectEvidence AND registered neuro-AOP stressor."
+    },
+    "pathway": {
+        "aopId": "593",
+        "title": "Redox cycling of a chemical by mitochondria leads to degeneration of nigrostriatal dopaminergic neurons ",
+        "oecdEndorsed": false,
+        "url": "https://aopwiki.org/aops/593",
+        "nodes": [
+            {
+                "eventId": "889",
+                "title": "Proteostasis, impaired",
+                "role": "KE",
+                "layer": 2
+            },
+            {
+                "eventId": "890",
+                "title": "Degeneration of dopaminergic neurons of the nigrostriatal pathway",
+                "role": "KE",
+                "layer": 3,
+                "grounding": {
+                    "cellTypes": [
+                        "SOX6",
+                        "AGTR1",
+                        "TMEM200A",
+                        "DDT",
+                        "GFRA2",
+                        "PART1"
+                    ],
+                    "source": "Kamath 2022 Nat Neurosci (SN vulnerable DA neurons)",
+                    "kind": "ao_celltype"
+                }
+            },
+            {
+                "eventId": "896",
+                "title": "Parkinsonian motor deficits",
+                "role": "AO",
+                "layer": 4,
+                "grounding": {
+                    "cellTypes": [
+                        "SOX6",
+                        "AGTR1",
+                        "TMEM200A",
+                        "DDT",
+                        "GFRA2",
+                        "PART1"
+                    ],
+                    "source": "Kamath 2022 Nat Neurosci (SN vulnerable DA neurons)",
+                    "kind": "ao_celltype"
+                }
+            },
+            {
+                "eventId": "2362",
+                "title": "Redox cycling of a chemical by mitochondria",
+                "role": "MIE",
+                "layer": 0
+            },
+            {
+                "eventId": "2363",
+                "title": "Elevated mitochondrial ROS and dysfunction",
+                "role": "KE",
+                "layer": 1
+            }
+        ],
+        "edges": [
+            {
+                "kerId": "905",
+                "upstream": "889",
+                "downstream": "890",
+                "isLoop": false,
+                "confidence": 0.9
+            },
+            {
+                "kerId": "910",
+                "upstream": "890",
+                "downstream": "896",
+                "isLoop": false,
+                "confidence": 0.9
+            },
+            {
+                "kerId": "3629",
+                "upstream": "2362",
+                "downstream": "2363",
+                "isLoop": false,
+                "confidence": 0.9
+            },
+            {
+                "kerId": "3650",
+                "upstream": "2363",
+                "downstream": "889",
+                "isLoop": false,
+                "confidence": 0.9
+            }
+        ]
+    },
+    "strands": [
+        {
+            "kind": "curated_mechanism",
+            "status": "supports",
+            "detail": "Curated convergence: CTD Parkinson's DirectEvidence AND registered neuro-AOP stressor.",
+            "source": "CTD curated DirectEvidence / AOP-Wiki",
+            "isGate": false
+        },
+        {
+            "kind": "mito_celltype_grounding",
+            "status": "supports",
+            "detail": "MIE grounded in MitoCarta Complex-I Q-site subunits; adverse outcome in the Kamath SOX6/AGTR1 vulnerable dopaminergic-neuron population.",
+            "source": "MitoCarta3.0 + Kamath 2022 Nat Neurosci",
+            "isGate": false
+        },
+        {
+            "kind": "assay_corroboration",
+            "status": "supports",
+            "detail": "32 mechanistic assay hits illustrate the chain (corroboration only \u2014 anti-diagnostic, not a discriminator).",
+            "source": "EPA ToxCast via NICEATM ICE",
+            "isGate": false
+        },
+        {
+            "kind": "epidemiology",
+            "status": "supports",
+            "detail": "PD OR ~2-2.5 (Tanner 2011; Pezzoli&Cereda 2013 meta).",
+            "source": "Published cohorts / meta-analyses",
+            "isGate": false
+        },
+        {
+            "kind": "bbb",
+            "status": "supports",
+            "detail": "Brain-penetrant \u2014 plausible CNS exposure.",
+            "source": "B3DB / BOILED-Egg (structure-based)",
+            "isGate": false
+        }
+    ],
+    "trace": [
+        {
+            "kind": "resolve",
+            "compound": "paraquat",
+            "resolvedForm": "paraquat (tested as CAS 1910-42-5)",
+            "label": "Resolved paraquat (DTXSID-first, salt-form correct)"
+        },
+        {
+            "kind": "predicate_eval",
+            "term": "ctd_pd_direct",
+            "hit": true,
+            "label": "CTD Parkinson's curated DirectEvidence"
+        },
+        {
+            "kind": "predicate_eval",
+            "term": "neuro_aop_stressor",
+            "hit": true,
+            "label": "Registered neuro-AOP stressor"
+        },
+        {
+            "kind": "node_enter",
+            "eventId": "2362",
+            "title": "Redox cycling of a chemical by mitochondria",
+            "label": "Redox cycling of a chemical by mitochondria"
+        },
+        {
+            "kind": "node_enter",
+            "eventId": "2363",
+            "title": "Elevated mitochondrial ROS and dysfunction",
+            "label": "Elevated mitochondrial ROS and dysfunction"
+        },
+        {
+            "kind": "node_enter",
+            "eventId": "889",
+            "title": "Proteostasis, impaired",
+            "label": "Proteostasis, impaired"
+        },
+        {
+            "kind": "node_enter",
+            "eventId": "890",
+            "title": "Degeneration of dopaminergic neurons of the nigrostriatal pathway",
+            "label": "Degeneration of dopaminergic neurons of the nigrostriatal pathway"
+        },
+        {
+            "kind": "node_enter",
+            "eventId": "896",
+            "title": "Parkinsonian motor deficits",
+            "label": "Parkinsonian motor deficits"
+        },
+        {
+            "kind": "edge_fire",
+            "kerId": "905",
+            "confidence": 0.9
+        },
+        {
+            "kind": "edge_fire",
+            "kerId": "910",
+            "confidence": 0.9
+        },
+        {
+            "kind": "edge_fire",
+            "kerId": "3629",
+            "confidence": 0.9
+        },
+        {
+            "kind": "edge_fire",
+            "kerId": "3650",
+            "confidence": 0.9
+        },
+        {
+            "kind": "ao_resolve",
+            "cellTypes": [
+                "SOX6",
+                "AGTR1",
+                "TMEM200A",
+                "DDT",
+                "GFRA2",
+                "PART1"
+            ],
+            "label": "Resolves into the SOX6/AGTR1 vulnerable dopaminergic-neuron population"
+        },
+        {
+            "kind": "strand",
+            "strandKind": "curated_mechanism",
+            "strandStatus": "supports",
+            "label": "Curated convergence: CTD Parkinson's DirectEvidence AND registered neuro-AOP stressor."
+        },
+        {
+            "kind": "strand",
+            "strandKind": "mito_celltype_grounding",
+            "strandStatus": "supports",
+            "label": "MIE grounded in MitoCarta Complex-I Q-site subunits; adverse outcome in the Kamath SOX6/AGTR1 vulnerable dopaminergic-neuron population."
+        },
+        {
+            "kind": "strand",
+            "strandKind": "assay_corroboration",
+            "strandStatus": "supports",
+            "label": "32 mechanistic assay hits illustrate the chain (corroboration only \u2014 anti-diagnostic, not a discriminator)."
+        },
+        {
+            "kind": "strand",
+            "strandKind": "epidemiology",
+            "strandStatus": "supports",
+            "label": "PD OR ~2-2.5 (Tanner 2011; Pezzoli&Cereda 2013 meta)."
+        },
+        {
+            "kind": "strand",
+            "strandKind": "bbb",
+            "strandStatus": "supports",
+            "label": "Brain-penetrant \u2014 plausible CNS exposure."
+        },
+        {
+            "kind": "verdict",
+            "call": "positive",
+            "tier": "assay_mechanism_recovered",
+            "label": "Recovered \u2014 assay_mechanism_recovered"
+        }
+    ]
+}

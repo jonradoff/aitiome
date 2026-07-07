@@ -1,0 +1,156 @@
+{
+    "aopId": "3",
+    "title": "Inhibition of the mitochondrial complex I of nigro-striatal neurons leads to parkinsonian motor deficits",
+    "oecdEndorsed": true,
+    "url": "https://aopwiki.org/aops/3",
+    "nodes": [
+        {
+            "eventId": "177",
+            "title": "Increase, Mitochondrial dysfunction",
+            "role": "KE",
+            "layer": 2
+        },
+        {
+            "eventId": "188",
+            "title": "Neuroinflammation",
+            "role": "KE",
+            "layer": 5
+        },
+        {
+            "eventId": "887",
+            "title": "Inhibition, NADH-ubiquinone oxidoreductase  (complex I)",
+            "role": "KE",
+            "layer": 1,
+            "grounding": {
+                "genes": [
+                    "NDUFS7",
+                    "NDUFS8",
+                    "NDUFS2",
+                    "NDUFV1",
+                    "NDUFS3",
+                    "MT-ND1"
+                ],
+                "source": "MitoCarta3.0 (Complex I Q-site core subunits)",
+                "kind": "mie_genes"
+            }
+        },
+        {
+            "eventId": "888",
+            "title": "Binding of inhibitor, NADH-ubiquinone oxidoreductase (complex I)",
+            "role": "MIE",
+            "layer": 0,
+            "grounding": {
+                "genes": [
+                    "NDUFS7",
+                    "NDUFS8",
+                    "NDUFS2",
+                    "NDUFV1",
+                    "NDUFS3",
+                    "MT-ND1"
+                ],
+                "source": "MitoCarta3.0 (Complex I Q-site core subunits)",
+                "kind": "mie_genes"
+            }
+        },
+        {
+            "eventId": "889",
+            "title": "Proteostasis, impaired",
+            "role": "KE",
+            "layer": 3
+        },
+        {
+            "eventId": "890",
+            "title": "Degeneration of dopaminergic neurons of the nigrostriatal pathway",
+            "role": "KE",
+            "layer": 4,
+            "grounding": {
+                "cellTypes": [
+                    "SOX6",
+                    "AGTR1",
+                    "TMEM200A",
+                    "DDT",
+                    "GFRA2",
+                    "PART1"
+                ],
+                "source": "Kamath 2022 Nat Neurosci (SN vulnerable DA neurons)",
+                "kind": "ao_celltype"
+            }
+        },
+        {
+            "eventId": "896",
+            "title": "Parkinsonian motor deficits",
+            "role": "AO",
+            "layer": 5,
+            "grounding": {
+                "cellTypes": [
+                    "SOX6",
+                    "AGTR1",
+                    "TMEM200A",
+                    "DDT",
+                    "GFRA2",
+                    "PART1"
+                ],
+                "source": "Kamath 2022 Nat Neurosci (SN vulnerable DA neurons)",
+                "kind": "ao_celltype"
+            }
+        }
+    ],
+    "edges": [
+        {
+            "kerId": "904",
+            "upstream": "177",
+            "downstream": "889",
+            "isLoop": false,
+            "confidence": 0.9
+        },
+        {
+            "kerId": "905",
+            "upstream": "889",
+            "downstream": "890",
+            "isLoop": false,
+            "confidence": 0.9
+        },
+        {
+            "kerId": "906",
+            "upstream": "188",
+            "downstream": "890",
+            "isLoop": true,
+            "confidence": 0.9
+        },
+        {
+            "kerId": "907",
+            "upstream": "890",
+            "downstream": "188",
+            "isLoop": false,
+            "confidence": 0.9
+        },
+        {
+            "kerId": "908",
+            "upstream": "177",
+            "downstream": "890",
+            "isLoop": false,
+            "confidence": 0.9
+        },
+        {
+            "kerId": "910",
+            "upstream": "890",
+            "downstream": "896",
+            "isLoop": false,
+            "confidence": 0.9
+        },
+        {
+            "kerId": "933",
+            "upstream": "888",
+            "downstream": "887",
+            "isLoop": false,
+            "confidence": 0.9
+        },
+        {
+            "kerId": "934",
+            "upstream": "887",
+            "downstream": "177",
+            "isLoop": false,
+            "confidence": 0.9
+        }
+    ]
+}

@@ -1,0 +1,161 @@
+{
+    "mode": "validation",
+    "compound": {
+        "name": "troglitazone",
+        "role": "negative",
+        "confidenceTier": "adversarial_negative",
+        "mech": "none_neuro",
+        "note": "withdrawn antidiabetic; hepatotox; heavily assayed",
+        "cid": 5591,
+        "cas": "97322-87-7",
+        "inchikey": "GXPHKUHSUJUWKP-UHFFFAOYSA-N",
+        "smiles": "CC1=C(C2=C(CCC(O2)(C)COC3=CC=C(C=C3)CC4C(=O)NC(=O)S4)C(=C1O)C)C",
+        "dtxsid": "DTXSID8023719",
+        "toxcastCas": "97322-87-7",
+        "pdDirect": 0,
+        "adDirect": 0,
+        "aopStressorOf": null,
+        "aop3Stressor": false,
+        "inNeurotoxkb": false,
+        "toxcastTested": 450,
+        "toxcastActive": 205,
+        "mitoActive": 5,
+        "mmpActive": 7,
+        "oxStressActive": 1,
+        "neuroActive": 6,
+        "mechActiveTotal": 19,
+        "geneIxnsHuman": 1420,
+        "aop3GeneHits": 12,
+        "coverageGrade": "ADVERSARIAL_NEGATIVE"
+    },
+    "role": "negative",
+    "confidenceTier": "adversarial_negative",
+    "recovery": {
+        "call": "negative",
+        "predicate": {
+            "ctdPdDirectEvidence": false,
+            "neuroAopStressor": false
+        },
+        "diagnostic": true,
+        "gatedOnAssay": false,
+        "corroboration": {
+            "assayActive": true,
+            "mitoActive": 5,
+            "mechActiveTotal": 19,
+            "note": "",
+            "antiDiagnostic": true
+        },
+        "rationale": "No curated diagnostic signal despite bioactivity (5 mito, 19 mechanistic assay hits). Correctly NOT flagged \u2014 the engine reasons on curated mechanism, not activity."
+    },
+    "strands": [
+        {
+            "kind": "curated_mechanism",
+            "status": "absent",
+            "detail": "No curated Parkinson's DirectEvidence and not a registered neuro-AOP stressor.",
+            "source": "CTD curated DirectEvidence / AOP-Wiki",
+            "isGate": false
+        },
+        {
+            "kind": "assay_corroboration",
+            "status": "supports",
+            "detail": "Bioactive: 19 mechanistic assay hits (incl. 5 mitochondrial). This is the imposter signal the engine correctly does NOT act on.",
+            "source": "EPA ToxCast via NICEATM ICE",
+            "isGate": false
+        },
+        {
+            "kind": "faers",
+            "status": "not_assessable",
+            "detail": "No assessable FAERS reports.",
+            "source": "openFDA FAERS",
+            "isGate": false
+        },
+        {
+            "kind": "bbb",
+            "status": "refutes",
+            "detail": "Low brain exposure (BBB-negative): an orthogonal pharmacokinetic reason it cannot be a driver.",
+            "source": "B3DB / BOILED-Egg (structure-based)",
+            "isGate": false
+        }
+    ],
+    "rejection": {
+        "lines": [
+            {
+                "kind": "curated_mechanism",
+                "status": "absent",
+                "detail": "No curated Parkinson's DirectEvidence and not a registered neuro-AOP stressor.",
+                "source": "CTD curated DirectEvidence / AOP-Wiki",
+                "isGate": false
+            },
+            {
+                "kind": "bbb",
+                "status": "refutes",
+                "detail": "Low brain exposure (BBB-negative): an orthogonal pharmacokinetic reason it cannot be a driver.",
+                "source": "B3DB / BOILED-Egg (structure-based)",
+                "isGate": false
+            }
+        ],
+        "count": 2
+    },
+    "trace": [
+        {
+            "kind": "resolve",
+            "compound": "troglitazone",
+            "resolvedForm": "troglitazone",
+            "label": "Resolved troglitazone (DTXSID-first, salt-form correct)"
+        },
+        {
+            "kind": "predicate_eval",
+            "term": "ctd_pd_direct",
+            "hit": false,
+            "label": "CTD Parkinson's curated DirectEvidence"
+        },
+        {
+            "kind": "predicate_eval",
+            "term": "neuro_aop_stressor",
+            "hit": false,
+            "label": "Registered neuro-AOP stressor"
+        },
+        {
+            "kind": "strand",
+            "strandKind": "curated_mechanism",
+            "strandStatus": "absent",
+            "label": "No curated Parkinson's DirectEvidence and not a registered neuro-AOP stressor."
+        },
+        {
+            "kind": "strand",
+            "strandKind": "assay_corroboration",
+            "strandStatus": "supports",
+            "label": "Bioactive: 19 mechanistic assay hits (incl. 5 mitochondrial). This is the imposter signal the engine correctly does NOT act on."
+        },
+        {
+            "kind": "strand",
+            "strandKind": "faers",
+            "strandStatus": "not_assessable",
+            "label": "No assessable FAERS reports."
+        },
+        {
+            "kind": "strand",
+            "strandKind": "bbb",
+            "strandStatus": "refutes",
+            "label": "Low brain exposure (BBB-negative): an orthogonal pharmacokinetic reason it cannot be a driver."
+        },
+        {
+            "kind": "reject_line",
+            "strandKind": "curated_mechanism",
+            "line": "No curated Parkinson's DirectEvidence and not a registered neuro-AOP stressor.",
+            "label": "No curated Parkinson's DirectEvidence and not a registered neuro-AOP stressor."
+        },
+        {
+            "kind": "reject_line",
+            "strandKind": "bbb",
+            "line": "Low brain exposure (BBB-negative): an orthogonal pharmacokinetic reason it cannot be a driver.",
+            "label": "Low brain exposure (BBB-negative): an orthogonal pharmacokinetic reason it cannot be a driver."
+        },
+        {
+            "kind": "verdict",
+            "call": "negative",
+            "tier": "adversarial_negative",
+            "label": "Correctly not flagged \u2014 adversarial_negative"
+        }
+    ]
+}

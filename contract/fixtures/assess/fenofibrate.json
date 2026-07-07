@@ -1,0 +1,174 @@
+{
+    "mode": "validation",
+    "compound": {
+        "name": "fenofibrate",
+        "role": "negative",
+        "confidenceTier": "adversarial_negative",
+        "mech": "none_neuro",
+        "note": "lipid-lowering fibrate",
+        "cid": 3339,
+        "cas": "49562-28-9",
+        "inchikey": "YMTINGFKWWXKFG-UHFFFAOYSA-N",
+        "smiles": "CC(C)OC(=O)C(C)(C)OC1=CC=C(C=C1)C(=O)C2=CC=C(C=C2)Cl",
+        "dtxsid": "DTXSID2029874",
+        "toxcastCas": "49562-28-9",
+        "pdDirect": 0,
+        "adDirect": 0,
+        "aopStressorOf": null,
+        "aop3Stressor": false,
+        "inNeurotoxkb": false,
+        "toxcastTested": 434,
+        "toxcastActive": 114,
+        "mitoActive": 2,
+        "mmpActive": 1,
+        "oxStressActive": 1,
+        "neuroActive": 0,
+        "mechActiveTotal": 4,
+        "geneIxnsHuman": 485,
+        "aop3GeneHits": 6,
+        "coverageGrade": "ADVERSARIAL_NEGATIVE"
+    },
+    "role": "negative",
+    "confidenceTier": "adversarial_negative",
+    "recovery": {
+        "call": "negative",
+        "predicate": {
+            "ctdPdDirectEvidence": false,
+            "neuroAopStressor": false
+        },
+        "diagnostic": true,
+        "gatedOnAssay": false,
+        "corroboration": {
+            "assayActive": true,
+            "mitoActive": 2,
+            "mechActiveTotal": 4,
+            "note": "",
+            "antiDiagnostic": true
+        },
+        "rationale": "No curated diagnostic signal despite bioactivity (2 mito, 4 mechanistic assay hits). Correctly NOT flagged \u2014 the engine reasons on curated mechanism, not activity."
+    },
+    "strands": [
+        {
+            "kind": "curated_mechanism",
+            "status": "absent",
+            "detail": "No curated Parkinson's DirectEvidence and not a registered neuro-AOP stressor.",
+            "source": "CTD curated DirectEvidence / AOP-Wiki",
+            "isGate": false
+        },
+        {
+            "kind": "assay_corroboration",
+            "status": "supports",
+            "detail": "Bioactive: 4 mechanistic assay hits (incl. 2 mitochondrial). This is the imposter signal the engine correctly does NOT act on.",
+            "source": "EPA ToxCast via NICEATM ICE",
+            "isGate": false
+        },
+        {
+            "kind": "faers",
+            "status": "absent",
+            "detail": "Zero parkinsonism signal across 35322 FAERS reports (ROR 0.9, not elevated).",
+            "source": "openFDA FAERS",
+            "isGate": false
+        },
+        {
+            "kind": "bbb",
+            "status": "refutes",
+            "detail": "Low brain exposure (BBB-negative): an orthogonal pharmacokinetic reason it cannot be a driver.",
+            "source": "B3DB / BOILED-Egg (structure-based)",
+            "isGate": false
+        }
+    ],
+    "rejection": {
+        "lines": [
+            {
+                "kind": "curated_mechanism",
+                "status": "absent",
+                "detail": "No curated Parkinson's DirectEvidence and not a registered neuro-AOP stressor.",
+                "source": "CTD curated DirectEvidence / AOP-Wiki",
+                "isGate": false
+            },
+            {
+                "kind": "faers",
+                "status": "absent",
+                "detail": "Zero parkinsonism signal across 35322 FAERS reports (ROR 0.9, not elevated).",
+                "source": "openFDA FAERS",
+                "isGate": false
+            },
+            {
+                "kind": "bbb",
+                "status": "refutes",
+                "detail": "Low brain exposure (BBB-negative): an orthogonal pharmacokinetic reason it cannot be a driver.",
+                "source": "B3DB / BOILED-Egg (structure-based)",
+                "isGate": false
+            }
+        ],
+        "count": 3
+    },
+    "trace": [
+        {
+            "kind": "resolve",
+            "compound": "fenofibrate",
+            "resolvedForm": "fenofibrate",
+            "label": "Resolved fenofibrate (DTXSID-first, salt-form correct)"
+        },
+        {
+            "kind": "predicate_eval",
+            "term": "ctd_pd_direct",
+            "hit": false,
+            "label": "CTD Parkinson's curated DirectEvidence"
+        },
+        {
+            "kind": "predicate_eval",
+            "term": "neuro_aop_stressor",
+            "hit": false,
+            "label": "Registered neuro-AOP stressor"
+        },
+        {
+            "kind": "strand",
+            "strandKind": "curated_mechanism",
+            "strandStatus": "absent",
+            "label": "No curated Parkinson's DirectEvidence and not a registered neuro-AOP stressor."
+        },
+        {
+            "kind": "strand",
+            "strandKind": "assay_corroboration",
+            "strandStatus": "supports",
+            "label": "Bioactive: 4 mechanistic assay hits (incl. 2 mitochondrial). This is the imposter signal the engine correctly does NOT act on."
+        },
+        {
+            "kind": "strand",
+            "strandKind": "faers",
+            "strandStatus": "absent",
+            "label": "Zero parkinsonism signal across 35322 FAERS reports (ROR 0.9, not elevated)."
+        },
+        {
+            "kind": "strand",
+            "strandKind": "bbb",
+            "strandStatus": "refutes",
+            "label": "Low brain exposure (BBB-negative): an orthogonal pharmacokinetic reason it cannot be a driver."
+        },
+        {
+            "kind": "reject_line",
+            "strandKind": "curated_mechanism",
+            "line": "No curated Parkinson's DirectEvidence and not a registered neuro-AOP stressor.",
+            "label": "No curated Parkinson's DirectEvidence and not a registered neuro-AOP stressor."
+        },
+        {
+            "kind": "reject_line",
+            "strandKind": "faers",
+            "line": "Zero parkinsonism signal across 35322 FAERS reports (ROR 0.9, not elevated).",
+            "label": "Zero parkinsonism signal across 35322 FAERS reports (ROR 0.9, not elevated)."
+        },
+        {
+            "kind": "reject_line",
+            "strandKind": "bbb",
+            "line": "Low brain exposure (BBB-negative): an orthogonal pharmacokinetic reason it cannot be a driver.",
+            "label": "Low brain exposure (BBB-negative): an orthogonal pharmacokinetic reason it cannot be a driver."
+        },
+        {
+            "kind": "verdict",
+            "call": "negative",
+            "tier": "adversarial_negative",
+            "label": "Correctly not flagged \u2014 adversarial_negative"
+        }
+    ]
+}

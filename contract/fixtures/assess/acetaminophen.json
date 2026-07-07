@@ -1,0 +1,148 @@
+{
+    "mode": "validation",
+    "compound": {
+        "name": "acetaminophen",
+        "role": "negative",
+        "confidenceTier": "clean_negative",
+        "mech": "none_neuro",
+        "note": "analgesic; hepatotoxicant, ToxCast-quiet",
+        "cid": 1983,
+        "cas": "103-90-2",
+        "inchikey": "RZVAJINKPMORJF-UHFFFAOYSA-N",
+        "smiles": "CC(=O)NC1=CC=C(C=C1)O",
+        "dtxsid": "DTXSID2020006",
+        "toxcastCas": "103-90-2",
+        "pdDirect": 0,
+        "adDirect": 0,
+        "aopStressorOf": null,
+        "aop3Stressor": false,
+        "inNeurotoxkb": false,
+        "toxcastTested": 497,
+        "toxcastActive": 0,
+        "mitoActive": 0,
+        "mmpActive": 0,
+        "oxStressActive": 0,
+        "neuroActive": 0,
+        "mechActiveTotal": 0,
+        "geneIxnsHuman": 9139,
+        "aop3GeneHits": 20,
+        "coverageGrade": "CLEAN_NEGATIVE_QUIET"
+    },
+    "role": "negative",
+    "confidenceTier": "clean_negative",
+    "recovery": {
+        "call": "negative",
+        "predicate": {
+            "ctdPdDirectEvidence": false,
+            "neuroAopStressor": false
+        },
+        "diagnostic": true,
+        "gatedOnAssay": false,
+        "corroboration": {
+            "assayActive": false,
+            "mitoActive": 0,
+            "mechActiveTotal": 0,
+            "note": "",
+            "antiDiagnostic": true
+        },
+        "rationale": "No curated Parkinson's DirectEvidence and not a registered neuro-AOP stressor."
+    },
+    "strands": [
+        {
+            "kind": "curated_mechanism",
+            "status": "absent",
+            "detail": "No curated Parkinson's DirectEvidence and not a registered neuro-AOP stressor.",
+            "source": "CTD curated DirectEvidence / AOP-Wiki",
+            "isGate": false
+        },
+        {
+            "kind": "faers",
+            "status": "absent",
+            "detail": "Zero parkinsonism signal across 668109 FAERS reports (ROR 0.68, not elevated).",
+            "source": "openFDA FAERS",
+            "isGate": false
+        },
+        {
+            "kind": "bbb",
+            "status": "not_assessable",
+            "detail": "Brain-penetrant, but penetrance is not a discriminator here.",
+            "source": "B3DB / BOILED-Egg (structure-based)",
+            "isGate": false
+        }
+    ],
+    "rejection": {
+        "lines": [
+            {
+                "kind": "curated_mechanism",
+                "status": "absent",
+                "detail": "No curated Parkinson's DirectEvidence and not a registered neuro-AOP stressor.",
+                "source": "CTD curated DirectEvidence / AOP-Wiki",
+                "isGate": false
+            },
+            {
+                "kind": "faers",
+                "status": "absent",
+                "detail": "Zero parkinsonism signal across 668109 FAERS reports (ROR 0.68, not elevated).",
+                "source": "openFDA FAERS",
+                "isGate": false
+            }
+        ],
+        "count": 2
+    },
+    "trace": [
+        {
+            "kind": "resolve",
+            "compound": "acetaminophen",
+            "resolvedForm": "acetaminophen",
+            "label": "Resolved acetaminophen (DTXSID-first, salt-form correct)"
+        },
+        {
+            "kind": "predicate_eval",
+            "term": "ctd_pd_direct",
+            "hit": false,
+            "label": "CTD Parkinson's curated DirectEvidence"
+        },
+        {
+            "kind": "predicate_eval",
+            "term": "neuro_aop_stressor",
+            "hit": false,
+            "label": "Registered neuro-AOP stressor"
+        },
+        {
+            "kind": "strand",
+            "strandKind": "curated_mechanism",
+            "strandStatus": "absent",
+            "label": "No curated Parkinson's DirectEvidence and not a registered neuro-AOP stressor."
+        },
+        {
+            "kind": "strand",
+            "strandKind": "faers",
+            "strandStatus": "absent",
+            "label": "Zero parkinsonism signal across 668109 FAERS reports (ROR 0.68, not elevated)."
+        },
+        {
+            "kind": "strand",
+            "strandKind": "bbb",
+            "strandStatus": "not_assessable",
+            "label": "Brain-penetrant, but penetrance is not a discriminator here."
+        },
+        {
+            "kind": "reject_line",
+            "strandKind": "curated_mechanism",
+            "line": "No curated Parkinson's DirectEvidence and not a registered neuro-AOP stressor.",
+            "label": "No curated Parkinson's DirectEvidence and not a registered neuro-AOP stressor."
+        },
+        {
+            "kind": "reject_line",
+            "strandKind": "faers",
+            "line": "Zero parkinsonism signal across 668109 FAERS reports (ROR 0.68, not elevated).",
+            "label": "Zero parkinsonism signal across 668109 FAERS reports (ROR 0.68, not elevated)."
+        },
+        {
+            "kind": "verdict",
+            "call": "negative",
+            "tier": "clean_negative",
+            "label": "Correctly not flagged \u2014 clean_negative"
+        }
+    ]
+}

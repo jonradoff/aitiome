@@ -1,0 +1,380 @@
+{
+    "mode": "validation",
+    "compound": {
+        "name": "6-hydroxydopamine",
+        "role": "positive",
+        "confidenceTier": "curated_anchored_only",
+        "mech": "oxidative_stress",
+        "note": "classic DA toxin; may be thin in ToxCast",
+        "cid": 4624,
+        "cas": "1199-18-4",
+        "inchikey": "DIVDFFZHCJEHGG-UHFFFAOYSA-N",
+        "smiles": "C1=C(C(=CC(=C1O)O)O)CCN",
+        "dtxsid": "DTXSID0036768",
+        "toxcastCas": "1199-18-4",
+        "pdDirect": 1,
+        "adDirect": 0,
+        "aopStressorOf": null,
+        "aop3Stressor": false,
+        "inNeurotoxkb": false,
+        "toxcastTested": 0,
+        "toxcastActive": 0,
+        "mitoActive": 0,
+        "mmpActive": 0,
+        "oxStressActive": 0,
+        "neuroActive": 0,
+        "mechActiveTotal": 0,
+        "geneIxnsHuman": 245,
+        "aop3GeneHits": 13,
+        "coverageGrade": "THIN_MECH"
+    },
+    "role": "positive",
+    "confidenceTier": "curated_anchored_only",
+    "recovery": {
+        "call": "positive",
+        "predicate": {
+            "ctdPdDirectEvidence": true,
+            "neuroAopStressor": false
+        },
+        "diagnostic": true,
+        "gatedOnAssay": false,
+        "corroboration": {
+            "assayActive": false,
+            "mitoActive": 0,
+            "mechActiveTotal": 0,
+            "note": "",
+            "antiDiagnostic": true
+        },
+        "rationale": "Curated CTD Parkinson's DirectEvidence (diagnostic)."
+    },
+    "pathway": {
+        "aopId": "3",
+        "title": "Inhibition of the mitochondrial complex I of nigro-striatal neurons leads to parkinsonian motor deficits",
+        "oecdEndorsed": true,
+        "url": "https://aopwiki.org/aops/3",
+        "nodes": [
+            {
+                "eventId": "177",
+                "title": "Increase, Mitochondrial dysfunction",
+                "role": "KE",
+                "layer": 2
+            },
+            {
+                "eventId": "188",
+                "title": "Neuroinflammation",
+                "role": "KE",
+                "layer": 5
+            },
+            {
+                "eventId": "887",
+                "title": "Inhibition, NADH-ubiquinone oxidoreductase  (complex I)",
+                "role": "KE",
+                "layer": 1,
+                "grounding": {
+                    "genes": [
+                        "NDUFS7",
+                        "NDUFS8",
+                        "NDUFS2",
+                        "NDUFV1",
+                        "NDUFS3",
+                        "MT-ND1"
+                    ],
+                    "source": "MitoCarta3.0 (Complex I Q-site core subunits)",
+                    "kind": "mie_genes"
+                }
+            },
+            {
+                "eventId": "888",
+                "title": "Binding of inhibitor, NADH-ubiquinone oxidoreductase (complex I)",
+                "role": "MIE",
+                "layer": 0,
+                "grounding": {
+                    "genes": [
+                        "NDUFS7",
+                        "NDUFS8",
+                        "NDUFS2",
+                        "NDUFV1",
+                        "NDUFS3",
+                        "MT-ND1"
+                    ],
+                    "source": "MitoCarta3.0 (Complex I Q-site core subunits)",
+                    "kind": "mie_genes"
+                }
+            },
+            {
+                "eventId": "889",
+                "title": "Proteostasis, impaired",
+                "role": "KE",
+                "layer": 3
+            },
+            {
+                "eventId": "890",
+                "title": "Degeneration of dopaminergic neurons of the nigrostriatal pathway",
+                "role": "KE",
+                "layer": 4,
+                "grounding": {
+                    "cellTypes": [
+                        "SOX6",
+                        "AGTR1",
+                        "TMEM200A",
+                        "DDT",
+                        "GFRA2",
+                        "PART1"
+                    ],
+                    "source": "Kamath 2022 Nat Neurosci (SN vulnerable DA neurons)",
+                    "kind": "ao_celltype"
+                }
+            },
+            {
+                "eventId": "896",
+                "title": "Parkinsonian motor deficits",
+                "role": "AO",
+                "layer": 5,
+                "grounding": {
+                    "cellTypes": [
+                        "SOX6",
+                        "AGTR1",
+                        "TMEM200A",
+                        "DDT",
+                        "GFRA2",
+                        "PART1"
+                    ],
+                    "source": "Kamath 2022 Nat Neurosci (SN vulnerable DA neurons)",
+                    "kind": "ao_celltype"
+                }
+            }
+        ],
+        "edges": [
+            {
+                "kerId": "904",
+                "upstream": "177",
+                "downstream": "889",
+                "isLoop": false,
+                "confidence": 0.9
+            },
+            {
+                "kerId": "905",
+                "upstream": "889",
+                "downstream": "890",
+                "isLoop": false,
+                "confidence": 0.9
+            },
+            {
+                "kerId": "906",
+                "upstream": "188",
+                "downstream": "890",
+                "isLoop": true,
+                "confidence": 0.9
+            },
+            {
+                "kerId": "907",
+                "upstream": "890",
+                "downstream": "188",
+                "isLoop": false,
+                "confidence": 0.9
+            },
+            {
+                "kerId": "908",
+                "upstream": "177",
+                "downstream": "890",
+                "isLoop": false,
+                "confidence": 0.9
+            },
+            {
+                "kerId": "910",
+                "upstream": "890",
+                "downstream": "896",
+                "isLoop": false,
+                "confidence": 0.9
+            },
+            {
+                "kerId": "933",
+                "upstream": "888",
+                "downstream": "887",
+                "isLoop": false,
+                "confidence": 0.9
+            },
+            {
+                "kerId": "934",
+                "upstream": "887",
+                "downstream": "177",
+                "isLoop": false,
+                "confidence": 0.9
+            }
+        ]
+    },
+    "strands": [
+        {
+            "kind": "curated_mechanism",
+            "status": "supports",
+            "detail": "Curated CTD Parkinson's DirectEvidence (diagnostic).",
+            "source": "CTD curated DirectEvidence / AOP-Wiki",
+            "isGate": false
+        },
+        {
+            "kind": "mito_celltype_grounding",
+            "status": "supports",
+            "detail": "MIE grounded in MitoCarta Complex-I Q-site subunits; adverse outcome in the Kamath SOX6/AGTR1 vulnerable dopaminergic-neuron population.",
+            "source": "MitoCarta3.0 + Kamath 2022 Nat Neurosci",
+            "isGate": false
+        },
+        {
+            "kind": "assay_corroboration",
+            "status": "not_assessable",
+            "detail": "Thin in ToxCast (research reagent / metal).",
+            "source": "EPA ToxCast via NICEATM ICE",
+            "isGate": false
+        },
+        {
+            "kind": "bbb",
+            "status": "not_assessable",
+            "detail": "Non-penetrant by structure (e.g. lesioning agent delivered directly / enters via transporters).",
+            "source": "B3DB / BOILED-Egg (structure-based)",
+            "isGate": false
+        }
+    ],
+    "trace": [
+        {
+            "kind": "resolve",
+            "compound": "6-hydroxydopamine",
+            "resolvedForm": "6-hydroxydopamine",
+            "label": "Resolved 6-hydroxydopamine (DTXSID-first, salt-form correct)"
+        },
+        {
+            "kind": "predicate_eval",
+            "term": "ctd_pd_direct",
+            "hit": true,
+            "label": "CTD Parkinson's curated DirectEvidence"
+        },
+        {
+            "kind": "predicate_eval",
+            "term": "neuro_aop_stressor",
+            "hit": false,
+            "label": "Registered neuro-AOP stressor"
+        },
+        {
+            "kind": "node_enter",
+            "eventId": "888",
+            "title": "Binding of inhibitor, NADH-ubiquinone oxidoreductase (complex I)",
+            "label": "Binding of inhibitor, NADH-ubiquinone oxidoreductase (complex I)"
+        },
+        {
+            "kind": "node_enter",
+            "eventId": "887",
+            "title": "Inhibition, NADH-ubiquinone oxidoreductase  (complex I)",
+            "label": "Inhibition, NADH-ubiquinone oxidoreductase  (complex I)"
+        },
+        {
+            "kind": "node_enter",
+            "eventId": "177",
+            "title": "Increase, Mitochondrial dysfunction",
+            "label": "Increase, Mitochondrial dysfunction"
+        },
+        {
+            "kind": "node_enter",
+            "eventId": "889",
+            "title": "Proteostasis, impaired",
+            "label": "Proteostasis, impaired"
+        },
+        {
+            "kind": "node_enter",
+            "eventId": "890",
+            "title": "Degeneration of dopaminergic neurons of the nigrostriatal pathway",
+            "label": "Degeneration of dopaminergic neurons of the nigrostriatal pathway"
+        },
+        {
+            "kind": "node_enter",
+            "eventId": "188",
+            "title": "Neuroinflammation",
+            "label": "Neuroinflammation"
+        },
+        {
+            "kind": "node_enter",
+            "eventId": "896",
+            "title": "Parkinsonian motor deficits",
+            "label": "Parkinsonian motor deficits"
+        },
+        {
+            "kind": "edge_fire",
+            "kerId": "904",
+            "confidence": 0.9
+        },
+        {
+            "kind": "edge_fire",
+            "kerId": "905",
+            "confidence": 0.9
+        },
+        {
+            "kind": "edge_fire",
+            "kerId": "906",
+            "confidence": 0.9
+        },
+        {
+            "kind": "edge_fire",
+            "kerId": "907",
+            "confidence": 0.9
+        },
+        {
+            "kind": "edge_fire",
+            "kerId": "908",
+            "confidence": 0.9
+        },
+        {
+            "kind": "edge_fire",
+            "kerId": "910",
+            "confidence": 0.9
+        },
+        {
+            "kind": "edge_fire",
+            "kerId": "933",
+            "confidence": 0.9
+        },
+        {
+            "kind": "edge_fire",
+            "kerId": "934",
+            "confidence": 0.9
+        },
+        {
+            "kind": "ao_resolve",
+            "cellTypes": [
+                "SOX6",
+                "AGTR1",
+                "TMEM200A",
+                "DDT",
+                "GFRA2",
+                "PART1"
+            ],
+            "label": "Resolves into the SOX6/AGTR1 vulnerable dopaminergic-neuron population"
+        },
+        {
+            "kind": "strand",
+            "strandKind": "curated_mechanism",
+            "strandStatus": "supports",
+            "label": "Curated CTD Parkinson's DirectEvidence (diagnostic)."
+        },
+        {
+            "kind": "strand",
+            "strandKind": "mito_celltype_grounding",
+            "strandStatus": "supports",
+            "label": "MIE grounded in MitoCarta Complex-I Q-site subunits; adverse outcome in the Kamath SOX6/AGTR1 vulnerable dopaminergic-neuron population."
+        },
+        {
+            "kind": "strand",
+            "strandKind": "assay_corroboration",
+            "strandStatus": "not_assessable",
+            "label": "Thin in ToxCast (research reagent / metal)."
+        },
+        {
+            "kind": "strand",
+            "strandKind": "bbb",
+            "strandStatus": "not_assessable",
+            "label": "Non-penetrant by structure (e.g. lesioning agent delivered directly / enters via transporters)."
+        },
+        {
+            "kind": "verdict",
+            "call": "positive",
+            "tier": "curated_anchored_only",
+            "label": "Recovered \u2014 curated_anchored_only"
+        }
+    ]
+}
