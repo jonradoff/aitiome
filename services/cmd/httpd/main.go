@@ -19,6 +19,7 @@ import (
 var apiPaths = map[string]bool{
 	"/health": true, "/compounds": true, "/resolve": true, "/assess": true,
 	"/validation": true, "/pathway": true, "/discovery-map": true, "/synthesis": true,
+	"/benchmark": true,
 }
 
 func main() {
@@ -85,6 +86,9 @@ func apiMux(svc *aitio.Service) *http.ServeMux {
 	})
 	mux.HandleFunc("GET /discovery-map", func(w http.ResponseWriter, r *http.Request) {
 		writeJSON(w, http.StatusOK, svc.DiscoveryMap(r.Context()))
+	})
+	mux.HandleFunc("GET /benchmark", func(w http.ResponseWriter, r *http.Request) {
+		writeJSON(w, http.StatusOK, svc.Benchmark(r.Context()))
 	})
 	mux.HandleFunc("GET /synthesis", func(w http.ResponseWriter, r *http.Request) {
 		id := r.URL.Query().Get("id")

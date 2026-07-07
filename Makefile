@@ -1,7 +1,15 @@
-.PHONY: build run-http run-mcp test tidy smoke
+.PHONY: build run-http run-mcp test tidy smoke validate
 
 build:
 	go build ./...
+
+# The red-team / validation harness as a judge-facing report: the curated rule's
+# perfect separation next to the bioactivity signals' at-or-below-chance AUROC
+# against the adversarial decoys, plus the invariants and ablation.
+validate:
+	@go test ./services/aitio/ -v -run \
+	  'ValidationHarness|CuratedRuleIsPerfect|BioactivityCollapses|NoBioactivityThreshold|LoadBearing|ResultInvariants|DecoyTripleRejection|ParaquatSaltForm' \
+	  2>&1 | grep -E 'PASS|FAIL|vs decoys|ablation|want'
 
 tidy:
 	go mod tidy

@@ -108,6 +108,15 @@ func main() {
 	)
 
 	s.AddTool(
+		mcp.NewTool("benchmark",
+			mcp.WithDescription("The falsification harness, computed live from the validation set: the curated rule's perfect separation (fp=fn=0) next to the AUROC of every bioactivity signal against the adversarial decoys, which is at or below chance. The empirical answer to 'you are just detecting bioactivity'. Read-only."),
+		),
+		func(ctx context.Context, _ mcp.CallToolRequest) (*mcp.CallToolResult, error) {
+			return jsonResult(svc.Benchmark(ctx))
+		},
+	)
+
+	s.AddTool(
 		mcp.NewTool("discovery_map",
 			mcp.WithDescription("The honest negative-results discovery map: seven axes tested for an annotation-independent discovery signal on this chemical class, each coverage- or confounder-killed, plus the two live leads (neural-specific subset, Boltz-2 Q-site). Discovery is a map, not a predictor. Read-only."),
 		),
