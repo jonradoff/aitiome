@@ -63,6 +63,33 @@ func main() {
 	)
 
 	s.AddTool(
+		mcp.NewTool("assess_compound",
+			mcp.WithDescription("Run the validation-mode assessment for a chemical: resolve identity, apply the curated recovery predicate (never gated on assay/bioactivity), reconstruct the grounded AOP cascade for positives, and emit the trace-event stream. Returns the full CompoundResult with confidence tier. Read-only."),
+			mcp.WithString("id", mcp.Required(), mcp.Description("Chemical identifier: name, CAS, DTXSID, InChIKey, or CID.")),
+		),
+		func(ctx context.Context, req mcp.CallToolRequest) (*mcp.CallToolResult, error) {
+			id, err := req.RequireString("id")
+			if err != nil {
+				return mcp.NewToolResultError("id is required"), nil
+			}
+			res, ok := svc.Assess(ctx, id)
+			if !ok {
+				return mcp.NewToolResultError("unresolved identifier: " + id), nil
+			}
+			return jsonResult(res)
+		},
+	)
+
+	s.AddTool(
+		mcp.NewTool("run_validation",
+			mcp.WithDescription("Run the full validation harness over the 27-compound ground truth: recover the 12 known neurotoxicants, reject the 15 negatives (incl. 6 adversarial mito-active decoys), and report the scoreboard (expect fp=0, fn=0). Read-only."),
+		),
+		func(ctx context.Context, _ mcp.CallToolRequest) (*mcp.CallToolResult, error) {
+			return jsonResult(svc.RunValidation(ctx))
+		},
+	)
+
+	s.AddTool(
 		mcp.NewTool("get_pathway",
 			mcp.WithDescription("Reconstruct an endorsed OECD AOP as a positioned, grounded graph (nodes = key events MIE->KE->AO, edges = key-event relationships). Defaults to the MVP anchor AOP-3 (complex-I inhibition -> nigrostriatal dopaminergic degeneration -> parkinsonian deficits). MIE grounded in MitoCarta Complex-I Q-site subunits; AO grounded in SOX6/AGTR1 vulnerable DA neurons. Read-only."),
 			mcp.WithString("aop", mcp.Description("AOP id (e.g. \"3\"). Omit for the AOP-3 anchor.")),

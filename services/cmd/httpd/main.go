@@ -33,6 +33,18 @@ func main() {
 		}
 		writeJSON(w, http.StatusOK, c)
 	})
+	mux.HandleFunc("GET /assess", func(w http.ResponseWriter, r *http.Request) {
+		id := r.URL.Query().Get("id")
+		res, ok := svc.Assess(r.Context(), id)
+		if !ok {
+			writeJSON(w, http.StatusNotFound, map[string]string{"error": "unresolved identifier: " + id})
+			return
+		}
+		writeJSON(w, http.StatusOK, res)
+	})
+	mux.HandleFunc("GET /validation", func(w http.ResponseWriter, r *http.Request) {
+		writeJSON(w, http.StatusOK, svc.RunValidation(r.Context()))
+	})
 	mux.HandleFunc("GET /pathway", func(w http.ResponseWriter, r *http.Request) {
 		id := r.URL.Query().Get("aop")
 		if id == "" {
