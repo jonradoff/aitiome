@@ -47,10 +47,10 @@ function ExposomeField() {
   const uniforms = useMemo(
     () => ({
       uTime: { value: 0 },
-      uSize: { value: 2.1 },
+      uSize: { value: 1.7 },
       uIgnite: { value: 0 },
       uColor: { value: new THREE.Color("#8fb6c4") },
-      uOpacity: { value: 0.5 },
+      uOpacity: { value: 0.32 },
     }),
     [],
   );
@@ -120,7 +120,7 @@ function useScene(pathway: Pathway) {
     return pathway.nodes.map((n) => {
       const p = layout.pos.get(n.eventId)!;
       const base = n.role === "AO" ? GOLD.clone() : n.eventId === "188" ? CYAN.clone().multiplyScalar(0.7) : CYAN.clone();
-      const r = n.role === "MIE" || n.role === "AO" ? 0.34 : 0.24;
+      const r = n.role === "MIE" || n.role === "AO" ? 0.26 : 0.18;
       const core = new THREE.MeshBasicMaterial({ color: base.clone().multiplyScalar(0.4) });
       const glow = new THREE.MeshBasicMaterial({
         color: base,
@@ -142,7 +142,7 @@ function useScene(pathway: Pathway) {
     const c = layout.aoPos;
     for (let i = 0; i < n; i++) {
       // clustered blob with a couple of dendritic streaks
-      const r = Math.pow(Math.random(), 0.6) * 2.0;
+      const r = Math.pow(Math.random(), 0.6) * 1.5;
       const th = Math.random() * Math.PI * 2;
       const ph = Math.acos(2 * Math.random() - 1);
       pos[i * 3] = c.x + 1.6 + r * Math.sin(ph) * Math.cos(th);
@@ -157,7 +157,7 @@ function useScene(pathway: Pathway) {
     g.setAttribute("aSeed", new THREE.BufferAttribute(seed, 1));
     const uniforms = {
       uTime: { value: 0 },
-      uSize: { value: 2.4 },
+      uSize: { value: 1.5 },
       uIgnite: { value: 0 },
       uColor: { value: GOLD.clone() },
       uOpacity: { value: 0.9 },
@@ -252,8 +252,8 @@ function Cascade({ pathway, result, onStep, labelRefs }: { pathway: Pathway; res
       } else {
         lit = 0.35 + 0.15 * Math.sin(t + i);
       }
-      glow.opacity = 0.04 + lit * 0.55;
-      core.color.copy(base).multiplyScalar(0.35 + lit * 1.1);
+      glow.opacity = 0.03 + lit * 0.3;
+      core.color.copy(base).multiplyScalar(0.4 + lit * 1.0);
 
       // project world position to screen and drive the HTML label
       const el = labelRefs.current[i];
@@ -263,8 +263,8 @@ function Cascade({ pathway, result, onStep, labelRefs }: { pathway: Pathway; res
         tmp.project(s.camera);
         const x = (tmp.x * 0.5 + 0.5) * s.size.width;
         const y = (-tmp.y * 0.5 + 0.5) * s.size.height;
-        el.style.transform = `translate(-50%, 0) translate(${x}px, ${y + 16}px)`;
-        el.style.opacity = String(0.22 + lit * 0.78);
+        el.style.transform = `translate(-50%, 0) translate(${x}px, ${y + 20}px)`;
+        el.style.opacity = String(0.18 + lit * 0.82);
         el.style.color = node.role === "AO" ? "var(--neuron)" : "var(--ink-dim)";
       }
     });
@@ -274,7 +274,7 @@ function Cascade({ pathway, result, onStep, labelRefs }: { pathway: Pathway; res
     if (neuronMat.current) {
       neuronMat.current.uniforms.uTime.value = t;
       neuronMat.current.uniforms.uIgnite.value = ignite;
-      neuronMat.current.uniforms.uOpacity.value = 0.12 + ignite * 0.6;
+      neuronMat.current.uniforms.uOpacity.value = 0.05 + ignite * 0.26;
     }
     // dendrites light up with the ignition
     dendrites.forEach((d) => {
@@ -327,7 +327,7 @@ function Cascade({ pathway, result, onStep, labelRefs }: { pathway: Pathway; res
             <icosahedronGeometry args={[r, 1]} />
           </mesh>
           <mesh material={glow}>
-            <sphereGeometry args={[r * 2.7, 16, 16]} />
+            <sphereGeometry args={[r * 2.0, 16, 16]} />
           </mesh>
         </group>
       ))}
@@ -380,7 +380,7 @@ export function Hero({ pathway, result, height = 460 }: { pathway: Pathway; resu
   const labelRefs = useRef<(HTMLDivElement | null)[]>([]);
   return (
     <div style={{ position: "relative", height, borderRadius: 14, overflow: "hidden", border: "1px solid var(--line)", background: "radial-gradient(120% 100% at 20% 10%, #0f151d 0%, #090b0f 70%)" }}>
-      <Canvas camera={{ position: [0, 0.5, 19], fov: 42 }} dpr={[1, 2]} gl={{ antialias: true }}>
+      <Canvas camera={{ position: [0, 0.4, 20.5], fov: 40 }} dpr={[1, 2]} gl={{ antialias: true }}>
         <ExposomeField />
         <Cascade pathway={pathway} result={result} onStep={setCaption} labelRefs={labelRefs} />
       </Canvas>
@@ -391,7 +391,8 @@ export function Hero({ pathway, result, height = 460 }: { pathway: Pathway; resu
           className="mono"
           style={{
             position: "absolute", left: 0, top: 0, pointerEvents: "none",
-            fontSize: 10, letterSpacing: "0.02em", whiteSpace: "nowrap",
+            fontSize: 11, letterSpacing: "0.02em", whiteSpace: "nowrap",
+            textShadow: "0 1px 5px rgba(4,6,9,0.95), 0 0 3px rgba(4,6,9,0.95)",
             color: "var(--ink-dim)", opacity: 0, willChange: "transform, opacity",
           }}
         >

@@ -8,13 +8,13 @@ const Y_OFFSET: Record<string, number> = {
   "888": 0.0,   // MIE
   "887": 0.3,
   "177": -0.1,
-  "889": 2.3,   // proteostasis branch (up)
+  "889": 2.9,   // proteostasis branch (up)
   "890": 0.1,
-  "188": -2.5,  // neuroinflammation branch (down)
+  "188": -3.1,  // neuroinflammation branch (down)
   "896": 0.4,   // AO
 };
 
-const SPAN_X = 13;
+const SPAN_X = 18;
 
 export interface Layout {
   pos: Map<string, THREE.Vector3>;

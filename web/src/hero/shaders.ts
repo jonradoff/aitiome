@@ -34,7 +34,7 @@ export const pointFrag = /* glsl */ `
     float d = length(gl_PointCoord - 0.5);
     float a = smoothstep(0.5, 0.0, d);
     a *= a; // softer core
-    gl_FragColor = vec4(uColor * (0.7 + vTwinkle), a * uOpacity * vTwinkle);
+    gl_FragColor = vec4(uColor * (0.5 + vTwinkle * 0.6), a * uOpacity * vTwinkle);
   }
 `;
 
@@ -58,7 +58,7 @@ export const edgeFrag = /* glsl */ `
   void main() {
     // radial falloff across the tube thickness (v) for a soft glowing cord
     float radial = smoothstep(0.5, 0.0, abs(vUv.y - 0.5));
-    float base = 0.12 + 0.28 * uConfidence;
+    float base = 0.08 + 0.16 * uConfidence;
     // two travelling bands along length (u), upstream -> downstream
     float head1 = fract(uTime * 0.5);
     float b1 = smoothstep(0.10, 0.0, abs(vUv.x - head1));
@@ -66,8 +66,8 @@ export const edgeFrag = /* glsl */ `
     float b2 = smoothstep(0.07, 0.0, abs(vUv.x - head2)) * 0.5;
     float band = b1 + b2;
     float lit = uReach;
-    float intensity = base * lit + band * lit * 1.4;
-    vec3 col = uColor * (0.6 + intensity * 2.2);
-    gl_FragColor = vec4(col, radial * (0.14 + intensity));
+    float intensity = base * lit + band * lit * 0.8;
+    vec3 col = uColor * (0.5 + intensity * 1.15);
+    gl_FragColor = vec4(col, radial * (0.08 + intensity * 0.7));
   }
 `;
