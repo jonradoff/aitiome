@@ -53,6 +53,7 @@
             "status": "absent",
             "detail": "No curated Parkinson's DirectEvidence and not a registered neuro-AOP stressor.",
             "source": "CTD curated DirectEvidence / AOP-Wiki",
+            "provenance": "CTD curated chemical-disease DirectEvidence (bulk report; MESH:D010300 Parkinson Disease) + AOP-Wiki registered neuro-AOP stressors",
             "isGate": false
         },
         {
@@ -60,6 +61,7 @@
             "status": "absent",
             "detail": "Zero parkinsonism signal across 668109 FAERS reports (ROR 0.68, not elevated).",
             "source": "openFDA FAERS",
+            "provenance": "openFDA drug/event; 2x2 disproportionality (ROR) for the parkinsonism MedDRA cluster",
             "isGate": false
         },
         {
@@ -67,6 +69,7 @@
             "status": "not_assessable",
             "detail": "Brain-penetrant, but penetrance is not a discriminator here.",
             "source": "B3DB / BOILED-Egg (structure-based)",
+            "provenance": "B3DB classification + RDKit BOILED-Egg (TPSA / MolLogP), structure-based",
             "isGate": false
         }
     ],
@@ -77,6 +80,7 @@
                 "status": "absent",
                 "detail": "No curated Parkinson's DirectEvidence and not a registered neuro-AOP stressor.",
                 "source": "CTD curated DirectEvidence / AOP-Wiki",
+                "provenance": "CTD curated chemical-disease DirectEvidence (bulk report; MESH:D010300 Parkinson Disease) + AOP-Wiki registered neuro-AOP stressors",
                 "isGate": false
             },
             {
@@ -84,6 +88,7 @@
                 "status": "absent",
                 "detail": "Zero parkinsonism signal across 668109 FAERS reports (ROR 0.68, not elevated).",
                 "source": "openFDA FAERS",
+                "provenance": "openFDA drug/event; 2x2 disproportionality (ROR) for the parkinsonism MedDRA cluster",
                 "isGate": false
             }
         ],

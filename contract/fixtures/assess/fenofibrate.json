@@ -53,6 +53,7 @@
             "status": "absent",
             "detail": "No curated Parkinson's DirectEvidence and not a registered neuro-AOP stressor.",
             "source": "CTD curated DirectEvidence / AOP-Wiki",
+            "provenance": "CTD curated chemical-disease DirectEvidence (bulk report; MESH:D010300 Parkinson Disease) + AOP-Wiki registered neuro-AOP stressors",
             "isGate": false
         },
         {
@@ -60,6 +61,7 @@
             "status": "supports",
             "detail": "Bioactive: 4 mechanistic assay hits (incl. 2 mitochondrial). This is the imposter signal the engine correctly does NOT act on.",
             "source": "EPA ToxCast via NICEATM ICE",
+            "provenance": "EPA ToxCast / invitroDB v4.2 via NICEATM ICE (hitcall Active; queried on the salt-form-correct CAS)",
             "isGate": false
         },
         {
@@ -67,6 +69,7 @@
             "status": "absent",
             "detail": "Zero parkinsonism signal across 35322 FAERS reports (ROR 0.9, not elevated).",
             "source": "openFDA FAERS",
+            "provenance": "openFDA drug/event; 2x2 disproportionality (ROR) for the parkinsonism MedDRA cluster",
             "isGate": false
         },
         {
@@ -74,6 +77,7 @@
             "status": "refutes",
             "detail": "Low brain exposure (BBB-negative): an orthogonal pharmacokinetic reason it cannot be a driver.",
             "source": "B3DB / BOILED-Egg (structure-based)",
+            "provenance": "B3DB classification + RDKit BOILED-Egg (TPSA / MolLogP), structure-based",
             "isGate": false
         }
     ],
@@ -84,6 +88,7 @@
                 "status": "absent",
                 "detail": "No curated Parkinson's DirectEvidence and not a registered neuro-AOP stressor.",
                 "source": "CTD curated DirectEvidence / AOP-Wiki",
+                "provenance": "CTD curated chemical-disease DirectEvidence (bulk report; MESH:D010300 Parkinson Disease) + AOP-Wiki registered neuro-AOP stressors",
                 "isGate": false
             },
             {
@@ -91,6 +96,7 @@
                 "status": "absent",
                 "detail": "Zero parkinsonism signal across 35322 FAERS reports (ROR 0.9, not elevated).",
                 "source": "openFDA FAERS",
+                "provenance": "openFDA drug/event; 2x2 disproportionality (ROR) for the parkinsonism MedDRA cluster",
                 "isGate": false
             },
             {
@@ -98,6 +104,7 @@
                 "status": "refutes",
                 "detail": "Low brain exposure (BBB-negative): an orthogonal pharmacokinetic reason it cannot be a driver.",
                 "source": "B3DB / BOILED-Egg (structure-based)",
+                "provenance": "B3DB classification + RDKit BOILED-Egg (TPSA / MolLogP), structure-based",
                 "isGate": false
             }
         ],

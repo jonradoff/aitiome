@@ -89,7 +89,10 @@ func (s *Service) enrich(c contract.Compound, rec contract.RecoveryDecision, p *
 	key := normalizeID(c.Name)
 	var strands []contract.EvidenceStrand
 	add := func(kind, status, detail, source string) {
-		strands = append(strands, contract.EvidenceStrand{Kind: kind, Status: status, Detail: detail, Source: source, IsGate: false})
+		strands = append(strands, contract.EvidenceStrand{
+			Kind: kind, Status: status, Detail: detail, Source: source,
+			Provenance: provenanceFor(kind), IsGate: false,
+		})
 	}
 
 	if rec.Call == "positive" {
@@ -162,6 +165,27 @@ func (s *Service) enrich(c contract.Compound, rec contract.RecoveryDecision, p *
 		return strands, &contract.Rejection{Lines: lines, Count: len(lines)}
 	}
 	return strands, nil
+}
+
+// provenanceFor returns the auditable access route for a strand kind, verbatim
+// from the recon data-source map (docs/recon/data-source-map.md).
+func provenanceFor(kind string) string {
+	switch kind {
+	case "curated_mechanism":
+		return "CTD curated chemical-disease DirectEvidence (bulk report; MESH:D010300 Parkinson Disease) + AOP-Wiki registered neuro-AOP stressors"
+	case "assay_corroboration":
+		return "EPA ToxCast / invitroDB v4.2 via NICEATM ICE (hitcall Active; queried on the salt-form-correct CAS)"
+	case "mito_celltype_grounding":
+		return "MitoCarta3.0 Complex-I Q-site subunits + Kamath 2022 SN snRNA-seq (SOX6/AGTR1 vulnerable DA neurons)"
+	case "faers":
+		return "openFDA drug/event; 2x2 disproportionality (ROR) for the parkinsonism MedDRA cluster"
+	case "epidemiology":
+		return "Curated from published cohorts / meta-analyses (PubMed / Europe PMC full-text extraction)"
+	case "bbb":
+		return "B3DB classification + RDKit BOILED-Egg (TPSA / MolLogP), structure-based"
+	default:
+		return ""
+	}
 }
 
 func pathwayGrounded(p *contract.Pathway) bool {

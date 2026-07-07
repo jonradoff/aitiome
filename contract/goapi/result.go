@@ -12,11 +12,12 @@ const (
 // EvidenceStrand is one independent line in the convergent-evidence model. These
 // GROUND and enrich confidence — they are never new recovery gates (IsGate=false).
 type EvidenceStrand struct {
-	Kind   string `json:"kind"`   // curated_mechanism | assay_corroboration | mito_celltype_grounding | faers | epidemiology | bbb
-	Status string `json:"status"` // supports | absent | refutes | not_assessable
-	Detail string `json:"detail"`
-	Source string `json:"source"`
-	IsGate bool   `json:"isGate"` // always false
+	Kind       string `json:"kind"`   // curated_mechanism | assay_corroboration | mito_celltype_grounding | faers | epidemiology | bbb
+	Status     string `json:"status"` // supports | absent | refutes | not_assessable
+	Detail     string `json:"detail"`
+	Source     string `json:"source"`
+	Provenance string `json:"provenance"` // the access route (auditable "how this was obtained")
+	IsGate     bool   `json:"isGate"`     // always false
 }
 
 // Rejection is the decoy-specificity centerpiece: independent lines that each,

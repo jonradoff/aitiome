@@ -2,7 +2,8 @@ import { useState } from "react";
 import { getValidation, getHealth, getPathway, getDiscoveryMap, assess, synthesize, resolveCompound } from "./data";
 import { useAsync } from "./useAsync";
 import { Hero } from "./hero/Hero";
-import { EvidencePanel, TracePanel, ValidationPanel, DiscoveryPanel, MCPPanel, SynthesisPanel } from "./components/Panels";
+import { EvidencePanel, TracePanel, ValidationPanel, DiscoveryPanel, MCPPanel, SynthesisPanel, ProvenanceDrawer } from "./components/Panels";
+import type { EvidenceStrand } from "@contract";
 
 const KNOWN = ["rotenone", "paraquat", "MPTP", "chlorpyrifos", "6-hydroxydopamine"];
 const DECOYS = ["simvastatin", "troglitazone", "warfarin", "fenofibrate"];
@@ -10,6 +11,7 @@ const DECOYS = ["simvastatin", "troglitazone", "warfarin", "fenofibrate"];
 export function App() {
   const [theme, setTheme] = useState<"dark" | "light">("dark");
   const [activeId, setActiveId] = useState("rotenone");
+  const [provenance, setProvenance] = useState<EvidenceStrand | null>(null);
 
   const health = useAsync(getHealth, []);
   const validation = useAsync(getValidation, []);
@@ -70,7 +72,7 @@ export function App() {
 
           {result && (
             <div style={{ marginTop: 18, display: "grid", gridTemplateColumns: "1.15fr 0.85fr", gap: 16 }} className="two-col">
-              <EvidencePanel result={result} />
+              <EvidencePanel result={result} onOpenProvenance={setProvenance} />
               <TracePanel result={result} />
             </div>
           )}
@@ -110,6 +112,7 @@ export function App() {
       </main>
 
       <Footer source={source} />
+      <ProvenanceDrawer strand={provenance} onClose={() => setProvenance(null)} />
     </div>
   );
 }

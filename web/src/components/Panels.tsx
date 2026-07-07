@@ -1,3 +1,4 @@
+import type { ReactNode } from "react";
 import type {
   CompoundResult,
   EvidenceStrand,
@@ -35,7 +36,7 @@ function SectionHead({ title, kicker }: { title: string; kicker?: string }) {
 }
 
 // ---- Convergent evidence (per active compound) ----
-export function EvidencePanel({ result }: { result: CompoundResult }) {
+export function EvidencePanel({ result, onOpenProvenance }: { result: CompoundResult; onOpenProvenance: (s: EvidenceStrand) => void }) {
   const positive = result.recovery.call === "positive";
   const strands = result.strands ?? [];
   const rej = result.rejection;
@@ -49,7 +50,18 @@ export function EvidencePanel({ result }: { result: CompoundResult }) {
       </div>
       <div style={{ display: "flex", flexDirection: "column" }}>
         {strands.map((st: EvidenceStrand, i) => (
-          <div key={i} style={{ display: "grid", gridTemplateColumns: "220px 1fr", gap: 16, padding: "13px 0", borderTop: i ? "1px solid var(--line)" : "none" }}>
+          <button
+            key={i}
+            onClick={() => onOpenProvenance(st)}
+            title="View provenance"
+            style={{
+              display: "grid", gridTemplateColumns: "220px 1fr", gap: 16, padding: "13px 4px",
+              borderTop: i ? "1px solid var(--line)" : "none", textAlign: "left",
+              background: "transparent", border: "none", borderTopStyle: i ? "solid" : "none",
+              borderTopColor: "var(--line)", borderTopWidth: i ? 1 : 0, cursor: "pointer", color: "inherit",
+            }}
+            className="strand-row"
+          >
             <div style={{ display: "flex", alignItems: "center", gap: 9 }}>
               <span style={{ width: 8, height: 8, borderRadius: 999, background: statusTone(st.status), flex: "0 0 auto" }} />
               <span style={{ fontSize: 14 }}>{STRAND_LABEL[st.kind] ?? st.kind}</span>
@@ -57,15 +69,59 @@ export function EvidencePanel({ result }: { result: CompoundResult }) {
             <div>
               <span className="mono" style={{ fontSize: 11, letterSpacing: "0.04em", color: statusTone(st.status), textTransform: "uppercase" }}>{st.status.replace("_", " ")}</span>
               <p className="dim" style={{ fontSize: 13.5, margin: "4px 0 0" }}>{st.detail}</p>
-              <p className="faint mono" style={{ fontSize: 10.5, marginTop: 4 }}>{st.source}</p>
+              <p className="faint mono" style={{ fontSize: 10.5, marginTop: 4 }}>{st.source} / click for provenance</p>
             </div>
-          </div>
+          </button>
         ))}
       </div>
       <p className="faint" style={{ fontSize: 12, marginTop: 16, lineHeight: 1.5 }}>
         Strands ground and calibrate confidence. They never gate the recovery call, which rests on
         curated mechanism alone. Assay activity is shown because it is present, not because it decides.
       </p>
+    </div>
+  );
+}
+
+// ---- Provenance drawer (auditable access route for a strand) ----
+export function ProvenanceDrawer({ strand, onClose }: { strand: EvidenceStrand | null; onClose: () => void }) {
+  if (!strand) return null;
+  return (
+    <div style={{ position: "fixed", inset: 0, zIndex: 50 }}>
+      <div onClick={onClose} style={{ position: "absolute", inset: 0, background: "rgba(4,6,9,0.55)", backdropFilter: "blur(2px)" }} />
+      <aside
+        className="panel drawer-in"
+        style={{
+          position: "absolute", right: 0, top: 0, height: "100dvh", width: "min(440px, 92vw)",
+          borderRadius: 0, borderRight: "none", borderTop: "none", borderBottom: "none",
+          padding: 26, overflowY: "auto",
+        }}
+      >
+        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 20 }}>
+          <span className="eyebrow">Provenance</span>
+          <button className="btn" style={{ padding: "6px 12px", fontSize: 13 }} onClick={onClose}>Close</button>
+        </div>
+        <h3 style={{ fontSize: 20, marginBottom: 10 }}>{STRAND_LABEL[strand.kind] ?? strand.kind}</h3>
+        <span className="mono" style={{ fontSize: 11, letterSpacing: "0.05em", color: statusTone(strand.status), textTransform: "uppercase" }}>{strand.status.replace("_", " ")}</span>
+
+        <Field label="Finding">{strand.detail}</Field>
+        <Field label="Source">{strand.source}</Field>
+        <Field label="Access route">{strand.provenance || "n/a"}</Field>
+
+        <div className="hair" style={{ margin: "22px 0 16px" }} />
+        <p className="faint" style={{ fontSize: 12, lineHeight: 1.55 }}>
+          This strand grounds and calibrates confidence. It never gates the recovery call, which rests on
+          curated mechanism alone (isGate = {String(strand.isGate)}).
+        </p>
+      </aside>
+    </div>
+  );
+}
+
+function Field({ label, children }: { label: string; children: ReactNode }) {
+  return (
+    <div style={{ marginTop: 18 }}>
+      <div className="mono faint" style={{ fontSize: 10.5, letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: 5 }}>{label}</div>
+      <div className="dim" style={{ fontSize: 13.5, lineHeight: 1.55 }}>{children}</div>
     </div>
   );
 }

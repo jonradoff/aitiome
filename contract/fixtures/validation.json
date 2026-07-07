@@ -223,6 +223,7 @@
                     "status": "supports",
                     "detail": "Curated convergence: CTD Parkinson's DirectEvidence AND registered neuro-AOP stressor.",
                     "source": "CTD curated DirectEvidence / AOP-Wiki",
+                    "provenance": "CTD curated chemical-disease DirectEvidence (bulk report; MESH:D010300 Parkinson Disease) + AOP-Wiki registered neuro-AOP stressors",
                     "isGate": false
                 },
                 {
@@ -230,6 +231,7 @@
                     "status": "supports",
                     "detail": "MIE grounded in MitoCarta Complex-I Q-site subunits; adverse outcome in the Kamath SOX6/AGTR1 vulnerable dopaminergic-neuron population.",
                     "source": "MitoCarta3.0 + Kamath 2022 Nat Neurosci",
+                    "provenance": "MitoCarta3.0 Complex-I Q-site subunits + Kamath 2022 SN snRNA-seq (SOX6/AGTR1 vulnerable DA neurons)",
                     "isGate": false
                 },
                 {
@@ -237,6 +239,7 @@
                     "status": "supports",
                     "detail": "56 mechanistic assay hits illustrate the chain (corroboration only \u2014 anti-diagnostic, not a discriminator).",
                     "source": "EPA ToxCast via NICEATM ICE",
+                    "provenance": "EPA ToxCast / invitroDB v4.2 via NICEATM ICE (hitcall Active; queried on the salt-form-correct CAS)",
                     "isGate": false
                 },
                 {
@@ -244,6 +247,7 @@
                     "status": "supports",
                     "detail": "PD OR ~2.5 (Tanner 2011 FAME (EHP)).",
                     "source": "Published cohorts / meta-analyses",
+                    "provenance": "Curated from published cohorts / meta-analyses (PubMed / Europe PMC full-text extraction)",
                     "isGate": false
                 },
                 {
@@ -251,6 +255,7 @@
                     "status": "supports",
                     "detail": "Brain-penetrant \u2014 plausible CNS exposure.",
                     "source": "B3DB / BOILED-Egg (structure-based)",
+                    "provenance": "B3DB classification + RDKit BOILED-Egg (TPSA / MolLogP), structure-based",
                     "isGate": false
                 }
             ],
@@ -618,6 +623,7 @@
                     "status": "supports",
                     "detail": "Curated convergence: CTD Parkinson's DirectEvidence AND registered neuro-AOP stressor.",
                     "source": "CTD curated DirectEvidence / AOP-Wiki",
+                    "provenance": "CTD curated chemical-disease DirectEvidence (bulk report; MESH:D010300 Parkinson Disease) + AOP-Wiki registered neuro-AOP stressors",
                     "isGate": false
                 },
                 {
@@ -625,6 +631,7 @@
                     "status": "supports",
                     "detail": "MIE grounded in MitoCarta Complex-I Q-site subunits; adverse outcome in the Kamath SOX6/AGTR1 vulnerable dopaminergic-neuron population.",
                     "source": "MitoCarta3.0 + Kamath 2022 Nat Neurosci",
+                    "provenance": "MitoCarta3.0 Complex-I Q-site subunits + Kamath 2022 SN snRNA-seq (SOX6/AGTR1 vulnerable DA neurons)",
                     "isGate": false
                 },
                 {
@@ -632,6 +639,7 @@
                     "status": "supports",
                     "detail": "8 mechanistic assay hits illustrate the chain (corroboration only \u2014 anti-diagnostic, not a discriminator).",
                     "source": "EPA ToxCast via NICEATM ICE",
+                    "provenance": "EPA ToxCast / invitroDB v4.2 via NICEATM ICE (hitcall Active; queried on the salt-form-correct CAS)",
                     "isGate": false
                 },
                 {
@@ -639,6 +647,7 @@
                     "status": "supports",
                     "detail": "active metabolite of MPTP (Langston 1983).",
                     "source": "Published cohorts / meta-analyses",
+                    "provenance": "Curated from published cohorts / meta-analyses (PubMed / Europe PMC full-text extraction)",
                     "isGate": false
                 },
                 {
@@ -646,6 +655,7 @@
                     "status": "supports",
                     "detail": "Brain-penetrant \u2014 plausible CNS exposure.",
                     "source": "B3DB / BOILED-Egg (structure-based)",
+                    "provenance": "B3DB classification + RDKit BOILED-Egg (TPSA / MolLogP), structure-based",
                     "isGate": false
                 }
             ],
@@ -1011,6 +1021,7 @@
                     "status": "supports",
                     "detail": "Curated CTD Parkinson's DirectEvidence (diagnostic).",
                     "source": "CTD curated DirectEvidence / AOP-Wiki",
+                    "provenance": "CTD curated chemical-disease DirectEvidence (bulk report; MESH:D010300 Parkinson Disease) + AOP-Wiki registered neuro-AOP stressors",
                     "isGate": false
                 },
                 {
@@ -1018,6 +1029,7 @@
                     "status": "supports",
                     "detail": "MIE grounded in MitoCarta Complex-I Q-site subunits; adverse outcome in the Kamath SOX6/AGTR1 vulnerable dopaminergic-neuron population.",
                     "source": "MitoCarta3.0 + Kamath 2022 Nat Neurosci",
+                    "provenance": "MitoCarta3.0 Complex-I Q-site subunits + Kamath 2022 SN snRNA-seq (SOX6/AGTR1 vulnerable DA neurons)",
                     "isGate": false
                 },
                 {
@@ -1025,6 +1037,7 @@
                     "status": "not_assessable",
                     "detail": "Thin in ToxCast (research reagent / metal).",
                     "source": "EPA ToxCast via NICEATM ICE",
+                    "provenance": "EPA ToxCast / invitroDB v4.2 via NICEATM ICE (hitcall Active; queried on the salt-form-correct CAS)",
                     "isGate": false
                 },
                 {
@@ -1032,6 +1045,7 @@
                     "status": "supports",
                     "detail": "causal parkinsonism (case series) (Langston 1983 (Science)).",
                     "source": "Published cohorts / meta-analyses",
+                    "provenance": "Curated from published cohorts / meta-analyses (PubMed / Europe PMC full-text extraction)",
                     "isGate": false
                 },
                 {
@@ -1039,6 +1053,7 @@
                     "status": "supports",
                     "detail": "Brain-penetrant \u2014 plausible CNS exposure.",
                     "source": "B3DB / BOILED-Egg (structure-based)",
+                    "provenance": "B3DB classification + RDKit BOILED-Egg (TPSA / MolLogP), structure-based",
                     "isGate": false
                 }
             ],
@@ -1342,6 +1357,7 @@
                     "status": "supports",
                     "detail": "Curated convergence: CTD Parkinson's DirectEvidence AND registered neuro-AOP stressor.",
                     "source": "CTD curated DirectEvidence / AOP-Wiki",
+                    "provenance": "CTD curated chemical-disease DirectEvidence (bulk report; MESH:D010300 Parkinson Disease) + AOP-Wiki registered neuro-AOP stressors",
                     "isGate": false
                 },
                 {
@@ -1349,6 +1365,7 @@
                     "status": "supports",
                     "detail": "MIE grounded in MitoCarta Complex-I Q-site subunits; adverse outcome in the Kamath SOX6/AGTR1 vulnerable dopaminergic-neuron population.",
                     "source": "MitoCarta3.0 + Kamath 2022 Nat Neurosci",
+                    "provenance": "MitoCarta3.0 Complex-I Q-site subunits + Kamath 2022 SN snRNA-seq (SOX6/AGTR1 vulnerable DA neurons)",
                     "isGate": false
                 },
                 {
@@ -1356,6 +1373,7 @@
                     "status": "supports",
                     "detail": "32 mechanistic assay hits illustrate the chain (corroboration only \u2014 anti-diagnostic, not a discriminator).",
                     "source": "EPA ToxCast via NICEATM ICE",
+                    "provenance": "EPA ToxCast / invitroDB v4.2 via NICEATM ICE (hitcall Active; queried on the salt-form-correct CAS)",
                     "isGate": false
                 },
                 {
@@ -1363,6 +1381,7 @@
                     "status": "supports",
                     "detail": "PD OR ~2-2.5 (Tanner 2011; Pezzoli&Cereda 2013 meta).",
                     "source": "Published cohorts / meta-analyses",
+                    "provenance": "Curated from published cohorts / meta-analyses (PubMed / Europe PMC full-text extraction)",
                     "isGate": false
                 },
                 {
@@ -1370,6 +1389,7 @@
                     "status": "supports",
                     "detail": "Brain-penetrant \u2014 plausible CNS exposure.",
                     "source": "B3DB / BOILED-Egg (structure-based)",
+                    "provenance": "B3DB classification + RDKit BOILED-Egg (TPSA / MolLogP), structure-based",
                     "isGate": false
                 }
             ],
@@ -1703,6 +1723,7 @@
                     "status": "supports",
                     "detail": "Curated CTD Parkinson's DirectEvidence (diagnostic).",
                     "source": "CTD curated DirectEvidence / AOP-Wiki",
+                    "provenance": "CTD curated chemical-disease DirectEvidence (bulk report; MESH:D010300 Parkinson Disease) + AOP-Wiki registered neuro-AOP stressors",
                     "isGate": false
                 },
                 {
@@ -1710,6 +1731,7 @@
                     "status": "supports",
                     "detail": "MIE grounded in MitoCarta Complex-I Q-site subunits; adverse outcome in the Kamath SOX6/AGTR1 vulnerable dopaminergic-neuron population.",
                     "source": "MitoCarta3.0 + Kamath 2022 Nat Neurosci",
+                    "provenance": "MitoCarta3.0 Complex-I Q-site subunits + Kamath 2022 SN snRNA-seq (SOX6/AGTR1 vulnerable DA neurons)",
                     "isGate": false
                 },
                 {
@@ -1717,6 +1739,7 @@
                     "status": "not_assessable",
                     "detail": "Thin in ToxCast (research reagent / metal).",
                     "source": "EPA ToxCast via NICEATM ICE",
+                    "provenance": "EPA ToxCast / invitroDB v4.2 via NICEATM ICE (hitcall Active; queried on the salt-form-correct CAS)",
                     "isGate": false
                 },
                 {
@@ -1724,6 +1747,7 @@
                     "status": "supports",
                     "detail": "PD OR ~1.75 (up to ~2-4 combined) (Costello 2009 (AJE)).",
                     "source": "Published cohorts / meta-analyses",
+                    "provenance": "Curated from published cohorts / meta-analyses (PubMed / Europe PMC full-text extraction)",
                     "isGate": false
                 },
                 {
@@ -1731,6 +1755,7 @@
                     "status": "not_assessable",
                     "detail": "Non-penetrant by structure (e.g. lesioning agent delivered directly / enters via transporters).",
                     "source": "B3DB / BOILED-Egg (structure-based)",
+                    "provenance": "B3DB classification + RDKit BOILED-Egg (TPSA / MolLogP), structure-based",
                     "isGate": false
                 }
             ],
@@ -2098,6 +2123,7 @@
                     "status": "supports",
                     "detail": "Registered stressor of neuro AOP(s) [499 500] (diagnostic).",
                     "source": "CTD curated DirectEvidence / AOP-Wiki",
+                    "provenance": "CTD curated chemical-disease DirectEvidence (bulk report; MESH:D010300 Parkinson Disease) + AOP-Wiki registered neuro-AOP stressors",
                     "isGate": false
                 },
                 {
@@ -2105,6 +2131,7 @@
                     "status": "supports",
                     "detail": "MIE grounded in MitoCarta Complex-I Q-site subunits; adverse outcome in the Kamath SOX6/AGTR1 vulnerable dopaminergic-neuron population.",
                     "source": "MitoCarta3.0 + Kamath 2022 Nat Neurosci",
+                    "provenance": "MitoCarta3.0 Complex-I Q-site subunits + Kamath 2022 SN snRNA-seq (SOX6/AGTR1 vulnerable DA neurons)",
                     "isGate": false
                 },
                 {
@@ -2112,6 +2139,7 @@
                     "status": "supports",
                     "detail": "7 mechanistic assay hits illustrate the chain (corroboration only \u2014 anti-diagnostic, not a discriminator).",
                     "source": "EPA ToxCast via NICEATM ICE",
+                    "provenance": "EPA ToxCast / invitroDB v4.2 via NICEATM ICE (hitcall Active; queried on the salt-form-correct CAS)",
                     "isGate": false
                 },
                 {
@@ -2119,6 +2147,7 @@
                     "status": "not_assessable",
                     "detail": "Non-penetrant by structure (e.g. lesioning agent delivered directly / enters via transporters).",
                     "source": "B3DB / BOILED-Egg (structure-based)",
+                    "provenance": "B3DB classification + RDKit BOILED-Egg (TPSA / MolLogP), structure-based",
                     "isGate": false
                 }
             ],
@@ -2471,6 +2500,7 @@
                     "status": "supports",
                     "detail": "Registered stressor of neuro AOP(s) [17] (diagnostic).",
                     "source": "CTD curated DirectEvidence / AOP-Wiki",
+                    "provenance": "CTD curated chemical-disease DirectEvidence (bulk report; MESH:D010300 Parkinson Disease) + AOP-Wiki registered neuro-AOP stressors",
                     "isGate": false
                 },
                 {
@@ -2478,6 +2508,7 @@
                     "status": "supports",
                     "detail": "50 mechanistic assay hits illustrate the chain (corroboration only \u2014 anti-diagnostic, not a discriminator).",
                     "source": "EPA ToxCast via NICEATM ICE",
+                    "provenance": "EPA ToxCast / invitroDB v4.2 via NICEATM ICE (hitcall Active; queried on the salt-form-correct CAS)",
                     "isGate": false
                 },
                 {
@@ -2485,6 +2516,7 @@
                     "status": "supports",
                     "detail": "PD associations inconsistent (various).",
                     "source": "Published cohorts / meta-analyses",
+                    "provenance": "Curated from published cohorts / meta-analyses (PubMed / Europe PMC full-text extraction)",
                     "isGate": false
                 },
                 {
@@ -2492,6 +2524,7 @@
                     "status": "not_assessable",
                     "detail": "Non-penetrant by structure (e.g. lesioning agent delivered directly / enters via transporters).",
                     "source": "B3DB / BOILED-Egg (structure-based)",
+                    "provenance": "B3DB classification + RDKit BOILED-Egg (TPSA / MolLogP), structure-based",
                     "isGate": false
                 }
             ],
@@ -2834,6 +2867,7 @@
                     "status": "supports",
                     "detail": "Registered stressor of neuro AOP(s) [12 499 500] (diagnostic).",
                     "source": "CTD curated DirectEvidence / AOP-Wiki",
+                    "provenance": "CTD curated chemical-disease DirectEvidence (bulk report; MESH:D010300 Parkinson Disease) + AOP-Wiki registered neuro-AOP stressors",
                     "isGate": false
                 },
                 {
@@ -2841,6 +2875,7 @@
                     "status": "not_assessable",
                     "detail": "Thin in ToxCast (research reagent / metal).",
                     "source": "EPA ToxCast via NICEATM ICE",
+                    "provenance": "EPA ToxCast / invitroDB v4.2 via NICEATM ICE (hitcall Active; queried on the salt-form-correct CAS)",
                     "isGate": false
                 },
                 {
@@ -2848,6 +2883,7 @@
                     "status": "supports",
                     "detail": "PD elevated w/ bone lead (Weisskopf 2010 (AJE)).",
                     "source": "Published cohorts / meta-analyses",
+                    "provenance": "Curated from published cohorts / meta-analyses (PubMed / Europe PMC full-text extraction)",
                     "isGate": false
                 },
                 {
@@ -2855,6 +2891,7 @@
                     "status": "not_assessable",
                     "detail": "Non-penetrant by structure (e.g. lesioning agent delivered directly / enters via transporters).",
                     "source": "B3DB / BOILED-Egg (structure-based)",
+                    "provenance": "B3DB classification + RDKit BOILED-Egg (TPSA / MolLogP), structure-based",
                     "isGate": false
                 }
             ],
@@ -3210,6 +3247,7 @@
                     "status": "supports",
                     "detail": "Registered stressor of neuro AOP(s) [3] (diagnostic).",
                     "source": "CTD curated DirectEvidence / AOP-Wiki",
+                    "provenance": "CTD curated chemical-disease DirectEvidence (bulk report; MESH:D010300 Parkinson Disease) + AOP-Wiki registered neuro-AOP stressors",
                     "isGate": false
                 },
                 {
@@ -3217,6 +3255,7 @@
                     "status": "supports",
                     "detail": "MIE grounded in MitoCarta Complex-I Q-site subunits; adverse outcome in the Kamath SOX6/AGTR1 vulnerable dopaminergic-neuron population.",
                     "source": "MitoCarta3.0 + Kamath 2022 Nat Neurosci",
+                    "provenance": "MitoCarta3.0 Complex-I Q-site subunits + Kamath 2022 SN snRNA-seq (SOX6/AGTR1 vulnerable DA neurons)",
                     "isGate": false
                 },
                 {
@@ -3224,6 +3263,7 @@
                     "status": "not_assessable",
                     "detail": "Thin in ToxCast (research reagent / metal).",
                     "source": "EPA ToxCast via NICEATM ICE",
+                    "provenance": "EPA ToxCast / invitroDB v4.2 via NICEATM ICE (hitcall Active; queried on the salt-form-correct CAS)",
                     "isGate": false
                 },
                 {
@@ -3231,6 +3271,7 @@
                     "status": "supports",
                     "detail": "Brain-penetrant \u2014 plausible CNS exposure.",
                     "source": "B3DB / BOILED-Egg (structure-based)",
+                    "provenance": "B3DB classification + RDKit BOILED-Egg (TPSA / MolLogP), structure-based",
                     "isGate": false
                 }
             ],
@@ -3590,6 +3631,7 @@
                     "status": "supports",
                     "detail": "Curated CTD Parkinson's DirectEvidence (diagnostic).",
                     "source": "CTD curated DirectEvidence / AOP-Wiki",
+                    "provenance": "CTD curated chemical-disease DirectEvidence (bulk report; MESH:D010300 Parkinson Disease) + AOP-Wiki registered neuro-AOP stressors",
                     "isGate": false
                 },
                 {
@@ -3597,6 +3639,7 @@
                     "status": "supports",
                     "detail": "MIE grounded in MitoCarta Complex-I Q-site subunits; adverse outcome in the Kamath SOX6/AGTR1 vulnerable dopaminergic-neuron population.",
                     "source": "MitoCarta3.0 + Kamath 2022 Nat Neurosci",
+                    "provenance": "MitoCarta3.0 Complex-I Q-site subunits + Kamath 2022 SN snRNA-seq (SOX6/AGTR1 vulnerable DA neurons)",
                     "isGate": false
                 },
                 {
@@ -3604,6 +3647,7 @@
                     "status": "not_assessable",
                     "detail": "Thin in ToxCast (research reagent / metal).",
                     "source": "EPA ToxCast via NICEATM ICE",
+                    "provenance": "EPA ToxCast / invitroDB v4.2 via NICEATM ICE (hitcall Active; queried on the salt-form-correct CAS)",
                     "isGate": false
                 },
                 {
@@ -3611,6 +3655,7 @@
                     "status": "supports",
                     "detail": "elevated in PD brain (case-control) (Fleming 1994 (Ann Neurol)).",
                     "source": "Published cohorts / meta-analyses",
+                    "provenance": "Curated from published cohorts / meta-analyses (PubMed / Europe PMC full-text extraction)",
                     "isGate": false
                 },
                 {
@@ -3618,6 +3663,7 @@
                     "status": "supports",
                     "detail": "Brain-penetrant \u2014 plausible CNS exposure.",
                     "source": "B3DB / BOILED-Egg (structure-based)",
+                    "provenance": "B3DB classification + RDKit BOILED-Egg (TPSA / MolLogP), structure-based",
                     "isGate": false
                 }
             ],
@@ -3985,6 +4031,7 @@
                     "status": "supports",
                     "detail": "Curated convergence: CTD Parkinson's DirectEvidence AND registered neuro-AOP stressor.",
                     "source": "CTD curated DirectEvidence / AOP-Wiki",
+                    "provenance": "CTD curated chemical-disease DirectEvidence (bulk report; MESH:D010300 Parkinson Disease) + AOP-Wiki registered neuro-AOP stressors",
                     "isGate": false
                 },
                 {
@@ -3992,6 +4039,7 @@
                     "status": "supports",
                     "detail": "MIE grounded in MitoCarta Complex-I Q-site subunits; adverse outcome in the Kamath SOX6/AGTR1 vulnerable dopaminergic-neuron population.",
                     "source": "MitoCarta3.0 + Kamath 2022 Nat Neurosci",
+                    "provenance": "MitoCarta3.0 Complex-I Q-site subunits + Kamath 2022 SN snRNA-seq (SOX6/AGTR1 vulnerable DA neurons)",
                     "isGate": false
                 },
                 {
@@ -3999,6 +4047,7 @@
                     "status": "supports",
                     "detail": "42 mechanistic assay hits illustrate the chain (corroboration only \u2014 anti-diagnostic, not a discriminator).",
                     "source": "EPA ToxCast via NICEATM ICE",
+                    "provenance": "EPA ToxCast / invitroDB v4.2 via NICEATM ICE (hitcall Active; queried on the salt-form-correct CAS)",
                     "isGate": false
                 },
                 {
@@ -4006,6 +4055,7 @@
                     "status": "supports",
                     "detail": "PD elevated (OP class) (Costello/Wang OP-PD studies).",
                     "source": "Published cohorts / meta-analyses",
+                    "provenance": "Curated from published cohorts / meta-analyses (PubMed / Europe PMC full-text extraction)",
                     "isGate": false
                 },
                 {
@@ -4013,6 +4063,7 @@
                     "status": "supports",
                     "detail": "Brain-penetrant \u2014 plausible CNS exposure.",
                     "source": "B3DB / BOILED-Egg (structure-based)",
+                    "provenance": "B3DB classification + RDKit BOILED-Egg (TPSA / MolLogP), structure-based",
                     "isGate": false
                 }
             ],
@@ -4378,6 +4429,7 @@
                     "status": "supports",
                     "detail": "Curated CTD Parkinson's DirectEvidence (diagnostic).",
                     "source": "CTD curated DirectEvidence / AOP-Wiki",
+                    "provenance": "CTD curated chemical-disease DirectEvidence (bulk report; MESH:D010300 Parkinson Disease) + AOP-Wiki registered neuro-AOP stressors",
                     "isGate": false
                 },
                 {
@@ -4385,6 +4437,7 @@
                     "status": "supports",
                     "detail": "MIE grounded in MitoCarta Complex-I Q-site subunits; adverse outcome in the Kamath SOX6/AGTR1 vulnerable dopaminergic-neuron population.",
                     "source": "MitoCarta3.0 + Kamath 2022 Nat Neurosci",
+                    "provenance": "MitoCarta3.0 Complex-I Q-site subunits + Kamath 2022 SN snRNA-seq (SOX6/AGTR1 vulnerable DA neurons)",
                     "isGate": false
                 },
                 {
@@ -4392,6 +4445,7 @@
                     "status": "not_assessable",
                     "detail": "Thin in ToxCast (research reagent / metal).",
                     "source": "EPA ToxCast via NICEATM ICE",
+                    "provenance": "EPA ToxCast / invitroDB v4.2 via NICEATM ICE (hitcall Active; queried on the salt-form-correct CAS)",
                     "isGate": false
                 },
                 {
@@ -4399,6 +4453,7 @@
                     "status": "not_assessable",
                     "detail": "Non-penetrant by structure (e.g. lesioning agent delivered directly / enters via transporters).",
                     "source": "B3DB / BOILED-Egg (structure-based)",
+                    "provenance": "B3DB classification + RDKit BOILED-Egg (TPSA / MolLogP), structure-based",
                     "isGate": false
                 }
             ],
@@ -4602,6 +4657,7 @@
                     "status": "absent",
                     "detail": "No curated Parkinson's DirectEvidence and not a registered neuro-AOP stressor.",
                     "source": "CTD curated DirectEvidence / AOP-Wiki",
+                    "provenance": "CTD curated chemical-disease DirectEvidence (bulk report; MESH:D010300 Parkinson Disease) + AOP-Wiki registered neuro-AOP stressors",
                     "isGate": false
                 },
                 {
@@ -4609,6 +4665,7 @@
                     "status": "absent",
                     "detail": "Zero parkinsonism signal across 668109 FAERS reports (ROR 0.68, not elevated).",
                     "source": "openFDA FAERS",
+                    "provenance": "openFDA drug/event; 2x2 disproportionality (ROR) for the parkinsonism MedDRA cluster",
                     "isGate": false
                 },
                 {
@@ -4616,6 +4673,7 @@
                     "status": "not_assessable",
                     "detail": "Brain-penetrant, but penetrance is not a discriminator here.",
                     "source": "B3DB / BOILED-Egg (structure-based)",
+                    "provenance": "B3DB classification + RDKit BOILED-Egg (TPSA / MolLogP), structure-based",
                     "isGate": false
                 }
             ],
@@ -4626,6 +4684,7 @@
                         "status": "absent",
                         "detail": "No curated Parkinson's DirectEvidence and not a registered neuro-AOP stressor.",
                         "source": "CTD curated DirectEvidence / AOP-Wiki",
+                        "provenance": "CTD curated chemical-disease DirectEvidence (bulk report; MESH:D010300 Parkinson Disease) + AOP-Wiki registered neuro-AOP stressors",
                         "isGate": false
                     },
                     {
@@ -4633,6 +4692,7 @@
                         "status": "absent",
                         "detail": "Zero parkinsonism signal across 668109 FAERS reports (ROR 0.68, not elevated).",
                         "source": "openFDA FAERS",
+                        "provenance": "openFDA drug/event; 2x2 disproportionality (ROR) for the parkinsonism MedDRA cluster",
                         "isGate": false
                     }
                 ],
@@ -4749,6 +4809,7 @@
                     "status": "absent",
                     "detail": "No curated Parkinson's DirectEvidence and not a registered neuro-AOP stressor.",
                     "source": "CTD curated DirectEvidence / AOP-Wiki",
+                    "provenance": "CTD curated chemical-disease DirectEvidence (bulk report; MESH:D010300 Parkinson Disease) + AOP-Wiki registered neuro-AOP stressors",
                     "isGate": false
                 },
                 {
@@ -4756,6 +4817,7 @@
                     "status": "absent",
                     "detail": "Zero parkinsonism signal across 82639 FAERS reports (ROR 0.58, not elevated).",
                     "source": "openFDA FAERS",
+                    "provenance": "openFDA drug/event; 2x2 disproportionality (ROR) for the parkinsonism MedDRA cluster",
                     "isGate": false
                 },
                 {
@@ -4763,6 +4825,7 @@
                     "status": "refutes",
                     "detail": "Low brain exposure (BBB-negative): an orthogonal pharmacokinetic reason it cannot be a driver.",
                     "source": "B3DB / BOILED-Egg (structure-based)",
+                    "provenance": "B3DB classification + RDKit BOILED-Egg (TPSA / MolLogP), structure-based",
                     "isGate": false
                 }
             ],
@@ -4773,6 +4836,7 @@
                         "status": "absent",
                         "detail": "No curated Parkinson's DirectEvidence and not a registered neuro-AOP stressor.",
                         "source": "CTD curated DirectEvidence / AOP-Wiki",
+                        "provenance": "CTD curated chemical-disease DirectEvidence (bulk report; MESH:D010300 Parkinson Disease) + AOP-Wiki registered neuro-AOP stressors",
                         "isGate": false
                     },
                     {
@@ -4780,6 +4844,7 @@
                         "status": "absent",
                         "detail": "Zero parkinsonism signal across 82639 FAERS reports (ROR 0.58, not elevated).",
                         "source": "openFDA FAERS",
+                        "provenance": "openFDA drug/event; 2x2 disproportionality (ROR) for the parkinsonism MedDRA cluster",
                         "isGate": false
                     },
                     {
@@ -4787,6 +4852,7 @@
                         "status": "refutes",
                         "detail": "Low brain exposure (BBB-negative): an orthogonal pharmacokinetic reason it cannot be a driver.",
                         "source": "B3DB / BOILED-Egg (structure-based)",
+                        "provenance": "B3DB classification + RDKit BOILED-Egg (TPSA / MolLogP), structure-based",
                         "isGate": false
                     }
                 ],
@@ -4910,6 +4976,7 @@
                     "status": "absent",
                     "detail": "No curated Parkinson's DirectEvidence and not a registered neuro-AOP stressor.",
                     "source": "CTD curated DirectEvidence / AOP-Wiki",
+                    "provenance": "CTD curated chemical-disease DirectEvidence (bulk report; MESH:D010300 Parkinson Disease) + AOP-Wiki registered neuro-AOP stressors",
                     "isGate": false
                 },
                 {
@@ -4917,6 +4984,7 @@
                     "status": "supports",
                     "detail": "Bioactive: 1 mechanistic assay hits (incl. 0 mitochondrial). This is the imposter signal the engine correctly does NOT act on.",
                     "source": "EPA ToxCast via NICEATM ICE",
+                    "provenance": "EPA ToxCast / invitroDB v4.2 via NICEATM ICE (hitcall Active; queried on the salt-form-correct CAS)",
                     "isGate": false
                 },
                 {
@@ -4924,6 +4992,7 @@
                     "status": "absent",
                     "detail": "Zero parkinsonism signal across 393086 FAERS reports (ROR 0.98, not elevated).",
                     "source": "openFDA FAERS",
+                    "provenance": "openFDA drug/event; 2x2 disproportionality (ROR) for the parkinsonism MedDRA cluster",
                     "isGate": false
                 },
                 {
@@ -4931,6 +5000,7 @@
                     "status": "refutes",
                     "detail": "Low brain exposure (BBB-negative): an orthogonal pharmacokinetic reason it cannot be a driver.",
                     "source": "B3DB / BOILED-Egg (structure-based)",
+                    "provenance": "B3DB classification + RDKit BOILED-Egg (TPSA / MolLogP), structure-based",
                     "isGate": false
                 }
             ],
@@ -4941,6 +5011,7 @@
                         "status": "absent",
                         "detail": "No curated Parkinson's DirectEvidence and not a registered neuro-AOP stressor.",
                         "source": "CTD curated DirectEvidence / AOP-Wiki",
+                        "provenance": "CTD curated chemical-disease DirectEvidence (bulk report; MESH:D010300 Parkinson Disease) + AOP-Wiki registered neuro-AOP stressors",
                         "isGate": false
                     },
                     {
@@ -4948,6 +5019,7 @@
                         "status": "absent",
                         "detail": "Zero parkinsonism signal across 393086 FAERS reports (ROR 0.98, not elevated).",
                         "source": "openFDA FAERS",
+                        "provenance": "openFDA drug/event; 2x2 disproportionality (ROR) for the parkinsonism MedDRA cluster",
                         "isGate": false
                     },
                     {
@@ -4955,6 +5027,7 @@
                         "status": "refutes",
                         "detail": "Low brain exposure (BBB-negative): an orthogonal pharmacokinetic reason it cannot be a driver.",
                         "source": "B3DB / BOILED-Egg (structure-based)",
+                        "provenance": "B3DB classification + RDKit BOILED-Egg (TPSA / MolLogP), structure-based",
                         "isGate": false
                     }
                 ],
@@ -5084,6 +5157,7 @@
                     "status": "absent",
                     "detail": "No curated Parkinson's DirectEvidence and not a registered neuro-AOP stressor.",
                     "source": "CTD curated DirectEvidence / AOP-Wiki",
+                    "provenance": "CTD curated chemical-disease DirectEvidence (bulk report; MESH:D010300 Parkinson Disease) + AOP-Wiki registered neuro-AOP stressors",
                     "isGate": false
                 },
                 {
@@ -5091,6 +5165,7 @@
                     "status": "supports",
                     "detail": "Bioactive: 6 mechanistic assay hits (incl. 0 mitochondrial). This is the imposter signal the engine correctly does NOT act on.",
                     "source": "EPA ToxCast via NICEATM ICE",
+                    "provenance": "EPA ToxCast / invitroDB v4.2 via NICEATM ICE (hitcall Active; queried on the salt-form-correct CAS)",
                     "isGate": false
                 },
                 {
@@ -5098,6 +5173,7 @@
                     "status": "absent",
                     "detail": "Zero parkinsonism signal across 126794 FAERS reports (ROR 0.5, not elevated).",
                     "source": "openFDA FAERS",
+                    "provenance": "openFDA drug/event; 2x2 disproportionality (ROR) for the parkinsonism MedDRA cluster",
                     "isGate": false
                 },
                 {
@@ -5105,6 +5181,7 @@
                     "status": "refutes",
                     "detail": "Low brain exposure (BBB-negative): an orthogonal pharmacokinetic reason it cannot be a driver.",
                     "source": "B3DB / BOILED-Egg (structure-based)",
+                    "provenance": "B3DB classification + RDKit BOILED-Egg (TPSA / MolLogP), structure-based",
                     "isGate": false
                 }
             ],
@@ -5115,6 +5192,7 @@
                         "status": "absent",
                         "detail": "No curated Parkinson's DirectEvidence and not a registered neuro-AOP stressor.",
                         "source": "CTD curated DirectEvidence / AOP-Wiki",
+                        "provenance": "CTD curated chemical-disease DirectEvidence (bulk report; MESH:D010300 Parkinson Disease) + AOP-Wiki registered neuro-AOP stressors",
                         "isGate": false
                     },
                     {
@@ -5122,6 +5200,7 @@
                         "status": "absent",
                         "detail": "Zero parkinsonism signal across 126794 FAERS reports (ROR 0.5, not elevated).",
                         "source": "openFDA FAERS",
+                        "provenance": "openFDA drug/event; 2x2 disproportionality (ROR) for the parkinsonism MedDRA cluster",
                         "isGate": false
                     },
                     {
@@ -5129,6 +5208,7 @@
                         "status": "refutes",
                         "detail": "Low brain exposure (BBB-negative): an orthogonal pharmacokinetic reason it cannot be a driver.",
                         "source": "B3DB / BOILED-Egg (structure-based)",
+                        "provenance": "B3DB classification + RDKit BOILED-Egg (TPSA / MolLogP), structure-based",
                         "isGate": false
                     }
                 ],
@@ -5258,6 +5338,7 @@
                     "status": "absent",
                     "detail": "No curated Parkinson's DirectEvidence and not a registered neuro-AOP stressor.",
                     "source": "CTD curated DirectEvidence / AOP-Wiki",
+                    "provenance": "CTD curated chemical-disease DirectEvidence (bulk report; MESH:D010300 Parkinson Disease) + AOP-Wiki registered neuro-AOP stressors",
                     "isGate": false
                 },
                 {
@@ -5265,6 +5346,7 @@
                     "status": "absent",
                     "detail": "Zero parkinsonism signal across 498436 FAERS reports (ROR 0.79, not elevated).",
                     "source": "openFDA FAERS",
+                    "provenance": "openFDA drug/event; 2x2 disproportionality (ROR) for the parkinsonism MedDRA cluster",
                     "isGate": false
                 },
                 {
@@ -5272,6 +5354,7 @@
                     "status": "not_assessable",
                     "detail": "Brain-penetrant, but penetrance is not a discriminator here.",
                     "source": "B3DB / BOILED-Egg (structure-based)",
+                    "provenance": "B3DB classification + RDKit BOILED-Egg (TPSA / MolLogP), structure-based",
                     "isGate": false
                 }
             ],
@@ -5282,6 +5365,7 @@
                         "status": "absent",
                         "detail": "No curated Parkinson's DirectEvidence and not a registered neuro-AOP stressor.",
                         "source": "CTD curated DirectEvidence / AOP-Wiki",
+                        "provenance": "CTD curated chemical-disease DirectEvidence (bulk report; MESH:D010300 Parkinson Disease) + AOP-Wiki registered neuro-AOP stressors",
                         "isGate": false
                     },
                     {
@@ -5289,6 +5373,7 @@
                         "status": "absent",
                         "detail": "Zero parkinsonism signal across 498436 FAERS reports (ROR 0.79, not elevated).",
                         "source": "openFDA FAERS",
+                        "provenance": "openFDA drug/event; 2x2 disproportionality (ROR) for the parkinsonism MedDRA cluster",
                         "isGate": false
                     }
                 ],
@@ -5406,6 +5491,7 @@
                     "status": "absent",
                     "detail": "No curated Parkinson's DirectEvidence and not a registered neuro-AOP stressor.",
                     "source": "CTD curated DirectEvidence / AOP-Wiki",
+                    "provenance": "CTD curated chemical-disease DirectEvidence (bulk report; MESH:D010300 Parkinson Disease) + AOP-Wiki registered neuro-AOP stressors",
                     "isGate": false
                 },
                 {
@@ -5413,6 +5499,7 @@
                     "status": "supports",
                     "detail": "Bioactive: 19 mechanistic assay hits (incl. 5 mitochondrial). This is the imposter signal the engine correctly does NOT act on.",
                     "source": "EPA ToxCast via NICEATM ICE",
+                    "provenance": "EPA ToxCast / invitroDB v4.2 via NICEATM ICE (hitcall Active; queried on the salt-form-correct CAS)",
                     "isGate": false
                 },
                 {
@@ -5420,6 +5507,7 @@
                     "status": "not_assessable",
                     "detail": "No assessable FAERS reports.",
                     "source": "openFDA FAERS",
+                    "provenance": "openFDA drug/event; 2x2 disproportionality (ROR) for the parkinsonism MedDRA cluster",
                     "isGate": false
                 },
                 {
@@ -5427,6 +5515,7 @@
                     "status": "refutes",
                     "detail": "Low brain exposure (BBB-negative): an orthogonal pharmacokinetic reason it cannot be a driver.",
                     "source": "B3DB / BOILED-Egg (structure-based)",
+                    "provenance": "B3DB classification + RDKit BOILED-Egg (TPSA / MolLogP), structure-based",
                     "isGate": false
                 }
             ],
@@ -5437,6 +5526,7 @@
                         "status": "absent",
                         "detail": "No curated Parkinson's DirectEvidence and not a registered neuro-AOP stressor.",
                         "source": "CTD curated DirectEvidence / AOP-Wiki",
+                        "provenance": "CTD curated chemical-disease DirectEvidence (bulk report; MESH:D010300 Parkinson Disease) + AOP-Wiki registered neuro-AOP stressors",
                         "isGate": false
                     },
                     {
@@ -5444,6 +5534,7 @@
                         "status": "refutes",
                         "detail": "Low brain exposure (BBB-negative): an orthogonal pharmacokinetic reason it cannot be a driver.",
                         "source": "B3DB / BOILED-Egg (structure-based)",
+                        "provenance": "B3DB classification + RDKit BOILED-Egg (TPSA / MolLogP), structure-based",
                         "isGate": false
                     }
                 ],
@@ -5567,6 +5658,7 @@
                     "status": "absent",
                     "detail": "No curated Parkinson's DirectEvidence and not a registered neuro-AOP stressor.",
                     "source": "CTD curated DirectEvidence / AOP-Wiki",
+                    "provenance": "CTD curated chemical-disease DirectEvidence (bulk report; MESH:D010300 Parkinson Disease) + AOP-Wiki registered neuro-AOP stressors",
                     "isGate": false
                 },
                 {
@@ -5574,6 +5666,7 @@
                     "status": "supports",
                     "detail": "Bioactive: 1 mechanistic assay hits (incl. 0 mitochondrial). This is the imposter signal the engine correctly does NOT act on.",
                     "source": "EPA ToxCast via NICEATM ICE",
+                    "provenance": "EPA ToxCast / invitroDB v4.2 via NICEATM ICE (hitcall Active; queried on the salt-form-correct CAS)",
                     "isGate": false
                 },
                 {
@@ -5581,6 +5674,7 @@
                     "status": "absent",
                     "detail": "Zero parkinsonism signal across 32191 FAERS reports (ROR 0.27, not elevated).",
                     "source": "openFDA FAERS",
+                    "provenance": "openFDA drug/event; 2x2 disproportionality (ROR) for the parkinsonism MedDRA cluster",
                     "isGate": false
                 },
                 {
@@ -5588,6 +5682,7 @@
                     "status": "refutes",
                     "detail": "Low brain exposure (BBB-negative): an orthogonal pharmacokinetic reason it cannot be a driver.",
                     "source": "B3DB / BOILED-Egg (structure-based)",
+                    "provenance": "B3DB classification + RDKit BOILED-Egg (TPSA / MolLogP), structure-based",
                     "isGate": false
                 }
             ],
@@ -5598,6 +5693,7 @@
                         "status": "absent",
                         "detail": "No curated Parkinson's DirectEvidence and not a registered neuro-AOP stressor.",
                         "source": "CTD curated DirectEvidence / AOP-Wiki",
+                        "provenance": "CTD curated chemical-disease DirectEvidence (bulk report; MESH:D010300 Parkinson Disease) + AOP-Wiki registered neuro-AOP stressors",
                         "isGate": false
                     },
                     {
@@ -5605,6 +5701,7 @@
                         "status": "absent",
                         "detail": "Zero parkinsonism signal across 32191 FAERS reports (ROR 0.27, not elevated).",
                         "source": "openFDA FAERS",
+                        "provenance": "openFDA drug/event; 2x2 disproportionality (ROR) for the parkinsonism MedDRA cluster",
                         "isGate": false
                     },
                     {
@@ -5612,6 +5709,7 @@
                         "status": "refutes",
                         "detail": "Low brain exposure (BBB-negative): an orthogonal pharmacokinetic reason it cannot be a driver.",
                         "source": "B3DB / BOILED-Egg (structure-based)",
+                        "provenance": "B3DB classification + RDKit BOILED-Egg (TPSA / MolLogP), structure-based",
                         "isGate": false
                     }
                 ],
@@ -5741,6 +5839,7 @@
                     "status": "absent",
                     "detail": "No curated Parkinson's DirectEvidence and not a registered neuro-AOP stressor.",
                     "source": "CTD curated DirectEvidence / AOP-Wiki",
+                    "provenance": "CTD curated chemical-disease DirectEvidence (bulk report; MESH:D010300 Parkinson Disease) + AOP-Wiki registered neuro-AOP stressors",
                     "isGate": false
                 },
                 {
@@ -5748,6 +5847,7 @@
                     "status": "supports",
                     "detail": "Bioactive: 4 mechanistic assay hits (incl. 2 mitochondrial). This is the imposter signal the engine correctly does NOT act on.",
                     "source": "EPA ToxCast via NICEATM ICE",
+                    "provenance": "EPA ToxCast / invitroDB v4.2 via NICEATM ICE (hitcall Active; queried on the salt-form-correct CAS)",
                     "isGate": false
                 },
                 {
@@ -5755,6 +5855,7 @@
                     "status": "absent",
                     "detail": "Zero parkinsonism signal across 35322 FAERS reports (ROR 0.9, not elevated).",
                     "source": "openFDA FAERS",
+                    "provenance": "openFDA drug/event; 2x2 disproportionality (ROR) for the parkinsonism MedDRA cluster",
                     "isGate": false
                 },
                 {
@@ -5762,6 +5863,7 @@
                     "status": "refutes",
                     "detail": "Low brain exposure (BBB-negative): an orthogonal pharmacokinetic reason it cannot be a driver.",
                     "source": "B3DB / BOILED-Egg (structure-based)",
+                    "provenance": "B3DB classification + RDKit BOILED-Egg (TPSA / MolLogP), structure-based",
                     "isGate": false
                 }
             ],
@@ -5772,6 +5874,7 @@
                         "status": "absent",
                         "detail": "No curated Parkinson's DirectEvidence and not a registered neuro-AOP stressor.",
                         "source": "CTD curated DirectEvidence / AOP-Wiki",
+                        "provenance": "CTD curated chemical-disease DirectEvidence (bulk report; MESH:D010300 Parkinson Disease) + AOP-Wiki registered neuro-AOP stressors",
                         "isGate": false
                     },
                     {
@@ -5779,6 +5882,7 @@
                         "status": "absent",
                         "detail": "Zero parkinsonism signal across 35322 FAERS reports (ROR 0.9, not elevated).",
                         "source": "openFDA FAERS",
+                        "provenance": "openFDA drug/event; 2x2 disproportionality (ROR) for the parkinsonism MedDRA cluster",
                         "isGate": false
                     },
                     {
@@ -5786,6 +5890,7 @@
                         "status": "refutes",
                         "detail": "Low brain exposure (BBB-negative): an orthogonal pharmacokinetic reason it cannot be a driver.",
                         "source": "B3DB / BOILED-Egg (structure-based)",
+                        "provenance": "B3DB classification + RDKit BOILED-Egg (TPSA / MolLogP), structure-based",
                         "isGate": false
                     }
                 ],
@@ -5915,6 +6020,7 @@
                     "status": "absent",
                     "detail": "No curated Parkinson's DirectEvidence and not a registered neuro-AOP stressor.",
                     "source": "CTD curated DirectEvidence / AOP-Wiki",
+                    "provenance": "CTD curated chemical-disease DirectEvidence (bulk report; MESH:D010300 Parkinson Disease) + AOP-Wiki registered neuro-AOP stressors",
                     "isGate": false
                 },
                 {
@@ -5922,6 +6028,7 @@
                     "status": "supports",
                     "detail": "Bioactive: 14 mechanistic assay hits (incl. 3 mitochondrial). This is the imposter signal the engine correctly does NOT act on.",
                     "source": "EPA ToxCast via NICEATM ICE",
+                    "provenance": "EPA ToxCast / invitroDB v4.2 via NICEATM ICE (hitcall Active; queried on the salt-form-correct CAS)",
                     "isGate": false
                 },
                 {
@@ -5929,6 +6036,7 @@
                     "status": "not_assessable",
                     "detail": "Brain-penetrant, but penetrance is not a discriminator here.",
                     "source": "B3DB / BOILED-Egg (structure-based)",
+                    "provenance": "B3DB classification + RDKit BOILED-Egg (TPSA / MolLogP), structure-based",
                     "isGate": false
                 }
             ],
@@ -5939,6 +6047,7 @@
                         "status": "absent",
                         "detail": "No curated Parkinson's DirectEvidence and not a registered neuro-AOP stressor.",
                         "source": "CTD curated DirectEvidence / AOP-Wiki",
+                        "provenance": "CTD curated chemical-disease DirectEvidence (bulk report; MESH:D010300 Parkinson Disease) + AOP-Wiki registered neuro-AOP stressors",
                         "isGate": false
                     }
                 ],
@@ -6050,6 +6159,7 @@
                     "status": "absent",
                     "detail": "No curated Parkinson's DirectEvidence and not a registered neuro-AOP stressor.",
                     "source": "CTD curated DirectEvidence / AOP-Wiki",
+                    "provenance": "CTD curated chemical-disease DirectEvidence (bulk report; MESH:D010300 Parkinson Disease) + AOP-Wiki registered neuro-AOP stressors",
                     "isGate": false
                 },
                 {
@@ -6057,6 +6167,7 @@
                     "status": "supports",
                     "detail": "Bioactive: 16 mechanistic assay hits (incl. 3 mitochondrial). This is the imposter signal the engine correctly does NOT act on.",
                     "source": "EPA ToxCast via NICEATM ICE",
+                    "provenance": "EPA ToxCast / invitroDB v4.2 via NICEATM ICE (hitcall Active; queried on the salt-form-correct CAS)",
                     "isGate": false
                 },
                 {
@@ -6064,6 +6175,7 @@
                     "status": "not_assessable",
                     "detail": "Brain-penetrant, but penetrance is not a discriminator here.",
                     "source": "B3DB / BOILED-Egg (structure-based)",
+                    "provenance": "B3DB classification + RDKit BOILED-Egg (TPSA / MolLogP), structure-based",
                     "isGate": false
                 }
             ],
@@ -6074,6 +6186,7 @@
                         "status": "absent",
                         "detail": "No curated Parkinson's DirectEvidence and not a registered neuro-AOP stressor.",
                         "source": "CTD curated DirectEvidence / AOP-Wiki",
+                        "provenance": "CTD curated chemical-disease DirectEvidence (bulk report; MESH:D010300 Parkinson Disease) + AOP-Wiki registered neuro-AOP stressors",
                         "isGate": false
                     }
                 ],
@@ -6185,6 +6298,7 @@
                     "status": "absent",
                     "detail": "No curated Parkinson's DirectEvidence and not a registered neuro-AOP stressor.",
                     "source": "CTD curated DirectEvidence / AOP-Wiki",
+                    "provenance": "CTD curated chemical-disease DirectEvidence (bulk report; MESH:D010300 Parkinson Disease) + AOP-Wiki registered neuro-AOP stressors",
                     "isGate": false
                 },
                 {
@@ -6192,6 +6306,7 @@
                     "status": "not_assessable",
                     "detail": "Brain-penetrant, but penetrance is not a discriminator here.",
                     "source": "B3DB / BOILED-Egg (structure-based)",
+                    "provenance": "B3DB classification + RDKit BOILED-Egg (TPSA / MolLogP), structure-based",
                     "isGate": false
                 }
             ],
@@ -6202,6 +6317,7 @@
                         "status": "absent",
                         "detail": "No curated Parkinson's DirectEvidence and not a registered neuro-AOP stressor.",
                         "source": "CTD curated DirectEvidence / AOP-Wiki",
+                        "provenance": "CTD curated chemical-disease DirectEvidence (bulk report; MESH:D010300 Parkinson Disease) + AOP-Wiki registered neuro-AOP stressors",
                         "isGate": false
                     }
                 ],
@@ -6307,6 +6423,7 @@
                     "status": "absent",
                     "detail": "No curated Parkinson's DirectEvidence and not a registered neuro-AOP stressor.",
                     "source": "CTD curated DirectEvidence / AOP-Wiki",
+                    "provenance": "CTD curated chemical-disease DirectEvidence (bulk report; MESH:D010300 Parkinson Disease) + AOP-Wiki registered neuro-AOP stressors",
                     "isGate": false
                 },
                 {
@@ -6314,6 +6431,7 @@
                     "status": "supports",
                     "detail": "Bioactive: 17 mechanistic assay hits (incl. 2 mitochondrial). This is the imposter signal the engine correctly does NOT act on.",
                     "source": "EPA ToxCast via NICEATM ICE",
+                    "provenance": "EPA ToxCast / invitroDB v4.2 via NICEATM ICE (hitcall Active; queried on the salt-form-correct CAS)",
                     "isGate": false
                 },
                 {
@@ -6321,6 +6439,7 @@
                     "status": "absent",
                     "detail": "Zero parkinsonism signal across 261343 FAERS reports (ROR 1.07, not elevated).",
                     "source": "openFDA FAERS",
+                    "provenance": "openFDA drug/event; 2x2 disproportionality (ROR) for the parkinsonism MedDRA cluster",
                     "isGate": false
                 },
                 {
@@ -6328,6 +6447,7 @@
                     "status": "not_assessable",
                     "detail": "Brain-penetrant, but penetrance is not a discriminator here.",
                     "source": "B3DB / BOILED-Egg (structure-based)",
+                    "provenance": "B3DB classification + RDKit BOILED-Egg (TPSA / MolLogP), structure-based",
                     "isGate": false
                 }
             ],
@@ -6338,6 +6458,7 @@
                         "status": "absent",
                         "detail": "No curated Parkinson's DirectEvidence and not a registered neuro-AOP stressor.",
                         "source": "CTD curated DirectEvidence / AOP-Wiki",
+                        "provenance": "CTD curated chemical-disease DirectEvidence (bulk report; MESH:D010300 Parkinson Disease) + AOP-Wiki registered neuro-AOP stressors",
                         "isGate": false
                     },
                     {
@@ -6345,6 +6466,7 @@
                         "status": "absent",
                         "detail": "Zero parkinsonism signal across 261343 FAERS reports (ROR 1.07, not elevated).",
                         "source": "openFDA FAERS",
+                        "provenance": "openFDA drug/event; 2x2 disproportionality (ROR) for the parkinsonism MedDRA cluster",
                         "isGate": false
                     }
                 ],
@@ -6468,6 +6590,7 @@
                     "status": "absent",
                     "detail": "No curated Parkinson's DirectEvidence and not a registered neuro-AOP stressor.",
                     "source": "CTD curated DirectEvidence / AOP-Wiki",
+                    "provenance": "CTD curated chemical-disease DirectEvidence (bulk report; MESH:D010300 Parkinson Disease) + AOP-Wiki registered neuro-AOP stressors",
                     "isGate": false
                 },
                 {
@@ -6475,6 +6598,7 @@
                     "status": "refutes",
                     "detail": "Low brain exposure (BBB-negative): an orthogonal pharmacokinetic reason it cannot be a driver.",
                     "source": "B3DB / BOILED-Egg (structure-based)",
+                    "provenance": "B3DB classification + RDKit BOILED-Egg (TPSA / MolLogP), structure-based",
                     "isGate": false
                 }
             ],
@@ -6485,6 +6609,7 @@
                         "status": "absent",
                         "detail": "No curated Parkinson's DirectEvidence and not a registered neuro-AOP stressor.",
                         "source": "CTD curated DirectEvidence / AOP-Wiki",
+                        "provenance": "CTD curated chemical-disease DirectEvidence (bulk report; MESH:D010300 Parkinson Disease) + AOP-Wiki registered neuro-AOP stressors",
                         "isGate": false
                     },
                     {
@@ -6492,6 +6617,7 @@
                         "status": "refutes",
                         "detail": "Low brain exposure (BBB-negative): an orthogonal pharmacokinetic reason it cannot be a driver.",
                         "source": "B3DB / BOILED-Egg (structure-based)",
+                        "provenance": "B3DB classification + RDKit BOILED-Egg (TPSA / MolLogP), structure-based",
                         "isGate": false
                     }
                 ],
@@ -6602,6 +6728,7 @@
                     "status": "absent",
                     "detail": "No curated Parkinson's DirectEvidence and not a registered neuro-AOP stressor.",
                     "source": "CTD curated DirectEvidence / AOP-Wiki",
+                    "provenance": "CTD curated chemical-disease DirectEvidence (bulk report; MESH:D010300 Parkinson Disease) + AOP-Wiki registered neuro-AOP stressors",
                     "isGate": false
                 },
                 {
@@ -6609,6 +6736,7 @@
                     "status": "refutes",
                     "detail": "Low brain exposure (BBB-negative): an orthogonal pharmacokinetic reason it cannot be a driver.",
                     "source": "B3DB / BOILED-Egg (structure-based)",
+                    "provenance": "B3DB classification + RDKit BOILED-Egg (TPSA / MolLogP), structure-based",
                     "isGate": false
                 }
             ],
@@ -6619,6 +6747,7 @@
                         "status": "absent",
                         "detail": "No curated Parkinson's DirectEvidence and not a registered neuro-AOP stressor.",
                         "source": "CTD curated DirectEvidence / AOP-Wiki",
+                        "provenance": "CTD curated chemical-disease DirectEvidence (bulk report; MESH:D010300 Parkinson Disease) + AOP-Wiki registered neuro-AOP stressors",
                         "isGate": false
                     },
                     {
@@ -6626,6 +6755,7 @@
                         "status": "refutes",
                         "detail": "Low brain exposure (BBB-negative): an orthogonal pharmacokinetic reason it cannot be a driver.",
                         "source": "B3DB / BOILED-Egg (structure-based)",
+                        "provenance": "B3DB classification + RDKit BOILED-Egg (TPSA / MolLogP), structure-based",
                         "isGate": false
                     }
                 ],
@@ -6737,6 +6867,7 @@
                     "status": "absent",
                     "detail": "No curated Parkinson's DirectEvidence and not a registered neuro-AOP stressor.",
                     "source": "CTD curated DirectEvidence / AOP-Wiki",
+                    "provenance": "CTD curated chemical-disease DirectEvidence (bulk report; MESH:D010300 Parkinson Disease) + AOP-Wiki registered neuro-AOP stressors",
                     "isGate": false
                 },
                 {
@@ -6744,6 +6875,7 @@
                     "status": "refutes",
                     "detail": "Low brain exposure (BBB-negative): an orthogonal pharmacokinetic reason it cannot be a driver.",
                     "source": "B3DB / BOILED-Egg (structure-based)",
+                    "provenance": "B3DB classification + RDKit BOILED-Egg (TPSA / MolLogP), structure-based",
                     "isGate": false
                 }
             ],
@@ -6754,6 +6886,7 @@
                         "status": "absent",
                         "detail": "No curated Parkinson's DirectEvidence and not a registered neuro-AOP stressor.",
                         "source": "CTD curated DirectEvidence / AOP-Wiki",
+                        "provenance": "CTD curated chemical-disease DirectEvidence (bulk report; MESH:D010300 Parkinson Disease) + AOP-Wiki registered neuro-AOP stressors",
                         "isGate": false
                     },
                     {
@@ -6761,6 +6894,7 @@
                         "status": "refutes",
                         "detail": "Low brain exposure (BBB-negative): an orthogonal pharmacokinetic reason it cannot be a driver.",
                         "source": "B3DB / BOILED-Egg (structure-based)",
+                        "provenance": "B3DB classification + RDKit BOILED-Egg (TPSA / MolLogP), structure-based",
                         "isGate": false
                     }
                 ],

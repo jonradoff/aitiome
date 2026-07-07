@@ -165,16 +165,52 @@ function useScene(pathway: Pathway) {
     return { geo: g, uniforms };
   }, [layout]);
 
-  return { layout, edges, nodes, neuron };
+  // dendritic streaks fanning from the AO node into the neuron population
+  const dendrites = useMemo(() => {
+    const c = layout.aoPos;
+    const arr: { geo: THREE.TubeGeometry; mat: THREE.ShaderMaterial }[] = [];
+    for (let i = 0; i < 7; i++) {
+      const start = new THREE.Vector3(c.x + 0.25, c.y, c.z);
+      const ang = (i / 7) * Math.PI * 2;
+      const end = new THREE.Vector3(
+        c.x + 1.6 + Math.cos(ang) * 1.7,
+        c.y + Math.sin(ang) * 1.25,
+        c.z + Math.sin(ang * 1.3) * 0.8,
+      );
+      const mid = start.clone().lerp(end, 0.5);
+      mid.y += Math.sin(i * 2.1) * 0.5;
+      mid.z += Math.cos(i * 1.7) * 0.35;
+      const curve = new THREE.QuadraticBezierCurve3(start, mid, end);
+      const geo = new THREE.TubeGeometry(curve, 24, 0.022, 6, false);
+      const mat = new THREE.ShaderMaterial({
+        vertexShader: edgeVert,
+        fragmentShader: edgeFrag,
+        transparent: true,
+        depthWrite: false,
+        blending: THREE.AdditiveBlending,
+        uniforms: {
+          uTime: { value: 0 },
+          uReach: { value: 0 },
+          uConfidence: { value: 1 },
+          uColor: { value: GOLD.clone() },
+        },
+      });
+      arr.push({ geo, mat });
+    }
+    return arr;
+  }, [layout]);
+
+  return { layout, edges, nodes, neuron, dendrites };
 }
 
-function Cascade({ pathway, result, onStep }: { pathway: Pathway; result: CompoundResult | null; onStep: (s: string) => void }) {
-  const { layout, edges, nodes, neuron } = useScene(pathway);
+function Cascade({ pathway, result, onStep, labelRefs }: { pathway: Pathway; result: CompoundResult | null; onStep: (s: string) => void; labelRefs: React.MutableRefObject<(HTMLDivElement | null)[]> }) {
+  const { layout, edges, nodes, neuron, dendrites } = useScene(pathway);
   const group = useRef<THREE.Group>(null!);
   const neuronMat = useRef<THREE.ShaderMaterial>(null!);
   const rej = useRef<THREE.Group>(null!);
   const prog = useRef(0);
   const lastStep = useRef(-1);
+  const tmp = useMemo(() => new THREE.Vector3(), []);
   const mode = modeOf(result);
 
   useEffect(() => {
@@ -206,7 +242,7 @@ function Cascade({ pathway, result, onStep }: { pathway: Pathway; result: Compou
     });
 
     let reachedIdx = -1;
-    nodes.forEach(({ node, base, glow, core }, i) => {
+    nodes.forEach(({ node, p, base, glow, core }, i) => {
       let lit: number;
       if (mode === "recover") {
         lit = clamp(front - node.layer);
@@ -218,6 +254,19 @@ function Cascade({ pathway, result, onStep }: { pathway: Pathway; result: Compou
       }
       glow.opacity = 0.04 + lit * 0.55;
       core.color.copy(base).multiplyScalar(0.35 + lit * 1.1);
+
+      // project world position to screen and drive the HTML label
+      const el = labelRefs.current[i];
+      if (el) {
+        tmp.copy(p);
+        if (group.current) tmp.applyMatrix4(group.current.matrixWorld);
+        tmp.project(s.camera);
+        const x = (tmp.x * 0.5 + 0.5) * s.size.width;
+        const y = (-tmp.y * 0.5 + 0.5) * s.size.height;
+        el.style.transform = `translate(-50%, 0) translate(${x}px, ${y + 16}px)`;
+        el.style.opacity = String(0.22 + lit * 0.78);
+        el.style.color = node.role === "AO" ? "var(--neuron)" : "var(--ink-dim)";
+      }
     });
 
     // neuron ignites as the cascade completes
@@ -227,6 +276,11 @@ function Cascade({ pathway, result, onStep }: { pathway: Pathway; result: Compou
       neuronMat.current.uniforms.uIgnite.value = ignite;
       neuronMat.current.uniforms.uOpacity.value = 0.12 + ignite * 0.6;
     }
+    // dendrites light up with the ignition
+    dendrites.forEach((d) => {
+      d.mat.uniforms.uTime.value = t;
+      d.mat.uniforms.uReach.value = ignite;
+    });
 
     // rejection lines reveal one by one
     if (rej.current) {
@@ -263,6 +317,9 @@ function Cascade({ pathway, result, onStep }: { pathway: Pathway; result: Compou
     <group ref={group}>
       {edges.map((e, i) => (
         <mesh key={i} geometry={e.geo} material={e.mat} />
+      ))}
+      {dendrites.map((d, i) => (
+        <mesh key={`d${i}`} geometry={d.geo} material={d.mat} />
       ))}
       {nodes.map(({ node, p, r, core, glow }) => (
         <group key={node.eventId} position={[p.x, p.y, p.z]}>
@@ -307,15 +364,40 @@ function rejLineLabel(kind: string): string {
   }
 }
 
+const SHORT_LABEL: Record<string, string> = {
+  "888": "complex-I binding",
+  "887": "complex-I inhibition",
+  "177": "mito dysfunction",
+  "889": "proteostasis",
+  "890": "DA degeneration",
+  "188": "neuroinflammation",
+  "896": "parkinsonian deficits",
+};
+
 export function Hero({ pathway, result, height = 460 }: { pathway: Pathway; result: CompoundResult | null; height?: number }) {
   const [caption, setCaption] = useState<string>("");
   const mode = modeOf(result);
+  const labelRefs = useRef<(HTMLDivElement | null)[]>([]);
   return (
     <div style={{ position: "relative", height, borderRadius: 14, overflow: "hidden", border: "1px solid var(--line)", background: "radial-gradient(120% 100% at 20% 10%, #0f151d 0%, #090b0f 70%)" }}>
       <Canvas camera={{ position: [0, 0.5, 19], fov: 42 }} dpr={[1, 2]} gl={{ antialias: true }}>
         <ExposomeField />
-        <Cascade pathway={pathway} result={result} onStep={setCaption} />
+        <Cascade pathway={pathway} result={result} onStep={setCaption} labelRefs={labelRefs} />
       </Canvas>
+      {pathway.nodes.map((n, i) => (
+        <div
+          key={n.eventId}
+          ref={(el) => (labelRefs.current[i] = el)}
+          className="mono"
+          style={{
+            position: "absolute", left: 0, top: 0, pointerEvents: "none",
+            fontSize: 10, letterSpacing: "0.02em", whiteSpace: "nowrap",
+            color: "var(--ink-dim)", opacity: 0, willChange: "transform, opacity",
+          }}
+        >
+          {SHORT_LABEL[n.eventId] ?? n.title.slice(0, 16)}
+        </div>
+      ))}
       <div style={{ position: "absolute", left: 20, bottom: 18, display: "flex", alignItems: "center", gap: 10, pointerEvents: "none" }}>
         <span className={`chip ${mode === "recover" ? "recovered" : mode === "reject" ? "reject" : "signal"}`}>
           <span className="dot" />

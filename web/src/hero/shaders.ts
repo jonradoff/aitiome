@@ -58,13 +58,16 @@ export const edgeFrag = /* glsl */ `
   void main() {
     // radial falloff across the tube thickness (v) for a soft glowing cord
     float radial = smoothstep(0.5, 0.0, abs(vUv.y - 0.5));
-    float base = 0.10 + 0.25 * uConfidence;
-    // travelling band along length (u)
-    float head = fract(uTime * 0.45);
-    float band = smoothstep(0.12, 0.0, abs(vUv.x - head));
+    float base = 0.12 + 0.28 * uConfidence;
+    // two travelling bands along length (u), upstream -> downstream
+    float head1 = fract(uTime * 0.5);
+    float b1 = smoothstep(0.10, 0.0, abs(vUv.x - head1));
+    float head2 = fract(uTime * 0.5 + 0.5);
+    float b2 = smoothstep(0.07, 0.0, abs(vUv.x - head2)) * 0.5;
+    float band = b1 + b2;
     float lit = uReach;
-    float intensity = base * lit + band * lit * 0.9;
-    vec3 col = uColor * (0.6 + intensity * 1.8);
-    gl_FragColor = vec4(col, radial * (0.12 + intensity));
+    float intensity = base * lit + band * lit * 1.4;
+    vec3 col = uColor * (0.6 + intensity * 2.2);
+    gl_FragColor = vec4(col, radial * (0.14 + intensity));
   }
 `;

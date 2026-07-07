@@ -4,4 +4,4 @@
 package contract
 
 // Version is the contract schema version. Must match contract/VERSION.
-const Version = "1.0.0"
+const Version = "1.1.0"

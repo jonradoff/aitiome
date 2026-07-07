@@ -209,6 +209,7 @@
             "status": "supports",
             "detail": "Curated CTD Parkinson's DirectEvidence (diagnostic).",
             "source": "CTD curated DirectEvidence / AOP-Wiki",
+            "provenance": "CTD curated chemical-disease DirectEvidence (bulk report; MESH:D010300 Parkinson Disease) + AOP-Wiki registered neuro-AOP stressors",
             "isGate": false
         },
         {
@@ -216,6 +217,7 @@
             "status": "supports",
             "detail": "MIE grounded in MitoCarta Complex-I Q-site subunits; adverse outcome in the Kamath SOX6/AGTR1 vulnerable dopaminergic-neuron population.",
             "source": "MitoCarta3.0 + Kamath 2022 Nat Neurosci",
+            "provenance": "MitoCarta3.0 Complex-I Q-site subunits + Kamath 2022 SN snRNA-seq (SOX6/AGTR1 vulnerable DA neurons)",
             "isGate": false
         },
         {
@@ -223,6 +225,7 @@
             "status": "not_assessable",
             "detail": "Thin in ToxCast (research reagent / metal).",
             "source": "EPA ToxCast via NICEATM ICE",
+            "provenance": "EPA ToxCast / invitroDB v4.2 via NICEATM ICE (hitcall Active; queried on the salt-form-correct CAS)",
             "isGate": false
         },
         {
@@ -230,6 +233,7 @@
             "status": "not_assessable",
             "detail": "Non-penetrant by structure (e.g. lesioning agent delivered directly / enters via transporters).",
             "source": "B3DB / BOILED-Egg (structure-based)",
+            "provenance": "B3DB classification + RDKit BOILED-Egg (TPSA / MolLogP), structure-based",
             "isGate": false
         }
     ],

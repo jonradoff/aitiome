@@ -2,7 +2,7 @@
 // These TypeScript types mirror contract/goapi (same JSON shape). Keep in lockstep
 // with contract/VERSION. The viz + web streams import ONLY from here.
 
-export const CONTRACT_VERSION = "1.0.0";
+export const CONTRACT_VERSION = "1.1.0";
 
 export type Role = "positive" | "negative";
 
@@ -121,6 +121,7 @@ export interface EvidenceStrand {
   status: StrandStatus;
   detail: string;
   source: string;
+  provenance: string; // the access route (auditable "how this was obtained")
   isGate: boolean; // always false
 }
 

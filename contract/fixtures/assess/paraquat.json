@@ -147,6 +147,7 @@
             "status": "supports",
             "detail": "Curated convergence: CTD Parkinson's DirectEvidence AND registered neuro-AOP stressor.",
             "source": "CTD curated DirectEvidence / AOP-Wiki",
+            "provenance": "CTD curated chemical-disease DirectEvidence (bulk report; MESH:D010300 Parkinson Disease) + AOP-Wiki registered neuro-AOP stressors",
             "isGate": false
         },
         {
@@ -154,6 +155,7 @@
             "status": "supports",
             "detail": "MIE grounded in MitoCarta Complex-I Q-site subunits; adverse outcome in the Kamath SOX6/AGTR1 vulnerable dopaminergic-neuron population.",
             "source": "MitoCarta3.0 + Kamath 2022 Nat Neurosci",
+            "provenance": "MitoCarta3.0 Complex-I Q-site subunits + Kamath 2022 SN snRNA-seq (SOX6/AGTR1 vulnerable DA neurons)",
             "isGate": false
         },
         {
@@ -161,6 +163,7 @@
             "status": "supports",
             "detail": "32 mechanistic assay hits illustrate the chain (corroboration only \u2014 anti-diagnostic, not a discriminator).",
             "source": "EPA ToxCast via NICEATM ICE",
+            "provenance": "EPA ToxCast / invitroDB v4.2 via NICEATM ICE (hitcall Active; queried on the salt-form-correct CAS)",
             "isGate": false
         },
         {
@@ -168,6 +171,7 @@
             "status": "supports",
             "detail": "PD OR ~2-2.5 (Tanner 2011; Pezzoli&Cereda 2013 meta).",
             "source": "Published cohorts / meta-analyses",
+            "provenance": "Curated from published cohorts / meta-analyses (PubMed / Europe PMC full-text extraction)",
             "isGate": false
         },
         {
@@ -175,6 +179,7 @@
             "status": "supports",
             "detail": "Brain-penetrant \u2014 plausible CNS exposure.",
             "source": "B3DB / BOILED-Egg (structure-based)",
+            "provenance": "B3DB classification + RDKit BOILED-Egg (TPSA / MolLogP), structure-based",
             "isGate": false
         }
     ],
