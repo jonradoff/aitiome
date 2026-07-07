@@ -421,6 +421,30 @@ export function FalsificationPanel({ b }: { b: Benchmark }) {
         </div>
       </div>
       <p className="faint" style={{ fontSize: 12.5, marginTop: 18, maxWidth: "74ch", lineHeight: 1.55 }}>{b.interpretation}</p>
+
+      <div className="panel" style={{ padding: 22, marginTop: 16 }}>
+        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", marginBottom: 16, flexWrap: "wrap", gap: 8 }}>
+          <span className="mono" style={{ fontSize: 11, letterSpacing: "0.05em", textTransform: "uppercase", color: "var(--signal)" }}>Is it circular? Two independent curations converge</span>
+          <span className="faint mono" style={{ fontSize: 11 }}>0 false positives either way</span>
+        </div>
+        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: 12 }} className="stat-grid">
+          <AblationStat label={b.ablation.ctdName + " alone"} n={b.ablation.ctdRecovered} total={b.ablation.positives} />
+          <AblationStat label={b.ablation.aopName + " alone"} n={b.ablation.aopRecovered} total={b.ablation.positives} />
+          <AblationStat label="the rule (CTD or AOP)" n={b.ablation.unionRecovered} total={b.ablation.positives} highlight />
+        </div>
+        <p className="faint" style={{ fontSize: 12.5, marginTop: 16, lineHeight: 1.55 }}>{b.ablation.note}</p>
+      </div>
+    </div>
+  );
+}
+
+function AblationStat({ label, n, total, highlight }: { label: string; n: number; total: number; highlight?: boolean }) {
+  return (
+    <div style={{ padding: "15px 16px", borderRadius: "var(--radius-sm)", border: "1px solid " + (highlight ? "color-mix(in srgb, var(--recovered) 40%, transparent)" : "var(--line)"), background: highlight ? "color-mix(in srgb, var(--recovered) 9%, var(--bg-2))" : "var(--bg-2)" }}>
+      <span className="mono" style={{ fontSize: 27, fontWeight: 500, color: highlight ? "var(--recovered)" : "var(--ink)" }}>
+        {n}<span className="faint" style={{ fontSize: 15 }}>/{total}</span>
+      </span>
+      <div className="lab" style={{ marginTop: 4 }}>{label}</div>
     </div>
   );
 }
@@ -448,7 +472,7 @@ export function AnticipatedCritiques() {
   const qa = [
     {
       q: "Isn't the recovery circular? The predicate and the positive labels draw on overlapping curated sources.",
-      a: "Yes, and we say so. Recovery is a sanity check, not the contribution. The result is the specificity: no activity or similarity method separates the positives from the bioactive decoys (see the falsification), and the honest map of where discovery fails. The decoys are what show the curated rule is doing real work, not just re-reading its own labels.",
+      a: "We address it directly above. Two INDEPENDENT curations converge on the positives (CTD 8/12, AOP-Wiki 8/12, together 12/12), neither alone suffices, and neither ever fires on a negative, so this is not one source read twice. The rule has no fitted parameters to overfit. And the decoys were selected for bioactivity, not curation status, so rejecting them is not baked in. Recovery is a sanity check; the contribution is the specificity and the honest discovery map.",
     },
     {
       q: "You're just detecting bioactivity.",

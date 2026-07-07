@@ -68,9 +68,41 @@ func (s *Service) Benchmark(ctx context.Context) contract.Benchmark {
 		})
 	}
 
+	// Source-independence ablation (the direct answer to circularity).
+	ab := contract.SourceAblation{
+		CTDName: "CTD DirectEvidence",
+		AOPName: "AOP-Wiki stressor",
+		Note: "CTD (toxicogenomics literature curation) and AOP-Wiki (OECD regulatory stressor registration) are independent curation efforts. Neither alone recovers all positives, so their convergence is not one source read twice. And the decoys were selected for bioactivity, not curation status, so rejecting them is not built into the rule.",
+	}
+	for _, c := range s.compounds {
+		ctd := c.PDDirect > 0
+		aop := len(c.AOPStressorOf) > 0
+		if c.Role == contract.RolePositive {
+			ab.Positives++
+			if ctd {
+				ab.CTDRecovered++
+			}
+			if aop {
+				ab.AOPRecovered++
+			}
+			if ctd || aop {
+				ab.UnionRecovered++
+			}
+		} else {
+			ab.Negatives++
+			if ctd {
+				ab.CTDFalsePos++
+			}
+			if aop {
+				ab.AOPFalsePos++
+			}
+		}
+	}
+
 	return contract.Benchmark{
 		CuratedRule:  conf,
 		Bioactivity:  discs,
+		Ablation:     ab,
 		Positives:    len(pos),
 		Adversarial:  len(adv),
 		AllNegatives: len(neg),

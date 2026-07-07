@@ -1,1 +1,52 @@
-{"curatedRule":{"tp":12,"fp":0,"fn":0,"tn":15,"accuracy":1},"bioactivity":[{"name":"Mitochondrial assays","aurocVsAdversarial":0.1597222222222222,"aurocVsAllNegatives":0.41388888888888886},{"name":"Membrane potential (MMP)","aurocVsAdversarial":0.11805555555555555,"aurocVsAllNegatives":0.39444444444444443},{"name":"Oxidative stress","aurocVsAdversarial":0.2013888888888889,"aurocVsAllNegatives":0.4},{"name":"Mechanistic assays (total)","aurocVsAdversarial":0.3888888888888889,"aurocVsAllNegatives":0.5722222222222222},{"name":"ToxCast active (all)","aurocVsAdversarial":0.1527777777777778,"aurocVsAllNegatives":0.45}],"positives":12,"adversarial":6,"allNegatives":15,"interpretation":"The curated rule separates 12 positives from 15 negatives with zero errors. Every bioactivity signal, by contrast, is at or below chance (AUROC \u003c= 0.5) against the 6 adversarial decoys: the decoys are, if anything, MORE bioactive than the real neurotoxicants, because the true positives are environmental toxicants under-represented in ToxCast. Bioactivity is not just useless here, it is anti-diagnostic. Curated mechanism is the discriminator."}
+{
+    "curatedRule": {
+        "tp": 12,
+        "fp": 0,
+        "fn": 0,
+        "tn": 15,
+        "accuracy": 1
+    },
+    "bioactivity": [
+        {
+            "name": "Mitochondrial assays",
+            "aurocVsAdversarial": 0.1597222222222222,
+            "aurocVsAllNegatives": 0.41388888888888886
+        },
+        {
+            "name": "Membrane potential (MMP)",
+            "aurocVsAdversarial": 0.11805555555555555,
+            "aurocVsAllNegatives": 0.39444444444444443
+        },
+        {
+            "name": "Oxidative stress",
+            "aurocVsAdversarial": 0.2013888888888889,
+            "aurocVsAllNegatives": 0.4
+        },
+        {
+            "name": "Mechanistic assays (total)",
+            "aurocVsAdversarial": 0.3888888888888889,
+            "aurocVsAllNegatives": 0.5722222222222222
+        },
+        {
+            "name": "ToxCast active (all)",
+            "aurocVsAdversarial": 0.1527777777777778,
+            "aurocVsAllNegatives": 0.45
+        }
+    ],
+    "ablation": {
+        "ctdName": "CTD DirectEvidence",
+        "aopName": "AOP-Wiki stressor",
+        "ctdRecovered": 8,
+        "aopRecovered": 8,
+        "unionRecovered": 12,
+        "positives": 12,
+        "ctdFalsePos": 0,
+        "aopFalsePos": 0,
+        "negatives": 15,
+        "note": "CTD (toxicogenomics literature curation) and AOP-Wiki (OECD regulatory stressor registration) are independent curation efforts. Neither alone recovers all positives, so their convergence is not one source read twice. And the decoys were selected for bioactivity, not curation status, so rejecting them is not built into the rule."
+    },
+    "positives": 12,
+    "adversarial": 6,
+    "allNegatives": 15,
+    "interpretation": "The curated rule separates 12 positives from 15 negatives with zero errors. Every bioactivity signal, by contrast, is at or below chance (AUROC <= 0.5) against the 6 adversarial decoys: the decoys are, if anything, MORE bioactive than the real neurotoxicants, because the true positives are environmental toxicants under-represented in ToxCast. Bioactivity is not just useless here, it is anti-diagnostic. Curated mechanism is the discriminator."
+}

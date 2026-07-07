@@ -218,9 +218,23 @@ export interface Confusion {
   accuracy: number;
 }
 
+export interface SourceAblation {
+  ctdName: string;
+  aopName: string;
+  ctdRecovered: number;
+  aopRecovered: number;
+  unionRecovered: number;
+  positives: number;
+  ctdFalsePos: number;
+  aopFalsePos: number;
+  negatives: number;
+  note: string;
+}
+
 export interface Benchmark {
   curatedRule: Confusion;
   bioactivity: Discriminator[];
+  ablation: SourceAblation;
   positives: number;
   adversarial: number;
   allNegatives: number;
