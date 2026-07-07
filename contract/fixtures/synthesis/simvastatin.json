@@ -1,0 +1,34 @@
+{
+    "compound": "simvastatin",
+    "call": "negative",
+    "tier": "adversarial_negative",
+    "prose": "The evidence-ranked mechanistic hypothesis for simvastatin resolves to negative because the only basis for a call \u2014 curated mechanism \u2014 is absent: there is no CTD curated Parkinson's DirectEvidence and no registration as a neurodegeneration AOP stressor [E1]. This drives the adversarial_negative tier, a deliberate stress-test of whether the engine can resist a plausible-looking but non-diagnostic activity profile. The compound is genuinely bioactive, with 17 mechanistic assay hits including 2 mitochondrial signals [E2], and it is brain-penetrant [E4]; either feature could superficially suggest concern. Both are treated strictly as corroboration and, in this case, as the imposter signal the engine correctly declines to act upon \u2014 assay bioactivity is anti-diagnostic, not decisive, and brain penetrance does not discriminate. Consistent with this, real-world pharmacovigilance shows no parkinsonism signal across 261,343 FAERS reports (ROR 1.07, not elevated) [E3]. The negative call stands.",
+    "citations": [
+        {
+            "marker": "E1",
+            "kind": "curated_mechanism",
+            "detail": "No curated Parkinson's DirectEvidence and not a registered neuro-AOP stressor.",
+            "source": "CTD curated DirectEvidence / AOP-Wiki"
+        },
+        {
+            "marker": "E2",
+            "kind": "assay_corroboration",
+            "detail": "Bioactive: 17 mechanistic assay hits (incl. 2 mitochondrial). This is the imposter signal the engine correctly does NOT act on.",
+            "source": "EPA ToxCast via NICEATM ICE"
+        },
+        {
+            "marker": "E3",
+            "kind": "faers",
+            "detail": "Zero parkinsonism signal across 261343 FAERS reports (ROR 1.07, not elevated).",
+            "source": "openFDA FAERS"
+        },
+        {
+            "marker": "E4",
+            "kind": "bbb",
+            "detail": "Brain-penetrant, but penetrance is not a discriminator here.",
+            "source": "B3DB / BOILED-Egg (structure-based)"
+        }
+    ],
+    "model": "claude-opus-4-8",
+    "source": "claude"
+}

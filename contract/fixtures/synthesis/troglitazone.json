@@ -1,0 +1,34 @@
+{
+    "compound": "troglitazone",
+    "call": "negative",
+    "tier": "adversarial_negative",
+    "prose": "Troglitazone is called negative under an adversarial-negative tier, and the mechanistic reasoning supports why this restraint is appropriate. The decisive strand is curated mechanism: there is no curated Parkinson's DirectEvidence and the compound is not a registered neuro-AOP stressor [E1], so the evidence-ranked mechanistic hypothesis provides no diagnostic basis for flagging. The assay profile is deliberately treated as corroboration only and, here, anti-diagnostically: 19 mechanistic hits including 5 mitochondrial signals [E2] are exactly the kind of bioactivity that could tempt a false positive, yet activity alone does not establish a neurodegenerative mechanism. Real-world pharmacovigilance adds nothing assessable [E3]. Orthogonally, low predicted brain exposure (BBB-negative) offers a plausible pharmacokinetic reason the compound is unlikely to act as a central driver [E4]. Together these strands cohere with the fixed negative call: bioactivity without curated mechanism does not warrant flagging.",
+    "citations": [
+        {
+            "marker": "E1",
+            "kind": "curated_mechanism",
+            "detail": "No curated Parkinson's DirectEvidence and not a registered neuro-AOP stressor.",
+            "source": "CTD curated DirectEvidence / AOP-Wiki"
+        },
+        {
+            "marker": "E2",
+            "kind": "assay_corroboration",
+            "detail": "Bioactive: 19 mechanistic assay hits (incl. 5 mitochondrial). This is the imposter signal the engine correctly does NOT act on.",
+            "source": "EPA ToxCast via NICEATM ICE"
+        },
+        {
+            "marker": "E3",
+            "kind": "faers",
+            "detail": "No assessable FAERS reports.",
+            "source": "openFDA FAERS"
+        },
+        {
+            "marker": "E4",
+            "kind": "bbb",
+            "detail": "Low brain exposure (BBB-negative): an orthogonal pharmacokinetic reason it cannot be a driver.",
+            "source": "B3DB / BOILED-Egg (structure-based)"
+        }
+    ],
+    "model": "claude-opus-4-8",
+    "source": "claude"
+}

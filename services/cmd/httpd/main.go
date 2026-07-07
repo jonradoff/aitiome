@@ -48,6 +48,15 @@ func main() {
 	mux.HandleFunc("GET /discovery-map", func(w http.ResponseWriter, r *http.Request) {
 		writeJSON(w, http.StatusOK, svc.DiscoveryMap(r.Context()))
 	})
+	mux.HandleFunc("GET /synthesis", func(w http.ResponseWriter, r *http.Request) {
+		id := r.URL.Query().Get("id")
+		res, ok := svc.Synthesize(r.Context(), id)
+		if !ok {
+			writeJSON(w, http.StatusNotFound, map[string]string{"error": "unresolved identifier: " + id})
+			return
+		}
+		writeJSON(w, http.StatusOK, res)
+	})
 	mux.HandleFunc("GET /pathway", func(w http.ResponseWriter, r *http.Request) {
 		id := r.URL.Query().Get("aop")
 		if id == "" {

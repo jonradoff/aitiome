@@ -6,7 +6,7 @@ cd "$(dirname "$0")/.."
 
 OUT="contract/fixtures"
 PORT="${AITIO_FIXTURE_PORT:-8799}"
-mkdir -p "$OUT/assess"
+mkdir -p "$OUT/assess" "$OUT/synthesis"
 
 go build -o bin/httpd ./services/cmd/httpd
 AITIO_HTTP_ADDR=":$PORT" ./bin/httpd &
@@ -32,6 +32,8 @@ for c in rotenone paraquat mptp 6-hydroxydopamine chlorpyrifos \
          simvastatin troglitazone warfarin fenofibrate acetaminophen; do
   curl -s "$base/assess?id=$c" | python3 -m json.tool > "$OUT/assess/$c.json"
   echo "  assess/$c.json"
+  curl -s "$base/synthesis?id=$c" | python3 -m json.tool > "$OUT/synthesis/$c.json"
+  echo "  synthesis/$c.json"
 done
 
 echo "done -> $OUT"

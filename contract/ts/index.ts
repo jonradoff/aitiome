@@ -201,3 +201,20 @@ export interface DiscoveryMap {
   liveLeads: string[];
   note: string;
 }
+
+export interface Citation {
+  marker: string;
+  kind: string;
+  detail: string;
+  source: string;
+}
+
+export interface Synthesis {
+  compound: string;
+  call: string;
+  tier: string;
+  prose: string;
+  citations: Citation[];
+  model: string;
+  source: "claude" | "direct";
+}

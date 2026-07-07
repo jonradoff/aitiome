@@ -8,6 +8,7 @@ package aitio
 import (
 	"context"
 	"fmt"
+	"sync"
 
 	contract "aitiome/contract/goapi"
 )
@@ -18,6 +19,10 @@ type Service struct {
 	resolver  *resolver
 	pathways  map[string]contract.Pathway
 	evidence  *evidenceStore
+
+	reasoner     EvidenceReasoner // nil unless a Claude key is configured
+	reasonerName string
+	synthCache   sync.Map
 }
 
 // New constructs the service, loading the ground-truth validation set (27
@@ -37,12 +42,20 @@ func New() (*Service, error) {
 	if err != nil {
 		return nil, fmt.Errorf("aitio: load evidence: %w", err)
 	}
+	reasoner, reasonerName := newReasoner()
 	return &Service{
-		compounds: compounds,
-		resolver:  newResolver(compounds),
-		pathways:  pathways,
-		evidence:  evidence,
+		compounds:    compounds,
+		resolver:     newResolver(compounds),
+		pathways:     pathways,
+		evidence:     evidence,
+		reasoner:     reasoner,
+		reasonerName: reasonerName,
 	}, nil
+}
+
+// ReasonerInfo reports whether a Claude-backed reasoner is active and its model.
+func (s *Service) ReasonerInfo() (active bool, model string) {
+	return s.reasoner != nil, s.reasonerName
 }
 
 // GetPathway returns a reconstructed, grounded AOP pathway by id (e.g. "3").

@@ -7,12 +7,24 @@ import type {
   Pathway,
   Compound,
   CompoundResult,
+  Synthesis,
 } from "@contract";
 
 import validation from "@fixtures/validation.json";
 import discovery from "@fixtures/discovery-map.json";
 import pathway from "@fixtures/pathway-aop3.json";
 import compounds from "@fixtures/compounds.json";
+
+import synRotenone from "@fixtures/synthesis/rotenone.json";
+import synParaquat from "@fixtures/synthesis/paraquat.json";
+import synMptp from "@fixtures/synthesis/mptp.json";
+import synOhda from "@fixtures/synthesis/6-hydroxydopamine.json";
+import synChlorpyrifos from "@fixtures/synthesis/chlorpyrifos.json";
+import synSimvastatin from "@fixtures/synthesis/simvastatin.json";
+import synTroglitazone from "@fixtures/synthesis/troglitazone.json";
+import synWarfarin from "@fixtures/synthesis/warfarin.json";
+import synFenofibrate from "@fixtures/synthesis/fenofibrate.json";
+import synAcetaminophen from "@fixtures/synthesis/acetaminophen.json";
 
 import rotenone from "@fixtures/assess/rotenone.json";
 import paraquat from "@fixtures/assess/paraquat.json";
@@ -37,4 +49,13 @@ const list = [
 
 export const fxAssess: Record<string, CompoundResult> = Object.fromEntries(
   list.map((r) => [r.compound.name.toLowerCase(), r]),
+);
+
+const synList = [
+  synRotenone, synParaquat, synMptp, synOhda, synChlorpyrifos,
+  synSimvastatin, synTroglitazone, synWarfarin, synFenofibrate, synAcetaminophen,
+] as unknown as Synthesis[];
+
+export const fxSynthesis: Record<string, Synthesis> = Object.fromEntries(
+  synList.map((s) => [s.compound.toLowerCase(), s]),
 );

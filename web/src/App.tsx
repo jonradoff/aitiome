@@ -1,8 +1,8 @@
 import { useState } from "react";
-import { getValidation, getHealth, getPathway, getDiscoveryMap, assess } from "./data";
+import { getValidation, getHealth, getPathway, getDiscoveryMap, assess, synthesize } from "./data";
 import { useAsync } from "./useAsync";
 import { Hero } from "./hero/Hero";
-import { EvidencePanel, TracePanel, ValidationPanel, DiscoveryPanel, MCPPanel } from "./components/Panels";
+import { EvidencePanel, TracePanel, ValidationPanel, DiscoveryPanel, MCPPanel, SynthesisPanel } from "./components/Panels";
 
 const KNOWN = ["rotenone", "paraquat", "MPTP", "chlorpyrifos", "6-hydroxydopamine"];
 const DECOYS = ["simvastatin", "troglitazone", "warfarin", "fenofibrate"];
@@ -16,6 +16,7 @@ export function App() {
   const pathway = useAsync(getPathway, []);
   const discovery = useAsync(getDiscoveryMap, []);
   const active = useAsync(() => assess(activeId), [activeId]);
+  const synthesis = useAsync(() => synthesize(activeId), [activeId]);
 
   function toggleTheme() {
     const next = theme === "dark" ? "light" : "dark";
@@ -54,6 +55,12 @@ export function App() {
           {result && (
             <div style={{ marginTop: 18 }}>
               <Readout result={result} />
+            </div>
+          )}
+
+          {synthesis?.data && (
+            <div style={{ marginTop: 18 }}>
+              <SynthesisPanel syn={synthesis.data} />
             </div>
           )}
 

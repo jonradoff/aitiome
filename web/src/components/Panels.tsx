@@ -4,6 +4,7 @@ import type {
   ValidationResult,
   DiscoveryMap,
   DiscoveryAxis,
+  Synthesis,
 } from "@contract";
 
 const STRAND_LABEL: Record<string, string> = {
@@ -64,6 +65,45 @@ export function EvidencePanel({ result }: { result: CompoundResult }) {
       <p className="faint" style={{ fontSize: 12, marginTop: 16, lineHeight: 1.5 }}>
         Strands ground and calibrate confidence. They never gate the recovery call, which rests on
         curated mechanism alone. Assay activity is shown because it is present, not because it decides.
+      </p>
+    </div>
+  );
+}
+
+// ---- Reasoning synthesis (Claude evidence-reasoner) ----
+export function SynthesisPanel({ syn }: { syn: Synthesis }) {
+  const claude = syn.source === "claude";
+  // split the prose so [E#] markers can be tied to the citation legend
+  const parts = syn.prose.split(/(\[E\d+\])/g);
+  return (
+    <div className="panel" style={{ padding: 22 }}>
+      <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 14, gap: 12, flexWrap: "wrap" }}>
+        <span style={{ fontWeight: 600, fontSize: 16 }}>Reasoning synthesis</span>
+        <span className={`chip ${claude ? "signal" : ""}`}>
+          <span className="dot" />
+          {claude ? `Claude / ${syn.model}` : "deterministic"}
+        </span>
+      </div>
+      <p style={{ fontSize: 15, lineHeight: 1.62, margin: 0, color: "var(--ink)" }}>
+        {parts.map((p, i) =>
+          /^\[E\d+\]$/.test(p) ? (
+            <sup key={i} className="mono" style={{ color: "var(--signal)", fontSize: 10.5, padding: "0 1px" }}>{p}</sup>
+          ) : (
+            <span key={i}>{p}</span>
+          ),
+        )}
+      </p>
+      <div style={{ display: "flex", flexWrap: "wrap", gap: 8, marginTop: 16 }}>
+        {syn.citations.map((c) => (
+          <span key={c.marker} className="chip" title={`${c.detail} (${c.source})`}>
+            <span className="mono" style={{ color: "var(--signal)" }}>{c.marker}</span>
+            {STRAND_LABEL[c.kind] ?? c.kind}
+          </span>
+        ))}
+      </div>
+      <p className="faint" style={{ fontSize: 11.5, marginTop: 14 }}>
+        The synthesis explains the reasoning. It never makes or changes the recovery call, which is
+        curated and fixed. Evidence is cited by marker; nothing is invented.
       </p>
     </div>
   );
@@ -198,6 +238,7 @@ export function DiscoveryPanel({ map }: { map: DiscoveryMap }) {
 export function MCPPanel({ example }: { example: CompoundResult | null }) {
   const tools = [
     ["assess_compound", "resolve, grade, reconstruct, trace"],
+    ["synthesize_assessment", "calibrated prose (Claude), cited"],
     ["run_validation", "recover 12 / reject 15, fp=fn=0"],
     ["get_pathway", "endorsed AOP, grounded"],
     ["discovery_map", "the negative-results map"],

@@ -7,8 +7,9 @@ import type {
   Compound,
   CompoundResult,
   Health,
+  Synthesis,
 } from "@contract";
-import { fxValidation, fxDiscovery, fxPathway, fxCompounds, fxAssess } from "./fixtures";
+import { fxValidation, fxDiscovery, fxPathway, fxCompounds, fxAssess, fxSynthesis } from "./fixtures";
 
 export type Source = "live" | "fixture";
 
@@ -51,5 +52,12 @@ export async function assess(id: string): Promise<{ data: CompoundResult | null;
   const live = await tryLive<CompoundResult>(`/assess?id=${encodeURIComponent(id)}`);
   if (live) return { data: live, source: "live" };
   const fx = fxAssess[id.toLowerCase()];
+  return { data: fx ?? null, source: "fixture" };
+}
+
+export async function synthesize(id: string): Promise<{ data: Synthesis | null; source: Source }> {
+  const live = await tryLive<Synthesis>(`/synthesis?id=${encodeURIComponent(id)}`);
+  if (live) return { data: live, source: "live" };
+  const fx = fxSynthesis[id.toLowerCase()];
   return { data: fx ?? null, source: "fixture" };
 }

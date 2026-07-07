@@ -1,0 +1,40 @@
+{
+    "compound": "chlorpyrifos",
+    "call": "positive",
+    "tier": "assay_mechanism_recovered",
+    "prose": "Chlorpyrifos is called positive under the assay_mechanism_recovered tier because curated evidence converges independently: CTD flags Parkinson's DirectEvidence and it is a registered stressor on a neuro-AOP pathway [E1]. This curated convergence is the sole basis for the call. Mechanistically, the evidence-ranked hypothesis anchors the molecular initiating event in MitoCarta3.0 Complex-I Q-site subunits, with the adverse outcome expressed in the SOX6/AGTR1 vulnerable dopaminergic-neuron population identified by Kamath 2022 [E2]. Human epidemiology across organophosphate cohorts reports elevated PD associations, consistent with but not confirming this chain [E4], and structure-based prediction indicates brain-penetrance, lending CNS-exposure plausibility [E5]. The 42 ToxCast assay hits corroborate the illustrated chain only; they are anti-diagnostic and never a discriminator [E3]. Taken together, this is a carefully-hedged mechanistic hypothesis, not a causal claim, resting on curated mechanism with assay and epidemiological support as corroboration.",
+    "citations": [
+        {
+            "marker": "E1",
+            "kind": "curated_mechanism",
+            "detail": "Curated convergence: CTD Parkinson's DirectEvidence AND registered neuro-AOP stressor.",
+            "source": "CTD curated DirectEvidence / AOP-Wiki"
+        },
+        {
+            "marker": "E2",
+            "kind": "mito_celltype_grounding",
+            "detail": "MIE grounded in MitoCarta Complex-I Q-site subunits; adverse outcome in the Kamath SOX6/AGTR1 vulnerable dopaminergic-neuron population.",
+            "source": "MitoCarta3.0 + Kamath 2022 Nat Neurosci"
+        },
+        {
+            "marker": "E3",
+            "kind": "assay_corroboration",
+            "detail": "42 mechanistic assay hits illustrate the chain (corroboration only \u2014 anti-diagnostic, not a discriminator).",
+            "source": "EPA ToxCast via NICEATM ICE"
+        },
+        {
+            "marker": "E4",
+            "kind": "epidemiology",
+            "detail": "PD elevated (OP class) (Costello/Wang OP-PD studies).",
+            "source": "Published cohorts / meta-analyses"
+        },
+        {
+            "marker": "E5",
+            "kind": "bbb",
+            "detail": "Brain-penetrant \u2014 plausible CNS exposure.",
+            "source": "B3DB / BOILED-Egg (structure-based)"
+        }
+    ],
+    "model": "claude-opus-4-8",
+    "source": "claude"
+}

@@ -90,6 +90,24 @@ func main() {
 	)
 
 	s.AddTool(
+		mcp.NewTool("synthesize_assessment",
+			mcp.WithDescription("Return a calibrated prose synthesis of a compound's assessment, citing the evidence strands as [E#]. It explains the mechanistic reasoning; it never makes or changes the recovery call (which is curated and fixed). Uses the Claude evidence-reasoner when configured, with a deterministic fallback. Read-only."),
+			mcp.WithString("id", mcp.Required(), mcp.Description("Chemical identifier: name, CAS, DTXSID, InChIKey, or CID.")),
+		),
+		func(ctx context.Context, req mcp.CallToolRequest) (*mcp.CallToolResult, error) {
+			id, err := req.RequireString("id")
+			if err != nil {
+				return mcp.NewToolResultError("id is required"), nil
+			}
+			res, ok := svc.Synthesize(ctx, id)
+			if !ok {
+				return mcp.NewToolResultError("unresolved identifier: " + id), nil
+			}
+			return jsonResult(res)
+		},
+	)
+
+	s.AddTool(
 		mcp.NewTool("discovery_map",
 			mcp.WithDescription("The honest negative-results discovery map: seven axes tested for an annotation-independent discovery signal on this chemical class, each coverage- or confounder-killed, plus the two live leads (neural-specific subset, Boltz-2 Q-site). Discovery is a map, not a predictor. Read-only."),
 		),

@@ -1,0 +1,34 @@
+{
+    "compound": "fenofibrate",
+    "call": "negative",
+    "tier": "adversarial_negative",
+    "prose": "Fenofibrate is returned as a negative call at the adversarial_negative tier, and the reasoning rests on the absence of curated mechanism rather than the presence of activity. There is no curated Parkinson's DirectEvidence and no registration as a neuro-AOP stressor [E1], which is the only admissible basis for a positive evidence-ranked mechanistic hypothesis here. The compound is genuinely bioactive, with four mechanistic assay hits including two mitochondrial [E2], but this is treated strictly as anti-diagnostic corroboration\u2014the imposter signal the engine deliberately does not act upon, since bioactivity alone cannot establish a disease-relevant mechanism. Two orthogonal strands reinforce implausibility rather than drive the call: real-world pharmacovigilance shows no parkinsonism signal across 35,322 FAERS reports (ROR 0.9) [E3], and structure-based prediction indicates low, BBB-negative brain exposure, a pharmacokinetic reason it is unlikely to reach relevant targets [E4]. Correctly not flagged.",
+    "citations": [
+        {
+            "marker": "E1",
+            "kind": "curated_mechanism",
+            "detail": "No curated Parkinson's DirectEvidence and not a registered neuro-AOP stressor.",
+            "source": "CTD curated DirectEvidence / AOP-Wiki"
+        },
+        {
+            "marker": "E2",
+            "kind": "assay_corroboration",
+            "detail": "Bioactive: 4 mechanistic assay hits (incl. 2 mitochondrial). This is the imposter signal the engine correctly does NOT act on.",
+            "source": "EPA ToxCast via NICEATM ICE"
+        },
+        {
+            "marker": "E3",
+            "kind": "faers",
+            "detail": "Zero parkinsonism signal across 35322 FAERS reports (ROR 0.9, not elevated).",
+            "source": "openFDA FAERS"
+        },
+        {
+            "marker": "E4",
+            "kind": "bbb",
+            "detail": "Low brain exposure (BBB-negative): an orthogonal pharmacokinetic reason it cannot be a driver.",
+            "source": "B3DB / BOILED-Egg (structure-based)"
+        }
+    ],
+    "model": "claude-opus-4-8",
+    "source": "claude"
+}

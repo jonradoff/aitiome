@@ -1,0 +1,40 @@
+{
+    "compound": "MPTP",
+    "call": "positive",
+    "tier": "curated_anchored_only",
+    "prose": "The positive call rests on curated CTD Parkinson's DirectEvidence [E1], the diagnostic anchor for this evidence-ranked mechanistic hypothesis. Mechanistically, the molecular initiating event is grounded in MitoCarta3.0 Complex-I Q-site subunits, with the adverse outcome expressed in the Kamath 2022 SOX6/AGTR1 vulnerable dopaminergic-neuron population [E2]\u2014a cell-type\u2013specific coherence linking energetic failure to selective neuronal loss. An attached AOP pathway lends structural plausibility to this initiation-to-outcome chain [E1]. Brain-penetrance modeling supports plausible CNS exposure, a necessary precondition rather than proof of harm [E5]. Human corroboration comes from classic case-series describing causal parkinsonism [E4], which strengthens but does not establish mechanistic causation. ToxCast coverage is thin, consistent with MPTP as a research reagent, so bioactivity is treated as anti-diagnostic and non-decisive here [E3]. Reflecting sole reliance on curated mechanism, confidence is held at the curated_anchored_only tier, appropriately hedged given the thin assay corroboration.",
+    "citations": [
+        {
+            "marker": "E1",
+            "kind": "curated_mechanism",
+            "detail": "Curated CTD Parkinson's DirectEvidence (diagnostic).",
+            "source": "CTD curated DirectEvidence / AOP-Wiki"
+        },
+        {
+            "marker": "E2",
+            "kind": "mito_celltype_grounding",
+            "detail": "MIE grounded in MitoCarta Complex-I Q-site subunits; adverse outcome in the Kamath SOX6/AGTR1 vulnerable dopaminergic-neuron population.",
+            "source": "MitoCarta3.0 + Kamath 2022 Nat Neurosci"
+        },
+        {
+            "marker": "E3",
+            "kind": "assay_corroboration",
+            "detail": "Thin in ToxCast (research reagent / metal).",
+            "source": "EPA ToxCast via NICEATM ICE"
+        },
+        {
+            "marker": "E4",
+            "kind": "epidemiology",
+            "detail": "causal parkinsonism (case series) (Langston 1983 (Science)).",
+            "source": "Published cohorts / meta-analyses"
+        },
+        {
+            "marker": "E5",
+            "kind": "bbb",
+            "detail": "Brain-penetrant \u2014 plausible CNS exposure.",
+            "source": "B3DB / BOILED-Egg (structure-based)"
+        }
+    ],
+    "model": "claude-opus-4-8",
+    "source": "claude"
+}

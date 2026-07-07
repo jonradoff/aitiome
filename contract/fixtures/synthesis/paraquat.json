@@ -1,0 +1,40 @@
+{
+    "compound": "paraquat",
+    "call": "positive",
+    "tier": "assay_mechanism_recovered",
+    "prose": "Paraquat is called positive at the assay_mechanism_recovered tier because two independent curated strands converge: CTD Parkinson's DirectEvidence and registration as a stressor in a neuro-AOP pathway [E1]. This convergence anchors the evidence-ranked mechanistic hypothesis, in which the molecular initiating event is grounded in MitoCarta Complex-I Q-site subunits, with the adverse outcome projected onto the Kamath SOX6/AGTR1 vulnerable dopaminergic-neuron population [E2]. Brain-penetrance predictions make CNS exposure structurally plausible, supporting the upstream reach of this chain [E5]. Human cohort and meta-analytic data reporting a PD odds ratio near 2\u20132.5 [E4] are consistent with, though not proof of, the proposed mechanism; none of this establishes causation. The 32 ToxCast assay hits [E3] merely illustrate the postulated pathway and serve as corroboration only\u2014they are anti-diagnostic and never decisive. On this curated mechanistic basis, the positive call is supported while remaining a hypothesis rather than a causal claim.",
+    "citations": [
+        {
+            "marker": "E1",
+            "kind": "curated_mechanism",
+            "detail": "Curated convergence: CTD Parkinson's DirectEvidence AND registered neuro-AOP stressor.",
+            "source": "CTD curated DirectEvidence / AOP-Wiki"
+        },
+        {
+            "marker": "E2",
+            "kind": "mito_celltype_grounding",
+            "detail": "MIE grounded in MitoCarta Complex-I Q-site subunits; adverse outcome in the Kamath SOX6/AGTR1 vulnerable dopaminergic-neuron population.",
+            "source": "MitoCarta3.0 + Kamath 2022 Nat Neurosci"
+        },
+        {
+            "marker": "E3",
+            "kind": "assay_corroboration",
+            "detail": "32 mechanistic assay hits illustrate the chain (corroboration only \u2014 anti-diagnostic, not a discriminator).",
+            "source": "EPA ToxCast via NICEATM ICE"
+        },
+        {
+            "marker": "E4",
+            "kind": "epidemiology",
+            "detail": "PD OR ~2-2.5 (Tanner 2011; Pezzoli&Cereda 2013 meta).",
+            "source": "Published cohorts / meta-analyses"
+        },
+        {
+            "marker": "E5",
+            "kind": "bbb",
+            "detail": "Brain-penetrant \u2014 plausible CNS exposure.",
+            "source": "B3DB / BOILED-Egg (structure-based)"
+        }
+    ],
+    "model": "claude-opus-4-8",
+    "source": "claude"
+}

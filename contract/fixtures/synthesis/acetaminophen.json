@@ -1,0 +1,28 @@
+{
+    "compound": "acetaminophen",
+    "call": "negative",
+    "tier": "clean_negative",
+    "prose": "The evidence-ranked mechanistic hypothesis for acetaminophen supports a clean negative call for Parkinson's disease. The determining basis is curated mechanism: acetaminophen carries no curated Parkinson's DirectEvidence in CTD and is not a registered stressor in any neuro-relevant AOP [E1], meaning there is no mechanistic anchor linking it to established neurodegenerative key events. This absence\u2014not any single downstream signal\u2014is what drives the call. Corroborating, though never decisive, real-world pharmacovigilance shows no parkinsonism disproportionality across 668,109 FAERS reports (ROR 0.68, not elevated) [E2], consistent with the absence of a curated pathway. Brain penetrance is confirmed [E3], but here it is non-discriminating: crossing the blood-brain barrier does not itself imply a dopaminergic liability absent a mechanistic route. Together these strands align without contradiction, and the curated-mechanism gap remains the sole rationale for classifying acetaminophen as a clean negative.",
+    "citations": [
+        {
+            "marker": "E1",
+            "kind": "curated_mechanism",
+            "detail": "No curated Parkinson's DirectEvidence and not a registered neuro-AOP stressor.",
+            "source": "CTD curated DirectEvidence / AOP-Wiki"
+        },
+        {
+            "marker": "E2",
+            "kind": "faers",
+            "detail": "Zero parkinsonism signal across 668109 FAERS reports (ROR 0.68, not elevated).",
+            "source": "openFDA FAERS"
+        },
+        {
+            "marker": "E3",
+            "kind": "bbb",
+            "detail": "Brain-penetrant, but penetrance is not a discriminator here.",
+            "source": "B3DB / BOILED-Egg (structure-based)"
+        }
+    ],
+    "model": "claude-opus-4-8",
+    "source": "claude"
+}
