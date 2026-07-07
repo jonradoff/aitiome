@@ -1,0 +1,33 @@
+# fly.io config for Aitiome (single binary: API + web UI).
+# Deploy:  fly launch --no-deploy   (first time, to create the app)  then  fly deploy
+# Secret:  fly secrets set ANTHROPIC_API_KEY=sk-ant-...   (enables the Claude reasoner)
+# Domain:  fly certs add aitiome.metavert.io   (then add the DNS records fly prints)
+
+app = "aitiome"
+primary_region = "sjc"
+
+[build]
+  dockerfile = "Dockerfile"
+
+[http_service]
+  internal_port = 8787
+  force_https = true
+  auto_stop_machines = "stop"
+  auto_start_machines = true
+  min_machines_running = 0
+
+  [http_service.concurrency]
+    type = "requests"
+    soft_limit = 200
+    hard_limit = 250
+
+  [[http_service.checks]]
+    interval = "15s"
+    timeout = "2s"
+    grace_period = "5s"
+    method = "GET"
+    path = "/health"
+
+[[vm]]
+  size = "shared-cpu-1x"
+  memory = "512mb"

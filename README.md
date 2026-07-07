@@ -1,39 +1,266 @@
-# Aitiome (AITIO)
+# Aitiome
 
-An honest mechanistic-reasoning engine for the environmental exposome of
-neurodegeneration. Given a chemical, it reconstructs the OECD-endorsed causal
-pathway (molecular initiating event → key events → a neurodegeneration hallmark),
-grounds each edge in queryable evidence, rates confidence, and — the hard test —
-correctly refuses to flag bioactive-but-non-neurotoxic decoys.
+**An honest mechanistic-reasoning engine for the environmental exposome of neurodegeneration.**
 
-> Read `CLAUDE.md` for the binding project constraints and `docs/build-kickoff.md`
-> for the master brief. The reconnaissance in `docs/` is settled input.
+Given a chemical, Aitiome reconstructs the OECD-endorsed causal pathway from molecular initiating
+event to a neurodegeneration hallmark, grounds each step in queryable evidence, rates confidence,
+and proves itself two ways: it recovers the known neurotoxicants, and it refuses to be fooled by
+bioactive compounds that are not neurotoxic. It is not a system that claims to discover novel
+neurodegeneration-causing chemicals, and it is transparent about exactly where AI-driven discovery
+is and is not possible on this chemical class.
 
-## Layout
-- `contract/` — the versioned core⟂visualization seam (types + fixtures). The only coupling.
-- `services/` — Go: transport-agnostic service layer with thin **HTTP** and **MCP** adapters.
-- `web/` — human web UI (React + TS). *(added in a later phase)*
-- `viz/` — semi-independent Three.js visualization module, own dev server, runs on fixtures. *(later)*
-- `docs/` — recon assets, the master brief, and ADRs (`docs/decisions/`).
+> Built for **Built with Claude: Life Sciences** (judged with the Gladstone Institutes). The design
+> rests on a completed multi-round data reconnaissance; those findings are settled inputs, recorded
+> in [`docs/`](docs/) and locked into [`CLAUDE.md`](CLAUDE.md).
 
-## Play with it (one command)
+---
+
+## The idea, and how the evidence reshaped it
+
+We set out to build a discovery engine: an AI that scans the environmental chemical universe and
+surfaces novel candidate drivers of Parkinson's and Alzheimer's, validated by recovering known
+neurotoxicants. Rigorous reconnaissance changed the shape of that goal in two decisive ways, and the
+honesty about them is the point.
+
+1. **There is no shippable unsupervised-discovery signal for this compound class on public data.**
+   We tested seven independent discovery axes (transcriptomics, morphology, structure/QSAR, full
+   bioactivity fingerprints, knowledge graphs, physics-based docking). Every one was either
+   *coverage-killed* (environmental toxicants are not profiled in the drug-centric databases) or
+   *confounder-killed* (general bioactivity is not neurotoxicity, and the confound is general
+   bioactivity, not merely cytotoxicity). That is a robust, reproducible negative result, and mapping
+   it is itself a contribution.
+
+2. **The discriminating signal is curated, not assay-based.** The zero-error recovery predicate on
+   the validation set is `(CTD curated Parkinson's DirectEvidence) OR (registered neuro-AOP stressor)`.
+   Both terms are curated. Mitochondrial and general-bioactivity similarity score *worse than chance*
+   against the adversarial decoys, so activity can never be the discriminator.
+
+So Aitiome became the thing the data supports: an engine that reconstructs endorsed mechanism, proves
+it recovers known neurotoxicants, correctly rejects bioactive imposters on three independent lines of
+evidence, and ships an honest map of where discovery works and where it does not. The full drift
+narrative and the per-resource findings are in
+[`docs/recon-learnings-summary.md`](docs/recon-learnings-summary.md).
+
+## Three co-equal win conditions
+
+1. **Validation that works.** Visibly recover the known neurotoxicants on the endorsed pathway
+   scaffold, and correctly reject the adversarial decoys.
+2. **A signature visualization.** One hero visual: the recovery-and-specificity reveal resolving into
+   the actual vulnerable dopaminergic-neuron population.
+3. **Honest, calibrated framing.** Confidence tiers on every result, calibrated language, and the
+   negative-results discovery map surfaced as a first-class feature, not hidden.
+
+---
+
+## What the engine does
+
+### The recovery rule (the core discipline)
+
+```
+positive  <=>  ( CTD curated Parkinson's DirectEvidence )  OR  ( registered neuro-AOP stressor )
+```
+
+Curated signals are **diagnostic**. Assay/bioactivity activity is **corroboration only and
+anti-diagnostic**: it illustrates mechanism for known positives but cannot discriminate, so the engine
+**never gates a positive call on it**. Every decision object carries `diagnostic = true` and
+`gatedOnAssay = false`; that invariant is enforced in tests.
+
+### Validation results (on the reconnaissance ground truth)
+
+| | recovered | rejected | adversarial decoys rejected | false positives | false negatives |
+|---|---|---|---|---|---|
+| **12 positives / 15 negatives** | **12 / 12** | **15 / 15** | **6 / 6** | **0** | **0** |
+
+- **12 positives**, surfaced with a confidence tier on every result: 6 `assay_mechanism_recovered`
+  (rotenone, MPP+, paraquat, manganese chloride, methylmercury chloride, chlorpyrifos) and 6
+  `curated_anchored_only` (MPTP, maneb, lead acetate, deguelin, dieldrin, 6-hydroxydopamine).
+- **15 negatives**, including **6 adversarial, mitochondria-active decoys** designed to fool an
+  activity model (troglitazone, prochloraz, propiconazole, simvastatin, fenofibrate, warfarin).
+- Every curated discriminator is 0/15 on the negatives.
+
+### The pathway (AOP-3 anchor)
+
+The MVP scaffold is **AOP-3**, an OECD-endorsed adverse outcome pathway:
+
+```
+MIE 888  binding of inhibitor, complex I
+  -> KE 887  complex-I inhibition
+  -> KE 177  mitochondrial dysfunction
+  -> KE 890  nigrostriatal dopaminergic degeneration
+  -> AO 896  parkinsonian motor deficits          (with the 188 <-> 890 neuroinflammation loop)
+```
+
+The molecular initiating event is grounded gene-level in the **MitoCarta3.0 Complex-I Q-site subunits**;
+the adverse outcome is grounded in the **Kamath 2022 SOX6/AGTR1 vulnerable dopaminergic-neuron
+population**, which is also the hero visual's terminal frame.
+
+### Convergent evidence, and the triple-independent decoy rejection
+
+Beyond the curated recovery decision, each compound is grounded and its confidence enriched by
+independent strands: curated mechanism, assay corroboration, mechanistic/cell-type grounding, FAERS
+pharmacovigilance, human epidemiology, and blood-brain-barrier exposure. **These strands ground and
+calibrate; they are never new recovery gates.**
+
+The specificity centerpiece is that the decoys are rejected by multiple independent lines at once.
+Truthfully per compound: **warfarin and fenofibrate** fail all three (no curated signal + BBB
+non-penetrance + zero FAERS parkinsonism signal), while **simvastatin and troglitazone** fail two each
+(the data does not support claiming a third, and the app says so).
+
+### Discovery, represented as an honest map
+
+The discovery view ships the seven axes tested during recon, each with its coverage- or
+confounder-killed verdict, plus the two live-but-unproven leads (a neural-specific assay subset,
+AUROC 0.72 but underpowered; and a bounded Boltz-2 Q-site engagement benchmark). Discovery is
+represented as a map, never as a predictor.
+
+### Claude evidence-reasoner
+
+A Claude-backed `EvidenceReasoner` writes a calibrated, cited prose account of each assessment. It is
+hard-bounded to **explain, never decide**: the call and tier are fixed inputs it may not change, it
+cites the engine's evidence strands by `[E#]` marker (nothing invented), it keeps assay anti-diagnostic,
+and it never claims causation. Model is configurable per role (default Opus 4.8; a deterministic direct
+reasoner is the always-available fallback, so the endpoint works offline).
+
+---
+
+## Architecture
+
+The system is split into a **core** and a **visualization** stream coupled only by a **versioned
+`contract/`** (typed schema + fixtures). The visualization runs entirely on contract fixtures, so it
+reaches polish without the core being live; integration is a fixture-to-live flip.
+
+```
+                 +------------------------------------------------------+
+                 |  contract/  (the seam: types + fixtures, versioned)  |
+                 |  goapi (Go) . ts (TypeScript) . fixtures/ . VERSION  |
+                 +------------------------------------------------------+
+                       ^                                        ^
+        imports        |                                        |  imports (types + fixtures)
+                       |                                        |
+   +-------------------------------------+          +-------------------------------------+
+   |  services/  (Go)                    |          |  web/  (React + TypeScript + Three) |
+   |                                     |          |                                     |
+   |  aitio (one service package)        |          |  hero/  GLSL cascade + neuron       |
+   |   resolver . aop . recovery         |   /api   |  components/  evidence, trace,      |
+   |   evidence . validation . reasoner  | <------- |    validation, discovery, MCP,      |
+   |                                     |  proxy   |    provenance, specificity          |
+   |  cmd/httpd  (HTTP adapter)   -------+--- live -+->  data layer (live first,          |
+   |  cmd/mcpd   (MCP adapter, stdio) ---+          |    fixtures fallback)               |
+   +-------------------------------------+          +-------------------------------------+
+```
+
+**Transport-agnostic service layer.** All domain logic lives in one Go package, `services/aitio`. The
+HTTP server (`cmd/httpd`) and the MCP server (`cmd/mcpd`) are thin adapters over the identical service
+methods, so the same engine serves a human web UI and an external agent. This dual human + agentic
+interface is a core pillar.
+
+**Data is embedded and deterministic.** The engine loads the reconnaissance-derived inputs (validation
+set, AOP scaffold, MitoCarta subunits, brain cell gene sets, FAERS/epidemiology/BBB coverage) via
+`go:embed`. The recovery decision is deterministic over curated data; there is no LLM in the decision
+path (by design). The LLM is used only for the optional prose synthesis.
+
+**Correctness spine.** Identity resolution is **DTXSID-first with the salt-form-correct record**, not
+PubChem-synonym guessing. Entering the paraquat dichloride CAS `1910-42-5` resolves to the paraquat
+record tested as that salt, avoiding the trap that silently returns "no data" on the parent cation.
+
+## Features
+
+- **Validation harness** over the 27-compound ground truth: 12/12 recovered, 15/15 rejected, 6/6
+  adversarial decoys rejected, 0 false positives, 0 false negatives.
+- **Grounded pathway reconstruction** of the endorsed AOP-3 cascade, with gene- and cell-type-level
+  grounding on the MIE and adverse outcome.
+- **Convergent-evidence display** with per-strand status, plus the truthful triple-independent decoy
+  rejection.
+- **Reasoning trace** stream that drives the hero animation and is shown as an auditable log.
+- **Provenance drawer**: click any evidence strand to see its finding, source, and access route.
+- **Honest discovery map** of the seven tested axes and two live leads.
+- **Claude reasoning synthesis** (cited, calibrated, explains but never decides).
+- **Interactive resolver** search over name / CAS / DTXSID / InChIKey, salt-form correct.
+- **Hero visualization** (Three.js + GLSL): an exposome particle field, evidence-weighted glowing
+  cascade edges, the neuron terminal igniting for positives, and the rejection rings for decoys.
+- **MCP server** exposing the same engine as tools for an external agent.
+- Dark mode by default with light-mode parity.
+
+## Data sources
+
+CTD (curated `DirectEvidence` only), AOP-Wiki (OECD-endorsed neuro AOPs), EPA ToxCast / invitroDB via
+NICEATM ICE (corroboration only), MitoCarta3.0, Kamath 2022 SN snRNA-seq, openFDA FAERS, curated
+epidemiology, and B3DB / BOILED-Egg for brain exposure. Access routes are recorded per source in
+[`docs/recon/data-source-map.md`](docs/recon/data-source-map.md) and surfaced in the provenance drawer.
+
+---
+
+## Run it
+
 ```sh
-./run.sh               # builds + starts the engine, then the web app
+./run.sh                     # builds + starts the engine, then the web app
 # open http://localhost:5273
 ```
-Click a **known neurotoxicant** to watch the endorsed AOP-3 cascade reconstruct and
-ignite the SOX6/AGTR1 vulnerable-neuron terminal; click a **bioactive decoy** to see
-it withheld and rejected on independent lines. The all-27 grid, the convergent
-evidence, the reasoning trace, the honest discovery map, and the MCP interface are
-all live.
 
-## Engine only
+Click a **known neurotoxicant** to watch the endorsed cascade reconstruct and ignite the vulnerable
+dopaminergic-neuron terminal. Click a **bioactive decoy** to see it withheld and rejected on
+independent lines. The all-27 grid, convergent evidence, reasoning trace, provenance drawer,
+specificity centerpiece, discovery map, and MCP panel are all live.
+
+### Engine only
+
 ```sh
-make run-http          # HTTP API on :8787  (/health /compounds /resolve /assess /validation /pathway /discovery-map)
-make run-mcp           # MCP server over stdio (health, resolve_compound, assess_compound, run_validation, get_pathway, discovery_map)
-make test              # Go tests: validation harness (fp=fn=0), salt-form guard, decoy rejection
-make fixtures          # regenerate contract/fixtures from the live engine
+make run-http                # HTTP API on :8787
+make run-mcp                 # MCP server over stdio
+make test                    # Go tests (harness fp=fn=0, salt-form guard, decoy rejection, synthesis)
+make fixtures                # regenerate contract/fixtures from the live engine
 ```
 
-Requires Go 1.26+ and Node 22+. Optional: `cp .env.example .env` and add
-`ANTHROPIC_API_KEY` for the (optional) LLM evidence-reasoner role.
+Requires Go 1.26+ and Node 22+. For the optional Claude synthesis, copy `.env.example` to `.env` and
+set `ANTHROPIC_API_KEY` (default reasoner model `claude-opus-4-8`, configurable via
+`AITIO_MODEL_REASONER`). Everything else works without a key.
+
+### Deploy (single binary: API + web UI)
+
+The engine also serves the built web UI, so the whole app ships as one binary / one container.
+
+```sh
+cd web && npm run build && cd ..
+go build -o bin/httpd ./services/cmd/httpd
+AITIO_WEB_DIR=web/dist ./bin/httpd            # serves API + UI on :8787
+
+docker build -t aitiome . && docker run -p 8787:8787 -e ANTHROPIC_API_KEY=sk-ant-... aitiome
+```
+
+Production runs on fly.io. See [`docs/deploy.md`](docs/deploy.md) for the fly launch + secret + custom
+domain steps.
+
+### HTTP endpoints
+
+`/health` `/compounds` `/resolve?id=` `/assess?id=` `/synthesis?id=` `/validation` `/pathway[?aop=3]`
+`/discovery-map`
+
+### MCP tools
+
+`health` `list_compounds` `resolve_compound` `assess_compound` `synthesize_assessment`
+`run_validation` `get_pathway` `discovery_map`
+
+## Project layout
+
+```
+contract/     the versioned core<->viz seam: goapi (Go), ts (TypeScript), fixtures/, VERSION
+services/     Go: aitio service package + cmd/httpd (HTTP) + cmd/mcpd (MCP) adapters
+web/          React + TypeScript + Three.js app (hero/ + components/), runs live or on fixtures
+docs/         the reconnaissance assets, the master brief, and decision records (docs/decisions/)
+CLAUDE.md     always-loaded constraint memory: the settled recon findings and the hard rules
+run.sh        one command to build and start everything
+```
+
+## Honesty guardrails
+
+Aitiome outputs **evidence-ranked mechanistic hypotheses, never claims of causation.** Confidence tiers
+appear on every result. The recovery decision is curated and never gated on bioactivity. The discovery
+limits are surfaced, not hidden. The design builds openly on the field's published roadmap (Miller,
+Barouki, Samieri; *Nature Neuroscience* 2024) and positions itself honestly as the validated, calibrated
+prototype that roadmap called for.
+
+## License / attribution
+
+Research prototype. Data sources retain their own licenses and citation requirements (notably CTD,
+which is non-commercial and citation-required, and NeurotoxKb, CC BY-NC-ND). See
+[`docs/recon/data-source-map.md`](docs/recon/data-source-map.md).
