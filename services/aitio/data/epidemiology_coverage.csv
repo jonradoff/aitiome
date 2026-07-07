@@ -1,0 +1,13 @@
+compound,pd_risk_estimate,source,evidence_type
+rotenone,PD OR ~2.5,Tanner 2011 FAME (EHP),quantified-epi
+paraquat,PD OR ~2-2.5,Tanner 2011; Pezzoli&Cereda 2013 meta,quantified-epi
+maneb,PD OR ~1.75 (up to ~2-4 combined),Costello 2009 (AJE),quantified-epi
+manganese,manganism/parkinsonism (occupational),Racette et al.,quantified-epi-figure-uncertain
+lead acetate,PD elevated w/ bone lead,Weisskopf 2010 (AJE),quantified-epi
+chlorpyrifos,PD elevated (OP class),Costello/Wang OP-PD studies,quantified-epi-class-level
+dieldrin,elevated in PD brain (case-control),Fleming 1994 (Ann Neurol),quantified-epi-figure-uncertain
+methylmercury chloride,PD associations inconsistent,various,quantified-epi-weak
+MPTP,causal parkinsonism (case series),Langston 1983 (Science),qualitative-causal
+MPP+,active metabolite of MPTP,Langston 1983,qualitative-causal
+deguelin,none (lab tool),-,lab-tool-no-epi
+6-hydroxydopamine,none (lab lesioning agent),-,lab-tool-no-epi

@@ -1,0 +1,39 @@
+gene,set,source
+SOX6,DA_neuron_vulnerable,Kamath 2022 NatNeurosci (SCP1768)
+AGTR1,DA_neuron_vulnerable,Kamath 2022 NatNeurosci (SCP1768)
+TMEM200A,DA_neuron_vulnerable,Kamath 2022 NatNeurosci (SCP1768)
+DDT,DA_neuron_vulnerable,Kamath 2022 NatNeurosci (SCP1768)
+GFRA2,DA_neuron_vulnerable,Kamath 2022 NatNeurosci (SCP1768)
+PART1,DA_neuron_vulnerable,Kamath 2022 NatNeurosci (SCP1768)
+CALB1,DA_neuron_resistant,Kamath 2022
+GEM,DA_neuron_resistant,Kamath 2022
+TRHR,DA_neuron_resistant,Kamath 2022
+RBP4,DA_neuron_resistant,Kamath 2022
+TH,DA_neuron_identity,Kamath 2022
+SLC6A3,DA_neuron_identity,Kamath 2022
+SLC18A2,DA_neuron_identity,Kamath 2022
+NR4A2,DA_neuron_identity,Kamath 2022
+DDC,DA_neuron_identity,Kamath 2022
+ALDH1A1,DA_neuron_identity,Kamath 2022
+KCNJ6,DA_neuron_identity,Kamath 2022
+SNCA,PD_mendelian_mito_lysosomal,PD GWAS/Mendelian loci
+PRKN,PD_mendelian_mito_lysosomal,PD GWAS/Mendelian loci
+PINK1,PD_mendelian_mito_lysosomal,PD GWAS/Mendelian loci
+PARK7,PD_mendelian_mito_lysosomal,PD GWAS/Mendelian loci
+LRRK2,PD_mendelian_mito_lysosomal,PD GWAS/Mendelian loci
+VPS35,PD_mendelian_mito_lysosomal,PD GWAS/Mendelian loci
+GBA1,PD_mendelian_mito_lysosomal,PD GWAS/Mendelian loci
+ATP13A2,PD_mendelian_mito_lysosomal,PD GWAS/Mendelian loci
+TREM2,AD_microglial_immune,Bryois 2020 NatGenet
+TYROBP,AD_microglial_immune,Bryois 2020 NatGenet
+CD33,AD_microglial_immune,Bryois 2020 NatGenet
+C1QA,AD_microglial_immune,Bryois 2020 NatGenet
+C1QB,AD_microglial_immune,Bryois 2020 NatGenet
+C1QC,AD_microglial_immune,Bryois 2020 NatGenet
+AIF1,AD_microglial_immune,Bryois 2020 NatGenet
+CX3CR1,AD_microglial_immune,Bryois 2020 NatGenet
+MS4A4A,AD_microglial_immune,Bryois 2020 NatGenet
+ABCA7,AD_microglial_immune,Bryois 2020 NatGenet
+INPP5D,AD_microglial_immune,Bryois 2020 NatGenet
+SPI1,AD_microglial_immune,Bryois 2020 NatGenet
+APOE,AD_microglial_immune,Bryois 2020 NatGenet

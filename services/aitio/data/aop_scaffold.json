@@ -1,0 +1,1145 @@
+{
+  "_meta": {
+    "source": "AOP-Wiki RDF via SPARQL (aopwiki.rdf.bigcat-bioinformatics.org)",
+    "extracted": "2026-07-03",
+    "license": "CC-BY-SA 4.0",
+    "description": "Endorsed neuro AOP scaffolds + dopaminergic-mitochondrial family (3/587/593). Nodes = key events (MIE/KE/AO); edges = key-event relationships (upstream->downstream).",
+    "mvp_anchor": "3",
+    "dopaminergic_family": [
+      "3",
+      "587",
+      "593"
+    ]
+  },
+  "aops": [
+    {
+      "aop_id": "3",
+      "title": "Inhibition of the mitochondrial complex I of nigro-striatal neurons leads to parkinsonian motor deficits",
+      "oecd_status": "WPHA/WNT Endorsed",
+      "is_oecd_endorsed": true,
+      "url": "https://aopwiki.org/aops/3",
+      "n_key_events": 7,
+      "n_relationships": 8,
+      "key_events": [
+        {
+          "event_id": "177",
+          "title": "Increase, Mitochondrial dysfunction",
+          "role": "KE",
+          "all_roles": [
+            "KE"
+          ]
+        },
+        {
+          "event_id": "188",
+          "title": "Neuroinflammation",
+          "role": "KE",
+          "all_roles": [
+            "KE"
+          ]
+        },
+        {
+          "event_id": "887",
+          "title": "Inhibition, NADH-ubiquinone oxidoreductase  (complex I)",
+          "role": "KE",
+          "all_roles": [
+            "KE"
+          ]
+        },
+        {
+          "event_id": "888",
+          "title": "Binding of inhibitor, NADH-ubiquinone oxidoreductase (complex I)",
+          "role": "MIE",
+          "all_roles": [
+            "KE",
+            "MIE"
+          ]
+        },
+        {
+          "event_id": "889",
+          "title": "Proteostasis, impaired",
+          "role": "KE",
+          "all_roles": [
+            "KE"
+          ]
+        },
+        {
+          "event_id": "890",
+          "title": "Degeneration of dopaminergic neurons of the nigrostriatal pathway",
+          "role": "KE",
+          "all_roles": [
+            "KE"
+          ]
+        },
+        {
+          "event_id": "896",
+          "title": "Parkinsonian motor deficits",
+          "role": "AO",
+          "all_roles": [
+            "AO",
+            "KE"
+          ]
+        }
+      ],
+      "key_event_relationships": [
+        {
+          "ker_id": "904",
+          "upstream_event_id": "177",
+          "downstream_event_id": "889"
+        },
+        {
+          "ker_id": "905",
+          "upstream_event_id": "889",
+          "downstream_event_id": "890"
+        },
+        {
+          "ker_id": "906",
+          "upstream_event_id": "188",
+          "downstream_event_id": "890"
+        },
+        {
+          "ker_id": "907",
+          "upstream_event_id": "890",
+          "downstream_event_id": "188"
+        },
+        {
+          "ker_id": "908",
+          "upstream_event_id": "177",
+          "downstream_event_id": "890"
+        },
+        {
+          "ker_id": "910",
+          "upstream_event_id": "890",
+          "downstream_event_id": "896"
+        },
+        {
+          "ker_id": "933",
+          "upstream_event_id": "888",
+          "downstream_event_id": "887"
+        },
+        {
+          "ker_id": "934",
+          "upstream_event_id": "887",
+          "downstream_event_id": "177"
+        }
+      ]
+    },
+    {
+      "aop_id": "12",
+      "title": "Chronic binding of antagonist to N-methyl-D-aspartate receptors (NMDARs) during brain development leads to neurodegeneration with impairment in learning and memory in aging",
+      "oecd_status": "WPHA/WNT Endorsed",
+      "is_oecd_endorsed": true,
+      "url": "https://aopwiki.org/aops/12",
+      "n_key_events": 8,
+      "n_relationships": 8,
+      "key_events": [
+        {
+          "event_id": "52",
+          "title": "Decreased, Calcium influx",
+          "role": "KE",
+          "all_roles": [
+            "KE"
+          ]
+        },
+        {
+          "event_id": "55",
+          "title": "Increase, Cell injury/death",
+          "role": "KE",
+          "all_roles": [
+            "KE"
+          ]
+        },
+        {
+          "event_id": "188",
+          "title": "Neuroinflammation",
+          "role": "KE",
+          "all_roles": [
+            "KE"
+          ]
+        },
+        {
+          "event_id": "195",
+          "title": "Inhibition, NMDARs",
+          "role": "KE",
+          "all_roles": [
+            "KE"
+          ]
+        },
+        {
+          "event_id": "201",
+          "title": "Binding of antagonist, NMDA receptors",
+          "role": "MIE",
+          "all_roles": [
+            "KE",
+            "MIE"
+          ]
+        },
+        {
+          "event_id": "341",
+          "title": "Impairment, Learning and memory",
+          "role": "AO",
+          "all_roles": [
+            "AO",
+            "KE"
+          ]
+        },
+        {
+          "event_id": "352",
+          "title": "N/A, Neurodegeneration",
+          "role": "AO",
+          "all_roles": [
+            "AO",
+            "KE"
+          ]
+        },
+        {
+          "event_id": "381",
+          "title": "Reduced levels of BDNF",
+          "role": "KE",
+          "all_roles": [
+            "KE"
+          ]
+        }
+      ],
+      "key_event_relationships": [
+        {
+          "ker_id": "207",
+          "upstream_event_id": "352",
+          "downstream_event_id": "188"
+        },
+        {
+          "ker_id": "208",
+          "upstream_event_id": "188",
+          "downstream_event_id": "352"
+        },
+        {
+          "ker_id": "213",
+          "upstream_event_id": "195",
+          "downstream_event_id": "52"
+        },
+        {
+          "ker_id": "229",
+          "upstream_event_id": "201",
+          "downstream_event_id": "195"
+        },
+        {
+          "ker_id": "347",
+          "upstream_event_id": "52",
+          "downstream_event_id": "381"
+        },
+        {
+          "ker_id": "353",
+          "upstream_event_id": "381",
+          "downstream_event_id": "55"
+        },
+        {
+          "ker_id": "365",
+          "upstream_event_id": "55",
+          "downstream_event_id": "188"
+        },
+        {
+          "ker_id": "1069",
+          "upstream_event_id": "352",
+          "downstream_event_id": "341"
+        }
+      ]
+    },
+    {
+      "aop_id": "13",
+      "title": "Chronic binding of antagonist to N-methyl-D-aspartate receptors (NMDARs) during brain development induces impairment of learning and memory abilities",
+      "oecd_status": "WPHA/WNT Endorsed",
+      "is_oecd_endorsed": true,
+      "url": "https://aopwiki.org/aops/13",
+      "n_key_events": 10,
+      "n_relationships": 11,
+      "key_events": [
+        {
+          "event_id": "52",
+          "title": "Decreased, Calcium influx",
+          "role": "KE",
+          "all_roles": [
+            "KE"
+          ]
+        },
+        {
+          "event_id": "55",
+          "title": "Increase, Cell injury/death",
+          "role": "KE",
+          "all_roles": [
+            "KE"
+          ]
+        },
+        {
+          "event_id": "195",
+          "title": "Inhibition, NMDARs",
+          "role": "KE",
+          "all_roles": [
+            "KE"
+          ]
+        },
+        {
+          "event_id": "201",
+          "title": "Binding of antagonist, NMDA receptors",
+          "role": "MIE",
+          "all_roles": [
+            "KE",
+            "MIE"
+          ]
+        },
+        {
+          "event_id": "341",
+          "title": "Impairment, Learning and memory",
+          "role": "AO",
+          "all_roles": [
+            "AO",
+            "KE"
+          ]
+        },
+        {
+          "event_id": "381",
+          "title": "Reduced levels of BDNF",
+          "role": "KE",
+          "all_roles": [
+            "KE"
+          ]
+        },
+        {
+          "event_id": "382",
+          "title": "Aberrant, Dendritic morphology",
+          "role": "KE",
+          "all_roles": [
+            "KE"
+          ]
+        },
+        {
+          "event_id": "383",
+          "title": "Reduced, Presynaptic release of glutamate",
+          "role": "KE",
+          "all_roles": [
+            "KE"
+          ]
+        },
+        {
+          "event_id": "385",
+          "title": "Decrease of synaptogenesis",
+          "role": "KE",
+          "all_roles": [
+            "KE"
+          ]
+        },
+        {
+          "event_id": "386",
+          "title": "Decrease of neuronal network function",
+          "role": "KE",
+          "all_roles": [
+            "KE"
+          ]
+        }
+      ],
+      "key_event_relationships": [
+        {
+          "ker_id": "213",
+          "upstream_event_id": "195",
+          "downstream_event_id": "52"
+        },
+        {
+          "ker_id": "229",
+          "upstream_event_id": "201",
+          "downstream_event_id": "195"
+        },
+        {
+          "ker_id": "347",
+          "upstream_event_id": "52",
+          "downstream_event_id": "381"
+        },
+        {
+          "ker_id": "348",
+          "upstream_event_id": "381",
+          "downstream_event_id": "382"
+        },
+        {
+          "ker_id": "353",
+          "upstream_event_id": "381",
+          "downstream_event_id": "55"
+        },
+        {
+          "ker_id": "354",
+          "upstream_event_id": "381",
+          "downstream_event_id": "383"
+        },
+        {
+          "ker_id": "355",
+          "upstream_event_id": "55",
+          "downstream_event_id": "385"
+        },
+        {
+          "ker_id": "356",
+          "upstream_event_id": "382",
+          "downstream_event_id": "385"
+        },
+        {
+          "ker_id": "357",
+          "upstream_event_id": "383",
+          "downstream_event_id": "385"
+        },
+        {
+          "ker_id": "358",
+          "upstream_event_id": "385",
+          "downstream_event_id": "386"
+        },
+        {
+          "ker_id": "359",
+          "upstream_event_id": "386",
+          "downstream_event_id": "341"
+        }
+      ]
+    },
+    {
+      "aop_id": "17",
+      "title": "Binding of electrophilic chemicals to SH(thiol)-group of proteins and /or to seleno-proteins involved in protection against oxidative stress during brain development leads to impairment of learning and memory",
+      "oecd_status": "WPHA/WNT Endorsed",
+      "is_oecd_endorsed": true,
+      "url": "https://aopwiki.org/aops/17",
+      "n_key_events": 10,
+      "n_relationships": 11,
+      "key_events": [
+        {
+          "event_id": "55",
+          "title": "Increase, Cell injury/death",
+          "role": "KE",
+          "all_roles": [
+            "KE"
+          ]
+        },
+        {
+          "event_id": "188",
+          "title": "Neuroinflammation",
+          "role": "KE",
+          "all_roles": [
+            "KE"
+          ]
+        },
+        {
+          "event_id": "341",
+          "title": "Impairment, Learning and memory",
+          "role": "AO",
+          "all_roles": [
+            "AO",
+            "KE"
+          ]
+        },
+        {
+          "event_id": "386",
+          "title": "Decrease of neuronal network function",
+          "role": "KE",
+          "all_roles": [
+            "KE"
+          ]
+        },
+        {
+          "event_id": "1392",
+          "title": "Increase, Oxidative Stress ",
+          "role": "KE",
+          "all_roles": [
+            "KE"
+          ]
+        },
+        {
+          "event_id": "1487",
+          "title": "Binding, Thiol/seleno-proteins involved in protection against oxidative stress",
+          "role": "MIE",
+          "all_roles": [
+            "KE",
+            "MIE"
+          ]
+        },
+        {
+          "event_id": "1488",
+          "title": "Glutamate dyshomeostasis",
+          "role": "KE",
+          "all_roles": [
+            "KE"
+          ]
+        },
+        {
+          "event_id": "1492",
+          "title": "Tissue resident cell activation",
+          "role": "KE",
+          "all_roles": [
+            "KE"
+          ]
+        },
+        {
+          "event_id": "1493",
+          "title": "Increased Pro-inflammatory mediators",
+          "role": "KE",
+          "all_roles": [
+            "KE"
+          ]
+        },
+        {
+          "event_id": "1538",
+          "title": "Decreased protection against oxidative stress",
+          "role": "KE",
+          "all_roles": [
+            "KE"
+          ]
+        }
+      ],
+      "key_event_relationships": [
+        {
+          "ker_id": "359",
+          "upstream_event_id": "386",
+          "downstream_event_id": "341"
+        },
+        {
+          "ker_id": "365",
+          "upstream_event_id": "55",
+          "downstream_event_id": "188"
+        },
+        {
+          "ker_id": "1685",
+          "upstream_event_id": "1392",
+          "downstream_event_id": "1488"
+        },
+        {
+          "ker_id": "1686",
+          "upstream_event_id": "1488",
+          "downstream_event_id": "55"
+        },
+        {
+          "ker_id": "1687",
+          "upstream_event_id": "188",
+          "downstream_event_id": "55"
+        },
+        {
+          "ker_id": "1688",
+          "upstream_event_id": "55",
+          "downstream_event_id": "386"
+        },
+        {
+          "ker_id": "1690",
+          "upstream_event_id": "1392",
+          "downstream_event_id": "55"
+        },
+        {
+          "ker_id": "1718",
+          "upstream_event_id": "55",
+          "downstream_event_id": "1492"
+        },
+        {
+          "ker_id": "1719",
+          "upstream_event_id": "1493",
+          "downstream_event_id": "55"
+        },
+        {
+          "ker_id": "1765",
+          "upstream_event_id": "1487",
+          "downstream_event_id": "1538"
+        },
+        {
+          "ker_id": "1766",
+          "upstream_event_id": "1538",
+          "downstream_event_id": "1392"
+        }
+      ]
+    },
+    {
+      "aop_id": "48",
+      "title": "Binding of agonists to ionotropic glutamate receptors in adult brain causes excitotoxicity that mediates neuronal cell death, contributing to learning and memory impairment.",
+      "oecd_status": "WPHA/WNT Endorsed",
+      "is_oecd_endorsed": true,
+      "url": "https://aopwiki.org/aops/48",
+      "n_key_events": 9,
+      "n_relationships": 10,
+      "key_events": [
+        {
+          "event_id": "55",
+          "title": "Increase, Cell injury/death",
+          "role": "KE",
+          "all_roles": [
+            "KE"
+          ]
+        },
+        {
+          "event_id": "177",
+          "title": "Increase, Mitochondrial dysfunction",
+          "role": "KE",
+          "all_roles": [
+            "KE"
+          ]
+        },
+        {
+          "event_id": "188",
+          "title": "Neuroinflammation",
+          "role": "KE",
+          "all_roles": [
+            "KE"
+          ]
+        },
+        {
+          "event_id": "341",
+          "title": "Impairment, Learning and memory",
+          "role": "AO",
+          "all_roles": [
+            "AO",
+            "KE"
+          ]
+        },
+        {
+          "event_id": "352",
+          "title": "N/A, Neurodegeneration",
+          "role": "KE",
+          "all_roles": [
+            "KE"
+          ]
+        },
+        {
+          "event_id": "388",
+          "title": "Overactivation, NMDARs",
+          "role": "KE",
+          "all_roles": [
+            "KE"
+          ]
+        },
+        {
+          "event_id": "389",
+          "title": "Increased, Intracellular Calcium overload",
+          "role": "KE",
+          "all_roles": [
+            "KE"
+          ]
+        },
+        {
+          "event_id": "618",
+          "title": "Decreased, Neuronal network function in adult brain",
+          "role": "KE",
+          "all_roles": [
+            "KE"
+          ]
+        },
+        {
+          "event_id": "875",
+          "title": "Binding of agonist, Ionotropic glutamate receptors",
+          "role": "MIE",
+          "all_roles": [
+            "KE",
+            "MIE"
+          ]
+        }
+      ],
+      "key_event_relationships": [
+        {
+          "ker_id": "207",
+          "upstream_event_id": "352",
+          "downstream_event_id": "188"
+        },
+        {
+          "ker_id": "208",
+          "upstream_event_id": "188",
+          "downstream_event_id": "352"
+        },
+        {
+          "ker_id": "361",
+          "upstream_event_id": "388",
+          "downstream_event_id": "389"
+        },
+        {
+          "ker_id": "362",
+          "upstream_event_id": "389",
+          "downstream_event_id": "177"
+        },
+        {
+          "ker_id": "363",
+          "upstream_event_id": "177",
+          "downstream_event_id": "55"
+        },
+        {
+          "ker_id": "364",
+          "upstream_event_id": "55",
+          "downstream_event_id": "352"
+        },
+        {
+          "ker_id": "365",
+          "upstream_event_id": "55",
+          "downstream_event_id": "188"
+        },
+        {
+          "ker_id": "634",
+          "upstream_event_id": "618",
+          "downstream_event_id": "341"
+        },
+        {
+          "ker_id": "647",
+          "upstream_event_id": "352",
+          "downstream_event_id": "618"
+        },
+        {
+          "ker_id": "919",
+          "upstream_event_id": "875",
+          "downstream_event_id": "388"
+        }
+      ]
+    },
+    {
+      "aop_id": "54",
+      "title": "Inhibition of Na+/I- symporter (NIS) leads to learning and memory impairment ",
+      "oecd_status": "WPHA/WNT Endorsed",
+      "is_oecd_endorsed": true,
+      "url": "https://aopwiki.org/aops/54",
+      "n_key_events": 10,
+      "n_relationships": 15,
+      "key_events": [
+        {
+          "event_id": "277",
+          "title": "Thyroid hormone synthesis, Decreased",
+          "role": "KE",
+          "all_roles": [
+            "KE"
+          ]
+        },
+        {
+          "event_id": "280",
+          "title": "Thyroxine (T4) in neuronal tissue, Decreased ",
+          "role": "KE",
+          "all_roles": [
+            "KE"
+          ]
+        },
+        {
+          "event_id": "281",
+          "title": " Thyroxine (T4) in serum, Decreased",
+          "role": "KE",
+          "all_roles": [
+            "KE"
+          ]
+        },
+        {
+          "event_id": "341",
+          "title": "Impairment, Learning and memory",
+          "role": "AO",
+          "all_roles": [
+            "AO",
+            "KE"
+          ]
+        },
+        {
+          "event_id": "381",
+          "title": "Reduced levels of BDNF",
+          "role": "KE",
+          "all_roles": [
+            "KE"
+          ]
+        },
+        {
+          "event_id": "385",
+          "title": "Decrease of synaptogenesis",
+          "role": "KE",
+          "all_roles": [
+            "KE"
+          ]
+        },
+        {
+          "event_id": "386",
+          "title": "Decrease of neuronal network function",
+          "role": "KE",
+          "all_roles": [
+            "KE"
+          ]
+        },
+        {
+          "event_id": "424",
+          "title": "Inhibition, Na+/I- symporter (NIS)",
+          "role": "MIE",
+          "all_roles": [
+            "KE",
+            "MIE"
+          ]
+        },
+        {
+          "event_id": "425",
+          "title": "Decrease of Thyroidal iodide",
+          "role": "KE",
+          "all_roles": [
+            "KE"
+          ]
+        },
+        {
+          "event_id": "851",
+          "title": "Decrease of GABAergic interneurons",
+          "role": "KE",
+          "all_roles": [
+            "KE"
+          ]
+        }
+      ],
+      "key_event_relationships": [
+        {
+          "ker_id": "305",
+          "upstream_event_id": "277",
+          "downstream_event_id": "281"
+        },
+        {
+          "ker_id": "312",
+          "upstream_event_id": "281",
+          "downstream_event_id": "280"
+        },
+        {
+          "ker_id": "358",
+          "upstream_event_id": "385",
+          "downstream_event_id": "386"
+        },
+        {
+          "ker_id": "359",
+          "upstream_event_id": "386",
+          "downstream_event_id": "341"
+        },
+        {
+          "ker_id": "442",
+          "upstream_event_id": "424",
+          "downstream_event_id": "425"
+        },
+        {
+          "ker_id": "444",
+          "upstream_event_id": "280",
+          "downstream_event_id": "381"
+        },
+        {
+          "ker_id": "448",
+          "upstream_event_id": "381",
+          "downstream_event_id": "385"
+        },
+        {
+          "ker_id": "870",
+          "upstream_event_id": "381",
+          "downstream_event_id": "851"
+        },
+        {
+          "ker_id": "871",
+          "upstream_event_id": "851",
+          "downstream_event_id": "385"
+        },
+        {
+          "ker_id": "872",
+          "upstream_event_id": "425",
+          "downstream_event_id": "277"
+        },
+        {
+          "ker_id": "1503",
+          "upstream_event_id": "424",
+          "downstream_event_id": "341"
+        },
+        {
+          "ker_id": "1504",
+          "upstream_event_id": "277",
+          "downstream_event_id": "381"
+        },
+        {
+          "ker_id": "1505",
+          "upstream_event_id": "277",
+          "downstream_event_id": "851"
+        },
+        {
+          "ker_id": "1506",
+          "upstream_event_id": "277",
+          "downstream_event_id": "341"
+        },
+        {
+          "ker_id": "1507",
+          "upstream_event_id": "381",
+          "downstream_event_id": "341"
+        }
+      ]
+    },
+    {
+      "aop_id": "483",
+      "title": "Deposition of Energy Leading to Learning and Memory Impairment",
+      "oecd_status": "WPHA/WNT Endorsed",
+      "is_oecd_endorsed": true,
+      "url": "https://aopwiki.org/aops/483",
+      "n_key_events": 8,
+      "n_relationships": 15,
+      "key_events": [
+        {
+          "event_id": "341",
+          "title": "Impairment, Learning and memory",
+          "role": "AO",
+          "all_roles": [
+            "AO",
+            "KE"
+          ]
+        },
+        {
+          "event_id": "1392",
+          "title": "Increase, Oxidative Stress ",
+          "role": "KE",
+          "all_roles": [
+            "KE"
+          ]
+        },
+        {
+          "event_id": "1492",
+          "title": "Tissue resident cell activation",
+          "role": "KE",
+          "all_roles": [
+            "KE"
+          ]
+        },
+        {
+          "event_id": "1635",
+          "title": "Increase, DNA strand breaks",
+          "role": "KE",
+          "all_roles": [
+            "KE"
+          ]
+        },
+        {
+          "event_id": "1686",
+          "title": "Deposition of Energy",
+          "role": "MIE",
+          "all_roles": [
+            "KE",
+            "MIE"
+          ]
+        },
+        {
+          "event_id": "2097",
+          "title": "Increase, Pro-Inflammatory Mediators",
+          "role": "KE",
+          "all_roles": [
+            "KE"
+          ]
+        },
+        {
+          "event_id": "2098",
+          "title": "Increase, Abnormal Neural Remodeling",
+          "role": "KE",
+          "all_roles": [
+            "KE"
+          ]
+        },
+        {
+          "event_id": "2244",
+          "title": "Altered Stress Response Signaling",
+          "role": "KE",
+          "all_roles": [
+            "KE"
+          ]
+        }
+      ],
+      "key_event_relationships": [
+        {
+          "ker_id": "1977",
+          "upstream_event_id": "1686",
+          "downstream_event_id": "1635"
+        },
+        {
+          "ker_id": "2769",
+          "upstream_event_id": "1686",
+          "downstream_event_id": "1392"
+        },
+        {
+          "ker_id": "2811",
+          "upstream_event_id": "1392",
+          "downstream_event_id": "1635"
+        },
+        {
+          "ker_id": "2832",
+          "upstream_event_id": "1686",
+          "downstream_event_id": "1492"
+        },
+        {
+          "ker_id": "2833",
+          "upstream_event_id": "1392",
+          "downstream_event_id": "1492"
+        },
+        {
+          "ker_id": "2834",
+          "upstream_event_id": "1492",
+          "downstream_event_id": "2097"
+        },
+        {
+          "ker_id": "2835",
+          "upstream_event_id": "2097",
+          "downstream_event_id": "2098"
+        },
+        {
+          "ker_id": "2836",
+          "upstream_event_id": "2098",
+          "downstream_event_id": "341"
+        },
+        {
+          "ker_id": "2837",
+          "upstream_event_id": "1686",
+          "downstream_event_id": "2098"
+        },
+        {
+          "ker_id": "2838",
+          "upstream_event_id": "1686",
+          "downstream_event_id": "341"
+        },
+        {
+          "ker_id": "2839",
+          "upstream_event_id": "2097",
+          "downstream_event_id": "341"
+        },
+        {
+          "ker_id": "2841",
+          "upstream_event_id": "1635",
+          "downstream_event_id": "2098"
+        },
+        {
+          "ker_id": "3315",
+          "upstream_event_id": "1635",
+          "downstream_event_id": "2244"
+        },
+        {
+          "ker_id": "3316",
+          "upstream_event_id": "1392",
+          "downstream_event_id": "2244"
+        },
+        {
+          "ker_id": "3321",
+          "upstream_event_id": "2244",
+          "downstream_event_id": "2098"
+        }
+      ]
+    },
+    {
+      "aop_id": "587",
+      "title": "Inhibition of the mitochondrial complex III of nigro-striatal neurons leads to parkinsonian motor deficits ",
+      "oecd_status": "",
+      "is_oecd_endorsed": false,
+      "url": "https://aopwiki.org/aops/587",
+      "n_key_events": 4,
+      "n_relationships": 3,
+      "key_events": [
+        {
+          "event_id": "177",
+          "title": "Increase, Mitochondrial dysfunction",
+          "role": "KE",
+          "all_roles": [
+            "KE"
+          ]
+        },
+        {
+          "event_id": "890",
+          "title": "Degeneration of dopaminergic neurons of the nigrostriatal pathway",
+          "role": "KE",
+          "all_roles": [
+            "KE"
+          ]
+        },
+        {
+          "event_id": "896",
+          "title": "Parkinsonian motor deficits",
+          "role": "AO",
+          "all_roles": [
+            "AO",
+            "KE"
+          ]
+        },
+        {
+          "event_id": "1542",
+          "title": "Inhibition, Mitochondrial complex III",
+          "role": "MIE",
+          "all_roles": [
+            "KE",
+            "MIE"
+          ]
+        }
+      ],
+      "key_event_relationships": [
+        {
+          "ker_id": "908",
+          "upstream_event_id": "177",
+          "downstream_event_id": "890"
+        },
+        {
+          "ker_id": "910",
+          "upstream_event_id": "890",
+          "downstream_event_id": "896"
+        },
+        {
+          "ker_id": "3637",
+          "upstream_event_id": "1542",
+          "downstream_event_id": "177"
+        }
+      ]
+    },
+    {
+      "aop_id": "593",
+      "title": "Redox cycling of a chemical by mitochondria leads to degeneration of nigrostriatal dopaminergic neurons ",
+      "oecd_status": "",
+      "is_oecd_endorsed": false,
+      "url": "https://aopwiki.org/aops/593",
+      "n_key_events": 5,
+      "n_relationships": 4,
+      "key_events": [
+        {
+          "event_id": "889",
+          "title": "Proteostasis, impaired",
+          "role": "KE",
+          "all_roles": [
+            "KE"
+          ]
+        },
+        {
+          "event_id": "890",
+          "title": "Degeneration of dopaminergic neurons of the nigrostriatal pathway",
+          "role": "KE",
+          "all_roles": [
+            "KE"
+          ]
+        },
+        {
+          "event_id": "896",
+          "title": "Parkinsonian motor deficits",
+          "role": "AO",
+          "all_roles": [
+            "AO",
+            "KE"
+          ]
+        },
+        {
+          "event_id": "2362",
+          "title": "Redox cycling of a chemical by mitochondria",
+          "role": "MIE",
+          "all_roles": [
+            "KE",
+            "MIE"
+          ]
+        },
+        {
+          "event_id": "2363",
+          "title": "Elevated mitochondrial ROS and dysfunction",
+          "role": "KE",
+          "all_roles": [
+            "KE"
+          ]
+        }
+      ],
+      "key_event_relationships": [
+        {
+          "ker_id": "905",
+          "upstream_event_id": "889",
+          "downstream_event_id": "890"
+        },
+        {
+          "ker_id": "910",
+          "upstream_event_id": "890",
+          "downstream_event_id": "896"
+        },
+        {
+          "ker_id": "3629",
+          "upstream_event_id": "2362",
+          "downstream_event_id": "2363"
+        },
+        {
+          "ker_id": "3650",
+          "upstream_event_id": "2363",
+          "downstream_event_id": "889"
+        }
+      ]
+    }
+  ]
+}
