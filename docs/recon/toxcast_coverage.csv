@@ -1,0 +1,28 @@
+name,role,toxcast_cas,dtxsid,ice_records,toxcast_calls,toxcast_tested,toxcast_active,toxcast_omitted,mito_active,mito_tested,mmp_active,mmp_tested,oxstress_active,oxstress_tested,neuro_active,neuro_tested,mech_active_total
+rotenone,positive,83-79-4,DTXSID6021248,4410,638,510,254,128,5,8,5,8,2,2,44,59,56
+MPP+,positive,36913-39-0,DTXSID4058106,286,41,39,8,2,0,0,0,0,0,0,8,35,8
+MPTP,positive,28289-54-5,DTXSID8040933,109,6,6,0,0,0,0,0,0,0,0,0,2,0
+paraquat,positive,1910-42-5,DTXSID3034799,575,53,50,32,3,0,0,0,0,0,0,32,50,32
+maneb,positive,12427-38-2,NONE,5080,698,0,0,698,0,0,0,0,0,0,0,0,0
+manganese chloride,positive,7773-01-5,NONE,292,60,54,9,6,0,0,0,0,0,0,7,50,7
+methylmercury chloride,positive,115-09-3,NONE,1814,227,193,145,34,0,0,2,2,0,0,48,51,50
+lead acetate,positive,301-04-2,DTXSID6020773,82,0,0,0,0,0,0,0,0,0,0,0,0,0
+deguelin,positive,522-17-8,DTXSID10200231,84,0,0,0,0,0,0,0,0,0,0,0,0,0
+dieldrin,positive,60-57-1,DTXSID9020453,3821,517,0,0,517,0,0,0,0,0,0,0,0,0
+chlorpyrifos,positive,2921-88-2,DTXSID4020458,3081,516,458,126,58,1,4,1,7,1,2,39,60,42
+6-hydroxydopamine,positive,1199-18-4,DTXSID0036768,80,0,0,0,0,0,0,0,0,0,0,0,0,0
+acetaminophen,negative,103-90-2,DTXSID2020006,2265,528,497,0,31,0,4,0,8,0,1,0,62,0
+sulfamethoxazole,negative,723-46-6,DTXSID8026064,747,158,128,0,30,0,0,0,2,0,0,0,0,0
+furosemide,negative,54-31-9,DTXSID6020648,884,191,174,2,17,0,0,0,2,1,1,0,0,1
+warfarin,negative,81-81-2,DTXSID5023742,2342,507,458,26,49,0,4,1,9,1,2,4,49,6
+ibuprofen,negative,15687-27-1,DTXSID5020732,2133,380,90,0,290,0,0,0,0,0,0,0,0,0
+troglitazone,negative,97322-87-7,DTXSID8023719,3551,533,450,205,83,5,8,7,9,1,2,6,14,19
+fulvestrant,negative,129453-61-8,DTXSID4022369,3169,488,95,20,393,0,0,1,2,0,0,0,0,1
+fenofibrate,negative,49562-28-9,DTXSID2029874,2904,497,434,114,63,2,7,1,8,1,2,0,0,4
+propiconazole,negative,60207-90-1,DTXSID8024280,4464,621,506,184,115,3,10,2,8,1,1,8,17,14
+prochloraz,negative,67747-09-5,DTXSID4024270,4610,678,532,230,146,3,10,4,10,1,1,8,17,16
+diethyl phthalate,negative,84-66-2,DTXSID7021780,2566,440,120,2,320,0,0,0,1,0,0,0,0,0
+simvastatin,negative,79902-63-9,DTXSID0023581,3314,529,454,160,75,2,2,4,9,0,2,11,32,17
+D-glucose,negative,50-99-7,DTXSID501015215,941,158,0,0,158,0,0,0,0,0,0,0,0,0
+sucrose,negative,57-50-1,DTXSID2021288,2200,432,85,0,347,0,0,0,0,0,0,0,0,0
+sodium chloride,negative,7647-14-5,DTXSID3021271,3,0,0,0,0,0,0,0,0,0,0,0,0,0

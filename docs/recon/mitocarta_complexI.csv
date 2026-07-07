@@ -1,0 +1,67 @@
+Symbol,HumanGeneID,Description,MitoCarta3.0_SubMitoLocalization,MitoCarta3.0_MitoPathways,is_qsite_core
+NDUFS1,4719,NADH:ubiquinone oxidoreductase core subunit S1,MIM,OXPHOS > Complex I > CI subunits | Metabolism > Metals and cofactors > Fe-S-containing proteins | OXPHOS > OXPHOS subunits,False
+NDUFS7,374291,NADH:ubiquinone oxidoreductase core subunit S7,MIM,OXPHOS > Complex I > CI subunits | Metabolism > Metals and cofactors > Fe-S-containing proteins | OXPHOS > OXPHOS subunits,True
+NDUFV2,4729,NADH:ubiquinone oxidoreductase core subunit V2,MIM,OXPHOS > Complex I > CI subunits | Metabolism > Metals and cofactors > Fe-S-containing proteins | OXPHOS > OXPHOS subunits,False
+NDUFB8,4714,NADH:ubiquinone oxidoreductase subunit B8,MIM,OXPHOS > Complex I > CI subunits | OXPHOS > OXPHOS subunits,False
+AIFM1,9131,apoptosis inducing factor mitochondria associated 1,MIM,"Protein import, sorting and homeostasis > Protein import and sorting > MIA40 | OXPHOS > Complex I > CI assembly factors | OXPHOS > OXPHOS assembly factors | Mitochondrial dynamics and surveillance > Apoptosis",False
+NDUFS8,4728,NADH:ubiquinone oxidoreductase core subunit S8,MIM,OXPHOS > Complex I > CI subunits | Metabolism > Metals and cofactors > Fe-S-containing proteins | OXPHOS > OXPHOS subunits,True
+NDUFS2,4720,NADH:ubiquinone oxidoreductase core subunit S2,MIM,OXPHOS > Complex I > CI subunits | Metabolism > Metals and cofactors > Fe-S-containing proteins | OXPHOS > OXPHOS subunits,True
+NDUFV1,4723,NADH:ubiquinone oxidoreductase core subunit V1,MIM,OXPHOS > Complex I > CI subunits | Metabolism > Metals and cofactors > Fe-S-containing proteins | OXPHOS > OXPHOS subunits,True
+NDUFB5,4711,NADH:ubiquinone oxidoreductase subunit B5,MIM,OXPHOS > Complex I > CI subunits | OXPHOS > OXPHOS subunits,False
+NDUFB9,4715,NADH:ubiquinone oxidoreductase subunit B9,MIM,OXPHOS > Complex I > CI subunits | OXPHOS > OXPHOS subunits,False
+NDUFA6,4700,NADH:ubiquinone oxidoreductase subunit A6,MIM,OXPHOS > Complex I > CI subunits | OXPHOS > OXPHOS subunits,False
+NDUFS4,4724,NADH:ubiquinone oxidoreductase subunit S4,MIM,OXPHOS > Complex I > CI subunits | OXPHOS > OXPHOS subunits,False
+NDUFA9,4704,NADH:ubiquinone oxidoreductase subunit A9,MIM,OXPHOS > Complex I > CI subunits | OXPHOS > OXPHOS subunits,False
+NDUFAF4,29078,NADH:ubiquinone oxidoreductase complex assembly factor 4,MIM,OXPHOS > Complex I > CI assembly factors | OXPHOS > OXPHOS assembly factors,False
+NDUFAF5,79133,NADH:ubiquinone oxidoreductase complex assembly factor 5,MIM,OXPHOS > Complex I > CI assembly factors | OXPHOS > OXPHOS assembly factors,False
+NDUFS6,4726,NADH:ubiquinone oxidoreductase subunit S6,MIM,OXPHOS > Complex I > CI subunits | OXPHOS > OXPHOS subunits,False
+NDUFA5,4698,NADH:ubiquinone oxidoreductase subunit A5,MIM,OXPHOS > Complex I > CI subunits | OXPHOS > OXPHOS subunits,False
+NDUFB6,4712,NADH:ubiquinone oxidoreductase subunit B6,MIM,OXPHOS > Complex I > CI subunits | OXPHOS > OXPHOS subunits,False
+NDUFAF1,51103,NADH:ubiquinone oxidoreductase complex assembly factor 1,MIM,OXPHOS > Complex I > CI assembly factors | OXPHOS > OXPHOS assembly factors,False
+NDUFB10,4716,NADH:ubiquinone oxidoreductase subunit B10,MIM,OXPHOS > Complex I > CI subunits | OXPHOS > OXPHOS subunits,False
+NDUFA2,4695,NADH:ubiquinone oxidoreductase subunit A2,MIM,OXPHOS > Complex I > CI subunits | OXPHOS > OXPHOS subunits,False
+NDUFS5,4725,NADH:ubiquinone oxidoreductase subunit S5,MIM,OXPHOS > Complex I > CI subunits | OXPHOS > OXPHOS subunits,False
+TMEM126A,84233,transmembrane protein 126A,MIM,OXPHOS > Complex I > CI assembly factors | OXPHOS > OXPHOS assembly factors,False
+NDUFA7,4701,NADH:ubiquinone oxidoreductase subunit A7,MIM,OXPHOS > Complex I > CI subunits | OXPHOS > OXPHOS subunits,False
+NDUFB2,4708,NADH:ubiquinone oxidoreductase subunit B2,MIM,OXPHOS > Complex I > CI subunits | OXPHOS > OXPHOS subunits,False
+NDUFA12,55967,NADH:ubiquinone oxidoreductase subunit A12,MIM,OXPHOS > Complex I > CI subunits | OXPHOS > OXPHOS subunits,False
+NDUFA10,4705,NADH:ubiquinone oxidoreductase subunit A10,MIM,OXPHOS > Complex I > CI subunits | OXPHOS > OXPHOS subunits,False
+NDUFC2,4718,NADH:ubiquinone oxidoreductase subunit C2,MIM,OXPHOS > Complex I > CI subunits | OXPHOS > OXPHOS subunits,False
+NDUFA8,4702,NADH:ubiquinone oxidoreductase subunit A8,MIM,OXPHOS > Complex I > CI subunits | OXPHOS > OXPHOS subunits,False
+NDUFB11,54539,NADH:ubiquinone oxidoreductase subunit B11,MIM,OXPHOS > Complex I > CI subunits | OXPHOS > OXPHOS subunits,False
+NDUFV3,4731,NADH:ubiquinone oxidoreductase subunit V3,MIM,OXPHOS > Complex I > CI subunits | OXPHOS > OXPHOS subunits,False
+NDUFAB1,4706,NADH:ubiquinone oxidoreductase subunit AB1,MIM,OXPHOS > Complex I > CI subunits | Metabolism > Lipid metabolism > Type II fatty acid synthesis | Metabolism > Metals and cofactors > Fe-S cluster biosynthesis | OXPHOS > OXPHOS subunits,False
+NDUFS3,4722,NADH:ubiquinone oxidoreductase core subunit S3,MIM,OXPHOS > Complex I > CI subunits | OXPHOS > OXPHOS subunits,True
+ACAD9,28976,acyl-CoA dehydrogenase family member 9,MIM,OXPHOS > Complex I > CI assembly factors | OXPHOS > OXPHOS assembly factors,False
+NDUFB7,4713,NADH:ubiquinone oxidoreductase subunit B7,MIM,OXPHOS > Complex I > CI subunits | OXPHOS > OXPHOS subunits,False
+TMEM70,54968,transmembrane protein 70,MIM,OXPHOS > Complex I > CI assembly factors | OXPHOS > Complex V > CV assembly factors | OXPHOS > OXPHOS assembly factors,False
+NDUFC1,4717,NADH:ubiquinone oxidoreductase subunit C1,MIM,OXPHOS > Complex I > CI subunits | OXPHOS > OXPHOS subunits,False
+NDUFA3,4696,NADH:ubiquinone oxidoreductase subunit A3,MIM,OXPHOS > Complex I > CI subunits | OXPHOS > OXPHOS subunits,False
+NDUFAF6,137682,NADH:ubiquinone oxidoreductase complex assembly factor 6,MIM,OXPHOS > Complex I > CI assembly factors | OXPHOS > OXPHOS assembly factors,False
+NDUFB3,4709,NADH:ubiquinone oxidoreductase subunit B3,MIM,OXPHOS > Complex I > CI subunits | OXPHOS > OXPHOS subunits,False
+NDUFA13,51079,NADH:ubiquinone oxidoreductase subunit A13,MIM,OXPHOS > Complex I > CI subunits | OXPHOS > OXPHOS subunits,False
+NDUFAF7,55471,NADH:ubiquinone oxidoreductase complex assembly factor 7,MIM,OXPHOS > Complex I > CI assembly factors | OXPHOS > OXPHOS assembly factors,False
+NDUFA11,126328,NADH:ubiquinone oxidoreductase subunit A11,MIM,OXPHOS > Complex I > CI subunits | OXPHOS > OXPHOS subunits,False
+NUBPL,80224,nucleotide binding protein like,Matrix,OXPHOS > Complex I > CI assembly factors | Metabolism > Metals and cofactors > Fe-S cluster biosynthesis | Metabolism > Metals and cofactors > Fe-S-containing proteins | OXPHOS > OXPHOS assembly factors,False
+LYRM2,57226,LYR motif containing 2,Matrix,OXPHOS > Complex I > CI assembly factors | OXPHOS > OXPHOS assembly factors,False
+NDUFAF8,284184,NADH:ubiquinone oxidoreductase complex assembly factor 8,IMS,OXPHOS > Complex I > CI assembly factors | OXPHOS > OXPHOS assembly factors,False
+MT-ND2,4536,MTND2,MIM,OXPHOS > Complex I > CI subunits | OXPHOS > OXPHOS subunits,False
+MT-ND4,4538,"NADH dehydrogenase, subunit 4 (complex I)",MIM,OXPHOS > Complex I > CI subunits | OXPHOS > OXPHOS subunits,False
+MT-ND5,4540,"NADH dehydrogenase, subunit 5 (complex I)",MIM,OXPHOS > Complex I > CI subunits | OXPHOS > OXPHOS subunits,False
+NDUFB4,4710,NADH:ubiquinone oxidoreductase subunit B4,MIM,OXPHOS > Complex I > CI subunits | OXPHOS > OXPHOS subunits,False
+NDUFA1,4694,NADH:ubiquinone oxidoreductase subunit A1,MIM,OXPHOS > Complex I > CI subunits | OXPHOS > OXPHOS subunits,False
+NDUFAF2,91942,NADH:ubiquinone oxidoreductase complex assembly factor 2,MIM,OXPHOS > Complex I > CI assembly factors | OXPHOS > OXPHOS assembly factors,False
+ECSIT,51295,ECSIT signaling integrator,MIM,OXPHOS > Complex I > CI assembly factors | OXPHOS > OXPHOS assembly factors,False
+TIMMDC1,51300,translocase of inner mitochondrial membrane domain containing 1,MIM,OXPHOS > Complex I > CI assembly factors | OXPHOS > OXPHOS assembly factors,False
+MT-ND3,4537,"NADH dehydrogenase, subunit 3 (complex I)",MIM,OXPHOS > Complex I > CI subunits | OXPHOS > OXPHOS subunits,False
+TMEM126B,55863,transmembrane protein 126B,MIM,OXPHOS > Complex I > CI assembly factors | OXPHOS > OXPHOS assembly factors,False
+NDUFAF3,25915,NADH:ubiquinone oxidoreductase complex assembly factor 3,MIM,OXPHOS > Complex I > CI assembly factors | OXPHOS > OXPHOS assembly factors,False
+TMEM186,25880,transmembrane protein 186,MIM,OXPHOS > Complex I > CI assembly factors | OXPHOS > OXPHOS assembly factors,False
+DMAC2,55101,distal membrane arm assembly complex 2,MIM,OXPHOS > Complex I > CI assembly factors | OXPHOS > OXPHOS assembly factors,False
+FOXRED1,55572,FAD dependent oxidoreductase domain containing 1,MIM,OXPHOS > Complex I > CI assembly factors | OXPHOS > OXPHOS assembly factors,False
+MT-ND1,4535,"NADH dehydrogenase, subunit 1 (complex I)",MIM,OXPHOS > Complex I > CI subunits | OXPHOS > OXPHOS subunits,True
+COA1,55744,cytochrome c oxidase assembly factor 1 homolog,MIM,OXPHOS > Complex I > CI assembly factors | OXPHOS > Complex IV > CIV assembly factors | OXPHOS > OXPHOS assembly factors,False
+MT-ND4L,4539,"NADH dehydrogenase, subunit 4L (complex I)",MIM,OXPHOS > Complex I > CI subunits | OXPHOS > OXPHOS subunits,False
+DMAC1,90871,distal membrane arm assembly complex 1,MIM,OXPHOS > Complex I > CI assembly factors | OXPHOS > OXPHOS assembly factors,False
+NDUFB1,4707,NADH:ubiquinone oxidoreductase subunit B1,MIM,OXPHOS > Complex I > CI subunits | OXPHOS > OXPHOS subunits,False
+MT-ND6,4541,"NADH dehydrogenase, subunit 6 (complex I)",MIM,OXPHOS > Complex I > CI subunits | OXPHOS > OXPHOS subunits,False

@@ -1,0 +1,28 @@
+name,role,cid,in_neurotoxkb,match_via,nk_endpoint_rows
+rotenone,positive,6758,False,,0
+MPP+,positive,39484,False,,0
+MPTP,positive,1388,True,cid,5
+paraquat,positive,15939,True,cid,4
+maneb,positive,3032581,True,cid,5
+manganese chloride,positive,26003,False,,0
+methylmercury chloride,positive,409301,True,cid,26
+lead acetate,positive,9317,True,cid,9
+deguelin,positive,107935,False,,0
+dieldrin,positive,969491,True,cid,10
+chlorpyrifos,positive,2730,True,cid,25
+6-hydroxydopamine,positive,4624,False,,0
+acetaminophen,negative,1983,False,,0
+sulfamethoxazole,negative,5329,False,,0
+furosemide,negative,3440,False,,0
+warfarin,negative,54678486,False,,0
+ibuprofen,negative,3672,False,,0
+troglitazone,negative,5591,False,,0
+fulvestrant,negative,104741,False,,0
+fenofibrate,negative,3339,False,,0
+propiconazole,negative,43234,False,,0
+prochloraz,negative,73665,False,,0
+diethyl phthalate,negative,6781,False,,0
+simvastatin,negative,54454,False,,0
+D-glucose,negative,5793,False,,0
+sucrose,negative,5988,False,,0
+sodium chloride,negative,5234,False,,0

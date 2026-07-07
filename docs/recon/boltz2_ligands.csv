@@ -1,0 +1,20 @@
+name,group,tier,smiles
+rotenone,positive,assay_mechanism_recovered,CC(=C)[C@H]1CC2=C(O1)C=CC3=C2O[C@@H]4COC5=CC(=C(C=C5[C@@H]4C3=O)OC)OC
+MPP+,positive,assay_mechanism_recovered,C[N+]1=CC=C(C=C1)C2=CC=CC=C2
+MPTP,positive,curated_anchored_only,CN1CCC(=CC1)C2=CC=CC=C2
+paraquat,positive,assay_mechanism_recovered,C[N+]1=CC=C(C=C1)C2=CC=[N+](C=C2)C
+maneb,positive,curated_anchored_only,C(CNC(=S)[S-])NC(=S)[S-].[Mn+2]
+manganese chloride,positive,assay_mechanism_recovered,O.O.O.O.[Cl-].[Cl-].[Mn+2]
+methylmercury chloride,positive,assay_mechanism_recovered,C[Hg]Cl
+lead acetate,positive,curated_anchored_only,CC(=O)[O-].CC(=O)[O-].[Pb+2]
+deguelin,positive,curated_anchored_only,CC1(C=CC2=C(O1)C=CC3=C2O[C@@H]4COC5=CC(=C(C=C5[C@@H]4C3=O)OC)OC)C
+dieldrin,positive,curated_anchored_only,C1[C@@H]2[C@H]3[C@@H]([C@H]1[C@H]4[C@@H]2O4)[C@]5(C(=C([C@@]3(C5(Cl)Cl)Cl)Cl)Cl)Cl
+chlorpyrifos,positive,assay_mechanism_recovered,CCOP(=S)(OCC)OC1=NC(=C(C=C1Cl)Cl)Cl
+6-hydroxydopamine,positive,curated_anchored_only,C1=C(C(=CC(=C1O)O)O)CCN
+acetaminophen,sanity_negative,clean_negative,CC(=O)NC1=CC=C(C=C1)O
+warfarin,adversarial_negative,adversarial_negative,CC(=O)CC(C1=CC=CC=C1)C2=C(C3=CC=CC=C3OC2=O)O
+troglitazone,adversarial_negative,adversarial_negative,CC1=C(C2=C(CCC(O2)(C)COC3=CC=C(C=C3)CC4C(=O)NC(=O)S4)C(=C1O)C)C
+fenofibrate,adversarial_negative,adversarial_negative,CC(C)OC(=O)C(C)(C)OC1=CC=C(C=C1)C(=O)C2=CC=C(C=C2)Cl
+propiconazole,adversarial_negative,adversarial_negative,CCCC1COC(O1)(CN2C=NC=N2)C3=C(C=C(C=C3)Cl)Cl
+prochloraz,adversarial_negative,adversarial_negative,CCCN(CCOC1=C(C=C(C=C1Cl)Cl)Cl)C(=O)N2C=CN=C2
+simvastatin,adversarial_negative,adversarial_negative,CCC(C)(C)C(=O)O[C@H]1C[C@H](C=C2[C@H]1[C@H]([C@H](C=C2)C)CC[C@@H]3C[C@H](CC(=O)O3)O)C

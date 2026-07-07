@@ -1,0 +1,32 @@
+aop_id,aopTitle,status,endorsed,nMIE,nKE,nStressor,n_our_stressors,our_stressors,populatability
+3,Inhibition of the mitochondrial complex I of nigro-striatal neurons leads to parkinsonian motor deficits,WPHA/WNT Endorsed,True,1,7,6,3,rotenone|MPP+|deguelin,9
+17,Binding of electrophilic chemicals to SH(thiol)-group of proteins and /or to seleno-proteins involved in protection against oxidative stress during brain development leads to impairment of learning and memory,WPHA/WNT Endorsed,True,1,10,3,1,methylmercury chloride,7
+12,Chronic binding of antagonist to N-methyl-D-aspartate receptors (NMDARs) during brain development leads to neurodegeneration with impairment in learning and memory in aging,WPHA/WNT Endorsed,True,1,8,1,1,lead acetate,7
+54,Inhibition of Na+/I- symporter (NIS) leads to learning and memory impairment ,WPHA/WNT Endorsed,True,1,10,5,0,,6
+483,Deposition of Energy Leading to Learning and Memory Impairment,WPHA/WNT Endorsed,True,1,8,1,0,,6
+13,Chronic binding of antagonist to N-methyl-D-aspartate receptors (NMDARs) during brain development induces impairment of learning and memory abilities,WPHA/WNT Endorsed,True,1,10,0,0,,5
+48,"Binding of agonists to ionotropic glutamate receptors in adult brain causes excitotoxicity that mediates neuronal cell death, contributing to learning and memory impairment.",WPHA/WNT Endorsed,True,1,9,0,0,,5
+499,Activation of MEK-ERK1/2 leads to deficits in learning and cognition via disrupted neurotransmitter release,,False,1,4,5,2,manganese chloride|lead acetate,5
+500,Activation of MEK-ERK1/2 leads to deficits in learning and cognition via ROS and apoptosis,,False,1,7,5,2,manganese chloride|lead acetate,5
+490,Co-activation of IP3R and RyR leads to reduced IQ and increased socio-economic burden through non-cholinergic mechanisms,,False,2,12,3,1,chlorpyrifos,4
+593,Redox cycling of a chemical by mitochondria leads to degeneration of nigrostriatal dopaminergic neurons ,,False,1,5,1,1,paraquat,4
+260,CYP2E1 activation and formation of protein adducts leading to neurodegeneration,,False,2,7,11,0,,3
+450, Inhibition of AChE and activation of CYP2E1 leading to sensory axonal peripheral neuropathy and mortality,,False,1,7,4,0,,3
+475,Binding of chemicals to ionotropic glutamate receptors leads to impairment of learning and memory via loss of drebrin from dendritic spines of neurons,Under Development,False,1,8,4,0,,3
+587,Inhibition of the mitochondrial complex III of nigro-striatal neurons leads to parkinsonian motor deficits ,,False,1,4,2,0,,3
+535,Binding and activation of GPER leading to learning and memory impairments,,False,1,9,1,0,,3
+543, Inhibition of neuropathy target esterase leading to delayed neuropathy via lysolecithin cell membrane integration,,False,1,6,1,0,,3
+544, Inhibition of neuropathy target esterase leading to delayed neuropathy via increased inflammation,,False,1,6,1,0,,3
+279,Microtubule interacting drugs lead to peripheral neuropathy,,False,1,4,0,0,,2
+281,Acetylcholinesterase Inhibition Leading to Neurodegeneration,,False,1,10,0,0,,2
+464,Calcium overload in dopaminergic neurons of the substantia nigra leading to parkinsonian motor deficits,,False,5,19,0,0,,2
+471,Neuron defect induced early behavioral change,,False,1,32,0,0,,2
+498,Increased LCN2/iron complex leading to neurological disorders,,False,1,4,0,0,,2
+501,Excessive iron accumulation leading to neurological disorders,,False,1,4,0,0,,2
+520,Retinoic acid receptor agonism during neurodevelopment leading to impaired learning and memory,,False,1,5,0,0,,2
+525,Reduced oligodendrocyte differentiation during neurodevelopment leading to impaired learning and memory,,False,4,13,0,0,,2
+533,Retinoic acid receptor antagonism during neurodevelopment leading to impaired learning and memory,,False,1,6,0,0,,2
+588,Inhibition of the mitochondrial complex II of nigro-striatal neurons leads to parkinsonian motor deficits,,False,1,4,0,0,,2
+589,Inhibition of the mitochondrial complex IV of nigro-striatal neurons leads to parkinsonian motor deficits,,False,1,4,0,0,,2
+610,"Decreased thyroid hormone levels in the brain regulated via transport, metabolism and TR activation leading to decreased cognition and motor function",,False,4,16,0,0,,2
+429,A cholesterol/glucose dysmetabolism initiated Tau-driven AOP toward memory loss (AO) in sporadic Alzheimer's Disease with plausible MIE's plug-ins for environmental neurotoxicants,,False,0,10,0,0,,0

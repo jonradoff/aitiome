@@ -1,0 +1,56 @@
+aop_id,aopTitle,stressorTitle
+12,Chronic binding of antagonist to N-methyl-D-aspartate receptors (NMDARs) during brain development leads to neurodegeneration with impairment in learning and memory in aging,Lead
+12,Chronic binding of antagonist to N-methyl-D-aspartate receptors (NMDARs) during brain development leads to neurodegeneration with impairment in learning and memory in aging,Lead
+17,Binding of electrophilic chemicals to SH(thiol)-group of proteins and /or to seleno-proteins involved in protection against oxidative stress during brain development leads to impairment of learning and memory,Acrylamide
+17,Binding of electrophilic chemicals to SH(thiol)-group of proteins and /or to seleno-proteins involved in protection against oxidative stress during brain development leads to impairment of learning and memory,Mercuric chloride
+17,Binding of electrophilic chemicals to SH(thiol)-group of proteins and /or to seleno-proteins involved in protection against oxidative stress during brain development leads to impairment of learning and memory,Methylmercuric(II) chloride
+260,CYP2E1 activation and formation of protein adducts leading to neurodegeneration,Enflurane
+260,CYP2E1 activation and formation of protein adducts leading to neurodegeneration,Halothane
+260,CYP2E1 activation and formation of protein adducts leading to neurodegeneration,Isoflurane
+260,CYP2E1 activation and formation of protein adducts leading to neurodegeneration,Methoxyflurane
+260,CYP2E1 activation and formation of protein adducts leading to neurodegeneration,Sevoflurane
+260,CYP2E1 activation and formation of protein adducts leading to neurodegeneration,Chemical:584015 (1-~13~C)Aniline
+260,CYP2E1 activation and formation of protein adducts leading to neurodegeneration,Chlorzoxazone
+260,CYP2E1 activation and formation of protein adducts leading to neurodegeneration,Titanium oxide (TiO)
+260,CYP2E1 activation and formation of protein adducts leading to neurodegeneration,Isoniazid
+260,CYP2E1 activation and formation of protein adducts leading to neurodegeneration,Ethanol
+260,CYP2E1 activation and formation of protein adducts leading to neurodegeneration,Acetaminophen
+3,Inhibition of the mitochondrial complex I of nigro-striatal neurons leads to parkinsonian motor deficits,MPP+
+3,Inhibition of the mitochondrial complex I of nigro-striatal neurons leads to parkinsonian motor deficits,Fenpyroximate
+3,Inhibition of the mitochondrial complex I of nigro-striatal neurons leads to parkinsonian motor deficits,Rotenone
+3,Inhibition of the mitochondrial complex I of nigro-striatal neurons leads to parkinsonian motor deficits,Deguelin
+3,Inhibition of the mitochondrial complex I of nigro-striatal neurons leads to parkinsonian motor deficits,Pyrimidifen
+3,Inhibition of the mitochondrial complex I of nigro-striatal neurons leads to parkinsonian motor deficits,Tebufenpyrad
+450, Inhibition of AChE and activation of CYP2E1 leading to sensory axonal peripheral neuropathy and mortality,Organophosphates
+450, Inhibition of AChE and activation of CYP2E1 leading to sensory axonal peripheral neuropathy and mortality,Paraoxon
+450, Inhibition of AChE and activation of CYP2E1 leading to sensory axonal peripheral neuropathy and mortality,Methyl parathion
+450, Inhibition of AChE and activation of CYP2E1 leading to sensory axonal peripheral neuropathy and mortality,Ethyl Parathion
+475,Binding of chemicals to ionotropic glutamate receptors leads to impairment of learning and memory via loss of drebrin from dendritic spines of neurons,Sodium L-glutamate
+475,Binding of chemicals to ionotropic glutamate receptors leads to impairment of learning and memory via loss of drebrin from dendritic spines of neurons,amyloid beta
+475,Binding of chemicals to ionotropic glutamate receptors leads to impairment of learning and memory via loss of drebrin from dendritic spines of neurons,lotenone
+475,Binding of chemicals to ionotropic glutamate receptors leads to impairment of learning and memory via loss of drebrin from dendritic spines of neurons,N-Methyl-D-aspartic acid
+483,Deposition of Energy Leading to Learning and Memory Impairment,Ionizing Radiation
+490,Co-activation of IP3R and RyR leads to reduced IQ and increased socio-economic burden through non-cholinergic mechanisms,Chlorpyrifos
+490,Co-activation of IP3R and RyR leads to reduced IQ and increased socio-economic burden through non-cholinergic mechanisms,Organophosphates
+490,Co-activation of IP3R and RyR leads to reduced IQ and increased socio-economic burden through non-cholinergic mechanisms,Chlorpyrifos oxon
+499,Activation of MEK-ERK1/2 leads to deficits in learning and cognition via disrupted neurotransmitter release,Cadmium
+499,Activation of MEK-ERK1/2 leads to deficits in learning and cognition via disrupted neurotransmitter release,Lead
+499,Activation of MEK-ERK1/2 leads to deficits in learning and cognition via disrupted neurotransmitter release,Arsenic
+499,Activation of MEK-ERK1/2 leads to deficits in learning and cognition via disrupted neurotransmitter release,"Heavy metals (cadmium, lead, copper, iron, nickel)"
+499,Activation of MEK-ERK1/2 leads to deficits in learning and cognition via disrupted neurotransmitter release,Manganese
+500,Activation of MEK-ERK1/2 leads to deficits in learning and cognition via ROS and apoptosis,Cadmium
+500,Activation of MEK-ERK1/2 leads to deficits in learning and cognition via ROS and apoptosis,Lead
+500,Activation of MEK-ERK1/2 leads to deficits in learning and cognition via ROS and apoptosis,Arsenic
+500,Activation of MEK-ERK1/2 leads to deficits in learning and cognition via ROS and apoptosis,"Heavy metals (cadmium, lead, copper, iron, nickel)"
+500,Activation of MEK-ERK1/2 leads to deficits in learning and cognition via ROS and apoptosis,Manganese
+535,Binding and activation of GPER leading to learning and memory impairments,Bisphenol A
+54,Inhibition of Na+/I- symporter (NIS) leads to learning and memory impairment ,Perchlorate
+54,Inhibition of Na+/I- symporter (NIS) leads to learning and memory impairment ,Nitrate
+54,Inhibition of Na+/I- symporter (NIS) leads to learning and memory impairment ,Thiocyanate
+54,Inhibition of Na+/I- symporter (NIS) leads to learning and memory impairment ,Dysidenin
+54,Inhibition of Na+/I- symporter (NIS) leads to learning and memory impairment ,Aryltrifluoroborates
+543, Inhibition of neuropathy target esterase leading to delayed neuropathy via lysolecithin cell membrane integration,Organophosphates
+544, Inhibition of neuropathy target esterase leading to delayed neuropathy via increased inflammation,Organophosphates
+587,Inhibition of the mitochondrial complex III of nigro-striatal neurons leads to parkinsonian motor deficits ,Antimycin A
+587,Inhibition of the mitochondrial complex III of nigro-striatal neurons leads to parkinsonian motor deficits ,Picoxystrobin
+593,Redox cycling of a chemical by mitochondria leads to degeneration of nigrostriatal dopaminergic neurons ,Paraquat

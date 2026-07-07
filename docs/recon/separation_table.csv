@@ -1,0 +1,28 @@
+name,role,coverage_grade,confidence_tier,sig_aop_dopaminergic_stressor,sig_aop_any_neuro_stressor,sig_curated_pd,sig_in_neurotoxkb,sig_mito_assay_active,sig_neuro_assay_active,toxcast_active,da_genes_ctd,n_da_genes,pd_genes_ctd,da_assays_active,n_da_assays_active
+rotenone,positive,STRONG,assay_mechanism_recovered,True,True,True,False,True,True,254,ALDH1A1|COMT|DDC|MAOA|MAOB|NR4A2|PITX3|SLC18A2|SLC6A3|SNCA,10,LRRK2|PARK7|PINK1|PRKN|SNCA|VPS35,,0
+MPP+,positive,MODERATE,assay_mechanism_recovered,True,True,True,False,False,True,8,COMT|MAOA|SLC6A3|SNCA|TH,5,LRRK2|PARK7|PINK1|PRKN|SNCA|VPS35,,0
+MPTP,positive,THIN_MECH,curated_anchored_only,False,False,True,True,False,False,0,MAOB|SNCA|TH,3,PRKN|SNCA,,0
+paraquat,positive,STRONG,assay_mechanism_recovered,True,True,True,True,False,True,32,ALDH1A1|COMT|MAOA|MAOB|SLC18A2|SLC6A3|SNCA|TH,8,LRRK2|PARK7|PINK1|PRKN|SNCA,,0
+maneb,positive,THIN_MECH,curated_anchored_only,False,False,True,True,False,False,0,SLC6A3|SNCA,2,LRRK2|PARK7|SNCA,,0
+manganese chloride,positive,MODERATE,assay_mechanism_recovered,False,True,False,False,False,True,9,SNCA|TH,2,PINK1|PRKN|SNCA,,0
+methylmercury chloride,positive,STRONG,assay_mechanism_recovered,False,True,False,True,True,True,145,ALDH1A1|DRD4|FOXA2|MAOB|NR4A2,5,PINK1,,0
+lead acetate,positive,THIN_MECH,curated_anchored_only,False,True,False,True,False,False,0,ALDH1A1,1,PINK1|PRKN,,0
+deguelin,positive,THIN_MECH,curated_anchored_only,True,True,False,False,False,False,0,COMT|DDC|DRD2|NR4A2|SLC6A3|SNCA,6,PINK1|SNCA,,0
+dieldrin,positive,THIN_MECH,curated_anchored_only,False,False,True,True,False,False,0,NR4A2,1,,,0
+chlorpyrifos,positive,STRONG,assay_mechanism_recovered,False,True,True,True,True,True,126,ALDH1A1|DDC|TH,3,PINK1|PRKN,,0
+6-hydroxydopamine,positive,THIN_MECH,curated_anchored_only,False,False,True,False,False,False,0,COMT|SLC6A3|SNCA|TH,4,PARK7|PINK1|PRKN|SNCA,,0
+acetaminophen,negative,CLEAN_NEGATIVE_QUIET,clean_negative,False,False,False,False,False,False,0,ALDH1A1|DDC|DRD2|EN1|FOXA2|MAOA|MAOB|SLC18A2,8,LRRK2|PARK7|PINK1|VPS35,,0
+sulfamethoxazole,negative,CLEAN_NEGATIVE_QUIET,clean_negative,False,False,False,False,False,False,0,,0,,,0
+furosemide,negative,CLEAN_NEGATIVE_QUIET,clean_negative,False,False,False,False,False,False,2,,0,,,0
+warfarin,negative,ADVERSARIAL_NEGATIVE,adversarial_negative,False,False,False,False,True,True,26,,0,,,0
+ibuprofen,negative,WEAK_NEGATIVE_DZ_FLAG,weak_negative,False,False,False,False,False,False,0,,0,,,0
+troglitazone,negative,ADVERSARIAL_NEGATIVE,adversarial_negative,False,False,False,False,True,True,205,MAOA|MAOB,2,,,0
+fulvestrant,negative,CLEAN_NEGATIVE_BIOACTIVE,clean_negative,False,False,False,False,True,False,20,COMT|DDC|EN1|MAOA|MAOB|SLC18A2|SLC6A3|SNCA,8,PRKN|SNCA,,0
+fenofibrate,negative,ADVERSARIAL_NEGATIVE,adversarial_negative,False,False,False,False,True,False,114,,0,,,0
+propiconazole,negative,ADVERSARIAL_NEGATIVE,adversarial_negative,False,False,False,False,True,True,184,,0,,,0
+prochloraz,negative,ADVERSARIAL_NEGATIVE,adversarial_negative,False,False,False,False,True,True,230,ALDH1A1,1,,NVS_TR_hDAT|NVS_TR_rVMAT2,2
+diethyl phthalate,negative,CLEAN_NEGATIVE_QUIET,clean_negative,False,False,False,False,False,False,2,,0,,,0
+simvastatin,negative,ADVERSARIAL_NEGATIVE,adversarial_negative,False,False,False,False,True,True,160,,0,,,0
+D-glucose,negative,WEAK_NEGATIVE_DZ_FLAG,weak_negative,False,False,False,False,False,False,0,,0,PINK1,,0
+sucrose,negative,CLEAN_NEGATIVE_QUIET,clean_negative,False,False,False,False,False,False,0,,0,,,0
+sodium chloride,negative,UNTESTED_NEGATIVE,weak_negative,False,False,False,False,False,False,0,COMT,1,PARK7|VPS35,,0

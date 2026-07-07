@@ -1,0 +1,28 @@
+name,role,has_structure,smiles
+rotenone,positive,True,CC(=C)[C@H]1CC2=C(O1)C=CC3=C2O[C@@H]4COC5=CC(=C(C=C5[C@@H]4C
+MPP+,positive,True,C[N+]1=CC=C(C=C1)C2=CC=CC=C2
+MPTP,positive,True,CN1CCC(=CC1)C2=CC=CC=C2
+paraquat,positive,True,C[N+]1=CC=C(C=C1)C2=CC=[N+](C=C2)C
+maneb,positive,True,C(CNC(=S)[S-])NC(=S)[S-].[Mn+2]
+manganese chloride,positive,True,O.O.O.O.[Cl-].[Cl-].[Mn+2]
+methylmercury chloride,positive,True,C[Hg]Cl
+lead acetate,positive,True,CC(=O)[O-].CC(=O)[O-].[Pb+2]
+deguelin,positive,True,CC1(C=CC2=C(O1)C=CC3=C2O[C@@H]4COC5=CC(=C(C=C5[C@@H]4C3=O)OC
+dieldrin,positive,True,C1[C@@H]2[C@H]3[C@@H]([C@H]1[C@H]4[C@@H]2O4)[C@]5(C(=C([C@@]
+chlorpyrifos,positive,True,CCOP(=S)(OCC)OC1=NC(=C(C=C1Cl)Cl)Cl
+6-hydroxydopamine,positive,True,C1=C(C(=CC(=C1O)O)O)CCN
+acetaminophen,negative,True,CC(=O)NC1=CC=C(C=C1)O
+sulfamethoxazole,negative,True,CC1=CC(=NO1)NS(=O)(=O)C2=CC=C(C=C2)N
+furosemide,negative,True,C1=COC(=C1)CNC2=CC(=C(C=C2C(=O)O)S(=O)(=O)N)Cl
+warfarin,negative,True,CC(=O)CC(C1=CC=CC=C1)C2=C(C3=CC=CC=C3OC2=O)O
+ibuprofen,negative,True,CC(C)CC1=CC=C(C=C1)C(C)C(=O)O
+troglitazone,negative,True,CC1=C(C2=C(CCC(O2)(C)COC3=CC=C(C=C3)CC4C(=O)NC(=O)S4)C(=C1O)
+fulvestrant,negative,True,C[C@]12CC[C@H]3[C@H]([C@@H]1CC[C@@H]2O)[C@@H](CC4=C3C=CC(=C4
+fenofibrate,negative,True,CC(C)OC(=O)C(C)(C)OC1=CC=C(C=C1)C(=O)C2=CC=C(C=C2)Cl
+propiconazole,negative,True,CCCC1COC(O1)(CN2C=NC=N2)C3=C(C=C(C=C3)Cl)Cl
+prochloraz,negative,True,CCCN(CCOC1=C(C=C(C=C1Cl)Cl)Cl)C(=O)N2C=CN=C2
+diethyl phthalate,negative,True,CCOC(=O)C1=CC=CC=C1C(=O)OCC
+simvastatin,negative,True,CCC(C)(C)C(=O)O[C@H]1C[C@H](C=C2[C@H]1[C@H]([C@H](C=C2)C)CC[
+D-glucose,negative,True,C([C@@H]1[C@H]([C@@H]([C@H](C(O1)O)O)O)O)O
+sucrose,negative,True,C([C@@H]1[C@H]([C@@H]([C@H]([C@H](O1)O[C@]2([C@H]([C@@H]([C@
+sodium chloride,negative,True,[Na+].[Cl-]

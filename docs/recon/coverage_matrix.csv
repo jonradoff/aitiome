@@ -1,0 +1,28 @@
+name,role,coverage_grade,confidence_tier,dtxsid,aop_stressor_of,aop3_stressor,pd_direct,ad_direct,in_neurotoxkb,toxcast_tested,toxcast_active,mito_active,mmp_active,neuro_active
+rotenone,positive,STRONG,assay_mechanism_recovered,DTXSID6021248,3,True,1,0,False,510,254,5,5,44
+MPP+,positive,MODERATE,assay_mechanism_recovered,DTXSID4058106,3,True,1,0,False,39,8,0,0,8
+MPTP,positive,THIN_MECH,curated_anchored_only,DTXSID8040933,,False,1,0,True,6,0,0,0,0
+paraquat,positive,STRONG,assay_mechanism_recovered,DTXSID3034799,593,False,1,0,True,50,32,0,0,32
+maneb,positive,THIN_MECH,curated_anchored_only,DTXSID9020794,,False,1,0,True,0,0,0,0,0
+manganese chloride,positive,MODERATE,assay_mechanism_recovered,DTXSID9040681,499|500,False,0,0,False,54,9,0,0,7
+methylmercury chloride,positive,STRONG,assay_mechanism_recovered,DTXSID5020813,17,False,0,0,True,193,145,0,2,48
+lead acetate,positive,THIN_MECH,curated_anchored_only,DTXSID6020773,12|499|500,False,0,0,True,0,0,0,0,0
+deguelin,positive,THIN_MECH,curated_anchored_only,DTXSID10200231,3,True,0,0,False,0,0,0,0,0
+dieldrin,positive,THIN_MECH,curated_anchored_only,DTXSID9020453,,False,1,0,True,0,0,0,0,0
+chlorpyrifos,positive,STRONG,assay_mechanism_recovered,DTXSID4020458,490,False,1,0,True,458,126,1,1,39
+6-hydroxydopamine,positive,THIN_MECH,curated_anchored_only,DTXSID0036768,,False,1,0,False,0,0,0,0,0
+acetaminophen,negative,CLEAN_NEGATIVE_QUIET,clean_negative,DTXSID2020006,,False,0,0,False,497,0,0,0,0
+sulfamethoxazole,negative,CLEAN_NEGATIVE_QUIET,clean_negative,DTXSID8026064,,False,0,0,False,128,0,0,0,0
+furosemide,negative,CLEAN_NEGATIVE_QUIET,clean_negative,DTXSID6020648,,False,0,0,False,174,2,0,0,0
+warfarin,negative,ADVERSARIAL_NEGATIVE,adversarial_negative,DTXSID5023742,,False,0,0,False,458,26,0,1,4
+ibuprofen,negative,WEAK_NEGATIVE_DZ_FLAG,weak_negative,DTXSID5020732,,False,0,1,False,90,0,0,0,0
+troglitazone,negative,ADVERSARIAL_NEGATIVE,adversarial_negative,DTXSID8023719,,False,0,0,False,450,205,5,7,6
+fulvestrant,negative,CLEAN_NEGATIVE_BIOACTIVE,clean_negative,DTXSID4022369,,False,0,0,False,95,20,0,1,0
+fenofibrate,negative,ADVERSARIAL_NEGATIVE,adversarial_negative,DTXSID2029874,,False,0,0,False,434,114,2,1,0
+propiconazole,negative,ADVERSARIAL_NEGATIVE,adversarial_negative,DTXSID8024280,,False,0,0,False,506,184,3,2,8
+prochloraz,negative,ADVERSARIAL_NEGATIVE,adversarial_negative,DTXSID4024270,,False,0,0,False,532,230,3,4,8
+diethyl phthalate,negative,CLEAN_NEGATIVE_QUIET,clean_negative,DTXSID7021780,,False,0,0,False,120,2,0,0,0
+simvastatin,negative,ADVERSARIAL_NEGATIVE,adversarial_negative,DTXSID0023581,,False,0,0,False,454,160,2,4,11
+D-glucose,negative,WEAK_NEGATIVE_DZ_FLAG,weak_negative,DTXSID501015215,,False,0,1,False,0,0,0,0,0
+sucrose,negative,CLEAN_NEGATIVE_QUIET,clean_negative,DTXSID2021288,,False,0,0,False,85,0,0,0,0
+sodium chloride,negative,UNTESTED_NEGATIVE,weak_negative,DTXSID3021271,,False,0,0,False,0,0,0,0,0

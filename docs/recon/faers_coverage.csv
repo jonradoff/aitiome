@@ -1,0 +1,11 @@
+name,role,substance,faers_reports,parkinsonism_reports,ROR,ROR_lo,ROR_hi,signal
+acetaminophen,clean_neg,ACETAMINOPHEN,668109,951,0.68,0.64,0.73,False
+warfarin,adversarial,WARFARIN,126794,132,0.5,0.42,0.6,False
+ibuprofen,weak_neg,IBUPROFEN,498436,813,0.79,0.73,0.84,False
+sulfamethoxazole,clean_neg,SULFAMETHOXAZOLE,82639,99,0.58,0.47,0.7,False
+furosemide,clean_neg,FUROSEMIDE,393086,799,0.98,0.92,1.06,False
+troglitazone,adversarial,TROGLITAZONE,0,0,,,,False
+fulvestrant,clean_neg,FULVESTRANT,32191,18,0.27,0.17,0.43,False
+fenofibrate,adversarial,FENOFIBRATE,35322,66,0.9,0.71,1.15,False
+simvastatin,adversarial,SIMVASTATIN,261343,578,1.07,0.99,1.16,False
+[control] haloperidol,POSITIVE_CONTROL,HALOPERIDOL,26655,1936,39.62,37.79,41.54,True

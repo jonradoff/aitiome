@@ -1,0 +1,28 @@
+name,role,confidence_tier,n_tested,n_active,covered
+rotenone,positive,assay_mechanism_recovered,510,254,True
+MPP+,positive,assay_mechanism_recovered,39,8,True
+MPTP,positive,curated_anchored_only,6,0,False
+paraquat,positive,assay_mechanism_recovered,50,32,True
+maneb,positive,curated_anchored_only,0,0,False
+manganese chloride,positive,assay_mechanism_recovered,54,9,True
+methylmercury chloride,positive,assay_mechanism_recovered,193,145,True
+lead acetate,positive,curated_anchored_only,0,0,False
+deguelin,positive,curated_anchored_only,0,0,False
+dieldrin,positive,curated_anchored_only,0,0,False
+chlorpyrifos,positive,assay_mechanism_recovered,458,126,True
+6-hydroxydopamine,positive,curated_anchored_only,0,0,False
+acetaminophen,negative,clean_negative,497,0,True
+sulfamethoxazole,negative,clean_negative,128,0,True
+furosemide,negative,clean_negative,174,2,True
+warfarin,negative,adversarial_negative,458,26,True
+ibuprofen,negative,weak_negative,90,0,True
+troglitazone,negative,adversarial_negative,450,205,True
+fulvestrant,negative,clean_negative,95,20,True
+fenofibrate,negative,adversarial_negative,434,114,True
+propiconazole,negative,adversarial_negative,506,184,True
+prochloraz,negative,adversarial_negative,532,230,True
+diethyl phthalate,negative,clean_negative,120,2,True
+simvastatin,negative,adversarial_negative,454,160,True
+D-glucose,negative,weak_negative,0,0,False
+sucrose,negative,clean_negative,85,0,True
+sodium chloride,negative,weak_negative,0,0,False

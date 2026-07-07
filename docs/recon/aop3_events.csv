@@ -1,0 +1,10 @@
+role,event_id,eventTitle
+AO,896,Parkinsonian motor deficits
+KE,177,"Increase, Mitochondrial dysfunction"
+KE,188,Neuroinflammation
+KE,887,"Inhibition, NADH-ubiquinone oxidoreductase  (complex I)"
+KE,888,"Binding of inhibitor, NADH-ubiquinone oxidoreductase (complex I)"
+KE,889,"Proteostasis, impaired"
+KE,890,Degeneration of dopaminergic neurons of the nigrostriatal pathway
+KE,896,Parkinsonian motor deficits
+MIE,888,"Binding of inhibitor, NADH-ubiquinone oxidoreductase (complex I)"

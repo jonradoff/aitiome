@@ -1,0 +1,52 @@
+aop_id,aopTitle,status,endorsed,adverseOutcomes
+3,Inhibition of the mitochondrial complex I of nigro-striatal neurons leads to parkinsonian motor deficits,WPHA/WNT Endorsed,True,Parkinsonian motor deficits
+10,Binding to the picrotoxin site of ionotropic GABA receptors leading to epileptic seizures in adult brain,WPHA/WNT Endorsed,True,"Occurrence, Epileptic seizure"
+12,Chronic binding of antagonist to N-methyl-D-aspartate receptors (NMDARs) during brain development leads to neurodegeneration with impairment in learning and memory in aging,WPHA/WNT Endorsed,True,"Impairment, Learning and memory | N/A, Neurodegeneration"
+13,Chronic binding of antagonist to N-methyl-D-aspartate receptors (NMDARs) during brain development induces impairment of learning and memory abilities,WPHA/WNT Endorsed,True,"Impairment, Learning and memory"
+17,Binding of electrophilic chemicals to SH(thiol)-group of proteins and /or to seleno-proteins involved in protection against oxidative stress during brain development leads to impairment of learning and memory,WPHA/WNT Endorsed,True,"Impairment, Learning and memory"
+42,Inhibition of Thyroperoxidase and Subsequent Adverse Neurodevelopmental Outcomes in Mammals,WPHA/WNT Endorsed,True,"Cognitive function, decreased "
+48,"Binding of agonists to ionotropic glutamate receptors in adult brain causes excitotoxicity that mediates neuronal cell death, contributing to learning and memory impairment.",WPHA/WNT Endorsed,True,"Impairment, Learning and memory"
+54,Inhibition of Na+/I- symporter (NIS) leads to learning and memory impairment ,WPHA/WNT Endorsed,True,"Impairment, Learning and memory"
+65,XX Inhibition of Sodium Iodide Symporter and Subsequent Adverse Neurodevelopmental Outcomes in Mammals,,False,"Cognitive function, decreased "
+134,Sodium Iodide Symporter (NIS) Inhibition and Subsequent Adverse Neurodevelopmental Outcomes in Mammals,,False,"Cognitive function, decreased "
+152,Interference with thyroid serum binding protein transthyretin and subsequent adverse human neurodevelopmental toxicity ,Under Development,False,"Cognitive function, decreased "
+214,Network of SSRIs (selective serotonin reuptake inhibitors),,False,"Increased, seizure"
+215,Molecular events lead to epilepsy,,False,"Increase, seizure"
+223,Serotonin transporter activation to seizure,,False,"Increased, seizure"
+260,CYP2E1 activation and formation of protein adducts leading to neurodegeneration,,False,Neurodegeneration
+279,Microtubule interacting drugs lead to peripheral neuropathy,,False,Sensory axonal peripheral neuropathy
+281,Acetylcholinesterase Inhibition Leading to Neurodegeneration,,False,"N/A, Neurodegeneration"
+300,Thyroid Receptor Antagonism and Subsequent Adverse Neurodevelopmental Outcomes in Mammals,Under Development,False,"Cognitive function, decreased "
+402,Thyroid peroxidase (TPO) inhibition leads to periventricular heterotopia formation in the developing rat brain,,False,"Increase, seizure"
+405,Organo-Phosphate Chemicals induced inhibition of AChE  leading to impaired cognitive function,,False,"Cognitive function, decreased "
+429,A cholesterol/glucose dysmetabolism initiated Tau-driven AOP toward memory loss (AO) in sporadic Alzheimer's Disease with plausible MIE's plug-ins for environmental neurotoxicants,,False,Memory Loss
+442,Binding to voltage gate sodium channels during development leads to cognitive impairment,WPHA/WNT Endorsed,True,"Cognitive function, decreased "
+450, Inhibition of AChE and activation of CYP2E1 leading to sensory axonal peripheral neuropathy and mortality,,False,Sensory axonal peripheral neuropathy
+458,AhR activation in the liver leading to Subsequent Adverse Neurodevelopmental Outcomes in Mammals,,False,"Cognitive function, decreased "
+459,AhR activation in the thyroid leading to Subsequent Adverse Neurodevelopmental Outcomes in Mammals,,False,"Cognitive function, decreased "
+464,Calcium overload in dopaminergic neurons of the substantia nigra leading to parkinsonian motor deficits,,False,Parkinsonian motor deficits
+471,Neuron defect induced early behavioral change,,False,"Increase, seizure | Parkinsonian motor deficits | impaired, Learning and memory"
+475,Binding of chemicals to ionotropic glutamate receptors leads to impairment of learning and memory via loss of drebrin from dendritic spines of neurons,Under Development,False,"Impairment, Learning and memory"
+483,Deposition of Energy Leading to Learning and Memory Impairment,WPHA/WNT Endorsed,True,"Impairment, Learning and memory"
+485,Thyroid hormone antagonism leading to impaired oligodendrocyte maturation during development and subsequent decreased cognition,,False,"Cognitive function, decreased "
+486,Binding to the extracellular protein laminin leading to decreased cognitive function,,False,"Cognitive function, decreased "
+487,Unknown MIE altering cholesterol metabolism leading to decreased cognition,,False,"Cognitive function, decreased "
+488,Increased reactive oxygen species production leading to decreased cognitive function,,False,"Cognitive function, decreased "
+489,Inhibition of voltage-gated sodium channels leading to decreased cognition,,False,"Cognitive function, decreased "
+490,Co-activation of IP3R and RyR leads to reduced IQ and increased socio-economic burden through non-cholinergic mechanisms,,False,"Impairment, Learning and memory"
+498,Increased LCN2/iron complex leading to neurological disorders,,False,Neurological disorder
+499,Activation of MEK-ERK1/2 leads to deficits in learning and cognition via disrupted neurotransmitter release,,False,"Impairment, Learning and memory"
+500,Activation of MEK-ERK1/2 leads to deficits in learning and cognition via ROS and apoptosis,,False,"Impairment, Learning and memory"
+501,Excessive iron accumulation leading to neurological disorders,,False,Neurological disorder
+520,Retinoic acid receptor agonism during neurodevelopment leading to impaired learning and memory,,False,"Impairment, Learning and memory"
+525,Reduced oligodendrocyte differentiation during neurodevelopment leading to impaired learning and memory,,False,"Impairment, Learning and memory"
+533,Retinoic acid receptor antagonism during neurodevelopment leading to impaired learning and memory,,False,"Impairment, Learning and memory"
+535,Binding and activation of GPER leading to learning and memory impairments,,False,"Impairment, Learning and memory"
+543, Inhibition of neuropathy target esterase leading to delayed neuropathy via lysolecithin cell membrane integration,,False,"Delayed neuropathy, increased"
+544, Inhibition of neuropathy target esterase leading to delayed neuropathy via increased inflammation,,False,"Delayed neuropathy, increased"
+581,Glucocorticoid receptor (GR) activation during development leads to cognitive function (COG) decrease,,False,"Cognitive function, decreased "
+587,Inhibition of the mitochondrial complex III of nigro-striatal neurons leads to parkinsonian motor deficits ,,False,Parkinsonian motor deficits
+588,Inhibition of the mitochondrial complex II of nigro-striatal neurons leads to parkinsonian motor deficits,,False,Parkinsonian motor deficits
+589,Inhibition of the mitochondrial complex IV of nigro-striatal neurons leads to parkinsonian motor deficits,,False,Parkinsonian motor deficits
+593,Redox cycling of a chemical by mitochondria leads to degeneration of nigrostriatal dopaminergic neurons ,,False,Parkinsonian motor deficits
+610,"Decreased thyroid hormone levels in the brain regulated via transport, metabolism and TR activation leading to decreased cognition and motor function",,False,"Impairment, Learning and memory"

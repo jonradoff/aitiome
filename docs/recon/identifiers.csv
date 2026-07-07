@@ -1,0 +1,28 @@
+name,cas_hint,role,tier,mech,note,cid,cas,inchikey,smiles,formula,dtxsid
+rotenone,83-79-4,positive,core,complex_I,MIE of AOP3; absent from NeurotoxKb,6758,83-79-4,JUVIOZPCNVVQFO-HBGVWJBISA-N,CC(=C)[C@H]1CC2=C(O1)C=CC3=C2O[C@@H]4COC5=CC(=C(C=C5[C@@H]4C3=O)OC)OC,C23H22O6,DTXSID6021248
+MPP+,36913-39-0,positive,core,complex_I,active metabolite; absent from NeurotoxKb,39484,48134-75-4,FMGYKKMPNATWHP-UHFFFAOYSA-N,C[N+]1=CC=C(C=C1)C2=CC=CC=C2,C12H12N+,DTXSID4058106
+MPTP,28289-54-5,positive,core,protoxicant,converts to MPP+,1388,28289-54-5,PLRACCBDVIHHLZ-UHFFFAOYSA-N,CN1CCC(=CC1)C2=CC=CC=C2,C12H15N,DTXSID8040933
+paraquat,4685-14-7,positive,core,oxidative_stress,redox cycling,15939,4685-14-7,INFDPOAKFNIJBF-UHFFFAOYSA-N,C[N+]1=CC=C(C=C1)C2=CC=[N+](C=C2)C,C12H14N2+2,DTXSID3034799
+maneb,12427-38-2,positive,core,mitochondrial,co-exposure w/ paraquat,3032581,12427-38-2,YKSNLCVSTHTHJA-UHFFFAOYSA-L,C(CNC(=S)[S-])NC(=S)[S-].[Mn+2],C4H6MnN2S4,NONE
+manganese chloride,7773-01-5,positive,extended,mitochondrial,manganism/parkinsonism,26003,,CNFDGXZLMLFIJV-UHFFFAOYSA-L,O.O.O.O.[Cl-].[Cl-].[Mn+2],Cl2H8MnO4,NONE
+methylmercury chloride,115-09-3,positive,extended,oxidative_stress,developmental neurotox,409301,115-09-3,BABMCXWQNSQAOC-UHFFFAOYSA-M,C[Hg]Cl,CH3ClHg,NONE
+lead acetate,301-04-2,positive,extended,other,neurodevelopmental,9317,301-04-2,GUWSLQUAAYEZAF-UHFFFAOYSA-L,CC(=O)[O-].CC(=O)[O-].[Pb+2],C4H6O4Pb,DTXSID6020773
+deguelin,522-17-8,positive,extended,complex_I,rotenoid; mechanistic positive control,107935,522-17-8,ORDAZKGHSNRHTD-UXHICEINSA-N,CC1(C=CC2=C(O1)C=CC3=C2O[C@@H]4COC5=CC(=C(C=C5[C@@H]4C3=O)OC)OC)C,C23H22O6,DTXSID10200231
+dieldrin,60-57-1,positive,extended,oxidative_stress,"organochlorine, PD-associated",969491,60-57-1,DFBKLUNHFCTMDC-PICURKEMSA-N,C1[C@@H]2[C@H]3[C@@H]([C@H]1[C@H]4[C@@H]2O4)[C@]5(C(=C([C@@]3(C5(Cl)Cl)Cl)Cl)Cl)Cl,C12H8Cl6O,DTXSID9020453
+chlorpyrifos,2921-88-2,positive,extended,other,OP developmental neurotoxicant; well-covered in ToxCast,2730,2921-88-2,SBPBAQFWLVIOKP-UHFFFAOYSA-N,CCOP(=S)(OCC)OC1=NC(=C(C=C1Cl)Cl)Cl,C9H11Cl3NO3PS,DTXSID4020458
+6-hydroxydopamine,1199-18-4,positive,extended,oxidative_stress,classic DA toxin; may be thin in ToxCast,4624,1199-18-4,DIVDFFZHCJEHGG-UHFFFAOYSA-N,C1=C(C(=CC(=C1O)O)O)CCN,C8H11NO3,DTXSID0036768
+acetaminophen,103-90-2,negative,hard,none_neuro,"analgesic; hepatotoxicant, ToxCast-quiet",1983,103-90-2,RZVAJINKPMORJF-UHFFFAOYSA-N,CC(=O)NC1=CC=C(C=C1)O,C8H9NO2,DTXSID2020006
+sulfamethoxazole,723-46-6,negative,hard,none_neuro,antibiotic,5329,723-46-6,JLKIGFTWXXRPMT-UHFFFAOYSA-N,CC1=CC(=NO1)NS(=O)(=O)C2=CC=C(C=C2)N,C10H11N3O3S,DTXSID8026064
+furosemide,54-31-9,negative,hard,none_neuro,loop diuretic,3440,54-31-9,ZZUFCTLCJUWOSV-UHFFFAOYSA-N,C1=COC(=C1)CNC2=CC(=C(C=C2C(=O)O)S(=O)(=O)N)Cl,C12H11ClN2O5S,DTXSID6020648
+warfarin,81-81-2,negative,hard,none_neuro,anticoagulant (has some ToxCast actives),54678486,81-81-2,PJVWKTKQMONHTI-UHFFFAOYSA-N,CC(=O)CC(C1=CC=CC=C1)C2=C(C3=CC=CC=C3OC2=O)O,C19H16O4,DTXSID5023742
+ibuprofen,15687-27-1,negative,hard,none_neuro,NSAID (carries a curated AD therapeutic link),3672,15687-27-1,HEFNNWSXXWATRW-UHFFFAOYSA-N,CC(C)CC1=CC=C(C=C1)C(C)C(=O)O,C13H18O2,DTXSID5020732
+troglitazone,97322-87-7,negative,hard,none_neuro,withdrawn antidiabetic; hepatotox; heavily assayed,5591,97322-87-7,GXPHKUHSUJUWKP-UHFFFAOYSA-N,CC1=C(C2=C(CCC(O2)(C)COC3=CC=C(C=C3)CC4C(=O)NC(=O)S4)C(=C1O)C)C,C24H27NO5S,DTXSID8023719
+fulvestrant,129453-61-8,negative,hard,none_neuro,antiestrogen oncology drug,104741,129453-61-8,VWUXBMIQPBEWFH-WCCTWKNTSA-N,C[C@]12CC[C@H]3[C@H]([C@@H]1CC[C@@H]2O)[C@@H](CC4=C3C=CC(=C4)O)CCCCCCCCCS(=O)CCCC(C(F)(F)F)(F)F,C32H47F5O3S,DTXSID4022369
+fenofibrate,49562-28-9,negative,hard,none_neuro,lipid-lowering fibrate,3339,49562-28-9,YMTINGFKWWXKFG-UHFFFAOYSA-N,CC(C)OC(=O)C(C)(C)OC1=CC=C(C=C1)C(=O)C2=CC=C(C=C2)Cl,C20H21ClO4,DTXSID2029874
+propiconazole,60207-90-1,negative,hard,none_neuro,triazole fungicide; ToxCast reference chemical,43234,60207-90-1,STJLVHWMYQXCPB-UHFFFAOYSA-N,CCCC1COC(O1)(CN2C=NC=N2)C3=C(C=C(C=C3)Cl)Cl,C15H17Cl2N3O2,DTXSID8024280
+prochloraz,67747-09-5,negative,hard,none_neuro,"imidazole fungicide; endocrine, non-neuro",73665,67747-09-5,TVLSRXXIMLFWEO-UHFFFAOYSA-N,CCCN(CCOC1=C(C=C(C=C1Cl)Cl)Cl)C(=O)N2C=CN=C2,C15H16Cl3N3O2,DTXSID4024270
+diethyl phthalate,84-66-2,negative,hard,none_neuro,plasticizer; heavily assayed,6781,84-66-2,FLKPEMZONWLCSK-UHFFFAOYSA-N,CCOC(=O)C1=CC=CC=C1C(=O)OCC,C12H14O4,DTXSID7021780
+simvastatin,79902-63-9,negative,hard,none_neuro,statin (test: may carry curated AD/PD research link),54454,79902-63-9,RYMZZMVNJRMUDD-HGQWONQESA-N,CCC(C)(C)C(=O)O[C@H]1C[C@H](C=C2[C@H]1[C@H]([C@H](C=C2)C)CC[C@@H]3C[C@H](CC(=O)O3)O)C,C25H38O5,DTXSID0023581
+D-glucose,50-99-7,negative,inert,none,inert reference null (contrast only),5793,50-99-7,WQZGKKKJIJFFOK-GASJEMHNSA-N,C([C@@H]1[C@H]([C@@H]([C@H](C(O1)O)O)O)O)O,C6H12O6,DTXSID501015215
+sucrose,57-50-1,negative,inert,none,inert reference null (contrast only),5988,57-50-1,CZMRCDWAGMRECN-UGDNZRGBSA-N,C([C@@H]1[C@H]([C@@H]([C@H]([C@H](O1)O[C@]2([C@H]([C@@H]([C@H](O2)CO)O)O)CO)O)O)O)O,C12H22O11,DTXSID2021288
+sodium chloride,7647-14-5,negative,inert,none,inert reference null (contrast only),5234,7647-14-5,FAPWRFPIFSIZLT-UHFFFAOYSA-M,[Na+].[Cl-],ClNa,DTXSID3021271
