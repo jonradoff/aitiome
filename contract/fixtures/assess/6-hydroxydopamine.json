@@ -1,5 +1,6 @@
 {
     "mode": "validation",
+    "disease": "pd",
     "compound": {
         "name": "6-hydroxydopamine",
         "role": "positive",
@@ -32,6 +33,7 @@
     "confidenceTier": "curated_anchored_only",
     "recovery": {
         "call": "positive",
+        "disease": "pd",
         "predicate": {
             "ctdPdDirectEvidence": true,
             "neuroAopStressor": false
@@ -379,6 +381,14 @@
             "call": "positive",
             "tier": "curated_anchored_only",
             "label": "Recovered \u2014 curated_anchored_only"
+        }
+    ],
+    "crossDisease": [
+        {
+            "disease": "ad",
+            "label": "Alzheimer's",
+            "call": "negative",
+            "rationale": "No curated Alzheimer's DirectEvidence and not a registered AD-relevant AOP stressor."
         }
     ]
 }

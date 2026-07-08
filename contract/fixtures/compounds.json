@@ -770,5 +770,31 @@
         "geneIxnsHuman": 2599,
         "aop3GeneHits": 10,
         "coverageGrade": "UNTESTED_NEGATIVE"
+    },
+    {
+        "name": "trichloroethylene",
+        "role": "positive",
+        "confidenceTier": "curated_anchored_only",
+        "mech": "complex_I",
+        "note": "industrial solvent; complex-I inhibition; Camp Lejeune cohort OR 1.70 (Goldman 2023 JAMA Neurol)",
+        "cid": 6575,
+        "cas": "79-01-6",
+        "inchikey": "XSTXAVWGXDQKEL-UHFFFAOYSA-N",
+        "smiles": "ClC=C(Cl)Cl",
+        "dtxsid": "DTXSID0021383",
+        "toxcastCas": "79-01-6",
+        "pdDirect": 1,
+        "adDirect": 0,
+        "aopStressorOf": null,
+        "aop3Stressor": false,
+        "inNeurotoxkb": false,
+        "toxcastTested": 0,
+        "toxcastActive": 0,
+        "mitoActive": 0,
+        "mmpActive": 0,
+        "oxStressActive": 0,
+        "neuroActive": 0,
+        "mechActiveTotal": 0,
+        "coverageGrade": "THIN_MECH"
     }
 ]

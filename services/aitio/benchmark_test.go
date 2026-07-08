@@ -13,8 +13,8 @@ func TestCuratedRuleIsPerfect(t *testing.T) {
 	svc := mustNew(t)
 	b := svc.Benchmark(nil)
 	c := b.CuratedRule
-	if c.TP != 12 || c.TN != 15 || c.FP != 0 || c.FN != 0 || c.Accuracy != 1.0 {
-		t.Fatalf("curated rule confusion = %+v, want tp12/tn15/fp0/fn0/acc1", c)
+	if c.TP != 13 || c.TN != 15 || c.FP != 0 || c.FN != 0 || c.Accuracy != 1.0 {
+		t.Fatalf("curated rule confusion = %+v, want tp13/tn15/fp0/fn0/acc1", c)
 	}
 }
 
@@ -46,7 +46,7 @@ func TestBioactivityCollapsesVsDecoys(t *testing.T) {
 }
 
 // TestNoBioactivityThresholdSeparatesDecoys: for every bioactivity signal, no
-// single threshold recovers all 12 positives without also flagging a decoy. So
+// single threshold recovers all 13 positives without also flagging a decoy. So
 // there is no activity rule that matches the curated rule's separation.
 func TestNoBioactivityThresholdSeparatesDecoys(t *testing.T) {
 	svc := mustNew(t)

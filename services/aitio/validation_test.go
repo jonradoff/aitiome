@@ -3,7 +3,7 @@ package aitio
 import "testing"
 
 // TestValidationHarness is the spine's proof: on the recon ground truth the
-// engine recovers all 12 known neurotoxicants and rejects all 15 negatives
+// engine recovers all 13 known neurotoxicants and rejects all 15 negatives
 // (incl. all 6 adversarial mito-active decoys), with ZERO false positives and
 // ZERO false negatives. If the curated predicate ever regresses, this fails.
 func TestValidationHarness(t *testing.T) {
@@ -20,8 +20,8 @@ func TestValidationHarness(t *testing.T) {
 	if s.FalseNegatives != 0 {
 		t.Errorf("false negatives: want 0, got %d", s.FalseNegatives)
 	}
-	if s.PositivesRecovered != 12 || s.PositivesTotal != 12 {
-		t.Errorf("positives recovered: want 12/12, got %d/%d", s.PositivesRecovered, s.PositivesTotal)
+	if s.PositivesRecovered != 13 || s.PositivesTotal != 13 {
+		t.Errorf("positives recovered: want 13/13, got %d/%d", s.PositivesRecovered, s.PositivesTotal)
 	}
 	if s.NegativesRejected != 15 || s.NegativesTotal != 15 {
 		t.Errorf("negatives rejected: want 15/15, got %d/%d", s.NegativesRejected, s.NegativesTotal)

@@ -1,5 +1,6 @@
 {
     "mode": "validation",
+    "disease": "pd",
     "compound": {
         "name": "paraquat",
         "role": "positive",
@@ -34,6 +35,7 @@
     "confidenceTier": "assay_mechanism_recovered",
     "recovery": {
         "call": "positive",
+        "disease": "pd",
         "predicate": {
             "ctdPdDirectEvidence": true,
             "neuroAopStressor": true
@@ -299,6 +301,14 @@
             "call": "positive",
             "tier": "assay_mechanism_recovered",
             "label": "Recovered \u2014 assay_mechanism_recovered"
+        }
+    ],
+    "crossDisease": [
+        {
+            "disease": "ad",
+            "label": "Alzheimer's",
+            "call": "negative",
+            "rationale": "No curated diagnostic signal despite bioactivity (0 mito, 32 mechanistic assay hits). Correctly NOT flagged \u2014 the engine reasons on curated mechanism, not activity."
         }
     ]
 }

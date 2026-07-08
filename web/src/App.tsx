@@ -18,7 +18,7 @@ const AXIS: Record<Disease, {
     defaultActive: "rotenone", defaultDecoy: "warfarin",
     knownLabel: "known neurotoxicants", decoyLabel: "bioactive decoys",
     headline: "It reconstructs the endorsed mechanism, recovers the known neurotoxicants, and is not fooled by the imposters.",
-    scoreIntro: "Aitiome grades a chemical on curated mechanism, never on bioactivity. On the reconnaissance ground truth it recovers all twelve known neurotoxicants and rejects all fifteen negatives, including six bioactive, mitochondria-active decoys built to fool an activity-based model.",
+    scoreIntro: "Aitiome grades a chemical on curated mechanism, never on bioactivity. On the reconnaissance ground truth it recovers all thirteen known neurotoxicants (incl. trichloroethylene, the Camp Lejeune solvent) and rejects all fifteen negatives, including six bioactive, mitochondria-active decoys built to fool an activity-based model.",
     recoveredLabel: "known neurotoxicants recovered", decoyScoreLabel: "bioactive decoys not fooled",
   },
   ad: {

@@ -1,5 +1,6 @@
 {
     "mode": "validation",
+    "disease": "pd",
     "compound": {
         "name": "acetaminophen",
         "role": "negative",
@@ -32,6 +33,7 @@
     "confidenceTier": "clean_negative",
     "recovery": {
         "call": "negative",
+        "disease": "pd",
         "predicate": {
             "ctdPdDirectEvidence": false,
             "neuroAopStressor": false
@@ -148,6 +150,14 @@
             "call": "negative",
             "tier": "clean_negative",
             "label": "Correctly not flagged \u2014 clean_negative"
+        }
+    ],
+    "crossDisease": [
+        {
+            "disease": "ad",
+            "label": "Alzheimer's",
+            "call": "negative",
+            "rationale": "No curated Alzheimer's DirectEvidence and not a registered AD-relevant AOP stressor."
         }
     ]
 }

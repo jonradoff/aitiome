@@ -2,17 +2,17 @@ package aitio
 
 import "testing"
 
-// TestValidationSetIntegrity locks the ground truth: 27 compounds, 12 positives
-// (6 assay_mechanism_recovered + 6 curated_anchored_only), 15 negatives incl. 6
-// adversarial decoys. If the embedded data drifts, this fails loudly.
+// TestValidationSetIntegrity locks the ground truth: 28 compounds, 13 positives
+// (6 assay_mechanism_recovered + 7 curated_anchored_only, incl. trichloroethylene),
+// 15 negatives incl. 6 adversarial decoys. If the embedded data drifts, this fails.
 func TestValidationSetIntegrity(t *testing.T) {
 	svc, err := New()
 	if err != nil {
 		t.Fatalf("New: %v", err)
 	}
 	compounds := svc.ListCompounds(nil)
-	if len(compounds) != 27 {
-		t.Fatalf("want 27 compounds, got %d", len(compounds))
+	if len(compounds) != 28 {
+		t.Fatalf("want 28 compounds, got %d", len(compounds))
 	}
 
 	tiers := map[string]int{}
@@ -28,14 +28,14 @@ func TestValidationSetIntegrity(t *testing.T) {
 			t.Errorf("%s: unexpected role %q", c.Name, c.Role)
 		}
 	}
-	if pos != 12 || neg != 15 {
-		t.Fatalf("want 12 positives / 15 negatives, got %d / %d", pos, neg)
+	if pos != 13 || neg != 15 {
+		t.Fatalf("want 13 positives / 15 negatives, got %d / %d", pos, neg)
 	}
 	if got := tiers["assay_mechanism_recovered"]; got != 6 {
 		t.Errorf("assay_mechanism_recovered: want 6, got %d", got)
 	}
-	if got := tiers["curated_anchored_only"]; got != 6 {
-		t.Errorf("curated_anchored_only: want 6, got %d", got)
+	if got := tiers["curated_anchored_only"]; got != 7 {
+		t.Errorf("curated_anchored_only: want 7 (incl. trichloroethylene), got %d", got)
 	}
 	if got := tiers["adversarial_negative"]; got != 6 {
 		t.Errorf("adversarial_negative: want 6, got %d", got)

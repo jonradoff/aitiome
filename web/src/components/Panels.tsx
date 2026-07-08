@@ -248,7 +248,7 @@ export function TracePanel({ result }: { result: CompoundResult }) {
   );
 }
 
-// ---- Full 27-compound validation panel (the trust proof) ----
+// ---- Full validation panel (disease-scoped) (the trust proof) ----
 export function ValidationPanel({ data, activeId, onSelect }: { data: ValidationResult; activeId: string; onSelect: (id: string) => void }) {
   const pos = data.perCompound.filter((c) => c.role === "positive");
   const neg = data.perCompound.filter((c) => c.role === "negative");

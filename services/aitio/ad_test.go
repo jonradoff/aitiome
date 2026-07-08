@@ -8,13 +8,14 @@ import (
 )
 
 // TestPDUnchangedByDiseaseAxis is the regression guard: the PD validation must
-// still be 12 recovered / 15 rejected / 6 adversarial rejected / fp=0 / fn=0.
+// still be 13 recovered / 15 rejected / 6 adversarial rejected / fp=0 / fn=0
+// (13 since trichloroethylene was added as a curated CTD-PD positive).
 func TestPDUnchangedByDiseaseAxis(t *testing.T) {
 	s := mustService(t)
 	v := s.RunValidation(context.Background())
 	got := v.Summary
-	if got.PositivesRecovered != 12 || got.PositivesTotal != 12 {
-		t.Fatalf("PD positives: got %d/%d, want 12/12", got.PositivesRecovered, got.PositivesTotal)
+	if got.PositivesRecovered != 13 || got.PositivesTotal != 13 {
+		t.Fatalf("PD positives: got %d/%d, want 13/13", got.PositivesRecovered, got.PositivesTotal)
 	}
 	if got.NegativesRejected != 15 || got.NegativesTotal != 15 {
 		t.Fatalf("PD negatives: got %d/%d, want 15/15", got.NegativesRejected, got.NegativesTotal)

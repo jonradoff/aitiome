@@ -1,7 +1,7 @@
 {
     "summary": {
-        "positivesRecovered": 12,
-        "positivesTotal": 12,
+        "positivesRecovered": 13,
+        "positivesTotal": 13,
         "negativesRejected": 15,
         "negativesTotal": 15,
         "adversarialTotal": 6,
@@ -12,6 +12,7 @@
     "perCompound": [
         {
             "mode": "validation",
+            "disease": "pd",
             "compound": {
                 "name": "rotenone",
                 "role": "positive",
@@ -46,6 +47,7 @@
             "confidenceTier": "assay_mechanism_recovered",
             "recovery": {
                 "call": "positive",
+                "disease": "pd",
                 "predicate": {
                     "ctdPdDirectEvidence": true,
                     "neuroAopStressor": true
@@ -408,10 +410,19 @@
                     "tier": "assay_mechanism_recovered",
                     "label": "Recovered \u2014 assay_mechanism_recovered"
                 }
+            ],
+            "crossDisease": [
+                {
+                    "disease": "ad",
+                    "label": "Alzheimer's",
+                    "call": "negative",
+                    "rationale": "No curated diagnostic signal despite bioactivity (5 mito, 56 mechanistic assay hits). Correctly NOT flagged \u2014 the engine reasons on curated mechanism, not activity."
+                }
             ]
         },
         {
             "mode": "validation",
+            "disease": "pd",
             "compound": {
                 "name": "MPP+",
                 "role": "positive",
@@ -446,6 +457,7 @@
             "confidenceTier": "assay_mechanism_recovered",
             "recovery": {
                 "call": "positive",
+                "disease": "pd",
                 "predicate": {
                     "ctdPdDirectEvidence": true,
                     "neuroAopStressor": true
@@ -808,10 +820,19 @@
                     "tier": "assay_mechanism_recovered",
                     "label": "Recovered \u2014 assay_mechanism_recovered"
                 }
+            ],
+            "crossDisease": [
+                {
+                    "disease": "ad",
+                    "label": "Alzheimer's",
+                    "call": "negative",
+                    "rationale": "No curated diagnostic signal despite bioactivity (0 mito, 8 mechanistic assay hits). Correctly NOT flagged \u2014 the engine reasons on curated mechanism, not activity."
+                }
             ]
         },
         {
             "mode": "validation",
+            "disease": "pd",
             "compound": {
                 "name": "MPTP",
                 "role": "positive",
@@ -844,6 +865,7 @@
             "confidenceTier": "curated_anchored_only",
             "recovery": {
                 "call": "positive",
+                "disease": "pd",
                 "predicate": {
                     "ctdPdDirectEvidence": true,
                     "neuroAopStressor": false
@@ -1206,10 +1228,19 @@
                     "tier": "curated_anchored_only",
                     "label": "Recovered \u2014 curated_anchored_only"
                 }
+            ],
+            "crossDisease": [
+                {
+                    "disease": "ad",
+                    "label": "Alzheimer's",
+                    "call": "negative",
+                    "rationale": "No curated Alzheimer's DirectEvidence and not a registered AD-relevant AOP stressor."
+                }
             ]
         },
         {
             "mode": "validation",
+            "disease": "pd",
             "compound": {
                 "name": "paraquat",
                 "role": "positive",
@@ -1244,6 +1275,7 @@
             "confidenceTier": "assay_mechanism_recovered",
             "recovery": {
                 "call": "positive",
+                "disease": "pd",
                 "predicate": {
                     "ctdPdDirectEvidence": true,
                     "neuroAopStressor": true
@@ -1510,10 +1542,19 @@
                     "tier": "assay_mechanism_recovered",
                     "label": "Recovered \u2014 assay_mechanism_recovered"
                 }
+            ],
+            "crossDisease": [
+                {
+                    "disease": "ad",
+                    "label": "Alzheimer's",
+                    "call": "negative",
+                    "rationale": "No curated diagnostic signal despite bioactivity (0 mito, 32 mechanistic assay hits). Correctly NOT flagged \u2014 the engine reasons on curated mechanism, not activity."
+                }
             ]
         },
         {
             "mode": "validation",
+            "disease": "pd",
             "compound": {
                 "name": "maneb",
                 "role": "positive",
@@ -1546,6 +1587,7 @@
             "confidenceTier": "curated_anchored_only",
             "recovery": {
                 "call": "positive",
+                "disease": "pd",
                 "predicate": {
                     "ctdPdDirectEvidence": true,
                     "neuroAopStressor": false
@@ -1908,10 +1950,19 @@
                     "tier": "curated_anchored_only",
                     "label": "Recovered \u2014 curated_anchored_only"
                 }
+            ],
+            "crossDisease": [
+                {
+                    "disease": "ad",
+                    "label": "Alzheimer's",
+                    "call": "negative",
+                    "rationale": "No curated Alzheimer's DirectEvidence and not a registered AD-relevant AOP stressor."
+                }
             ]
         },
         {
             "mode": "validation",
+            "disease": "pd",
             "compound": {
                 "name": "manganese chloride",
                 "role": "positive",
@@ -1946,6 +1997,7 @@
             "confidenceTier": "assay_mechanism_recovered",
             "recovery": {
                 "call": "positive",
+                "disease": "pd",
                 "predicate": {
                     "ctdPdDirectEvidence": false,
                     "neuroAopStressor": true
@@ -2294,10 +2346,19 @@
                     "tier": "assay_mechanism_recovered",
                     "label": "Recovered \u2014 assay_mechanism_recovered"
                 }
+            ],
+            "crossDisease": [
+                {
+                    "disease": "ad",
+                    "label": "Alzheimer's",
+                    "call": "negative",
+                    "rationale": "No curated diagnostic signal despite bioactivity (0 mito, 7 mechanistic assay hits). Correctly NOT flagged \u2014 the engine reasons on curated mechanism, not activity."
+                }
             ]
         },
         {
             "mode": "validation",
+            "disease": "pd",
             "compound": {
                 "name": "methylmercury chloride",
                 "role": "positive",
@@ -2332,6 +2393,7 @@
             "confidenceTier": "assay_mechanism_recovered",
             "recovery": {
                 "call": "positive",
+                "disease": "pd",
                 "predicate": {
                     "ctdPdDirectEvidence": false,
                     "neuroAopStressor": true
@@ -2369,7 +2431,26 @@
                         "eventId": "341",
                         "title": "Impairment, Learning and memory",
                         "role": "AO",
-                        "layer": 6
+                        "layer": 6,
+                        "grounding": {
+                            "cellTypes": [
+                                "TREM2",
+                                "APOE",
+                                "TYROBP",
+                                "CST7",
+                                "LPL",
+                                "ITGAX",
+                                "SPP1",
+                                "GPNMB",
+                                "CD9",
+                                "CTSB",
+                                "CTSD",
+                                "CLEC7A",
+                                "AXL"
+                            ],
+                            "source": "Bellenguez 2022 / DAM (disease-associated microglia)",
+                            "kind": "ao_celltype"
+                        }
                     },
                     {
                         "eventId": "386",
@@ -2501,6 +2582,14 @@
                     "detail": "Registered stressor of neuro AOP(s) [17] (diagnostic).",
                     "source": "CTD curated DirectEvidence / AOP-Wiki",
                     "provenance": "CTD curated chemical-disease DirectEvidence (bulk report; MESH:D010300 Parkinson Disease) + AOP-Wiki registered neuro-AOP stressors",
+                    "isGate": false
+                },
+                {
+                    "kind": "mito_celltype_grounding",
+                    "status": "supports",
+                    "detail": "MIE grounded in MitoCarta Complex-I Q-site subunits; adverse outcome in the Kamath SOX6/AGTR1 vulnerable dopaminergic-neuron population.",
+                    "source": "MitoCarta3.0 + Kamath 2022 Nat Neurosci",
+                    "provenance": "MitoCarta3.0 Complex-I Q-site subunits + Kamath 2022 SN snRNA-seq (SOX6/AGTR1 vulnerable DA neurons)",
                     "isGate": false
                 },
                 {
@@ -2663,10 +2752,35 @@
                     "confidence": 0.9
                 },
                 {
+                    "kind": "ao_resolve",
+                    "cellTypes": [
+                        "TREM2",
+                        "APOE",
+                        "TYROBP",
+                        "CST7",
+                        "LPL",
+                        "ITGAX",
+                        "SPP1",
+                        "GPNMB",
+                        "CD9",
+                        "CTSB",
+                        "CTSD",
+                        "CLEC7A",
+                        "AXL"
+                    ],
+                    "label": "Resolves into the SOX6/AGTR1 vulnerable dopaminergic-neuron population"
+                },
+                {
                     "kind": "strand",
                     "strandKind": "curated_mechanism",
                     "strandStatus": "supports",
                     "label": "Registered stressor of neuro AOP(s) [17] (diagnostic)."
+                },
+                {
+                    "kind": "strand",
+                    "strandKind": "mito_celltype_grounding",
+                    "strandStatus": "supports",
+                    "label": "MIE grounded in MitoCarta Complex-I Q-site subunits; adverse outcome in the Kamath SOX6/AGTR1 vulnerable dopaminergic-neuron population."
                 },
                 {
                     "kind": "strand",
@@ -2692,10 +2806,19 @@
                     "tier": "assay_mechanism_recovered",
                     "label": "Recovered \u2014 assay_mechanism_recovered"
                 }
+            ],
+            "crossDisease": [
+                {
+                    "disease": "ad",
+                    "label": "Alzheimer's",
+                    "call": "negative",
+                    "rationale": "No curated diagnostic signal despite bioactivity (0 mito, 50 mechanistic assay hits). Correctly NOT flagged \u2014 the engine reasons on curated mechanism, not activity."
+                }
             ]
         },
         {
             "mode": "validation",
+            "disease": "pd",
             "compound": {
                 "name": "lead acetate",
                 "role": "positive",
@@ -2732,6 +2855,7 @@
             "confidenceTier": "curated_anchored_only",
             "recovery": {
                 "call": "positive",
+                "disease": "pd",
                 "predicate": {
                     "ctdPdDirectEvidence": false,
                     "neuroAopStressor": true
@@ -2787,13 +2911,51 @@
                         "eventId": "341",
                         "title": "Impairment, Learning and memory",
                         "role": "AO",
-                        "layer": 7
+                        "layer": 7,
+                        "grounding": {
+                            "cellTypes": [
+                                "TREM2",
+                                "APOE",
+                                "TYROBP",
+                                "CST7",
+                                "LPL",
+                                "ITGAX",
+                                "SPP1",
+                                "GPNMB",
+                                "CD9",
+                                "CTSB",
+                                "CTSD",
+                                "CLEC7A",
+                                "AXL"
+                            ],
+                            "source": "Bellenguez 2022 / DAM (disease-associated microglia)",
+                            "kind": "ao_celltype"
+                        }
                     },
                     {
                         "eventId": "352",
                         "title": "N/A, Neurodegeneration",
                         "role": "AO",
-                        "layer": 6
+                        "layer": 6,
+                        "grounding": {
+                            "cellTypes": [
+                                "TREM2",
+                                "APOE",
+                                "TYROBP",
+                                "CST7",
+                                "LPL",
+                                "ITGAX",
+                                "SPP1",
+                                "GPNMB",
+                                "CD9",
+                                "CTSB",
+                                "CTSD",
+                                "CLEC7A",
+                                "AXL"
+                            ],
+                            "source": "Bellenguez 2022 / DAM (disease-associated microglia)",
+                            "kind": "ao_celltype"
+                        }
                     },
                     {
                         "eventId": "381",
@@ -2868,6 +3030,14 @@
                     "detail": "Registered stressor of neuro AOP(s) [12 499 500] (diagnostic).",
                     "source": "CTD curated DirectEvidence / AOP-Wiki",
                     "provenance": "CTD curated chemical-disease DirectEvidence (bulk report; MESH:D010300 Parkinson Disease) + AOP-Wiki registered neuro-AOP stressors",
+                    "isGate": false
+                },
+                {
+                    "kind": "mito_celltype_grounding",
+                    "status": "supports",
+                    "detail": "MIE grounded in MitoCarta Complex-I Q-site subunits; adverse outcome in the Kamath SOX6/AGTR1 vulnerable dopaminergic-neuron population.",
+                    "source": "MitoCarta3.0 + Kamath 2022 Nat Neurosci",
+                    "provenance": "MitoCarta3.0 Complex-I Q-site subunits + Kamath 2022 SN snRNA-seq (SOX6/AGTR1 vulnerable DA neurons)",
                     "isGate": false
                 },
                 {
@@ -3003,10 +3173,35 @@
                     "confidence": 0.9
                 },
                 {
+                    "kind": "ao_resolve",
+                    "cellTypes": [
+                        "TREM2",
+                        "APOE",
+                        "TYROBP",
+                        "CST7",
+                        "LPL",
+                        "ITGAX",
+                        "SPP1",
+                        "GPNMB",
+                        "CD9",
+                        "CTSB",
+                        "CTSD",
+                        "CLEC7A",
+                        "AXL"
+                    ],
+                    "label": "Resolves into the SOX6/AGTR1 vulnerable dopaminergic-neuron population"
+                },
+                {
                     "kind": "strand",
                     "strandKind": "curated_mechanism",
                     "strandStatus": "supports",
                     "label": "Registered stressor of neuro AOP(s) [12 499 500] (diagnostic)."
+                },
+                {
+                    "kind": "strand",
+                    "strandKind": "mito_celltype_grounding",
+                    "strandStatus": "supports",
+                    "label": "MIE grounded in MitoCarta Complex-I Q-site subunits; adverse outcome in the Kamath SOX6/AGTR1 vulnerable dopaminergic-neuron population."
                 },
                 {
                     "kind": "strand",
@@ -3032,10 +3227,19 @@
                     "tier": "curated_anchored_only",
                     "label": "Recovered \u2014 curated_anchored_only"
                 }
+            ],
+            "crossDisease": [
+                {
+                    "disease": "ad",
+                    "label": "Alzheimer's",
+                    "call": "positive",
+                    "rationale": "Registered stressor of AD-relevant AOP(s) [12] (diagnostic)."
+                }
             ]
         },
         {
             "mode": "validation",
+            "disease": "pd",
             "compound": {
                 "name": "deguelin",
                 "role": "positive",
@@ -3070,6 +3274,7 @@
             "confidenceTier": "curated_anchored_only",
             "recovery": {
                 "call": "positive",
+                "disease": "pd",
                 "predicate": {
                     "ctdPdDirectEvidence": false,
                     "neuroAopStressor": true
@@ -3418,10 +3623,19 @@
                     "tier": "curated_anchored_only",
                     "label": "Recovered \u2014 curated_anchored_only"
                 }
+            ],
+            "crossDisease": [
+                {
+                    "disease": "ad",
+                    "label": "Alzheimer's",
+                    "call": "negative",
+                    "rationale": "No curated Alzheimer's DirectEvidence and not a registered AD-relevant AOP stressor."
+                }
             ]
         },
         {
             "mode": "validation",
+            "disease": "pd",
             "compound": {
                 "name": "dieldrin",
                 "role": "positive",
@@ -3454,6 +3668,7 @@
             "confidenceTier": "curated_anchored_only",
             "recovery": {
                 "call": "positive",
+                "disease": "pd",
                 "predicate": {
                     "ctdPdDirectEvidence": true,
                     "neuroAopStressor": false
@@ -3816,10 +4031,19 @@
                     "tier": "curated_anchored_only",
                     "label": "Recovered \u2014 curated_anchored_only"
                 }
+            ],
+            "crossDisease": [
+                {
+                    "disease": "ad",
+                    "label": "Alzheimer's",
+                    "call": "negative",
+                    "rationale": "No curated Alzheimer's DirectEvidence and not a registered AD-relevant AOP stressor."
+                }
             ]
         },
         {
             "mode": "validation",
+            "disease": "pd",
             "compound": {
                 "name": "chlorpyrifos",
                 "role": "positive",
@@ -3854,6 +4078,7 @@
             "confidenceTier": "assay_mechanism_recovered",
             "recovery": {
                 "call": "positive",
+                "disease": "pd",
                 "predicate": {
                     "ctdPdDirectEvidence": true,
                     "neuroAopStressor": true
@@ -4216,10 +4441,19 @@
                     "tier": "assay_mechanism_recovered",
                     "label": "Recovered \u2014 assay_mechanism_recovered"
                 }
+            ],
+            "crossDisease": [
+                {
+                    "disease": "ad",
+                    "label": "Alzheimer's",
+                    "call": "negative",
+                    "rationale": "No curated diagnostic signal despite bioactivity (1 mito, 42 mechanistic assay hits). Correctly NOT flagged \u2014 the engine reasons on curated mechanism, not activity."
+                }
             ]
         },
         {
             "mode": "validation",
+            "disease": "pd",
             "compound": {
                 "name": "6-hydroxydopamine",
                 "role": "positive",
@@ -4252,6 +4486,7 @@
             "confidenceTier": "curated_anchored_only",
             "recovery": {
                 "call": "positive",
+                "disease": "pd",
                 "predicate": {
                     "ctdPdDirectEvidence": true,
                     "neuroAopStressor": false
@@ -4600,10 +4835,19 @@
                     "tier": "curated_anchored_only",
                     "label": "Recovered \u2014 curated_anchored_only"
                 }
+            ],
+            "crossDisease": [
+                {
+                    "disease": "ad",
+                    "label": "Alzheimer's",
+                    "call": "negative",
+                    "rationale": "No curated Alzheimer's DirectEvidence and not a registered AD-relevant AOP stressor."
+                }
             ]
         },
         {
             "mode": "validation",
+            "disease": "pd",
             "compound": {
                 "name": "acetaminophen",
                 "role": "negative",
@@ -4636,6 +4880,7 @@
             "confidenceTier": "clean_negative",
             "recovery": {
                 "call": "negative",
+                "disease": "pd",
                 "predicate": {
                     "ctdPdDirectEvidence": false,
                     "neuroAopStressor": false
@@ -4753,10 +4998,19 @@
                     "tier": "clean_negative",
                     "label": "Correctly not flagged \u2014 clean_negative"
                 }
+            ],
+            "crossDisease": [
+                {
+                    "disease": "ad",
+                    "label": "Alzheimer's",
+                    "call": "negative",
+                    "rationale": "No curated Alzheimer's DirectEvidence and not a registered AD-relevant AOP stressor."
+                }
             ]
         },
         {
             "mode": "validation",
+            "disease": "pd",
             "compound": {
                 "name": "sulfamethoxazole",
                 "role": "negative",
@@ -4788,6 +5042,7 @@
             "confidenceTier": "clean_negative",
             "recovery": {
                 "call": "negative",
+                "disease": "pd",
                 "predicate": {
                     "ctdPdDirectEvidence": false,
                     "neuroAopStressor": false
@@ -4919,10 +5174,19 @@
                     "tier": "clean_negative",
                     "label": "Correctly not flagged \u2014 clean_negative"
                 }
+            ],
+            "crossDisease": [
+                {
+                    "disease": "ad",
+                    "label": "Alzheimer's",
+                    "call": "negative",
+                    "rationale": "No curated Alzheimer's DirectEvidence and not a registered AD-relevant AOP stressor."
+                }
             ]
         },
         {
             "mode": "validation",
+            "disease": "pd",
             "compound": {
                 "name": "furosemide",
                 "role": "negative",
@@ -4955,6 +5219,7 @@
             "confidenceTier": "clean_negative",
             "recovery": {
                 "call": "negative",
+                "disease": "pd",
                 "predicate": {
                     "ctdPdDirectEvidence": false,
                     "neuroAopStressor": false
@@ -5100,10 +5365,19 @@
                     "tier": "clean_negative",
                     "label": "Correctly not flagged \u2014 clean_negative"
                 }
+            ],
+            "crossDisease": [
+                {
+                    "disease": "ad",
+                    "label": "Alzheimer's",
+                    "call": "negative",
+                    "rationale": "No curated diagnostic signal despite bioactivity (0 mito, 1 mechanistic assay hits). Correctly NOT flagged \u2014 the engine reasons on curated mechanism, not activity."
+                }
             ]
         },
         {
             "mode": "validation",
+            "disease": "pd",
             "compound": {
                 "name": "warfarin",
                 "role": "negative",
@@ -5136,6 +5410,7 @@
             "confidenceTier": "adversarial_negative",
             "recovery": {
                 "call": "negative",
+                "disease": "pd",
                 "predicate": {
                     "ctdPdDirectEvidence": false,
                     "neuroAopStressor": false
@@ -5281,10 +5556,19 @@
                     "tier": "adversarial_negative",
                     "label": "Correctly not flagged \u2014 adversarial_negative"
                 }
+            ],
+            "crossDisease": [
+                {
+                    "disease": "ad",
+                    "label": "Alzheimer's",
+                    "call": "negative",
+                    "rationale": "No curated diagnostic signal despite bioactivity (0 mito, 6 mechanistic assay hits). Correctly NOT flagged \u2014 the engine reasons on curated mechanism, not activity."
+                }
             ]
         },
         {
             "mode": "validation",
+            "disease": "pd",
             "compound": {
                 "name": "ibuprofen",
                 "role": "negative",
@@ -5317,6 +5601,7 @@
             "confidenceTier": "weak_negative",
             "recovery": {
                 "call": "negative",
+                "disease": "pd",
                 "predicate": {
                     "ctdPdDirectEvidence": false,
                     "neuroAopStressor": false
@@ -5434,10 +5719,19 @@
                     "tier": "weak_negative",
                     "label": "Correctly not flagged \u2014 weak_negative"
                 }
+            ],
+            "crossDisease": [
+                {
+                    "disease": "ad",
+                    "label": "Alzheimer's",
+                    "call": "positive",
+                    "rationale": "Curated CTD Alzheimer's DirectEvidence (diagnostic)."
+                }
             ]
         },
         {
             "mode": "validation",
+            "disease": "pd",
             "compound": {
                 "name": "troglitazone",
                 "role": "negative",
@@ -5470,6 +5764,7 @@
             "confidenceTier": "adversarial_negative",
             "recovery": {
                 "call": "negative",
+                "disease": "pd",
                 "predicate": {
                     "ctdPdDirectEvidence": false,
                     "neuroAopStressor": false
@@ -5601,10 +5896,19 @@
                     "tier": "adversarial_negative",
                     "label": "Correctly not flagged \u2014 adversarial_negative"
                 }
+            ],
+            "crossDisease": [
+                {
+                    "disease": "ad",
+                    "label": "Alzheimer's",
+                    "call": "negative",
+                    "rationale": "No curated diagnostic signal despite bioactivity (5 mito, 19 mechanistic assay hits). Correctly NOT flagged \u2014 the engine reasons on curated mechanism, not activity."
+                }
             ]
         },
         {
             "mode": "validation",
+            "disease": "pd",
             "compound": {
                 "name": "fulvestrant",
                 "role": "negative",
@@ -5637,6 +5941,7 @@
             "confidenceTier": "clean_negative",
             "recovery": {
                 "call": "negative",
+                "disease": "pd",
                 "predicate": {
                     "ctdPdDirectEvidence": false,
                     "neuroAopStressor": false
@@ -5782,10 +6087,19 @@
                     "tier": "clean_negative",
                     "label": "Correctly not flagged \u2014 clean_negative"
                 }
+            ],
+            "crossDisease": [
+                {
+                    "disease": "ad",
+                    "label": "Alzheimer's",
+                    "call": "negative",
+                    "rationale": "No curated diagnostic signal despite bioactivity (0 mito, 1 mechanistic assay hits). Correctly NOT flagged \u2014 the engine reasons on curated mechanism, not activity."
+                }
             ]
         },
         {
             "mode": "validation",
+            "disease": "pd",
             "compound": {
                 "name": "fenofibrate",
                 "role": "negative",
@@ -5818,6 +6132,7 @@
             "confidenceTier": "adversarial_negative",
             "recovery": {
                 "call": "negative",
+                "disease": "pd",
                 "predicate": {
                     "ctdPdDirectEvidence": false,
                     "neuroAopStressor": false
@@ -5963,10 +6278,19 @@
                     "tier": "adversarial_negative",
                     "label": "Correctly not flagged \u2014 adversarial_negative"
                 }
+            ],
+            "crossDisease": [
+                {
+                    "disease": "ad",
+                    "label": "Alzheimer's",
+                    "call": "negative",
+                    "rationale": "No curated diagnostic signal despite bioactivity (2 mito, 4 mechanistic assay hits). Correctly NOT flagged \u2014 the engine reasons on curated mechanism, not activity."
+                }
             ]
         },
         {
             "mode": "validation",
+            "disease": "pd",
             "compound": {
                 "name": "propiconazole",
                 "role": "negative",
@@ -5999,6 +6323,7 @@
             "confidenceTier": "adversarial_negative",
             "recovery": {
                 "call": "negative",
+                "disease": "pd",
                 "predicate": {
                     "ctdPdDirectEvidence": false,
                     "neuroAopStressor": false
@@ -6102,10 +6427,19 @@
                     "tier": "adversarial_negative",
                     "label": "Correctly not flagged \u2014 adversarial_negative"
                 }
+            ],
+            "crossDisease": [
+                {
+                    "disease": "ad",
+                    "label": "Alzheimer's",
+                    "call": "negative",
+                    "rationale": "No curated diagnostic signal despite bioactivity (3 mito, 14 mechanistic assay hits). Correctly NOT flagged \u2014 the engine reasons on curated mechanism, not activity."
+                }
             ]
         },
         {
             "mode": "validation",
+            "disease": "pd",
             "compound": {
                 "name": "prochloraz",
                 "role": "negative",
@@ -6138,6 +6472,7 @@
             "confidenceTier": "adversarial_negative",
             "recovery": {
                 "call": "negative",
+                "disease": "pd",
                 "predicate": {
                     "ctdPdDirectEvidence": false,
                     "neuroAopStressor": false
@@ -6241,10 +6576,19 @@
                     "tier": "adversarial_negative",
                     "label": "Correctly not flagged \u2014 adversarial_negative"
                 }
+            ],
+            "crossDisease": [
+                {
+                    "disease": "ad",
+                    "label": "Alzheimer's",
+                    "call": "negative",
+                    "rationale": "No curated diagnostic signal despite bioactivity (3 mito, 16 mechanistic assay hits). Correctly NOT flagged \u2014 the engine reasons on curated mechanism, not activity."
+                }
             ]
         },
         {
             "mode": "validation",
+            "disease": "pd",
             "compound": {
                 "name": "diethyl phthalate",
                 "role": "negative",
@@ -6277,6 +6621,7 @@
             "confidenceTier": "clean_negative",
             "recovery": {
                 "call": "negative",
+                "disease": "pd",
                 "predicate": {
                     "ctdPdDirectEvidence": false,
                     "neuroAopStressor": false
@@ -6366,10 +6711,19 @@
                     "tier": "clean_negative",
                     "label": "Correctly not flagged \u2014 clean_negative"
                 }
+            ],
+            "crossDisease": [
+                {
+                    "disease": "ad",
+                    "label": "Alzheimer's",
+                    "call": "negative",
+                    "rationale": "No curated Alzheimer's DirectEvidence and not a registered AD-relevant AOP stressor."
+                }
             ]
         },
         {
             "mode": "validation",
+            "disease": "pd",
             "compound": {
                 "name": "simvastatin",
                 "role": "negative",
@@ -6402,6 +6756,7 @@
             "confidenceTier": "adversarial_negative",
             "recovery": {
                 "call": "negative",
+                "disease": "pd",
                 "predicate": {
                     "ctdPdDirectEvidence": false,
                     "neuroAopStressor": false
@@ -6533,10 +6888,19 @@
                     "tier": "adversarial_negative",
                     "label": "Correctly not flagged \u2014 adversarial_negative"
                 }
+            ],
+            "crossDisease": [
+                {
+                    "disease": "ad",
+                    "label": "Alzheimer's",
+                    "call": "negative",
+                    "rationale": "No curated diagnostic signal despite bioactivity (2 mito, 17 mechanistic assay hits). Correctly NOT flagged \u2014 the engine reasons on curated mechanism, not activity."
+                }
             ]
         },
         {
             "mode": "validation",
+            "disease": "pd",
             "compound": {
                 "name": "D-glucose",
                 "role": "negative",
@@ -6569,6 +6933,7 @@
             "confidenceTier": "weak_negative",
             "recovery": {
                 "call": "negative",
+                "disease": "pd",
                 "predicate": {
                     "ctdPdDirectEvidence": false,
                     "neuroAopStressor": false
@@ -6672,10 +7037,19 @@
                     "tier": "weak_negative",
                     "label": "Correctly not flagged \u2014 weak_negative"
                 }
+            ],
+            "crossDisease": [
+                {
+                    "disease": "ad",
+                    "label": "Alzheimer's",
+                    "call": "positive",
+                    "rationale": "Curated CTD Alzheimer's DirectEvidence (diagnostic)."
+                }
             ]
         },
         {
             "mode": "validation",
+            "disease": "pd",
             "compound": {
                 "name": "sucrose",
                 "role": "negative",
@@ -6707,6 +7081,7 @@
             "confidenceTier": "clean_negative",
             "recovery": {
                 "call": "negative",
+                "disease": "pd",
                 "predicate": {
                     "ctdPdDirectEvidence": false,
                     "neuroAopStressor": false
@@ -6810,10 +7185,19 @@
                     "tier": "clean_negative",
                     "label": "Correctly not flagged \u2014 clean_negative"
                 }
+            ],
+            "crossDisease": [
+                {
+                    "disease": "ad",
+                    "label": "Alzheimer's",
+                    "call": "negative",
+                    "rationale": "No curated Alzheimer's DirectEvidence and not a registered AD-relevant AOP stressor."
+                }
             ]
         },
         {
             "mode": "validation",
+            "disease": "pd",
             "compound": {
                 "name": "sodium chloride",
                 "role": "negative",
@@ -6846,6 +7230,7 @@
             "confidenceTier": "weak_negative",
             "recovery": {
                 "call": "negative",
+                "disease": "pd",
                 "predicate": {
                     "ctdPdDirectEvidence": false,
                     "neuroAopStressor": false
@@ -6948,6 +7333,392 @@
                     "call": "negative",
                     "tier": "weak_negative",
                     "label": "Correctly not flagged \u2014 weak_negative"
+                }
+            ],
+            "crossDisease": [
+                {
+                    "disease": "ad",
+                    "label": "Alzheimer's",
+                    "call": "negative",
+                    "rationale": "No curated Alzheimer's DirectEvidence and not a registered AD-relevant AOP stressor."
+                }
+            ]
+        },
+        {
+            "mode": "validation",
+            "disease": "pd",
+            "compound": {
+                "name": "trichloroethylene",
+                "role": "positive",
+                "confidenceTier": "curated_anchored_only",
+                "mech": "complex_I",
+                "note": "industrial solvent; complex-I inhibition; Camp Lejeune cohort OR 1.70 (Goldman 2023 JAMA Neurol)",
+                "cid": 6575,
+                "cas": "79-01-6",
+                "inchikey": "XSTXAVWGXDQKEL-UHFFFAOYSA-N",
+                "smiles": "ClC=C(Cl)Cl",
+                "dtxsid": "DTXSID0021383",
+                "toxcastCas": "79-01-6",
+                "pdDirect": 1,
+                "adDirect": 0,
+                "aopStressorOf": null,
+                "aop3Stressor": false,
+                "inNeurotoxkb": false,
+                "toxcastTested": 0,
+                "toxcastActive": 0,
+                "mitoActive": 0,
+                "mmpActive": 0,
+                "oxStressActive": 0,
+                "neuroActive": 0,
+                "mechActiveTotal": 0,
+                "coverageGrade": "THIN_MECH"
+            },
+            "role": "positive",
+            "confidenceTier": "curated_anchored_only",
+            "recovery": {
+                "call": "positive",
+                "disease": "pd",
+                "predicate": {
+                    "ctdPdDirectEvidence": true,
+                    "neuroAopStressor": false
+                },
+                "diagnostic": true,
+                "gatedOnAssay": false,
+                "corroboration": {
+                    "assayActive": false,
+                    "mitoActive": 0,
+                    "mechActiveTotal": 0,
+                    "note": "",
+                    "antiDiagnostic": true
+                },
+                "rationale": "Curated CTD Parkinson's DirectEvidence (diagnostic)."
+            },
+            "pathway": {
+                "aopId": "3",
+                "title": "Inhibition of the mitochondrial complex I of nigro-striatal neurons leads to parkinsonian motor deficits",
+                "oecdEndorsed": true,
+                "url": "https://aopwiki.org/aops/3",
+                "nodes": [
+                    {
+                        "eventId": "177",
+                        "title": "Increase, Mitochondrial dysfunction",
+                        "role": "KE",
+                        "layer": 2
+                    },
+                    {
+                        "eventId": "188",
+                        "title": "Neuroinflammation",
+                        "role": "KE",
+                        "layer": 5
+                    },
+                    {
+                        "eventId": "887",
+                        "title": "Inhibition, NADH-ubiquinone oxidoreductase  (complex I)",
+                        "role": "KE",
+                        "layer": 1,
+                        "grounding": {
+                            "genes": [
+                                "NDUFS7",
+                                "NDUFS8",
+                                "NDUFS2",
+                                "NDUFV1",
+                                "NDUFS3",
+                                "MT-ND1"
+                            ],
+                            "source": "MitoCarta3.0 (Complex I Q-site core subunits)",
+                            "kind": "mie_genes"
+                        }
+                    },
+                    {
+                        "eventId": "888",
+                        "title": "Binding of inhibitor, NADH-ubiquinone oxidoreductase (complex I)",
+                        "role": "MIE",
+                        "layer": 0,
+                        "grounding": {
+                            "genes": [
+                                "NDUFS7",
+                                "NDUFS8",
+                                "NDUFS2",
+                                "NDUFV1",
+                                "NDUFS3",
+                                "MT-ND1"
+                            ],
+                            "source": "MitoCarta3.0 (Complex I Q-site core subunits)",
+                            "kind": "mie_genes"
+                        }
+                    },
+                    {
+                        "eventId": "889",
+                        "title": "Proteostasis, impaired",
+                        "role": "KE",
+                        "layer": 3
+                    },
+                    {
+                        "eventId": "890",
+                        "title": "Degeneration of dopaminergic neurons of the nigrostriatal pathway",
+                        "role": "KE",
+                        "layer": 4,
+                        "grounding": {
+                            "cellTypes": [
+                                "SOX6",
+                                "AGTR1",
+                                "TMEM200A",
+                                "DDT",
+                                "GFRA2",
+                                "PART1"
+                            ],
+                            "source": "Kamath 2022 Nat Neurosci (SN vulnerable DA neurons)",
+                            "kind": "ao_celltype"
+                        }
+                    },
+                    {
+                        "eventId": "896",
+                        "title": "Parkinsonian motor deficits",
+                        "role": "AO",
+                        "layer": 5,
+                        "grounding": {
+                            "cellTypes": [
+                                "SOX6",
+                                "AGTR1",
+                                "TMEM200A",
+                                "DDT",
+                                "GFRA2",
+                                "PART1"
+                            ],
+                            "source": "Kamath 2022 Nat Neurosci (SN vulnerable DA neurons)",
+                            "kind": "ao_celltype"
+                        }
+                    }
+                ],
+                "edges": [
+                    {
+                        "kerId": "904",
+                        "upstream": "177",
+                        "downstream": "889",
+                        "isLoop": false,
+                        "confidence": 0.9
+                    },
+                    {
+                        "kerId": "905",
+                        "upstream": "889",
+                        "downstream": "890",
+                        "isLoop": false,
+                        "confidence": 0.9
+                    },
+                    {
+                        "kerId": "906",
+                        "upstream": "188",
+                        "downstream": "890",
+                        "isLoop": true,
+                        "confidence": 0.9
+                    },
+                    {
+                        "kerId": "907",
+                        "upstream": "890",
+                        "downstream": "188",
+                        "isLoop": false,
+                        "confidence": 0.9
+                    },
+                    {
+                        "kerId": "908",
+                        "upstream": "177",
+                        "downstream": "890",
+                        "isLoop": false,
+                        "confidence": 0.9
+                    },
+                    {
+                        "kerId": "910",
+                        "upstream": "890",
+                        "downstream": "896",
+                        "isLoop": false,
+                        "confidence": 0.9
+                    },
+                    {
+                        "kerId": "933",
+                        "upstream": "888",
+                        "downstream": "887",
+                        "isLoop": false,
+                        "confidence": 0.9
+                    },
+                    {
+                        "kerId": "934",
+                        "upstream": "887",
+                        "downstream": "177",
+                        "isLoop": false,
+                        "confidence": 0.9
+                    }
+                ]
+            },
+            "strands": [
+                {
+                    "kind": "curated_mechanism",
+                    "status": "supports",
+                    "detail": "Curated CTD Parkinson's DirectEvidence (diagnostic).",
+                    "source": "CTD curated DirectEvidence / AOP-Wiki",
+                    "provenance": "CTD curated chemical-disease DirectEvidence (bulk report; MESH:D010300 Parkinson Disease) + AOP-Wiki registered neuro-AOP stressors",
+                    "isGate": false
+                },
+                {
+                    "kind": "mito_celltype_grounding",
+                    "status": "supports",
+                    "detail": "MIE grounded in MitoCarta Complex-I Q-site subunits; adverse outcome in the Kamath SOX6/AGTR1 vulnerable dopaminergic-neuron population.",
+                    "source": "MitoCarta3.0 + Kamath 2022 Nat Neurosci",
+                    "provenance": "MitoCarta3.0 Complex-I Q-site subunits + Kamath 2022 SN snRNA-seq (SOX6/AGTR1 vulnerable DA neurons)",
+                    "isGate": false
+                },
+                {
+                    "kind": "assay_corroboration",
+                    "status": "not_assessable",
+                    "detail": "Thin in ToxCast (research reagent / metal).",
+                    "source": "EPA ToxCast via NICEATM ICE",
+                    "provenance": "EPA ToxCast / invitroDB v4.2 via NICEATM ICE (hitcall Active; queried on the salt-form-correct CAS)",
+                    "isGate": false
+                }
+            ],
+            "trace": [
+                {
+                    "kind": "resolve",
+                    "compound": "trichloroethylene",
+                    "resolvedForm": "trichloroethylene",
+                    "label": "Resolved trichloroethylene (DTXSID-first, salt-form correct)"
+                },
+                {
+                    "kind": "predicate_eval",
+                    "term": "ctd_pd_direct",
+                    "hit": true,
+                    "label": "CTD Parkinson's curated DirectEvidence"
+                },
+                {
+                    "kind": "predicate_eval",
+                    "term": "neuro_aop_stressor",
+                    "hit": false,
+                    "label": "Registered neuro-AOP stressor"
+                },
+                {
+                    "kind": "node_enter",
+                    "eventId": "888",
+                    "title": "Binding of inhibitor, NADH-ubiquinone oxidoreductase (complex I)",
+                    "label": "Binding of inhibitor, NADH-ubiquinone oxidoreductase (complex I)"
+                },
+                {
+                    "kind": "node_enter",
+                    "eventId": "887",
+                    "title": "Inhibition, NADH-ubiquinone oxidoreductase  (complex I)",
+                    "label": "Inhibition, NADH-ubiquinone oxidoreductase  (complex I)"
+                },
+                {
+                    "kind": "node_enter",
+                    "eventId": "177",
+                    "title": "Increase, Mitochondrial dysfunction",
+                    "label": "Increase, Mitochondrial dysfunction"
+                },
+                {
+                    "kind": "node_enter",
+                    "eventId": "889",
+                    "title": "Proteostasis, impaired",
+                    "label": "Proteostasis, impaired"
+                },
+                {
+                    "kind": "node_enter",
+                    "eventId": "890",
+                    "title": "Degeneration of dopaminergic neurons of the nigrostriatal pathway",
+                    "label": "Degeneration of dopaminergic neurons of the nigrostriatal pathway"
+                },
+                {
+                    "kind": "node_enter",
+                    "eventId": "188",
+                    "title": "Neuroinflammation",
+                    "label": "Neuroinflammation"
+                },
+                {
+                    "kind": "node_enter",
+                    "eventId": "896",
+                    "title": "Parkinsonian motor deficits",
+                    "label": "Parkinsonian motor deficits"
+                },
+                {
+                    "kind": "edge_fire",
+                    "kerId": "904",
+                    "confidence": 0.9
+                },
+                {
+                    "kind": "edge_fire",
+                    "kerId": "905",
+                    "confidence": 0.9
+                },
+                {
+                    "kind": "edge_fire",
+                    "kerId": "906",
+                    "confidence": 0.9
+                },
+                {
+                    "kind": "edge_fire",
+                    "kerId": "907",
+                    "confidence": 0.9
+                },
+                {
+                    "kind": "edge_fire",
+                    "kerId": "908",
+                    "confidence": 0.9
+                },
+                {
+                    "kind": "edge_fire",
+                    "kerId": "910",
+                    "confidence": 0.9
+                },
+                {
+                    "kind": "edge_fire",
+                    "kerId": "933",
+                    "confidence": 0.9
+                },
+                {
+                    "kind": "edge_fire",
+                    "kerId": "934",
+                    "confidence": 0.9
+                },
+                {
+                    "kind": "ao_resolve",
+                    "cellTypes": [
+                        "SOX6",
+                        "AGTR1",
+                        "TMEM200A",
+                        "DDT",
+                        "GFRA2",
+                        "PART1"
+                    ],
+                    "label": "Resolves into the SOX6/AGTR1 vulnerable dopaminergic-neuron population"
+                },
+                {
+                    "kind": "strand",
+                    "strandKind": "curated_mechanism",
+                    "strandStatus": "supports",
+                    "label": "Curated CTD Parkinson's DirectEvidence (diagnostic)."
+                },
+                {
+                    "kind": "strand",
+                    "strandKind": "mito_celltype_grounding",
+                    "strandStatus": "supports",
+                    "label": "MIE grounded in MitoCarta Complex-I Q-site subunits; adverse outcome in the Kamath SOX6/AGTR1 vulnerable dopaminergic-neuron population."
+                },
+                {
+                    "kind": "strand",
+                    "strandKind": "assay_corroboration",
+                    "strandStatus": "not_assessable",
+                    "label": "Thin in ToxCast (research reagent / metal)."
+                },
+                {
+                    "kind": "verdict",
+                    "call": "positive",
+                    "tier": "curated_anchored_only",
+                    "label": "Recovered \u2014 curated_anchored_only"
+                }
+            ],
+            "crossDisease": [
+                {
+                    "disease": "ad",
+                    "label": "Alzheimer's",
+                    "call": "negative",
+                    "rationale": "No curated Alzheimer's DirectEvidence and not a registered AD-relevant AOP stressor."
                 }
             ]
         }
