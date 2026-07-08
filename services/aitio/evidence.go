@@ -25,14 +25,15 @@ type bbbRow struct {
 	covered   bool
 }
 type epiRow struct {
-	estimate, source, kind string
-	covered                bool
+	estimate, source, kind, strength string
+	covered                          bool
 }
 
 type evidenceStore struct {
 	faers map[string]faersRow
 	bbb   map[string]bbbRow
-	epi   map[string]epiRow
+	epi   map[string]epiRow // PD epidemiology
+	epiAD map[string]epiRow // AD epidemiology (ADR-0005; round-2 literature scan)
 }
 
 func loadEvidence() (*evidenceStore, error) {
@@ -40,6 +41,7 @@ func loadEvidence() (*evidenceStore, error) {
 		faers: map[string]faersRow{},
 		bbb:   map[string]bbbRow{},
 		epi:   map[string]epiRow{},
+		epiAD: map[string]epiRow{},
 	}
 
 	rows, col, err := readCSV("data/faers_coverage.csv")
@@ -78,6 +80,24 @@ func loadEvidence() (*evidenceStore, error) {
 			source:   get(r, col, "source"),
 			kind:     get(r, col, "evidence_type"),
 			covered:  true,
+		}
+	}
+
+	// AD epidemiology (optional file; absent -> empty, PD-only builds unaffected).
+	if _, err := dataFS.Open("data/epidemiology_ad.csv"); err == nil {
+		rows, col, err = readCSV("data/epidemiology_ad.csv")
+		if err != nil {
+			return nil, err
+		}
+		for _, r := range rows {
+			name := normalizeID(get(r, col, "compound"))
+			es.epiAD[name] = epiRow{
+				estimate: get(r, col, "ad_risk_estimate"),
+				source:   get(r, col, "source"),
+				kind:     get(r, col, "evidence_type"),
+				strength: get(r, col, "strength"),
+				covered:  true,
+			}
 		}
 	}
 	return es, nil
@@ -190,6 +210,16 @@ func (s *Service) enrichAD(c contract.Compound, rec contract.RecoveryDecision, p
 		add("assay_corroboration", "not_assessable",
 			"AD-assay bioactivity is not quantified in this set (corroboration only, and anti-diagnostic — never a discriminator).",
 			"EPA ToxCast / aggregation-assay literature", "Qualitative only; not gated (AD assay-AUROC pending data)")
+		// AD epidemiology strand (honest: strong effects support; contested/weak/context are flagged).
+		if e, ok := s.evidence.epiAD[normalizeID(c.Name)]; ok && e.covered && !strings.HasPrefix(e.kind, "lab-tool") {
+			if e.strength == "strong" || e.strength == "moderate" {
+				add("epidemiology", "supports", fmt.Sprintf("%s (%s).", e.estimate, e.source),
+					"Published cohorts / meta-analyses", "Curated from published cohorts/meta-analyses (PubMed/Europe PMC)")
+			} else {
+				add("epidemiology", "not_assessable", fmt.Sprintf("%s — %s evidence (%s).", e.estimate, e.strength, e.source),
+					"Published cohorts / meta-analyses", "Curated; contested/weak epidemiology flagged, not treated as diagnostic")
+			}
+		}
 	} else {
 		add("curated_mechanism", "absent",
 			"No curated Alzheimer's DirectEvidence and not a registered AD-relevant AOP stressor.",

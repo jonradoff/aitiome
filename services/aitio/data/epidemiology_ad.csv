@@ -1,0 +1,13 @@
+compound,ad_risk_estimate,source,evidence_type,strength
+DDE,"AD OR 4.18 (2.54-5.82); serum DDE ~3.8x higher in cases","Richardson 2014 JAMA Neurol",case-control,strong
+cadmium chloride,"AD-mortality HR 3.83 (1.39-10.59)","Min & Min 2016 Environ Health",prospective,moderate
+cupric chloride,"Elevated non-ceruloplasmin free copper in AD; predicts MCI to AD","Squitti et al. meta-analysis",biomarker,contested
+aluminum chloride,"Drinking-water Al RR 2.14 (1.21-3.80)","Rondeau 2000 PAQUID (Am J Epidemiol)",cohort,contested
+zinc chloride,"Zinc dyshomeostasis in AD (direction mixed)","meta-analyses",biomarker,weak
+ferrous sulfate,"Brain iron accumulation tracks AD pathology","reviews / imaging",biomarker,weak
+ozone,"Ambient ozone/air pollution associated with dementia (mixture context)","2025 umbrella review; Lancet Commission 2024",ecological,context
+acrolein,"Acrolein elevated in AD brain; tobacco-smoke exposure","reviews",biomarker,weak
+sodium fluoride,"Fluoride-cognition (mainly developmental); adult AD unclear","reviews",mixed,weak
+lead acetate,"Cumulative (bone) Pb AD HR ~2.96 (1.37-6.39)","2025 cohort (preprint - verify)",prospective,strong-unconfirmed
+streptozocin,"none (ICV-STZ experimental AD induction model)",-,lab-tool-no-epi,-
+kainic acid,"none (experimental excitotoxic lesion agent)",-,lab-tool-no-epi,-
