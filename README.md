@@ -143,12 +143,38 @@ cites the engine's evidence strands by `[E#]` marker (nothing invented), it keep
 and it never claims causation. Model is configurable per role (default Opus 4.8; a deterministic direct
 reasoner is the always-available fallback, so the endpoint works offline).
 
-### Extending beyond the benchmark (Claude Science)
+---
 
-The recovery decision needs curated evidence. To assess a chemical outside the 27-compound benchmark,
-that evidence is assembled and verified via Claude Science (or the `make curate` command-line agent),
-then the engine grades it deterministically over `POST /assess-curated`. An unverified draft is graded
-as a hypothesis, never a curated positive - the LLM never enters the decision path. See
+## Built with Claude, end to end
+
+Aitiome is a full-stack Claude project. The three Claude surfaces do genuinely different jobs, and they
+fuse into one pipeline - with a hard rule that **Claude never enters the decision path**.
+
+- **Claude Code - built the system.** The whole thing was built with Claude Code across two parallel
+  streams (the Go engine and the Three.js visualization) coupled only by a versioned `contract/`: the
+  deterministic recovery core, the falsification harness, the hero visual, the dual HTTP/MCP interface,
+  the tests, and the fly.io deploy.
+- **Claude API (Opus 4.8) - reasons and curates.** Two roles: the in-app `EvidenceReasoner` writes the
+  calibrated, `[E#]`-cited synthesis of each assessment (it explains, it never changes the call); and a
+  command-line curation agent (`make curate`) uses Claude with the web-search tool to assemble a
+  curated-evidence draft for a chemical outside the benchmark.
+- **Claude Science - assembles and verifies the evidence.** The recovery decision needs *curated*
+  evidence (CTD DirectEvidence, AOP-Wiki stressor status). Assembling and verifying that correctly -
+  curated-only, salt-form-aware, citation-checked - is what Claude Science is built for, and its
+  reproducibility model (every result ships its code, environment, and message history) makes the
+  assembly auditable.
+
+Together they assess a chemical **beyond** the 27-compound benchmark:
+
+```
+  Claude Science / curation agent        Aitiome engine              Claude API
+  assemble + verify curated evidence  ->  deterministic grade    ->   cited synthesis
+  (CTD DirectEvidence, AOP stressor)      (same predicate)             (explains, never decides)
+```
+
+An unverified draft is graded as a hypothesis (`analogy_only`), never a curated positive - so a
+web-research guess never becomes a diagnostic call. The bridge is `POST /assess-curated` (and the
+`assess_curated` MCP tool); the full workflow, including the Claude Science verification task, is in
 [`docs/claude-science.md`](docs/claude-science.md).
 
 ---

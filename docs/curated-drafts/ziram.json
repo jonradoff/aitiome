@@ -1,0 +1,54 @@
+{
+  "name": "Ziram",
+  "dtxsid": "DTXSID0021464",
+  "cas": "137-30-4",
+  "verified": false,
+  "source": "agent-draft",
+  "pdDirect": 0,
+  "aopStressorOf": [],
+  "citations": [
+    {
+      "marker": "C1",
+      "kind": "",
+      "detail": "EPA CompTox Chemicals Dashboard record for ziram; DSSTox substance identifier DTXSID0021464.",
+      "source": "",
+      "url": "https://comptox.epa.gov/dashboard/DTXSID0021464"
+    },
+    {
+      "marker": "C2",
+      "kind": "",
+      "detail": "Identity/CAS confirmation: ziram = zinc dimethyldithiocarbamate (zinc salt), CAS 137-30-4 (Sigma-Aldrich analytical standard listing).",
+      "source": "",
+      "url": "https://www.sigmaaldrich.com/US/en/product/sial/45708"
+    },
+    {
+      "marker": "C3",
+      "kind": "",
+      "detail": "Epidemiology: Wang A, Costello S, Cockburn M, Zhang X, Bronstein J, Ritz B. 'Parkinson's disease risk from ambient exposure to pesticides.' Eur J Epidemiol 2011. Combined workplace exposure to ziram, maneb, and paraquat associated with ~3-fold increased PD risk (OR 3.09; 95% CI 1.69-5.64); ziram+paraquat OR 1.82.",
+      "source": "",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3643971/"
+    },
+    {
+      "marker": "C4",
+      "kind": "",
+      "detail": "AOP-Wiki prototypical Stressor:316 is titled 'Ziram'. The specific neuro-AOP(s) that register this stressor could NOT be confirmed from available snippets; listed here only to document the stressor entry's existence, not a confirmed AOP-stressor linkage.",
+      "source": "",
+      "url": "https://aopwiki.org/stressors/316"
+    },
+    {
+      "marker": "C5",
+      "kind": "",
+      "detail": "Mechanistic context (not CTD DirectEvidence): Lulla et al. 2016 (EHP) show ziram causes synuclein-dependent selective dopaminergic neuron loss in zebrafish; ziram is also reported to increase alpha-synuclein and inhibit E1 ligase/UPS activity. Supports mechanistic plausibility but is experimental literature, not a curated CTD PD DirectEvidence association.",
+      "source": "",
+      "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5089875/"
+    },
+    {
+      "marker": "C6",
+      "kind": "",
+      "detail": "A published network study (Frontiers Genet 2018) retrieved CTD curated chemical-gene/chemical-disease/gene-disease data for ziram for PD transcriptional network analysis; this confirms curated gene-interaction data exist but does NOT establish a curated CTD Parkinson Disease DirectEvidence (marker/mechanism or therapeutic) chemical-disease association.",
+      "source": "",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6355689/"
+    }
+  ],
+  "notes": "IDENTITY is high-confidence: DTXSID0021464, CAS 137-30-4, zinc dimethyldithiocarbamate (zinc salt). pdDirect set to 0 CONSERVATIVELY: I found strong PD-associated experimental and epidemiological literature and evidence that curated CTD gene-interaction data exist for ziram, but I could NOT directly view the CTD chemical-disease record to confirm a curated Parkinson Disease DirectEvidence (marker/mechanism or therapeutic) association vs. inferred gene-network association. A human should query ctdbase.org directly for ziram (MeSH C025870) -\u003e Diseases -\u003e Parkinson Disease / Parkinsonian Disorders and check the 'Direct Evidence' column. aopStressorOf left EMPTY conservatively: AOP-Wiki Stressor:316 IS titled 'Ziram', but I could not confirm from search snippets which AOP(s) register it; a human should open https://aopwiki.org/stressors/316 and read the 'AOPs Including This Stressor' table (candidate neuro-AOPs to check: AOP 3 complex-I, AOP 464 calcium overload, AOP 593 mitochondrial redox cycling, all parkinsonian-motor-deficit AOPs). mechActiveTotal and mitoActive set to 0 because I could not retrieve chemical-specific ToxCast active-assay counts from the CompTox record; a human should pull these from the CompTox 'Bioactivity/ToxCast' tab for DTXSID0021464. Epidemiology is well-supported (Wang et al. 2011)."
+}

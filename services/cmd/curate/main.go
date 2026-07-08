@@ -167,7 +167,7 @@ func gradeViaEngine(in contract.CuratedInput) error {
 	if err := json.NewDecoder(resp.Body).Decode(&res); err != nil {
 		return err
 	}
-	fmt.Printf("call:  %s\ntier:  %s\nwhy:   %s\n", res.Recovery.Call, res.ConfidenceTier, res.Recovery.Rationale)
+	fmt.Fprintf(os.Stderr, "call:  %s\ntier:  %s\nwhy:   %s\n", res.Recovery.Call, res.ConfidenceTier, res.Recovery.Rationale)
 	return nil
 }
 

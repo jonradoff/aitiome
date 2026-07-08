@@ -1,0 +1,5 @@
+
+--- grading the draft via the engine (unverified => hypothesis) ---
+call:  negative
+tier:  analogy_only
+why:   UNVERIFIED DRAFT (agent-draft): No curated Parkinson's DirectEvidence and not a registered neuro-AOP stressor. This is a hypothesis from assembled evidence, not a curated diagnostic call. Verify against CTD DirectEvidence and AOP-Wiki (e.g. in Claude Science) before treating it as recovered.

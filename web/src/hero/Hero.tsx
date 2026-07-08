@@ -403,7 +403,7 @@ export function Hero({ pathway, result, height = 460 }: { pathway: Pathway; resu
   const mode = modeOf(result);
   const labelRefs = useRef<(HTMLDivElement | null)[]>([]);
   return (
-    <div style={{ position: "relative", height, borderRadius: 14, overflow: "hidden", border: "1px solid var(--line)", background: "radial-gradient(120% 100% at 20% 10%, #0f151d 0%, #090b0f 70%)" }}>
+    <div className="hero-canvas" style={{ position: "relative", height, borderRadius: 14, overflow: "hidden", border: "1px solid var(--line)", background: "radial-gradient(120% 100% at 20% 10%, #0f151d 0%, #090b0f 70%)" }}>
       <Canvas camera={{ position: [0, 0.4, 20.5], fov: 40 }} dpr={[1, 2]} gl={{ antialias: true }}>
         <ExposomeField />
         <Cascade pathway={pathway} result={result} onStep={setCaption} labelRefs={labelRefs} />

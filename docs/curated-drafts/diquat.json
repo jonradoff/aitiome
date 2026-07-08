@@ -1,0 +1,47 @@
+{
+  "name": "diquat",
+  "dtxsid": "DTXSID6034554",
+  "cas": "2764-72-9",
+  "verified": false,
+  "source": "agent-draft",
+  "pdDirect": 0,
+  "aopStressorOf": [],
+  "citations": [
+    {
+      "marker": "C1",
+      "kind": "",
+      "detail": "EPA IRIS/DSSTox record: Diquat ion, CASRN 2764-72-9, DTXSID6034554 (cation form). The dibromide salt is CAS 85-00-7 (e.g., NIOSH Pocket Guide, NJ RTK factsheet).",
+      "source": "",
+      "url": "https://iris.epa.gov/ChemicalLanding/\u0026substance_nmbr=153"
+    },
+    {
+      "marker": "C2",
+      "kind": "",
+      "detail": "Diquat dibromide salt identity, CAS 85-00-7, confirmed via CDC/NIOSH Pocket Guide to Chemical Hazards.",
+      "source": "",
+      "url": "https://www.cdc.gov/niosh/npg/npgd0243.html"
+    },
+    {
+      "marker": "C3",
+      "kind": "",
+      "detail": "AOP-Wiki AOP 3 'Inhibition of the mitochondrial complex I of nigro-striatal neurons leads to parkinsonian motor deficits'. Prototypical/registered stressors listed are deguelin, fenpyroximate, pyrimidifen, rotenone, tebufenpyrad (plus MPTP/MPP+ used in development). Diquat is NOT among the listed registered stressors.",
+      "source": "",
+      "url": "https://aopwiki.org/aops/3"
+    },
+    {
+      "marker": "C4",
+      "kind": "",
+      "detail": "Nisar et al. 2015 (Arch Toxicol) show diquat kills SH-SY5Y/midbrain cells via ROS in a caspase-independent manner and 'in the absence of major inhibition of complex I', and cite that dietary diquat for 13 weeks does not cause loss of substantia nigra dopaminergic neurons in mice — arguing against diquat acting through the complex-I/parkinsonian AOP 3.",
+      "source": "",
+      "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4572080/"
+    },
+    {
+      "marker": "C5",
+      "kind": "",
+      "detail": "Paraquat (structural analogue, distinct chemical) has strong human PD epidemiological associations; provided for context to make clear this evidence is NOT diquat-specific.",
+      "source": "",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11491592/"
+    }
+  ],
+  "notes": "CONFIDENCE MODERATE, several items require human verification. IDENTITY: DTXSID6034554 corresponds to the diquat cation (CAS 2764-72-9); the commercial/registered product is usually the dibromide salt (CAS 85-00-7, DTXSID unverified in my searches). Verify preferred DTXSID and salt mapping directly on the EPA CompTox Chemicals Dashboard. pdDirect=0: I did NOT directly access ctdbase.org and could not confirm any CURATED CTD Parkinson's Disease DirectEvidence entry for diquat; a human should query CTD (ctdbase.org) for diquat -\u003e Parkinson Disease with the DirectEvidence flag before changing this. aopStressorOf=[]: AOP 3's registered stressor list does not include diquat, and the primary mechanistic paper indicates diquat's neurotoxicity is ROS-driven and largely independent of complex I / mitochondria, so it does not fit AOP 3's MIE; verify on AOP-Wiki's stressor tab that no other neuro-AOP lists diquat as a stressor. mitoActive/mechActiveTotal=0: I could not readily retrieve quantitative ToxCast/Tox21 active-assay counts for diquat; a human should pull the Bioactivity/ToxCast summary from the CompTox Dashboard for DTXSID6034554 (and the dibromide). epidemiology: I found no diquat-specific human PD/AD study; nearly all bipyridyl-herbicide PD epidemiology concerns paraquat, which is a different substance — do not conflate."
+}

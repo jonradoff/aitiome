@@ -1,0 +1,61 @@
+{
+  "name": "benomyl",
+  "dtxsid": "DTXSID5023900",
+  "cas": "17804-35-2",
+  "verified": false,
+  "source": "agent-draft",
+  "pdDirect": 0,
+  "aopStressorOf": [],
+  "citations": [
+    {
+      "marker": "C1",
+      "kind": "",
+      "detail": "EPA SRS/CompTox substance record giving benomyl DTXSID5023900 and CAS 17804-35-2 (C14H18N4O3, MW 290.32).",
+      "source": "",
+      "url": "https://cdxapps.epa.gov/oms-substance-registry-services/substance-details/209593"
+    },
+    {
+      "marker": "C2",
+      "kind": "",
+      "detail": "Wikidata cross-reference confirming DSSTox DTXSID5023900 for benomyl (InChIKey RIOXQFHNBCKOKP-UHFFFAOYSA-N).",
+      "source": "",
+      "url": "https://www.wikidata.org/wiki/Q420172"
+    },
+    {
+      "marker": "C3",
+      "kind": "",
+      "detail": "Fitzmaurice et al. PNAS 2013: benomyl, via its thiocarbamate-sulfoxide metabolite, inhibits ALDH, causing DOPAL accumulation and selective dopaminergic neuronal damage; higher benomyl exposure associated with increased PD risk in their epidemiology study.",
+      "source": "",
+      "url": "https://www.pnas.org/content/110/2/636"
+    },
+    {
+      "marker": "C4",
+      "kind": "",
+      "detail": "Fitzmaurice et al. Neurology 2014 (PEG Study): benomyl among ALDH-inhibiting pesticides; ALDH2 variants modify pesticide-associated PD risk. Authors caution against attributing causation to a single pesticide due to correlated exposures.",
+      "source": "",
+      "url": "https://www.neurology.org/doi/10.1212/WNL.0000000000000083"
+    },
+    {
+      "marker": "C5",
+      "kind": "",
+      "detail": "Legge et al. (Chem Res Toxicol 2015, tx5002223): benomyl potently inhibits ALDH and builds up DOPAL in vivo (mouse striatum) and in vitro; supports the catecholaldehyde hypothesis for PD.",
+      "source": "",
+      "url": "https://pubs.acs.org/doi/10.1021/tx5002223"
+    },
+    {
+      "marker": "C6",
+      "kind": "",
+      "detail": "Fernandez-Hubeid et al. (2024, C. elegans): proposes ALDH/ALH inhibition as a molecular initiating event (MIE) in an adverse outcome pathway of benomyl neurotoxicity relevant to parkinsonism — an AOP described in literature, not confirmed as a registered AOP-Wiki entry.",
+      "source": "",
+      "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC12471186/"
+    },
+    {
+      "marker": "C7",
+      "kind": "",
+      "detail": "CTD toxicogenomics-grouping paper notes benomyl was linked in CTD to prenatal injuries but annotated only in zebrafish; no PD DirectEvidence entry could be substantiated here.",
+      "source": "",
+      "url": "https://link.springer.com/article/10.1007/s00204-025-04133-w"
+    }
+  ],
+  "notes": "Identity (DTXSID5023900 / CAS 17804-35-2, free base; benomyl is a benzimidazole carbamate fungicide, not a salt) is well substantiated via EPA SRS and Wikidata. pdDirect set to 0: I could NOT directly reach ctdbase.org to confirm a CURATED CTD Parkinson's Disease DirectEvidence (marker/mechanism or therapeutic) association for benomyl; searches did not return a CTD chemical-disease page, and one paper indicates benomyl's CTD disease annotations were limited (prenatal injury, zebrafish-only). A human MUST query CTD directly (http://ctdbase.org, chemical benomyl, MESH D001525) and check the 'Direct Evidence' column for 'Parkinson Disease' before setting pdDirect=1. aopStressorOf left EMPTY: a benomyl→ALDH-inhibition→dopaminergic-loss AOP is described in the primary literature (Fernandez-Hubeid 2024; Fitzmaurice PNAS 2013), but I could not confirm benomyl is a REGISTERED stressor on any OECD AOP-Wiki neuro AOP; verify at https://aopwiki.org (search 'benomyl' and ALDH/complex-I/parkinsonian AOPs, e.g. potential ALDH-inhibition AOPs). mechActiveTotal and mitoActive set to 0 because I could not retrieve benomyl's ToxCast/Tox21 assay hit counts from the CompTox Dashboard; verify at https://comptox.epa.gov/dashboard/chemical/invitrodb/DTXSID5023900 (Bioactivity tab). Epidemiology is genuine and among the strongest for any PD-linked fungicide, but the original authors explicitly warn that co-exposure to correlated ALDH-inhibiting pesticides (e.g., maneb, ziram, mancozeb) precludes isolating benomyl as causal. Note benomyl was deregistered by US EPA (~2001) and in the EU."
+}
