@@ -134,12 +134,12 @@ slide("herofull", `
 // 9 - results
 slide("dark", `${eyebrow("The result, on the reconnaissance ground truth")}${h("Zero errors")}
   <div class="score">
-    <div><div class="n c">12/12</div><div class="l">known neurotoxicants recovered</div></div>
+    <div><div class="n c">13/13</div><div class="l">known neurotoxicants recovered</div></div>
     <div><div class="n">15/15</div><div class="l">negatives correctly rejected</div></div>
     <div><div class="n r">6/6</div><div class="l">bioactive decoys not fooled</div></div>
     <div><div class="n c">0</div><div class="l">false positives + false negatives</div></div>
   </div>
-  <p class="dim center">12 positives (6 assay-recovered + 6 curated-anchored) - 15 negatives, including 6 mitochondria-active adversarial decoys built to fool an activity model.</p>
+  <p class="dim center">13 Parkinson's positives (6 assay-recovered + 7 curated-anchored, incl. trichloroethylene / Camp Lejeune) - 15 negatives, including 6 mitochondria-active adversarial decoys built to fool an activity model.</p>
   ${foot(N())}`);
 
 // 10 - product: the live assessment (convergent evidence + reasoning trace)
@@ -158,7 +158,7 @@ shotSlide("specificity", "The specificity centerpiece, live", "It is not fooled 
 
 // 11 - falsification
 slide("dark", `${eyebrow("The falsification - computed live from our own data")}${h("Why not just use bioactivity?")}
-  <p class="dim">If activity could do the job, some signal would separate the 12 positives from the 6 decoys. None does - every one is at or below chance (0.5).</p>
+  <p class="dim">If activity could do the job, some signal would separate the 13 positives from the 6 decoys. None does - every one is at or below chance (0.5).</p>
   <div class="bars">
     ${bar("Mitochondrial assays", 0.16)}
     ${bar("Membrane potential (MMP)", 0.12)}
@@ -167,16 +167,17 @@ slide("dark", `${eyebrow("The falsification - computed live from our own data")}
     ${bar("ToxCast active (all)", 0.15)}
   </div>
   <p class="dim">Curated rule on the same set: <b class="c">perfect (0 errors)</b>. The decoys are, if anything, more bioactive than the real neurotoxicants.</p>
+  <p class="dim small">Prior chemical-disease ML reports 90%+ AUROC - but on drug-keyed, well-covered space, never adversarial environmental decoys. ToxCast covers only ~40% neural-relevant targets (Mack 2024): the structural reason activity fails here.</p>
   ${foot(N())}`);
 
 // 12 - circularity
 slide("", `${eyebrow("Answering the sharpest critique, empirically")}${h("Is it circular? Two independent curations converge")}
   <div class="score3">
-    <div><div class="n">8/12</div><div class="l">CTD DirectEvidence alone</div></div>
+    <div><div class="n">9/13</div><div class="l">CTD DirectEvidence alone</div></div>
     <div class="op">+</div>
-    <div><div class="n">8/12</div><div class="l">AOP-Wiki stressor alone</div></div>
+    <div><div class="n">8/13</div><div class="l">AOP-Wiki stressor alone</div></div>
     <div class="op">&#8594;</div>
-    <div><div class="n c">12/12</div><div class="l">the rule (CTD or AOP)</div></div>
+    <div><div class="n c">13/13</div><div class="l">the rule (CTD or AOP)</div></div>
   </div>
   <p class="dim center">CTD (toxicogenomics literature) and AOP-Wiki (OECD regulatory) are independent efforts; neither alone suffices, so this is not one source read twice. Both are <b>0/15</b> false-positives. And the decoys were selected for bioactivity, not curation status - so rejecting them is not baked in.</p>
   ${foot(N())}`);
@@ -201,6 +202,52 @@ slide("", `${eyebrow("The honest part")}${h("Where AI-driven discovery works, an
     ${axis("Boltz-2 Q-site", "conditional lead", true)}
   </div>
   <p class="dim">Seven axes coverage- or confounder-killed. Two honest, unproven leads remain (reported with explicit N). Discovery is a map, never a predictor.</p>
+  ${foot(N())}`);
+
+// 13d - second axis: Alzheimer's
+slide("", `${eyebrow("A second axis, the same discipline")}${h("Alzheimer's — honestly calibrated below Parkinson's")}
+  <div class="two">
+    <div class="card"><div class="k mono">The AD arm</div><p>The identical curated-diagnostic engine, anchored on the <b>endorsed AOP-12/48</b> (aging neurodegeneration + memory; registered stressor: lead) with a non-endorsed Tau/amyloid overlay. Recovers curated AD-linked chemicals (DDE, cadmium, lead), rejects the imposters, and resolves into disease-associated microglia (TREM2/APOE).</p></div>
+    <div class="card recovered"><div class="k mono">The decoys are the treatments</div><p>The compounds most active on AD assays are the anti-amyloid <b>drugs</b> (donepezil, methylene blue) and dietary <b>polyphenols</b> (curcumin, EGCG). An activity model would flag the cure. Aitiome does not - no curated causation.</p></div>
+  </div>
+  <p class="pull">Honesty by calibration, not by less rigor.</p>
+  ${foot(N())}`);
+
+// 13e - the two axes compared
+slide("dark", `${eyebrow("The two axes, compared")}${h("The same method. Honestly calibrated.")}
+  <div class="cmp">
+    <div class="cmphead"><div class="cmpd mono faint">dimension</div><div class="cmpc"><b class="c">Parkinson's</b></div><div class="cmpc"><b class="g">Alzheimer's</b></div></div>
+    ${cmp("Scaffold (OECD)", "AOP-3, fully endorsed", 3, "AOP-12/48 endorsed + non-endorsed overlay", 2)}
+    ${cmp("Curated recovery", "13/13, 0 err", 3, "12/12, 0 err", 3)}
+    ${cmp("Predictive power / falsification", "quantified: activity at or below chance", 3, "qualitative; assay-AUROC pending data", 1)}
+    ${cmp("Circularity defense", "two curations converge (9/13 + 8/13)", 3, "leans on CTD alone (~11/12)", 1)}
+    ${cmp("Human epidemiology", "quantified (paraquat 2.5x, rotenone OR ~10)", 3, "DDE OR 4.18; aluminum contested", 2)}
+  </div>
+  <p class="dim small">Shared: KE-188 neuroinflammation bridges both AOPs; lead is positive for both; mitochondrial dysfunction is an honest unlinked gap.</p>
+  ${foot(N())}`);
+
+// 13f - positioning vs prior art
+slide("", `${eyebrow("Where we sit")}${h("The field predicts. We validate.")}
+  <div class="two">
+    <div><b class="c">The landscape</b><p class="dim">Graph-AI (PROTON, 2025) and read-across (GenRA) predict <i>novel</i> toxic chemicals from structure and bioactivity; a wave of LLM-for-AOP work is emerging.</p></div>
+    <div><b class="g">Aitiome's inversion</b><p class="dim">Recover the <i>known</i> neurotoxicants on the endorsed scaffold, grade only on curated evidence, and prove via adversarial falsification that bioactivity is anti-diagnostic - the honest counterweight, and a direct answer to the hallucination warnings (ToxReason, ES&T 2024) the LLM-AOP wave raises.</p></div>
+  </div>
+  <p class="pull">We found no prior adversarial mito-active-decoy neurodegeneration benchmark.</p>
+  ${foot(N())}`);
+
+// 13g - principled exclusions
+slide("dark", `${eyebrow("The exclusions are the discipline")}${h("What we deliberately do not use")}
+  <div class="two">
+    <ul class="list">
+      <li><b>Bioactivity as a discriminator</b> (ToxCast/Tox21 hitcalls, GenRA, DeepTox) - anti-diagnostic here; ToxCast covers only ~40% neural-relevant targets (Mack 2024).</li>
+      <li><b>Circular knowledge graphs</b> (ComptoxAI, AlzKB, PrimeKG, Hetionet) - edges are CTD/AOP-derived or drug-keyed.</li>
+    </ul>
+    <ul class="list">
+      <li><b>Structure / QSAR & morphology</b> - general similarity is not neurotoxicity.</li>
+      <li><b>CTD inferred associations</b> - inference by study volume (acetaminophen: 80 inferred PD links). Only curated DirectEvidence counts.</li>
+    </ul>
+  </div>
+  <p class="dim center">Anything that smuggles general bioactivity back in, or is circular with our own curation, is disqualified.</p>
   ${foot(N())}`);
 
 // 13b - product: sources & references (nothing is asserted uncited)
@@ -256,7 +303,7 @@ slide("", `${eyebrow("What we learned along the way")}${h("Challenges, and what 
 // 17 - takeaways
 slide("dark", `${eyebrow("The takeaways")}${h("What this hackathon produced")}
   <div class="three">
-    <div class="card"><b class="c">A result that holds</b><p class="dim">Recovery works (12/12), specificity is proven by falsification (bioactivity at or below chance), and the discovery limits are mapped, not hidden.</p></div>
+    <div class="card"><b class="c">A result that holds</b><p class="dim">Recovery works (13/13 PD; 12/12 AD), specificity is proven by falsification (bioactivity at or below chance), and the discovery limits are mapped, not hidden.</p></div>
     <div class="card"><b class="g">Honesty as the edge</b><p class="dim">For a mechanism-first audience, a calibrated, auditable engine beats an overclaimed watchlist. Every claim is cited to its source.</p></div>
     <div class="card"><b class="c">Shipped, live, reproducible</b><p class="dim">Built end to end on Claude, deterministic where it must be, running at aitiome.fly.dev with an MCP interface for agents.</p></div>
   </div>${foot(N())}`);
@@ -291,6 +338,16 @@ function bar(name, v) {
     <div class="bn">${name}</div>
     <div class="bt"><div class="bfill" style="width:${pct}%"></div><div class="bchance" style="left:${chance}%"></div></div>
     <div class="bv mono">${v.toFixed(2)}</div>
+  </div>`;
+}
+function dots(n) {
+  return [0, 1, 2].map((i) => `<span class="cd${i < n ? " on" : ""}"></span>`).join("");
+}
+function cmp(dim, pd, pn, ad, an) {
+  return `<div class="cmpr">
+    <div class="cmpd">${dim}</div>
+    <div class="cmpc"><span class="dots">${dots(pn)}</span><span>${pd}</span></div>
+    <div class="cmpc"><span class="dots gold">${dots(an)}</span><span>${ad}</span></div>
   </div>`;
 }
 function axis(name, verdict, lead) {
@@ -366,6 +423,18 @@ const css = `
   .herofull .herobody{padding:34px 84px 0}
   .herofull h1{max-width:32ch;font-size:38px}
   .small{font-size:15px;color:var(--dim);margin-top:14px;max-width:86ch}
+  /* compare matrix */
+  .cmp{border:1px solid var(--line);border-radius:14px;overflow:hidden;margin:26px 0 16px}
+  .cmphead,.cmpr{display:grid;grid-template-columns:1.15fr 1.3fr 1.3fr}
+  .cmphead{background:var(--bg2)}
+  .cmpr{border-top:1px solid var(--line)}
+  .cmpd{padding:13px 18px;font-size:15px;font-weight:500;border-right:1px solid var(--line);display:flex;align-items:center}
+  .cmphead .cmpd{color:var(--faint)}
+  .cmpc{padding:13px 18px;font-size:14px;color:var(--dim);border-right:1px solid var(--line);display:flex;flex-direction:column;gap:7px}
+  .cmpc:last-child{border-right:none}
+  .dots{display:flex;gap:4px}
+  .cd{width:8px;height:8px;border-radius:99px;background:var(--line)}
+  .cd.on{background:var(--c)}.dots.gold .cd.on{background:var(--g)}
   /* annotated product-tour slides */
   .slide.shotslide{padding:40px 56px 24px}
   .shotslide .eyebrow{margin-bottom:12px}
