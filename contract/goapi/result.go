@@ -28,9 +28,21 @@ type Rejection struct {
 	Count int              `json:"count"`
 }
 
-// CompoundResult is the full assessment for one compound.
+// DiseaseVerdict is a compact per-disease call, used to surface the OTHER
+// disease's assessment alongside the primary one (the cross-disease readout —
+// e.g. lead is positive for both PD and AD). It is not a full CompoundResult.
+type DiseaseVerdict struct {
+	Disease        Disease        `json:"disease"`
+	Label          string         `json:"label"`
+	Call           string         `json:"call"` // "positive" | "negative"
+	ConfidenceTier ConfidenceTier `json:"confidenceTier,omitempty"`
+	Rationale      string         `json:"rationale,omitempty"`
+}
+
+// CompoundResult is the full assessment for one compound, on one disease axis.
 type CompoundResult struct {
 	Mode           EngineMode       `json:"mode"`
+	Disease        Disease          `json:"disease"`
 	Compound       Compound         `json:"compound"`
 	Role           Role             `json:"role"`
 	ConfidenceTier ConfidenceTier   `json:"confidenceTier"`
@@ -39,6 +51,10 @@ type CompoundResult struct {
 	Strands        []EvidenceStrand `json:"strands,omitempty"`
 	Rejection      *Rejection       `json:"rejection,omitempty"`
 	Trace          []TraceEvent     `json:"trace,omitempty"`
+	// CrossDisease carries the compound's verdict on the OTHER disease axis, so a
+	// single-compound readout can show the cross-disease story without leaving the
+	// selected disease context.
+	CrossDisease []DiseaseVerdict `json:"crossDisease,omitempty"`
 }
 
 // Ranking is one row of a scored panel.

@@ -2,7 +2,7 @@
 // These TypeScript types mirror contract/goapi (same JSON shape). Keep in lockstep
 // with contract/VERSION. The viz + web streams import ONLY from here.
 
-export const CONTRACT_VERSION = "1.1.0";
+export const CONTRACT_VERSION = "1.2.0";
 
 export type Role = "positive" | "negative";
 

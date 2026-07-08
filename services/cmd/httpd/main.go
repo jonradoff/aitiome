@@ -20,7 +20,13 @@ import (
 var apiPaths = map[string]bool{
 	"/health": true, "/compounds": true, "/resolve": true, "/assess": true,
 	"/validation": true, "/pathway": true, "/discovery-map": true, "/synthesis": true,
-	"/benchmark": true, "/sources": true, "/assess-curated": true,
+	"/benchmark": true, "/sources": true, "/assess-curated": true, "/diseases": true,
+}
+
+// disease reads the ?disease= query param (default PD), so the whole API is
+// disease-scoped for the top-level UI filter without breaking PD-only callers.
+func disease(r *http.Request) contract.Disease {
+	return contract.ParseDisease(r.URL.Query().Get("disease"))
 }
 
 func main() {
@@ -62,7 +68,10 @@ func apiMux(svc *aitio.Service) *http.ServeMux {
 		writeJSON(w, http.StatusOK, svc.Health(r.Context()))
 	})
 	mux.HandleFunc("GET /compounds", func(w http.ResponseWriter, r *http.Request) {
-		writeJSON(w, http.StatusOK, svc.ListCompounds(r.Context()))
+		writeJSON(w, http.StatusOK, svc.ListCompoundsDisease(r.Context(), disease(r)))
+	})
+	mux.HandleFunc("GET /diseases", func(w http.ResponseWriter, r *http.Request) {
+		writeJSON(w, http.StatusOK, svc.DiseaseCatalog(r.Context()))
 	})
 	mux.HandleFunc("GET /resolve", func(w http.ResponseWriter, r *http.Request) {
 		id := r.URL.Query().Get("id")
@@ -75,7 +84,7 @@ func apiMux(svc *aitio.Service) *http.ServeMux {
 	})
 	mux.HandleFunc("GET /assess", func(w http.ResponseWriter, r *http.Request) {
 		id := r.URL.Query().Get("id")
-		res, ok := svc.Assess(r.Context(), id)
+		res, ok := svc.AssessDisease(r.Context(), id, disease(r))
 		if !ok {
 			writeJSON(w, http.StatusNotFound, map[string]string{"error": "unresolved identifier: " + id})
 			return
@@ -83,7 +92,7 @@ func apiMux(svc *aitio.Service) *http.ServeMux {
 		writeJSON(w, http.StatusOK, res)
 	})
 	mux.HandleFunc("GET /validation", func(w http.ResponseWriter, r *http.Request) {
-		writeJSON(w, http.StatusOK, svc.RunValidation(r.Context()))
+		writeJSON(w, http.StatusOK, svc.RunValidationDisease(r.Context(), disease(r)))
 	})
 	mux.HandleFunc("GET /discovery-map", func(w http.ResponseWriter, r *http.Request) {
 		writeJSON(w, http.StatusOK, svc.DiscoveryMap(r.Context()))

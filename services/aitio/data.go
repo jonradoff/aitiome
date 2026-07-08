@@ -16,13 +16,27 @@ import (
 //go:embed data/*.csv data/*.json
 var dataFS embed.FS
 
-// loadValidationSet parses data/validation_set.csv into the ground-truth set:
+// loadValidationSet parses data/validation_set.csv into the PD ground-truth set:
 // 12 positives (6 assay_mechanism_recovered + 6 curated_anchored_only) and
 // 15 negatives (incl. 6 adversarial decoys). confidence_tier is preserved verbatim.
 func loadValidationSet() ([]contract.Compound, error) {
-	b, err := dataFS.ReadFile("data/validation_set.csv")
+	return loadValidationSetFile("data/validation_set.csv")
+}
+
+// loadValidationSetAD parses the Alzheimer's ground-truth set (same schema; AD
+// role/tier + ad_direct + AD-relevant aop_stressor_of). Returns an empty set (not
+// an error) if the file is absent, so PD-only builds are unaffected.
+func loadValidationSetAD() ([]contract.Compound, error) {
+	if _, err := dataFS.Open("data/validation_set_ad.csv"); err != nil {
+		return nil, nil
+	}
+	return loadValidationSetFile("data/validation_set_ad.csv")
+}
+
+func loadValidationSetFile(name string) ([]contract.Compound, error) {
+	b, err := dataFS.ReadFile(name)
 	if err != nil {
-		return nil, fmt.Errorf("read validation_set: %w", err)
+		return nil, fmt.Errorf("read %s: %w", name, err)
 	}
 	r := csv.NewReader(strings.NewReader(string(b)))
 	rows, err := r.ReadAll()

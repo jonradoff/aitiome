@@ -15,10 +15,12 @@ import (
 
 // Service is the single implementation both adapters drive.
 type Service struct {
-	compounds []contract.Compound
-	resolver  *resolver
-	pathways  map[string]contract.Pathway
-	evidence  *evidenceStore
+	compounds   []contract.Compound // PD ground-truth set
+	compoundsAD []contract.Compound // AD ground-truth set (ADR-0005)
+	resolver    *resolver
+	resolverAD  *resolver
+	pathways    map[string]contract.Pathway
+	evidence    *evidenceStore
 
 	reasoner     EvidenceReasoner // nil unless a Claude key is configured
 	reasonerName string
@@ -34,6 +36,10 @@ func New() (*Service, error) {
 	if err != nil {
 		return nil, fmt.Errorf("aitio: load validation set: %w", err)
 	}
+	compoundsAD, err := loadValidationSetAD()
+	if err != nil {
+		return nil, fmt.Errorf("aitio: load AD validation set: %w", err)
+	}
 	pathways, err := loadPathways()
 	if err != nil {
 		return nil, fmt.Errorf("aitio: load pathways: %w", err)
@@ -45,12 +51,49 @@ func New() (*Service, error) {
 	reasoner, reasonerName := newReasoner()
 	return &Service{
 		compounds:    compounds,
+		compoundsAD:  compoundsAD,
 		resolver:     newResolver(compounds),
+		resolverAD:   newResolver(compoundsAD),
 		pathways:     pathways,
 		evidence:     evidence,
 		reasoner:     reasoner,
 		reasonerName: reasonerName,
 	}, nil
+}
+
+// compoundsFor returns the ground-truth set for a disease axis.
+func (s *Service) compoundsFor(d contract.Disease) []contract.Compound {
+	if d == contract.DiseaseAD {
+		return s.compoundsAD
+	}
+	return s.compounds
+}
+
+// resolverFor returns the identifier resolver for a disease axis.
+func (s *Service) resolverFor(d contract.Disease) *resolver {
+	if d == contract.DiseaseAD {
+		return s.resolverAD
+	}
+	return s.resolver
+}
+
+// AssessDisease resolves an identifier within a disease's set and assesses it on
+// that axis (the cross-disease verdict for the other axis is attached).
+func (s *Service) AssessDisease(ctx context.Context, id string, d contract.Disease) (contract.CompoundResult, bool) {
+	if !d.Valid() {
+		d = contract.DiseasePD
+	}
+	r := s.resolverFor(d)
+	i := r.resolve(id)
+	if i < 0 {
+		// Fall back to the other axis's identity so a known compound still
+		// resolves; it is then assessed on the requested disease.
+		if oi := s.resolver.resolve(id); oi >= 0 {
+			return s.assessCompoundDisease(s.compounds[oi], d), true
+		}
+		return contract.CompoundResult{}, false
+	}
+	return s.assessCompoundDisease(s.compoundsFor(d)[i], d), true
 }
 
 // ReasonerInfo reports whether a Claude-backed reasoner is active and its model.
@@ -78,12 +121,36 @@ func (s *Service) Health(ctx context.Context) contract.Health {
 	}
 }
 
-// ListCompounds returns the full ground-truth set (identity + tiers only here;
+// ListCompounds returns the full PD ground-truth set (identity + tiers only here;
 // pathway/recovery/evidence are assembled by later methods).
 func (s *Service) ListCompounds(ctx context.Context) []contract.Compound {
-	out := make([]contract.Compound, len(s.compounds))
-	copy(out, s.compounds)
+	return s.ListCompoundsDisease(ctx, contract.DiseasePD)
+}
+
+// ListCompoundsDisease returns the ground-truth set for a disease axis.
+func (s *Service) ListCompoundsDisease(ctx context.Context, d contract.Disease) []contract.Compound {
+	set := s.compoundsFor(d)
+	out := make([]contract.Compound, len(set))
+	copy(out, set)
 	return out
+}
+
+// DiseaseCatalog describes the available disease axes for the top-level filter.
+func (s *Service) DiseaseCatalog(ctx context.Context) []contract.DiseaseInfo {
+	return []contract.DiseaseInfo{
+		{
+			Disease: contract.DiseasePD, Label: contract.DiseasePD.Label(), Short: contract.DiseasePD.Short(),
+			AnchorAOP: MVPAnchorAOP, AnchorEndorsed: true,
+			Note:          "OECD-endorsed AOP-3 spine (complex-I -> mitochondrial dysfunction -> nigrostriatal degeneration -> parkinsonian deficits). The validated anchor.",
+			CompoundCount: len(s.compounds),
+		},
+		{
+			Disease: contract.DiseaseAD, Label: contract.DiseaseAD.Label(), Short: contract.DiseaseAD.Short(),
+			AnchorAOP: ADAnchorAOP, AnchorEndorsed: true,
+			Note:          "Endorsed AOP-12/48 anchor (aging neurodegeneration + memory) with a non-endorsed Tau/amyloid overlay (AOP-429/475). Second axis; calibrated below PD.",
+			CompoundCount: len(s.compoundsAD),
+		},
+	}
 }
 
 // Resolve maps any identifier (name, CAS, DTXSID, InChIKey, CID) to the one
