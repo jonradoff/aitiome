@@ -2,31 +2,39 @@
     "compound": "warfarin",
     "call": "negative",
     "tier": "adversarial_negative",
-    "prose": "Warfarin is called negative under an adversarial_negative tier because the engine reasons on curated mechanism, and none exists: there is no curated Parkinson's DirectEvidence and it is not a registered neuro-AOP stressor [E1]. The evidence-ranked mechanistic hypothesis is therefore absent, so the compound is correctly not flagged. Notably, warfarin is bioactive, registering 6 mechanistic assay hits\u2014though 0 are mitochondrial [E2]. This is precisely the imposter signal the framework treats as anti-diagnostic corroboration only; activity without curated mechanism does not manufacture a driver. Two orthogonal strands reinforce this restraint: real-world pharmacovigilance shows zero parkinsonism signal across 126,794 FAERS reports (ROR 0.5, not elevated) [E3], and structure-based pharmacokinetics predict low brain exposure (BBB-negative), a physical reason it is implausible as a CNS driver [E4]. Collectively, these strands calibrate confidence in the negative call without implying any causal claim.",
+    "prose": "Warfarin is ranked as a negative under an adversarial-negative tier, and the reasoning holds precisely because the engine keys on curated mechanism rather than raw activity. There is no curated Parkinson's DirectEvidence and no registered neuro-AOP stressor role for this compound [E1], which is the only admissible basis for a call. The 6 mechanistic assay hits \u2014 notably with 0 mitochondrial flags \u2014 represent an imposter bioactivity signal that could superficially mislead, but assay corroboration is anti-diagnostic here and is deliberately not acted upon [E2]. Two orthogonal strands reinforce the evidence-ranked mechanistic hypothesis of non-involvement: real-world pharmacovigilance shows no parkinsonism signal across 126,794 FAERS reports (ROR 0.5, not elevated) [E3], and low, BBB-negative brain-exposure plausibility gives a pharmacokinetic reason it is unlikely to be a CNS driver [E4]. No causal claim is made; the curated absence governs.",
     "citations": [
         {
             "marker": "E1",
             "kind": "curated_mechanism",
             "detail": "No curated Parkinson's DirectEvidence and not a registered neuro-AOP stressor.",
-            "source": "CTD curated DirectEvidence / AOP-Wiki"
+            "source": "CTD curated DirectEvidence / AOP-Wiki",
+            "reference": "Davis AP, Wiegers TC, Johnson RJ, et al. Comparative Toxicogenomics Database (CTD): update 2023. Nucleic Acids Research. 2023;51(D1):D1257-D1262. Mechanistic scaffold: OECD Adverse Outcome Pathway Wiki. AOP 3: Inhibition of the mitochondrial complex I of nigro-striatal neurons leads to parkinsonian motor deficits (WPHA/WNT Endorsed).",
+            "url": "https://ctdbase.org/"
         },
         {
             "marker": "E2",
             "kind": "assay_corroboration",
             "detail": "Bioactive: 6 mechanistic assay hits (incl. 0 mitochondrial). This is the imposter signal the engine correctly does NOT act on.",
-            "source": "EPA ToxCast via NICEATM ICE"
+            "source": "EPA ToxCast via NICEATM ICE",
+            "reference": "U.S. EPA ToxCast/Tox21 invitroDB (v4.2), accessed through the NICEATM Integrated Chemical Environment (ICE). Active hitcalls only; queried on the salt-form-correct record.",
+            "url": "https://ice.ntp.niehs.nih.gov/"
         },
         {
             "marker": "E3",
             "kind": "faers",
             "detail": "Zero parkinsonism signal across 126794 FAERS reports (ROR 0.5, not elevated).",
-            "source": "openFDA FAERS"
+            "source": "openFDA FAERS",
+            "reference": "U.S. FDA Adverse Event Reporting System (FAERS), via the openFDA drug/event API. Disproportionality (ROR) for the parkinsonism MedDRA cluster.",
+            "url": "https://open.fda.gov/apis/drug/event/"
         },
         {
             "marker": "E4",
             "kind": "bbb",
             "detail": "Low brain exposure (BBB-negative): an orthogonal pharmacokinetic reason it cannot be a driver.",
-            "source": "B3DB / BOILED-Egg (structure-based)"
+            "source": "B3DB / BOILED-Egg (structure-based)",
+            "reference": "Meng F, Xi Y, Huang J, Ayers PW. A curated diverse molecular database of blood-brain barrier permeability with chemical descriptors (B3DB). Scientific Data. 2021;8:289. Daina A, Zoete V. A BOILED-Egg to predict gastrointestinal absorption and brain access of small molecules. ChemMedChem. 2016;11(11):1117-1121.",
+            "url": "https://github.com/theochem/B3DB"
         }
     ],
     "model": "claude-opus-4-8",

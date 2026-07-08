@@ -27,6 +27,7 @@ fetch "validation"                   "validation.json"
 fetch "pathway"                      "pathway-aop3.json"
 fetch "discovery-map"                "discovery-map.json"
   fetch "benchmark"                    "benchmark.json"
+fetch "sources"                      "sources.json"
 
 # Demo compound set (the 5-beat demo + a couple extras).
 for c in rotenone paraquat mptp 6-hydroxydopamine chlorpyrifos \

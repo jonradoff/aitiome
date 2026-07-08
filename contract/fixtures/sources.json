@@ -1,0 +1,92 @@
+[
+    {
+        "key": "ctd",
+        "name": "Comparative Toxicogenomics Database (CTD)",
+        "reference": "Davis AP, Wiegers TC, Johnson RJ, et al. Comparative Toxicogenomics Database (CTD): update 2023. Nucleic Acids Research. 2023;51(D1):D1257-D1262.",
+        "url": "https://ctdbase.org/",
+        "role": "diagnostic",
+        "kinds": [
+            "curated_mechanism"
+        ]
+    },
+    {
+        "key": "aopwiki",
+        "name": "OECD AOP-Wiki (AOP-3)",
+        "reference": "OECD Adverse Outcome Pathway Wiki. AOP 3: Inhibition of the mitochondrial complex I of nigro-striatal neurons leads to parkinsonian motor deficits (WPHA/WNT Endorsed).",
+        "url": "https://aopwiki.org/aops/3",
+        "role": "diagnostic",
+        "kinds": [
+            "curated_mechanism"
+        ]
+    },
+    {
+        "key": "ice_toxcast",
+        "name": "EPA ToxCast / invitroDB via NICEATM ICE",
+        "reference": "U.S. EPA ToxCast/Tox21 invitroDB (v4.2), accessed through the NICEATM Integrated Chemical Environment (ICE). Active hitcalls only; queried on the salt-form-correct record.",
+        "url": "https://ice.ntp.niehs.nih.gov/",
+        "role": "corroboration",
+        "kinds": [
+            "assay_corroboration"
+        ]
+    },
+    {
+        "key": "mitocarta",
+        "name": "MitoCarta3.0",
+        "reference": "Rath S, Sharma R, Gupta R, et al. MitoCarta3.0: an updated mitochondrial proteome now with sub-organelle localization and pathway annotations. Nucleic Acids Research. 2021;49(D1):D1541-D1547.",
+        "url": "https://www.broadinstitute.org/mitocarta",
+        "role": "grounding",
+        "kinds": [
+            "mito_celltype_grounding"
+        ]
+    },
+    {
+        "key": "kamath",
+        "name": "Kamath 2022 (SN dopaminergic atlas)",
+        "reference": "Kamath T, Abdulraouf A, Burris SJ, et al. Single-cell genomic profiling of human dopamine neurons identifies a population that selectively degenerates in Parkinson's disease. Nature Neuroscience. 2022;25(5):588-595.",
+        "url": "https://doi.org/10.1038/s41593-022-01061-1",
+        "role": "grounding",
+        "kinds": [
+            "mito_celltype_grounding"
+        ]
+    },
+    {
+        "key": "faers",
+        "name": "FDA FAERS (openFDA)",
+        "reference": "U.S. FDA Adverse Event Reporting System (FAERS), via the openFDA drug/event API. Disproportionality (ROR) for the parkinsonism MedDRA cluster.",
+        "url": "https://open.fda.gov/apis/drug/event/",
+        "role": "corroboration",
+        "kinds": [
+            "faers"
+        ]
+    },
+    {
+        "key": "epidemiology",
+        "name": "Human epidemiology (published cohorts / meta-analyses)",
+        "reference": "Quantified PD/AD exposure risk curated from published cohorts and meta-analyses (e.g., Tanner et al. 2011, Environmental Health Perspectives; Pezzoli & Cereda 2013, Neurology).",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/",
+        "role": "corroboration",
+        "kinds": [
+            "epidemiology"
+        ]
+    },
+    {
+        "key": "b3db",
+        "name": "B3DB + BOILED-Egg (brain exposure)",
+        "reference": "Meng F, Xi Y, Huang J, Ayers PW. A curated diverse molecular database of blood-brain barrier permeability with chemical descriptors (B3DB). Scientific Data. 2021;8:289. Daina A, Zoete V. A BOILED-Egg to predict gastrointestinal absorption and brain access of small molecules. ChemMedChem. 2016;11(11):1117-1121.",
+        "url": "https://github.com/theochem/B3DB",
+        "role": "corroboration",
+        "kinds": [
+            "bbb"
+        ]
+    },
+    {
+        "key": "dsstox",
+        "name": "EPA CompTox Chemicals Dashboard / DSSTox",
+        "reference": "U.S. EPA CompTox Chemicals Dashboard (DSSTox). DTXSID-first identity resolution with the salt-form-correct registered substance.",
+        "url": "https://comptox.epa.gov/dashboard",
+        "role": "identity",
+        "kinds": [
+            "identity"
+        ]
+    }
+]

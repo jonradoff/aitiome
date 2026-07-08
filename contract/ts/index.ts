@@ -246,6 +246,17 @@ export interface Citation {
   kind: string;
   detail: string;
   source: string;
+  reference?: string;
+  url?: string;
+}
+
+export interface SourceRef {
+  key: string;
+  name: string;
+  reference: string;
+  url: string;
+  role: "diagnostic" | "corroboration" | "grounding" | "identity";
+  kinds: string[];
 }
 
 export interface Synthesis {

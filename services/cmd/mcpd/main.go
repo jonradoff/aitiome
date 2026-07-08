@@ -108,6 +108,15 @@ func main() {
 	)
 
 	s.AddTool(
+		mcp.NewTool("sources",
+			mcp.WithDescription("The primary data sources and methods as research-style citations with links to the original material (CTD, AOP-Wiki, MitoCarta3.0, Kamath 2022, EPA ToxCast/ICE, openFDA FAERS, B3DB, DSSTox). Read-only."),
+		),
+		func(ctx context.Context, _ mcp.CallToolRequest) (*mcp.CallToolResult, error) {
+			return jsonResult(svc.Sources(ctx))
+		},
+	)
+
+	s.AddTool(
 		mcp.NewTool("benchmark",
 			mcp.WithDescription("The falsification harness, computed live from the validation set: the curated rule's perfect separation (fp=fn=0) next to the AUROC of every bioactivity signal against the adversarial decoys, which is at or below chance. The empirical answer to 'you are just detecting bioactivity'. Read-only."),
 		),

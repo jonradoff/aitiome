@@ -9,7 +9,7 @@ const clickText = process.argv[4]; // optional: click a selector-by-text button 
 const browser = await puppeteer.launch({
   executablePath: CHROME,
   headless: true,
-  userDataDir: "/tmp/aitiome-chrome-profile",
+  userDataDir: `/tmp/aitiome-shot-${process.pid}`,
   args: [
     "--no-sandbox",
     "--no-first-run",

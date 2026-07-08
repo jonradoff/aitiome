@@ -130,6 +130,7 @@ a { color: inherit; }
 .hair { height: 1px; background: var(--line); border: 0; margin: 0; }
 
 .strand-row:hover { background: var(--bg-3) !important; }
+a.cite-link:hover { border-color: var(--signal); color: var(--ink); }
 
 @keyframes drawerIn { from { transform: translateX(24px); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
 .drawer-in { animation: drawerIn 0.22s cubic-bezier(0.16, 1, 0.3, 1); }

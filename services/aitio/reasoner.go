@@ -33,11 +33,14 @@ type EvidenceReasoner interface {
 func buildCitations(r contract.CompoundResult) []contract.Citation {
 	cites := make([]contract.Citation, 0, len(r.Strands))
 	for i, st := range r.Strands {
+		ref, link := citationRefFor(st.Kind, st.Detail, r.Compound.Name)
 		cites = append(cites, contract.Citation{
-			Marker: fmt.Sprintf("E%d", i+1),
-			Kind:   st.Kind,
-			Detail: st.Detail,
-			Source: st.Source,
+			Marker:    fmt.Sprintf("E%d", i+1),
+			Kind:      st.Kind,
+			Detail:    st.Detail,
+			Source:    st.Source,
+			Reference: ref,
+			URL:       link,
 		})
 	}
 	return cites

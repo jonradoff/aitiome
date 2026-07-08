@@ -2,37 +2,47 @@
     "compound": "MPTP",
     "call": "positive",
     "tier": "curated_anchored_only",
-    "prose": "This positive call rests on curated Parkinson's DirectEvidence [E1], which anchors the confidence tier and provides the sole basis for the mechanistic hypothesis. The evidence-ranked mechanistic story is coherent: the molecular initiating event is grounded in MitoCarta Complex-I Q-site subunits, with the adverse outcome localized to the Kamath SOX6/AGTR1 vulnerable dopaminergic-neuron population [E2], consistent with an AOP pathway linking mitochondrial Complex-I disruption to selective neuronal loss. Human data strengthen plausibility, with case-series describing causal parkinsonism after exposure (Langston 1983) [E4], and structure-based prediction indicates brain penetrance, supporting CNS exposure feasibility [E5]. ToxCast coverage is thin, as expected for a research reagent [E3]; this assay sparseness is anti-diagnostic and offers no corroboration either way, so it neither supports nor undermines the call. The convergence of curated mechanism, cell-type grounding, and epidemiology makes this a well-supported mechanistic hypothesis, not a claim of established causation.",
+    "prose": "MPTP anchors to a positive call on curated Parkinson's DirectEvidence [E1], the sole and sufficient basis here. Mechanistically, the evidence-ranked hypothesis proceeds from a molecular initiating event grounded in MitoCarta Complex-I Q-site subunits, with the adverse outcome localized to the Kamath SOX6/AGTR1 vulnerable dopaminergic-neuron population [E2]\u2014a cell-type-specific vulnerability consistent with the attached AOP pathway. Human corroboration is unusually direct: the Langston 1983 case series documented causal parkinsonism following exposure [E4], and the compound is brain-penetrant, making CNS exposure plausible [E5]. Assay data are anti-diagnostic and, in this instance, thin\u2014MPTP behaves as a research reagent in ToxCast [E3]\u2014so bioactivity neither confirms nor undercuts the call and is treated only as weak corroboration. The convergence of curated mechanism, cell-type grounding, and epidemiology supports the curated_anchored_only tier without overstating certainty; this remains a mechanistic hypothesis, not a claim of universal causation.",
     "citations": [
         {
             "marker": "E1",
             "kind": "curated_mechanism",
             "detail": "Curated CTD Parkinson's DirectEvidence (diagnostic).",
-            "source": "CTD curated DirectEvidence / AOP-Wiki"
+            "source": "CTD curated DirectEvidence / AOP-Wiki",
+            "reference": "Davis AP, Wiegers TC, Johnson RJ, et al. Comparative Toxicogenomics Database (CTD): update 2023. Nucleic Acids Research. 2023;51(D1):D1257-D1262. Mechanistic scaffold: OECD Adverse Outcome Pathway Wiki. AOP 3: Inhibition of the mitochondrial complex I of nigro-striatal neurons leads to parkinsonian motor deficits (WPHA/WNT Endorsed).",
+            "url": "https://ctdbase.org/"
         },
         {
             "marker": "E2",
             "kind": "mito_celltype_grounding",
             "detail": "MIE grounded in MitoCarta Complex-I Q-site subunits; adverse outcome in the Kamath SOX6/AGTR1 vulnerable dopaminergic-neuron population.",
-            "source": "MitoCarta3.0 + Kamath 2022 Nat Neurosci"
+            "source": "MitoCarta3.0 + Kamath 2022 Nat Neurosci",
+            "reference": "Rath S, Sharma R, Gupta R, et al. MitoCarta3.0: an updated mitochondrial proteome now with sub-organelle localization and pathway annotations. Nucleic Acids Research. 2021;49(D1):D1541-D1547. Kamath T, Abdulraouf A, Burris SJ, et al. Single-cell genomic profiling of human dopamine neurons identifies a population that selectively degenerates in Parkinson's disease. Nature Neuroscience. 2022;25(5):588-595.",
+            "url": "https://doi.org/10.1038/s41593-022-01061-1"
         },
         {
             "marker": "E3",
             "kind": "assay_corroboration",
             "detail": "Thin in ToxCast (research reagent / metal).",
-            "source": "EPA ToxCast via NICEATM ICE"
+            "source": "EPA ToxCast via NICEATM ICE",
+            "reference": "U.S. EPA ToxCast/Tox21 invitroDB (v4.2), accessed through the NICEATM Integrated Chemical Environment (ICE). Active hitcalls only; queried on the salt-form-correct record.",
+            "url": "https://ice.ntp.niehs.nih.gov/"
         },
         {
             "marker": "E4",
             "kind": "epidemiology",
             "detail": "causal parkinsonism (case series) (Langston 1983 (Science)).",
-            "source": "Published cohorts / meta-analyses"
+            "source": "Published cohorts / meta-analyses",
+            "reference": "causal parkinsonism (case series) (Langston 1983 (Science)). Quantified PD/AD exposure risk curated from published cohorts and meta-analyses (e.g., Tanner et al. 2011, Environmental Health Perspectives; Pezzoli & Cereda 2013, Neurology).",
+            "url": "https://pubmed.ncbi.nlm.nih.gov/?term=MPTP+Parkinson+disease+epidemiology"
         },
         {
             "marker": "E5",
             "kind": "bbb",
             "detail": "Brain-penetrant \u2014 plausible CNS exposure.",
-            "source": "B3DB / BOILED-Egg (structure-based)"
+            "source": "B3DB / BOILED-Egg (structure-based)",
+            "reference": "Meng F, Xi Y, Huang J, Ayers PW. A curated diverse molecular database of blood-brain barrier permeability with chemical descriptors (B3DB). Scientific Data. 2021;8:289. Daina A, Zoete V. A BOILED-Egg to predict gastrointestinal absorption and brain access of small molecules. ChemMedChem. 2016;11(11):1117-1121.",
+            "url": "https://github.com/theochem/B3DB"
         }
     ],
     "model": "claude-opus-4-8",

@@ -2,37 +2,47 @@
     "compound": "chlorpyrifos",
     "call": "positive",
     "tier": "assay_mechanism_recovered",
-    "prose": "This positive call rests on curated mechanistic convergence: chlorpyrifos appears as a CTD Parkinson's DirectEvidence entity and as a registered stressor in a neurodegeneration-relevant AOP [E1]. This forms the evidence-ranked mechanistic hypothesis, not a causal claim. The molecular initiating event is biologically grounded in MitoCarta3.0 Complex-I Q-site subunits, with the proposed adverse outcome falling on the Kamath SOX6/AGTR1 vulnerable dopaminergic-neuron population [E2], lending cell-type specificity to the pathway. Supporting, though not decisive, plausibility comes from brain-penetrant structure-based predictions consistent with CNS exposure [E5] and from organophosphate-class cohort and meta-analytic signals of elevated PD risk [E4]. The 42 ToxCast assay hits illustrate the mechanistic chain but are corroboration only\u2014anti-diagnostic and non-discriminating [E3]\u2014so they neither strengthen nor determine the call. On balance, the curated mechanism justifies the assay_mechanism_recovered tier, with residual uncertainty in exposure magnitude and epidemiological confounding appropriately acknowledged.",
+    "prose": "The positive call at the assay_mechanism_recovered tier rests on curated mechanistic convergence: chlorpyrifos is both a CTD Parkinson's DirectEvidence entity and a registered neuro-AOP stressor [E1], the deterministic basis for this evidence-ranked mechanistic hypothesis. The molecular initiating event is biologically grounded in MitoCarta3.0 Complex-I Q-site subunits, with the proposed adverse outcome localized to the Kamath 2022 SOX6/AGTR1 vulnerable dopaminergic-neuron population [E2], lending cell-type specificity to the pathway. Brain-penetrance modeling supports plausible CNS exposure, a necessary but not sufficient precondition [E5], and human cohort work reports elevated PD risk across the organophosphate class [E4], consistent with rather than confirmatory of the mechanism. The 42 ToxCast assay hits illustrate the chain but are corroboration only \u2014 anti-diagnostic and not a discriminator [E3]. Taken together, these strands align with a coherent, curated mechanistic hypothesis linking exposure to dopaminergic vulnerability, without asserting causation.",
     "citations": [
         {
             "marker": "E1",
             "kind": "curated_mechanism",
             "detail": "Curated convergence: CTD Parkinson's DirectEvidence AND registered neuro-AOP stressor.",
-            "source": "CTD curated DirectEvidence / AOP-Wiki"
+            "source": "CTD curated DirectEvidence / AOP-Wiki",
+            "reference": "Davis AP, Wiegers TC, Johnson RJ, et al. Comparative Toxicogenomics Database (CTD): update 2023. Nucleic Acids Research. 2023;51(D1):D1257-D1262. Mechanistic scaffold: OECD Adverse Outcome Pathway Wiki. AOP 3: Inhibition of the mitochondrial complex I of nigro-striatal neurons leads to parkinsonian motor deficits (WPHA/WNT Endorsed).",
+            "url": "https://ctdbase.org/"
         },
         {
             "marker": "E2",
             "kind": "mito_celltype_grounding",
             "detail": "MIE grounded in MitoCarta Complex-I Q-site subunits; adverse outcome in the Kamath SOX6/AGTR1 vulnerable dopaminergic-neuron population.",
-            "source": "MitoCarta3.0 + Kamath 2022 Nat Neurosci"
+            "source": "MitoCarta3.0 + Kamath 2022 Nat Neurosci",
+            "reference": "Rath S, Sharma R, Gupta R, et al. MitoCarta3.0: an updated mitochondrial proteome now with sub-organelle localization and pathway annotations. Nucleic Acids Research. 2021;49(D1):D1541-D1547. Kamath T, Abdulraouf A, Burris SJ, et al. Single-cell genomic profiling of human dopamine neurons identifies a population that selectively degenerates in Parkinson's disease. Nature Neuroscience. 2022;25(5):588-595.",
+            "url": "https://doi.org/10.1038/s41593-022-01061-1"
         },
         {
             "marker": "E3",
             "kind": "assay_corroboration",
             "detail": "42 mechanistic assay hits illustrate the chain (corroboration only \u2014 anti-diagnostic, not a discriminator).",
-            "source": "EPA ToxCast via NICEATM ICE"
+            "source": "EPA ToxCast via NICEATM ICE",
+            "reference": "U.S. EPA ToxCast/Tox21 invitroDB (v4.2), accessed through the NICEATM Integrated Chemical Environment (ICE). Active hitcalls only; queried on the salt-form-correct record.",
+            "url": "https://ice.ntp.niehs.nih.gov/"
         },
         {
             "marker": "E4",
             "kind": "epidemiology",
             "detail": "PD elevated (OP class) (Costello/Wang OP-PD studies).",
-            "source": "Published cohorts / meta-analyses"
+            "source": "Published cohorts / meta-analyses",
+            "reference": "PD elevated (OP class) (Costello/Wang OP-PD studies). Quantified PD/AD exposure risk curated from published cohorts and meta-analyses (e.g., Tanner et al. 2011, Environmental Health Perspectives; Pezzoli & Cereda 2013, Neurology).",
+            "url": "https://pubmed.ncbi.nlm.nih.gov/?term=chlorpyrifos+Parkinson+disease+epidemiology"
         },
         {
             "marker": "E5",
             "kind": "bbb",
             "detail": "Brain-penetrant \u2014 plausible CNS exposure.",
-            "source": "B3DB / BOILED-Egg (structure-based)"
+            "source": "B3DB / BOILED-Egg (structure-based)",
+            "reference": "Meng F, Xi Y, Huang J, Ayers PW. A curated diverse molecular database of blood-brain barrier permeability with chemical descriptors (B3DB). Scientific Data. 2021;8:289. Daina A, Zoete V. A BOILED-Egg to predict gastrointestinal absorption and brain access of small molecules. ChemMedChem. 2016;11(11):1117-1121.",
+            "url": "https://github.com/theochem/B3DB"
         }
     ],
     "model": "claude-opus-4-8",

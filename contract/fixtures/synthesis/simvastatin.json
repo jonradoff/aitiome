@@ -2,31 +2,39 @@
     "compound": "simvastatin",
     "call": "negative",
     "tier": "adversarial_negative",
-    "prose": "Simvastatin is called negative at adversarial-negative tier, and the reasoning rests on curated mechanism rather than activity. There is no curated Parkinson's DirectEvidence in CTD and no registration as a neuro-AOP stressor [E1], so the evidence-ranked mechanistic hypothesis offers no diagnostic anchor for neurodegeneration. The 17 mechanistic assay hits, including 2 mitochondrial flags [E2], are precisely the imposter signal this engine is designed to resist: bioactivity is corroboration only, anti-diagnostic, and never decisive absent a curated pathway. Real-world pharmacovigilance is consistent with the negative call, showing no elevated parkinsonism reporting across 261,343 FAERS reports (ROR 1.07) [E3]. Brain penetrance is plausible [E4], but penetrance alone does not discriminate hazard and cannot substitute for mechanism. Together these strands support\u2014without claiming causation\u2014the conclusion that simvastatin is correctly not flagged. The call and tier stand as fixed inputs.",
+    "prose": "Simvastatin is correctly returned as negative under an adversarial-negative tier because the engine reasons on curated mechanism rather than raw activity. The decisive strand is the absence of curated diagnostic signal: no CTD DirectEvidence linking simvastatin to Parkinson's and no registration as a neuro-AOP stressor [E1]. The 17 mechanistic assay hits, including 2 mitochondrial, are precisely the imposter signal the engine is designed to resist\u2014bioactivity is corroboration only and here corroborates nothing, since it lacks a curated mechanistic anchor [E2]. Real-world pharmacovigilance reinforces the call: across 261,343 FAERS reports the parkinsonism ROR is 1.07, not elevated [E3]. Brain penetrance is confirmed but non-discriminating, since exposure plausibility cannot substitute for mechanism [E4]. The evidence-ranked mechanistic hypothesis is therefore null; no causal claim is made. This case illustrates deliberate specificity\u2014declining to flag a bioactive but mechanistically unanchored compound.",
     "citations": [
         {
             "marker": "E1",
             "kind": "curated_mechanism",
             "detail": "No curated Parkinson's DirectEvidence and not a registered neuro-AOP stressor.",
-            "source": "CTD curated DirectEvidence / AOP-Wiki"
+            "source": "CTD curated DirectEvidence / AOP-Wiki",
+            "reference": "Davis AP, Wiegers TC, Johnson RJ, et al. Comparative Toxicogenomics Database (CTD): update 2023. Nucleic Acids Research. 2023;51(D1):D1257-D1262. Mechanistic scaffold: OECD Adverse Outcome Pathway Wiki. AOP 3: Inhibition of the mitochondrial complex I of nigro-striatal neurons leads to parkinsonian motor deficits (WPHA/WNT Endorsed).",
+            "url": "https://ctdbase.org/"
         },
         {
             "marker": "E2",
             "kind": "assay_corroboration",
             "detail": "Bioactive: 17 mechanistic assay hits (incl. 2 mitochondrial). This is the imposter signal the engine correctly does NOT act on.",
-            "source": "EPA ToxCast via NICEATM ICE"
+            "source": "EPA ToxCast via NICEATM ICE",
+            "reference": "U.S. EPA ToxCast/Tox21 invitroDB (v4.2), accessed through the NICEATM Integrated Chemical Environment (ICE). Active hitcalls only; queried on the salt-form-correct record.",
+            "url": "https://ice.ntp.niehs.nih.gov/"
         },
         {
             "marker": "E3",
             "kind": "faers",
             "detail": "Zero parkinsonism signal across 261343 FAERS reports (ROR 1.07, not elevated).",
-            "source": "openFDA FAERS"
+            "source": "openFDA FAERS",
+            "reference": "U.S. FDA Adverse Event Reporting System (FAERS), via the openFDA drug/event API. Disproportionality (ROR) for the parkinsonism MedDRA cluster.",
+            "url": "https://open.fda.gov/apis/drug/event/"
         },
         {
             "marker": "E4",
             "kind": "bbb",
             "detail": "Brain-penetrant, but penetrance is not a discriminator here.",
-            "source": "B3DB / BOILED-Egg (structure-based)"
+            "source": "B3DB / BOILED-Egg (structure-based)",
+            "reference": "Meng F, Xi Y, Huang J, Ayers PW. A curated diverse molecular database of blood-brain barrier permeability with chemical descriptors (B3DB). Scientific Data. 2021;8:289. Daina A, Zoete V. A BOILED-Egg to predict gastrointestinal absorption and brain access of small molecules. ChemMedChem. 2016;11(11):1117-1121.",
+            "url": "https://github.com/theochem/B3DB"
         }
     ],
     "model": "claude-opus-4-8",

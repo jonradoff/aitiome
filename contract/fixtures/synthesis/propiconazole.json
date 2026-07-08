@@ -2,25 +2,31 @@
     "compound": "propiconazole",
     "call": "negative",
     "tier": "adversarial_negative",
-    "prose": "The evidence-ranked mechanistic hypothesis for propiconazole is negative, and this call rests entirely on the absence of curated diagnostic signal [E1]: there is no CTD curated Parkinson's DirectEvidence, and the compound is not a registered neurodegeneration AOP stressor. That curated silence is the decisive basis. Propiconazole is measurably bioactive\u201414 mechanistic assay hits including 3 mitochondrial [E2]\u2014and it may seem tempting to treat mitochondrial activity as a red flag, but this is precisely the imposter signal the engine is designed not to act on; assay bioactivity is corroboration only and cannot, by itself, establish a neurodegeneration-relevant mechanism. Similarly, structure-based prediction suggests brain penetrance [E3], yet penetrance is a permissive property shared by countless benign compounds and is not a discriminator here. With no curated mechanistic anchor and no attached AOP pathway, the calibrated conclusion remains a confidently reasoned negative.",
+    "prose": "Propiconazole is returned as a negative call at the adversarial_negative tier, and the mechanistic reasoning supports that disposition. The decisive strand is curated mechanism: there is no CTD curated DirectEvidence linking this compound to Parkinson's, and it is not a registered neurodegeneration-AOP stressor [E1]. Because the engine reasons on curated mechanism rather than raw activity, the absence of a diagnostic signal here is meaningful. The bioactivity profile is deliberately treated as anti-diagnostic corroboration only: 14 mechanistic assay hits, including 3 mitochondrial, constitute exactly the kind of imposter signal that could tempt a naive activity-based flag, but they cannot substitute for a curated mechanistic hypothesis [E2]. Likewise, structure-based prediction of brain penetrance is real but non-discriminating, since exposure plausibility does not establish a neurodegenerative mechanism [E3]. With no AOP pathway attached and no curated strand, the evidence-ranked hypothesis remains negative, correctly withheld from flagging.",
     "citations": [
         {
             "marker": "E1",
             "kind": "curated_mechanism",
             "detail": "No curated Parkinson's DirectEvidence and not a registered neuro-AOP stressor.",
-            "source": "CTD curated DirectEvidence / AOP-Wiki"
+            "source": "CTD curated DirectEvidence / AOP-Wiki",
+            "reference": "Davis AP, Wiegers TC, Johnson RJ, et al. Comparative Toxicogenomics Database (CTD): update 2023. Nucleic Acids Research. 2023;51(D1):D1257-D1262. Mechanistic scaffold: OECD Adverse Outcome Pathway Wiki. AOP 3: Inhibition of the mitochondrial complex I of nigro-striatal neurons leads to parkinsonian motor deficits (WPHA/WNT Endorsed).",
+            "url": "https://ctdbase.org/"
         },
         {
             "marker": "E2",
             "kind": "assay_corroboration",
             "detail": "Bioactive: 14 mechanistic assay hits (incl. 3 mitochondrial). This is the imposter signal the engine correctly does NOT act on.",
-            "source": "EPA ToxCast via NICEATM ICE"
+            "source": "EPA ToxCast via NICEATM ICE",
+            "reference": "U.S. EPA ToxCast/Tox21 invitroDB (v4.2), accessed through the NICEATM Integrated Chemical Environment (ICE). Active hitcalls only; queried on the salt-form-correct record.",
+            "url": "https://ice.ntp.niehs.nih.gov/"
         },
         {
             "marker": "E3",
             "kind": "bbb",
             "detail": "Brain-penetrant, but penetrance is not a discriminator here.",
-            "source": "B3DB / BOILED-Egg (structure-based)"
+            "source": "B3DB / BOILED-Egg (structure-based)",
+            "reference": "Meng F, Xi Y, Huang J, Ayers PW. A curated diverse molecular database of blood-brain barrier permeability with chemical descriptors (B3DB). Scientific Data. 2021;8:289. Daina A, Zoete V. A BOILED-Egg to predict gastrointestinal absorption and brain access of small molecules. ChemMedChem. 2016;11(11):1117-1121.",
+            "url": "https://github.com/theochem/B3DB"
         }
     ],
     "model": "claude-opus-4-8",

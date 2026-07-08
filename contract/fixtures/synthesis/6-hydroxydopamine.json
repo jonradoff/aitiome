@@ -2,31 +2,39 @@
     "compound": "6-hydroxydopamine",
     "call": "positive",
     "tier": "curated_anchored_only",
-    "prose": "The positive call rests on curated CTD Parkinson's DirectEvidence, a diagnostic anchor that grounds this evidence-ranked mechanistic hypothesis [E1]. Mechanistically, the molecular initiating event is plausibly localized to MitoCarta3.0 Complex-I Q-site subunits, with the proposed adverse outcome expressed in the Kamath 2022 SOX6/AGTR1-defined vulnerable dopaminergic-neuron population\u2014a cell-type grounding consistent with an AOP-linked mitochondrial trajectory [E2]. Assay data offer only weak corroboration here: 6-hydroxydopamine is thin in ToxCast, behaving largely as a research reagent, so bioactivity is anti-diagnostic and cannot bear the call [E3]. Brain-exposure modeling flags the compound as non-penetrant by structure, consistent with its established use as a directly delivered lesioning agent that enters neurons via transporters rather than by passive diffusion [E4]. This does not weaken the curated mechanism; it clarifies the route. On balance, the curated-anchored-only tier is appropriately reserved, reflecting reliance on [E1] with mechanistic plausibility from [E2].",
+    "prose": "6-Hydroxydopamine is called positive on the strength of curated CTD Parkinson's DirectEvidence [E1], a diagnostic anchor that fixes this as a curated_anchored_only, evidence-ranked mechanistic hypothesis rather than a causal claim. Mechanistically, the molecular initiating event is grounded in MitoCarta3.0 Complex-I Q-site subunits, with the proposed adverse outcome falling on the Kamath SOX6/AGTR1 vulnerable dopaminergic-neuron population [E2], consistent with the attached AOP pathway. Assay data are only weakly corroborative here: ToxCast coverage is thin, as expected for a research reagent/metal-type compound [E3], so bioactivity is anti-diagnostic and cannot carry the call. Notably, structure-based prediction flags this compound as non-penetrant [E4]\u2014unsurprising, since it is a lesioning agent typically delivered directly or entering via transporters, so intrinsic brain-exposure plausibility neither supports nor undermines the curated anchor. The mechanism-first weighting therefore drives this calibrated positive.",
     "citations": [
         {
             "marker": "E1",
             "kind": "curated_mechanism",
             "detail": "Curated CTD Parkinson's DirectEvidence (diagnostic).",
-            "source": "CTD curated DirectEvidence / AOP-Wiki"
+            "source": "CTD curated DirectEvidence / AOP-Wiki",
+            "reference": "Davis AP, Wiegers TC, Johnson RJ, et al. Comparative Toxicogenomics Database (CTD): update 2023. Nucleic Acids Research. 2023;51(D1):D1257-D1262. Mechanistic scaffold: OECD Adverse Outcome Pathway Wiki. AOP 3: Inhibition of the mitochondrial complex I of nigro-striatal neurons leads to parkinsonian motor deficits (WPHA/WNT Endorsed).",
+            "url": "https://ctdbase.org/"
         },
         {
             "marker": "E2",
             "kind": "mito_celltype_grounding",
             "detail": "MIE grounded in MitoCarta Complex-I Q-site subunits; adverse outcome in the Kamath SOX6/AGTR1 vulnerable dopaminergic-neuron population.",
-            "source": "MitoCarta3.0 + Kamath 2022 Nat Neurosci"
+            "source": "MitoCarta3.0 + Kamath 2022 Nat Neurosci",
+            "reference": "Rath S, Sharma R, Gupta R, et al. MitoCarta3.0: an updated mitochondrial proteome now with sub-organelle localization and pathway annotations. Nucleic Acids Research. 2021;49(D1):D1541-D1547. Kamath T, Abdulraouf A, Burris SJ, et al. Single-cell genomic profiling of human dopamine neurons identifies a population that selectively degenerates in Parkinson's disease. Nature Neuroscience. 2022;25(5):588-595.",
+            "url": "https://doi.org/10.1038/s41593-022-01061-1"
         },
         {
             "marker": "E3",
             "kind": "assay_corroboration",
             "detail": "Thin in ToxCast (research reagent / metal).",
-            "source": "EPA ToxCast via NICEATM ICE"
+            "source": "EPA ToxCast via NICEATM ICE",
+            "reference": "U.S. EPA ToxCast/Tox21 invitroDB (v4.2), accessed through the NICEATM Integrated Chemical Environment (ICE). Active hitcalls only; queried on the salt-form-correct record.",
+            "url": "https://ice.ntp.niehs.nih.gov/"
         },
         {
             "marker": "E4",
             "kind": "bbb",
             "detail": "Non-penetrant by structure (e.g. lesioning agent delivered directly / enters via transporters).",
-            "source": "B3DB / BOILED-Egg (structure-based)"
+            "source": "B3DB / BOILED-Egg (structure-based)",
+            "reference": "Meng F, Xi Y, Huang J, Ayers PW. A curated diverse molecular database of blood-brain barrier permeability with chemical descriptors (B3DB). Scientific Data. 2021;8:289. Daina A, Zoete V. A BOILED-Egg to predict gastrointestinal absorption and brain access of small molecules. ChemMedChem. 2016;11(11):1117-1121.",
+            "url": "https://github.com/theochem/B3DB"
         }
     ],
     "model": "claude-opus-4-8",

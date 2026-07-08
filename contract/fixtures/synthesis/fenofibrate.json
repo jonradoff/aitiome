@@ -2,31 +2,39 @@
     "compound": "fenofibrate",
     "call": "negative",
     "tier": "adversarial_negative",
-    "prose": "Fenofibrate resolves to a negative call at the adversarial_negative tier because the engine reasons on curated mechanism, and none is present: there is no CTD curated DirectEvidence linking it to Parkinson's and it is not a registered neuro-AOP stressor [E1]. The ToxCast bioactivity\u2014four mechanistic hits including two mitochondrial signals [E2]\u2014is precisely the imposter pattern this classification is designed to withstand; under our framework assay activity is corroboration only and never diagnostic, so it cannot upgrade a mechanistically silent compound. Two orthogonal strands reinforce the call without deciding it: FAERS shows no parkinsonism signal across 35,322 reports (ROR 0.9) [E3], and BBB-negative brain-exposure modeling supplies a pharmacokinetic reason it is implausible as a central driver [E4]. The evidence-ranked mechanistic hypothesis is therefore that fenofibrate is correctly not flagged; no causal claim is made, and residual assay activity does not overturn the absence of curated mechanism.",
+    "prose": "Fenofibrate is correctly returned as a negative call at adversarial_negative tier, and the reasoning rests entirely on curated mechanism rather than activity. There is no curated Parkinson's DirectEvidence and no registration as a neuro-AOP stressor [E1], so the evidence-ranked mechanistic hypothesis provides no basis for flagging. The ToxCast bioactivity\u20144 mechanistic hits including 2 mitochondrial\u2014is precisely the imposter signal the engine is designed to resist: it corroborates promiscuity, not neurodegenerative relevance, and is anti-diagnostic when unaccompanied by curated mechanism [E2]. Two orthogonal strands reinforce this restraint. Pharmacovigilance shows no parkinsonism signal across 35,322 FAERS reports (ROR 0.9, not elevated) [E3], and structure-based prediction indicates low brain exposure (BBB-negative), a pharmacokinetic reason it is implausible as a CNS driver [E4]. None of these establish causation or safety in an absolute sense; rather, they converge on the calibrated conclusion that fenofibrate should not be flagged here.",
     "citations": [
         {
             "marker": "E1",
             "kind": "curated_mechanism",
             "detail": "No curated Parkinson's DirectEvidence and not a registered neuro-AOP stressor.",
-            "source": "CTD curated DirectEvidence / AOP-Wiki"
+            "source": "CTD curated DirectEvidence / AOP-Wiki",
+            "reference": "Davis AP, Wiegers TC, Johnson RJ, et al. Comparative Toxicogenomics Database (CTD): update 2023. Nucleic Acids Research. 2023;51(D1):D1257-D1262. Mechanistic scaffold: OECD Adverse Outcome Pathway Wiki. AOP 3: Inhibition of the mitochondrial complex I of nigro-striatal neurons leads to parkinsonian motor deficits (WPHA/WNT Endorsed).",
+            "url": "https://ctdbase.org/"
         },
         {
             "marker": "E2",
             "kind": "assay_corroboration",
             "detail": "Bioactive: 4 mechanistic assay hits (incl. 2 mitochondrial). This is the imposter signal the engine correctly does NOT act on.",
-            "source": "EPA ToxCast via NICEATM ICE"
+            "source": "EPA ToxCast via NICEATM ICE",
+            "reference": "U.S. EPA ToxCast/Tox21 invitroDB (v4.2), accessed through the NICEATM Integrated Chemical Environment (ICE). Active hitcalls only; queried on the salt-form-correct record.",
+            "url": "https://ice.ntp.niehs.nih.gov/"
         },
         {
             "marker": "E3",
             "kind": "faers",
             "detail": "Zero parkinsonism signal across 35322 FAERS reports (ROR 0.9, not elevated).",
-            "source": "openFDA FAERS"
+            "source": "openFDA FAERS",
+            "reference": "U.S. FDA Adverse Event Reporting System (FAERS), via the openFDA drug/event API. Disproportionality (ROR) for the parkinsonism MedDRA cluster.",
+            "url": "https://open.fda.gov/apis/drug/event/"
         },
         {
             "marker": "E4",
             "kind": "bbb",
             "detail": "Low brain exposure (BBB-negative): an orthogonal pharmacokinetic reason it cannot be a driver.",
-            "source": "B3DB / BOILED-Egg (structure-based)"
+            "source": "B3DB / BOILED-Egg (structure-based)",
+            "reference": "Meng F, Xi Y, Huang J, Ayers PW. A curated diverse molecular database of blood-brain barrier permeability with chemical descriptors (B3DB). Scientific Data. 2021;8:289. Daina A, Zoete V. A BOILED-Egg to predict gastrointestinal absorption and brain access of small molecules. ChemMedChem. 2016;11(11):1117-1121.",
+            "url": "https://github.com/theochem/B3DB"
         }
     ],
     "model": "claude-opus-4-8",

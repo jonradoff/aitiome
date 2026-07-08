@@ -9,8 +9,9 @@ import type {
   Health,
   Synthesis,
   Benchmark,
+  SourceRef,
 } from "@contract";
-import { fxValidation, fxDiscovery, fxPathway, fxCompounds, fxAssess, fxSynthesis, fxBenchmark } from "./fixtures";
+import { fxValidation, fxDiscovery, fxPathway, fxCompounds, fxAssess, fxSynthesis, fxBenchmark, fxSources } from "./fixtures";
 
 export type Source = "live" | "fixture";
 
@@ -42,6 +43,11 @@ export async function getDiscoveryMap(): Promise<{ data: DiscoveryMap; source: S
 export async function getBenchmark(): Promise<{ data: Benchmark; source: Source }> {
   const live = await tryLive<Benchmark>("/benchmark");
   return live ? { data: live, source: "live" } : { data: fxBenchmark, source: "fixture" };
+}
+
+export async function getSources(): Promise<{ data: SourceRef[]; source: Source }> {
+  const live = await tryLive<SourceRef[]>("/sources");
+  return live ? { data: live, source: "live" } : { data: fxSources, source: "fixture" };
 }
 
 export async function getPathway(): Promise<{ data: Pathway; source: Source }> {

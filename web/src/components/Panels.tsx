@@ -7,6 +7,7 @@ import type {
   DiscoveryAxis,
   Synthesis,
   Benchmark,
+  SourceRef,
 } from "@contract";
 
 const STRAND_LABEL: Record<string, string> = {
@@ -127,11 +128,39 @@ function Field({ label, children }: { label: string; children: ReactNode }) {
   );
 }
 
+// ---- Sources / references (every [E#] marker links here) ----
+export function SourcesPanel({ sources }: { sources: SourceRef[] }) {
+  const roleTone = (r: string) =>
+    r === "diagnostic" ? "var(--recovered)" : r === "grounding" ? "var(--neuron)" : r === "identity" ? "var(--signal)" : "var(--uncertain)";
+  return (
+    <div>
+      <SectionHead kicker="Every claim is traceable" title="Sources and references" />
+      <p className="dim" style={{ fontSize: 15, maxWidth: "72ch", marginBottom: 22 }}>
+        The engine reasons only over curated, citable sources. Each evidence marker in a synthesis
+        links to the matching source below, and every entry links to the original material.
+      </p>
+      <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(340px, 1fr))", gap: 12 }}>
+        {sources.map((s) => (
+          <div key={s.key} className="panel" style={{ padding: 18 }}>
+            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", gap: 10, marginBottom: 8 }}>
+              <a href={s.url} target="_blank" rel="noreferrer" style={{ fontSize: 15, fontWeight: 600, color: "var(--ink)", textDecoration: "none" }}>{s.name}</a>
+              <span className="mono" style={{ fontSize: 10, letterSpacing: "0.05em", textTransform: "uppercase", color: roleTone(s.role), flex: "0 0 auto" }}>{s.role}</span>
+            </div>
+            <p className="dim" style={{ fontSize: 12.5, lineHeight: 1.5, margin: "0 0 10px" }}>{s.reference}</p>
+            <a href={s.url} target="_blank" rel="noreferrer" className="mono" style={{ fontSize: 11.5, color: "var(--signal)", wordBreak: "break-all", textDecoration: "none" }}>{s.url}</a>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
 // ---- Reasoning synthesis (Claude evidence-reasoner) ----
 export function SynthesisPanel({ syn }: { syn: Synthesis }) {
   const claude = syn.source === "claude";
-  // split the prose so [E#] markers can be tied to the citation legend
+  // split the prose so [E#] markers can be tied to (and linked from) the citations
   const parts = syn.prose.split(/(\[E\d+\])/g);
+  const citeByMarker = new Map(syn.citations.map((c) => [c.marker, c]));
   return (
     <div className="panel" style={{ padding: 22 }}>
       <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 14, gap: 12, flexWrap: "wrap" }}>
@@ -142,21 +171,33 @@ export function SynthesisPanel({ syn }: { syn: Synthesis }) {
         </span>
       </div>
       <p style={{ fontSize: 15, lineHeight: 1.62, margin: 0, color: "var(--ink)" }}>
-        {parts.map((p, i) =>
-          /^\[E\d+\]$/.test(p) ? (
-            <sup key={i} className="mono" style={{ color: "var(--signal)", fontSize: 10.5, padding: "0 1px" }}>{p}</sup>
+        {parts.map((p, i) => {
+          if (!/^\[E\d+\]$/.test(p)) return <span key={i}>{p}</span>;
+          const c = citeByMarker.get(p.slice(1, -1));
+          const sup = <sup className="mono" style={{ fontSize: 10.5, padding: "0 1px" }}>{p}</sup>;
+          return c?.url ? (
+            <a key={i} href={c.url} target="_blank" rel="noreferrer" title={c.reference || c.detail}
+              style={{ color: "var(--signal)", textDecoration: "none" }}>{sup}</a>
           ) : (
-            <span key={i}>{p}</span>
-          ),
-        )}
+            <span key={i} style={{ color: "var(--signal)" }}>{sup}</span>
+          );
+        })}
       </p>
       <div style={{ display: "flex", flexWrap: "wrap", gap: 8, marginTop: 16 }}>
-        {syn.citations.map((c) => (
-          <span key={c.marker} className="chip" title={`${c.detail} (${c.source})`}>
-            <span className="mono" style={{ color: "var(--signal)" }}>{c.marker}</span>
-            {STRAND_LABEL[c.kind] ?? c.kind}
-          </span>
-        ))}
+        {syn.citations.map((c) =>
+          c.url ? (
+            <a key={c.marker} href={c.url} target="_blank" rel="noreferrer" className="chip cite-link" title={c.reference || c.detail}
+              style={{ textDecoration: "none", cursor: "pointer" }}>
+              <span className="mono" style={{ color: "var(--signal)" }}>{c.marker}</span>
+              {STRAND_LABEL[c.kind] ?? c.kind}
+            </a>
+          ) : (
+            <span key={c.marker} className="chip" title={c.detail}>
+              <span className="mono" style={{ color: "var(--signal)" }}>{c.marker}</span>
+              {STRAND_LABEL[c.kind] ?? c.kind}
+            </span>
+          ),
+        )}
       </div>
       <p className="faint" style={{ fontSize: 11.5, marginTop: 14 }}>
         The synthesis explains the reasoning. It never makes or changes the recovery call, which is
@@ -507,6 +548,8 @@ export function MCPPanel({ example }: { example: CompoundResult | null }) {
     ["run_validation", "recover 12 / reject 15, fp=fn=0"],
     ["get_pathway", "endorsed AOP, grounded"],
     ["discovery_map", "the negative-results map"],
+    ["benchmark", "the falsification (bioactivity AUROC vs decoys)"],
+    ["sources", "research-style citations with links"],
     ["resolve_compound", "DTXSID-first, salt-form correct"],
   ];
   const snippet = example

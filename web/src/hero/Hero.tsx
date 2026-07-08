@@ -19,8 +19,10 @@ function makeGlowTexture(): THREE.Texture {
   cv.width = cv.height = s;
   const ctx = cv.getContext("2d")!;
   const g = ctx.createRadialGradient(s / 2, s / 2, 0, s / 2, s / 2, s / 2);
-  g.addColorStop(0.0, "rgba(255,255,255,1)");
-  g.addColorStop(0.4, "rgba(255,255,255,0.35)");
+  // transparent center so the opaque core reads through; soft halo ring around it
+  g.addColorStop(0.0, "rgba(255,255,255,0)");
+  g.addColorStop(0.28, "rgba(255,255,255,0.22)");
+  g.addColorStop(0.5, "rgba(255,255,255,0.7)");
   g.addColorStop(1.0, "rgba(255,255,255,0)");
   ctx.fillStyle = g;
   ctx.fillRect(0, 0, s, s);
@@ -344,8 +346,10 @@ function Cascade({ pathway, result, onStep, labelRefs }: { pathway: Pathway; res
       ))}
       {nodes.map(({ node, p, r, core, glow }) => (
         <group key={node.eventId} position={[p.x, p.y, p.z]}>
-          {/* halo sprite BEHIND the node; the opaque core occludes its center */}
-          <sprite material={glow} position={[0, 0, -0.6]} scale={[r * 6, r * 6, 1]} />
+          {/* halo sprite centered on the node (rotation-safe); its transparent
+              center lets the opaque core read through, so the glow reads as a
+              ring around the node rather than washing over it */}
+          <sprite material={glow} scale={[r * 7, r * 7, 1]} />
           <mesh material={core}>
             <icosahedronGeometry args={[r, 1]} />
           </mesh>

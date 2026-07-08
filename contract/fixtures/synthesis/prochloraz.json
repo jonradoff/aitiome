@@ -2,25 +2,31 @@
     "compound": "prochloraz",
     "call": "negative",
     "tier": "adversarial_negative",
-    "prose": "This case is best read as an evidence-ranked negative: the curated layer returns no Parkinson's DirectEvidence and no registered neuro-AOP stressor status for prochloraz [E1], and it is that curated absence \u2014 not any downstream activity \u2014 that governs the call. The compound is genuinely bioactive, with 16 mechanistic assay hits including 3 mitochondrial signals [E2], and mitochondrial perturbation is a superficially plausible neurodegeneration hypothesis; however, this bioactivity is treated strictly as anti-diagnostic corroboration and cannot substitute for a curated mechanistic anchor. Acting on it would amount to inferring disease relevance from assay promiscuity, precisely the imposter pattern this tier is designed to resist. Brain penetrance [E3] is consistent with exposure but does not discriminate, since penetrance without a curated pathway carries no directional weight. Absent an attached AOP and any curated mechanism, the correctly-withheld negative stands as the calibrated conclusion.",
+    "prose": "Prochloraz returns a negative call at adversarial_negative tier because the curated mechanistic layer carries no diagnostic signal: there is no curated Parkinson's DirectEvidence and no registration as a neuro-AOP stressor [E1], and no AOP pathway is attached. This absence\u2014not any suppression of activity\u2014drives the call. The compound is genuinely bioactive, with 16 mechanistic assay hits including 3 mitochondrial flags [E2], precisely the kind of promiscuous signal that superficially resembles a neurodegeneration hypothesis. But assay bioactivity is corroboration only and anti-diagnostic; it cannot substitute for a curated mechanistic anchor, so the engine correctly declines to act on it. Brain-penetrance is plausible [E3], yet penetrance alone discriminates nothing absent an upstream mechanism to deliver. The evidence-ranked mechanistic hypothesis is therefore null: no causal claim is made, and the bioactivity is best read as an imposter pattern, not a suppressed positive.",
     "citations": [
         {
             "marker": "E1",
             "kind": "curated_mechanism",
             "detail": "No curated Parkinson's DirectEvidence and not a registered neuro-AOP stressor.",
-            "source": "CTD curated DirectEvidence / AOP-Wiki"
+            "source": "CTD curated DirectEvidence / AOP-Wiki",
+            "reference": "Davis AP, Wiegers TC, Johnson RJ, et al. Comparative Toxicogenomics Database (CTD): update 2023. Nucleic Acids Research. 2023;51(D1):D1257-D1262. Mechanistic scaffold: OECD Adverse Outcome Pathway Wiki. AOP 3: Inhibition of the mitochondrial complex I of nigro-striatal neurons leads to parkinsonian motor deficits (WPHA/WNT Endorsed).",
+            "url": "https://ctdbase.org/"
         },
         {
             "marker": "E2",
             "kind": "assay_corroboration",
             "detail": "Bioactive: 16 mechanistic assay hits (incl. 3 mitochondrial). This is the imposter signal the engine correctly does NOT act on.",
-            "source": "EPA ToxCast via NICEATM ICE"
+            "source": "EPA ToxCast via NICEATM ICE",
+            "reference": "U.S. EPA ToxCast/Tox21 invitroDB (v4.2), accessed through the NICEATM Integrated Chemical Environment (ICE). Active hitcalls only; queried on the salt-form-correct record.",
+            "url": "https://ice.ntp.niehs.nih.gov/"
         },
         {
             "marker": "E3",
             "kind": "bbb",
             "detail": "Brain-penetrant, but penetrance is not a discriminator here.",
-            "source": "B3DB / BOILED-Egg (structure-based)"
+            "source": "B3DB / BOILED-Egg (structure-based)",
+            "reference": "Meng F, Xi Y, Huang J, Ayers PW. A curated diverse molecular database of blood-brain barrier permeability with chemical descriptors (B3DB). Scientific Data. 2021;8:289. Daina A, Zoete V. A BOILED-Egg to predict gastrointestinal absorption and brain access of small molecules. ChemMedChem. 2016;11(11):1117-1121.",
+            "url": "https://github.com/theochem/B3DB"
         }
     ],
     "model": "claude-opus-4-8",
