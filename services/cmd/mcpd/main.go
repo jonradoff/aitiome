@@ -37,10 +37,20 @@ func main() {
 
 	s.AddTool(
 		mcp.NewTool("list_compounds",
-			mcp.WithDescription("List the ground-truth validation set (12 known neurotoxicants + 15 negatives, incl. 6 adversarial decoys) with identity and confidence tier. Read-only."),
+			mcp.WithDescription("List a disease axis's ground-truth validation set with identity and confidence tier. Read-only."),
+			mcp.WithString("disease", mcp.Description("Disease axis: \"pd\" (Parkinson's, default) or \"ad\" (Alzheimer's).")),
+		),
+		func(ctx context.Context, req mcp.CallToolRequest) (*mcp.CallToolResult, error) {
+			return jsonResult(svc.ListCompoundsDisease(ctx, diseaseArg(req)))
+		},
+	)
+
+	s.AddTool(
+		mcp.NewTool("diseases",
+			mcp.WithDescription("The available disease axes for assessment: Parkinson's (endorsed AOP-3 anchor) and Alzheimer's (endorsed AOP-12/48 anchor + non-endorsed Tau/amyloid overlay), each with its anchor AOP, endorsement status, calibration note, and compound count. Read-only."),
 		),
 		func(ctx context.Context, _ mcp.CallToolRequest) (*mcp.CallToolResult, error) {
-			return jsonResult(svc.ListCompounds(ctx))
+			return jsonResult(svc.DiseaseCatalog(ctx))
 		},
 	)
 
@@ -64,15 +74,16 @@ func main() {
 
 	s.AddTool(
 		mcp.NewTool("assess_compound",
-			mcp.WithDescription("Run the validation-mode assessment for a chemical: resolve identity, apply the curated recovery predicate (never gated on assay/bioactivity), reconstruct the grounded AOP cascade for positives, and emit the trace-event stream. Returns the full CompoundResult with confidence tier. Read-only."),
+			mcp.WithDescription("Run the validation-mode assessment for a chemical on a disease axis: resolve identity, apply the curated recovery predicate (never gated on assay/bioactivity), reconstruct the grounded AOP cascade for positives, and emit the trace-event stream. Returns the full CompoundResult with confidence tier and the cross-disease verdict for the other axis. Read-only."),
 			mcp.WithString("id", mcp.Required(), mcp.Description("Chemical identifier: name, CAS, DTXSID, InChIKey, or CID.")),
+			mcp.WithString("disease", mcp.Description("Disease axis: \"pd\" (Parkinson's, default) or \"ad\" (Alzheimer's).")),
 		),
 		func(ctx context.Context, req mcp.CallToolRequest) (*mcp.CallToolResult, error) {
 			id, err := req.RequireString("id")
 			if err != nil {
 				return mcp.NewToolResultError("id is required"), nil
 			}
-			res, ok := svc.Assess(ctx, id)
+			res, ok := svc.AssessDisease(ctx, id, diseaseArg(req))
 			if !ok {
 				return mcp.NewToolResultError("unresolved identifier: " + id), nil
 			}
@@ -82,10 +93,11 @@ func main() {
 
 	s.AddTool(
 		mcp.NewTool("run_validation",
-			mcp.WithDescription("Run the full validation harness over the 27-compound ground truth: recover the 12 known neurotoxicants, reject the 15 negatives (incl. 6 adversarial mito-active decoys), and report the scoreboard (expect fp=0, fn=0). Read-only."),
+			mcp.WithDescription("Run the full validation harness over a disease axis's ground truth (PD: 12 neurotoxicants + 15 negatives incl. 6 adversarial decoys; AD: curated AD-linked chemicals + AD-assay-active decoys) and report the scoreboard (expect fp=0, fn=0). Read-only."),
+			mcp.WithString("disease", mcp.Description("Disease axis: \"pd\" (Parkinson's, default) or \"ad\" (Alzheimer's).")),
 		),
-		func(ctx context.Context, _ mcp.CallToolRequest) (*mcp.CallToolResult, error) {
-			return jsonResult(svc.RunValidation(ctx))
+		func(ctx context.Context, req mcp.CallToolRequest) (*mcp.CallToolResult, error) {
+			return jsonResult(svc.RunValidationDisease(ctx, diseaseArg(req)))
 		},
 	)
 
@@ -177,6 +189,10 @@ func main() {
 	if err := server.ServeStdio(s); err != nil {
 		log.Fatalf("mcpd: %v", err)
 	}
+}
+
+func diseaseArg(req mcp.CallToolRequest) contract.Disease {
+	return contract.ParseDisease(req.GetString("disease", ""))
 }
 
 func jsonResult(v any) (*mcp.CallToolResult, error) {
