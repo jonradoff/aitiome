@@ -29,6 +29,12 @@ test:
 fixtures:
 	bash scripts/dump-fixtures.sh
 
+# Assemble a curated-evidence DRAFT for a NEW chemical via the CLI agent (Claude +
+# web tools, the same class Claude Science uses), then grade it through the engine
+# as a hypothesis. Verify in Claude Science before trusting.  Usage: make curate NAME=ziram
+curate:
+	@AITIO_ENGINE=$${AITIO_ENGINE:-http://localhost:8787} go run ./services/cmd/curate --assess "$(NAME)"
+
 # Smoke-test both adapters expose the same Health payload.
 smoke:
 	@echo "== HTTP ==" && (go run ./services/cmd/httpd & echo $$! > /tmp/aitio_http.pid; sleep 1; \

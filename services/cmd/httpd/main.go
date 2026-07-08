@@ -12,6 +12,7 @@ import (
 	"os"
 	"path/filepath"
 
+	contract "aitiome/contract/goapi"
 	"aitiome/services/aitio"
 )
 
@@ -19,7 +20,7 @@ import (
 var apiPaths = map[string]bool{
 	"/health": true, "/compounds": true, "/resolve": true, "/assess": true,
 	"/validation": true, "/pathway": true, "/discovery-map": true, "/synthesis": true,
-	"/benchmark": true, "/sources": true,
+	"/benchmark": true, "/sources": true, "/assess-curated": true,
 }
 
 func main() {
@@ -92,6 +93,18 @@ func apiMux(svc *aitio.Service) *http.ServeMux {
 	})
 	mux.HandleFunc("GET /sources", func(w http.ResponseWriter, r *http.Request) {
 		writeJSON(w, http.StatusOK, svc.Sources(r.Context()))
+	})
+	mux.HandleFunc("POST /assess-curated", func(w http.ResponseWriter, r *http.Request) {
+		var in contract.CuratedInput
+		if err := json.NewDecoder(r.Body).Decode(&in); err != nil {
+			writeJSON(w, http.StatusBadRequest, map[string]string{"error": "invalid curated input: " + err.Error()})
+			return
+		}
+		if in.Name == "" {
+			writeJSON(w, http.StatusBadRequest, map[string]string{"error": "name is required"})
+			return
+		}
+		writeJSON(w, http.StatusOK, svc.AssessCurated(r.Context(), in))
 	})
 	mux.HandleFunc("GET /synthesis", func(w http.ResponseWriter, r *http.Request) {
 		id := r.URL.Query().Get("id")

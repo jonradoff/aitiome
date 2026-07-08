@@ -108,6 +108,27 @@ func main() {
 	)
 
 	s.AddTool(
+		mcp.NewTool("assess_curated",
+			mcp.WithDescription("Grade externally-assembled curated evidence for a chemical NOT in the embedded benchmark - the shape Claude Science (or the command-line curation agent) produces. Uses the same deterministic predicate; an UNVERIFIED draft is graded as a hypothesis (analogy_only), never a curated diagnostic positive. Input is a JSON CuratedInput object as a string. Read-only."),
+			mcp.WithString("input", mcp.Required(), mcp.Description("JSON CuratedInput: {\"name\":..,\"dtxsid\":..,\"pdDirect\":0,\"aopStressorOf\":[],\"verified\":false,\"source\":\"claude-science\"}")),
+		),
+		func(ctx context.Context, req mcp.CallToolRequest) (*mcp.CallToolResult, error) {
+			raw, err := req.RequireString("input")
+			if err != nil {
+				return mcp.NewToolResultError("input (JSON CuratedInput) is required"), nil
+			}
+			var in contract.CuratedInput
+			if err := json.Unmarshal([]byte(raw), &in); err != nil {
+				return mcp.NewToolResultError("invalid CuratedInput JSON: " + err.Error()), nil
+			}
+			if in.Name == "" {
+				return mcp.NewToolResultError("name is required"), nil
+			}
+			return jsonResult(svc.AssessCurated(ctx, in))
+		},
+	)
+
+	s.AddTool(
 		mcp.NewTool("sources",
 			mcp.WithDescription("The primary data sources and methods as research-style citations with links to the original material (CTD, AOP-Wiki, MitoCarta3.0, Kamath 2022, EPA ToxCast/ICE, openFDA FAERS, B3DB, DSSTox). Read-only."),
 		),

@@ -143,6 +143,14 @@ cites the engine's evidence strands by `[E#]` marker (nothing invented), it keep
 and it never claims causation. Model is configurable per role (default Opus 4.8; a deterministic direct
 reasoner is the always-available fallback, so the endpoint works offline).
 
+### Extending beyond the benchmark (Claude Science)
+
+The recovery decision needs curated evidence. To assess a chemical outside the 27-compound benchmark,
+that evidence is assembled and verified via Claude Science (or the `make curate` command-line agent),
+then the engine grades it deterministically over `POST /assess-curated`. An unverified draft is graded
+as a hypothesis, never a curated positive - the LLM never enters the decision path. See
+[`docs/claude-science.md`](docs/claude-science.md).
+
 ---
 
 ## Architecture
@@ -232,6 +240,7 @@ make run-mcp                 # MCP server over stdio
 make test                    # Go tests (harness fp=fn=0, salt-form guard, decoy rejection, synthesis)
 make validate                # judge-facing red-team report (bioactivity AUROC vs decoys, invariants)
 make fixtures                # regenerate contract/fixtures from the live engine
+make curate NAME=ziram       # Claude+web curation agent -> engine grade (a hypothesis until verified in Claude Science)
 ```
 
 Requires Go 1.26+ and Node 22+. For the optional Claude synthesis, copy `.env.example` to `.env` and
@@ -255,13 +264,13 @@ domain steps.
 
 ### HTTP endpoints
 
-`/health` `/compounds` `/resolve?id=` `/assess?id=` `/synthesis?id=` `/validation` `/benchmark` `/pathway[?aop=3]`
-`/discovery-map`
+`/health` `/compounds` `/resolve?id=` `/assess?id=` `/synthesis?id=` `/validation` `/benchmark` `/sources`
+`/pathway[?aop=3]` `/discovery-map` `POST /assess-curated`
 
 ### MCP tools
 
-`health` `list_compounds` `resolve_compound` `assess_compound` `synthesize_assessment`
-`run_validation` `benchmark` `get_pathway` `discovery_map`
+`health` `list_compounds` `resolve_compound` `assess_compound` `assess_curated` `synthesize_assessment`
+`run_validation` `benchmark` `sources` `get_pathway` `discovery_map`
 
 ## Project layout
 
