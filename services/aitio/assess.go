@@ -41,17 +41,19 @@ func (s *Service) assessCompoundDisease(c contract.Compound, d contract.Disease)
 		res.Pathway = s.pickPathwayDisease(c, d)
 	}
 
-	// Convergent-evidence enrichment is PD-specific (mito/DA-neuron grounding,
-	// FAERS parkinsonism, BBB). AD enrichment is a later step; until then AD
-	// results carry the recovery + trace but no PD-flavored strands (honest).
-	if d == contract.DiseasePD {
-		strands, rejection := s.enrich(c, rec, res.Pathway)
-		res.Strands = strands
-		res.Rejection = rejection
-		res.Trace = s.buildTraceDisease(c, rec, res.Pathway, strands, rejection, d)
+	// Convergent-evidence enrichment is disease-specific: PD grounds in mito/
+	// DA-neuron + FAERS parkinsonism + BBB; AD grounds in disease-associated
+	// microglia + the drug/polyphenol imposter line. Same discipline (never gates).
+	var strands []contract.EvidenceStrand
+	var rejection *contract.Rejection
+	if d == contract.DiseaseAD {
+		strands, rejection = s.enrichAD(c, rec, res.Pathway)
 	} else {
-		res.Trace = s.buildTraceDisease(c, rec, res.Pathway, nil, nil, d)
+		strands, rejection = s.enrich(c, rec, res.Pathway)
 	}
+	res.Strands = strands
+	res.Rejection = rejection
+	res.Trace = s.buildTraceDisease(c, rec, res.Pathway, strands, rejection, d)
 	return res
 }
 

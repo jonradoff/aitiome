@@ -167,6 +167,57 @@ func (s *Service) enrich(c contract.Compound, rec contract.RecoveryDecision, p *
 	return strands, nil
 }
 
+// enrichAD assembles AD-appropriate convergent-evidence strands (microglia
+// grounding + the honest drug/polyphenol imposter line), parallel to enrich but
+// on the AD axis. Same discipline: strands ground/enrich, never gate (IsGate=false).
+func (s *Service) enrichAD(c contract.Compound, rec contract.RecoveryDecision, p *contract.Pathway) ([]contract.EvidenceStrand, *contract.Rejection) {
+	var strands []contract.EvidenceStrand
+	add := func(kind, status, detail, source, prov string) {
+		strands = append(strands, contract.EvidenceStrand{
+			Kind: kind, Status: status, Detail: detail, Source: source, Provenance: prov, IsGate: false,
+		})
+	}
+	const curatedProv = "CTD curated chemical-disease DirectEvidence (bulk report; MESH:D000544 Alzheimer Disease) + AOP-Wiki AD-relevant AOP stressors {12,48,429,475}"
+	const microgliaProv = "Bellenguez 2022 AD GWAS microglia-enriched loci + DAM signature (Keren-Shaul 2018) — adverse-outcome cell-type grounding on AOP-12 nodes 352/341"
+
+	if rec.Call == "positive" {
+		add("curated_mechanism", "supports", rec.Rationale, "CTD curated AD DirectEvidence / AOP-Wiki", curatedProv)
+		if p != nil && pathwayGrounded(p) {
+			add("mito_celltype_grounding", "supports",
+				"Adverse outcome grounded in the disease-associated microglia population (TREM2/APOE/INPP5D); neuroinflammation via the shared KE-188 node that also anchors the PD cascade.",
+				"Bellenguez 2022 / DAM microglia", microgliaProv)
+		}
+		add("assay_corroboration", "not_assessable",
+			"AD-assay bioactivity is not quantified in this set (corroboration only, and anti-diagnostic — never a discriminator).",
+			"EPA ToxCast / aggregation-assay literature", "Qualitative only; not gated (AD assay-AUROC pending data)")
+	} else {
+		add("curated_mechanism", "absent",
+			"No curated Alzheimer's DirectEvidence and not a registered AD-relevant AOP stressor.",
+			"CTD curated AD DirectEvidence / AOP-Wiki", curatedProv)
+		switch c.Mech {
+		case "polyphenol":
+			add("assay_corroboration", "supports",
+				"Active on amyloid-beta / tau aggregation assays (a dietary polyphenol, often a PAINS/assay-interference scaffold) — exactly the imposter signal the engine does NOT act on.",
+				"Aggregation-assay literature", "Qualitative AD-assay activity; not gated")
+		case "ad_drug":
+			add("assay_corroboration", "supports",
+				"Maximal AD-target activity — but it is an Alzheimer's TREATMENT (AChE inhibitor / tau-aggregation inhibitor), not a cause. An activity model would flag the cure; the engine does not.",
+				"AD pharmacology", "Qualitative AD-assay activity; not gated")
+		}
+	}
+
+	if rec.Call == "negative" {
+		var lines []contract.EvidenceStrand
+		for _, st := range strands {
+			if st.Kind == "curated_mechanism" && st.Status == "absent" {
+				lines = append(lines, st)
+			}
+		}
+		return strands, &contract.Rejection{Lines: lines, Count: len(lines)}
+	}
+	return strands, nil
+}
+
 // provenanceFor returns the auditable access route for a strand kind, verbatim
 // from the recon data-source map (docs/recon/data-source-map.md).
 func provenanceFor(kind string) string {
