@@ -37,3 +37,55 @@ ABCA7,AD_microglial_immune,Bryois 2020 NatGenet
 INPP5D,AD_microglial_immune,Bryois 2020 NatGenet
 SPI1,AD_microglial_immune,Bryois 2020 NatGenet
 APOE,AD_microglial_immune,Bryois 2020 NatGenet
+TREM2,AD_microglia_vulnerable,Keren-Shaul 2018 Cell / Gerrits 2021 / Sun 2023 (disease-associated + human AD microglia)
+APOE,AD_microglia_vulnerable,Keren-Shaul 2018 Cell / Gerrits 2021 / Sun 2023 (disease-associated + human AD microglia)
+TYROBP,AD_microglia_vulnerable,Keren-Shaul 2018 Cell / Gerrits 2021 / Sun 2023 (disease-associated + human AD microglia)
+CST7,AD_microglia_vulnerable,Keren-Shaul 2018 Cell / Gerrits 2021 / Sun 2023 (disease-associated + human AD microglia)
+LPL,AD_microglia_vulnerable,Keren-Shaul 2018 Cell / Gerrits 2021 / Sun 2023 (disease-associated + human AD microglia)
+ITGAX,AD_microglia_vulnerable,Keren-Shaul 2018 Cell / Gerrits 2021 / Sun 2023 (disease-associated + human AD microglia)
+SPP1,AD_microglia_vulnerable,Keren-Shaul 2018 Cell / Gerrits 2021 / Sun 2023 (disease-associated + human AD microglia)
+GPNMB,AD_microglia_vulnerable,Keren-Shaul 2018 Cell / Gerrits 2021 / Sun 2023 (disease-associated + human AD microglia)
+CD9,AD_microglia_vulnerable,Keren-Shaul 2018 Cell / Gerrits 2021 / Sun 2023 (disease-associated + human AD microglia)
+CTSB,AD_microglia_vulnerable,Keren-Shaul 2018 Cell / Gerrits 2021 / Sun 2023 (disease-associated + human AD microglia)
+CTSD,AD_microglia_vulnerable,Keren-Shaul 2018 Cell / Gerrits 2021 / Sun 2023 (disease-associated + human AD microglia)
+CLEC7A,AD_microglia_vulnerable,Keren-Shaul 2018 Cell / Gerrits 2021 / Sun 2023 (disease-associated + human AD microglia)
+AXL,AD_microglia_vulnerable,Keren-Shaul 2018 Cell / Gerrits 2021 / Sun 2023 (disease-associated + human AD microglia)
+P2RY12,AD_microglia_homeostatic,Sun 2023 Cell (homeostatic microglia; lost in AD)
+P2RY13,AD_microglia_homeostatic,Sun 2023 Cell (homeostatic microglia; lost in AD)
+CX3CR1,AD_microglia_homeostatic,Sun 2023 Cell (homeostatic microglia; lost in AD)
+TMEM119,AD_microglia_homeostatic,Sun 2023 Cell (homeostatic microglia; lost in AD)
+HEXB,AD_microglia_homeostatic,Sun 2023 Cell (homeostatic microglia; lost in AD)
+TREM2,AD_gwas_microglia,Bellenguez 2022 Nat Genet (AD GWAS microglia-enriched risk loci)
+INPP5D,AD_gwas_microglia,Bellenguez 2022 Nat Genet (AD GWAS microglia-enriched risk loci)
+SPI1,AD_gwas_microglia,Bellenguez 2022 Nat Genet (AD GWAS microglia-enriched risk loci)
+MS4A4A,AD_gwas_microglia,Bellenguez 2022 Nat Genet (AD GWAS microglia-enriched risk loci)
+MS4A6A,AD_gwas_microglia,Bellenguez 2022 Nat Genet (AD GWAS microglia-enriched risk loci)
+PLCG2,AD_gwas_microglia,Bellenguez 2022 Nat Genet (AD GWAS microglia-enriched risk loci)
+ABI3,AD_gwas_microglia,Bellenguez 2022 Nat Genet (AD GWAS microglia-enriched risk loci)
+CD33,AD_gwas_microglia,Bellenguez 2022 Nat Genet (AD GWAS microglia-enriched risk loci)
+ABCA7,AD_gwas_microglia,Bellenguez 2022 Nat Genet (AD GWAS microglia-enriched risk loci)
+SORL1,AD_gwas_microglia,Bellenguez 2022 Nat Genet (AD GWAS microglia-enriched risk loci)
+BIN1,AD_gwas_microglia,Bellenguez 2022 Nat Genet (AD GWAS microglia-enriched risk loci)
+CR1,AD_gwas_microglia,Bellenguez 2022 Nat Genet (AD GWAS microglia-enriched risk loci)
+APOE,AD_gwas_microglia,Bellenguez 2022 Nat Genet (AD GWAS microglia-enriched risk loci)
+CLU,AD_gwas_microglia,Bellenguez 2022 Nat Genet (AD GWAS microglia-enriched risk loci)
+PTK2B,AD_gwas_microglia,Bellenguez 2022 Nat Genet (AD GWAS microglia-enriched risk loci)
+SPPL2A,AD_gwas_microglia,Bellenguez 2022 Nat Genet (AD GWAS microglia-enriched risk loci)
+APP,AD_amyloid_tau,Canonical APP-processing and tau genes (OMIM/UniProt)
+PSEN1,AD_amyloid_tau,Canonical APP-processing and tau genes (OMIM/UniProt)
+PSEN2,AD_amyloid_tau,Canonical APP-processing and tau genes (OMIM/UniProt)
+BACE1,AD_amyloid_tau,Canonical APP-processing and tau genes (OMIM/UniProt)
+ADAM10,AD_amyloid_tau,Canonical APP-processing and tau genes (OMIM/UniProt)
+MAPT,AD_amyloid_tau,Canonical APP-processing and tau genes (OMIM/UniProt)
+GSK3B,AD_amyloid_tau,Canonical APP-processing and tau genes (OMIM/UniProt)
+CDK5,AD_amyloid_tau,Canonical APP-processing and tau genes (OMIM/UniProt)
+NLRP3,AD_neuroinflammation,Canonical neuroinflammation / AOP-Wiki KE-188 effectors
+CASP1,AD_neuroinflammation,Canonical neuroinflammation / AOP-Wiki KE-188 effectors
+PYCARD,AD_neuroinflammation,Canonical neuroinflammation / AOP-Wiki KE-188 effectors
+TNF,AD_neuroinflammation,Canonical neuroinflammation / AOP-Wiki KE-188 effectors
+IL1B,AD_neuroinflammation,Canonical neuroinflammation / AOP-Wiki KE-188 effectors
+IL6,AD_neuroinflammation,Canonical neuroinflammation / AOP-Wiki KE-188 effectors
+C1QA,AD_neuroinflammation,Canonical neuroinflammation / AOP-Wiki KE-188 effectors
+C1QB,AD_neuroinflammation,Canonical neuroinflammation / AOP-Wiki KE-188 effectors
+C1QC,AD_neuroinflammation,Canonical neuroinflammation / AOP-Wiki KE-188 effectors
+C3,AD_neuroinflammation,Canonical neuroinflammation / AOP-Wiki KE-188 effectors
