@@ -181,21 +181,27 @@ func layerize(a scaffoldAOP, loop map[string]bool) map[string]int {
 // --- Grounding (MitoCarta Complex-I Q-site subunits + Kamath vulnerable DA neurons) ---
 
 type groundingSets struct {
-	qsiteGenes    []string
-	vulnerableDA  []string
-	mitoSource    string
-	daSource      string
+	qsiteGenes   []string
+	vulnerableDA []string
+	adMicroglia  []string
+	mitoSource   string
+	daSource     string
+	adSource     string
 }
 
-// forEvent returns grounding for the events that carry it in AOP-3: the MIE/CI
+// forEvent returns grounding for the events that carry it. AOP-3 (PD): the MIE/CI
 // nodes get the Q-site subunits; the DA-degeneration and AO nodes get the
-// vulnerable DA neuron population.
+// vulnerable DA neuron population. AD AOPs (12/48/…): the neurodegeneration and
+// learning/memory AO nodes (352, 341 — absent from AOP-3, so PD is unaffected)
+// get the AD disease-associated microglia population, the AD hero terminal frame.
 func (g groundingSets) forEvent(eventID string) *contract.Grounding {
 	switch eventID {
-	case "888", "887": // binding of inhibitor / inhibition of complex I
+	case "888", "887": // binding of inhibitor / inhibition of complex I (PD MIE)
 		return &contract.Grounding{Kind: "mie_genes", Genes: g.qsiteGenes, Source: g.mitoSource}
-	case "890", "896": // DA neuron degeneration / parkinsonian deficits
+	case "890", "896": // DA neuron degeneration / parkinsonian deficits (PD AO)
 		return &contract.Grounding{Kind: "ao_celltype", CellTypes: g.vulnerableDA, Source: g.daSource}
+	case "352", "341": // neurodegeneration / learning-memory impairment (AD AO)
+		return &contract.Grounding{Kind: "ao_celltype", CellTypes: g.adMicroglia, Source: g.adSource}
 	}
 	return nil
 }
@@ -204,6 +210,7 @@ func loadGrounding() (groundingSets, error) {
 	g := groundingSets{
 		mitoSource: "MitoCarta3.0 (Complex I Q-site core subunits)",
 		daSource:   "Kamath 2022 Nat Neurosci (SN vulnerable DA neurons)",
+		adSource:   "Bellenguez 2022 / DAM (disease-associated microglia)",
 	}
 	// MitoCarta Complex-I Q-site core subunits.
 	mb, err := dataFS.ReadFile("data/mitocarta_complexI.csv")
@@ -231,8 +238,11 @@ func loadGrounding() (groundingSets, error) {
 	}
 	bcol := index(brows[0])
 	for _, row := range brows[1:] {
-		if strings.TrimSpace(row[bcol["set"]]) == "DA_neuron_vulnerable" {
+		switch strings.TrimSpace(row[bcol["set"]]) {
+		case "DA_neuron_vulnerable":
 			g.vulnerableDA = append(g.vulnerableDA, strings.TrimSpace(row[bcol["gene"]]))
+		case "AD_microglia_vulnerable":
+			g.adMicroglia = append(g.adMicroglia, strings.TrimSpace(row[bcol["gene"]]))
 		}
 	}
 	return g, nil
