@@ -513,15 +513,19 @@ export function AnticipatedCritiques() {
   const qa = [
     {
       q: "Isn't the recovery circular? The predicate and the positive labels draw on overlapping curated sources.",
-      a: "We address it directly above. Two INDEPENDENT curations converge on the positives (CTD 8/12, AOP-Wiki 8/12, together 12/12), neither alone suffices, and neither ever fires on a negative, so this is not one source read twice. The rule has no fitted parameters to overfit. And the decoys were selected for bioactivity, not curation status, so rejecting them is not baked in. Recovery is a sanity check; the contribution is the specificity and the honest discovery map.",
+      a: "We address it directly above. Two INDEPENDENT curations converge on the positives (CTD 9/13, AOP-Wiki 8/13, together 13/13), neither alone suffices, and neither ever fires on a negative, so this is not one source read twice. The rule has no fitted parameters to overfit. And the decoys were selected for bioactivity, not curation status, so rejecting them is not baked in. Recovery is a sanity check; the contribution is the specificity and the honest discovery map.",
     },
     {
       q: "You're just detecting bioactivity.",
-      a: "Computed on our own data, every bioactivity signal is at or below chance against the decoys (AUROC 0.12 to 0.39). The decoys are, if anything, more bioactive than the real neurotoxicants. Bioactivity is anti-diagnostic here, so the engine never gates on it.",
+      a: "Computed on our own data, every bioactivity signal is at or below chance against the decoys (AUROC 0.12 to 0.39). The decoys are, if anything, more bioactive than the real neurotoxicants. Bioactivity is anti-diagnostic here, so the engine never gates on it. Independent support: ToxCast covers only ~40% neural-relevant targets and under-covers the oxidative-stress key events behind most neurotoxicity (Mack et al. 2024).",
+    },
+    {
+      q: "Is complex-I inhibition really the initiating event? Nakamura (PNAS 2008) showed it isn't strictly required.",
+      a: "Correct - and it's why we never gate on it. The OECD AOP-3 complex-I MIE is the endorsed causal SCAFFOLD anchor, not a claim that complex-I inhibition is necessary or sufficient. We grade on curated causation, treat bioactivity as anti-diagnostic, and model the convergent routes: paraquat is recovered via the redox-cycling AOP-593 (not complex-I), and the complex II/III/IV family (587/588/589) converges on the same key events. Gladstone's own Nakamura-lab work (Berthet 2014; CHCHD2, Sci Adv 2025) grounds the mitochondrial-dysfunction to dopaminergic-degeneration edge we reconstruct.",
     },
     {
       q: "Why trust a curated rule over a learned model?",
-      a: "Both predicate terms are load-bearing (each alone misses four positives) and neither ever fires on a negative (0/15). Every result carries a confidence tier and its evidence provenance, and the discovery limits are shown, not hidden. There was no signal to learn from on this class in the first place, which is the whole point.",
+      a: "Both predicate terms are load-bearing (each alone misses several positives) and neither ever fires on a negative (0/15). Every result carries a confidence tier and its evidence provenance, and the discovery limits are shown, not hidden. There was no signal to learn from on this class in the first place, which is the whole point.",
     },
   ];
   return (
@@ -545,7 +549,7 @@ export function MCPPanel({ example }: { example: CompoundResult | null }) {
   const tools = [
     ["assess_compound", "resolve, grade, reconstruct, trace"],
     ["synthesize_assessment", "calibrated prose (Claude), cited"],
-    ["run_validation", "recover 12 / reject 15, fp=fn=0"],
+    ["run_validation", "recover 13 / reject 15, fp=fn=0"],
     ["get_pathway", "endorsed AOP, grounded"],
     ["discovery_map", "the negative-results map"],
     ["benchmark", "the falsification (bioactivity AUROC vs decoys)"],
