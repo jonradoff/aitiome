@@ -3,7 +3,7 @@ import { getValidation, getHealth, getPathway, getDiscoveryMap, getBenchmark, ge
 import { useAsync } from "./useAsync";
 import { Hero } from "./hero/Hero";
 import { EvidencePanel, TracePanel, ValidationPanel, DiscoveryPanel, MCPPanel, SynthesisPanel, ProvenanceDrawer, SpecificityCenterpiece, FalsificationPanel, AnticipatedCritiques, SourcesPanel } from "./components/Panels";
-import type { EvidenceStrand, Disease, DiseaseInfo, CompoundResult } from "@contract";
+import type { EvidenceStrand, Disease, DiseaseInfo, CompoundResult, ValidationResult } from "@contract";
 
 // Per-disease showcase sets + copy. PD is the validated anchor; AD is the second
 // axis (curated recovery + the drug/polyphenol decoys). One disease on screen.
@@ -159,7 +159,7 @@ export function App() {
 
         {disease === "ad" && (
           <section className="wrap section">
-            <ADFalsificationNote />
+            <ADFalsificationNote data={validation?.data ?? null} />
           </section>
         )}
 
@@ -315,21 +315,65 @@ function CmpCell({ text, strength, tone }: { text: string; strength: number; ton
   );
 }
 
-// ADFalsificationNote is the honest placeholder where PD shows its quantified
-// AUROC falsification: AD leads with curated recovery + the drug/polyphenol decoy
-// trap; the quantified assay-AUROC is pending AD-assay data (not fabricated).
-function ADFalsificationNote() {
+// ADFalsificationNote: AD's honest specificity story. Two real, quantified pieces
+// (the source-independence ablation, computed live from the AD validation predicate)
+// + the qualitative decoy trap, and an explicit statement of the one gap (assay-AUROC)
+// with WHY it's structurally hard (Mack 2024) rather than a fabricated number.
+function ADFalsificationNote({ data }: { data: ValidationResult | null }) {
+  const pos = (data?.perCompound ?? []).filter((r) => r.role === "positive");
+  const negs = (data?.perCompound ?? []).filter((r) => r.role === "negative");
+  const ctd = pos.filter((r) => r.recovery.predicate.ctdPdDirectEvidence).length;
+  const aop = pos.filter((r) => r.recovery.predicate.neuroAopStressor).length;
+  const union = pos.filter((r) => r.recovery.predicate.ctdPdDirectEvidence || r.recovery.predicate.neuroAopStressor).length;
+  const fp = negs.filter((r) => r.recovery.call === "positive").length;
   return (
-    <div className="panel" style={{ padding: "22px 24px" }}>
-      <p className="eyebrow" style={{ marginBottom: 10 }}>The falsification, Alzheimer's</p>
-      <h2 style={{ fontSize: 22, marginBottom: 10 }}>The decoys are the treatments</h2>
-      <p className="dim" style={{ fontSize: 15, maxWidth: "72ch", margin: 0 }}>
-        On Alzheimer's the specificity test is qualitative today: the compounds most active on AD
-        assays are the anti-amyloid drugs (donepezil, methylene blue) and dietary polyphenols
-        (curcumin, EGCG) — an activity model would flag the cure. None carries curated AD DirectEvidence,
-        so Aitiome withholds the call. A quantified assay-AUROC (as shown for Parkinson's) is pending
-        AD-specific assay data; we report the gap rather than fabricate a score.
-      </p>
+    <div>
+      <p className="eyebrow" style={{ marginBottom: 12 }}>The falsification, Alzheimer's — honestly weaker</p>
+      <h2 style={{ fontSize: "clamp(22px,2.6vw,30px)", maxWidth: "24ch", marginBottom: 14 }}>The decoys are the treatments</h2>
+      <div className="two-col" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16 }}>
+        <div className="panel" style={{ padding: "20px 22px" }}>
+          <div className="mono faint" style={{ fontSize: 11, marginBottom: 10 }}>SOURCE-INDEPENDENCE ABLATION (live)</div>
+          {pos.length > 0 ? (
+            <>
+              <div style={{ display: "flex", alignItems: "baseline", gap: 22, flexWrap: "wrap" }}>
+                <Stat n={`${ctd}/${pos.length}`} l="CTD-AD alone" tone="var(--recovered)" />
+                <span style={{ color: "var(--ink-faint)" }}>+</span>
+                <Stat n={`${aop}/${pos.length}`} l="AD-AOP alone" tone="var(--recovered)" />
+                <span style={{ color: "var(--ink-faint)" }}>→</span>
+                <Stat n={`${union}/${pos.length}`} l="the rule" tone="var(--signal)" />
+              </div>
+              <p className="dim" style={{ fontSize: 13.5, marginTop: 14, marginBottom: 0 }}>
+                Honest result: AD recovery leans <b>almost entirely on CTD curation</b> — the endorsed AD-AOP
+                leg contributes only {aop} (lead, via AOP-12). So unlike Parkinson's, this is <b>not</b> two
+                strong independent curations converging. We show it rather than claim it. Still <b>{fp}/{negs.length}</b>
+                &nbsp;false positives — the decoys are rejected.
+              </p>
+            </>
+          ) : <p className="dim" style={{ fontSize: 13.5 }}>Ablation loads from the live engine.</p>}
+        </div>
+        <div className="panel" style={{ padding: "20px 22px" }}>
+          <div className="mono faint" style={{ fontSize: 11, marginBottom: 10 }}>WHY NO QUANTIFIED ASSAY-AUROC (YET)</div>
+          <p className="dim" style={{ fontSize: 13.5, marginTop: 0 }}>
+            The compounds most active on AD assays are the anti-amyloid <b>drugs</b> (donepezil, methylene blue)
+            and dietary <b>polyphenols</b> (curcumin, EGCG) — an activity model would flag the cure. None carries
+            curated AD DirectEvidence, so Aitiome withholds the call.
+          </p>
+          <p className="dim" style={{ fontSize: 13.5, marginBottom: 0 }}>
+            A quantified assay-AUROC (as for PD) is <b>pending AD-specific assay data</b>, and is structurally
+            hard: ToxCast covers only ~40% neural-relevant targets and under-covers the oxidative-stress key
+            events behind most neurotoxicity (Mack et al. 2024). We report the gap, not a fabricated score.
+          </p>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function Stat({ n, l, tone }: { n: string; l: string; tone: string }) {
+  return (
+    <div>
+      <div className="mono" style={{ fontSize: 30, color: tone, lineHeight: 1 }}>{n}</div>
+      <div className="faint" style={{ fontSize: 12, marginTop: 6 }}>{l}</div>
     </div>
   );
 }

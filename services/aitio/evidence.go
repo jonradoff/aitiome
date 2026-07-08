@@ -30,10 +30,24 @@ type epiRow struct {
 }
 
 type evidenceStore struct {
-	faers map[string]faersRow
-	bbb   map[string]bbbRow
-	epi   map[string]epiRow // PD epidemiology
-	epiAD map[string]epiRow // AD epidemiology (ADR-0005; round-2 literature scan)
+	faers    map[string]faersRow
+	bbb      map[string]bbbRow
+	epi      map[string]epiRow // PD epidemiology
+	epiAD    map[string]epiRow // AD epidemiology (ADR-0005; round-2 literature scan)
+	neurotox []string          // Grandjean & Landrigan 2014 keywords (independent curated vote)
+}
+
+// grandjeanMatch reports whether a compound is on the Grandjean & Landrigan 2014
+// list of established human neurotoxicants — a curated line INDEPENDENT of CTD and
+// AOP-Wiki, so it hardens the source-independence story (and lists zero decoys).
+func (es *evidenceStore) grandjeanMatch(name string) bool {
+	n := normalizeID(name)
+	for _, kw := range es.neurotox {
+		if strings.Contains(n, kw) {
+			return true
+		}
+	}
+	return false
 }
 
 func loadEvidence() (*evidenceStore, error) {
@@ -83,6 +97,19 @@ func loadEvidence() (*evidenceStore, error) {
 		}
 	}
 
+	// Grandjean & Landrigan 2014 established-neurotoxicant keywords (independent vote).
+	if _, err := dataFS.Open("data/grandjean_landrigan_2014.csv"); err == nil {
+		grows, gcol, err := readCSV("data/grandjean_landrigan_2014.csv")
+		if err != nil {
+			return nil, err
+		}
+		for _, r := range grows {
+			if kw := normalizeID(get(r, gcol, "keyword")); kw != "" {
+				es.neurotox = append(es.neurotox, kw)
+			}
+		}
+	}
+
 	// AD epidemiology (optional file; absent -> empty, PD-only builds unaffected).
 	if _, err := dataFS.Open("data/epidemiology_ad.csv"); err == nil {
 		rows, col, err = readCSV("data/epidemiology_ad.csv")
@@ -128,6 +155,15 @@ func (s *Service) enrich(c contract.Compound, rec contract.RecoveryDecision, p *
 				"EPA ToxCast via NICEATM ICE")
 		} else {
 			add("assay_corroboration", "not_assessable", "Thin in ToxCast (research reagent / metal).", "EPA ToxCast via NICEATM ICE")
+		}
+		if s.evidence.grandjeanMatch(c.Name) {
+			strands = append(strands, contract.EvidenceStrand{
+				Kind: "curated_mechanism", Status: "supports",
+				Detail:     "Independently listed as an established human neurotoxicant (Grandjean & Landrigan 2014, Lancet Neurol) — a curated line independent of CTD and AOP-Wiki.",
+				Source:     "Grandjean & Landrigan 2014 (Lancet Neurol)",
+				Provenance: "Grandjean P & Landrigan PJ 2014, Lancet Neurol 13:330-338 — expert-curated list of established human developmental neurotoxicants (independent of CTD/AOP-Wiki)",
+				IsGate:     false,
+			})
 		}
 	} else {
 		add("curated_mechanism", "absent",
@@ -219,6 +255,12 @@ func (s *Service) enrichAD(c contract.Compound, rec contract.RecoveryDecision, p
 				add("epidemiology", "not_assessable", fmt.Sprintf("%s — %s evidence (%s).", e.estimate, e.strength, e.source),
 					"Published cohorts / meta-analyses", "Curated; contested/weak epidemiology flagged, not treated as diagnostic")
 			}
+		}
+		if s.evidence.grandjeanMatch(c.Name) {
+			add("curated_mechanism", "supports",
+				"Independently listed as an established human neurotoxicant (Grandjean & Landrigan 2014, Lancet Neurol) — a curated line independent of CTD and AOP-Wiki.",
+				"Grandjean & Landrigan 2014 (Lancet Neurol)",
+				"Grandjean P & Landrigan PJ 2014, Lancet Neurol 13:330-338 — expert-curated established human neurotoxicant list (independent of CTD/AOP-Wiki)")
 		}
 	} else {
 		add("curated_mechanism", "absent",

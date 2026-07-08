@@ -233,6 +233,14 @@
             "isGate": false
         },
         {
+            "kind": "curated_mechanism",
+            "status": "supports",
+            "detail": "Independently listed as an established human neurotoxicant (Grandjean & Landrigan 2014, Lancet Neurol) \u2014 a curated line independent of CTD and AOP-Wiki.",
+            "source": "Grandjean & Landrigan 2014 (Lancet Neurol)",
+            "provenance": "Grandjean P & Landrigan PJ 2014, Lancet Neurol 13:330-338 \u2014 expert-curated list of established human developmental neurotoxicants (independent of CTD/AOP-Wiki)",
+            "isGate": false
+        },
+        {
             "kind": "epidemiology",
             "status": "supports",
             "detail": "PD elevated (OP class) (Costello/Wang OP-PD studies).",
@@ -379,6 +387,12 @@
             "strandKind": "assay_corroboration",
             "strandStatus": "supports",
             "label": "42 mechanistic assay hits illustrate the chain (corroboration only \u2014 anti-diagnostic, not a discriminator)."
+        },
+        {
+            "kind": "strand",
+            "strandKind": "curated_mechanism",
+            "strandStatus": "supports",
+            "label": "Independently listed as an established human neurotoxicant (Grandjean & Landrigan 2014, Lancet Neurol) \u2014 a curated line independent of CTD and AOP-Wiki."
         },
         {
             "kind": "strand",

@@ -2,7 +2,7 @@
     "compound": "chlorpyrifos",
     "call": "positive",
     "tier": "assay_mechanism_recovered",
-    "prose": "The positive call rests on curated mechanistic convergence: chlorpyrifos appears as a CTD Parkinson's DirectEvidence entry and a registered stressor in a neuro-AOP framework [E1], which together anchor an evidence-ranked mechanistic hypothesis rather than any causal claim. Biological plausibility is strengthened because the molecular initiating event grounds in MitoCarta3.0 Complex-I Q-site subunits, with the adverse outcome expressed in the Kamath 2022 SOX6/AGTR1 vulnerable dopaminergic-neuron population [E2], giving the pathway a specific cell-type substrate. Human data are directionally consistent, with organophosphate cohorts reporting elevated PD risk [E4], and structure-based estimates suggest brain penetrance, making CNS exposure plausible [E5]. The 42 ToxCast assay hits [E3] merely illustrate the proposed chain and are corroboration only\u2014anti-diagnostic and never decisive. Overall, the assay_mechanism_recovered tier reflects a curated mechanism recovered and independently illustrated by bioactivity, held at appropriately hedged confidence given epidemiological and exposure support.",
+    "prose": "This positive call at the assay_mechanism_recovered tier rests on curated mechanistic convergence: chlorpyrifos carries CTD Parkinson's DirectEvidence and is a registered stressor within a neuro-AOP [E1], with an independent curated line flagging it as an established human neurotoxicant [E4]. The evidence-ranked mechanistic hypothesis anchors the molecular initiating event in MitoCarta Complex-I Q-site subunits, propagating to an adverse outcome in the Kamath SOX6/AGTR1-vulnerable dopaminergic population [E2] \u2014 a cell-type grounding that lends biological coherence to the pathway. Brain-penetrant structure-based prediction supports plausible CNS exposure [E6], and organophosphate-class cohorts report elevated Parkinson's risk [E5], offering convergent but non-causal contextual support. The 42 ToxCast assay hits [E3] illustrate the mechanistic chain as corroboration only; being anti-diagnostic, they are not treated as decisive. Collectively, the curated mechanism drives the call, while epidemiology, exposure plausibility, and assay signals remain supportive rather than determinative. No causal claim is asserted.",
     "citations": [
         {
             "marker": "E1",
@@ -30,6 +30,14 @@
         },
         {
             "marker": "E4",
+            "kind": "curated_mechanism",
+            "detail": "Independently listed as an established human neurotoxicant (Grandjean & Landrigan 2014, Lancet Neurol) \u2014 a curated line independent of CTD and AOP-Wiki.",
+            "source": "Grandjean & Landrigan 2014 (Lancet Neurol)",
+            "reference": "Davis AP, Wiegers TC, Johnson RJ, et al. Comparative Toxicogenomics Database (CTD): update 2023. Nucleic Acids Research. 2023;51(D1):D1257-D1262. Mechanistic scaffold: OECD Adverse Outcome Pathway Wiki. AOP 3: Inhibition of the mitochondrial complex I of nigro-striatal neurons leads to parkinsonian motor deficits (WPHA/WNT Endorsed).",
+            "url": "https://ctdbase.org/"
+        },
+        {
+            "marker": "E5",
             "kind": "epidemiology",
             "detail": "PD elevated (OP class) (Costello/Wang OP-PD studies).",
             "source": "Published cohorts / meta-analyses",
@@ -37,7 +45,7 @@
             "url": "https://pubmed.ncbi.nlm.nih.gov/?term=chlorpyrifos+Parkinson+disease+epidemiology"
         },
         {
-            "marker": "E5",
+            "marker": "E6",
             "kind": "bbb",
             "detail": "Brain-penetrant \u2014 plausible CNS exposure.",
             "source": "B3DB / BOILED-Egg (structure-based)",
