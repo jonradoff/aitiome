@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Aitiome">
+  <defs>
+    <radialGradient id="neuron" cx="50%" cy="45%" r="60%">
+      <stop offset="0%" stop-color="#f4cd8c"/>
+      <stop offset="100%" stop-color="#e7b168"/>
+    </radialGradient>
+  </defs>
+  <!-- instrument screen -->
+  <rect width="64" height="64" rx="14" fill="#0b0e14"/>
+  <!-- the endorsed cascade: MIE -> key events -> adverse outcome -->
+  <path d="M13 45 L27 32 L41 36 L51 20" fill="none" stroke="#55d6c6"
+        stroke-width="2.4" stroke-opacity="0.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="13" cy="45" r="3.5" fill="#55d6c6"/>
+  <circle cx="27" cy="32" r="3.5" fill="#55d6c6"/>
+  <circle cx="41" cy="36" r="3.5" fill="#55d6c6"/>
+  <!-- terminal frame: the vulnerable dopaminergic neuron ignites -->
+  <circle cx="51" cy="20" r="9.5" fill="#e7b168" fill-opacity="0.20"/>
+  <circle cx="51" cy="20" r="5.8" fill="url(#neuron)"/>
+</svg>

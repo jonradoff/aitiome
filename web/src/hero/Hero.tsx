@@ -168,7 +168,7 @@ function useScene(pathway: Pathway) {
       const r = Math.pow(Math.random(), 0.6) * 1.5;
       const th = Math.random() * Math.PI * 2;
       const ph = Math.acos(2 * Math.random() - 1);
-      pos[i * 3] = c.x + 1.6 + r * Math.sin(ph) * Math.cos(th);
+      pos[i * 3] = c.x + r * Math.sin(ph) * Math.cos(th);
       pos[i * 3 + 1] = c.y + r * Math.cos(ph) * 0.8;
       pos[i * 3 + 2] = c.z + r * Math.sin(ph) * Math.sin(th) * 0.8;
       scale[i] = 0.5 + Math.random() * 1.8;
@@ -193,10 +193,10 @@ function useScene(pathway: Pathway) {
     const c = layout.aoPos;
     const arr: { geo: THREE.TubeGeometry; mat: THREE.ShaderMaterial }[] = [];
     for (let i = 0; i < 7; i++) {
-      const start = new THREE.Vector3(c.x + 0.25, c.y, c.z);
+      const start = new THREE.Vector3(c.x, c.y, c.z);
       const ang = (i / 7) * Math.PI * 2;
       const end = new THREE.Vector3(
-        c.x + 1.6 + Math.cos(ang) * 1.7,
+        c.x + Math.cos(ang) * 1.7,
         c.y + Math.sin(ang) * 1.25,
         c.z + Math.sin(ang * 1.3) * 0.8,
       );
