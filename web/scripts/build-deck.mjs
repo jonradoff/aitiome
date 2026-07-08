@@ -2,10 +2,14 @@
 // screenshot). Renders via the system Chrome. Output: docs/aitiome-presentation.pdf
 //
 // Arc (self-contained for a general hackathon audience): problem -> the hard part
-// -> the original goal -> the pivot -> what it is -> how it works -> the hero ->
-// results -> specificity -> falsification -> circularity -> discovery map -> the
-// full-stack Claude architecture -> how it's built -> challenges & learnings ->
-// takeaways -> limitations/next -> close.
+// -> the original goal -> the pivot -> what it is -> the recovery rule -> the hero
+// -> results -> [live product: the assessment] -> [live product: specificity] ->
+// falsification -> circularity -> [live product: it's all computed live] -> the
+// discovery map -> [live product: sources] -> [live product: MCP] -> the full-stack
+// Claude architecture -> how it's built -> challenges & learnings -> takeaways ->
+// limitations/next -> close. The [live product] slides are annotated real
+// screenshots (see web/scripts/capture-deck-shots.mjs) so the claims are shown,
+// not just asserted.
 import puppeteer from "puppeteer-core";
 import { readFileSync } from "fs";
 import { fileURLToPath } from "url";
@@ -21,6 +25,7 @@ const mono = b64(join(dir, "../node_modules/@fontsource/ibm-plex-mono/files/ibm-
 const hero = b64("/tmp/deck-hero-rotenone.png");
 
 const FAVICON = readFileSync(join(dir, "../public/favicon.svg"), "utf8");
+const shotB64 = (name) => b64(`/tmp/deck-app-${name}.png`);
 
 // --- slide helpers ---
 const slides = [];
@@ -31,6 +36,17 @@ const foot = (n) => `<div class="foot"><span>Aitiome</span><span class="mono">ai
 
 let n = 0;
 const N = () => String(++n).padStart(2, "0");
+
+// An annotated product-tour slide: a real, framed app screenshot with numbered
+// callout pins overlaid and a matching numbered legend below.
+function shotSlide(name, eyebrowText, title, callouts) {
+  const img = shotB64(name);
+  const pins = callouts.map((c) => `<span class="pin ${c.tone || "c"}" style="left:${c.x}%;top:${c.y}%">${c.n}</span>`).join("");
+  const legend = callouts.map((c) => `<div class="lg"><span class="pin sm ${c.tone || "c"}">${c.n}</span><span>${c.label}</span></div>`).join("");
+  slide("shotslide", `${eyebrow(eyebrowText)}<h1 class="shoth">${title}</h1>
+    <div class="shotwrap"><div class="shot"><img src="data:image/png;base64,${img}"/>${pins}</div></div>
+    <div class="legend">${legend}</div>${foot(N())}`);
+}
 
 // 1 - title
 slide("title", `
@@ -126,12 +142,19 @@ slide("dark", `${eyebrow("The result, on the reconnaissance ground truth")}${h("
   <p class="dim center">12 positives (6 assay-recovered + 6 curated-anchored) - 15 negatives, including 6 mitochondria-active adversarial decoys built to fool an activity model.</p>
   ${foot(N())}`);
 
-// 10 - specificity
-slide("", `${eyebrow("The specificity centerpiece")}${h("It is not fooled by the imposters")}
-  <div class="two">
-    <div class="card uncertain"><div class="k mono">What fools an activity model</div><p>The decoys are genuinely bioactive, often mitochondria-active. On multi-assay fingerprint similarity they collapse into the positives (0.53).</p></div>
-    <div class="card recovered"><div class="k mono">Why Aitiome does not</div><p>No curated diagnostic signal. Independently, warfarin and fenofibrate also fail brain-exposure and show zero FAERS parkinsonism signal - rejected on three independent lines at once.</p></div>
-  </div>${foot(N())}`);
+// 10 - product: the live assessment (convergent evidence + reasoning trace)
+shotSlide("readout", "The live product - one resolve, the whole assessment", "Convergent evidence, and the pathway reconstructed", [
+  { n: 1, x: 15, y: 14, tone: "c", label: "Five convergent evidence strands, each with provenance" },
+  { n: 2, x: 15, y: 41, tone: "r", label: "Assay activity is corroboration only - never a discriminator" },
+  { n: 3, x: 74, y: 14, tone: "c", label: "The endorsed AOP, reconstructed edge by edge" },
+]);
+
+// 11 - product: specificity (the real screenshot)
+shotSlide("specificity", "The specificity centerpiece, live", "It is not fooled by the imposters", [
+  { n: 1, x: 33, y: 27, tone: "g", label: "Pick any bioactive decoy" },
+  { n: 2, x: 18, y: 40, tone: "r", label: "What lights up an activity-based model" },
+  { n: 3, x: 82, y: 30, tone: "c", label: "Rejected on three independent lines at once" },
+]);
 
 // 11 - falsification
 slide("dark", `${eyebrow("The falsification - computed live from our own data")}${h("Why not just use bioactivity?")}
@@ -158,6 +181,13 @@ slide("", `${eyebrow("Answering the sharpest critique, empirically")}${h("Is it 
   <p class="dim center">CTD (toxicogenomics literature) and AOP-Wiki (OECD regulatory) are independent efforts; neither alone suffices, so this is not one source read twice. Both are <b>0/15</b> false-positives. And the decoys were selected for bioactivity, not curation status - so rejecting them is not baked in.</p>
   ${foot(N())}`);
 
+// 12b - product: the falsification + circularity, computed live in the app
+shotSlide("falsification", "Not a slide - computed live from our own data", "The whole argument, running in the product", [
+  { n: 1, x: 12, y: 34, tone: "c", label: "Curated rule: zero errors on the set" },
+  { n: 2, x: 60, y: 27, tone: "r", label: "Every bioactivity signal at or below chance" },
+  { n: 3, x: 30, y: 74, tone: "c", label: "Circularity answered: two independent curations converge" },
+]);
+
 // 13 - discovery map
 slide("", `${eyebrow("The honest part")}${h("Where AI-driven discovery works, and where it does not")}
   <div class="grid7">
@@ -172,6 +202,18 @@ slide("", `${eyebrow("The honest part")}${h("Where AI-driven discovery works, an
   </div>
   <p class="dim">Seven axes coverage- or confounder-killed. Two honest, unproven leads remain (reported with explicit N). Discovery is a map, never a predictor.</p>
   ${foot(N())}`);
+
+// 13b - product: sources & references (nothing is asserted uncited)
+shotSlide("sources", "Auditable end to end", "Every claim links to its primary source", [
+  { n: 1, x: 12, y: 21, tone: "c", label: "Nine primary sources, each a resolvable citation" },
+  { n: 2, x: 40, y: 24, tone: "g", label: "Tagged by role: diagnostic, corroboration, grounding" },
+]);
+
+// 13c - product: the dual (human + agent) interface over one engine
+shotSlide("mcp", "One engine, two interfaces", "A scientist and an agent query the same tools", [
+  { n: 1, x: 12, y: 52, tone: "c", label: "Eight MCP tools - the same engine, exposed to agents" },
+  { n: 2, x: 62, y: 52, tone: "g", label: "An agent gets the same graded, cited call" },
+]);
 
 // 14 - built on Claude (the three-layer fusion)
 slide("dark", `${eyebrow("Built with Claude, end to end")}${h("Claude Code builds it. The API reasons. Claude Science verifies.")}
@@ -324,6 +366,23 @@ const css = `
   .herofull .herobody{padding:34px 84px 0}
   .herofull h1{max-width:32ch;font-size:38px}
   .small{font-size:15px;color:var(--dim);margin-top:14px;max-width:86ch}
+  /* annotated product-tour slides */
+  .slide.shotslide{padding:40px 56px 24px}
+  .shotslide .eyebrow{margin-bottom:12px}
+  .shoth{font-size:29px;max-width:36ch;margin-bottom:0}
+  .shotwrap{flex:1;display:flex;align-items:center;justify-content:center;margin:14px 0 12px;min-height:0}
+  .shot{position:relative;display:inline-block;border:1px solid var(--line);border-radius:12px;overflow:hidden;box-shadow:0 24px 70px rgba(0,0,0,.55)}
+  .shot img{display:block;max-height:430px;width:auto}
+  /* on product slides the legend owns the bottom band - keep only the page number */
+  .slide.shotslide .foot{justify-content:flex-end}
+  .slide.shotslide .foot span:nth-child(1),
+  .slide.shotslide .foot span:nth-child(2){display:none}
+  .pin{position:absolute;transform:translate(-50%,-50%);width:27px;height:27px;border-radius:99px;display:flex;align-items:center;justify-content:center;font-family:'PlexMono';font-size:14px;font-weight:600;color:#08110f;background:var(--c);box-shadow:0 0 0 3px rgba(8,10,14,.65),0 2px 10px rgba(0,0,0,.5)}
+  .pin.g{background:var(--g)}.pin.r{background:var(--r);color:#fff}
+  .pin.sm{position:static;transform:none;width:22px;height:22px;font-size:12px;flex:none}
+  .legend{display:flex;gap:30px;justify-content:center;flex-wrap:wrap;padding:0 20px}
+  .lg{display:flex;align-items:center;gap:10px;font-size:14px;color:var(--dim);max-width:34ch}
+  .lg span:last-child{line-height:1.32}
 `;
 
 const html = `<!doctype html><html><head><meta charset="utf-8"><style>${css}</style></head><body>${slides.join("")}</body></html>`;
