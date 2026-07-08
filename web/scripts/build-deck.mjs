@@ -217,7 +217,7 @@ slide("", `${eyebrow("A second axis, the same discipline")}${h("Alzheimer's — 
 slide("dark", `${eyebrow("The two axes, compared")}${h("The same method. Honestly calibrated.")}
   <div class="cmp">
     <div class="cmphead"><div class="cmpd mono faint">dimension</div><div class="cmpc"><b class="c">Parkinson's</b></div><div class="cmpc"><b class="g">Alzheimer's</b></div></div>
-    ${cmp("Scaffold (OECD)", "AOP-3, fully endorsed", 3, "AOP-12/48 endorsed + non-endorsed overlay", 2)}
+    ${cmp("Scaffold (OECD)", "AOP-3 endorsed; EFSA-expanding complex I-IV family", 3, "AOP-12/48 endorsed + non-endorsed overlay", 2)}
     ${cmp("Curated recovery", "13/13, 0 err", 3, "12/12, 0 err", 3)}
     ${cmp("Predictive power / falsification", "quantified: activity at or below chance", 3, "qualitative; assay-AUROC pending data", 1)}
     ${cmp("Circularity defense", "two curations converge (9/13 + 8/13)", 3, "leans on CTD alone (~11/12)", 1)}

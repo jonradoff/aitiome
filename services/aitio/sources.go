@@ -18,9 +18,9 @@ var sourceRegistry = []contract.SourceRef{
 		URL:       "https://ctdbase.org/",
 	},
 	{
-		Key:  "aopwiki", Name: "OECD AOP-Wiki (AOP-3)", Role: "diagnostic",
+		Key:  "aopwiki", Name: "OECD AOP-Wiki (AOP-3 + complex-family network)", Role: "diagnostic",
 		Kinds:     []string{"curated_mechanism"},
-		Reference: "OECD Adverse Outcome Pathway Wiki. AOP 3: Inhibition of the mitochondrial complex I of nigro-striatal neurons leads to parkinsonian motor deficits (WPHA/WNT Endorsed).",
+		Reference: "OECD Adverse Outcome Pathway Wiki. AOP-3 (WPHA/WNT Endorsed): inhibition of mitochondrial complex I of nigro-striatal neurons leads to parkinsonian motor deficits (Terron A, Bal-Price A, et al. Arch Toxicol. 2018;92:41-82). AOP-3 anchors a convergent mitochondrial-complex family — complex II/III/IV and redox cycling (AOPs 588/587/589/593, under development) — whose formal expansion EFSA funded in 2024 (call NP/EFSA/PREV/2024/02). For Alzheimer's: the endorsed AOP-12/48 (aging neurodegeneration + memory) anchor with a non-endorsed Tau/amyloid overlay (AOP-429/475).",
 		URL:       "https://aopwiki.org/aops/3",
 	},
 	{

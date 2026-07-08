@@ -20,8 +20,11 @@ AD leans ~11/12 on CTD, weaker circularity than PD). **Principled exclusions** (
 why) are logged in `docs/excluded-sources.md` — a credibility asset for the report. Sharpening to remember:
 pre-empt the "ML=90% AUROC" pushback via **Mack 2024** (ToxCast ~40% neural-relevant); don't claim first-mover on
 AOP-network mapping (**Spinu NT-AOPn 2019**); neuroinflammation is *shared* PD/AD. Positioning: **PROTON** (Zitnik,
-2025) is the discovery-predictor foil; **ToxReason/ES&T 2024** support the grounded approach. Open recon flags
-(need Jon sign-off): PD AOP-network 587/593; whether the AOP leg should recognize it.
+2025) is the discovery-predictor foil; **ToxReason/ES&T 2024** support the grounded approach. Resolved flag (2026-07-08):
+the PD AOP-network 587/588/589/593 (EFSA-funded 2024 expansion of AOP-3) is recognized as **mechanistic
+context + citation** (Sources page, deck compare matrix), tiered "under development" — the recovery
+**predicate is unchanged** (paraquat was already positive and already reconstructs on AOP-593). It strengthens
+the mechanistic/credibility story, not the numbers.
 
 **Second disease axis — Alzheimer's (2026-07-08, live):** the engine is now **per-disease** (PD + AD;
 `?disease=ad`, `/diseases`, MCP `disease` param). PD stays byte-identical; AD runs the *identical*
