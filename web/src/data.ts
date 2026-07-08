@@ -10,10 +10,16 @@ import type {
   Synthesis,
   Benchmark,
   SourceRef,
+  Disease,
+  DiseaseInfo,
 } from "@contract";
 import { fxValidation, fxDiscovery, fxPathway, fxCompounds, fxAssess, fxSynthesis, fxBenchmark, fxSources } from "./fixtures";
 
 export type Source = "live" | "fixture";
+
+// dq appends the disease query param (PD is the default, so PD URLs are unchanged
+// and the fixtures fallback — which is PD — stays correct for the anchor axis).
+const dq = (disease: Disease = "pd", sep = "?") => (disease === "ad" ? `${sep}disease=ad` : "");
 
 async function tryLive<T>(path: string): Promise<T | null> {
   try {
@@ -30,9 +36,16 @@ export async function getHealth(): Promise<{ health: Health | null; source: Sour
   return live ? { health: live, source: "live" } : { health: null, source: "fixture" };
 }
 
-export async function getValidation(): Promise<{ data: ValidationResult; source: Source }> {
-  const live = await tryLive<ValidationResult>("/validation");
-  return live ? { data: live, source: "live" } : { data: fxValidation, source: "fixture" };
+export async function getDiseases(): Promise<DiseaseInfo[]> {
+  const live = await tryLive<DiseaseInfo[]>("/diseases");
+  return live ?? DISEASES_FALLBACK;
+}
+
+export async function getValidation(disease: Disease = "pd"): Promise<{ data: ValidationResult; source: Source }> {
+  const live = await tryLive<ValidationResult>(`/validation${dq(disease)}`);
+  if (live) return { data: live, source: "live" };
+  // Fixtures cover PD only; AD requires the live engine.
+  return { data: disease === "ad" ? EMPTY_VALIDATION : fxValidation, source: "fixture" };
 }
 
 export async function getDiscoveryMap(): Promise<{ data: DiscoveryMap; source: Source }> {
@@ -50,18 +63,21 @@ export async function getSources(): Promise<{ data: SourceRef[]; source: Source 
   return live ? { data: live, source: "live" } : { data: fxSources, source: "fixture" };
 }
 
-export async function getPathway(): Promise<{ data: Pathway; source: Source }> {
-  const live = await tryLive<Pathway>("/pathway");
+export async function getPathway(disease: Disease = "pd"): Promise<{ data: Pathway; source: Source }> {
+  // The hero backdrop is the disease's anchor cascade: AOP-3 (PD) / AOP-12 (AD).
+  const path = disease === "ad" ? "/pathway?aop=12" : "/pathway";
+  const live = await tryLive<Pathway>(path);
   return live ? { data: live, source: "live" } : { data: fxPathway, source: "fixture" };
 }
 
-export async function getCompounds(): Promise<{ data: Compound[]; source: Source }> {
-  const live = await tryLive<Compound[]>("/compounds");
-  return live ? { data: live, source: "live" } : { data: fxCompounds, source: "fixture" };
+export async function getCompounds(disease: Disease = "pd"): Promise<{ data: Compound[]; source: Source }> {
+  const live = await tryLive<Compound[]>(`/compounds${dq(disease)}`);
+  if (live) return { data: live, source: "live" };
+  return { data: disease === "ad" ? [] : fxCompounds, source: "fixture" };
 }
 
-export async function assess(id: string): Promise<{ data: CompoundResult | null; source: Source }> {
-  const live = await tryLive<CompoundResult>(`/assess?id=${encodeURIComponent(id)}`);
+export async function assess(id: string, disease: Disease = "pd"): Promise<{ data: CompoundResult | null; source: Source }> {
+  const live = await tryLive<CompoundResult>(`/assess?id=${encodeURIComponent(id)}${dq(disease, "&")}`);
   if (live) return { data: live, source: "live" };
   const fx = fxAssess[id.toLowerCase()];
   return { data: fx ?? null, source: "fixture" };
@@ -73,6 +89,21 @@ export async function synthesize(id: string): Promise<{ data: Synthesis | null; 
   const fx = fxSynthesis[id.toLowerCase()];
   return { data: fx ?? null, source: "fixture" };
 }
+
+const EMPTY_VALIDATION: ValidationResult = {
+  summary: {
+    positivesRecovered: 0, positivesTotal: 0, negativesRejected: 0, negativesTotal: 0,
+    adversarialTotal: 0, adversarialRejected: 0, falsePositives: 0, falseNegatives: 0,
+  },
+  perCompound: [],
+};
+
+const DISEASES_FALLBACK: DiseaseInfo[] = [
+  { disease: "pd", label: "Parkinson's disease", short: "Parkinson's", anchorAop: "3", anchorEndorsed: true,
+    note: "OECD-endorsed AOP-3 spine. The validated anchor.", compoundCount: 27 },
+  { disease: "ad", label: "Alzheimer's disease", short: "Alzheimer's", anchorAop: "12", anchorEndorsed: true,
+    note: "Endorsed AOP-12/48 anchor + non-endorsed Tau/amyloid overlay. Second axis; calibrated below PD.", compoundCount: 21 },
+];
 
 // resolveCompound maps any identifier (name, CAS, DTXSID, InChIKey, CID) to the
 // one salt-form-correct record. Demonstrates the DTXSID-first resolver: e.g. the

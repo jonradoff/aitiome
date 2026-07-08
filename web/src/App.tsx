@@ -1,28 +1,75 @@
-import { useState } from "react";
-import { getValidation, getHealth, getPathway, getDiscoveryMap, getBenchmark, getSources, assess, synthesize, resolveCompound } from "./data";
+import { useEffect, useState } from "react";
+import { getValidation, getHealth, getPathway, getDiscoveryMap, getBenchmark, getSources, getDiseases, assess, synthesize, resolveCompound } from "./data";
 import { useAsync } from "./useAsync";
 import { Hero } from "./hero/Hero";
 import { EvidencePanel, TracePanel, ValidationPanel, DiscoveryPanel, MCPPanel, SynthesisPanel, ProvenanceDrawer, SpecificityCenterpiece, FalsificationPanel, AnticipatedCritiques, SourcesPanel } from "./components/Panels";
-import type { EvidenceStrand } from "@contract";
+import type { EvidenceStrand, Disease, DiseaseInfo, CompoundResult } from "@contract";
 
-const KNOWN = ["rotenone", "paraquat", "MPTP", "chlorpyrifos", "6-hydroxydopamine"];
-const DECOYS = ["simvastatin", "troglitazone", "warfarin", "fenofibrate"];
+// Per-disease showcase sets + copy. PD is the validated anchor; AD is the second
+// axis (curated recovery + the drug/polyphenol decoys). One disease on screen.
+const AXIS: Record<Disease, {
+  known: string[]; decoys: string[]; defaultActive: string; defaultDecoy: string;
+  knownLabel: string; decoyLabel: string; headline: string; scoreIntro: string;
+  recoveredLabel: string; decoyScoreLabel: string;
+}> = {
+  pd: {
+    known: ["rotenone", "paraquat", "MPTP", "chlorpyrifos", "6-hydroxydopamine"],
+    decoys: ["simvastatin", "troglitazone", "warfarin", "fenofibrate"],
+    defaultActive: "rotenone", defaultDecoy: "warfarin",
+    knownLabel: "known neurotoxicants", decoyLabel: "bioactive decoys",
+    headline: "It reconstructs the endorsed mechanism, recovers the known neurotoxicants, and is not fooled by the imposters.",
+    scoreIntro: "Aitiome grades a chemical on curated mechanism, never on bioactivity. On the reconnaissance ground truth it recovers all twelve known neurotoxicants and rejects all fifteen negatives, including six bioactive, mitochondria-active decoys built to fool an activity-based model.",
+    recoveredLabel: "known neurotoxicants recovered", decoyScoreLabel: "bioactive decoys not fooled",
+  },
+  ad: {
+    known: ["DDE", "lead acetate", "cadmium chloride", "aluminum chloride", "streptozocin"],
+    decoys: ["curcumin", "donepezil", "epigallocatechin gallate", "methylene blue"],
+    defaultActive: "DDE", defaultDecoy: "curcumin",
+    knownLabel: "curated AD-linked chemicals", decoyLabel: "AD-assay-active decoys",
+    headline: "The same discipline, a second axis: curated Alzheimer's-linked chemicals recovered, and the drugs and polyphenols that light up AD assays are not mistaken for causes.",
+    scoreIntro: "On Alzheimer's the engine grades on the same curated predicate. Its decoys are the compounds most active on AD assays — the anti-amyloid drugs and dietary polyphenols — which an activity model would flag as hits. Aitiome does not, because it reasons on curated causation, not activity.",
+    recoveredLabel: "curated AD-linked chemicals recovered", decoyScoreLabel: "AD-assay-active decoys not fooled",
+  },
+};
+
+function initialDisease(): Disease {
+  const p = new URLSearchParams(window.location.search).get("disease");
+  return p === "ad" ? "ad" : "pd";
+}
 
 export function App() {
   const [theme, setTheme] = useState<"dark" | "light">("dark");
-  const [activeId, setActiveId] = useState("rotenone");
+  const [disease, setDiseaseState] = useState<Disease>(initialDisease());
+  const [activeId, setActiveId] = useState(AXIS[initialDisease()].defaultActive);
   const [provenance, setProvenance] = useState<EvidenceStrand | null>(null);
-  const [decoyId, setDecoyId] = useState("warfarin");
+  const [decoyId, setDecoyId] = useState(AXIS[initialDisease()].defaultDecoy);
 
+  // Switching the disease axis re-contextualizes the whole page and resets the
+  // active/decoy compounds to that axis's showcase defaults; persisted in the URL.
+  function setDisease(d: Disease) {
+    if (d === disease) return;
+    setDiseaseState(d);
+    setActiveId(AXIS[d].defaultActive);
+    setDecoyId(AXIS[d].defaultDecoy);
+  }
+  useEffect(() => {
+    const url = new URL(window.location.href);
+    if (disease === "pd") url.searchParams.delete("disease");
+    else url.searchParams.set("disease", disease);
+    window.history.replaceState({}, "", url);
+  }, [disease]);
+
+  const cfg = AXIS[disease];
+  const diseases = useAsync(getDiseases, []);
   const health = useAsync(getHealth, []);
-  const validation = useAsync(getValidation, []);
-  const pathway = useAsync(getPathway, []);
+  const validation = useAsync(() => getValidation(disease), [disease]);
+  const pathway = useAsync(() => getPathway(disease), [disease]);
   const discovery = useAsync(getDiscoveryMap, []);
   const benchmark = useAsync(getBenchmark, []);
   const sources = useAsync(getSources, []);
-  const active = useAsync(() => assess(activeId), [activeId]);
+  const active = useAsync(() => assess(activeId, disease), [activeId, disease]);
   const synthesis = useAsync(() => synthesize(activeId), [activeId]);
-  const decoy = useAsync(() => assess(decoyId), [decoyId]);
+  const decoy = useAsync(() => assess(decoyId, disease), [decoyId, disease]);
 
   function toggleTheme() {
     const next = theme === "dark" ? "light" : "dark";
@@ -33,42 +80,41 @@ export function App() {
   const source = validation?.source ?? "fixture";
   const s = validation?.data.summary;
   const result = active?.data ?? null;
+  const info = diseases?.find((d) => d.disease === disease) ?? null;
 
   return (
     <div className="shell">
       <Masthead live={!!health?.health} onToggle={toggleTheme} theme={theme} />
+      <DiseaseFilter diseases={diseases ?? []} active={disease} onSelect={setDisease} info={info} />
 
       <main>
-        <section className="wrap" style={{ paddingTop: 40, paddingBottom: 30 }}>
-          <div style={{ maxWidth: 720 }}>
+        <section className="wrap" style={{ paddingTop: 34, paddingBottom: 30 }}>
+          <div style={{ maxWidth: 760 }}>
             <p className="eyebrow" style={{ marginBottom: 16 }}>Validation, not a watchlist</p>
-            <h1 style={{ fontSize: "clamp(28px, 3.8vw, 46px)" }}>
-              It reconstructs the endorsed mechanism, recovers the known
-              neurotoxicants, and is not fooled by the imposters.
-            </h1>
+            <h1 style={{ fontSize: "clamp(28px, 3.8vw, 46px)" }}>{cfg.headline}</h1>
           </div>
 
           <div style={{ marginTop: 26 }}>
-            <SearchBox onResolve={setActiveId} />
+            <SearchBox disease={disease} onResolve={setActiveId} />
           </div>
 
           <div style={{ marginTop: 18 }}>
-            <Selector activeId={activeId} onSelect={setActiveId} />
+            <Selector cfg={cfg} activeId={activeId} onSelect={setActiveId} />
           </div>
 
           {pathway && (
             <div style={{ marginTop: 18 }}>
-              <Hero pathway={pathway.data} result={result} height={470} />
+              <Hero pathway={pathway.data} result={result} height={470} disease={disease} />
             </div>
           )}
 
           {result && (
             <div style={{ marginTop: 18 }}>
-              <Readout result={result} />
+              <Readout result={result} onSwitchDisease={setDisease} />
             </div>
           )}
 
-          {synthesis?.data && (
+          {synthesis?.data && disease === "pd" && (
             <div style={{ marginTop: 18 }}>
               <SynthesisPanel syn={synthesis.data} />
             </div>
@@ -83,21 +129,18 @@ export function App() {
         </section>
 
         <section className="wrap section">
-          <p className="dim" style={{ fontSize: 16, maxWidth: "64ch", marginBottom: 26 }}>
-            Aitiome grades a chemical on curated mechanism, never on bioactivity. On the
-            reconnaissance ground truth it recovers all twelve known neurotoxicants and
-            rejects all fifteen negatives, including six bioactive, mitochondria-active
-            decoys built to fool an activity-based model.
-          </p>
+          <p className="dim" style={{ fontSize: 16, maxWidth: "64ch", marginBottom: 26 }}>{cfg.scoreIntro}</p>
           {s && (
             <Scoreboard
               recovered={`${s.positivesRecovered}/${s.positivesTotal}`}
               rejected={`${s.negativesRejected}/${s.negativesTotal}`}
               decoys={`${s.adversarialRejected}/${s.adversarialTotal}`}
               errors={s.falsePositives + s.falseNegatives}
+              recoveredLabel={cfg.recoveredLabel}
+              decoyLabel={cfg.decoyScoreLabel}
             />
           )}
-          {validation && (
+          {validation && validation.data.perCompound.length > 0 && (
             <div style={{ marginTop: 26 }}>
               <ValidationPanel data={validation.data} activeId={activeId} onSelect={setActiveId} />
             </div>
@@ -108,17 +151,27 @@ export function App() {
           <SpecificityCenterpiece result={decoy?.data ?? null} decoyId={decoyId} onSelect={setDecoyId} />
         </section>
 
-        {benchmark && (
+        {benchmark && disease === "pd" && (
           <section className="wrap section">
             <FalsificationPanel b={benchmark.data} />
           </section>
         )}
 
-        {discovery && (
+        {disease === "ad" && (
+          <section className="wrap section">
+            <ADFalsificationNote />
+          </section>
+        )}
+
+        {discovery && disease === "pd" && (
           <section className="wrap section">
             <DiscoveryPanel map={discovery.data} />
           </section>
         )}
+
+        <section className="wrap section">
+          <CompareSection />
+        </section>
 
         <section className="wrap section">
           <AnticipatedCritiques />
@@ -141,7 +194,147 @@ export function App() {
   );
 }
 
-function SearchBox(props: { onResolve: (name: string) => void }) {
+// DiseaseFilter is the top-level axis control: PD · AD chips that contextualize
+// the entire page, with the selected axis's endorsement/calibration note inline.
+function DiseaseFilter(props: { diseases: DiseaseInfo[]; active: Disease; onSelect: (d: Disease) => void; info: DiseaseInfo | null }) {
+  const list = props.diseases.length ? props.diseases : [
+    { disease: "pd" as Disease, short: "Parkinson's" }, { disease: "ad" as Disease, short: "Alzheimer's" },
+  ] as DiseaseInfo[];
+  return (
+    <div
+      className="wrap"
+      style={{
+        display: "flex", alignItems: "center", gap: 16, flexWrap: "wrap",
+        paddingTop: 14, paddingBottom: 14, borderBottom: "1px solid var(--line)",
+        position: "sticky", top: 68, zIndex: 15,
+        backdropFilter: "blur(10px)", background: "color-mix(in srgb, var(--bg) 82%, transparent)",
+      }}
+    >
+      <span className="mono faint" style={{ fontSize: 11.5, letterSpacing: "0.06em" }}>disease axis</span>
+      <div style={{ display: "flex", gap: 8 }}>
+        {list.map((d) => {
+          const on = props.active === d.disease;
+          const tone = d.disease === "ad" ? "var(--signal)" : "var(--recovered)";
+          return (
+            <button
+              key={d.disease}
+              onClick={() => props.onSelect(d.disease)}
+              className="btn"
+              aria-pressed={on}
+              style={{
+                padding: "7px 15px", fontSize: 13.5, fontWeight: on ? 600 : 400,
+                borderColor: on ? tone : "var(--line-2)",
+                background: on ? `color-mix(in srgb, ${tone} 16%, var(--bg-3))` : "var(--bg-3)",
+                color: on ? "var(--ink)" : "var(--ink-dim)",
+              }}
+            >
+              {d.short}
+            </button>
+          );
+        })}
+      </div>
+      {props.info && (
+        <div style={{ display: "flex", alignItems: "center", gap: 10, flex: 1, minWidth: 260 }}>
+          <span className={`chip ${props.info.anchorEndorsed ? "recovered" : "signal"}`} style={{ flex: "none" }}>
+            <span className="dot" />AOP-{props.info.anchorAop} {props.info.anchorEndorsed ? "endorsed anchor" : "exploratory"}
+          </span>
+          <span className="faint" style={{ fontSize: 12, lineHeight: 1.35 }}>{props.info.note}</span>
+        </div>
+      )}
+    </div>
+  );
+}
+
+// CompareSection is the head-to-head PD vs AD view — the "equivalent rigor,
+// honest calibration" thesis made explicit. Recovery numbers are live; the other
+// rows are calibrated statements with a 0-3 strength rating so AD's genuinely
+// weaker dimensions (quantified falsification, circularity defense, data breadth)
+// are shown, not hidden. This is the honesty centerpiece for a two-axis engine.
+function CompareSection() {
+  const pd = useAsync(() => getValidation("pd"), []);
+  const ad = useAsync(() => getValidation("ad"), []);
+  const ps = pd?.data.summary;
+  const as = ad?.data.summary;
+  const recPD = ps ? `${ps.positivesRecovered}/${ps.positivesTotal} recovered · ${ps.negativesRejected}/${ps.negativesTotal} rejected · ${ps.falsePositives + ps.falseNegatives} err` : "—";
+  const recAD = as ? `${as.positivesRecovered}/${as.positivesTotal} recovered · ${as.negativesRejected}/${as.negativesTotal} rejected · ${as.falsePositives + as.falseNegatives} err` : "—";
+
+  const rows: { dim: string; pd: [string, number]; ad: [string, number] }[] = [
+    { dim: "Mechanistic scaffold (OECD)", pd: ["AOP-3, fully WPHA/WNT-endorsed; complete MIE→AO chain", 3], ad: ["AOP-12/48 endorsed anchor + non-endorsed Tau/amyloid overlay (429/475); no endorsed amyloid/tau AO", 2] },
+    { dim: "Curated recovery (ground truth)", pd: [recPD, 3], ad: [recAD, 3] },
+    { dim: "Predictive power / falsification", pd: ["Quantified: every bioactivity signal at or below chance vs decoys — anti-diagnostic", 3], ad: ["Qualitative: the decoys are the AD drugs & polyphenols; quantified assay-AUROC pending AD-assay data", 1] },
+    { dim: "Curated data quality", pd: ["CTD PD DirectEvidence + AOP-Wiki — two independent curations", 3], ad: ["CTD AD DirectEvidence (pulled live); AOP leg thinner; endogenous-metabolite noise filtered by scope", 2] },
+    { dim: "Circularity defense", pd: ["Two independent curations converge: 8/12 + 8/12 → 12/12", 3], ad: ["Leans mostly on CTD-alone (weaker AOP leg) — disclosed, not claimed", 1] },
+    { dim: "Human epidemiology", pd: ["Quantified (paraquat ~2.5×, rotenone OR ~10)", 3], ad: ["DDE (Richardson 2014), lead cohort HR~3; aluminum contested", 2] },
+  ];
+
+  return (
+    <div>
+      <p className="eyebrow" style={{ marginBottom: 12 }}>The two axes, compared</p>
+      <h2 style={{ fontSize: "clamp(22px,2.6vw,30px)", maxWidth: "22ch", marginBottom: 8 }}>
+        The same method. Honestly calibrated.
+      </h2>
+      <p className="dim" style={{ fontSize: 15, maxWidth: "70ch", marginBottom: 22 }}>
+        Alzheimer's runs through the identical curated-diagnostic engine as Parkinson's. Where AD is
+        genuinely weaker — no endorsed amyloid/tau outcome, a thinner causal literature, no quantified
+        falsification yet — the rating says so. That calibration is the product working as designed.
+      </p>
+      <div className="panel" style={{ padding: 0, overflow: "hidden" }}>
+        <div className="cmp-row cmp-head">
+          <div className="cmp-dim mono faint">dimension</div>
+          <div className="cmp-cell"><span className="chip recovered" style={{ flex: "none" }}><span className="dot" />Parkinson's</span></div>
+          <div className="cmp-cell"><span className="chip signal" style={{ flex: "none" }}><span className="dot" />Alzheimer's</span></div>
+        </div>
+        {rows.map((r) => (
+          <div className="cmp-row" key={r.dim}>
+            <div className="cmp-dim">{r.dim}</div>
+            <CmpCell text={r.pd[0]} strength={r.pd[1]} tone="var(--recovered)" />
+            <CmpCell text={r.ad[0]} strength={r.ad[1]} tone="var(--signal)" />
+          </div>
+        ))}
+        <div className="cmp-bridge">
+          <span className="mono" style={{ color: "var(--signal)", fontSize: 11.5, letterSpacing: "0.05em" }}>shared / cross-disease&nbsp;&nbsp;</span>
+          <span className="dim" style={{ fontSize: 13.5 }}>
+            <b>KE-188 (neuroinflammation)</b> is the identical node bridging both AOPs; <b>lead is positive for both</b> (PD broad leg, AD endorsed AOP-12); mitochondrial dysfunction is an <b>unlinked gap</b> (PD KE-177 vs AD placeholder KE-1816) — shown on the discovery map, not papered over.
+          </span>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function CmpCell({ text, strength, tone }: { text: string; strength: number; tone: string }) {
+  return (
+    <div className="cmp-cell">
+      <div style={{ display: "flex", gap: 3, marginBottom: 6 }}>
+        {[0, 1, 2].map((i) => (
+          <span key={i} style={{ width: 7, height: 7, borderRadius: 99, background: i < strength ? tone : "var(--line-2)" }} />
+        ))}
+      </div>
+      <span className="dim" style={{ fontSize: 13, lineHeight: 1.4 }}>{text}</span>
+    </div>
+  );
+}
+
+// ADFalsificationNote is the honest placeholder where PD shows its quantified
+// AUROC falsification: AD leads with curated recovery + the drug/polyphenol decoy
+// trap; the quantified assay-AUROC is pending AD-assay data (not fabricated).
+function ADFalsificationNote() {
+  return (
+    <div className="panel" style={{ padding: "22px 24px" }}>
+      <p className="eyebrow" style={{ marginBottom: 10 }}>The falsification, Alzheimer's</p>
+      <h2 style={{ fontSize: 22, marginBottom: 10 }}>The decoys are the treatments</h2>
+      <p className="dim" style={{ fontSize: 15, maxWidth: "72ch", margin: 0 }}>
+        On Alzheimer's the specificity test is qualitative today: the compounds most active on AD
+        assays are the anti-amyloid drugs (donepezil, methylene blue) and dietary polyphenols
+        (curcumin, EGCG) — an activity model would flag the cure. None carries curated AD DirectEvidence,
+        so Aitiome withholds the call. A quantified assay-AUROC (as shown for Parkinson's) is pending
+        AD-specific assay data; we report the gap rather than fabricate a score.
+      </p>
+    </div>
+  );
+}
+
+function SearchBox(props: { disease: Disease; onResolve: (name: string) => void }) {
   const [q, setQ] = useState("");
   const [note, setNote] = useState<{ text: string; ok: boolean } | null>(null);
 
@@ -154,7 +347,9 @@ function SearchBox(props: { onResolve: (name: string) => void }) {
       const salt = c.toxcastCas && c.toxcastCas !== c.cas ? ` / tested as CAS ${c.toxcastCas}` : "";
       setNote({ text: `resolved to ${c.name} (${c.dtxsid})${salt}`, ok: true });
     } else {
-      setNote({ text: `"${id}" is not in the validation set (the honest scope is the 27-compound ground truth)`, ok: false });
+      // Not in the PD resolver index; still assess it on the selected axis.
+      props.onResolve(id);
+      setNote({ text: `assessing "${id}" on the ${props.disease === "ad" ? "Alzheimer's" : "Parkinson's"} axis`, ok: true });
     }
   }
 
@@ -187,10 +382,10 @@ function SearchBox(props: { onResolve: (name: string) => void }) {
   );
 }
 
-function Selector(props: { activeId: string; onSelect: (id: string) => void }) {
+function Selector(props: { cfg: (typeof AXIS)[Disease]; activeId: string; onSelect: (id: string) => void }) {
   const Group = ({ title, ids, tone }: { title: string; ids: string[]; tone: string }) => (
     <div style={{ display: "flex", alignItems: "center", gap: 10, flexWrap: "wrap" }}>
-      <span className="mono faint" style={{ fontSize: 11.5, letterSpacing: "0.04em", width: 150 }}>{title}</span>
+      <span className="mono faint" style={{ fontSize: 11.5, letterSpacing: "0.04em", width: 170 }}>{title}</span>
       {ids.map((id) => {
         const on = props.activeId.toLowerCase() === id.toLowerCase();
         return (
@@ -212,15 +407,16 @@ function Selector(props: { activeId: string; onSelect: (id: string) => void }) {
   );
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
-      <Group title="known neurotoxicants" ids={KNOWN} tone="var(--recovered)" />
-      <Group title="bioactive decoys" ids={DECOYS} tone="var(--reject)" />
+      <Group title={props.cfg.knownLabel} ids={props.cfg.known} tone="var(--recovered)" />
+      <Group title={props.cfg.decoyLabel} ids={props.cfg.decoys} tone="var(--reject)" />
     </div>
   );
 }
 
-function Readout({ result }: { result: import("@contract").CompoundResult }) {
+function Readout({ result, onSwitchDisease }: { result: CompoundResult; onSwitchDisease: (d: Disease) => void }) {
   const positive = result.recovery.call === "positive";
   const tone = positive ? "var(--recovered)" : "var(--reject)";
+  const cross = result.crossDisease ?? [];
   return (
     <div className="panel" style={{ padding: "18px 20px", display: "flex", gap: 20, alignItems: "flex-start", flexWrap: "wrap" }}>
       <div style={{ minWidth: 200 }}>
@@ -231,12 +427,31 @@ function Readout({ result }: { result: import("@contract").CompoundResult }) {
           </span>
         </div>
         <div className="mono faint" style={{ fontSize: 11.5, marginTop: 6 }}>
-          {result.compound.dtxsid} / tier: {result.confidenceTier}
+          {result.compound.dtxsid || "identity pending"} / tier: {result.confidenceTier}
         </div>
       </div>
       <p className="dim" style={{ fontSize: 14, flex: 1, minWidth: 280, margin: 0, color: tone, opacity: 0.95 }}>
         {result.recovery.rationale}
       </p>
+      {cross.length > 0 && (
+        <div style={{ display: "flex", alignItems: "center", gap: 8, flexWrap: "wrap" }}>
+          <span className="mono faint" style={{ fontSize: 10.5, letterSpacing: "0.05em" }}>also assessed</span>
+          {cross.map((cd) => {
+            const pos = cd.call === "positive";
+            return (
+              <button
+                key={cd.disease}
+                onClick={() => onSwitchDisease(cd.disease)}
+                className={`chip ${pos ? "recovered" : "reject"}`}
+                title={cd.rationale ?? ""}
+                style={{ cursor: "pointer" }}
+              >
+                <span className="dot" />{cd.label}: {pos ? "positive" : "negative"}
+              </button>
+            );
+          })}
+        </div>
+      )}
     </div>
   );
 }
@@ -266,11 +481,11 @@ function Masthead(props: { live: boolean; theme: "dark" | "light"; onToggle: () 
   );
 }
 
-function Scoreboard(props: { recovered: string; rejected: string; decoys: string; errors: number }) {
+function Scoreboard(props: { recovered: string; rejected: string; decoys: string; errors: number; recoveredLabel: string; decoyLabel: string }) {
   const items = [
-    { num: props.recovered, lab: "known neurotoxicants recovered", tone: "var(--recovered)" },
+    { num: props.recovered, lab: props.recoveredLabel, tone: "var(--recovered)" },
     { num: props.rejected, lab: "negatives correctly rejected", tone: "var(--ink)" },
-    { num: props.decoys, lab: "bioactive decoys not fooled", tone: "var(--reject)" },
+    { num: props.decoys, lab: props.decoyLabel, tone: "var(--reject)" },
     { num: String(props.errors), lab: "false positives + false negatives", tone: "var(--signal)" },
   ];
   return (

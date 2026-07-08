@@ -143,3 +143,16 @@ a.cite-link:hover { border-color: var(--signal); color: var(--ink); }
 @media (prefers-reduced-motion: reduce) {
   * { animation-duration: 0.001ms !important; transition-duration: 0.001ms !important; }
 }
+
+/* PD vs AD comparison matrix */
+.cmp-row { display: grid; grid-template-columns: 1.1fr 1.25fr 1.25fr; gap: 0; border-top: 1px solid var(--line); }
+.cmp-row:first-child { border-top: none; }
+.cmp-head { background: color-mix(in srgb, var(--bg-2) 60%, transparent); }
+.cmp-dim { padding: 16px 18px; font-size: 13.5px; font-weight: 500; color: var(--ink); border-right: 1px solid var(--line); display: flex; align-items: center; }
+.cmp-cell { padding: 16px 18px; border-right: 1px solid var(--line); display: flex; flex-direction: column; justify-content: center; }
+.cmp-cell:last-child { border-right: none; }
+.cmp-bridge { padding: 16px 18px; border-top: 1px solid var(--line); background: color-mix(in srgb, var(--signal) 6%, transparent); }
+@media (max-width: 760px) {
+  .cmp-row { grid-template-columns: 1fr; }
+  .cmp-dim, .cmp-cell { border-right: none; }
+}

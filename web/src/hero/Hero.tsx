@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import * as THREE from "three";
-import type { Pathway, CompoundResult } from "@contract";
+import type { Pathway, CompoundResult, Disease } from "@contract";
 import { layoutPathway } from "./layout";
 import { pointVert, pointFrag, edgeVert, edgeFrag } from "./shaders";
 
@@ -398,8 +398,9 @@ const SHORT_LABEL: Record<string, string> = {
   "896": "parkinsonian deficits",
 };
 
-export function Hero({ pathway, result, height = 460 }: { pathway: Pathway; result: CompoundResult | null; height?: number }) {
+export function Hero({ pathway, result, height = 460, disease = "pd" }: { pathway: Pathway; result: CompoundResult | null; height?: number; disease?: Disease }) {
   const [caption, setCaption] = useState<string>("");
+  const anchorLabel = disease === "ad" ? "AOP-12" : "AOP-3";
   const mode = modeOf(result);
   const labelRefs = useRef<(HTMLDivElement | null)[]>([]);
   return (
@@ -426,7 +427,7 @@ export function Hero({ pathway, result, height = 460 }: { pathway: Pathway; resu
       <div style={{ position: "absolute", left: 20, bottom: 18, display: "flex", alignItems: "center", gap: 10, pointerEvents: "none" }}>
         <span className={`chip ${mode === "recover" ? "recovered" : mode === "reject" ? "reject" : "signal"}`}>
           <span className="dot" />
-          {result ? result.compound.name : "AOP-3"}
+          {result ? result.compound.name : anchorLabel}
         </span>
         <span className="mono" style={{ fontSize: 13, color: "var(--ink-dim)" }}>{caption}</span>
       </div>

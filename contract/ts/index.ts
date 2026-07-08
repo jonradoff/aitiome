@@ -6,13 +6,40 @@ export const CONTRACT_VERSION = "1.2.0";
 
 export type Role = "positive" | "negative";
 
+// Disease axis. PD is the endorsed, validated anchor; AD is a second axis on a
+// weaker (partly endorsed) scaffold — honesty via calibration, not less rigor.
+export type Disease = "pd" | "ad";
+
 export type ConfidenceTier =
   | "assay_mechanism_recovered"
   | "curated_anchored_only"
   | "adversarial_negative"
   | "clean_negative"
   | "weak_negative"
-  | "analogy_only";
+  | "analogy_only"
+  // AD tiers
+  | "curated_anchored_ad"
+  | "curated_anchored_ad_contested"
+  | "aop_anchored_ad"
+  | "model_toxin_ad";
+
+export interface DiseaseInfo {
+  disease: Disease;
+  label: string;
+  short: string;
+  anchorAop: string;
+  anchorEndorsed: boolean;
+  note: string;
+  compoundCount: number;
+}
+
+export interface DiseaseVerdict {
+  disease: Disease;
+  label: string;
+  call: "positive" | "negative";
+  confidenceTier?: ConfidenceTier;
+  rationale?: string;
+}
 
 export type EngineMode = "validation" | "discovery";
 export type EventRole = "MIE" | "KE" | "AO";
@@ -99,6 +126,7 @@ export interface Corroboration {
 
 export interface RecoveryDecision {
   call: "positive" | "negative";
+  disease?: Disease;
   predicate: RecoveryPredicate;
   diagnostic: boolean;
   gatedOnAssay: boolean;
@@ -161,6 +189,7 @@ export interface TraceEvent {
 
 export interface CompoundResult {
   mode: EngineMode;
+  disease?: Disease;
   compound: Compound;
   role: Role;
   confidenceTier: ConfidenceTier;
@@ -169,6 +198,7 @@ export interface CompoundResult {
   strands?: EvidenceStrand[];
   rejection?: Rejection;
   trace?: TraceEvent[];
+  crossDisease?: DiseaseVerdict[];
 }
 
 export interface ValidationSummary {
