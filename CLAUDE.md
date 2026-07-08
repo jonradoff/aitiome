@@ -12,6 +12,17 @@ Private repo `jonradoff/aitiome`. A **falsification harness** (`make validate`, 
 the anti-diagnostic claim: bioactivity is at-or-below-chance vs the adversarial decoys while the curated
 rule is perfect. Red-team findings and open critiques (esp. circularity) are logged in `learnings.md`.
 
+**Round-2 literature scan + TCE (2026-07-08):** a second deep-research pass (`docs/research/round2-literature-scan.md`)
+added **trichloroethylene** as the **13th** curated PD positive (verified CTD-PD DirectEvidence; Camp Lejeune,
+Goldman 2023) — PD is now **13/13** (28 compounds); the **Grandjean & Landrigan 2014** independent neurotoxicant
+vote; **real AD epidemiology** (contested items flagged); and the **AD source-independence ablation** (honest:
+AD leans ~11/12 on CTD, weaker circularity than PD). **Principled exclusions** (what we deliberately DON'T use +
+why) are logged in `docs/excluded-sources.md` — a credibility asset for the report. Sharpening to remember:
+pre-empt the "ML=90% AUROC" pushback via **Mack 2024** (ToxCast ~40% neural-relevant); don't claim first-mover on
+AOP-network mapping (**Spinu NT-AOPn 2019**); neuroinflammation is *shared* PD/AD. Positioning: **PROTON** (Zitnik,
+2025) is the discovery-predictor foil; **ToxReason/ES&T 2024** support the grounded approach. Open recon flags
+(need Jon sign-off): PD AOP-network 587/593; whether the AOP leg should recognize it.
+
 **Second disease axis — Alzheimer's (2026-07-08, live):** the engine is now **per-disease** (PD + AD;
 `?disease=ad`, `/diseases`, MCP `disease` param). PD stays byte-identical; AD runs the *identical*
 curated-diagnostic predicate (ADR-0005, "Option B": PD keeps the broad neuro-AOP leg, AD scopes the AOP
