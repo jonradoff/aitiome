@@ -68,3 +68,31 @@ decoys that every activity/similarity method fails (quantified above), and (2) t
 **discovery-is-a-map** result. We should state this plainly in the app and the pitch, and
 we are surfacing the falsification benchmark so the "just bioactivity" critique is answered
 on screen, not in a footnote. (Tracked for the red-team UI section.)
+
+## 2026-07-08 - Alzheimer's second axis: what the deep research changed
+
+Jon directed a second disease axis (AD), equal rigor to PD. Key learnings:
+
+- **We had NOT turned up everything (Jon's instinct was right).** My plan first asserted "no endorsed
+  AD AOP." The Day-0 deep-research scan (`docs/research/ad-aop-literature-scan.md`) corrected it:
+  **AOP-12 and AOP-48 are WPHA/WNT-endorsed** and AD-relevant (AOP-12 registers **lead** as a stressor
+  and invokes amyloid/tau/neuroinflammation), and **KE-188 (neuroinflammation) is the identical node**
+  bridging PD AOP-3 and AD AOP-429. Lesson: re-interrogate the literature before locking a scaffold.
+- **PD's AOP leg was disease-agnostic all along.** The recon predicate "registered neuro-AOP stressor"
+  is implemented as membership in *any* neuro-AOP. 3 PD positives (manganese, methylmercury, lead) are
+  recovered only via non-parkinsonian AOPs — lead only via AOP-12 (the AD one!). Making it strictly
+  disease-scoped (Option A) would drop PD to ~9/12 → contradicts the validated result. We chose **Option B**
+  (ADR-0005): keep PD's broad leg (byte-identical), scope only AD. Flagged, not worked around silently.
+- **Equivalent rigor exposed real AD-specific wrinkles.** Applying PD's exact predicate to CTD-AD showed
+  its `marker/mechanism` set is heavy with **endogenous metabolites** (D-glucose — our PD *inert negative*!
+  — plus oxysterols, homocysteine, ROS). Scope rule (applied to both diseases): benchmark positives =
+  environmental xenobiotics; endogenous molecules documented + excluded, not silently dropped. Also
+  **lithium** was dropped as a proposed decoy because checking the data (not assuming) showed it's CTD-AD
+  curated. Rigor = check, don't assume.
+- **Honesty is calibration, not less effort.** AD is a full first-class arm (engine, validation, hero,
+  MCP), but its confidence/endorsement is calibrated below PD, and the **compare matrix** shows AD's
+  genuinely weaker dimensions (no quantified falsification yet, weaker circularity defense, thinner data)
+  rather than hiding them. Faking a symmetric "AD 12/12 + AUROC" would have been the real failure.
+- **Open (honest gaps):** AD quantified falsification (assay-AUROC) needs AD-specific assay data — we
+  report the gap, don't fabricate a score. Mitochondrial dysfunction is an *unlinked* node PD↔AD
+  (KE-177 vs AOP-429 placeholder KE-1816 "EMPTY", cf. Jaylet 2024) — surfaced as discovery-map material.

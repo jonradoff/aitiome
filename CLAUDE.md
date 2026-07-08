@@ -6,11 +6,22 @@
 > The reconnaissance is **settled input**. Never silently contradict a recon finding — if you think one
 > should be revisited, **stop and flag it to Jon**, don't work around it.
 
-**Current state (2026-07-07):** engine + hero + panels + Claude evidence-reasoner shipped; deployed live
-at https://aitiome.fly.dev (single Go binary serves web + `/api/*` + MCP sibling). Contract at v1.1.0.
+**Current state (2026-07-08):** engine + hero + panels + Claude evidence-reasoner shipped; deployed live
+at https://aitiome.fly.dev (single Go binary serves web + `/api/*` + MCP sibling). Contract at **v1.2.0**.
 Private repo `jonradoff/aitiome`. A **falsification harness** (`make validate`, `/benchmark`) quantifies
 the anti-diagnostic claim: bioactivity is at-or-below-chance vs the adversarial decoys while the curated
 rule is perfect. Red-team findings and open critiques (esp. circularity) are logged in `learnings.md`.
+
+**Second disease axis — Alzheimer's (2026-07-08, live):** the engine is now **per-disease** (PD + AD;
+`?disease=ad`, `/diseases`, MCP `disease` param). PD stays byte-identical; AD runs the *identical*
+curated-diagnostic predicate (ADR-0005, "Option B": PD keeps the broad neuro-AOP leg, AD scopes the AOP
+leg to AD AOPs {12,48,429,475}). AD basis = **real curated CTD-AD DirectEvidence** (MeSH D000544;
+`scripts/pull-ctd-ad.sh`) + endorsed AOP-12/48 anchor; honesty is by **calibration, not less rigor**
+(endorsement/tier surfaced; AD's weaker spots shown in the UI **compare matrix**). Plan `docs/ad-extension-plan.md`,
+research `docs/research/ad-aop-literature-scan.md`, decision `docs/decisions/0005-ad-axis.md`. **Do NOT
+re-anchor AD on PD AOPs or gate AD on assay** — same discipline as PD. Cross-disease: lead is positive for
+both (PD broad leg / AD AOP-12). Open: AD quantified falsification (AUROC) is pending AD-assay data — not
+fabricated; AD hero palette + convergent-evidence strands are follow-ups.
 
 ## Identity & the three win conditions
 
