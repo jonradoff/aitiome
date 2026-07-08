@@ -403,8 +403,15 @@ export function Hero({ pathway, result, height = 460, disease = "pd" }: { pathwa
   const anchorLabel = disease === "ad" ? "AOP-12" : "AOP-3";
   const mode = modeOf(result);
   const labelRefs = useRef<(HTMLDivElement | null)[]>([]);
+  // AD gets a warm tint (vs PD's cool) so the axis reads instantly; the cascade
+  // itself is the AOP-12 microglia spine (grounding swapped at the engine level).
+  const ad = disease === "ad";
+  const border = ad ? "color-mix(in srgb, var(--signal) 38%, var(--line))" : "var(--line)";
+  const bg = ad
+    ? "radial-gradient(120% 100% at 20% 10%, #17140d 0%, #0a0906 72%)"
+    : "radial-gradient(120% 100% at 20% 10%, #0f151d 0%, #090b0f 70%)";
   return (
-    <div className="hero-canvas" style={{ position: "relative", height, borderRadius: 14, overflow: "hidden", border: "1px solid var(--line)", background: "radial-gradient(120% 100% at 20% 10%, #0f151d 0%, #090b0f 70%)" }}>
+    <div className="hero-canvas" style={{ position: "relative", height, borderRadius: 14, overflow: "hidden", border: `1px solid ${border}`, background: bg }}>
       <Canvas camera={{ position: [0, 0.4, 20.5], fov: 40 }} dpr={[1, 2]} gl={{ antialias: true }}>
         <ExposomeField />
         <Cascade pathway={pathway} result={result} onStep={setCaption} labelRefs={labelRefs} />
