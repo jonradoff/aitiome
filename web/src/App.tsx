@@ -435,31 +435,37 @@ function Stat({ n, l, tone }: { n: string; l: string; tone: string }) {
 
 function SearchBox(props: { disease: Disease; onResolve: (name: string) => void }) {
   const [q, setQ] = useState("");
-  const [note, setNote] = useState<{ text: string; ok: boolean } | null>(null);
+  const [busy, setBusy] = useState(false);
+  const [note, setNote] = useState<{ text: string; kind: "ok" | "warn" } | null>(null);
+  const dz = props.disease === "ad" ? "Alzheimer's" : "Parkinson's";
 
   async function run() {
     const id = q.trim();
-    if (!id) return;
-    const c = await resolveCompound(id);
+    if (!id || busy) return;
+    setBusy(true);
+    setNote(null);
+    const c = await resolveCompound(id, props.disease);
+    setBusy(false);
     if (c) {
       props.onResolve(c.name);
-      const salt = c.toxcastCas && c.toxcastCas !== c.cas ? ` / tested as CAS ${c.toxcastCas}` : "";
-      setNote({ text: `resolved to ${c.name} (${c.dtxsid})${salt}`, ok: true });
+      const salt = c.toxcastCas && c.toxcastCas !== c.cas ? ` · tested as CAS ${c.toxcastCas}` : "";
+      setNote({ text: `✓ Resolved → ${c.name} · ${c.dtxsid || "identity pending"}${salt}. The assessment is below.`, kind: "ok" });
     } else {
-      // Not in the PD resolver index; still assess it on the selected axis.
-      props.onResolve(id);
-      setNote({ text: `assessing "${id}" on the ${props.disease === "ad" ? "Alzheimer's" : "Parkinson's"} axis`, ok: true });
+      setNote({
+        text: `"${id}" is not in the curated benchmark. Aitiome grades only compounds with curated evidence — its ground-truth set (a chip below). Identity resolution accepts a name, CAS, DTXSID or InChIKey of a benchmark compound — e.g. paraquat's dichloride salt, CAS 1910-42-5, resolves to paraquat.`,
+        kind: "warn",
+      });
     }
   }
 
   return (
-    <div style={{ display: "flex", flexDirection: "column", gap: 8, maxWidth: 620 }}>
+    <div style={{ display: "flex", flexDirection: "column", gap: 8, maxWidth: 720 }}>
       <div style={{ display: "flex", gap: 8 }}>
         <input
           value={q}
           onChange={(e) => setQ(e.target.value)}
           onKeyDown={(e) => e.key === "Enter" && run()}
-          placeholder="Resolve a chemical: name, CAS, DTXSID, or InChIKey"
+          placeholder="Resolve a chemical by name, CAS, DTXSID, or InChIKey"
           aria-label="Resolve a chemical"
           className="mono"
           style={{
@@ -470,11 +476,15 @@ function SearchBox(props: { disease: Disease; onResolve: (name: string) => void 
           onFocus={(e) => (e.currentTarget.style.borderColor = "var(--signal)")}
           onBlur={(e) => (e.currentTarget.style.borderColor = "var(--line-2)")}
         />
-        <button className="btn primary" onClick={run}>Resolve</button>
+        <button className="btn primary" onClick={run} disabled={busy} style={{ opacity: busy ? 0.7 : 1, minWidth: 96 }}>
+          {busy ? "Resolving…" : "Resolve"}
+        </button>
       </div>
-      {note && (
-        <span className="mono" style={{ fontSize: 11.5, color: note.ok ? "var(--recovered)" : "var(--ink-faint)" }}>
-          {note.text}
+      {note ? (
+        <span style={{ fontSize: 12, lineHeight: 1.45, color: note.kind === "ok" ? "var(--recovered)" : "var(--uncertain)" }}>{note.text}</span>
+      ) : (
+        <span className="faint" style={{ fontSize: 11.5, lineHeight: 1.4 }}>
+          Maps any identifier to the one salt-form-correct benchmark record (DTXSID-first), then grades it on the {dz} axis. This is identity resolution over the curated ground truth — not open-ended assessment of arbitrary chemicals.
         </span>
       )}
     </div>

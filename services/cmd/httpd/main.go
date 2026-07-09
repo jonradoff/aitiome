@@ -75,7 +75,7 @@ func apiMux(svc *aitio.Service) *http.ServeMux {
 	})
 	mux.HandleFunc("GET /resolve", func(w http.ResponseWriter, r *http.Request) {
 		id := r.URL.Query().Get("id")
-		c, ok := svc.Resolve(r.Context(), id)
+		c, ok := svc.ResolveDisease(r.Context(), id, disease(r))
 		if !ok {
 			writeJSON(w, http.StatusNotFound, map[string]string{"error": "unresolved identifier: " + id})
 			return

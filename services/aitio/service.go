@@ -162,3 +162,25 @@ func (s *Service) Resolve(ctx context.Context, id string) (contract.Compound, bo
 	}
 	return s.compounds[i], true
 }
+
+// ResolveDisease resolves an identifier within a disease's ground-truth set,
+// falling back to the other axis so any benchmark compound resolves regardless
+// of the selected disease. Returns ok=false only if the identifier is not in the
+// curated benchmark at all.
+func (s *Service) ResolveDisease(ctx context.Context, id string, d contract.Disease) (contract.Compound, bool) {
+	if !d.Valid() {
+		d = contract.DiseasePD
+	}
+	if i := s.resolverFor(d).resolve(id); i >= 0 {
+		return s.compoundsFor(d)[i], true
+	}
+	// fall back to the other axis's identity
+	other := contract.DiseasePD
+	if d == contract.DiseasePD {
+		other = contract.DiseaseAD
+	}
+	if i := s.resolverFor(other).resolve(id); i >= 0 {
+		return s.compoundsFor(other)[i], true
+	}
+	return contract.Compound{}, false
+}
