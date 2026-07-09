@@ -52,7 +52,7 @@ function shotSlide(name, eyebrowText, title, callouts) {
 slide("title", `
   <div class="mark">${FAVICON}</div>
   <h1 class="big">Aitiome</h1>
-  <p class="lede">An honest mechanistic-reasoning engine for the environmental exposome of neurodegeneration.</p>
+  <p class="lede">A mechanistic reasoning engine for the environmental exposome of neurodegeneration.</p>
   <p class="tag mono">It recovers the real ones, resolves to the real neurons, and isn't fooled by the imposters.</p>
   <div class="urls mono"><span>aitiome.fly.dev</span><span class="dot">/</span><span>Built with Claude: Life Sciences</span></div>
   ${foot(N())}`);
@@ -94,7 +94,7 @@ slide("", `${eyebrow("What we set out to build")}${h("A discovery engine for nov
   </div>${foot(N())}`);
 
 // 5 - the pivot
-slide("", `${eyebrow("The honest pivot")}${h("The evidence redirected us")}
+slide("", `${eyebrow("The evidence-driven pivot")}${h("The evidence redirected us")}
   <div class="two">
     <div class="card"><div class="k mono">Finding 1</div><p>No shippable unsupervised-discovery
     signal exists for this chemical class on public data. Seven independent axes tested; all
@@ -103,7 +103,7 @@ slide("", `${eyebrow("The honest pivot")}${h("The evidence redirected us")}
     <b>curated mechanism</b>, not assay activity. Bioactivity scores <b>worse than chance</b> against
     the decoys.</p></div>
   </div>
-  <p class="pull">So we built the thing the data supports - and made the honesty the contribution.</p>
+  <p class="pull">So we built the thing the data supports - and made that discipline the contribution.</p>
   ${foot(N())}`);
 
 // 6 - what it is (goals)
@@ -111,7 +111,7 @@ slide("", `${eyebrow("What Aitiome is")}${h("Three co-equal goals")}
   <div class="three">
     <div class="card"><div class="num c">01</div><b>Validation that works</b><p class="dim">Recover the known neurotoxicants on the endorsed pathway; reject the adversarial decoys.</p></div>
     <div class="card"><div class="num g">02</div><b>A signature visualization</b><p class="dim">The recovery-and-specificity reveal resolving into the vulnerable dopaminergic neurons.</p></div>
-    <div class="card"><div class="num c">03</div><b>Honest, calibrated framing</b><p class="dim">Confidence tiers on every result; the discovery limits shown, not hidden.</p></div>
+    <div class="card"><div class="num c">03</div><b>Calibrated framing</b><p class="dim">Confidence tiers on every result; the discovery limits shown, not hidden.</p></div>
   </div>${foot(N())}`);
 
 // 7 - recovery rule
@@ -190,7 +190,7 @@ shotSlide("falsification", "Not a slide - computed live from our own data", "The
 ]);
 
 // 13 - discovery map
-slide("", `${eyebrow("The honest part")}${h("Where AI-driven discovery works, and where it does not")}
+slide("", `${eyebrow("The limits, mapped")}${h("Where AI-driven discovery works, and where it does not")}
   <div class="grid7">
     ${axis("LINCS L1000", "coverage-killed")}
     ${axis("EPA HTTr", "coverage-killed")}
@@ -201,20 +201,20 @@ slide("", `${eyebrow("The honest part")}${h("Where AI-driven discovery works, an
     ${axis("Neural-specific subset", "qualified lead", true)}
     ${axis("Boltz-2 Q-site", "conditional lead", true)}
   </div>
-  <p class="dim">Seven axes coverage- or confounder-killed. Two honest, unproven leads remain (reported with explicit N). Discovery is a map, never a predictor.</p>
+  <p class="dim">Seven axes coverage- or confounder-killed. Two unproven leads remain (reported with explicit N). Discovery is a map, never a predictor.</p>
   ${foot(N())}`);
 
 // 13d - second axis: Alzheimer's
-slide("", `${eyebrow("A second axis, the same discipline")}${h("Alzheimer's — honestly calibrated below Parkinson's")}
+slide("", `${eyebrow("A second axis, the same discipline")}${h("Alzheimer's — calibrated below Parkinson's")}
   <div class="two">
     <div class="card"><div class="k mono">The AD arm</div><p>The identical curated-diagnostic engine, anchored on the <b>endorsed AOP-12/48</b> (aging neurodegeneration + memory; registered stressor: lead) with a non-endorsed Tau/amyloid overlay. Recovers curated AD-linked chemicals (DDE, cadmium, lead), rejects the imposters, and resolves into disease-associated microglia (TREM2/APOE).</p></div>
     <div class="card recovered"><div class="k mono">The decoys are the treatments</div><p>The compounds most active on AD assays are the anti-amyloid <b>drugs</b> (donepezil, methylene blue) and dietary <b>polyphenols</b> (curcumin, EGCG). An activity model would flag the cure. Aitiome does not - no curated causation.</p></div>
   </div>
-  <p class="pull">Honesty by calibration, not by less rigor.</p>
+  <p class="pull">Same rigor; confidence calibrated to the evidence.</p>
   ${foot(N())}`);
 
 // 13e - the two axes compared
-slide("dark", `${eyebrow("The two axes, compared")}${h("The same method. Honestly calibrated.")}
+slide("dark", `${eyebrow("The two axes, compared")}${h("The same method, calibrated to the evidence.")}
   <div class="cmp">
     <div class="cmphead"><div class="cmpd mono faint">dimension</div><div class="cmpc"><b class="c">Parkinson's</b></div><div class="cmpc"><b class="g">Alzheimer's</b></div></div>
     ${cmp("Scaffold (OECD)", "AOP-3 endorsed; EFSA-expanding complex I-IV family", 3, "AOP-12/48 endorsed + non-endorsed overlay", 2)}
@@ -223,14 +223,14 @@ slide("dark", `${eyebrow("The two axes, compared")}${h("The same method. Honestl
     ${cmp("Circularity defense", "two curations converge (9/13 + 8/13)", 3, "leans on CTD alone (~11/12)", 1)}
     ${cmp("Human epidemiology", "quantified (paraquat 2.5x, rotenone OR ~10)", 3, "DDE OR 4.18; aluminum contested", 2)}
   </div>
-  <p class="dim small">Shared: KE-188 neuroinflammation bridges both AOPs; lead is positive for both; mitochondrial dysfunction is an honest unlinked gap.</p>
+  <p class="dim small">Shared: KE-188 neuroinflammation bridges both AOPs; lead is positive for both; mitochondrial dysfunction is an unlinked gap, shown not hidden.</p>
   ${foot(N())}`);
 
 // 13f - positioning vs prior art
 slide("", `${eyebrow("Where we sit")}${h("The field predicts. We validate.")}
   <div class="two">
     <div><b class="c">The landscape</b><p class="dim">Graph-AI (PROTON, 2025) and read-across (GenRA) predict <i>novel</i> toxic chemicals from structure and bioactivity; a wave of LLM-for-AOP work is emerging.</p></div>
-    <div><b class="g">Aitiome's inversion</b><p class="dim">Recover the <i>known</i> neurotoxicants on the endorsed scaffold, grade only on curated evidence, and prove via adversarial falsification that bioactivity is anti-diagnostic - the honest counterweight, and a direct answer to the hallucination warnings (ToxReason, ES&T 2024) the LLM-AOP wave raises.</p></div>
+    <div><b class="g">Aitiome's inversion</b><p class="dim">Recover the <i>known</i> neurotoxicants on the endorsed scaffold, grade only on curated evidence, and prove via adversarial falsification that bioactivity is anti-diagnostic - the validating counterweight, and a direct answer to the hallucination warnings (ToxReason, ES&T 2024) the LLM-AOP wave raises.</p></div>
   </div>
   <p class="pull">We found no prior adversarial mito-active-decoy neurodegeneration benchmark.</p>
   ${foot(N())}`);
@@ -301,12 +301,12 @@ slide("", `${eyebrow("How it's built, and how it extends")}${h("Deterministic co
 slide("", `${eyebrow("What we learned along the way")}${h("Challenges, and what they taught us")}
   <div class="two">
     <ul class="list">
-      <li><b>Novelty was the wrong optimization.</b> Five prior-art scans found the whole design space already published - so we built the validated prototype the field called for, honestly positioned.</li>
+      <li><b>Novelty was the wrong optimization.</b> Five prior-art scans found the whole design space already published - so we built the validated prototype the field called for, and positioned it accurately.</li>
       <li><b>Bioactivity is anti-diagnostic.</b> The deepest surprise: on our own data it scores worse than chance against the decoys. Activity cannot be the discriminator.</li>
     </ul>
     <ul class="list">
       <li><b>Identity correctness is day one.</b> The paraquat salt-form trap silently returns "no data" and corrupts everything downstream.</li>
-      <li><b>Our own test harness caught our own overclaim.</b> A red-team test we wrote failed, and forced the honest, stronger statement. Ground claims in executable evidence.</li>
+      <li><b>Our own test harness caught our own overclaim.</b> A red-team test we wrote failed, and forced the stronger, evidence-based statement. Ground claims in executable evidence.</li>
     </ul>
   </div>${foot(N())}`);
 
@@ -314,7 +314,7 @@ slide("", `${eyebrow("What we learned along the way")}${h("Challenges, and what 
 slide("dark", `${eyebrow("The takeaways")}${h("What this hackathon produced")}
   <div class="three">
     <div class="card"><b class="c">A result that holds</b><p class="dim">Recovery works (13/13 PD; 12/12 AD), specificity is proven by falsification (bioactivity at or below chance), and the discovery limits are mapped, not hidden.</p></div>
-    <div class="card"><b class="g">Honesty as the edge</b><p class="dim">For a mechanism-first audience, a calibrated, auditable engine beats an overclaimed watchlist. Every claim is cited to its source.</p></div>
+    <div class="card"><b class="g">Calibration as the edge</b><p class="dim">For a mechanism-first audience, a calibrated, auditable engine beats an overclaimed watchlist. Every claim is cited to its source.</p></div>
     <div class="card"><b class="c">Shipped, live, reproducible</b><p class="dim">Built end to end on Claude, deterministic where it must be, running at aitiome.fly.dev with an MCP interface for agents.</p></div>
   </div>${foot(N())}`);
 
@@ -337,7 +337,7 @@ slide("", `${eyebrow("Said before you ask")}${h("Limitations and next steps")}
 slide("title", `
   <div class="mark">${FAVICON}</div>
   <h1 class="big2">Less flashy than the original pitch.<br/>Far more trustworthy.</h1>
-  <p class="lede">Validated recovery, adversarial specificity proven by falsification, and an honest map of the limits - for a mechanism-first audience, that is the point.</p>
+  <p class="lede">Validated recovery, adversarial specificity proven by falsification, and a mapped account of the limits - for a mechanism-first audience, that is the point.</p>
   <div class="urls mono"><span>aitiome.fly.dev</span><span class="dot">/</span><span>github.com/jonradoff/aitiome</span></div>
   ${foot(N())}`);
 

@@ -43,8 +43,8 @@ const TOUR: { cap: string; d?: Disease; a?: string; decoy?: string; scroll: stri
   { cap: "Recover a known neurotoxicant on the OECD-endorsed pathway.", d: "pd", a: "rotenone", scroll: "sec-hero" },
   { cap: "...and reject a bioactive imposter — no curated cause, so no call.", d: "pd", decoy: "warfarin", scroll: "sec-specificity" },
   { cap: "Why not just bioactivity? Every activity signal is at or below chance vs the decoys.", d: "pd", scroll: "sec-falsification" },
-  { cap: "A second disease, same method — Alzheimer's, honestly calibrated below Parkinson's.", d: "ad", a: "DDE", scroll: "sec-compare" },
-  { cap: "Grounded in the mechanistic literature — and honest about what we refuse to use.", scroll: "sec-convergence" },
+  { cap: "A second disease, same method — Alzheimer's, calibrated below Parkinson's where the evidence is thinner.", d: "ad", a: "DDE", scroll: "sec-compare" },
+  { cap: "Grounded in the mechanistic literature — and explicit about what we refuse to use.", scroll: "sec-convergence" },
 ];
 
 export function App() {
@@ -109,18 +109,22 @@ export function App() {
 
       <main>
         <section id="sec-hero" className="wrap" style={{ paddingTop: 34, paddingBottom: 30 }}>
-          <div style={{ maxWidth: 800 }}>
-            <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 16 }}>
-              <p className="eyebrow" style={{ margin: 0 }}>Mechanistic reasoning engine</p>
-              <button
-                onClick={() => setAboutOpen(true)}
-                title="Background & citations"
-                aria-label="Background and citations"
-                style={{ width: 20, height: 20, borderRadius: 999, border: "1px solid var(--line-2)", background: "var(--bg-3)", color: "var(--ink-dim)", fontSize: 12, cursor: "pointer", lineHeight: "1", padding: 0, flex: "none" }}
-              >?</button>
-            </div>
-            <h1 style={{ fontSize: "clamp(26px, 3.5vw, 42px)", maxWidth: "22ch" }}>{cfg.headline}</h1>
-          </div>
+          <p className="eyebrow" style={{ marginBottom: 14 }}>The environmental exposome of neurodegeneration</p>
+          <h1 style={{ fontSize: "clamp(34px, 5.2vw, 58px)", letterSpacing: "-0.02em", lineHeight: 1.05, margin: 0 }}>
+            A <span style={{ color: "var(--signal)" }}>mechanistic reasoning engine</span>.
+          </h1>
+          <p className="dim" style={{ fontSize: "clamp(16px, 1.8vw, 20px)", lineHeight: 1.5, maxWidth: "74ch", marginTop: 18 }}>
+            {cfg.headline}
+          </p>
+          <button
+            onClick={() => setAboutOpen(true)}
+            className="btn"
+            aria-label="What is a mechanistic reasoning engine? Background and citations"
+            style={{ marginTop: 18, display: "inline-flex", alignItems: "center", gap: 9, padding: "8px 15px", fontSize: 13.5 }}
+          >
+            <span style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", width: 18, height: 18, borderRadius: 999, border: "1px solid var(--signal)", color: "var(--signal)", fontSize: 11, flex: "none" }}>?</span>
+            What is a mechanistic reasoning engine?
+          </button>
 
           <div style={{ marginTop: 26 }}>
             <SearchBox disease={disease} onResolve={setActiveId} />
@@ -297,10 +301,10 @@ function DiseaseFilter(props: { diseases: DiseaseInfo[]; active: Disease; onSele
 }
 
 // CompareSection is the head-to-head PD vs AD view — the "equivalent rigor,
-// honest calibration" thesis made explicit. Recovery numbers are live; the other
+// evidence-based calibration thesis made explicit. Recovery numbers are live; the other
 // rows are calibrated statements with a 0-3 strength rating so AD's genuinely
 // weaker dimensions (quantified falsification, circularity defense, data breadth)
-// are shown, not hidden. This is the honesty centerpiece for a two-axis engine.
+// are shown, not hidden. This is the calibration centerpiece for a two-axis engine.
 function CompareSection() {
   const pd = useAsync(() => getValidation("pd"), []);
   const ad = useAsync(() => getValidation("ad"), []);
@@ -322,7 +326,7 @@ function CompareSection() {
     <div>
       <p className="eyebrow" style={{ marginBottom: 12 }}>The two axes, compared</p>
       <h2 style={{ fontSize: "clamp(22px,2.6vw,30px)", maxWidth: "22ch", marginBottom: 8 }}>
-        The same method. Honestly calibrated.
+        The same method, calibrated to the evidence.
       </h2>
       <p className="dim" style={{ fontSize: 15, maxWidth: "70ch", marginBottom: 22 }}>
         Alzheimer's runs through the identical curated-diagnostic engine as Parkinson's. Where AD is
@@ -366,7 +370,7 @@ function CmpCell({ text, strength, tone }: { text: string; strength: number; ton
   );
 }
 
-// ADFalsificationNote: AD's honest specificity story. Two real, quantified pieces
+// ADFalsificationNote: AD specificity story. Two real, quantified pieces
 // (the source-independence ablation, computed live from the AD validation predicate)
 // + the qualitative decoy trap, and an explicit statement of the one gap (assay-AUROC)
 // with WHY it's structurally hard (Mack 2024) rather than a fabricated number.
@@ -379,7 +383,7 @@ function ADFalsificationNote({ data }: { data: ValidationResult | null }) {
   const fp = negs.filter((r) => r.recovery.call === "positive").length;
   return (
     <div>
-      <p className="eyebrow" style={{ marginBottom: 12 }}>The falsification, Alzheimer's — honestly weaker</p>
+      <p className="eyebrow" style={{ marginBottom: 12 }}>The falsification, Alzheimer's — weaker, and shown</p>
       <h2 style={{ fontSize: "clamp(22px,2.6vw,30px)", maxWidth: "24ch", marginBottom: 14 }}>The decoys are the treatments</h2>
       <div className="two-col" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16 }}>
         <div className="panel" style={{ padding: "20px 22px" }}>
@@ -394,7 +398,7 @@ function ADFalsificationNote({ data }: { data: ValidationResult | null }) {
                 <Stat n={`${union}/${pos.length}`} l="the rule" tone="var(--signal)" />
               </div>
               <p className="dim" style={{ fontSize: 13.5, marginTop: 14, marginBottom: 0 }}>
-                Honest result: AD recovery leans <b>almost entirely on CTD curation</b> — the endorsed AD-AOP
+                The result: AD recovery leans <b>almost entirely on CTD curation</b> — the endorsed AD-AOP
                 leg contributes only {aop} (lead, via AOP-12). So unlike Parkinson's, this is <b>not</b> two
                 strong independent curations converging. We show it rather than claim it. Still <b>{fp}/{negs.length}</b>
                 &nbsp;false positives — the decoys are rejected.

@@ -216,10 +216,10 @@ export function AboutModal({ onClose }: { onClose: () => void }) {
         </div>
         <h2 style={{ fontSize: 24, marginBottom: 16 }}>What Aitiome is, and why</h2>
         <div style={{ display: "flex", flexDirection: "column", gap: 14, fontSize: 14.5, lineHeight: 1.62, color: "var(--ink-dim)" }}>
-          <p><b style={{ color: "var(--ink)" }}>The problem.</b> Most Parkinson's and Alzheimer's is sporadic, not inherited. The leading suspect for the rest is the environmental exposome — the pesticides, metals, and industrial chemicals we're exposed to over a lifetime. In 2024 the field's leaders called for AI that connects chemicals to disease mechanism ({link("miller2024", "Miller et al., Nat Neurosci 2024")}).</p>
-          <p><b style={{ color: "var(--ink)" }}>Why it's hard.</b> Tens of thousands of chemicals are bioactive; almost none cause neurodegeneration. Activity-based screening flags everything that does something. On our own data, every bioactivity signal scores at or below chance against adversarial mitochondria-active decoys — it is anti-diagnostic here ({link("mack2024", "Mack et al. 2024")}).</p>
-          <p><b style={{ color: "var(--ink)" }}>What it does.</b> Given a chemical, Aitiome reconstructs the OECD-endorsed causal pathway to a neurodegeneration hallmark, grades it only on curated diagnostic evidence — curated CTD DirectEvidence ({link("ctd", "[CTD]")}) or a registered AOP stressor ({link("aopwiki", "[AOP-Wiki]")}), never on bioactivity — grounds each edge in queryable evidence, and rates its confidence. It runs per disease: Parkinson's and Alzheimer's, the identical machinery.</p>
-          <p><b style={{ color: "var(--ink)" }}>Honest by design.</b> It is a validation-and-calibration engine, not a novel-discovery predictor. It recovers the known neurotoxicants, rejects the imposters, quantifies the falsification, and maps the discovery limits it cannot cross — shown, not hidden. Alzheimer's is calibrated below Parkinson's where the evidence is genuinely thinner.</p>
+          <p><b style={{ color: "var(--ink)" }}>The problem.</b> Most Parkinson's and Alzheimer's is sporadic: inherited monogenic causes explain only a minority of risk — common-variant heritability is roughly 16–36% for Parkinson's ({link("nalls2019", "Nalls et al. 2019")}; {link("bloem2021", "Bloem et al. 2021")}) and the large majority of Alzheimer's is late-onset and polygenic ({link("bellenguez2022", "Bellenguez et al. 2022")}). Environmental exposure is a major, growing focus for the rest — pesticides, metals, solvents, and air pollution have been associated with both diseases ({link("dorsey2025", "Dorsey 2025")}; {link("lefevre2024", "Lefèvre-Arbogast et al. 2024")}), and the 2024 Lancet Commission attributes a large share of dementia to modifiable, largely environmental factors ({link("livingston2024", "Livingston et al. 2024")}). In 2024 the field called for AI that connects chemicals to disease mechanism ({link("miller2024", "Miller et al. 2024")}).</p>
+          <p><b style={{ color: "var(--ink)" }}>Why it's hard.</b> Tens of thousands of chemicals are bioactive in assays, yet only a small, curated set are established human neurotoxicants ({link("grandjean2014", "Grandjean & Landrigan 2014")}). Activity-based screening does not separate them: high-throughput assays cover only ~40% of neural-relevant targets and miss the oxidative-stress key events behind most neurotoxicity ({link("mack2024", "Mack et al. 2024")}). On our own validation set, every bioactivity signal scores at or below chance against adversarial mitochondria-active decoys — it is anti-diagnostic here.</p>
+          <p><b style={{ color: "var(--ink)" }}>Aitiome is a mechanistic reasoning engine.</b> Given a chemical, it reconstructs the OECD-endorsed causal pathway to a neurodegeneration hallmark, grades it only on curated diagnostic evidence — curated CTD DirectEvidence ({link("ctd", "CTD")}) or a registered AOP stressor ({link("aopwiki", "AOP-Wiki")}), never on bioactivity — grounds each edge in queryable evidence, and rates its confidence. It runs per disease: Parkinson's and Alzheimer's, the identical machinery.</p>
+          <p><b style={{ color: "var(--ink)" }}>Evidence-based, and calibrated.</b> It is a validation-and-calibration engine, not a novel-discovery predictor. It recovers the known neurotoxicants, rejects the imposters, quantifies the falsification, and maps the discovery limits it cannot cross — shown, not hidden. Alzheimer's is calibrated below Parkinson's, where the evidence is thinner and the AD adverse-outcome pathways are not yet OECD-endorsed.</p>
         </div>
         <div className="hair" style={{ margin: "20px 0 14px" }} />
         <p className="faint" style={{ fontSize: 12.5, lineHeight: 1.5 }}>
@@ -358,7 +358,7 @@ export function ValidationPanel({ data, activeId, onSelect }: { data: Validation
   );
 }
 
-// ---- Honest discovery map ----
+// ---- Discovery map (negative results) ----
 function verdictMeta(v: string): { label: string; tone: string } {
   switch (v) {
     case "coverage_killed": return { label: "coverage-killed", tone: "var(--ink-faint)" };
@@ -373,7 +373,7 @@ function verdictMeta(v: string): { label: string; tone: string } {
 export function DiscoveryPanel({ map }: { map: DiscoveryMap }) {
   return (
     <div>
-      <SectionHead kicker="The honest part" title="Where AI-driven discovery works, and where it does not" />
+      <SectionHead kicker="The limits, mapped" title="Where AI-driven discovery works, and where it does not" />
       <p className="dim" style={{ fontSize: 16, maxWidth: "70ch", marginBottom: 26 }}>{map.headline}</p>
       <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(320px, 1fr))", gap: 12 }}>
         {map.axes.map((a: DiscoveryAxis) => {
@@ -581,7 +581,7 @@ export function AnticipatedCritiques() {
   const qa = [
     {
       q: "Isn't the recovery circular? The predicate and the positive labels draw on overlapping curated sources.",
-      a: "We address it directly above. Two INDEPENDENT curations converge on the positives (CTD 9/13, AOP-Wiki 8/13, together 13/13), neither alone suffices, and neither ever fires on a negative, so this is not one source read twice. The rule has no fitted parameters to overfit. And the decoys were selected for bioactivity, not curation status, so rejecting them is not baked in. Recovery is a sanity check; the contribution is the specificity and the honest discovery map.",
+      a: "We address it directly above. Two INDEPENDENT curations converge on the positives (CTD 9/13, AOP-Wiki 8/13, together 13/13), neither alone suffices, and neither ever fires on a negative, so this is not one source read twice. The rule has no fitted parameters to overfit. And the decoys were selected for bioactivity, not curation status, so rejecting them is not baked in. Recovery is a sanity check; the contribution is the specificity and the discovery-limits map.",
     },
     {
       q: "You're just detecting bioactivity.",
