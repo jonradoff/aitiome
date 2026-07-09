@@ -1,6 +1,6 @@
 {
     "disease": "pd",
-    "headline": "Chemicals with real but incomplete evidence, ranked by value-of-information \u2014 what a wet lab or curator should look at next. A triage queue, never a prediction.",
+    "headline": "Chemicals with real but incomplete evidence, ranked by evidence-weighted priority \u2014 what a wet lab or curator should look at next. A triage queue, never a prediction.",
     "weights": [
         {
             "line": "AOP",
@@ -159,12 +159,12 @@
             "score": 7.8,
             "promotion": "Clears on verification \u2014 registered AOP-587 stressor (complex III), pending in-scope confirmation of the EFSA 2024 PD AOP network.",
             "experiment": "Confirm AOP-587 is in-scope for the PD network, then promote.",
-            "rationale": "Strobilurin fungicide; registered prototypical stressor on AOP-587 (complex-III inhibition \u2192 nigrostriatal degeneration).",
+            "rationale": "Strobilurin fungicide; registered prototypical stressor on AOP-587 (complex-III inhibition \u2192 nigrostriatal dopaminergic degeneration \u2192 parkinsonian motor deficits).",
             "evidence": [
                 {
                     "line": "AOP",
                     "strength": "strong",
-                    "detail": "Registered prototypical stressor on AOP-587 (complex-III \u2192 nigrostriatal degeneration; EFSA 2024 PD network).",
+                    "detail": "Registered prototypical stressor on AOP-587 (complex-III inhibition \u2192 nigrostriatal dopaminergic degeneration \u2192 parkinsonian motor deficits; EFSA 2024 PD network).",
                     "source": "AOP-Wiki AOP-587"
                 },
                 {
@@ -396,5 +396,5 @@
             }
         ]
     },
-    "note": "Entry requires at least one non-bioactivity strand; only the curated gate (CTD DirectEvidence or a registered in-scope AOP stressor) promotes a candidate to a positive. General bioactivity is barred \u2014 it is anti-diagnostic here. The adversarial decoys are carried as a permanent negative control and must rank last (they score 0). See ADR-0006."
+    "note": "Prioritizing chemicals for toxicity testing is an established discipline (ToxPi, OECD IATA, read-across/GenRA, neurotox-specific lists like ENRICH 2024; PROTON 2025 is a learned analog) \u2014 the queue concept is not novel. What is disciplined here: the ranker uses ONLY non-bioactivity evidence (general bioactivity is anti-diagnostic for this chemical class), and no score can promote a candidate \u2014 promotion is gated solely on curated CTD DirectEvidence or a registered in-scope AOP stressor, keeping the soft ranking formally separate from the hard, auditable call. The adversarial decoys are carried as a permanent negative control and must rank last (they score 0). The 'evidence-weighted priority' is a transparent additive index, NOT a formal decision-theoretic value-of-information (EVSI over test cost/uncertainty) \u2014 that is future work. Emerging exposure CLASSES (PFAS, microplastics, PM2.5/air pollution) are held in a watch tier, not the queue: real association signal but no OECD-endorsed neuro-AOP and no single resolvable chemical identity (see the excluded-sources note). See ADR-0006."
 }

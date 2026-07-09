@@ -230,11 +230,13 @@ record tested as that salt, avoiding the trap that silently returns "no data" on
 - **Reasoning trace** stream that drives the hero animation and is shown as an auditable log.
 - **Provenance drawer**: click any evidence strand to see its finding, source, and access route.
 - **Honest discovery map** of the seven tested axes and two live leads.
-- **Candidate pipeline** (ADR-0006): a value-of-information-ranked triage queue of chemicals with real but
+- **Candidate pipeline** (ADR-0006): an evidence-weighted-priority triage queue of chemicals with real but
   incomplete evidence (Paul & Ritz PD pesticides, PCE, AD metals/organochlorines), each with its evidence
   strands, distance-to-gate, and recommended next experiment. Adversarial decoys are carried as a permanent
   control and rank last; a held-out prioritization backtest recovers a known positive from non-curated evidence
-  alone. A triage layer, never a predictor — only the curated gate promotes.
+  alone. A triage layer, never a predictor — only the curated gate promotes. Prior art (ToxPi, OECD IATA,
+  ENRICH, PROTON) is conceded; the distinctive bundle is non-bioactivity-only ranking + gate/ranker separation +
+  decoy control + backtest.
 - **Claude reasoning synthesis** (cited, calibrated, explains but never decides).
 - **Interactive resolver** with an intelligent typeahead over the curated benchmark (name / CAS / DTXSID /
   InChIKey, salt-form correct; ranks the showcase set first) — suggests only what will resolve, while free-typed

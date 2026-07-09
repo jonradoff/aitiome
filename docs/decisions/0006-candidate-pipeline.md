@@ -37,10 +37,17 @@ an oracle.
 5. **The held-out backtest proves prioritization skill, not causal discovery.** We withhold a known positive's
    curated evidence and show its convergent non-curated strands still outrank every decoy.
 
-### The VOI ranker (v1, published weights)
+### The evidence-weighted-priority ranker (v1, published weights)
 Additive over non-bioactivity strands: `AOP 5 · MECH 3 · IPSC 2 · EPI 2 · XDIS 2 · ZF 1 · INFERRED 0.5`, each
 scaled by strength (`strong 1.0 · moderate 0.6 · weak 0.3`), plus a convergence bonus (`+1` per independent line
 beyond the first). Decoys carry no qualifying strand → score 0.
+
+> **Naming (round-4 correction, 2026-07-09):** the user-facing score is "evidence-weighted priority," NOT
+> "value-of-information." VOI has a formal decision-theoretic meaning (EVSI over test cost/uncertainty; Hagiwara
+> 2023) that this transparent additive index does not implement. A formal VOI layer is future work (phase 3+).
+> **Prior art conceded:** the queue concept is standard (ToxPi, OECD IATA, GenRA/read-across, ENRICH 2024,
+> PROTON 2025, Shan/Homberg 2023 tiered PD screening). The defensible bundle is: non-bioactivity-only ranking +
+> gate/ranker separation + adversarial-decoy control + held-out backtest.
 
 ## Consequences
 

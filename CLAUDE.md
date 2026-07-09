@@ -13,8 +13,10 @@ the anti-diagnostic claim: bioactivity is at-or-below-chance vs the adversarial 
 rule is perfect. Red-team findings and open critiques (esp. circularity) are logged in `learnings.md`.
 
 **Candidate pipeline shipped (2026-07-09, ADR-0006):** Aitiome is now a triage pipeline, not only a validator.
-`/candidates?disease=` + MCP `list_candidates` return a **value-of-information-ranked queue** of chemicals with
-real-but-incomplete evidence (seeds: Paul & Ritz PD pesticides incl. gate-ready AOP-3 stressors
+`/candidates?disease=` + MCP `list_candidates` return an **evidence-weighted-priority queue** of chemicals with
+real-but-incomplete evidence (round-4: renamed from "VOI" — that term is formal/decision-theoretic, ours is a
+transparent additive index; concede prior art ToxPi/IATA/ENRICH/PROTON; emerging classes PFAS/microplastics/PM2.5
+held in a stated watch tier, glyphosate added to AD queue) (seeds: Paul & Ritz PD pesticides incl. gate-ready AOP-3 stressors
 fenpyroximate/tebufenpyrad/pyrimidifen; PCE; AD metals/organochlorines from Bakulski/Yan/Jang). The **ranker is
 transparent + additive** (published weights: AOP 5 · MECH 3 · IPSC 2 · EPI 2 · XDIS 2 · ZF 1 · INFERRED 0.5 ×
 strength, +1/convergent-line), **NO learned weighting**. HARD invariants (test-locked in `candidates_test.go`):

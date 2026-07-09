@@ -104,9 +104,9 @@ func (s *Service) Candidates(ctx context.Context, d contract.Disease) contract.C
 	}
 	q := contract.CandidateQueue{
 		Disease:  d,
-		Headline: "Chemicals with real but incomplete evidence, ranked by value-of-information — what a wet lab or curator should look at next. A triage queue, never a prediction.",
+		Headline: "Chemicals with real but incomplete evidence, ranked by evidence-weighted priority — what a wet lab or curator should look at next. A triage queue, never a prediction.",
 		Weights:  candidateLineWeights,
-		Note:     "Entry requires at least one non-bioactivity strand; only the curated gate (CTD DirectEvidence or a registered in-scope AOP stressor) promotes a candidate to a positive. General bioactivity is barred — it is anti-diagnostic here. The adversarial decoys are carried as a permanent negative control and must rank last (they score 0). See ADR-0006.",
+		Note:     "Prioritizing chemicals for toxicity testing is an established discipline (ToxPi, OECD IATA, read-across/GenRA, neurotox-specific lists like ENRICH 2024; PROTON 2025 is a learned analog) — the queue concept is not novel. What is disciplined here: the ranker uses ONLY non-bioactivity evidence (general bioactivity is anti-diagnostic for this chemical class), and no score can promote a candidate — promotion is gated solely on curated CTD DirectEvidence or a registered in-scope AOP stressor, keeping the soft ranking formally separate from the hard, auditable call. The adversarial decoys are carried as a permanent negative control and must rank last (they score 0). The 'evidence-weighted priority' is a transparent additive index, NOT a formal decision-theoretic value-of-information (EVSI over test cost/uncertainty) — that is future work. Emerging exposure CLASSES (PFAS, microplastics, PM2.5/air pollution) are held in a watch tier, not the queue: real association signal but no OECD-endorsed neuro-AOP and no single resolvable chemical identity (see the excluded-sources note). See ADR-0006.",
 	}
 
 	cf, err := loadCandidateFile(name)

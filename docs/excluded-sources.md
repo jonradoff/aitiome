@@ -78,6 +78,18 @@ grounding — never a new bioactivity gate.
   none of it is an arbitrary-chemical neurotoxicity predictor. Population exposure–disease inference ≠ per-chemical
   prediction. See `docs/research/round3-literature-scan.md`.
 
+## F. Emerging exposure CLASSES held in the watch tier (2026-07-09) — stated, not silently omitted
+A round-4 scan (`docs/research/round4-literature-scan.md`) flagged that silence on these high-headline 2025–26
+classes reads as a coverage gap; an explicit stated position reads as rigor. None is promoted to a positive; the
+honest verdict for each is **real association/accumulation signal, but no OECD-endorsed neuro-AOP and (for the
+classes) no single resolvable chemical identity** — so they sit in the candidate/watch tier, not the graded set.
+| Class | 2025–26 signal | Why watch-tier, not positive |
+|---|---|---|
+| **PFAS** | Gardener et al. 2025 review (*Alz & Dementia*); CSF-PFAS/AD-marker pilot | Associational + mixed; no endorsed neuro-AOP; a class, not one DTXSID. |
+| **Microplastics / nanoplastics** | Nihart et al., *Nature Medicine* 2025 — brain accumulation ↑ ~50% 2016→2024, higher in dementia | Accumulation ≠ causation; hypothesis-generating; not a single chemical identity. |
+| **PM2.5 / air pollution** | Danish cohort (*Mov Disord* 2025, HR 1.05/IQR); meta-analysis ~1.10/5 µg·m⁻³ | Strong epidemiology but a mixture, not a resolvable DTXSID — represented as convergent epidemiology, not a graded positive. |
+| **Glyphosate** | Bhatt et al., *J Neuroinflammation* 2024 — brain persistence + AD-like pathology in mice | Has a chemical identity → **added to the AD candidate queue** (association tier), animal+mechanistic only, human epidemiology thin. |
+
 ## One-line framing for the deck
 *"We tested seven discovery axes and a dozen more data sources and rejected most of them — on principle.
 Anything that would smuggle general bioactivity back in as a discriminator, or that is circular with our own

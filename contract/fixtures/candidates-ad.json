@@ -1,6 +1,6 @@
 {
     "disease": "ad",
-    "headline": "Chemicals with real but incomplete evidence, ranked by value-of-information \u2014 what a wet lab or curator should look at next. A triage queue, never a prediction.",
+    "headline": "Chemicals with real but incomplete evidence, ranked by evidence-weighted priority \u2014 what a wet lab or curator should look at next. A triage queue, never a prediction.",
     "weights": [
         {
             "line": "AOP",
@@ -125,7 +125,7 @@
             "disease": "ad",
             "cas": "60-57-1",
             "state": "association",
-            "score": 5,
+            "score": 4.2,
             "promotion": "Very close \u2014 a known neurotoxicant already curated for PD; check CTD-AD DirectEvidence for a cross-disease promotion.",
             "experiment": "Curate CTD-AD DirectEvidence (cross-disease promotion from the PD set).",
             "rationale": "Organochlorine insecticide; a confirmed Parkinson's positive, with a quantified AD association.",
@@ -138,9 +138,9 @@
                 },
                 {
                     "line": "EPI",
-                    "strength": "strong",
-                    "detail": "Meta-analysis OR 2.09 (1.22\u20133.56) for AD.",
-                    "source": "Yan et al., Sci Rep 2016"
+                    "strength": "moderate",
+                    "detail": "Single case-control OR 2.09 (1.22\u20133.56) for AD (the Yan 2016 pooled OR was 1.34).",
+                    "source": "Singh et al., Hum Exp Toxicol 2013 (via Yan et al. 2016)"
                 }
             ],
             "isControl": false
@@ -150,16 +150,16 @@
             "disease": "ad",
             "cas": "319-85-7",
             "state": "association",
-            "score": 2,
+            "score": 1.2,
             "promotion": "Strong association reproduced across two studies; needs a mechanistic MIE to clear.",
             "experiment": "Curate CTD-AD; seek an organochlorine mechanistic MIE.",
             "rationale": "Organochlorine (\u03b2-HCH); a quantified AD association reproduced across a meta-analysis and an ExWAS.",
             "evidence": [
                 {
                     "line": "EPI",
-                    "strength": "strong",
-                    "detail": "Meta-analysis OR 2.06 (1.04\u20133.10) for AD; also NHANES ExWAS cognition.",
-                    "source": "Yan et al., Sci Rep 2016; Jang et al., Exposome 2025"
+                    "strength": "moderate",
+                    "detail": "Single case-control OR 2.06 (1.04\u20133.10) for AD; also NHANES ExWAS cognition.",
+                    "source": "Singh et al., Hum Exp Toxicol 2013 (via Yan 2016); Jang et al., Exposome 2025"
                 }
             ],
             "isControl": false
@@ -179,6 +179,25 @@
                     "strength": "moderate",
                     "detail": "NHANES ExWAS: associated with cognitive decline.",
                     "source": "Jang et al., Exposome 2025"
+                }
+            ],
+            "isControl": false
+        },
+        {
+            "name": "glyphosate",
+            "disease": "ad",
+            "cas": "1071-83-6",
+            "state": "association",
+            "score": 0.9,
+            "promotion": "Emerging \u2014 animal + mechanistic only, human epidemiology thin; held in the watch tier.",
+            "experiment": "Await human epidemiology; a targeted AD-model / iPSC neuroinflammation assay would clarify.",
+            "rationale": "Herbicide (and its AMPA metabolite) persists in brain and exacerbates AD-like pathology and neuroinflammation in mice after a 6-month washout; human causal evidence is still thin. The honest pre-empt for the \"why no glyphosate?\" question.",
+            "evidence": [
+                {
+                    "line": "MECH",
+                    "strength": "weak",
+                    "detail": "Persists in brain; exacerbates AD-like pathology/neuroinflammation in mice after a 6-month washout (animal, not human).",
+                    "source": "Bhatt et al., J Neuroinflammation 2024"
                 }
             ],
             "isControl": false
@@ -291,5 +310,5 @@
             }
         ]
     },
-    "note": "Entry requires at least one non-bioactivity strand; only the curated gate (CTD DirectEvidence or a registered in-scope AOP stressor) promotes a candidate to a positive. General bioactivity is barred \u2014 it is anti-diagnostic here. The adversarial decoys are carried as a permanent negative control and must rank last (they score 0). See ADR-0006."
+    "note": "Prioritizing chemicals for toxicity testing is an established discipline (ToxPi, OECD IATA, read-across/GenRA, neurotox-specific lists like ENRICH 2024; PROTON 2025 is a learned analog) \u2014 the queue concept is not novel. What is disciplined here: the ranker uses ONLY non-bioactivity evidence (general bioactivity is anti-diagnostic for this chemical class), and no score can promote a candidate \u2014 promotion is gated solely on curated CTD DirectEvidence or a registered in-scope AOP stressor, keeping the soft ranking formally separate from the hard, auditable call. The adversarial decoys are carried as a permanent negative control and must rank last (they score 0). The 'evidence-weighted priority' is a transparent additive index, NOT a formal decision-theoretic value-of-information (EVSI over test cost/uncertainty) \u2014 that is future work. Emerging exposure CLASSES (PFAS, microplastics, PM2.5/air pollution) are held in a watch tier, not the queue: real association signal but no OECD-endorsed neuro-AOP and no single resolvable chemical identity (see the excluded-sources note). See ADR-0006."
 }

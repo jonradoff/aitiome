@@ -438,7 +438,7 @@ function CandidateCard({ c, rank }: { c: Candidate; rank: number }) {
       <div style={{ display: "flex", alignItems: "baseline", gap: 12 }}>
         <span className="mono faint" style={{ fontSize: 12, width: 24, flex: "0 0 auto" }}>{c.isControl ? "—" : rank}</span>
         <span style={{ fontSize: 15, fontWeight: 600, flex: 1 }}>{c.name}</span>
-        <span className="mono" style={{ fontSize: 11, letterSpacing: "0.05em", color: c.isControl ? "var(--reject)" : "var(--signal)" }}>VOI {c.score.toFixed(1)}</span>
+        <span className="mono" style={{ fontSize: 11, letterSpacing: "0.05em", color: c.isControl ? "var(--reject)" : "var(--signal)" }} title="Evidence-weighted priority (transparent additive index — not a formal value-of-information/EVSI)">priority {c.score.toFixed(1)}</span>
       </div>
       <div style={{ paddingLeft: 36 }}>
         <span className="mono" style={{ fontSize: 10, letterSpacing: "0.06em", textTransform: "uppercase", color: st.tone }}>{st.label}</span>

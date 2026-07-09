@@ -19,7 +19,7 @@
       "rationale": "Organochlorine insecticide; a confirmed Parkinson's positive, with a quantified AD association.",
       "evidence": [
         {"line": "XDIS", "strength": "strong", "detail": "Confirmed Parkinson's positive (cross-disease).", "source": "Aitiome PD positive set"},
-        {"line": "EPI", "strength": "strong", "detail": "Meta-analysis OR 2.09 (1.22–3.56) for AD.", "source": "Yan et al., Sci Rep 2016"}
+        {"line": "EPI", "strength": "moderate", "detail": "Single case-control OR 2.09 (1.22–3.56) for AD (the Yan 2016 pooled OR was 1.34).", "source": "Singh et al., Hum Exp Toxicol 2013 (via Yan et al. 2016)"}
       ]
     },
     {
@@ -52,7 +52,7 @@
       "experiment": "Curate CTD-AD; seek an organochlorine mechanistic MIE.",
       "rationale": "Organochlorine (β-HCH); a quantified AD association reproduced across a meta-analysis and an ExWAS.",
       "evidence": [
-        {"line": "EPI", "strength": "strong", "detail": "Meta-analysis OR 2.06 (1.04–3.10) for AD; also NHANES ExWAS cognition.", "source": "Yan et al., Sci Rep 2016; Jang et al., Exposome 2025"}
+        {"line": "EPI", "strength": "moderate", "detail": "Single case-control OR 2.06 (1.04–3.10) for AD; also NHANES ExWAS cognition.", "source": "Singh et al., Hum Exp Toxicol 2013 (via Yan 2016); Jang et al., Exposome 2025"}
       ]
     },
     {
@@ -73,6 +73,16 @@
       "rationale": "Heavy metal; a single-study ExWAS association with worse cognition.",
       "evidence": [
         {"line": "EPI", "strength": "weak", "detail": "NHANES ExWAS: associated with worse cognition (single study).", "source": "Jang et al., Exposome 2025"}
+      ]
+    },
+    {
+      "name": "glyphosate", "disease": "ad", "cas": "1071-83-6",
+      "state": "association",
+      "promotion": "Emerging — animal + mechanistic only, human epidemiology thin; held in the watch tier.",
+      "experiment": "Await human epidemiology; a targeted AD-model / iPSC neuroinflammation assay would clarify.",
+      "rationale": "Herbicide (and its AMPA metabolite) persists in brain and exacerbates AD-like pathology and neuroinflammation in mice after a 6-month washout; human causal evidence is still thin. The honest pre-empt for the \"why no glyphosate?\" question.",
+      "evidence": [
+        {"line": "MECH", "strength": "weak", "detail": "Persists in brain; exacerbates AD-like pathology/neuroinflammation in mice after a 6-month washout (animal, not human).", "source": "Bhatt et al., J Neuroinflammation 2024"}
       ]
     },
     {"name": "curcumin", "disease": "ad", "state": "control", "promotion": "n/a — negative control.", "experiment": "None. Carried as a permanent negative control.", "rationale": "AD-assay-active decoy (dietary polyphenol) — flagged by activity models, but no curated causal AD signal. Must rank last.", "evidence": [], "isControl": true},

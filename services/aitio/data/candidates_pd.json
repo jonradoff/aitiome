@@ -73,9 +73,9 @@
       "state": "aop_stressor_ready",
       "promotion": "Clears on verification — registered AOP-587 stressor (complex III), pending in-scope confirmation of the EFSA 2024 PD AOP network.",
       "experiment": "Confirm AOP-587 is in-scope for the PD network, then promote.",
-      "rationale": "Strobilurin fungicide; registered prototypical stressor on AOP-587 (complex-III inhibition → nigrostriatal degeneration).",
+      "rationale": "Strobilurin fungicide; registered prototypical stressor on AOP-587 (complex-III inhibition → nigrostriatal dopaminergic degeneration → parkinsonian motor deficits).",
       "evidence": [
-        {"line": "AOP", "strength": "strong", "detail": "Registered prototypical stressor on AOP-587 (complex-III → nigrostriatal degeneration; EFSA 2024 PD network).", "source": "AOP-Wiki AOP-587"},
+        {"line": "AOP", "strength": "strong", "detail": "Registered prototypical stressor on AOP-587 (complex-III inhibition → nigrostriatal dopaminergic degeneration → parkinsonian motor deficits; EFSA 2024 PD network).", "source": "AOP-Wiki AOP-587"},
         {"line": "MECH", "strength": "moderate", "detail": "Complex-III inhibitor.", "source": "AOP-Wiki AOP-587"}
       ]
     },
