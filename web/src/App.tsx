@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
-import { getValidation, getHealth, getPathway, getDiscoveryMap, getBenchmark, getDiseases, assess, synthesize, resolveCompound } from "./data";
+import { getValidation, getHealth, getPathway, getDiscoveryMap, getBenchmark, getDiseases, getCompounds, assess, synthesize, resolveCompound } from "./data";
 import { useAsync } from "./useAsync";
 import { Hero } from "./hero/Hero";
 import { EvidencePanel, TracePanel, ValidationPanel, DiscoveryPanel, MCPPanel, SynthesisPanel, ProvenanceDrawer, SpecificityCenterpiece, FalsificationPanel, AnticipatedCritiques, ReferencesPanel, ConvergencePanel, AboutModal } from "./components/Panels";
-import type { EvidenceStrand, Disease, DiseaseInfo, CompoundResult, ValidationResult } from "@contract";
+import type { EvidenceStrand, Disease, DiseaseInfo, CompoundResult, ValidationResult, Compound } from "@contract";
 
 // Per-disease showcase sets + copy. PD is the validated anchor; AD is the second
 // axis (curated recovery + the drug/polyphenol decoys). One disease on screen.
@@ -433,15 +433,71 @@ function Stat({ n, l, tone }: { n: string; l: string; tone: string }) {
   );
 }
 
+// A typeahead suggestion: a benchmark compound, plus the identifier that matched
+// when the match was NOT on the name (so "1910-42-5" surfaces paraquat and shows why).
+type Suggestion = { c: Compound; via?: string };
+
+// rankSuggestions ranks the curated set by what the user is most likely to try.
+// Empty query -> the showcase compounds (known + decoys, chip order) as "likely picks".
+// Typed query -> name-prefix > name-substring > identifier match, showcase-first on ties.
+// The universe is only ever the curated benchmark: the typeahead can never suggest a
+// compound that would not resolve, but free-typed out-of-set text is still allowed.
+function rankSuggestions(pool: Compound[], q: string, showcase: string[]): Suggestion[] {
+  const prio = (c: Compound) => {
+    const i = showcase.indexOf(c.name.toLowerCase());
+    return i < 0 ? 999 : i;
+  };
+  const ql = q.trim().toLowerCase();
+  if (!ql) {
+    return showcase
+      .map((n) => pool.find((c) => c.name.toLowerCase() === n))
+      .filter((c): c is Compound => !!c)
+      .slice(0, 8)
+      .map((c) => ({ c }));
+  }
+  const scored: { c: Compound; via?: string; score: number }[] = [];
+  for (const c of pool) {
+    const name = c.name.toLowerCase();
+    if (name.startsWith(ql)) { scored.push({ c, score: 0 }); continue; }
+    if (name.includes(ql)) { scored.push({ c, score: 1 }); continue; }
+    const aliases: [string, string | undefined][] = [
+      ["CAS", c.cas], ["", c.dtxsid], ["InChIKey", c.inchikey],
+      ["CAS", c.toxcastCas], ["CID", c.cid != null ? String(c.cid) : undefined],
+    ];
+    const hit = aliases.find(([, v]) => v && v.toLowerCase().includes(ql));
+    if (hit) scored.push({ c, via: hit[0] ? `${hit[0]} ${hit[1]}` : hit[1], score: 2 });
+  }
+  scored.sort((a, b) => a.score - b.score || prio(a.c) - prio(b.c) || a.c.name.localeCompare(b.c.name));
+  return scored.slice(0, 8).map(({ c, via }) => ({ c, via }));
+}
+
 function SearchBox(props: { disease: Disease; onResolve: (name: string) => void }) {
   const [q, setQ] = useState("");
   const [busy, setBusy] = useState(false);
   const [note, setNote] = useState<{ text: string; kind: "ok" | "warn" } | null>(null);
+  const [pool, setPool] = useState<Compound[]>([]);
+  const [open, setOpen] = useState(false);
+  const [hi, setHi] = useState(-1);
   const dz = props.disease === "ad" ? "Alzheimer's" : "Parkinson's";
 
-  async function run() {
-    const id = q.trim();
+  // The resolvable universe is the curated benchmark for the active axis — load it so
+  // the typeahead suggests exactly what will resolve (and re-load when the axis flips).
+  useEffect(() => {
+    let live = true;
+    setQ(""); setNote(null); setOpen(false); setHi(-1);
+    getCompounds(props.disease).then((r) => { if (live) setPool(r.data); });
+    return () => { live = false; };
+  }, [props.disease]);
+
+  // "Likely to try" first: the showcase known + decoys, in chip order. Everything else
+  // in the curated set is still reachable by typing any name or identifier.
+  const showcase = [...AXIS[props.disease].known, ...AXIS[props.disease].decoys].map((s) => s.toLowerCase());
+  const suggestions = rankSuggestions(pool, q, showcase);
+
+  async function run(name?: string) {
+    const id = (name ?? q).trim();
     if (!id || busy) return;
+    setOpen(false);
     setBusy(true);
     setNote(null);
     const c = await resolveCompound(id, props.disease);
@@ -458,25 +514,73 @@ function SearchBox(props: { disease: Disease; onResolve: (name: string) => void 
     }
   }
 
+  function choose(s: Suggestion) {
+    setQ(s.c.name);
+    setOpen(false);
+    setHi(-1);
+    run(s.c.name);
+  }
+
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: 8, maxWidth: 720 }}>
       <div style={{ display: "flex", gap: 8 }}>
-        <input
-          value={q}
-          onChange={(e) => setQ(e.target.value)}
-          onKeyDown={(e) => e.key === "Enter" && run()}
-          placeholder="Resolve a chemical by name, CAS, DTXSID, or InChIKey"
-          aria-label="Resolve a chemical"
-          className="mono"
-          style={{
-            flex: 1, padding: "11px 14px", fontSize: 13.5,
-            background: "var(--bg-2)", color: "var(--ink)",
-            border: "1px solid var(--line-2)", borderRadius: "var(--radius-sm)", outline: "none",
-          }}
-          onFocus={(e) => (e.currentTarget.style.borderColor = "var(--signal)")}
-          onBlur={(e) => (e.currentTarget.style.borderColor = "var(--line-2)")}
-        />
-        <button className="btn primary" onClick={run} disabled={busy} style={{ opacity: busy ? 0.7 : 1, minWidth: 96 }}>
+        <div style={{ flex: 1, position: "relative" }}>
+          <input
+            value={q}
+            onChange={(e) => { setQ(e.target.value); setOpen(true); setHi(-1); }}
+            onKeyDown={(e) => {
+              if (e.key === "ArrowDown") { e.preventDefault(); setOpen(true); setHi((h) => Math.min(h + 1, suggestions.length - 1)); }
+              else if (e.key === "ArrowUp") { e.preventDefault(); setHi((h) => Math.max(h - 1, -1)); }
+              else if (e.key === "Enter") { e.preventDefault(); if (open && hi >= 0 && suggestions[hi]) choose(suggestions[hi]); else run(); }
+              else if (e.key === "Escape") { setOpen(false); setHi(-1); }
+            }}
+            placeholder="Resolve a chemical by name, CAS, DTXSID, or InChIKey"
+            aria-label="Resolve a chemical"
+            role="combobox"
+            aria-expanded={open && suggestions.length > 0}
+            aria-autocomplete="list"
+            autoComplete="off"
+            className="mono"
+            style={{
+              width: "100%", padding: "11px 14px", fontSize: 13.5,
+              background: "var(--bg-2)", color: "var(--ink)",
+              border: "1px solid var(--line-2)", borderRadius: "var(--radius-sm)", outline: "none",
+            }}
+            onFocus={(e) => { setOpen(true); e.currentTarget.style.borderColor = "var(--signal)"; }}
+            onBlur={(e) => { setTimeout(() => setOpen(false), 120); e.currentTarget.style.borderColor = "var(--line-2)"; }}
+          />
+          {open && suggestions.length > 0 && (
+            <div className="panel" role="listbox" style={{ position: "absolute", top: "calc(100% + 6px)", left: 0, right: 0, zIndex: 40, padding: 6, maxHeight: 340, overflowY: "auto" }}>
+              {!q.trim() && (
+                <div className="mono faint" style={{ fontSize: 10.5, letterSpacing: "0.05em", padding: "6px 8px 4px" }}>
+                  LIKELY PICKS · {pool.length} in the curated {dz} set
+                </div>
+              )}
+              {suggestions.map((s, i) => (
+                <button
+                  key={s.c.name}
+                  role="option"
+                  aria-selected={i === hi}
+                  // onMouseDown (not onClick) so it fires before the input blur closes the list
+                  onMouseDown={(e) => { e.preventDefault(); choose(s); }}
+                  onMouseEnter={() => setHi(i)}
+                  className="mono"
+                  style={{
+                    display: "flex", alignItems: "baseline", gap: 10, width: "100%", textAlign: "left",
+                    padding: "8px 10px", border: "none", borderRadius: "var(--radius-sm)", cursor: "pointer",
+                    background: i === hi ? "var(--bg-3)" : "transparent", color: "var(--ink)",
+                  }}
+                >
+                  <span style={{ fontSize: 13 }}>{s.c.name}</span>
+                  <span className="faint" style={{ fontSize: 10.5, marginLeft: "auto", whiteSpace: "nowrap" }}>
+                    {s.via ?? s.c.dtxsid ?? s.c.cas ?? ""}
+                  </span>
+                </button>
+              ))}
+            </div>
+          )}
+        </div>
+        <button className="btn primary" onClick={() => run()} disabled={busy} style={{ opacity: busy ? 0.7 : 1, minWidth: 96 }}>
           {busy ? "Resolving…" : "Resolve"}
         </button>
       </div>

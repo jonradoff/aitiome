@@ -26,7 +26,7 @@ export const REF_CATS: { cat: RefCat; label: string }[] = [
 
 export const REFERENCES: Ref[] = [
   // --- Data sources & curated resources ---
-  { id: "ctd", cat: "data", authors: "Davis AP, Wiegers TC, Johnson RJ, et al.", title: "Comparative Toxicogenomics Database (CTD): update 2023", venue: "Nucleic Acids Research. 2023;51(D1):D1257–D1262", url: "https://ctdbase.org/" },
+  { id: "ctd", cat: "data", authors: "Davis AP, Wiegers TC, Wiegers J, et al.", title: "Comparative Toxicogenomics Database (CTD): update 2025 — curated chemical–disease DirectEvidence", venue: "Nucleic Acids Research. 2025;53(D1):D1328–D1334", url: "https://ctdbase.org/" },
   { id: "aopwiki", cat: "data", authors: "OECD", title: "Adverse Outcome Pathway Wiki — AOP-3 (mitochondrial complex-I inhibition → parkinsonian motor deficits) and the endorsed neuro-AOP set", venue: "aopwiki.org", url: "https://aopwiki.org/aops/3" },
   { id: "terron2018", cat: "data", authors: "Terron A, Bal-Price A, Paini A, et al.", title: "An adverse outcome pathway for parkinsonian motor deficits associated with mitochondrial complex I inhibition", venue: "Archives of Toxicology. 2018;92:41–82", url: "https://doi.org/10.1007/s00204-017-2133-4" },
   { id: "efsa2024", cat: "data", authors: "European Food Safety Authority", title: "Development of an AOP network for parkinsonian motor symptoms (call NP/EFSA/PREV/2024/02)", venue: "EFSA, 2024", url: "https://www.efsa.europa.eu/en/call/npefsaprev202402-development-aop-network-parkinsonian-motor-symptoms" },
@@ -41,6 +41,7 @@ export const REFERENCES: Ref[] = [
   { id: "grandjean2014", cat: "data", authors: "Grandjean P, Landrigan PJ.", title: "Neurobehavioural effects of developmental toxicity (established human neurotoxicant list)", venue: "The Lancet Neurology. 2014;13:330–338", url: "https://doi.org/10.1016/S1474-4422(13)70278-3" },
   { id: "jaylet2024", cat: "data", authors: "Jaylet T, Coustillet T, Jornod F, et al.", title: "Comprehensive analysis of the AOP-Wiki database — coverage and gaps for neurodegeneration", venue: "Frontiers in Toxicology. 2024;6:1285768", url: "https://doi.org/10.3389/ftox.2024.1285768" },
   { id: "spinu2019", cat: "data", authors: "Spinu N, Bal-Price A, Cronin MTD, et al.", title: "Development and analysis of an adverse outcome pathway network for human neurotoxicity (NT-AOPn)", venue: "Archives of Toxicology. 2019;93:2759–2772", url: "https://doi.org/10.1007/s00204-019-02551-1" },
+  { id: "sachana2026", cat: "data", authors: "Sachana M, Högberg HT, Mangas I, et al.", title: "The OECD developmental neurotoxicity in-vitro battery (DNT-IVB, Guidance Document 377): regulatory role and scope — a developmental-neurotoxicity battery, not an adult-neurodegeneration assay", venue: "Frontiers in Toxicology. 2026;8:1774469", url: "https://doi.org/10.3389/ftox.2026.1774469" },
 
   // --- Parkinson's ---
   { id: "tanner2011", cat: "pd", authors: "Tanner CM, Kamel F, Ross GW, et al.", title: "Rotenone, paraquat, and Parkinson's disease", venue: "Environmental Health Perspectives. 2011;119:866–872", url: "https://doi.org/10.1289/ehp.1002839" },
@@ -52,6 +53,7 @@ export const REFERENCES: Ref[] = [
   { id: "bloem2021", cat: "pd", authors: "Bloem BR, Okun MS, Klein C.", title: "Parkinson's disease", venue: "The Lancet. 2021;397:2284–2303", url: "https://doi.org/10.1016/S0140-6736(21)00218-X" },
   { id: "dorsey2025", cat: "pd", authors: "Dorsey ER, et al.", title: "Environmental toxicants and Parkinson's disease: evidence, risks, and prevention", venue: "The Lancet Neurology. 2025", url: "https://doi.org/10.1016/S1474-4422(25)00287-X" },
   { id: "delp2021", cat: "pd", authors: "Delp J, Cediel-Ulloa A, Suciu I, et al.", title: "Neurotoxicity and underlying cellular changes of 21 mitochondrial respiratory chain inhibitors", venue: "Archives of Toxicology. 2021;95:591–615", url: "https://doi.org/10.1007/s00204-020-02970-5" },
+  { id: "paul2023", cat: "pd", authors: "Paul KC, Krolewski RC, Lucumi Moreno E, et al.", title: "A pesticide and iPSC dopaminergic neuron screen identifies and classifies Parkinson-relevant pesticides (288-pesticide-wide association study, PEG cohort → iPSC validation)", venue: "Nature Communications. 2023;14:2803", url: "https://doi.org/10.1038/s41467-023-38215-z" },
 
   // --- Alzheimer's ---
   { id: "richardson2014", cat: "ad", authors: "Richardson JR, Roy A, Shalat SL, et al.", title: "Elevated serum pesticide levels and risk for Alzheimer disease", venue: "JAMA Neurology. 2014;71:284–290", url: "https://doi.org/10.1001/jamaneurol.2013.6030" },
@@ -80,6 +82,8 @@ export const REFERENCES: Ref[] = [
   { id: "proton2025", cat: "method", preprint: true, authors: "Noori A, Polonuer J, et al.", title: "Graph AI generates neurological hypotheses validated in molecular, organoid, and clinical systems (PROTON)", venue: "arXiv:2512.13724, 2025 [preprint]", url: "https://arxiv.org/abs/2512.13724" },
   { id: "toxreason2026", cat: "method", authors: "Park J, Jang W, Kim C, et al.", title: "ToxReason: a benchmark for mechanistic chemical toxicity reasoning via adverse outcome pathway", venue: "Findings of ACL 2026; arXiv:2604.06264", url: "https://arxiv.org/abs/2604.06264" },
   { id: "jeong2024", cat: "method", authors: "Jeong J, Choi J.", title: "Integration of advanced large language models into the construction of adverse outcome pathways: opportunities and challenges", venue: "Environmental Science & Technology. 2024", url: "https://doi.org/10.1021/acs.est.4c07524" },
+  { id: "patel2026atlas", cat: "method", authors: "Patel CJ, Ioannidis JPA, Manrai AK, et al.", title: "An atlas of exposome–phenome associations in health and disease risk (619 exposures × 305 phenotypes, NHANES) — carries no neurodegenerative phenotype", venue: "Nature Medicine. 2026", url: "https://doi.org/10.1038/s41591-026-04266-0" },
+  { id: "jang2025", cat: "method", authors: "Jang H, Lee J, Nguyen VK, Shin H-M.", title: "Exposome-wide association study of cognitive function in US older adults (229 chemical biomarkers, NHANES)", venue: "Exposome. 2025;5(1):osaf001", url: "https://doi.org/10.1093/exposome/osaf001" },
 
   // --- Mechanistic convergence (adverse-outcome grounding) ---
   { id: "berthet2014", cat: "convergence", authors: "Berthet A, Margolis EB, Zhang J, et al.", title: "Loss of mitochondrial fission depletes axonal mitochondria in midbrain dopamine neurons", venue: "Journal of Neuroscience. 2014;34:14304–14317", url: "https://doi.org/10.1523/JNEUROSCI.0930-14.2014" },

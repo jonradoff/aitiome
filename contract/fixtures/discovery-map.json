@@ -56,13 +56,13 @@
             "verdict": "qualified_lead",
             "metric": "AUROC 0.72 (excl. viability), perm-p 0.155",
             "coverage": "7/12",
-            "reason": "The one axis that partly held \u2014 directionally right but underpowered (CI includes chance); developmental != adult neurodegeneration. Worth it only with a materially larger reference set.",
+            "reason": "The one axis that partly held \u2014 directionally right but underpowered (CI includes chance); developmental != adult neurodegeneration. Worth it only with a materially larger reference set. Confirmed mid-2026: the OECD DNT-IVB (Guidance Document 377) remains a ~400-chemical DEVELOPMENTAL battery, not an adult-neurodegeneration assay (Sachana et al., Front. Toxicol. 2026).",
             "isLead": true
         },
         {
             "name": "Boltz-2 target engagement (physics-based Complex-I binding)",
             "verdict": "conditional_lead",
-            "reason": "The only basis that is neither annotation nor bioactivity \u2014 physics. Prepped to one step (5XTD Q-site ND1/NDUFS2/NDUFS7 + 19-ligand benchmark); needs a ~48 GB GPU; not run. Report with explicit N if attempted.",
+            "reason": "The only basis that is neither annotation nor bioactivity \u2014 physics. Prepped to one step (5XTD Q-site ND1/NDUFS2/NDUFS7 + 19-ligand benchmark); needs a ~48 GB GPU; not run. Report with explicit N if attempted. 2025 corroboration: a consensus-docking study of the Complex-I quinone (Qd) site between NDUFS2/NDUFS7 that accommodates rotenone (Chem. Res. Toxicol. 2025) independently validates this MIE anchor \u2014 but independent evals find Boltz-2 affinity can be insensitive to binding-site mutations, so it stays bounded and non-load-bearing.",
             "isLead": true
         }
     ],
@@ -70,5 +70,5 @@
         "Neural-specific ToxCast subset (needs a larger reference set)",
         "Boltz-2 Q-site engagement benchmark (bounded, optional, non-load-bearing)"
     ],
-    "note": "Discovery is represented honestly as a map, not shipped as a predictor. Novel candidates would be analogy-based hypotheses benchmarked against the adversarial-negative set as a permanent false-positive control \u2014 leads for lab follow-up, never claims."
+    "note": "Discovery is represented honestly as a map, not shipped as a predictor. Novel candidates would be analogy-based hypotheses benchmarked against the adversarial-negative set as a permanent false-positive control \u2014 leads for lab follow-up, never claims. Mid-2026 check (round-3 literature scan), stated precisely: exposure-wide EPIDEMIOLOGY of neurodegeneration does exist and is valuable \u2014 Paul & Ritz screened 288 pesticides against Parkinson's in the PEG cohort (Nat Commun 2023; 10 confirmed dopaminergic-toxic in an iPSC screen), and NHANES cognition ExWAS exists (Jang et al., Exposome 2025). But (a) the flagship multi-disease exposome atlases still carry NO neurodegeneration phenotype (Patel & Manrai, 619 exposures \u00d7 305 phenotypes, Nature Medicine 2026), and (b) none of that is a predictor of whether an ARBITRARY chemical is a neurotoxicant from its structure/bioactivity \u2014 which is the distinct thing this map shows is coverage-/confounder-killed. Population exposure-disease inference is not per-chemical neurotoxicity prediction; the map stands."
 }

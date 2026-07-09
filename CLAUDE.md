@@ -12,6 +12,18 @@ Private repo `jonradoff/aitiome`. A **falsification harness** (`make validate`, 
 the anti-diagnostic claim: bioactivity is at-or-below-chance vs the adversarial decoys while the curated
 rule is perfect. Red-team findings and open critiques (esp. circularity) are logged in `learnings.md`.
 
+**Round-3 scan + resolve typeahead (2026-07-09):** hyper-current pass (`docs/research/round3-literature-scan.md`)
+re-tested the discovery limit — it **holds** (no neural-specific exposome-scale predictor on public data). The
+resolve input got an intelligent typeahead over the curated benchmark (suggests only what resolves; free-text
+out-of-set still hits the honest rejection). **Durable correction (do NOT reintroduce):** never claim the
+exposome-wide approach "has never been pointed at PD/AD" — it's FALSE. Cite **Paul & Ritz, Nat Commun 2023**
+(288-pesticide-wide PD screen → iPSC validation) and **Jang et al., Exposome 2025** (NHANES cognition ExWAS). The
+defensible line: the *flagship multi-disease* exposome atlases (Patel & Manrai, Nat Med 2026) omit neuro, AND
+population exposure→disease inference ≠ per-chemical neurotoxicity prediction (the recon-killed thing). **Open
+candidate (pending gate):** perchloroethylene/PCE as a 14th PD positive — needs manual **CTD-PD DirectEvidence**
+verification (CTD batch API now ALTCHA-walled); logged in `docs/excluded-sources.md`. Next up (planned, not built):
+a **candidate-tracking pipeline** with value-of-information ranking to guide wet labs.
+
 **Round-2 literature scan + TCE (2026-07-08):** a second deep-research pass (`docs/research/round2-literature-scan.md`)
 added **trichloroethylene** as the **13th** curated PD positive (verified CTD-PD DirectEvidence; Camp Lejeune,
 Goldman 2023) — PD is now **13/13** (28 compounds); the **Grandjean & Landrigan 2014** independent neurotoxicant

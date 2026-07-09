@@ -5,6 +5,7 @@
 > decision rests only on **curated diagnostic** evidence (CTD DirectEvidence + registered AOP stressors);
 > nothing that reintroduces **general bioactivity** as a discriminator, or that is **circular** with our
 > curation, is allowed to touch a grade. Sources for the round-2 assessments: `docs/research/round2-literature-scan.md`;
+> round-3 (hyper-current, 2026-07-09): `docs/research/round3-literature-scan.md`;
 > discovery axes: `docs/recon-learnings-summary.md` + the in-app discovery map (`/discovery-map`).
 
 ## Exclusion reason codes
@@ -54,13 +55,28 @@ were killed. **These are shipped as a first-class negative-results map, not hidd
 | **PrimeKG / Hetionet** | DRUG-KEYED | Drug-repurposing KGs; environmental compounds out of coverage. |
 | **DNT in-vitro battery** | WRONG-TARGET + CONFOUNDER | Developmental neurotox ≠ adult nigrostriatal degeneration; still assay data; ~120-chem coverage. |
 | **Open Targets** (as an *independent* line) | CIRCULAR-risk | Aggregating KG; use only as a convenience view over primary sources, never double-counted as independent. |
-| **CTD *inferred* associations** | LOW-SIGNAL (banned in recon) | Inference-by-study-volume (acetaminophen has 80 inferred PD links); only curated DirectEvidence counts. |
+| **CTD *inferred* associations** | LOW-SIGNAL (banned in recon) | Inference-by-study-volume (acetaminophen has 80 inferred PD links); only curated DirectEvidence counts. **Live 2025 exemplar:** Cockell et al. (bioRxiv, 23 Dec 2025, PMC12776105) data-mined CTD to "enrich" 742 dementia-associated chemicals — explicitly hypothesis-generating, topped by pre-existing knowns (BaP, BPA, arsenite, paraquat, cadmium). Exactly the trap the DirectEvidence-only rule avoids; cite it, don't curate it. |
+| **ToxCast HTTr (U-2 OS / MCF7) & JUMP Cell Painting (U2OS), 2025 releases** | CONFOUNDER-KILLED | Coverage of environmental chemicals grew in 2025-26, but on non-neuronal cell lines — this expands *general bioactivity* (the confounder), not neural-specific signal. Watch JUMP-CP OASIS for a future agchem extension. |
 
 ## D. What we DID add from round 2 (contrast — the disciplined inclusions)
 Grandjean & Landrigan 2014 (independent curated neurotoxicant vote); real AD epidemiology (contested items
 flagged); AD disease-associated-microglia grounding. Considered-and-optional (grounding, non-gating): GWAS
 Catalog / Human Protein Atlas / EPA ExpoCast / ToxRefDB. Every inclusion is curated-diagnostic or honest
 grounding — never a new bioactivity gate.
+
+## E. Round-3 (2026-07-09) — pending candidate, held to the DirectEvidence gate
+- **Perchloroethylene (PCE / tetrachloroethylene) — candidate 14th PD positive, NOT ADDED (pending verification).**
+  Dorsey et al., *Lancet Neurology* 2025 name PCE alongside TCE as an established dry-cleaning/degreasing PD
+  toxicant. Per the hard rule, review-mention is insufficient: a positive requires curated **CTD-PD DirectEvidence
+  (marker/mechanism)**. Verification is pending — CTD's batch-query API is behind an ALTCHA bot-wall as of this
+  pass, so it could not be checked programmatically. **If manual verification clears, PCE is a defensible spine
+  expansion (exactly like the round-2 TCE addition, 13→14). Do not add on review-mention alone.**
+- The recon discovery conclusion was re-tested against 2025–26 literature and **holds** — but with a precise
+  caveat (an earlier "never pointed at PD/AD" draft was corrected before shipping): exposure-wide *epidemiology*
+  of PD/cognition exists (Paul & Ritz, *Nat Commun* 2023, 288-pesticide-wide PD screen; Jang et al., *Exposome*
+  2025, NHANES cognition ExWAS), yet the flagship multi-disease exposome atlases carry no neuro phenotype, and
+  none of it is an arbitrary-chemical neurotoxicity predictor. Population exposure–disease inference ≠ per-chemical
+  prediction. See `docs/research/round3-literature-scan.md`.
 
 ## One-line framing for the deck
 *"We tested seven discovery axes and a dozen more data sources and rejected most of them — on principle.

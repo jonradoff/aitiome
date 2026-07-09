@@ -231,7 +231,9 @@ record tested as that salt, avoiding the trap that silently returns "no data" on
 - **Provenance drawer**: click any evidence strand to see its finding, source, and access route.
 - **Honest discovery map** of the seven tested axes and two live leads.
 - **Claude reasoning synthesis** (cited, calibrated, explains but never decides).
-- **Interactive resolver** search over name / CAS / DTXSID / InChIKey, salt-form correct.
+- **Interactive resolver** with an intelligent typeahead over the curated benchmark (name / CAS / DTXSID /
+  InChIKey, salt-form correct; ranks the showcase set first) — suggests only what will resolve, while free-typed
+  out-of-set text still returns the honest "not in the curated benchmark" rejection.
 - **Hero visualization** (Three.js + GLSL): an exposome particle field, evidence-weighted glowing
   cascade edges, the neuron terminal igniting for positives, and the rejection rings for decoys.
 - **MCP server** exposing the same engine as tools for an external agent.
