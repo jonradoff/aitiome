@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
-import { getValidation, getHealth, getPathway, getDiscoveryMap, getBenchmark, getSources, getDiseases, assess, synthesize, resolveCompound } from "./data";
+import { getValidation, getHealth, getPathway, getDiscoveryMap, getBenchmark, getDiseases, assess, synthesize, resolveCompound } from "./data";
 import { useAsync } from "./useAsync";
 import { Hero } from "./hero/Hero";
-import { EvidencePanel, TracePanel, ValidationPanel, DiscoveryPanel, MCPPanel, SynthesisPanel, ProvenanceDrawer, SpecificityCenterpiece, FalsificationPanel, AnticipatedCritiques, SourcesPanel, ConvergencePanel } from "./components/Panels";
+import { EvidencePanel, TracePanel, ValidationPanel, DiscoveryPanel, MCPPanel, SynthesisPanel, ProvenanceDrawer, SpecificityCenterpiece, FalsificationPanel, AnticipatedCritiques, ReferencesPanel, ConvergencePanel, AboutModal } from "./components/Panels";
 import type { EvidenceStrand, Disease, DiseaseInfo, CompoundResult, ValidationResult } from "@contract";
 
 // Per-disease showcase sets + copy. PD is the validated anchor; AD is the second
@@ -17,7 +17,7 @@ const AXIS: Record<Disease, {
     decoys: ["simvastatin", "troglitazone", "warfarin", "fenofibrate"],
     defaultActive: "rotenone", defaultDecoy: "warfarin",
     knownLabel: "known neurotoxicants", decoyLabel: "bioactive decoys",
-    headline: "It reconstructs the endorsed mechanism, recovers the known neurotoxicants, and is not fooled by the imposters.",
+    headline: "Give it a chemical — Aitiome reconstructs the endorsed causal pathway to Parkinson's, grades it on curated evidence (never bioactivity), and rates its confidence.",
     scoreIntro: "Aitiome grades a chemical on curated mechanism, never on bioactivity. On the reconnaissance ground truth it recovers all thirteen known neurotoxicants (incl. trichloroethylene, the Camp Lejeune solvent) and rejects all fifteen negatives, including six bioactive, mitochondria-active decoys built to fool an activity-based model.",
     recoveredLabel: "known neurotoxicants recovered", decoyScoreLabel: "bioactive decoys not fooled",
   },
@@ -26,7 +26,7 @@ const AXIS: Record<Disease, {
     decoys: ["curcumin", "donepezil", "epigallocatechin gallate", "methylene blue"],
     defaultActive: "DDE", defaultDecoy: "curcumin",
     knownLabel: "curated AD-linked chemicals", decoyLabel: "AD-assay-active decoys",
-    headline: "The same discipline, a second axis: curated Alzheimer's-linked chemicals recovered, and the drugs and polyphenols that light up AD assays are not mistaken for causes.",
+    headline: "Give it a chemical — Aitiome reconstructs the endorsed causal pathway to Alzheimer's, grades it on curated evidence (never bioactivity), and rates its confidence.",
     scoreIntro: "On Alzheimer's the engine grades on the same curated predicate. Its decoys are the compounds most active on AD assays — the anti-amyloid drugs and dietary polyphenols — which an activity model would flag as hits. Aitiome does not, because it reasons on curated causation, not activity.",
     recoveredLabel: "curated AD-linked chemicals recovered", decoyScoreLabel: "AD-assay-active decoys not fooled",
   },
@@ -76,11 +76,11 @@ export function App() {
   const pathway = useAsync(() => getPathway(disease), [disease]);
   const discovery = useAsync(getDiscoveryMap, []);
   const benchmark = useAsync(getBenchmark, []);
-  const sources = useAsync(getSources, []);
   const active = useAsync(() => assess(activeId, disease), [activeId, disease]);
   const synthesis = useAsync(() => synthesize(activeId), [activeId]);
   const decoy = useAsync(() => assess(decoyId, disease), [decoyId, disease]);
 
+  const [aboutOpen, setAboutOpen] = useState(false);
   const [tour, setTour] = useState<number | null>(null);
   function runStep(i: number) {
     const st = TOUR[i];
@@ -109,9 +109,17 @@ export function App() {
 
       <main>
         <section id="sec-hero" className="wrap" style={{ paddingTop: 34, paddingBottom: 30 }}>
-          <div style={{ maxWidth: 760 }}>
-            <p className="eyebrow" style={{ marginBottom: 16 }}>Validation, not a watchlist</p>
-            <h1 style={{ fontSize: "clamp(28px, 3.8vw, 46px)" }}>{cfg.headline}</h1>
+          <div style={{ maxWidth: 800 }}>
+            <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 16 }}>
+              <p className="eyebrow" style={{ margin: 0 }}>Mechanistic reasoning engine</p>
+              <button
+                onClick={() => setAboutOpen(true)}
+                title="Background & citations"
+                aria-label="Background and citations"
+                style={{ width: 20, height: 20, borderRadius: 999, border: "1px solid var(--line-2)", background: "var(--bg-3)", color: "var(--ink-dim)", fontSize: 12, cursor: "pointer", lineHeight: "1", padding: 0, flex: "none" }}
+              >?</button>
+            </div>
+            <h1 style={{ fontSize: "clamp(26px, 3.5vw, 42px)", maxWidth: "22ch" }}>{cfg.headline}</h1>
           </div>
 
           <div style={{ marginTop: 26 }}>
@@ -201,11 +209,9 @@ export function App() {
           <ConvergencePanel />
         </section>
 
-        {sources && (
-          <section className="wrap section">
-            <SourcesPanel sources={sources.data} />
-          </section>
-        )}
+        <section id="references" className="wrap section">
+          <ReferencesPanel />
+        </section>
 
         <section className="wrap section">
           <MCPPanel example={result} />
@@ -213,6 +219,7 @@ export function App() {
       </main>
 
       <Footer source={source} />
+      {aboutOpen && <AboutModal onClose={() => setAboutOpen(false)} />}
       <ProvenanceDrawer strand={provenance} onClose={() => setProvenance(null)} />
       {tour !== null && (
         <div

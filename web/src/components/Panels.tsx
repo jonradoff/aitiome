@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import type { ReactNode } from "react";
 import type {
   CompoundResult,
@@ -9,6 +10,10 @@ import type {
   Benchmark,
   SourceRef,
 } from "@contract";
+import { REFERENCES, REF_CATS, refNumber, CITE_KIND_TO_REF } from "../references";
+
+// Link a synthesis citation to its entry on the in-app references page.
+const citeHref = (kind: string) => `#ref-${CITE_KIND_TO_REF[kind] ?? ""}`;
 
 const STRAND_LABEL: Record<string, string> = {
   curated_mechanism: "Curated mechanism",
@@ -155,6 +160,76 @@ export function SourcesPanel({ sources }: { sources: SourceRef[] }) {
   );
 }
 
+// ---- References: the single canonical, academic-format citation list ----
+export function ReferencesPanel() {
+  return (
+    <div>
+      <SectionHead kicker="Every claim is traceable — one place for the literature" title="References" />
+      <p className="dim" style={{ fontSize: 15, maxWidth: "74ch", marginBottom: 24 }}>
+        The engine reasons only over curated, citable sources. Every <span className="mono">[E#]</span> marker
+        and in-app citation links here; each entry links to the original material. This is the full body of
+        literature considered across the build — data sources, epidemiology, prior art, and mechanistic grounding.
+      </p>
+      {REF_CATS.map(({ cat, label }) => {
+        const items = REFERENCES.filter((r) => r.cat === cat);
+        return (
+          <div key={cat} style={{ marginBottom: 28 }}>
+            <div className="mono faint" style={{ fontSize: 11, letterSpacing: "0.06em", textTransform: "uppercase", marginBottom: 12 }}>{label}</div>
+            <ol style={{ listStyle: "none", margin: 0, padding: 0, display: "flex", flexDirection: "column", gap: 11 }}>
+              {items.map((r) => (
+                <li key={r.id} id={`ref-${r.id}`} style={{ display: "grid", gridTemplateColumns: "36px 1fr", gap: 10, scrollMarginTop: 96 }}>
+                  <span className="mono faint" style={{ fontSize: 12.5 }}>[{refNumber.get(r.id)}]</span>
+                  <div style={{ fontSize: 13.5, lineHeight: 1.5 }}>
+                    <span className="dim">{r.authors} </span>
+                    <span style={{ color: "var(--ink)" }}>{r.title}.</span>
+                    <span className="dim"> {r.venue}. </span>
+                    {r.preprint && <span className="mono" style={{ fontSize: 10.5, color: "var(--uncertain)" }}>[preprint] </span>}
+                    <a href={r.url} target="_blank" rel="noreferrer" className="mono" style={{ fontSize: 11.5, color: "var(--signal)", textDecoration: "none", wordBreak: "break-all" }}>{r.url} &#8599;</a>
+                  </div>
+                </li>
+              ))}
+            </ol>
+          </div>
+        );
+      })}
+    </div>
+  );
+}
+
+// ---- Background modal (the "?" button): what it is and why ----
+export function AboutModal({ onClose }: { onClose: () => void }) {
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => e.key === "Escape" && onClose();
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [onClose]);
+  const link = (id: string, text: string) => (
+    <a href={`#ref-${id}`} onClick={onClose} style={{ color: "var(--signal)", textDecoration: "none" }}>{text}</a>
+  );
+  return (
+    <div style={{ position: "fixed", inset: 0, zIndex: 60 }}>
+      <div onClick={onClose} style={{ position: "absolute", inset: 0, background: "rgba(4,6,9,0.6)", backdropFilter: "blur(3px)" }} />
+      <div className="panel drawer-in" role="dialog" aria-modal="true" style={{ position: "absolute", left: "50%", top: "50%", transform: "translate(-50%, -50%)", width: "min(680px, 92vw)", maxHeight: "86vh", overflowY: "auto", padding: "28px 30px" }}>
+        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 16 }}>
+          <span className="eyebrow">Background</span>
+          <button className="btn" style={{ padding: "6px 12px", fontSize: 13 }} onClick={onClose}>Close</button>
+        </div>
+        <h2 style={{ fontSize: 24, marginBottom: 16 }}>What Aitiome is, and why</h2>
+        <div style={{ display: "flex", flexDirection: "column", gap: 14, fontSize: 14.5, lineHeight: 1.62, color: "var(--ink-dim)" }}>
+          <p><b style={{ color: "var(--ink)" }}>The problem.</b> Most Parkinson's and Alzheimer's is sporadic, not inherited. The leading suspect for the rest is the environmental exposome — the pesticides, metals, and industrial chemicals we're exposed to over a lifetime. In 2024 the field's leaders called for AI that connects chemicals to disease mechanism ({link("miller2024", "Miller et al., Nat Neurosci 2024")}).</p>
+          <p><b style={{ color: "var(--ink)" }}>Why it's hard.</b> Tens of thousands of chemicals are bioactive; almost none cause neurodegeneration. Activity-based screening flags everything that does something. On our own data, every bioactivity signal scores at or below chance against adversarial mitochondria-active decoys — it is anti-diagnostic here ({link("mack2024", "Mack et al. 2024")}).</p>
+          <p><b style={{ color: "var(--ink)" }}>What it does.</b> Given a chemical, Aitiome reconstructs the OECD-endorsed causal pathway to a neurodegeneration hallmark, grades it only on curated diagnostic evidence — curated CTD DirectEvidence ({link("ctd", "[CTD]")}) or a registered AOP stressor ({link("aopwiki", "[AOP-Wiki]")}), never on bioactivity — grounds each edge in queryable evidence, and rates its confidence. It runs per disease: Parkinson's and Alzheimer's, the identical machinery.</p>
+          <p><b style={{ color: "var(--ink)" }}>Honest by design.</b> It is a validation-and-calibration engine, not a novel-discovery predictor. It recovers the known neurotoxicants, rejects the imposters, quantifies the falsification, and maps the discovery limits it cannot cross — shown, not hidden. Alzheimer's is calibrated below Parkinson's where the evidence is genuinely thinner.</p>
+        </div>
+        <div className="hair" style={{ margin: "20px 0 14px" }} />
+        <p className="faint" style={{ fontSize: 12.5, lineHeight: 1.5 }}>
+          The full body of literature and data sources considered is in the <a href="#references" onClick={onClose} style={{ color: "var(--signal)", textDecoration: "none" }}>References</a>. Every <span className="mono">[E#]</span> marker links there.
+        </p>
+      </div>
+    </div>
+  );
+}
+
 // ---- Reasoning synthesis (Claude evidence-reasoner) ----
 export function SynthesisPanel({ syn }: { syn: Synthesis }) {
   const claude = syn.source === "claude";
@@ -175,8 +250,8 @@ export function SynthesisPanel({ syn }: { syn: Synthesis }) {
           if (!/^\[E\d+\]$/.test(p)) return <span key={i}>{p}</span>;
           const c = citeByMarker.get(p.slice(1, -1));
           const sup = <sup className="mono" style={{ fontSize: 10.5, padding: "0 1px" }}>{p}</sup>;
-          return c?.url ? (
-            <a key={i} href={c.url} target="_blank" rel="noreferrer" title={c.reference || c.detail}
+          return c ? (
+            <a key={i} href={citeHref(c.kind)} title={c.reference || c.detail}
               style={{ color: "var(--signal)", textDecoration: "none" }}>{sup}</a>
           ) : (
             <span key={i} style={{ color: "var(--signal)" }}>{sup}</span>
@@ -184,24 +259,17 @@ export function SynthesisPanel({ syn }: { syn: Synthesis }) {
         })}
       </p>
       <div style={{ display: "flex", flexWrap: "wrap", gap: 8, marginTop: 16 }}>
-        {syn.citations.map((c) =>
-          c.url ? (
-            <a key={c.marker} href={c.url} target="_blank" rel="noreferrer" className="chip cite-link" title={c.reference || c.detail}
-              style={{ textDecoration: "none", cursor: "pointer" }}>
-              <span className="mono" style={{ color: "var(--signal)" }}>{c.marker}</span>
-              {STRAND_LABEL[c.kind] ?? c.kind}
-            </a>
-          ) : (
-            <span key={c.marker} className="chip" title={c.detail}>
-              <span className="mono" style={{ color: "var(--signal)" }}>{c.marker}</span>
-              {STRAND_LABEL[c.kind] ?? c.kind}
-            </span>
-          ),
-        )}
+        {syn.citations.map((c) => (
+          <a key={c.marker} href={citeHref(c.kind)} className="chip cite-link" title={c.reference || c.detail}
+            style={{ textDecoration: "none", cursor: "pointer" }}>
+            <span className="mono" style={{ color: "var(--signal)" }}>{c.marker}</span>
+            {STRAND_LABEL[c.kind] ?? c.kind}
+          </a>
+        ))}
       </div>
       <p className="faint" style={{ fontSize: 11.5, marginTop: 14 }}>
         The synthesis explains the reasoning. It never makes or changes the recovery call, which is
-        curated and fixed. Evidence is cited by marker; nothing is invented.
+        curated and fixed. Evidence is cited by marker to the references below; nothing is invented.
       </p>
     </div>
   );
@@ -545,25 +613,25 @@ export function AnticipatedCritiques() {
 }
 
 // ---- Convergence & literature: node-level mechanistic grounding + exclusions ----
-type Ref = { node: string; who: string; cite: string; url: string };
+type Ref = { node: string; who: string; cite: string; ref: string };
 const PD_REFS: Ref[] = [
-  { node: "MIE - complex-I", who: "MitoCarta3.0", cite: "Complex-I Q-site subunits (our MIE grounding)", url: "https://www.broadinstitute.org/mitocarta" },
-  { node: "Mito dysfunction -> DA degeneration", who: "Nakamura lab", cite: "Berthet et al. J Neurosci 2014", url: "https://doi.org/10.1523/JNEUROSCI.0930-14.2014" },
-  { node: "Complex-I / mito -> PD (recent)", who: "Nakamura lab", cite: "CHCHD2, Science Advances 2025", url: "https://doi.org/10.1126/sciadv.adu0726" },
-  { node: "Parkinsonian motor deficits (AO)", who: "Kreitzer lab", cite: "Kravitz et al. Nature 2010", url: "https://doi.org/10.1038/nature09159" },
-  { node: "Vulnerable DA neurons (AO frame)", who: "Kamath 2022", cite: "SOX6/AGTR1 SN atlas (our AO grounding)", url: "https://doi.org/10.1038/s41593-022-01061-1" },
+  { node: "MIE - complex-I", who: "MitoCarta3.0", cite: "Complex-I Q-site subunits (our MIE grounding)", ref: "mitocarta" },
+  { node: "Mito dysfunction -> DA degeneration", who: "Nakamura lab", cite: "Berthet et al. J Neurosci 2014", ref: "berthet2014" },
+  { node: "Complex-I / mito -> PD (recent)", who: "Nakamura lab", cite: "CHCHD2, Science Advances 2025", ref: "chchd2_2025" },
+  { node: "Parkinsonian motor deficits (AO)", who: "Kreitzer lab", cite: "Kravitz et al. Nature 2010", ref: "kravitz2010" },
+  { node: "Vulnerable DA neurons (AO frame)", who: "Kamath 2022", cite: "SOX6/AGTR1 SN atlas (our AO grounding)", ref: "kamath2022" },
 ];
 const AD_REFS: Ref[] = [
-  { node: "Neuroinflammation (KE-188) + BBB", who: "Akassoglou lab", cite: "Merlini et al. Neuron 2019", url: "https://doi.org/10.1016/j.neuron.2019.01.014" },
-  { node: "Microglial state resource", who: "Akassoglou lab", cite: "Mendiola et al. Nat Immunol 2023", url: "https://doi.org/10.1038/s41590-023-01522-0" },
-  { node: "APOE -> microglia", who: "Huang lab", cite: "Blumenfeld et al. Nat Rev Neurosci 2024", url: "https://doi.org/10.1038/s41583-023-00776-9" },
-  { node: "TREM2 -> network", who: "Mucke lab", cite: "Das et al. iScience 2021", url: "https://doi.org/10.1016/j.isci.2021.103245" },
-  { node: "AD microglia (AO frame)", who: "Bellenguez 2022 / DAM", cite: "GWAS microglia + DAM signature (our AO grounding)", url: "https://doi.org/10.1038/s41588-022-01024-z" },
+  { node: "Neuroinflammation (KE-188) + BBB", who: "Akassoglou lab", cite: "Merlini et al. Neuron 2019", ref: "merlini2019" },
+  { node: "Microglial state resource", who: "Akassoglou lab", cite: "Mendiola et al. Nat Immunol 2023", ref: "mendiola2023" },
+  { node: "APOE -> microglia", who: "Huang lab", cite: "Blumenfeld et al. Nat Rev Neurosci 2024", ref: "blumenfeld2024" },
+  { node: "TREM2 -> network", who: "Mucke lab", cite: "Das et al. iScience 2021", ref: "das2021" },
+  { node: "AD microglia (AO frame)", who: "Bellenguez 2022 / DAM", cite: "GWAS microglia + DAM signature (our AO grounding)", ref: "bellenguez2022" },
 ];
 const METHOD_REFS: Ref[] = [
-  { node: "Bioactivity is anti-diagnostic", who: "Mack et al. 2024", cite: "ToxCast ~40% neural-relevant (NeuroToxicology)", url: "https://pubmed.ncbi.nlm.nih.gov/38878836/" },
-  { node: "The exposome of neurodegeneration", who: "Miller et al. 2024", cite: "Nature Neuroscience", url: "https://doi.org/10.1038/s41593-024-01627-1" },
-  { node: "Complex-I not strictly required (we pre-empt)", who: "Nakamura lab", cite: "Choi et al. PNAS 2008", url: "https://doi.org/10.1073/pnas.0807581105" },
+  { node: "Bioactivity is anti-diagnostic", who: "Mack et al. 2024", cite: "ToxCast ~40% neural-relevant (NeuroToxicology)", ref: "mack2024" },
+  { node: "The exposome of neurodegeneration", who: "Miller et al. 2024", cite: "Nature Neuroscience", ref: "miller2024" },
+  { node: "Complex-I not strictly required (we pre-empt)", who: "Nakamura lab", cite: "Choi et al. PNAS 2008", ref: "choi2008" },
 ];
 const EXCLUSIONS = [
   ["Bioactivity as a discriminator", "anti-diagnostic here (ToxCast/Tox21/GenRA/DeepTox)"],
@@ -580,8 +648,8 @@ export function ConvergencePanel() {
         {refs.map((r) => (
           <div key={r.node} style={{ display: "flex", flexDirection: "column", gap: 2 }}>
             <span style={{ fontSize: 13, fontWeight: 500 }}>{r.node}</span>
-            <a href={r.url} target="_blank" rel="noreferrer" className="dim" style={{ fontSize: 12.5, textDecoration: "none", lineHeight: 1.4 }}>
-              <span style={{ color: "var(--ink-dim)" }}>{r.who}</span> - {r.cite} &#8599;
+            <a href={`#ref-${r.ref}`} className="dim" style={{ fontSize: 12.5, textDecoration: "none", lineHeight: 1.4 }}>
+              <span style={{ color: "var(--ink-dim)" }}>{r.who}</span> - {r.cite} <sup className="mono" style={{ color: "var(--signal)" }}>[{refNumber.get(r.ref)}]</sup>
             </a>
           </div>
         ))}
