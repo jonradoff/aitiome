@@ -38,4 +38,16 @@ for c in rotenone paraquat mptp 6-hydroxydopamine chlorpyrifos \
   echo "  synthesis/$c.json"
 done
 
+# Alzheimer's axis fixtures (demo resilience for the second axis).
+fetch "diseases"              "diseases.json"
+fetch "validation?disease=ad" "validation-ad.json"
+mkdir -p "$OUT/assess-ad"
+for c in "DDE" "lead acetate" "cadmium chloride" "aluminum chloride" "streptozocin" \
+         "curcumin" "donepezil" "epigallocatechin gallate" "methylene blue"; do
+  slug=$(echo "$c" | tr ' A-Z' '-a-z')
+  enc=$(python3 -c "import urllib.parse,sys;print(urllib.parse.quote(sys.argv[1]))" "$c")
+  curl -s "$base/assess?id=$enc&disease=ad" | python3 -m json.tool > "$OUT/assess-ad/$slug.json"
+  echo "  assess-ad/$slug.json"
+done
+
 echo "done -> $OUT"

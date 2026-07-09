@@ -1,0 +1,128 @@
+{
+    "mode": "validation",
+    "disease": "ad",
+    "compound": {
+        "name": "epigallocatechin gallate",
+        "role": "negative",
+        "confidenceTier": "adversarial_negative",
+        "mech": "polyphenol",
+        "note": "strongest polyphenol Ab inhibitor; PAINS/assay-interference; dietary",
+        "cas": "989-51-5",
+        "dtxsid": "DTXSID1029889",
+        "pdDirect": 0,
+        "adDirect": 0,
+        "aopStressorOf": null,
+        "aop3Stressor": false,
+        "inNeurotoxkb": false,
+        "toxcastTested": 0,
+        "toxcastActive": 0,
+        "mitoActive": 0,
+        "mmpActive": 0,
+        "oxStressActive": 0,
+        "neuroActive": 0,
+        "mechActiveTotal": 0
+    },
+    "role": "negative",
+    "confidenceTier": "adversarial_negative",
+    "recovery": {
+        "call": "negative",
+        "disease": "ad",
+        "predicate": {
+            "ctdPdDirectEvidence": false,
+            "neuroAopStressor": false
+        },
+        "diagnostic": true,
+        "gatedOnAssay": false,
+        "corroboration": {
+            "assayActive": false,
+            "mitoActive": 0,
+            "mechActiveTotal": 0,
+            "note": "",
+            "antiDiagnostic": true
+        },
+        "rationale": "No curated Alzheimer's DirectEvidence and not a registered AD-relevant AOP stressor."
+    },
+    "strands": [
+        {
+            "kind": "curated_mechanism",
+            "status": "absent",
+            "detail": "No curated Alzheimer's DirectEvidence and not a registered AD-relevant AOP stressor.",
+            "source": "CTD curated AD DirectEvidence / AOP-Wiki",
+            "provenance": "CTD curated chemical-disease DirectEvidence (bulk report; MESH:D000544 Alzheimer Disease) + AOP-Wiki AD-relevant AOP stressors {12,48,429,475}",
+            "isGate": false
+        },
+        {
+            "kind": "assay_corroboration",
+            "status": "supports",
+            "detail": "Active on amyloid-beta / tau aggregation assays (a dietary polyphenol, often a PAINS/assay-interference scaffold) \u2014 exactly the imposter signal the engine does NOT act on.",
+            "source": "Aggregation-assay literature",
+            "provenance": "Qualitative AD-assay activity; not gated",
+            "isGate": false
+        }
+    ],
+    "rejection": {
+        "lines": [
+            {
+                "kind": "curated_mechanism",
+                "status": "absent",
+                "detail": "No curated Alzheimer's DirectEvidence and not a registered AD-relevant AOP stressor.",
+                "source": "CTD curated AD DirectEvidence / AOP-Wiki",
+                "provenance": "CTD curated chemical-disease DirectEvidence (bulk report; MESH:D000544 Alzheimer Disease) + AOP-Wiki AD-relevant AOP stressors {12,48,429,475}",
+                "isGate": false
+            }
+        ],
+        "count": 1
+    },
+    "trace": [
+        {
+            "kind": "resolve",
+            "compound": "epigallocatechin gallate",
+            "resolvedForm": "epigallocatechin gallate",
+            "label": "Resolved epigallocatechin gallate (DTXSID-first, salt-form correct)"
+        },
+        {
+            "kind": "predicate_eval",
+            "term": "ctd_pd_direct",
+            "hit": false,
+            "label": "CTD Alzheimer's curated DirectEvidence"
+        },
+        {
+            "kind": "predicate_eval",
+            "term": "neuro_aop_stressor",
+            "hit": false,
+            "label": "Registered AD-relevant AOP stressor"
+        },
+        {
+            "kind": "strand",
+            "strandKind": "curated_mechanism",
+            "strandStatus": "absent",
+            "label": "No curated Alzheimer's DirectEvidence and not a registered AD-relevant AOP stressor."
+        },
+        {
+            "kind": "strand",
+            "strandKind": "assay_corroboration",
+            "strandStatus": "supports",
+            "label": "Active on amyloid-beta / tau aggregation assays (a dietary polyphenol, often a PAINS/assay-interference scaffold) \u2014 exactly the imposter signal the engine does NOT act on."
+        },
+        {
+            "kind": "reject_line",
+            "strandKind": "curated_mechanism",
+            "line": "No curated Alzheimer's DirectEvidence and not a registered AD-relevant AOP stressor.",
+            "label": "No curated Alzheimer's DirectEvidence and not a registered AD-relevant AOP stressor."
+        },
+        {
+            "kind": "verdict",
+            "call": "negative",
+            "tier": "adversarial_negative",
+            "label": "Correctly not flagged \u2014 adversarial_negative"
+        }
+    ],
+    "crossDisease": [
+        {
+            "disease": "pd",
+            "label": "Parkinson's",
+            "call": "negative",
+            "rationale": "No curated Parkinson's DirectEvidence and not a registered neuro-AOP stressor."
+        }
+    ]
+}

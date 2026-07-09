@@ -1,0 +1,396 @@
+{
+    "mode": "validation",
+    "disease": "ad",
+    "compound": {
+        "name": "aluminum chloride",
+        "role": "positive",
+        "confidenceTier": "curated_anchored_ad_contested",
+        "mech": "metal",
+        "note": "CTD AD marker/mechanism (Aluminum); epidemiology contested - honest hard case",
+        "cas": "7446-70-0",
+        "dtxsid": "DTXSID6029674",
+        "pdDirect": 0,
+        "adDirect": 1,
+        "aopStressorOf": null,
+        "aop3Stressor": false,
+        "inNeurotoxkb": false,
+        "toxcastTested": 0,
+        "toxcastActive": 0,
+        "mitoActive": 0,
+        "mmpActive": 0,
+        "oxStressActive": 0,
+        "neuroActive": 0,
+        "mechActiveTotal": 0
+    },
+    "role": "positive",
+    "confidenceTier": "curated_anchored_ad_contested",
+    "recovery": {
+        "call": "positive",
+        "disease": "ad",
+        "predicate": {
+            "ctdPdDirectEvidence": true,
+            "neuroAopStressor": false
+        },
+        "diagnostic": true,
+        "gatedOnAssay": false,
+        "corroboration": {
+            "assayActive": false,
+            "mitoActive": 0,
+            "mechActiveTotal": 0,
+            "note": "",
+            "antiDiagnostic": true
+        },
+        "rationale": "Curated CTD Alzheimer's DirectEvidence (diagnostic)."
+    },
+    "pathway": {
+        "aopId": "12",
+        "title": "Chronic binding of antagonist to N-methyl-D-aspartate receptors (NMDARs) during brain development leads to neurodegeneration with impairment in learning and memory in aging",
+        "oecdEndorsed": true,
+        "url": "https://aopwiki.org/aops/12",
+        "nodes": [
+            {
+                "eventId": "52",
+                "title": "Decreased, Calcium influx",
+                "role": "KE",
+                "layer": 2
+            },
+            {
+                "eventId": "55",
+                "title": "Increase, Cell injury/death",
+                "role": "KE",
+                "layer": 4
+            },
+            {
+                "eventId": "188",
+                "title": "Neuroinflammation",
+                "role": "KE",
+                "layer": 5
+            },
+            {
+                "eventId": "195",
+                "title": "Inhibition, NMDARs",
+                "role": "KE",
+                "layer": 1
+            },
+            {
+                "eventId": "201",
+                "title": "Binding of antagonist, NMDA receptors",
+                "role": "MIE",
+                "layer": 0
+            },
+            {
+                "eventId": "341",
+                "title": "Impairment, Learning and memory",
+                "role": "AO",
+                "layer": 7,
+                "grounding": {
+                    "cellTypes": [
+                        "TREM2",
+                        "APOE",
+                        "TYROBP",
+                        "CST7",
+                        "LPL",
+                        "ITGAX",
+                        "SPP1",
+                        "GPNMB",
+                        "CD9",
+                        "CTSB",
+                        "CTSD",
+                        "CLEC7A",
+                        "AXL"
+                    ],
+                    "source": "Bellenguez 2022 / DAM (disease-associated microglia)",
+                    "kind": "ao_celltype"
+                }
+            },
+            {
+                "eventId": "352",
+                "title": "N/A, Neurodegeneration",
+                "role": "AO",
+                "layer": 6,
+                "grounding": {
+                    "cellTypes": [
+                        "TREM2",
+                        "APOE",
+                        "TYROBP",
+                        "CST7",
+                        "LPL",
+                        "ITGAX",
+                        "SPP1",
+                        "GPNMB",
+                        "CD9",
+                        "CTSB",
+                        "CTSD",
+                        "CLEC7A",
+                        "AXL"
+                    ],
+                    "source": "Bellenguez 2022 / DAM (disease-associated microglia)",
+                    "kind": "ao_celltype"
+                }
+            },
+            {
+                "eventId": "381",
+                "title": "Reduced levels of BDNF",
+                "role": "KE",
+                "layer": 3
+            }
+        ],
+        "edges": [
+            {
+                "kerId": "207",
+                "upstream": "352",
+                "downstream": "188",
+                "isLoop": true,
+                "confidence": 0.9
+            },
+            {
+                "kerId": "208",
+                "upstream": "188",
+                "downstream": "352",
+                "isLoop": false,
+                "confidence": 0.9
+            },
+            {
+                "kerId": "213",
+                "upstream": "195",
+                "downstream": "52",
+                "isLoop": false,
+                "confidence": 0.9
+            },
+            {
+                "kerId": "229",
+                "upstream": "201",
+                "downstream": "195",
+                "isLoop": false,
+                "confidence": 0.9
+            },
+            {
+                "kerId": "347",
+                "upstream": "52",
+                "downstream": "381",
+                "isLoop": false,
+                "confidence": 0.9
+            },
+            {
+                "kerId": "353",
+                "upstream": "381",
+                "downstream": "55",
+                "isLoop": false,
+                "confidence": 0.9
+            },
+            {
+                "kerId": "365",
+                "upstream": "55",
+                "downstream": "188",
+                "isLoop": false,
+                "confidence": 0.9
+            },
+            {
+                "kerId": "1069",
+                "upstream": "352",
+                "downstream": "341",
+                "isLoop": false,
+                "confidence": 0.9
+            }
+        ]
+    },
+    "strands": [
+        {
+            "kind": "curated_mechanism",
+            "status": "supports",
+            "detail": "Curated CTD Alzheimer's DirectEvidence (diagnostic).",
+            "source": "CTD curated AD DirectEvidence / AOP-Wiki",
+            "provenance": "CTD curated chemical-disease DirectEvidence (bulk report; MESH:D000544 Alzheimer Disease) + AOP-Wiki AD-relevant AOP stressors {12,48,429,475}",
+            "isGate": false
+        },
+        {
+            "kind": "mito_celltype_grounding",
+            "status": "supports",
+            "detail": "Adverse outcome grounded in the disease-associated microglia population (TREM2/APOE/INPP5D); neuroinflammation via the shared KE-188 node that also anchors the PD cascade.",
+            "source": "Bellenguez 2022 / DAM microglia",
+            "provenance": "Bellenguez 2022 AD GWAS microglia-enriched loci + DAM signature (Keren-Shaul 2018) \u2014 adverse-outcome cell-type grounding on AOP-12 nodes 352/341",
+            "isGate": false
+        },
+        {
+            "kind": "assay_corroboration",
+            "status": "not_assessable",
+            "detail": "AD-assay bioactivity is not quantified in this set (corroboration only, and anti-diagnostic \u2014 never a discriminator).",
+            "source": "EPA ToxCast / aggregation-assay literature",
+            "provenance": "Qualitative only; not gated (AD assay-AUROC pending data)",
+            "isGate": false
+        },
+        {
+            "kind": "epidemiology",
+            "status": "not_assessable",
+            "detail": "Drinking-water Al RR 2.14 (1.21-3.80) \u2014 contested evidence (Rondeau 2000 PAQUID (Am J Epidemiol)).",
+            "source": "Published cohorts / meta-analyses",
+            "provenance": "Curated; contested/weak epidemiology flagged, not treated as diagnostic",
+            "isGate": false
+        }
+    ],
+    "trace": [
+        {
+            "kind": "resolve",
+            "compound": "aluminum chloride",
+            "resolvedForm": "aluminum chloride",
+            "label": "Resolved aluminum chloride (DTXSID-first, salt-form correct)"
+        },
+        {
+            "kind": "predicate_eval",
+            "term": "ctd_pd_direct",
+            "hit": true,
+            "label": "CTD Alzheimer's curated DirectEvidence"
+        },
+        {
+            "kind": "predicate_eval",
+            "term": "neuro_aop_stressor",
+            "hit": false,
+            "label": "Registered AD-relevant AOP stressor"
+        },
+        {
+            "kind": "node_enter",
+            "eventId": "201",
+            "title": "Binding of antagonist, NMDA receptors",
+            "label": "Binding of antagonist, NMDA receptors"
+        },
+        {
+            "kind": "node_enter",
+            "eventId": "195",
+            "title": "Inhibition, NMDARs",
+            "label": "Inhibition, NMDARs"
+        },
+        {
+            "kind": "node_enter",
+            "eventId": "52",
+            "title": "Decreased, Calcium influx",
+            "label": "Decreased, Calcium influx"
+        },
+        {
+            "kind": "node_enter",
+            "eventId": "381",
+            "title": "Reduced levels of BDNF",
+            "label": "Reduced levels of BDNF"
+        },
+        {
+            "kind": "node_enter",
+            "eventId": "55",
+            "title": "Increase, Cell injury/death",
+            "label": "Increase, Cell injury/death"
+        },
+        {
+            "kind": "node_enter",
+            "eventId": "188",
+            "title": "Neuroinflammation",
+            "label": "Neuroinflammation"
+        },
+        {
+            "kind": "node_enter",
+            "eventId": "352",
+            "title": "N/A, Neurodegeneration",
+            "label": "N/A, Neurodegeneration"
+        },
+        {
+            "kind": "node_enter",
+            "eventId": "341",
+            "title": "Impairment, Learning and memory",
+            "label": "Impairment, Learning and memory"
+        },
+        {
+            "kind": "edge_fire",
+            "kerId": "207",
+            "confidence": 0.9
+        },
+        {
+            "kind": "edge_fire",
+            "kerId": "208",
+            "confidence": 0.9
+        },
+        {
+            "kind": "edge_fire",
+            "kerId": "213",
+            "confidence": 0.9
+        },
+        {
+            "kind": "edge_fire",
+            "kerId": "229",
+            "confidence": 0.9
+        },
+        {
+            "kind": "edge_fire",
+            "kerId": "347",
+            "confidence": 0.9
+        },
+        {
+            "kind": "edge_fire",
+            "kerId": "353",
+            "confidence": 0.9
+        },
+        {
+            "kind": "edge_fire",
+            "kerId": "365",
+            "confidence": 0.9
+        },
+        {
+            "kind": "edge_fire",
+            "kerId": "1069",
+            "confidence": 0.9
+        },
+        {
+            "kind": "ao_resolve",
+            "cellTypes": [
+                "TREM2",
+                "APOE",
+                "TYROBP",
+                "CST7",
+                "LPL",
+                "ITGAX",
+                "SPP1",
+                "GPNMB",
+                "CD9",
+                "CTSB",
+                "CTSD",
+                "CLEC7A",
+                "AXL"
+            ],
+            "label": "Resolves into the disease-associated microglia population (TREM2/APOE)"
+        },
+        {
+            "kind": "strand",
+            "strandKind": "curated_mechanism",
+            "strandStatus": "supports",
+            "label": "Curated CTD Alzheimer's DirectEvidence (diagnostic)."
+        },
+        {
+            "kind": "strand",
+            "strandKind": "mito_celltype_grounding",
+            "strandStatus": "supports",
+            "label": "Adverse outcome grounded in the disease-associated microglia population (TREM2/APOE/INPP5D); neuroinflammation via the shared KE-188 node that also anchors the PD cascade."
+        },
+        {
+            "kind": "strand",
+            "strandKind": "assay_corroboration",
+            "strandStatus": "not_assessable",
+            "label": "AD-assay bioactivity is not quantified in this set (corroboration only, and anti-diagnostic \u2014 never a discriminator)."
+        },
+        {
+            "kind": "strand",
+            "strandKind": "epidemiology",
+            "strandStatus": "not_assessable",
+            "label": "Drinking-water Al RR 2.14 (1.21-3.80) \u2014 contested evidence (Rondeau 2000 PAQUID (Am J Epidemiol))."
+        },
+        {
+            "kind": "verdict",
+            "call": "positive",
+            "tier": "curated_anchored_ad_contested",
+            "label": "Recovered \u2014 curated_anchored_ad_contested"
+        }
+    ],
+    "crossDisease": [
+        {
+            "disease": "pd",
+            "label": "Parkinson's",
+            "call": "negative",
+            "rationale": "No curated Parkinson's DirectEvidence and not a registered neuro-AOP stressor."
+        }
+    ]
+}

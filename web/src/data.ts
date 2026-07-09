@@ -13,7 +13,7 @@ import type {
   Disease,
   DiseaseInfo,
 } from "@contract";
-import { fxValidation, fxDiscovery, fxPathway, fxCompounds, fxAssess, fxSynthesis, fxBenchmark, fxSources } from "./fixtures";
+import { fxValidation, fxValidationAD, fxDiseases, fxDiscovery, fxPathway, fxCompounds, fxAssess, fxAssessAD, fxSynthesis, fxBenchmark, fxSources } from "./fixtures";
 
 export type Source = "live" | "fixture";
 
@@ -38,14 +38,13 @@ export async function getHealth(): Promise<{ health: Health | null; source: Sour
 
 export async function getDiseases(): Promise<DiseaseInfo[]> {
   const live = await tryLive<DiseaseInfo[]>("/diseases");
-  return live ?? DISEASES_FALLBACK;
+  return live ?? fxDiseases;
 }
 
 export async function getValidation(disease: Disease = "pd"): Promise<{ data: ValidationResult; source: Source }> {
   const live = await tryLive<ValidationResult>(`/validation${dq(disease)}`);
   if (live) return { data: live, source: "live" };
-  // Fixtures cover PD only; AD requires the live engine.
-  return { data: disease === "ad" ? EMPTY_VALIDATION : fxValidation, source: "fixture" };
+  return { data: disease === "ad" ? fxValidationAD : fxValidation, source: "fixture" };
 }
 
 export async function getDiscoveryMap(): Promise<{ data: DiscoveryMap; source: Source }> {
@@ -79,7 +78,7 @@ export async function getCompounds(disease: Disease = "pd"): Promise<{ data: Com
 export async function assess(id: string, disease: Disease = "pd"): Promise<{ data: CompoundResult | null; source: Source }> {
   const live = await tryLive<CompoundResult>(`/assess?id=${encodeURIComponent(id)}${dq(disease, "&")}`);
   if (live) return { data: live, source: "live" };
-  const fx = fxAssess[id.toLowerCase()];
+  const fx = (disease === "ad" ? fxAssessAD : fxAssess)[id.toLowerCase()];
   return { data: fx ?? null, source: "fixture" };
 }
 
@@ -89,21 +88,6 @@ export async function synthesize(id: string): Promise<{ data: Synthesis | null; 
   const fx = fxSynthesis[id.toLowerCase()];
   return { data: fx ?? null, source: "fixture" };
 }
-
-const EMPTY_VALIDATION: ValidationResult = {
-  summary: {
-    positivesRecovered: 0, positivesTotal: 0, negativesRejected: 0, negativesTotal: 0,
-    adversarialTotal: 0, adversarialRejected: 0, falsePositives: 0, falseNegatives: 0,
-  },
-  perCompound: [],
-};
-
-const DISEASES_FALLBACK: DiseaseInfo[] = [
-  { disease: "pd", label: "Parkinson's disease", short: "Parkinson's", anchorAop: "3", anchorEndorsed: true,
-    note: "OECD-endorsed AOP-3 spine. The validated anchor.", compoundCount: 27 },
-  { disease: "ad", label: "Alzheimer's disease", short: "Alzheimer's", anchorAop: "12", anchorEndorsed: true,
-    note: "Endorsed AOP-12/48 anchor + non-endorsed Tau/amyloid overlay. Second axis; calibrated below PD.", compoundCount: 21 },
-];
 
 // resolveCompound maps any identifier (name, CAS, DTXSID, InChIKey, CID) to the
 // one salt-form-correct record. Demonstrates the DTXSID-first resolver: e.g. the

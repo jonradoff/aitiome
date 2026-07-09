@@ -1,22 +1,22 @@
 name,role,confidence_tier,cas,dtxsid,mech,note,pd_direct,ad_direct,aop_stressor_of,in_neurotoxkb
-DDE,positive,curated_anchored_ad,72-55-9,,organochlorine,"p,p'-DDE (DDT metabolite); strongest env-AD assoc (Richardson 2014 JAMA Neurol); CTD AD marker/mechanism",0,1,,False
-cadmium chloride,positive,curated_anchored_ad,10108-64-2,,metal,"AD-mortality HR 3.83 (Min 2016); CTD AD marker/mechanism (Cadmium)",0,1,,False
-cupric chloride,positive,curated_anchored_ad,7447-39-4,,metal,"free-Cu AD assoc (Squitti 2014); CTD AD marker/mechanism (Copper/cupric chloride)",0,1,,False
-aluminum chloride,positive,curated_anchored_ad_contested,7446-70-0,,metal,"CTD AD marker/mechanism (Aluminum); epidemiology contested - honest hard case",0,1,,False
-zinc chloride,positive,curated_anchored_ad,7646-85-7,,metal,"Zn dyshomeostasis in AD; CTD AD marker/mechanism (Zinc)",0,1,,False
-ferrous sulfate,positive,curated_anchored_ad,7720-78-7,,metal,"iron accumulation in AD; CTD AD marker/mechanism (Iron)",0,1,,False
-ozone,positive,curated_anchored_ad,10028-15-6,,air_pollutant,"discrete O3; CTD AD marker/mechanism",0,1,,False
-acrolein,positive,curated_anchored_ad,107-02-8,,aldehyde,"lipid-peroxidation product / tobacco smoke; CTD AD marker/mechanism",0,1,,False
-sodium fluoride,positive,curated_anchored_ad,7681-49-4,,fluoride,"fluoride neurotoxicity; CTD AD marker/mechanism (Fluorides/NaF)",0,1,,False
-lead acetate,positive,aop_anchored_ad,301-04-2,DTXSID6020773,metal,"AOP-12 registered stressor (endorsed); cohort AD HR~3 (Wang 2026); cross-disease with PD",0,0,12|499|500,True
-streptozocin,positive,model_toxin_ad,18883-66-4,,model_toxin,"ICV-STZ AD induction model - the MPTP-analog for AD; CTD AD marker/mechanism",0,1,,False
-kainic acid,positive,curated_anchored_ad,487-79-6,,excitotoxin,"kainate excitotoxicity (AOP-48-relevant); CTD AD marker/mechanism",0,1,,False
-curcumin,negative,adversarial_negative,458-37-7,,polyphenol,"Ab-aggregation inhibitor + PAINS; dietary; no curated AD causation",0,0,,False
-epigallocatechin gallate,negative,adversarial_negative,989-51-5,,polyphenol,"strongest polyphenol Ab inhibitor; PAINS/assay-interference; dietary",0,0,,False
-resveratrol,negative,adversarial_negative,501-36-0,,polyphenol,"Ab modulator; redox-active protectant candidate; no curated AD cause",0,0,,False
-donepezil,negative,adversarial_negative,120014-06-4,,ad_drug,"AChE inhibitor - FDA AD TREATMENT (therapeutic, not a cause)",0,0,,False
-galantamine,negative,adversarial_negative,357-70-0,,ad_drug,"AChE + nicotinic modulator; AD treatment",0,0,,False
-methylene blue,negative,adversarial_negative,61-73-4,,ad_drug,"tau-aggregation inhibitor; AD therapeutic candidate (LMTX)",0,0,,False
-simvastatin,negative,clean_negative,79902-63-9,DTXSID0023581,statin,"AD prevention candidate; reused from PD decoys for parallel benchmarks",0,0,,False
-diethyl phthalate,negative,clean_negative,84-66-2,DTXSID7021780,plasticizer,"heavily assayed; no AD DirectEvidence; reused clean negative",0,0,,False
-sodium chloride,negative,clean_negative,7647-14-5,DTXSID3021271,inert,"inert reference null; reused",0,0,,False
+DDE,positive,curated_anchored_ad,72-55-9,DTXSID9020374,organochlorine,"p,p'-DDE (DDT metabolite); strongest env-AD assoc (Richardson 2014 JAMA Neurol); CTD AD marker/mechanism",0,1,,False
+cadmium chloride,positive,curated_anchored_ad,10108-64-2,DTXSID6020226,metal,AD-mortality HR 3.83 (Min 2016); CTD AD marker/mechanism (Cadmium),0,1,,False
+cupric chloride,positive,curated_anchored_ad,7447-39-4,DTXSID7040449,metal,free-Cu AD assoc (Squitti 2014); CTD AD marker/mechanism (Copper/cupric chloride),0,1,,False
+aluminum chloride,positive,curated_anchored_ad_contested,7446-70-0,DTXSID6029674,metal,CTD AD marker/mechanism (Aluminum); epidemiology contested - honest hard case,0,1,,False
+zinc chloride,positive,curated_anchored_ad,7646-85-7,DTXSID2035013,metal,Zn dyshomeostasis in AD; CTD AD marker/mechanism (Zinc),0,1,,False
+ferrous sulfate,positive,curated_anchored_ad,7720-78-7,DTXSID0029688,metal,iron accumulation in AD; CTD AD marker/mechanism (Iron),0,1,,False
+ozone,positive,curated_anchored_ad,10028-15-6,DTXSID0021098,air_pollutant,discrete O3; CTD AD marker/mechanism,0,1,,False
+acrolein,positive,curated_anchored_ad,107-02-8,DTXSID5020023,aldehyde,lipid-peroxidation product / tobacco smoke; CTD AD marker/mechanism,0,1,,False
+sodium fluoride,positive,curated_anchored_ad,7681-49-4,DTXSID2020630,fluoride,fluoride neurotoxicity; CTD AD marker/mechanism (Fluorides/NaF),0,1,,False
+lead acetate,positive,aop_anchored_ad,301-04-2,DTXSID6020773,metal,AOP-12 registered stressor (endorsed); cohort AD HR~3 (Wang 2026); cross-disease with PD,0,0,12|499|500,True
+streptozocin,positive,model_toxin_ad,18883-66-4,DTXSID2021282,model_toxin,ICV-STZ AD induction model - the MPTP-analog for AD; CTD AD marker/mechanism,0,1,,False
+kainic acid,positive,curated_anchored_ad,487-79-6,DTXSID7040526,excitotoxin,kainate excitotoxicity (AOP-48-relevant); CTD AD marker/mechanism,0,1,,False
+curcumin,negative,adversarial_negative,458-37-7,DTXSID8031077,polyphenol,Ab-aggregation inhibitor + PAINS; dietary; no curated AD causation,0,0,,False
+epigallocatechin gallate,negative,adversarial_negative,989-51-5,DTXSID1029889,polyphenol,strongest polyphenol Ab inhibitor; PAINS/assay-interference; dietary,0,0,,False
+resveratrol,negative,adversarial_negative,501-36-0,DTXSID4031980,polyphenol,Ab modulator; redox-active protectant candidate; no curated AD cause,0,0,,False
+donepezil,negative,adversarial_negative,120014-06-4,DTXSID8048317,ad_drug,"AChE inhibitor - FDA AD TREATMENT (therapeutic, not a cause)",0,0,,False
+galantamine,negative,adversarial_negative,357-70-0,DTXSID2045606,ad_drug,AChE + nicotinic modulator; AD treatment,0,0,,False
+methylene blue,negative,adversarial_negative,61-73-4,DTXSID0023296,ad_drug,tau-aggregation inhibitor; AD therapeutic candidate (LMTX),0,0,,False
+simvastatin,negative,clean_negative,79902-63-9,DTXSID0023581,statin,AD prevention candidate; reused from PD decoys for parallel benchmarks,0,0,,False
+diethyl phthalate,negative,clean_negative,84-66-2,DTXSID7021780,plasticizer,heavily assayed; no AD DirectEvidence; reused clean negative,0,0,,False
+sodium chloride,negative,clean_negative,7647-14-5,DTXSID3021271,inert,inert reference null; reused,0,0,,False

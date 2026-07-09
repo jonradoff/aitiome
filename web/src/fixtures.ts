@@ -10,6 +10,7 @@ import type {
   Synthesis,
   Benchmark,
   SourceRef,
+  DiseaseInfo,
 } from "@contract";
 
 import validation from "@fixtures/validation.json";
@@ -45,12 +46,35 @@ import prochloraz from "@fixtures/assess/prochloraz.json";
 import propiconazole from "@fixtures/assess/propiconazole.json";
 import acetaminophen from "@fixtures/assess/acetaminophen.json";
 
+import validationAd from "@fixtures/validation-ad.json";
+import diseases from "@fixtures/diseases.json";
+import adDde from "@fixtures/assess-ad/dde.json";
+import adLead from "@fixtures/assess-ad/lead-acetate.json";
+import adCadmium from "@fixtures/assess-ad/cadmium-chloride.json";
+import adAluminum from "@fixtures/assess-ad/aluminum-chloride.json";
+import adStrepto from "@fixtures/assess-ad/streptozocin.json";
+import adCurcumin from "@fixtures/assess-ad/curcumin.json";
+import adDonepezil from "@fixtures/assess-ad/donepezil.json";
+import adEgcg from "@fixtures/assess-ad/epigallocatechin-gallate.json";
+import adMethyleneBlue from "@fixtures/assess-ad/methylene-blue.json";
+
 export const fxValidation = validation as unknown as ValidationResult;
+export const fxValidationAD = validationAd as unknown as ValidationResult;
+export const fxDiseases = diseases as unknown as DiseaseInfo[];
 export const fxDiscovery = discovery as unknown as DiscoveryMap;
 export const fxPathway = pathway as unknown as Pathway;
 export const fxCompounds = compounds as unknown as Compound[];
 export const fxBenchmark = benchmark as unknown as Benchmark;
 export const fxSources = sources as unknown as SourceRef[];
+
+const adList = [
+  adDde, adLead, adCadmium, adAluminum, adStrepto,
+  adCurcumin, adDonepezil, adEgcg, adMethyleneBlue,
+] as unknown as CompoundResult[];
+
+export const fxAssessAD: Record<string, CompoundResult> = Object.fromEntries(
+  adList.map((r) => [r.compound.name.toLowerCase(), r]),
+);
 
 const list = [
   rotenone, paraquat, mptp, ohda, chlorpyrifos,

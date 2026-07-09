@@ -1,0 +1,20 @@
+[
+    {
+        "disease": "pd",
+        "label": "Parkinson's disease",
+        "short": "Parkinson's",
+        "anchorAop": "3",
+        "anchorEndorsed": true,
+        "note": "OECD-endorsed AOP-3 spine (complex-I -> mitochondrial dysfunction -> nigrostriatal degeneration -> parkinsonian deficits). The validated anchor.",
+        "compoundCount": 28
+    },
+    {
+        "disease": "ad",
+        "label": "Alzheimer's disease",
+        "short": "Alzheimer's",
+        "anchorAop": "12",
+        "anchorEndorsed": true,
+        "note": "Endorsed AOP-12/48 anchor (aging neurodegeneration + memory) with a non-endorsed Tau/amyloid overlay (AOP-429/475). Second axis; calibrated below PD.",
+        "compoundCount": 21
+    }
+]

@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { getValidation, getHealth, getPathway, getDiscoveryMap, getBenchmark, getSources, getDiseases, assess, synthesize, resolveCompound } from "./data";
 import { useAsync } from "./useAsync";
 import { Hero } from "./hero/Hero";
-import { EvidencePanel, TracePanel, ValidationPanel, DiscoveryPanel, MCPPanel, SynthesisPanel, ProvenanceDrawer, SpecificityCenterpiece, FalsificationPanel, AnticipatedCritiques, SourcesPanel } from "./components/Panels";
+import { EvidencePanel, TracePanel, ValidationPanel, DiscoveryPanel, MCPPanel, SynthesisPanel, ProvenanceDrawer, SpecificityCenterpiece, FalsificationPanel, AnticipatedCritiques, SourcesPanel, ConvergencePanel } from "./components/Panels";
 import type { EvidenceStrand, Disease, DiseaseInfo, CompoundResult, ValidationResult } from "@contract";
 
 // Per-disease showcase sets + copy. PD is the validated anchor; AD is the second
@@ -36,6 +36,16 @@ function initialDisease(): Disease {
   const p = new URLSearchParams(window.location.search).get("disease");
   return p === "ad" ? "ad" : "pd";
 }
+
+// The 30-second guided path for a cold judge: recover -> reject imposter ->
+// falsify -> second axis -> convergence. Presenter-paced (click to advance).
+const TOUR: { cap: string; d?: Disease; a?: string; decoy?: string; scroll: string }[] = [
+  { cap: "Recover a known neurotoxicant on the OECD-endorsed pathway.", d: "pd", a: "rotenone", scroll: "sec-hero" },
+  { cap: "...and reject a bioactive imposter — no curated cause, so no call.", d: "pd", decoy: "warfarin", scroll: "sec-specificity" },
+  { cap: "Why not just bioactivity? Every activity signal is at or below chance vs the decoys.", d: "pd", scroll: "sec-falsification" },
+  { cap: "A second disease, same method — Alzheimer's, honestly calibrated below Parkinson's.", d: "ad", a: "DDE", scroll: "sec-compare" },
+  { cap: "Grounded in the judges' own labs — and honest about what we refuse to use.", scroll: "sec-convergence" },
+];
 
 export function App() {
   const [theme, setTheme] = useState<"dark" | "light">("dark");
@@ -71,6 +81,16 @@ export function App() {
   const synthesis = useAsync(() => synthesize(activeId), [activeId]);
   const decoy = useAsync(() => assess(decoyId, disease), [decoyId, disease]);
 
+  const [tour, setTour] = useState<number | null>(null);
+  function runStep(i: number) {
+    const st = TOUR[i];
+    if (st.d) setDisease(st.d);
+    if (st.a) setActiveId(st.a);
+    if (st.decoy) setDecoyId(st.decoy);
+    setTour(i);
+    window.setTimeout(() => document.getElementById(st.scroll)?.scrollIntoView({ behavior: "smooth", block: "start" }), 260);
+  }
+
   function toggleTheme() {
     const next = theme === "dark" ? "light" : "dark";
     setTheme(next);
@@ -84,11 +104,11 @@ export function App() {
 
   return (
     <div className="shell">
-      <Masthead live={!!health?.health} onToggle={toggleTheme} theme={theme} />
+      <Masthead live={!!health?.health} onToggle={toggleTheme} theme={theme} onTour={() => runStep(0)} />
       <DiseaseFilter diseases={diseases ?? []} active={disease} onSelect={setDisease} info={info} />
 
       <main>
-        <section className="wrap" style={{ paddingTop: 34, paddingBottom: 30 }}>
+        <section id="sec-hero" className="wrap" style={{ paddingTop: 34, paddingBottom: 30 }}>
           <div style={{ maxWidth: 760 }}>
             <p className="eyebrow" style={{ marginBottom: 16 }}>Validation, not a watchlist</p>
             <h1 style={{ fontSize: "clamp(28px, 3.8vw, 46px)" }}>{cfg.headline}</h1>
@@ -147,12 +167,12 @@ export function App() {
           )}
         </section>
 
-        <section className="wrap section">
+        <section id="sec-specificity" className="wrap section">
           <SpecificityCenterpiece result={decoy?.data ?? null} decoyId={decoyId} onSelect={setDecoyId} />
         </section>
 
         {benchmark && disease === "pd" && (
-          <section className="wrap section">
+          <section id="sec-falsification" className="wrap section">
             <FalsificationPanel b={benchmark.data} />
           </section>
         )}
@@ -169,12 +189,16 @@ export function App() {
           </section>
         )}
 
-        <section className="wrap section">
+        <section id="sec-compare" className="wrap section">
           <CompareSection />
         </section>
 
         <section className="wrap section">
           <AnticipatedCritiques />
+        </section>
+
+        <section id="sec-convergence" className="wrap section">
+          <ConvergencePanel />
         </section>
 
         {sources && (
@@ -190,6 +214,26 @@ export function App() {
 
       <Footer source={source} />
       <ProvenanceDrawer strand={provenance} onClose={() => setProvenance(null)} />
+      {tour !== null && (
+        <div
+          style={{
+            position: "fixed", left: "50%", bottom: 22, transform: "translateX(-50%)", zIndex: 60,
+            display: "flex", alignItems: "center", gap: 16, maxWidth: "min(760px, 92vw)",
+            padding: "12px 14px 12px 18px", borderRadius: 999,
+            background: "color-mix(in srgb, var(--bg-2) 92%, transparent)", border: "1px solid var(--line-2)",
+            backdropFilter: "blur(12px)", boxShadow: "0 12px 40px rgba(0,0,0,0.5)",
+          }}
+        >
+          <span className="mono faint" style={{ fontSize: 11, flex: "none" }}>{tour + 1}/{TOUR.length}</span>
+          <span style={{ fontSize: 13.5, lineHeight: 1.35 }}>{TOUR[tour].cap}</span>
+          <div style={{ display: "flex", gap: 8, flex: "none" }}>
+            <button className="btn primary" style={{ padding: "6px 14px" }} onClick={() => (tour < TOUR.length - 1 ? runStep(tour + 1) : setTour(null))}>
+              {tour < TOUR.length - 1 ? "Next" : "Done"}
+            </button>
+            <button className="btn" style={{ padding: "6px 12px" }} onClick={() => setTour(null)}>Close</button>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
@@ -500,7 +544,7 @@ function Readout({ result, onSwitchDisease }: { result: CompoundResult; onSwitch
   );
 }
 
-function Masthead(props: { live: boolean; theme: "dark" | "light"; onToggle: () => void }) {
+function Masthead(props: { live: boolean; theme: "dark" | "light"; onToggle: () => void; onTour: () => void }) {
   return (
     <header
       className="wrap"
@@ -519,6 +563,7 @@ function Masthead(props: { live: boolean; theme: "dark" | "light"; onToggle: () 
         <span className={`chip ${props.live ? "recovered" : "signal"}`}>
           <span className="dot" />{props.live ? "engine live" : "fixtures"}
         </span>
+        <button className="btn primary" onClick={props.onTour} title="A 30-second guided path through the thesis">&#9654; Guided tour</button>
         <button className="btn" onClick={props.onToggle}>{props.theme === "dark" ? "Light" : "Dark"}</button>
       </div>
     </header>
