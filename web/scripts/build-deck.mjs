@@ -235,13 +235,13 @@ slide("", `${eyebrow("Where we sit")}${h("The field predicts. We validate.")}
   <p class="pull">We found no prior adversarial mito-active-decoy neurodegeneration benchmark.</p>
   ${foot(N())}`);
 
-// 13f2 - convergence with Gladstone (the judges' own science)
-slide("", `${eyebrow("Grounded in the judges' own science")}${h("Convergent with Gladstone - on every node")}
+// 13f2 - convergence with the mechanistic literature
+slide("", `${eyebrow("Grounded in established mechanism")}${h("Convergent with the mechanistic literature, node by node")}
   <div class="two">
     <div class="card"><b class="c">Parkinson's spine</b><p class="dim">The mitochondrial-dysfunction &#8594; dopaminergic-degeneration edge we reconstruct is the <b>Nakamura</b> lab's own work (Berthet 2014; CHCHD2, Sci Adv 2025); the parkinsonian-deficit outcome is the <b>Kreitzer</b> lab's basal-ganglia circuit (Kravitz 2010, Nature).</p></div>
     <div class="card recovered"><b class="g">Alzheimer's arm</b><p class="dim">Our neuroinflammation + BBB node is <b>Akassoglou's</b> fibrin&#8594;microglia mechanism (Merlini 2019; Mendiola 2023); the APOE&#8594;microglia node is <b>Huang's</b> APOE4 work (2024-25); TREM2&#8594;network is <b>Mucke</b> (Das 2021).</p></div>
   </div>
-  <p class="pull">Gladstone owns the endogenous mechanism; Aitiome adds the exposome layer.</p>
+  <p class="pull">The field owns the endogenous mechanism; Aitiome adds the exposome layer.</p>
   <p class="dim small">We also pre-empt Nakamura 2008 (complex-I not strictly required) - exactly why we never gate on activity and model paraquat via redox-cycling AOP-593.</p>
   ${foot(N())}`);
 

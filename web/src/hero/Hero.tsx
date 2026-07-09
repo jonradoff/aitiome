@@ -3,9 +3,7 @@ import { Canvas, useFrame } from "@react-three/fiber";
 import * as THREE from "three";
 import type { Pathway, CompoundResult, Disease } from "@contract";
 import { layoutPathway } from "./layout";
-import { pointVert, pointFrag, edgeVert, edgeFrag, microgliaPointVert, microgliaPointFrag, microgliaInstVert, microgliaInstFrag } from "./shaders";
-
-export type HeroVariant = "A" | "B";
+import { pointVert, pointFrag, edgeVert, edgeFrag, microgliaInstVert, microgliaInstFrag } from "./shaders";
 
 const CYAN = new THREE.Color("#55d6c6");
 const GOLD = new THREE.Color("#e7b168");
@@ -225,37 +223,9 @@ function useScene(pathway: Pathway) {
     return arr;
   }, [layout]);
 
-  // AD terminal frame, variant A: an ethereal FIELD of many small microglia
-  // point-glyphs that ramify -> activate and converge on the neuroinflammation focus.
-  const microgliaA = useMemo(() => {
-    const n = 340;
-    const pos = new Float32Array(n * 3);
-    const scale = new Float32Array(n);
-    const seed = new Float32Array(n);
-    const c = layout.aoPos;
-    for (let i = 0; i < n; i++) {
-      const r = Math.pow(Math.random(), 0.55) * 1.9;
-      const th = Math.random() * Math.PI * 2;
-      const ph = Math.acos(2 * Math.random() - 1);
-      pos[i * 3] = c.x + r * Math.sin(ph) * Math.cos(th);
-      pos[i * 3 + 1] = c.y + r * Math.cos(ph) * 0.8;
-      pos[i * 3 + 2] = c.z + r * Math.sin(ph) * Math.sin(th) * 0.8;
-      scale[i] = 0.7 + Math.random() * 1.3;
-      seed[i] = Math.random();
-    }
-    const g = new THREE.BufferGeometry();
-    g.setAttribute("position", new THREE.BufferAttribute(pos, 3));
-    g.setAttribute("aScale", new THREE.BufferAttribute(scale, 1));
-    g.setAttribute("aSeed", new THREE.BufferAttribute(seed, 1));
-    const uniforms = {
-      uTime: { value: 0 }, uSize: { value: 2.4 }, uActivation: { value: 0 },
-      uFocus: { value: c.clone() }, uOpacity: { value: 0.95 },
-    };
-    return { geo: g, uniforms };
-  }, [layout]);
-
-  // Variant B: fewer, larger, legible microglia as billboarded instanced quads.
-  const microgliaB = useMemo(() => {
+  // AD terminal frame: legible microglia as billboarded instanced quads that
+  // morph ramified -> amoeboid and converge on the neuroinflammation focus.
+  const microglia = useMemo(() => {
     const N = 58;
     const plane = new THREE.PlaneGeometry(1, 1);
     const g = new THREE.InstancedBufferGeometry();
@@ -287,11 +257,11 @@ function useScene(pathway: Pathway) {
     return { geo: g, uniforms };
   }, [layout]);
 
-  return { layout, edges, nodes, neuron, dendrites, microgliaA, microgliaB };
+  return { layout, edges, nodes, neuron, dendrites, microglia };
 }
 
-function Cascade({ pathway, result, onStep, labelRefs, disease, variant }: { pathway: Pathway; result: CompoundResult | null; onStep: (s: string) => void; labelRefs: React.MutableRefObject<(HTMLDivElement | null)[]>; disease: Disease; variant: HeroVariant }) {
-  const { layout, edges, nodes, neuron, dendrites, microgliaA, microgliaB } = useScene(pathway);
+function Cascade({ pathway, result, onStep, labelRefs, disease }: { pathway: Pathway; result: CompoundResult | null; onStep: (s: string) => void; labelRefs: React.MutableRefObject<(HTMLDivElement | null)[]>; disease: Disease }) {
+  const { layout, edges, nodes, neuron, dendrites, microglia } = useScene(pathway);
   const isAD = disease === "ad";
   const group = useRef<THREE.Group>(null!);
   const neuronMat = useRef<THREE.ShaderMaterial>(null!);
@@ -440,25 +410,13 @@ function Cascade({ pathway, result, onStep, labelRefs, disease, variant }: { pat
             blending={THREE.AdditiveBlending}
           />
         </points>
-      ) : variant === "A" ? (
-        <points geometry={microgliaA.geo}>
-          <shaderMaterial
-            ref={microgliaMat}
-            vertexShader={microgliaPointVert}
-            fragmentShader={microgliaPointFrag}
-            uniforms={microgliaA.uniforms}
-            transparent
-            depthWrite={false}
-            blending={THREE.AdditiveBlending}
-          />
-        </points>
       ) : (
-        <mesh geometry={microgliaB.geo}>
+        <mesh geometry={microglia.geo}>
           <shaderMaterial
             ref={microgliaMat}
             vertexShader={microgliaInstVert}
             fragmentShader={microgliaInstFrag}
-            uniforms={microgliaB.uniforms}
+            uniforms={microglia.uniforms}
             transparent
             depthWrite={false}
             blending={THREE.NormalBlending}
@@ -507,7 +465,6 @@ const SHORT_LABEL: Record<string, string> = {
 
 export function Hero({ pathway, result, height = 460, disease = "pd" }: { pathway: Pathway; result: CompoundResult | null; height?: number; disease?: Disease }) {
   const [caption, setCaption] = useState<string>("");
-  const [variant, setVariant] = useState<HeroVariant>("A");
   const anchorLabel = disease === "ad" ? "AOP-12" : "AOP-3";
   const mode = modeOf(result);
   const labelRefs = useRef<(HTMLDivElement | null)[]>([]);
@@ -522,27 +479,8 @@ export function Hero({ pathway, result, height = 460, disease = "pd" }: { pathwa
     <div className="hero-canvas" style={{ position: "relative", height, borderRadius: 14, overflow: "hidden", border: `1px solid ${border}`, background: bg }}>
       <Canvas camera={{ position: [0, 0.4, 20.5], fov: 40 }} dpr={[1, 2]} gl={{ antialias: true }}>
         <ExposomeField />
-        <Cascade pathway={pathway} result={result} onStep={setCaption} labelRefs={labelRefs} disease={disease} variant={variant} />
+        <Cascade pathway={pathway} result={result} onStep={setCaption} labelRefs={labelRefs} disease={disease} />
       </Canvas>
-      {ad && (
-        <div style={{ position: "absolute", top: 12, right: 12, display: "flex", gap: 3, pointerEvents: "auto", background: "color-mix(in srgb, var(--bg-2) 80%, transparent)", border: "1px solid var(--line-2)", borderRadius: 999, padding: 3, backdropFilter: "blur(8px)" }}>
-          {(["A", "B"] as HeroVariant[]).map((v) => (
-            <button
-              key={v}
-              onClick={() => setVariant(v)}
-              className="mono"
-              title={v === "A" ? "Microglia field (particle glyphs)" : "Microglia cells (instanced)"}
-              style={{
-                fontSize: 11, padding: "4px 11px", borderRadius: 999, border: "none", cursor: "pointer",
-                background: variant === v ? "color-mix(in srgb, var(--signal) 24%, transparent)" : "transparent",
-                color: variant === v ? "var(--ink)" : "var(--ink-faint)",
-              }}
-            >
-              Style {v}
-            </button>
-          ))}
-        </div>
-      )}
       {pathway.nodes.map((n, i) => (
         <div
           key={n.eventId}

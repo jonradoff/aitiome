@@ -44,7 +44,7 @@ const TOUR: { cap: string; d?: Disease; a?: string; decoy?: string; scroll: stri
   { cap: "...and reject a bioactive imposter — no curated cause, so no call.", d: "pd", decoy: "warfarin", scroll: "sec-specificity" },
   { cap: "Why not just bioactivity? Every activity signal is at or below chance vs the decoys.", d: "pd", scroll: "sec-falsification" },
   { cap: "A second disease, same method — Alzheimer's, honestly calibrated below Parkinson's.", d: "ad", a: "DDE", scroll: "sec-compare" },
-  { cap: "Grounded in the judges' own labs — and honest about what we refuse to use.", scroll: "sec-convergence" },
+  { cap: "Grounded in the mechanistic literature — and honest about what we refuse to use.", scroll: "sec-convergence" },
 ];
 
 export function App() {

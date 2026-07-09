@@ -79,48 +79,9 @@ const MICROGLIA_GLSL = /* glsl */ `
   }
 `;
 
-// Variant A: an ethereal FIELD of many small microglia points (additive glow).
-export const microgliaPointVert = /* glsl */ `
-  attribute float aScale;
-  attribute float aSeed;
-  uniform float uTime;
-  uniform float uSize;
-  uniform float uActivation;   // 0..1 ramified -> amoeboid
-  uniform vec3  uFocus;        // neuroinflammation focus (AO position)
-  varying float vSeed;
-  varying float vAct;
-  void main() {
-    vSeed = aSeed;
-    float act = clamp(uActivation * 1.25 - aSeed * 0.22, 0.0, 1.0);
-    vAct = act;
-    vec3 p = position;
-    float drift = 1.0 - act;                        // surveil when homeostatic, settle when activated
-    p.x += sin(uTime * 0.5 + aSeed * 6.2831) * 0.16 * drift;
-    p.y += cos(uTime * 0.42 + aSeed * 6.2831) * 0.12 * drift;
-    p = mix(p, uFocus, act * 0.34);                 // converge on the focus
-    vec4 mv = modelViewMatrix * vec4(p, 1.0);
-    gl_PointSize = uSize * aScale * (0.7 + act * 0.85) * (300.0 / -mv.z);
-    gl_Position = projectionMatrix * mv;
-  }
-`;
-export const microgliaPointFrag = /* glsl */ `
-  precision highp float;
-  uniform float uTime;
-  uniform float uOpacity;
-  varying float vSeed;
-  varying float vAct;
-  ${MICROGLIA_GLSL}
-  void main() {
-    float g = microgliaGlyph(gl_PointCoord - 0.5, vAct, vSeed);
-    if (g <= 0.002) discard;
-    float pulse = 0.86 + 0.14 * sin(uTime * 1.5 + vSeed * 6.2831);
-    float bright = mix(0.5, 1.2, vAct) * pulse;
-    gl_FragColor = vec4(microgliaColor(vAct) * bright, g * uOpacity);
-  }
-`;
-
-// Variant B: fewer, larger, legible microglia as billboarded instanced quads
-// (normal alpha blend -> reads as distinct cells, not glow).
+// The AD terminal frame: legible microglia as billboarded instanced quads
+// (normal alpha blend -> reads as distinct cells, not glow), morphing
+// ramified -> amoeboid and converging on the neuroinflammation focus.
 export const microgliaInstVert = /* glsl */ `
   attribute vec3 aOffset;
   attribute float aScale;
