@@ -48,6 +48,122 @@ export const edgeVert = /* glsl */ `
   }
 `;
 
+// ---- Alzheimer's terminal frame: disease-associated microglia ----
+// A schematic microglia glyph drawn procedurally: a cell body + radiating
+// processes whose length RETRACTS as activation rises (ramified -> amoeboid),
+// with a cool-slate -> warm-amber colour ramp. Shared by both variants.
+const MICROGLIA_GLSL = /* glsl */ `
+  // uv centred in [-0.5, 0.5]; act 0 = ramified/homeostatic, 1 = amoeboid/activated
+  float microgliaGlyph(vec2 uv, float act, float seed) {
+    float rad = length(uv);
+    float ang = atan(uv.y, uv.x);
+    float bodyR = 0.085 + act * 0.07;
+    float body = smoothstep(bodyR, bodyR * 0.25, rad);
+    float NP = 7.0;
+    float procLen = mix(0.46, 0.15, act);          // long when ramified -> retracted
+    float sector = 6.28318530 / NP;
+    float a2 = mod(ang + seed * 6.2831, sector) - sector * 0.5;
+    float spokeW = 0.045 + 0.05 * act;
+    float withinLen = step(bodyR * 0.7, rad) * smoothstep(procLen, procLen * 0.65, rad);
+    float spoke = smoothstep(spokeW, 0.0, abs(a2)) * withinLen;
+    float taper = 1.0 - smoothstep(bodyR, procLen, rad);
+    float proc = spoke * taper * mix(0.95, 0.45, act);   // processes dim as they retract
+    return clamp(body + proc, 0.0, 1.0);
+  }
+  vec3 microgliaColor(float act) {
+    vec3 SLATE = vec3(0.40, 0.49, 0.58);
+    vec3 AMBER = vec3(0.906, 0.694, 0.408);
+    vec3 EMBER = vec3(0.878, 0.478, 0.561);
+    vec3 c = mix(SLATE, AMBER, act);
+    return mix(c, EMBER, smoothstep(0.72, 1.0, act) * 0.35);
+  }
+`;
+
+// Variant A: an ethereal FIELD of many small microglia points (additive glow).
+export const microgliaPointVert = /* glsl */ `
+  attribute float aScale;
+  attribute float aSeed;
+  uniform float uTime;
+  uniform float uSize;
+  uniform float uActivation;   // 0..1 ramified -> amoeboid
+  uniform vec3  uFocus;        // neuroinflammation focus (AO position)
+  varying float vSeed;
+  varying float vAct;
+  void main() {
+    vSeed = aSeed;
+    float act = clamp(uActivation * 1.25 - aSeed * 0.22, 0.0, 1.0);
+    vAct = act;
+    vec3 p = position;
+    float drift = 1.0 - act;                        // surveil when homeostatic, settle when activated
+    p.x += sin(uTime * 0.5 + aSeed * 6.2831) * 0.16 * drift;
+    p.y += cos(uTime * 0.42 + aSeed * 6.2831) * 0.12 * drift;
+    p = mix(p, uFocus, act * 0.34);                 // converge on the focus
+    vec4 mv = modelViewMatrix * vec4(p, 1.0);
+    gl_PointSize = uSize * aScale * (0.7 + act * 0.85) * (300.0 / -mv.z);
+    gl_Position = projectionMatrix * mv;
+  }
+`;
+export const microgliaPointFrag = /* glsl */ `
+  precision highp float;
+  uniform float uTime;
+  uniform float uOpacity;
+  varying float vSeed;
+  varying float vAct;
+  ${MICROGLIA_GLSL}
+  void main() {
+    float g = microgliaGlyph(gl_PointCoord - 0.5, vAct, vSeed);
+    if (g <= 0.002) discard;
+    float pulse = 0.86 + 0.14 * sin(uTime * 1.5 + vSeed * 6.2831);
+    float bright = mix(0.5, 1.2, vAct) * pulse;
+    gl_FragColor = vec4(microgliaColor(vAct) * bright, g * uOpacity);
+  }
+`;
+
+// Variant B: fewer, larger, legible microglia as billboarded instanced quads
+// (normal alpha blend -> reads as distinct cells, not glow).
+export const microgliaInstVert = /* glsl */ `
+  attribute vec3 aOffset;
+  attribute float aScale;
+  attribute float aSeed;
+  uniform float uTime;
+  uniform float uActivation;
+  uniform vec3  uFocus;
+  uniform float uQuadSize;
+  varying vec2 vUv;
+  varying float vSeed;
+  varying float vAct;
+  void main() {
+    vUv = uv;
+    vSeed = aSeed;
+    float act = clamp(uActivation * 1.25 - aSeed * 0.22, 0.0, 1.0);
+    vAct = act;
+    vec3 base = aOffset;
+    float drift = 1.0 - act;
+    base.x += sin(uTime * 0.5 + aSeed * 6.2831) * 0.16 * drift;
+    base.y += cos(uTime * 0.42 + aSeed * 6.2831) * 0.12 * drift;
+    base = mix(base, uFocus, act * 0.34);
+    vec4 mv = modelViewMatrix * vec4(base, 1.0);
+    mv.xy += position.xy * uQuadSize * aScale;      // billboard the quad
+    gl_Position = projectionMatrix * mv;
+  }
+`;
+export const microgliaInstFrag = /* glsl */ `
+  precision highp float;
+  uniform float uTime;
+  uniform float uOpacity;
+  varying vec2 vUv;
+  varying float vSeed;
+  varying float vAct;
+  ${MICROGLIA_GLSL}
+  void main() {
+    float g = microgliaGlyph(vUv - 0.5, vAct, vSeed);
+    if (g <= 0.004) discard;
+    float pulse = 0.9 + 0.1 * sin(uTime * 1.5 + vSeed * 6.2831);
+    float bright = mix(0.6, 1.15, vAct) * pulse;
+    gl_FragColor = vec4(microgliaColor(vAct) * bright, g * uOpacity);
+  }
+`;
+
 export const edgeFrag = /* glsl */ `
   precision highp float;
   uniform vec3 uColor;
