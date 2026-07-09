@@ -102,6 +102,16 @@ func main() {
 	)
 
 	s.AddTool(
+		mcp.NewTool("list_candidates",
+			mcp.WithDescription("List the value-of-information-ranked candidate queue for a disease axis: chemicals with real but incomplete evidence, worth curation or wet-lab attention. Each carries its evidence strands, promotion distance, and a recommended next experiment. This is a triage layer, NOT a predictor — only the curated gate (CTD DirectEvidence or a registered in-scope AOP stressor) promotes a candidate; adversarial decoys are carried as a control and rank last. Includes a held-out prioritization backtest. Read-only."),
+			mcp.WithString("disease", mcp.Description("Disease axis: \"pd\" (Parkinson's, default) or \"ad\" (Alzheimer's).")),
+		),
+		func(ctx context.Context, req mcp.CallToolRequest) (*mcp.CallToolResult, error) {
+			return jsonResult(svc.Candidates(ctx, diseaseArg(req)))
+		},
+	)
+
+	s.AddTool(
 		mcp.NewTool("synthesize_assessment",
 			mcp.WithDescription("Return a calibrated prose synthesis of a compound's assessment, citing the evidence strands as [E#]. It explains the mechanistic reasoning; it never makes or changes the recovery call (which is curated and fixed). Uses the Claude evidence-reasoner when configured, with a deterministic fallback. Read-only."),
 			mcp.WithString("id", mcp.Required(), mcp.Description("Chemical identifier: name, CAS, DTXSID, InChIKey, or CID.")),

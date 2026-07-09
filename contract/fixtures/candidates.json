@@ -1,0 +1,400 @@
+{
+    "disease": "pd",
+    "headline": "Chemicals with real but incomplete evidence, ranked by value-of-information \u2014 what a wet lab or curator should look at next. A triage queue, never a prediction.",
+    "weights": [
+        {
+            "line": "AOP",
+            "weight": 5,
+            "label": "Registered in-scope AOP stressor (gate-clearing)"
+        },
+        {
+            "line": "MECH",
+            "weight": 3,
+            "label": "Mechanistic grounding (complex-I / mito / amyloid)"
+        },
+        {
+            "line": "IPSC",
+            "weight": 2,
+            "label": "iPSC neuron toxicity"
+        },
+        {
+            "line": "EPI",
+            "weight": 2,
+            "label": "Human epidemiology"
+        },
+        {
+            "line": "XDIS",
+            "weight": 2,
+            "label": "Cross-disease (already a positive on the other axis)"
+        },
+        {
+            "line": "ZF",
+            "weight": 1,
+            "label": "Zebrafish aminergic loss"
+        },
+        {
+            "line": "INFERRED",
+            "weight": 0.5,
+            "label": "Association / CTD-inferred only"
+        }
+    ],
+    "candidates": [
+        {
+            "name": "fenpyroximate",
+            "disease": "pd",
+            "cas": "134098-61-6",
+            "state": "aop_stressor_ready",
+            "score": 9,
+            "promotion": "Clears the gate on verification \u2014 a registered prototypical stressor on AOP-3 (complex-I MIE 888), the exact MVP scaffold Aitiome anchors.",
+            "experiment": "Confirm the AOP-3 stressor registration is in-scope, then promote \u2014 no new assay required.",
+            "rationale": "Acaricide and registered complex-I (AOP-3) stressor on the endorsed scaffold.",
+            "evidence": [
+                {
+                    "line": "AOP",
+                    "strength": "strong",
+                    "detail": "Registered prototypical stressor on AOP-3 (complex-I inhibition \u2192 nigrostriatal degeneration).",
+                    "source": "AOP-Wiki AOP-3"
+                },
+                {
+                    "line": "MECH",
+                    "strength": "strong",
+                    "detail": "Complex-I (Q-site) inhibitor.",
+                    "source": "AOP-Wiki AOP-3"
+                }
+            ],
+            "isControl": false
+        },
+        {
+            "name": "tebufenpyrad",
+            "disease": "pd",
+            "cas": "119168-77-3",
+            "state": "aop_stressor_ready",
+            "score": 9,
+            "promotion": "Clears on verification \u2014 registered AOP-3 (complex-I) stressor on the MVP scaffold.",
+            "experiment": "Confirm AOP-3 in-scope registration, then promote.",
+            "rationale": "Acaricide complex-I inhibitor registered as an AOP-3 stressor.",
+            "evidence": [
+                {
+                    "line": "AOP",
+                    "strength": "strong",
+                    "detail": "Registered prototypical stressor on AOP-3.",
+                    "source": "AOP-Wiki AOP-3"
+                },
+                {
+                    "line": "MECH",
+                    "strength": "strong",
+                    "detail": "Complex-I inhibitor.",
+                    "source": "AOP-Wiki AOP-3"
+                }
+            ],
+            "isControl": false
+        },
+        {
+            "name": "trifluralin",
+            "disease": "pd",
+            "cas": "1582-09-8",
+            "state": "mechanistic",
+            "score": 8.2,
+            "promotion": "Close \u2014 explicit mitochondrial mechanism; a natural AOP-3 expansion candidate.",
+            "experiment": "Curate CTD-PD; test complex-I inhibition to register it as an AOP-3 stressor.",
+            "rationale": "Herbicide; iPSC-toxic driver of dopaminergic death identified as causing mitochondrial dysfunction; PWAS-associated.",
+            "evidence": [
+                {
+                    "line": "MECH",
+                    "strength": "strong",
+                    "detail": "Identified as a driver of dopaminergic toxicity via mitochondrial dysfunction.",
+                    "source": "Paul & Ritz, Nat Commun 2023"
+                },
+                {
+                    "line": "IPSC",
+                    "strength": "strong",
+                    "detail": "Toxic in the iPSC dopaminergic-neuron screen.",
+                    "source": "Paul & Ritz, Nat Commun 2023"
+                },
+                {
+                    "line": "EPI",
+                    "strength": "moderate",
+                    "detail": "Pesticide-wide association with PD (PEG cohort).",
+                    "source": "Paul & Ritz, Nat Commun 2023"
+                }
+            ],
+            "isControl": false
+        },
+        {
+            "name": "diquat dibromide",
+            "disease": "pd",
+            "cas": "85-00-7",
+            "state": "mechanistic",
+            "score": 8.2,
+            "promotion": "Close \u2014 paraquat-analog redox mechanism mapping to the AOP-3 mitochondrial key event; curate CTD-PD.",
+            "experiment": "Curate CTD-PD DirectEvidence; the redox/mito mechanism already maps to the AOP-3 KE.",
+            "rationale": "Redox-cycling bipyridyl herbicide (paraquat structural cousin); 2nd-most-toxic in the iPSC screen; PWAS-associated.",
+            "evidence": [
+                {
+                    "line": "MECH",
+                    "strength": "strong",
+                    "detail": "Redox-cycling bipyridyl (paraquat cousin) \u2192 mitochondrial ROS.",
+                    "source": "Paul & Ritz, Nat Commun 2023"
+                },
+                {
+                    "line": "IPSC",
+                    "strength": "strong",
+                    "detail": "2nd-most-toxic in the iPSC dopaminergic screen.",
+                    "source": "Paul & Ritz, Nat Commun 2023"
+                },
+                {
+                    "line": "EPI",
+                    "strength": "moderate",
+                    "detail": "Pesticide-wide association with PD.",
+                    "source": "Paul & Ritz, Nat Commun 2023"
+                }
+            ],
+            "isControl": false
+        },
+        {
+            "name": "picoxystrobin",
+            "disease": "pd",
+            "cas": "117428-22-5",
+            "state": "aop_stressor_ready",
+            "score": 7.8,
+            "promotion": "Clears on verification \u2014 registered AOP-587 stressor (complex III), pending in-scope confirmation of the EFSA 2024 PD AOP network.",
+            "experiment": "Confirm AOP-587 is in-scope for the PD network, then promote.",
+            "rationale": "Strobilurin fungicide; registered prototypical stressor on AOP-587 (complex-III inhibition \u2192 nigrostriatal degeneration).",
+            "evidence": [
+                {
+                    "line": "AOP",
+                    "strength": "strong",
+                    "detail": "Registered prototypical stressor on AOP-587 (complex-III \u2192 nigrostriatal degeneration; EFSA 2024 PD network).",
+                    "source": "AOP-Wiki AOP-587"
+                },
+                {
+                    "line": "MECH",
+                    "strength": "moderate",
+                    "detail": "Complex-III inhibitor.",
+                    "source": "AOP-Wiki AOP-587"
+                }
+            ],
+            "isControl": false
+        },
+        {
+            "name": "naled",
+            "disease": "pd",
+            "cas": "300-76-5",
+            "state": "mechanistic",
+            "score": 5.8,
+            "promotion": "Two independent cellular lines converge (iPSC + zebrafish); curate CTD-PD.",
+            "experiment": "Curate CTD-PD DirectEvidence.",
+            "rationale": "Organophosphate insecticide; iPSC-toxic and induced aminergic neuron loss in zebrafish; PWAS-associated.",
+            "evidence": [
+                {
+                    "line": "IPSC",
+                    "strength": "strong",
+                    "detail": "Toxic in the iPSC dopaminergic screen (top-4 potency).",
+                    "source": "Paul & Ritz, Nat Commun 2023"
+                },
+                {
+                    "line": "ZF",
+                    "strength": "moderate",
+                    "detail": "Induced aminergic neuron loss in zebrafish.",
+                    "source": "Ritz group multi-screen, 2025"
+                },
+                {
+                    "line": "EPI",
+                    "strength": "moderate",
+                    "detail": "Pesticide-wide association with PD.",
+                    "source": "Paul & Ritz, Nat Commun 2023"
+                }
+            ],
+            "isControl": false
+        },
+        {
+            "name": "dicofol",
+            "disease": "pd",
+            "cas": "115-32-2",
+            "state": "mechanistic",
+            "score": 5,
+            "promotion": "Two strong lines (epidemiology + cell); curate CTD-PD.",
+            "experiment": "Curate CTD-PD DirectEvidence.",
+            "rationale": "Organochlorine acaricide; iPSC-toxic AND a top-FDR PWAS hit \u2014 strong on both epidemiology and cell assays.",
+            "evidence": [
+                {
+                    "line": "IPSC",
+                    "strength": "strong",
+                    "detail": "Toxic in the iPSC dopaminergic screen.",
+                    "source": "Paul & Ritz, Nat Commun 2023"
+                },
+                {
+                    "line": "EPI",
+                    "strength": "strong",
+                    "detail": "Top-5 PWAS hit by FDR.",
+                    "source": "Paul & Ritz, Nat Commun 2023"
+                }
+            ],
+            "isControl": false
+        },
+        {
+            "name": "propargite",
+            "disease": "pd",
+            "cas": "2312-35-8",
+            "state": "mechanistic",
+            "score": 4.2,
+            "promotion": "Close \u2014 strongest cellular evidence; needs CTD-PD DirectEvidence or AOP registration.",
+            "experiment": "Curate CTD-PD DirectEvidence; the iPSC dopaminergic toxicity is already in hand.",
+            "rationale": "Acaricide; the most potent hit in the iPSC dopaminergic-neuron screen; PWAS-associated with PD.",
+            "evidence": [
+                {
+                    "line": "IPSC",
+                    "strength": "strong",
+                    "detail": "Most toxic in the iPSC dopaminergic screen (cell death >3 SD at 30 \u00b5M).",
+                    "source": "Paul & Ritz, Nat Commun 2023"
+                },
+                {
+                    "line": "EPI",
+                    "strength": "moderate",
+                    "detail": "Pesticide-wide association with PD.",
+                    "source": "Paul & Ritz, Nat Commun 2023"
+                }
+            ],
+            "isControl": false
+        },
+        {
+            "name": "endosulfan",
+            "disease": "pd",
+            "cas": "115-29-7",
+            "state": "mechanistic",
+            "score": 4.2,
+            "promotion": "High promotion potential \u2014 an established organochlorine neurotoxicant missing from the set; likely CTD-curatable now.",
+            "experiment": "Curate CTD-PD DirectEvidence (likely already present in the literature).",
+            "rationale": "Established organochlorine neurotoxicant (Stockholm POP); iPSC-toxic and PWAS-associated.",
+            "evidence": [
+                {
+                    "line": "IPSC",
+                    "strength": "strong",
+                    "detail": "Toxic in the iPSC dopaminergic-neuron screen.",
+                    "source": "Paul & Ritz, Nat Commun 2023"
+                },
+                {
+                    "line": "EPI",
+                    "strength": "moderate",
+                    "detail": "Pesticide-wide association with PD.",
+                    "source": "Paul & Ritz, Nat Commun 2023"
+                }
+            ],
+            "isControl": false
+        },
+        {
+            "name": "perchloroethylene",
+            "disease": "pd",
+            "cas": "127-18-4",
+            "state": "pending_verification",
+            "score": 4,
+            "promotion": "One curation query from the gate \u2014 needs a manual CTD-PD DirectEvidence check (the CTD batch API is ALTCHA-walled as of 2026-07).",
+            "experiment": "Confirm CTD-PD DirectEvidence (marker/mechanism); if absent, run a targeted iPSC dopaminergic-neuron assay of PCE against the TCE positive control.",
+            "rationale": "Dry-cleaning/degreasing solvent named alongside TCE (a confirmed positive) as a PD risk; distributes to brain and shares a toxic metabolite with TCE. The flagship pending candidate.",
+            "evidence": [
+                {
+                    "line": "EPI",
+                    "strength": "moderate",
+                    "detail": "Named as a PD-risk dry-cleaning/degreasing solvent alongside TCE.",
+                    "source": "Dorsey et al., Lancet Neurology 2025"
+                },
+                {
+                    "line": "MECH",
+                    "strength": "moderate",
+                    "detail": "Shares a toxic metabolite with TCE; complex-I inhibition at high dose.",
+                    "source": "Dorsey et al., Mov Disord 2024"
+                }
+            ],
+            "isControl": false
+        },
+        {
+            "name": "simvastatin",
+            "disease": "pd",
+            "state": "control",
+            "score": 0,
+            "promotion": "n/a \u2014 negative control.",
+            "experiment": "None. Carried as a permanent negative control.",
+            "rationale": "Adversarial mitochondria-active decoy \u2014 bioactive but non-neurotoxic; no curated, epidemiological, or mechanistic PD signal. Must rank last.",
+            "evidence": [],
+            "isControl": true
+        },
+        {
+            "name": "troglitazone",
+            "disease": "pd",
+            "state": "control",
+            "score": 0,
+            "promotion": "n/a \u2014 negative control.",
+            "experiment": "None. Carried as a permanent negative control.",
+            "rationale": "Adversarial mitochondria-active decoy \u2014 bioactive but non-neurotoxic; no curated PD signal. Must rank last.",
+            "evidence": [],
+            "isControl": true
+        },
+        {
+            "name": "warfarin",
+            "disease": "pd",
+            "state": "control",
+            "score": 0,
+            "promotion": "n/a \u2014 negative control.",
+            "experiment": "None. Carried as a permanent negative control.",
+            "rationale": "Adversarial mitochondria-active decoy \u2014 bioactive but non-neurotoxic; no curated PD signal. Must rank last.",
+            "evidence": [],
+            "isControl": true
+        },
+        {
+            "name": "fenofibrate",
+            "disease": "pd",
+            "state": "control",
+            "score": 0,
+            "promotion": "n/a \u2014 negative control.",
+            "experiment": "None. Carried as a permanent negative control.",
+            "rationale": "Adversarial mitochondria-active decoy \u2014 bioactive but non-neurotoxic; no curated PD signal. Must rank last.",
+            "evidence": [],
+            "isControl": true
+        },
+        {
+            "name": "prochloraz",
+            "disease": "pd",
+            "state": "control",
+            "score": 0,
+            "promotion": "n/a \u2014 negative control.",
+            "experiment": "None. Carried as a permanent negative control.",
+            "rationale": "Adversarial mitochondria-active decoy \u2014 bioactive but non-neurotoxic; no curated PD signal. Must rank last.",
+            "evidence": [],
+            "isControl": true
+        },
+        {
+            "name": "propiconazole",
+            "disease": "pd",
+            "state": "control",
+            "score": 0,
+            "promotion": "n/a \u2014 negative control.",
+            "experiment": "None. Carried as a permanent negative control.",
+            "rationale": "Adversarial mitochondria-active decoy \u2014 bioactive but non-neurotoxic; no curated PD signal. Must rank last.",
+            "evidence": [],
+            "isControl": true
+        }
+    ],
+    "backtest": {
+        "heldOut": "trichloroethylene",
+        "heldOutScore": 4.8,
+        "decoyMaxScore": 0,
+        "passed": true,
+        "method": "TCE's curated CTD-PD DirectEvidence was withheld; it was scored on its convergent non-curated strands alone, then compared to the best adversarial-decoy score.",
+        "verdict": "Prioritized at 4.8 on non-curated evidence alone \u2014 above every adversarial decoy (max 0.0). The ranker recovers a known positive it was not told about: prioritization skill, not causal discovery.",
+        "evidence": [
+            {
+                "line": "EPI",
+                "strength": "strong",
+                "detail": "Camp Lejeune cohort OR 1.70 for Parkinson's.",
+                "source": "Goldman et al., JAMA Neurology 2023"
+            },
+            {
+                "line": "MECH",
+                "strength": "moderate",
+                "detail": "Industrial solvent; complex-I inhibition.",
+                "source": "round-2 literature scan"
+            }
+        ]
+    },
+    "note": "Entry requires at least one non-bioactivity strand; only the curated gate (CTD DirectEvidence or a registered in-scope AOP stressor) promotes a candidate to a positive. General bioactivity is barred \u2014 it is anti-diagnostic here. The adversarial decoys are carried as a permanent negative control and must rank last (they score 0). See ADR-0006."
+}

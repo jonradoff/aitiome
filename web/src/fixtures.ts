@@ -11,10 +11,13 @@ import type {
   Benchmark,
   SourceRef,
   DiseaseInfo,
+  CandidateQueue,
 } from "@contract";
 
 import validation from "@fixtures/validation.json";
 import discovery from "@fixtures/discovery-map.json";
+import candidates from "@fixtures/candidates.json";
+import candidatesAd from "@fixtures/candidates-ad.json";
 import pathway from "@fixtures/pathway-aop3.json";
 import compounds from "@fixtures/compounds.json";
 import benchmark from "@fixtures/benchmark.json";
@@ -62,6 +65,8 @@ export const fxValidation = validation as unknown as ValidationResult;
 export const fxValidationAD = validationAd as unknown as ValidationResult;
 export const fxDiseases = diseases as unknown as DiseaseInfo[];
 export const fxDiscovery = discovery as unknown as DiscoveryMap;
+export const fxCandidates = candidates as unknown as CandidateQueue;
+export const fxCandidatesAD = candidatesAd as unknown as CandidateQueue;
 export const fxPathway = pathway as unknown as Pathway;
 export const fxCompounds = compounds as unknown as Compound[];
 export const fxBenchmark = benchmark as unknown as Benchmark;

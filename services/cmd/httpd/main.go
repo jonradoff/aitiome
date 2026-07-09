@@ -21,6 +21,7 @@ var apiPaths = map[string]bool{
 	"/health": true, "/compounds": true, "/resolve": true, "/assess": true,
 	"/validation": true, "/pathway": true, "/discovery-map": true, "/synthesis": true,
 	"/benchmark": true, "/sources": true, "/assess-curated": true, "/diseases": true,
+	"/candidates": true,
 }
 
 // disease reads the ?disease= query param (default PD), so the whole API is
@@ -96,6 +97,9 @@ func apiMux(svc *aitio.Service) *http.ServeMux {
 	})
 	mux.HandleFunc("GET /discovery-map", func(w http.ResponseWriter, r *http.Request) {
 		writeJSON(w, http.StatusOK, svc.DiscoveryMap(r.Context()))
+	})
+	mux.HandleFunc("GET /candidates", func(w http.ResponseWriter, r *http.Request) {
+		writeJSON(w, http.StatusOK, svc.Candidates(r.Context(), disease(r)))
 	})
 	mux.HandleFunc("GET /benchmark", func(w http.ResponseWriter, r *http.Request) {
 		writeJSON(w, http.StatusOK, svc.Benchmark(r.Context()))

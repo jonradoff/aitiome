@@ -233,6 +233,53 @@ export interface DiscoveryMap {
   note: string;
 }
 
+// ---- Candidate pipeline (ADR-0006): a VOI-ranked triage queue, not a predictor ----
+export interface CandidateEvidence {
+  line: "AOP" | "MECH" | "IPSC" | "EPI" | "XDIS" | "ZF" | "INFERRED";
+  strength: "strong" | "moderate" | "weak";
+  detail: string;
+  source: string;
+}
+
+export interface Candidate {
+  name: string;
+  disease: Disease;
+  cas?: string;
+  dtxsid?: string;
+  state: "aop_stressor_ready" | "mechanistic" | "association" | "pending_verification" | "control";
+  score: number;
+  promotion: string;
+  experiment: string;
+  rationale: string;
+  evidence: CandidateEvidence[];
+  isControl: boolean;
+}
+
+export interface CandidateBacktest {
+  heldOut: string;
+  heldOutScore: number;
+  decoyMaxScore: number;
+  passed: boolean;
+  method: string;
+  verdict: string;
+  evidence: CandidateEvidence[];
+}
+
+export interface CandidateWeight {
+  line: string;
+  weight: number;
+  label: string;
+}
+
+export interface CandidateQueue {
+  disease: Disease;
+  headline: string;
+  weights: CandidateWeight[];
+  candidates: Candidate[];
+  backtest?: CandidateBacktest;
+  note: string;
+}
+
 export interface Discriminator {
   name: string;
   aurocVsAdversarial: number;

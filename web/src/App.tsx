@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
-import { getValidation, getHealth, getPathway, getDiscoveryMap, getBenchmark, getDiseases, getCompounds, assess, synthesize, resolveCompound } from "./data";
+import { getValidation, getHealth, getPathway, getDiscoveryMap, getCandidates, getBenchmark, getDiseases, getCompounds, assess, synthesize, resolveCompound } from "./data";
 import { useAsync } from "./useAsync";
 import { Hero } from "./hero/Hero";
-import { EvidencePanel, TracePanel, ValidationPanel, DiscoveryPanel, MCPPanel, SynthesisPanel, ProvenanceDrawer, SpecificityCenterpiece, FalsificationPanel, AnticipatedCritiques, ReferencesPanel, ConvergencePanel, AboutModal } from "./components/Panels";
+import { EvidencePanel, TracePanel, ValidationPanel, DiscoveryPanel, CandidatePanel, MCPPanel, SynthesisPanel, ProvenanceDrawer, SpecificityCenterpiece, FalsificationPanel, AnticipatedCritiques, ReferencesPanel, ConvergencePanel, AboutModal } from "./components/Panels";
 import type { EvidenceStrand, Disease, DiseaseInfo, CompoundResult, ValidationResult, Compound } from "@contract";
 
 // Per-disease showcase sets + copy. PD is the validated anchor; AD is the second
@@ -75,6 +75,7 @@ export function App() {
   const validation = useAsync(() => getValidation(disease), [disease]);
   const pathway = useAsync(() => getPathway(disease), [disease]);
   const discovery = useAsync(getDiscoveryMap, []);
+  const candidates = useAsync(() => getCandidates(disease), [disease]);
   const benchmark = useAsync(getBenchmark, []);
   const active = useAsync(() => assess(activeId, disease), [activeId, disease]);
   const synthesis = useAsync(() => synthesize(activeId), [activeId]);
@@ -198,6 +199,12 @@ export function App() {
         {discovery && disease === "pd" && (
           <section className="wrap section">
             <DiscoveryPanel map={discovery.data} />
+          </section>
+        )}
+
+        {candidates && candidates.data.candidates.length > 0 && (
+          <section id="sec-candidates" className="wrap section">
+            <CandidatePanel queue={candidates.data} />
           </section>
         )}
 

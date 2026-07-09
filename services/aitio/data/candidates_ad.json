@@ -1,0 +1,93 @@
+{
+  "candidates": [
+    {
+      "name": "p,p'-DDT", "disease": "ad", "cas": "50-29-3",
+      "state": "mechanistic",
+      "promotion": "High promotion potential — parent of confirmed positive DDE with a direct amyloid mechanism; curate CTD-AD.",
+      "experiment": "Curate CTD-AD DirectEvidence; assay AβPP/BACE1 induction to confirm the amyloidogenic MIE.",
+      "rationale": "Organochlorine; parent compound of the confirmed AD positive DDE. Increases AβPP and BACE1 (amyloidogenic) and is associated with cognitive decline.",
+      "evidence": [
+        {"line": "MECH", "strength": "strong", "detail": "Increases AβPP and BACE1 in vitro (amyloidogenic); parent of confirmed positive DDE.", "source": "Yan et al., Sci Rep 2016"},
+        {"line": "EPI", "strength": "moderate", "detail": "Associated with cognitive decline (NHANES ExWAS).", "source": "Jang et al., Exposome 2025"}
+      ]
+    },
+    {
+      "name": "dieldrin", "disease": "ad", "cas": "60-57-1",
+      "state": "association",
+      "promotion": "Very close — a known neurotoxicant already curated for PD; check CTD-AD DirectEvidence for a cross-disease promotion.",
+      "experiment": "Curate CTD-AD DirectEvidence (cross-disease promotion from the PD set).",
+      "rationale": "Organochlorine insecticide; a confirmed Parkinson's positive, with a quantified AD association.",
+      "evidence": [
+        {"line": "XDIS", "strength": "strong", "detail": "Confirmed Parkinson's positive (cross-disease).", "source": "Aitiome PD positive set"},
+        {"line": "EPI", "strength": "strong", "detail": "Meta-analysis OR 2.09 (1.22–3.56) for AD.", "source": "Yan et al., Sci Rep 2016"}
+      ]
+    },
+    {
+      "name": "chlorpyrifos", "disease": "ad", "cas": "2921-88-2",
+      "state": "mechanistic",
+      "promotion": "Cross-disease positive whose AChE mechanism maps onto AD cholinergic AOPs; curate CTD-AD.",
+      "experiment": "Curate CTD-AD DirectEvidence.",
+      "rationale": "Organophosphate; a confirmed Parkinson's positive. AChE inhibition maps onto AD cholinergic pathways and it is named in AD reviews.",
+      "evidence": [
+        {"line": "XDIS", "strength": "strong", "detail": "Confirmed Parkinson's positive (cross-disease).", "source": "Aitiome PD positive set"},
+        {"line": "MECH", "strength": "moderate", "detail": "AChE inhibitor → AD cholinergic AOPs.", "source": "Yan et al., Sci Rep 2016"},
+        {"line": "EPI", "strength": "moderate", "detail": "Organophosphate pesticides associated with AD.", "source": "Yan et al., Sci Rep 2016"}
+      ]
+    },
+    {
+      "name": "arsenic (inorganic)", "disease": "ad", "cas": "7440-38-2",
+      "state": "mechanistic",
+      "promotion": "High promotion potential — deep mechanistic AD literature; resolve the arsenite salt form and curate CTD-AD.",
+      "experiment": "Resolve the correct arsenite DTXSID (salt-form rule), then curate CTD-AD DirectEvidence.",
+      "rationale": "Metalloid with an extensive mechanistic AD literature (amyloid, tau, oxidative stress).",
+      "evidence": [
+        {"line": "MECH", "strength": "strong", "detail": "Multiple mechanistic AD studies (amyloid, tau, oxidative stress).", "source": "Bakulski et al., J Alzheimers Dis 2020"},
+        {"line": "EPI", "strength": "moderate", "detail": "Associated with ADRD in review.", "source": "Bakulski et al., J Alzheimers Dis 2020"}
+      ]
+    },
+    {
+      "name": "beta-hexachlorocyclohexane", "disease": "ad", "cas": "319-85-7",
+      "state": "association",
+      "promotion": "Strong association reproduced across two studies; needs a mechanistic MIE to clear.",
+      "experiment": "Curate CTD-AD; seek an organochlorine mechanistic MIE.",
+      "rationale": "Organochlorine (β-HCH); a quantified AD association reproduced across a meta-analysis and an ExWAS.",
+      "evidence": [
+        {"line": "EPI", "strength": "strong", "detail": "Meta-analysis OR 2.06 (1.04–3.10) for AD; also NHANES ExWAS cognition.", "source": "Yan et al., Sci Rep 2016; Jang et al., Exposome 2025"}
+      ]
+    },
+    {
+      "name": "heptachlor epoxide", "disease": "ad", "cas": "1024-57-3",
+      "state": "association",
+      "promotion": "Association-only; organochlorine class-consistent; curate for mechanism.",
+      "experiment": "Curate CTD-AD; watch for mechanistic support.",
+      "rationale": "Organochlorine metabolite; associated with cognitive decline in an ExWAS.",
+      "evidence": [
+        {"line": "EPI", "strength": "moderate", "detail": "NHANES ExWAS: associated with cognitive decline.", "source": "Jang et al., Exposome 2025"}
+      ]
+    },
+    {
+      "name": "thallium", "disease": "ad", "cas": "7440-28-0",
+      "state": "association",
+      "promotion": "Weak single-study association — watch-list, not a wet-lab priority yet.",
+      "experiment": "Await replication before prioritizing.",
+      "rationale": "Heavy metal; a single-study ExWAS association with worse cognition.",
+      "evidence": [
+        {"line": "EPI", "strength": "weak", "detail": "NHANES ExWAS: associated with worse cognition (single study).", "source": "Jang et al., Exposome 2025"}
+      ]
+    },
+    {"name": "curcumin", "disease": "ad", "state": "control", "promotion": "n/a — negative control.", "experiment": "None. Carried as a permanent negative control.", "rationale": "AD-assay-active decoy (dietary polyphenol) — flagged by activity models, but no curated causal AD signal. Must rank last.", "evidence": [], "isControl": true},
+    {"name": "donepezil", "disease": "ad", "state": "control", "promotion": "n/a — negative control.", "experiment": "None. Carried as a permanent negative control.", "rationale": "AD-assay-active decoy (anti-amyloid/cholinergic drug) — no curated causal AD signal. Must rank last.", "evidence": [], "isControl": true},
+    {"name": "epigallocatechin gallate", "disease": "ad", "state": "control", "promotion": "n/a — negative control.", "experiment": "None. Carried as a permanent negative control.", "rationale": "AD-assay-active decoy (dietary polyphenol) — no curated causal AD signal. Must rank last.", "evidence": [], "isControl": true},
+    {"name": "methylene blue", "disease": "ad", "state": "control", "promotion": "n/a — negative control.", "experiment": "None. Carried as a permanent negative control.", "rationale": "AD-assay-active decoy (anti-tau candidate) — no curated causal AD signal. Must rank last.", "evidence": [], "isControl": true},
+    {"name": "galantamine", "disease": "ad", "state": "control", "promotion": "n/a — negative control.", "experiment": "None. Carried as a permanent negative control.", "rationale": "AD-assay-active decoy (cholinergic drug) — no curated causal AD signal. Must rank last.", "evidence": [], "isControl": true},
+    {"name": "resveratrol", "disease": "ad", "state": "control", "promotion": "n/a — negative control.", "experiment": "None. Carried as a permanent negative control.", "rationale": "AD-assay-active decoy (dietary polyphenol) — no curated causal AD signal. Must rank last.", "evidence": [], "isControl": true}
+  ],
+  "backtest": {
+    "heldOut": "DDE",
+    "method": "DDE's curated CTD-AD DirectEvidence was withheld; it was scored on its convergent non-curated strands alone, then compared to the best adversarial-decoy score.",
+    "evidence": [
+      {"line": "EPI", "strength": "strong", "detail": "Elevated serum DDE in Alzheimer's patients.", "source": "Richardson et al., JAMA Neurology 2014"},
+      {"line": "MECH", "strength": "moderate", "detail": "Organochlorine amyloidogenic mechanism (↑AβPP/BACE1).", "source": "Yan et al., Sci Rep 2016"}
+    ]
+  }
+}

@@ -26,6 +26,8 @@ fetch "compounds"                    "compounds.json"
 fetch "validation"                   "validation.json"
 fetch "pathway"                      "pathway-aop3.json"
 fetch "discovery-map"                "discovery-map.json"
+fetch "candidates"                   "candidates.json"
+fetch "candidates?disease=ad"        "candidates-ad.json"
   fetch "benchmark"                    "benchmark.json"
 fetch "sources"                      "sources.json"
 

@@ -12,8 +12,9 @@ import type {
   SourceRef,
   Disease,
   DiseaseInfo,
+  CandidateQueue,
 } from "@contract";
-import { fxValidation, fxValidationAD, fxDiseases, fxDiscovery, fxPathway, fxCompounds, fxAssess, fxAssessAD, fxSynthesis, fxBenchmark, fxSources } from "./fixtures";
+import { fxValidation, fxValidationAD, fxDiseases, fxDiscovery, fxCandidates, fxCandidatesAD, fxPathway, fxCompounds, fxAssess, fxAssessAD, fxSynthesis, fxBenchmark, fxSources } from "./fixtures";
 
 export type Source = "live" | "fixture";
 
@@ -50,6 +51,12 @@ export async function getValidation(disease: Disease = "pd"): Promise<{ data: Va
 export async function getDiscoveryMap(): Promise<{ data: DiscoveryMap; source: Source }> {
   const live = await tryLive<DiscoveryMap>("/discovery-map");
   return live ? { data: live, source: "live" } : { data: fxDiscovery, source: "fixture" };
+}
+
+export async function getCandidates(disease: Disease = "pd"): Promise<{ data: CandidateQueue; source: Source }> {
+  const live = await tryLive<CandidateQueue>(`/candidates${dq(disease)}`);
+  if (live) return { data: live, source: "live" };
+  return { data: disease === "ad" ? fxCandidatesAD : fxCandidates, source: "fixture" };
 }
 
 export async function getBenchmark(): Promise<{ data: Benchmark; source: Source }> {

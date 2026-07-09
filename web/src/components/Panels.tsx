@@ -9,6 +9,9 @@ import type {
   Synthesis,
   Benchmark,
   SourceRef,
+  CandidateQueue,
+  Candidate,
+  CandidateEvidence,
 } from "@contract";
 import { REFERENCES, REF_CATS, refNumber, CITE_KIND_TO_REF } from "../references";
 
@@ -216,11 +219,11 @@ export function AboutModal({ onClose }: { onClose: () => void }) {
         </div>
         <h2 style={{ fontSize: 24, marginBottom: 16 }}>What Aitiome is, and why</h2>
         <div style={{ display: "flex", flexDirection: "column", gap: 14, fontSize: 14.5, lineHeight: 1.62, color: "var(--ink-dim)" }}>
-          <p><b style={{ color: "var(--ink)" }}>The problem.</b> Most Parkinson's and Alzheimer's is sporadic: inherited monogenic causes explain only a minority of risk — common-variant heritability is roughly 16–36% for Parkinson's ({link("nalls2019", "Nalls et al. 2019")}; {link("bloem2021", "Bloem et al. 2021")}) and the large majority of Alzheimer's is late-onset and polygenic ({link("bellenguez2022", "Bellenguez et al. 2022")}). Environmental exposure is a major, growing focus for the rest — pesticides, metals, solvents, and air pollution have been associated with both diseases ({link("dorsey2025", "Dorsey 2025")}; {link("lefevre2024", "Lefèvre-Arbogast et al. 2024")}), and the 2024 Lancet Commission attributes a large share of dementia to modifiable, largely environmental factors ({link("livingston2024", "Livingston et al. 2024")}).</p>
+          <p><b style={{ color: "var(--ink)" }}>The problem.</b> Most Parkinson's and Alzheimer's is sporadic: inherited monogenic causes explain only a minority of risk — reported common-variant heritability estimates are roughly 16–36% for Parkinson's ({link("nalls2019", "Nalls et al. 2019")}; {link("bloem2021", "Bloem et al. 2021")}), and the large majority of Alzheimer's is late-onset and polygenic — though APOE and rare familial mutations carry substantial risk ({link("bellenguez2022", "Bellenguez et al. 2022")}). Environmental exposure is a major, growing focus for the unexplained remainder: pesticides, metals, solvents, and air pollution have been associated with Parkinson's, Alzheimer's, or dementia-related outcomes — though causal strength varies by exposure and endpoint ({link("dorsey2025", "Dorsey 2025")}; {link("lefevre2024", "Lefèvre-Arbogast et al. 2024")}), and the 2024 Lancet Commission attributes a large share of dementia to modifiable risk factors ({link("livingston2024", "Livingston et al. 2024")}).</p>
           <p><b style={{ color: "var(--ink)" }}>Who it is for.</b> Aitiome is built for the researcher connecting environmental chemicals to neurodegeneration mechanism — the exposome community that Gary Miller, Robert Barouki, and Cécile Samieri represent, who in 2024 called for a systematic, GWAS-analogous approach to link the chemical exposome to neurodegeneration ({link("miller2024", "Lefèvre-Arbogast et al. 2024")}). Aitiome serves the mechanism-and-evidence half of that program — reconstructing the endorsed pathway and grading curated evidence per chemical — and is explicit that the untargeted-discovery half is not yet feasible on public data for this chemical class (see the discovery map). Three concrete users: (1) an exposome / environmental-health researcher asking "which chemicals plausibly drive Parkinson's or Alzheimer's, and through what pathway?"; (2) a mechanism-focused neurodegeneration lab that wants to know which environmental chemicals plug into the pathways it already studies; (3) a regulatory / AOP toxicologist who needs curated chemical-to-adverse-outcome evidence, not another bioactivity screen.</p>
-          <p><b style={{ color: "var(--ink)" }}>Why it's hard.</b> Tens of thousands of chemicals are bioactive in assays, yet only a small, curated set are established human neurotoxicants ({link("grandjean2014", "Grandjean & Landrigan 2014")}). Activity-based screening does not separate them: high-throughput assays cover only ~40% of neural-relevant targets and miss the oxidative-stress key events behind most neurotoxicity ({link("mack2024", "Mack et al. 2024")}). On our own validation set, every bioactivity signal scores at or below chance against adversarial mitochondria-active decoys — it is anti-diagnostic here.</p>
-          <p><b style={{ color: "var(--ink)" }}>Aitiome is a mechanistic reasoning engine.</b> Given a chemical, it reconstructs the OECD-endorsed causal pathway to a neurodegeneration hallmark, grades it only on curated diagnostic evidence — curated CTD DirectEvidence ({link("ctd", "CTD")}) or a registered AOP stressor ({link("aopwiki", "AOP-Wiki")}), never on bioactivity — grounds each edge in queryable evidence, and rates its confidence. It runs per disease: Parkinson's and Alzheimer's, the identical machinery.</p>
-          <p><b style={{ color: "var(--ink)" }}>Evidence-based, and calibrated.</b> It is a validation-and-calibration engine, not a novel-discovery predictor. It recovers the known neurotoxicants, rejects the imposters, quantifies the falsification, and maps the discovery limits it cannot cross — shown, not hidden. Alzheimer's is calibrated below Parkinson's, where the evidence is thinner and the AD adverse-outcome pathways are not yet OECD-endorsed.</p>
+          <p><b style={{ color: "var(--ink)" }}>Why it's hard.</b> Tens of thousands of chemicals are bioactive in assays, yet only a small, curated set are established human neurotoxicants — many characterized for developmental neurotoxicity ({link("grandjean2014", "Grandjean & Landrigan 2014")}). Activity-based screening does not separate them: one 2024 analysis estimates high-throughput assays cover only ~40% of neural-relevant targets and under-cover the oxidative-stress key events behind most neurotoxicity ({link("mack2024", "Mack et al. 2024")}). And on our own validation set (13 positives, 15 negatives including 6 mitochondria-active decoys), bioactivity-derived features fail to separate the known neurotoxicants from the decoys — at or below chance (ToxCast-fingerprint AUROC ≈ 0.53 against the decoys). Bioactivity is anti-diagnostic here.</p>
+          <p><b style={{ color: "var(--ink)" }}>Aitiome is a mechanistic reasoning engine.</b> Given a chemical, it reconstructs a disease-specific AOP-style causal path to a neurodegeneration hallmark — using OECD-endorsed AOPs where available and explicitly downgrading paths that are registered but not yet endorsed — and grades it only on curated diagnostic evidence — curated CTD DirectEvidence ({link("ctd", "CTD")}) or a registered AOP stressor ({link("aopwiki", "AOP-Wiki")}), never on bioactivity — grounding each edge in queryable evidence and rating its confidence. In the demo you enter a chemical and Aitiome returns the disease-specific mechanistic path, the evidence behind each edge, confidence grades, missing-evidence flags, and whether the chemical survives adversarial decoy calibration. It runs per disease: Parkinson's and Alzheimer's, the identical machinery.</p>
+          <p><b style={{ color: "var(--ink)" }}>Evidence-based, and calibrated.</b> It is a validation-and-calibration engine, not a novel-discovery predictor. It recovers the known neurotoxicants, rejects the imposters, quantifies the falsification, and maps the discovery limits it cannot cross — shown, not hidden. Alzheimer's is calibrated below Parkinson's, where the evidence is thinner and the AD adverse-outcome pathways used here are not yet OECD-endorsed.</p>
         </div>
         <div className="hair" style={{ margin: "20px 0 14px" }} />
         <p className="faint" style={{ fontSize: 12.5, lineHeight: 1.5 }}>
@@ -397,6 +400,117 @@ export function DiscoveryPanel({ map }: { map: DiscoveryMap }) {
         })}
       </div>
       <p className="faint" style={{ fontSize: 12.5, marginTop: 20, maxWidth: "72ch", lineHeight: 1.55 }}>{map.note}</p>
+    </div>
+  );
+}
+
+// ---- Candidate pipeline (ADR-0006): the VOI-ranked triage queue ----
+const CAND_STATE: Record<string, { label: string; tone: string }> = {
+  aop_stressor_ready: { label: "gate-ready", tone: "var(--recovered)" },
+  mechanistic: { label: "mechanistic", tone: "var(--signal)" },
+  pending_verification: { label: "pending verification", tone: "var(--uncertain)" },
+  association: { label: "association", tone: "var(--ink-dim)" },
+  control: { label: "negative control", tone: "var(--reject)" },
+};
+
+function EvidenceChips({ evidence }: { evidence: CandidateEvidence[] }) {
+  if (!evidence.length) return null;
+  return (
+    <div style={{ display: "flex", flexWrap: "wrap", gap: 6, marginTop: 10 }}>
+      {evidence.map((e, i) => (
+        <span key={i} className="mono" title={`${e.detail} — ${e.source}`}
+          style={{
+            fontSize: 10, letterSpacing: "0.04em", padding: "3px 7px", borderRadius: 5,
+            border: "1px solid var(--line-2)", color: "var(--ink-dim)",
+            opacity: e.strength === "weak" ? 0.6 : e.strength === "moderate" ? 0.82 : 1,
+          }}>
+          {e.line}<span className="faint"> · {e.strength}</span>
+        </span>
+      ))}
+    </div>
+  );
+}
+
+function CandidateCard({ c, rank }: { c: Candidate; rank: number }) {
+  const st = CAND_STATE[c.state] ?? CAND_STATE.association;
+  return (
+    <div className="panel" style={{ padding: 16, opacity: c.isControl ? 0.62 : 1, borderColor: c.state === "aop_stressor_ready" ? "color-mix(in srgb, var(--recovered) 32%, transparent)" : "var(--line)" }}>
+      <div style={{ display: "flex", alignItems: "baseline", gap: 12 }}>
+        <span className="mono faint" style={{ fontSize: 12, width: 24, flex: "0 0 auto" }}>{c.isControl ? "—" : rank}</span>
+        <span style={{ fontSize: 15, fontWeight: 600, flex: 1 }}>{c.name}</span>
+        <span className="mono" style={{ fontSize: 11, letterSpacing: "0.05em", color: c.isControl ? "var(--reject)" : "var(--signal)" }}>VOI {c.score.toFixed(1)}</span>
+      </div>
+      <div style={{ paddingLeft: 36 }}>
+        <span className="mono" style={{ fontSize: 10, letterSpacing: "0.06em", textTransform: "uppercase", color: st.tone }}>{st.label}</span>
+        {c.cas && <span className="mono faint" style={{ fontSize: 10, marginLeft: 10 }}>CAS {c.cas}</span>}
+        <p className="dim" style={{ fontSize: 12.5, marginTop: 8, lineHeight: 1.5 }}>{c.rationale}</p>
+        <EvidenceChips evidence={c.evidence} />
+        {!c.isControl && (
+          <div style={{ marginTop: 12, display: "flex", flexDirection: "column", gap: 6 }}>
+            <div style={{ fontSize: 11.5, lineHeight: 1.45 }}>
+              <span className="mono faint" style={{ fontSize: 10, letterSpacing: "0.05em" }}>DISTANCE TO GATE </span>
+              <span className="dim">{c.promotion}</span>
+            </div>
+            <div style={{ fontSize: 11.5, lineHeight: 1.45 }}>
+              <span className="mono" style={{ fontSize: 10, letterSpacing: "0.05em", color: "var(--signal)" }}>NEXT EXPERIMENT </span>
+              <span className="dim">{c.experiment}</span>
+            </div>
+          </div>
+        )}
+      </div>
+    </div>
+  );
+}
+
+export function CandidatePanel({ queue }: { queue: CandidateQueue }) {
+  const real = queue.candidates.filter((c) => !c.isControl);
+  const controls = queue.candidates.filter((c) => c.isControl);
+  const bt = queue.backtest;
+  return (
+    <div>
+      <SectionHead kicker="From validator to pipeline" title="The candidate queue — what to test next" />
+      <p className="dim" style={{ fontSize: 16, maxWidth: "72ch", marginBottom: 22 }}>{queue.headline}</p>
+
+      {bt && (
+        <div className="panel" style={{ padding: "18px 20px", marginBottom: 22, borderColor: bt.passed ? "color-mix(in srgb, var(--recovered) 40%, transparent)" : "color-mix(in srgb, var(--reject) 40%, transparent)" }}>
+          <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 8, flexWrap: "wrap" }}>
+            <span className="eyebrow" style={{ margin: 0 }}>Held-out prioritization backtest</span>
+            <span className={`chip ${bt.passed ? "recovered" : "reject"}`}><span className="dot" />{bt.passed ? "passed" : "failed"}</span>
+          </div>
+          <p style={{ fontSize: 14.5, lineHeight: 1.55, margin: 0, color: "var(--ink)" }}>
+            Withhold <b>{bt.heldOut}</b>&apos;s curated evidence and it still scores{" "}
+            <span className="mono" style={{ color: "var(--recovered)" }}>{bt.heldOutScore.toFixed(1)}</span>{" "}
+            on convergent non-curated strands — above every adversarial decoy (max{" "}
+            <span className="mono" style={{ color: "var(--reject)" }}>{bt.decoyMaxScore.toFixed(1)}</span>).
+          </p>
+          <p className="dim" style={{ fontSize: 12.5, lineHeight: 1.5, marginTop: 8 }}>{bt.verdict}</p>
+          <p className="faint" style={{ fontSize: 11.5, lineHeight: 1.45, marginTop: 8 }}>{bt.method} Prioritization skill — not causal discovery.</p>
+        </div>
+      )}
+
+      <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
+        {real.map((c, i) => <CandidateCard key={c.name} c={c} rank={i + 1} />)}
+      </div>
+
+      {controls.length > 0 && (
+        <>
+          <p className="mono faint" style={{ fontSize: 10.5, letterSpacing: "0.06em", textTransform: "uppercase", margin: "22px 0 10px" }}>
+            Negative control — adversarial decoys, must rank last
+          </p>
+          <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
+            {controls.map((c) => <CandidateCard key={c.name} c={c} rank={0} />)}
+          </div>
+        </>
+      )}
+
+      <div style={{ marginTop: 20, display: "flex", flexWrap: "wrap", gap: 10 }}>
+        {queue.weights.map((w) => (
+          <span key={w.line} className="mono faint" title={w.label} style={{ fontSize: 10, letterSpacing: "0.04em" }}>
+            {w.line} <span style={{ color: "var(--signal)" }}>×{w.weight}</span>
+          </span>
+        ))}
+      </div>
+      <p className="faint" style={{ fontSize: 12.5, marginTop: 14, maxWidth: "74ch", lineHeight: 1.55 }}>{queue.note}</p>
     </div>
   );
 }

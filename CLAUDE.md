@@ -12,6 +12,22 @@ Private repo `jonradoff/aitiome`. A **falsification harness** (`make validate`, 
 the anti-diagnostic claim: bioactivity is at-or-below-chance vs the adversarial decoys while the curated
 rule is perfect. Red-team findings and open critiques (esp. circularity) are logged in `learnings.md`.
 
+**Candidate pipeline shipped (2026-07-09, ADR-0006):** Aitiome is now a triage pipeline, not only a validator.
+`/candidates?disease=` + MCP `list_candidates` return a **value-of-information-ranked queue** of chemicals with
+real-but-incomplete evidence (seeds: Paul & Ritz PD pesticides incl. gate-ready AOP-3 stressors
+fenpyroximate/tebufenpyrad/pyrimidifen; PCE; AD metals/organochlorines from Bakulski/Yan/Jang). The **ranker is
+transparent + additive** (published weights: AOP 5 · MECH 3 · IPSC 2 · EPI 2 · XDIS 2 · ZF 1 · INFERRED 0.5 ×
+strength, +1/convergent-line), **NO learned weighting**. HARD invariants (test-locked in `candidates_test.go`):
+entry needs ≥1 non-bioactivity strand; **only the curated gate promotes** (CTD DirectEvidence OR registered
+in-scope AOP stressor); the **6 adversarial decoys are carried as a permanent control and MUST rank last**
+(score 0); a **held-out backtest** recovers a known positive (TCE/DDE) from non-curated strands alone, above all
+decoys — prioritization skill, NOT causal discovery. Data: `services/aitio/data/candidates_{pd,ad}.json` (evidence
+JSON; scores DERIVED in Go). **PCE stays pending** (CTD batch+detail APIs ALTCHA-walled 2026-07 — the flagship
+"stuck candidate"). Also folded in a friend's copy-precision edits to the About modal (Grandjean=developmental
+caveat; softened Mack ~40%; validation mini-method w/ AUROC≈0.53; "OECD-endorsed where available, downgrade
+registered-not-endorsed"; demo-loop sentence). Ceiling (do NOT cross): no from-structure prediction; time-dated
+backtest + auto-ingestion are future phases.
+
 **Round-3 scan + resolve typeahead (2026-07-09):** hyper-current pass (`docs/research/round3-literature-scan.md`)
 re-tested the discovery limit — it **holds** (no neural-specific exposome-scale predictor on public data). The
 resolve input got an intelligent typeahead over the curated benchmark (suggests only what resolves; free-text
