@@ -285,13 +285,70 @@ shotSlide("mcp", "One engine, two interfaces", "A scientist and an agent query t
 ]);
 
 // 14 - built on Claude (the three-layer fusion)
-slide("dark", `${eyebrow("Built with Claude, end to end")}${h("Claude Code builds it. The API reasons. Claude Science verifies.")}
-  <div class="three">
-    <div class="card"><b class="c">Claude Code</b><p class="dim">Built the whole system - two parallel streams (engine and visualization) over a versioned contract, the deterministic core, the falsification harness, the hero, the deploy.</p></div>
-    <div class="card"><b class="g">Claude API (Opus 4.8)</b><p class="dim">The in-app evidence-reasoner (explains, never decides) and a command-line curation agent that assembles curated evidence for a new chemical with web tools.</p></div>
-    <div class="card"><b class="c">Claude Science</b><p class="dim">The evidence-assembly and <b>verification</b> layer: it checks a draft against the primary sources and produces a reproducible artifact, turning a hypothesis into a curated call.</p></div>
+// 14a - system architecture (functional diagram)
+slide("", `${eyebrow("How it's built - the system")}${h("One engine, two interfaces, a model kept out of the decision")}
+  <div class="diagram">
+    <div class="drow">
+      <div class="dbox"><div class="dt">Interface - human</div><div class="db">Scientist &#183; React + Three.js web UI</div></div>
+      <div class="dbox"><div class="dt">Interface - agent</div><div class="db">External agent &#183; MCP client</div></div>
+    </div>
+    <div class="dcar">&#8595; &nbsp; thin adapters over one service &nbsp; &#8595;</div>
+    <div class="drow">
+      <div class="dbox"><div class="dt">Adapter</div><div class="db mono">HTTP &#183; /api/*</div></div>
+      <div class="dbox"><div class="dt">Adapter (sibling)</div><div class="db mono">MCP &#183; tools</div></div>
+    </div>
+    <div class="dcar">&#8595;</div>
+    <div class="drow">
+      <div class="dbox wide core"><div class="dt">Transport-agnostic service &#183; Go &#183; deterministic core</div>
+        <div class="dchips"><span class="dchip">Resolve</span><span class="dchip">Gate &#183; recovery predicate</span><span class="dchip">Reconstruct AOP</span><span class="dchip">Converge evidence</span><span class="dchip">Rank candidates</span><span class="dchip">Falsify &#183; decoys</span></div>
+      </div>
+    </div>
+    <div class="drow">
+      <div class="dbox"><div class="dt">Embedded curated data &#183; go:embed</div><div class="db" style="font-size:12px">CTD &#183; AOP-Wiki &#183; MitoCarta &#183; Kamath &#183; ToxCast/ICE &#183; FAERS &#183; B3DB</div></div>
+      <div class="dbox ai"><div class="dt">Evidence reasoner - Claude Opus 4.8</div><div class="db" style="font-size:12px">Writes the cited synthesis. <b>Synthesis only - outside the decision path</b> (deterministic fallback if no key).</div></div>
+    </div>
+    <div class="dspine">versioned contract/ - typed schema + fixtures &#183; core &#8869; viz (the viz runs on fixtures; live is a fixture&#8594;flip)</div>
   </div>
-  <p class="dim center" style="margin-top:22px">A full-stack Claude pipeline - and Claude still never enters the decision path.</p>
+  <p class="dim center small" style="margin-top:12px">One ~13 MB Go binary serves web + <span class="mono">/api</span> + MCP &#183; reproducible: same input, same output &#183; live on fly.io.</p>
+  ${foot(N())}`);
+
+// 14b - the reasoning pipeline (per chemical)
+slide("dark", `${eyebrow("How the reasoning works")}${h("Six steps per chemical - the model narrates only the last")}
+  <div class="pipe">
+    ${pstep("1", "Resolve", "Identifier &#8594; DTXSID-first, salt-form-correct compound.")}
+    <div class="parrow">&#8594;</div>
+    ${pstep("2", "Gate", "Deterministic predicate: curated CTD DirectEvidence OR a registered in-scope AOP stressor. Bioactivity never gates.")}
+    <div class="parrow">&#8594;</div>
+    ${pstep("3", "Reconstruct", "Attach the endorsed AOP (MIE&#8594;KE&#8594;AO); each edge grounded to a primary source.")}
+    <div class="parrow">&#8594;</div>
+    ${pstep("4", "Converge", "Assemble the typed evidence strands it reasons over - each with provenance.")}
+    <div class="parrow">&#8594;</div>
+    ${pstep("5", "Falsify", "Decoys rejected on independent lines; bioactivity shown at/below chance.")}
+    <div class="parrow">&#8594;</div>
+    ${pstep("6", "Narrate", "Claude writes the calibrated, [E#]-cited prose - explains, never decides.", true)}
+  </div>
+  <div class="two" style="margin-top:28px">
+    <div><b class="c">Steps 1-5 are deterministic and auditable</b><p class="dim">The recovery call is a fixed logical rule over curated evidence - no LLM in the decision path, reproducible byte-for-byte.</p></div>
+    <div><b class="g">Step 6 is the only model step</b><p class="dim">The synthesis explains the decision and cites each strand; it can never change the call or the tier.</p></div>
+  </div>
+  <p class="dim center small">Every step emits one trace event - the same ordered stream you can read as "the reasoning path" in the live app.</p>
+  ${foot(N())}`);
+
+// 14c - product: the reasoning path, live
+shotSlide("reasoningpath", "The reasoning path, live in the product", "You can read exactly what it reasoned over, and how it decided", [
+  { n: 1, x: 78, y: 22, tone: "c", label: "The gate: which curated terms fired - and that bioactivity was NOT used to decide" },
+  { n: 2, x: 24, y: 40, tone: "g", label: "The evidence strands it reasoned over - each with a source and access route" },
+  { n: 3, x: 72, y: 76, tone: "r", label: "Steps run deterministically and are auditable - no model makes the call" },
+]);
+
+// 14d - the three roles of Claude, precisely (incl. what Claude Science actually is)
+slide("dark", `${eyebrow("The three roles of Claude - precisely")}${h("Claude builds, verifies, and explains - never decides")}
+  <div class="three">
+    <div class="card"><b class="c">Claude Code - builds it</b><p class="dim">Two parallel streams (engine + visualization) over a versioned contract; the deterministic core, the falsification harness, the hero, the deploy.</p></div>
+    <div class="card"><b class="g">Claude API (Opus 4.8) - explains it</b><p class="dim">The in-app evidence-reasoner: writes the calibrated, [E#]-cited synthesis of a completed assessment. Explains, and never changes the call.</p></div>
+    <div class="card recovered"><b class="c">Claude Science - assembles + verifies</b><p class="dim">For a chemical beyond the embedded 27, <span class="mono">make curate</span> assembles a curated-evidence draft (Claude + web search), verified against the primary sources; then <span class="mono">/assess-curated</span> grades it with the same deterministic gate. An unverified draft stays a hypothesis, never a curated positive.</p></div>
+  </div>
+  <p class="dim center small" style="margin-top:18px">Claude builds, assembles, verifies, and explains - the deterministic gate still makes every call.</p>
   ${foot(N())}`);
 
 // 15 - architecture / beyond the benchmark
@@ -402,6 +459,9 @@ function axis(name, verdict, lead) {
 function dtile(name, tag, basis) {
   return `<div class="axis lead"><div class="an">${name}</div><div class="av mono">${tag} &#9679;</div><div class="dim" style="font-size:12px;margin-top:8px;line-height:1.4">${basis}</div></div>`;
 }
+function pstep(n, title, desc, ai) {
+  return `<div class="pstep ${ai ? "ai" : ""}"><div class="pn">${n}</div><div class="ptt">${title}</div><div class="pdd">${desc}</div></div>`;
+}
 
 const css = `
   @font-face{font-family:'Grotesk';src:url(data:font/woff2;base64,${grotesk}) format('woff2');font-weight:300 700;}
@@ -471,6 +531,29 @@ const css = `
   .herofull .herobody{padding:34px 84px 0}
   .herofull h1{max-width:32ch;font-size:38px}
   .small{font-size:15px;color:var(--dim);margin-top:14px;max-width:86ch}
+  /* technical: architecture diagram */
+  .diagram{display:flex;flex-direction:column;gap:8px;margin-top:18px;align-items:center}
+  .drow{display:flex;gap:12px;justify-content:center;width:100%}
+  .dbox{background:var(--bg2);border:1px solid var(--line);border-radius:10px;padding:11px 16px;flex:1;max-width:520px}
+  .dbox.wide{max-width:none;width:100%}
+  .dbox .dt{font-family:'PlexMono';font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:var(--faint);margin-bottom:5px}
+  .dbox .db{font-size:13px;color:var(--ink);line-height:1.4}
+  .dbox.core{border-color:color-mix(in srgb,var(--c) 45%,transparent);background:color-mix(in srgb,var(--c) 6%,var(--bg2))}
+  .dbox.ai{border-color:color-mix(in srgb,var(--g) 45%,transparent)}
+  .dbox.ai .dt{color:var(--g)}
+  .dchips{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+  .dchip{font-family:'PlexMono';font-size:11px;padding:3px 9px;border-radius:6px;background:var(--bg3);border:1px solid var(--line);color:var(--dim)}
+  .dcar{color:var(--faint);font-size:15px;line-height:1;text-align:center}
+  .dspine{font-family:'PlexMono';font-size:10.5px;letter-spacing:.05em;color:var(--c);text-align:center;margin-top:6px}
+  /* technical: reasoning pipeline */
+  .pipe{display:flex;align-items:stretch;gap:0;margin-top:26px}
+  .pstep{flex:1;background:var(--bg2);border:1px solid var(--line);border-radius:10px;padding:14px 11px}
+  .pstep .pn{font-family:'PlexMono';font-size:22px;color:var(--c);line-height:1}
+  .pstep .ptt{font-size:13.5px;font-weight:600;margin:8px 0 5px}
+  .pstep .pdd{font-size:10.5px;color:var(--dim);line-height:1.4}
+  .pstep.ai{border-color:color-mix(in srgb,var(--g) 50%,transparent)}
+  .pstep.ai .pn{color:var(--g)}
+  .parrow{align-self:center;color:var(--faint);font-size:16px;padding:0 4px;flex:0 0 auto}
   /* compare matrix */
   .cmp{border:1px solid var(--line);border-radius:14px;overflow:hidden;margin:26px 0 16px}
   .cmphead,.cmpr{display:grid;grid-template-columns:1.15fr 1.3fr 1.3fr}

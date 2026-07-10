@@ -46,6 +46,7 @@ await shot("It is not fooled", "/tmp/deck-app-specificity.png");
 await shot("Why not just use bioactivity", "/tmp/deck-app-falsification.png");
 await shot("Where AI-driven discovery", "/tmp/deck-app-discovery.png");
 await shot("The candidate queue", "/tmp/deck-app-candidates.png");
+await shot("The reasoning path", "/tmp/deck-app-reasoningpath.png");
 await shot("Anticipated critiques", "/tmp/deck-app-critiques.png");
 await shot("Sources and references", "/tmp/deck-app-sources.png");
 await shot("An external agent", "/tmp/deck-app-mcp.png");

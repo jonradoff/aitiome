@@ -292,31 +292,109 @@ const KIND_TAG: Record<string, string> = {
   verdict: "verdict",
 };
 
+function strandStatusMark(s: string): string {
+  return s === "supports" ? "✓" : s === "refutes" ? "✕" : s === "not_assessable" ? "–" : "○";
+}
+function shortenTitle(s: string, n = 26): string {
+  return s.length > n ? s.slice(0, n - 1) + "…" : s;
+}
+
+// The reasoning path: the engine's actual analytical steps for the active compound,
+// made legible. It reads straight off the structured result (not a raw log): the
+// deterministic gate decision (which predicate terms fired, and that bioactivity was
+// NOT used), the reconstructed pathway, the evidence strands it reasoned over, any
+// falsification lines, and the verdict. Answers "what did it reason over, and how did
+// it decide?" — the same six stages the deck's pipeline slide shows.
 export function TracePanel({ result }: { result: CompoundResult }) {
-  const trace = result.trace ?? [];
+  const rec = result.recovery;
+  const positive = rec.call === "positive";
+  const dz = result.disease === "ad" ? "Alzheimer's" : "Parkinson's";
+  const c = result.compound;
+  const salt = c.toxcastCas && c.toxcastCas !== c.cas ? ` · tested as CAS ${c.toxcastCas}` : "";
+  const strands = result.strands ?? [];
+  const rej = result.rejection;
+  const pathway = result.pathway;
+  const nodes = pathway ? [...pathway.nodes].sort((a, b) => a.layer - b.layer) : [];
+  const posTone = positive ? "var(--recovered)" : "var(--reject)";
+  const chk = (hit: boolean) => <span className="mono" style={{ color: hit ? "var(--recovered)" : "var(--ink-faint)" }}>{hit ? "✓" : "—"}</span>;
+
+  const stages: { title: string; tone?: string; body: ReactNode }[] = [];
+
+  stages.push({ title: "Resolve identity", body: (
+    <><b style={{ color: "var(--ink)" }}>{c.name}</b> → <span className="mono">{c.dtxsid || "identity pending"}</span>{salt}. DTXSID-first, salt-form correct.</>
+  ) });
+
+  stages.push({ title: "The gate — the decision", tone: posTone, body: (
+    <>
+      <div style={{ display: "flex", flexDirection: "column", gap: 3 }}>
+        <div>{chk(rec.predicate.ctdPdDirectEvidence)} CTD {dz} curated DirectEvidence</div>
+        <div>{chk(rec.predicate.neuroAopStressor)} Registered in-scope AOP stressor</div>
+      </div>
+      <div style={{ marginTop: 6 }}>→ <b style={{ color: posTone }}>{positive ? "POSITIVE" : "NEGATIVE"}</b> <span className="faint">{positive ? "— the curated OR holds" : "— neither term holds"}</span></div>
+      <div className="faint" style={{ fontSize: 11.5, marginTop: 6, lineHeight: 1.45 }}>
+        Bioactivity seen: {rec.corroboration.mitoActive} mito · {rec.corroboration.mechActiveTotal} mechanistic assay hits — <b style={{ color: "var(--uncertain)" }}>corroboration only, never used to decide</b>.
+      </div>
+    </>
+  ) });
+
+  if (positive && nodes.length > 0) {
+    stages.push({ title: "Reconstruct the endorsed pathway", body: (
+      <>
+        <span className="mono faint" style={{ fontSize: 10.5 }}>{pathway!.aopId}{pathway!.oecdEndorsed ? " · OECD-endorsed" : " · registered, not yet endorsed"}</span>
+        <div style={{ marginTop: 5, fontSize: 11.5, lineHeight: 1.65 }}>
+          {nodes.map((n, i) => (<span key={n.eventId} title={n.title}>{shortenTitle(n.title)}{i < nodes.length - 1 ? " → " : ""}</span>))}
+        </div>
+        <span className="faint" style={{ fontSize: 11 }}>{pathway!.edges.length} edges, each grounded to a primary source.</span>
+      </>
+    ) });
+  }
+
+  stages.push({ title: `Converge the evidence it reasoned over${strands.length ? ` · ${strands.length} strands` : ""}`, body: (
+    strands.length ? (
+      <>
+        <div style={{ display: "flex", flexWrap: "wrap", gap: 6 }}>
+          {strands.map((st, i) => (
+            <span key={i} className="mono" title={`${st.detail} — via ${st.provenance}`} style={{ fontSize: 10, padding: "3px 7px", borderRadius: 5, border: "1px solid var(--line-2)", color: st.status === "supports" ? "var(--ink-dim)" : "var(--faint)" }}>
+              {STRAND_LABEL[st.kind] ?? st.kind} {strandStatusMark(st.status)}
+            </span>
+          ))}
+        </div>
+        <div className="faint" style={{ fontSize: 11, marginTop: 6 }}>Each carries a finding, a source, and its access route — full detail on the left.</div>
+      </>
+    ) : <span className="faint">No convergent strands for this compound.</span>
+  ) });
+
+  if (rej && rej.lines.length > 0) {
+    stages.push({ title: `Falsify — rejected on ${rej.lines.length} independent lines`, tone: "var(--reject)", body: (
+      <div style={{ display: "flex", flexDirection: "column", gap: 3 }}>
+        {rej.lines.map((ln, i) => <div key={i}>• {ln.detail}</div>)}
+      </div>
+    ) });
+  }
+
+  stages.push({ title: "Decide", tone: posTone, body: (
+    <><b style={{ color: posTone }}>{positive ? "Recovered" : "Correctly not flagged"}</b> · tier <span className="mono">{result.confidenceTier}</span>. <span className="dim">{rec.rationale}</span></>
+  ) });
+
   return (
     <div className="panel" style={{ padding: 22, display: "flex", flexDirection: "column" }}>
-      <span style={{ fontWeight: 600, fontSize: 16, marginBottom: 14 }}>Reasoning trace</span>
-      <div style={{ maxHeight: 360, overflowY: "auto", display: "flex", flexDirection: "column", gap: 2, paddingRight: 6 }}>
-        {trace.map((t, i) => {
-          const tag = KIND_TAG[t.kind] ?? t.kind;
-          const tone =
-            t.kind === "verdict" ? (t.call === "positive" ? "var(--recovered)" : "var(--reject)")
-            : t.kind === "reject_line" ? "var(--reject)"
-            : t.kind === "ao_resolve" ? "var(--neuron)"
-            : t.kind === "predicate_eval" ? (t.hit ? "var(--recovered)" : "var(--ink-faint)")
-            : "var(--signal)";
-          return (
-            <div key={i} style={{ display: "grid", gridTemplateColumns: "78px 1fr", gap: 10, alignItems: "baseline", padding: "3px 0" }}>
-              <span className="mono" style={{ fontSize: 10, letterSpacing: "0.06em", color: tone, textTransform: "uppercase" }}>{tag}</span>
-              <span className="dim" style={{ fontSize: 12.5 }}>
-                {t.label}
-                {t.kind === "predicate_eval" && <span className="mono" style={{ color: tone }}> {t.hit ? " hit" : " miss"}</span>}
-              </span>
+      <span style={{ fontWeight: 600, fontSize: 16 }}>The reasoning path</span>
+      <span className="faint" style={{ fontSize: 11.5, marginTop: 3, marginBottom: 16 }}>What it reasoned over, and how it decided — step by step.</span>
+      <div style={{ display: "flex", flexDirection: "column", gap: 15 }}>
+        {stages.map((s, i) => (
+          <div key={i} style={{ display: "grid", gridTemplateColumns: "22px 1fr", gap: 10, alignItems: "start" }}>
+            <span className="mono" style={{ fontSize: 12, color: s.tone ?? "var(--signal)", fontWeight: 600, paddingTop: 1 }}>{i + 1}</span>
+            <div>
+              <div className="mono" style={{ fontSize: 10.5, letterSpacing: "0.06em", textTransform: "uppercase", color: s.tone ?? "var(--ink-dim)", marginBottom: 5 }}>{s.title}</div>
+              <div style={{ fontSize: 12.5, lineHeight: 1.5, color: "var(--ink-dim)" }}>{s.body}</div>
             </div>
-          );
-        })}
+          </div>
+        ))}
       </div>
+      <div className="hair" style={{ margin: "16px 0 12px" }} />
+      <p className="faint" style={{ fontSize: 11, lineHeight: 1.5, margin: 0 }}>
+        Steps 1–{stages.length} run <b style={{ color: "var(--ink-dim)" }}>deterministically and are fully auditable</b> — no model makes the call. The synthesis above is Claude explaining this exact path; it never changes it.
+      </p>
     </div>
   );
 }
