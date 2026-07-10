@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import type { ReactNode } from "react";
+import type { ReactNode, CSSProperties } from "react";
 import type {
   CompoundResult,
   EvidenceStrand,
@@ -511,6 +511,69 @@ export function CandidatePanel({ queue }: { queue: CandidateQueue }) {
         ))}
       </div>
       <p className="faint" style={{ fontSize: 12.5, marginTop: 14, maxWidth: "74ch", lineHeight: 1.55 }}>{queue.note}</p>
+      <PriorArtCompare />
+    </div>
+  );
+}
+
+// Honest, verified head-to-head against the two closest prior-art tools. Every cell
+// is a statement confirmed against the primary sources (round-4 verification):
+// PROTON = Noori et al. 2025 (arXiv:2512.13724); ENRICH = Rager et al., Environ. Res. 2025.
+const PRIOR_ART_ROWS: { dim: string; aitio: string; proton: string; enrich: string }[] = [
+  { dim: "Method", aitio: "Transparent additive evidence index — published, auditable weights", proton: "578M-param learned graph transformer over a neuro knowledge graph (NeuroKG)", enrich: "Chemical Prioritization Index (multi-factor composite score)" },
+  { dim: "Uses general bioactivity / HTS?", aitio: "No — excluded (anti-diagnostic vs our decoys)", proton: "No — relational knowledge-graph signal", enrich: "Yes — in-vitro HTS feeds its neuroactivity term" },
+  { dim: "Ranking vs. the call", aitio: "Ranking never promotes; a hard curated gate makes the call", proton: "The ranking is the output (pesticide task)", enrich: "The index is the prioritization output" },
+  { dim: "Adversarial decoy control", aitio: "Yes — 6 mito-active non-neurotoxic decoys must rank last", proton: "Not reported", enrich: "Not reported" },
+  { dim: "Scope", aitio: "Neurodegeneration-specific (Parkinson's + Alzheimer's)", proton: "Parkinson's (pesticides → dopaminergic neurons)", enrich: "General / developmental neuroactivity" },
+  { dim: "Ranker validation", aitio: "Held-out backtest: recovers a known positive from non-curated strands, above all decoys", proton: "Held-out iPSC-toxic pesticides: endosulfan top 1.29%, 3 of 4 in the top quartile", enrich: "Screening-library / biomonitoring-feasibility design" },
+];
+
+export function PriorArtCompare() {
+  const link = (id: string, text: string) => <a href={`#ref-${id}`} style={{ color: "var(--signal)", textDecoration: "none" }}>{text}</a>;
+  const th: CSSProperties = { textAlign: "left", padding: "8px 12px", fontSize: 12, fontWeight: 600, borderBottom: "1px solid var(--line-2)", verticalAlign: "top" };
+  const td: CSSProperties = { padding: "9px 12px", fontSize: 12, lineHeight: 1.45, borderBottom: "1px solid var(--line)", verticalAlign: "top", color: "var(--ink-dim)" };
+  return (
+    <div style={{ marginTop: 30 }}>
+      <p className="eyebrow" style={{ marginBottom: 10 }}>Where this sits in the landscape</p>
+      <p className="dim" style={{ fontSize: 13.5, maxWidth: "76ch", marginBottom: 14, lineHeight: 1.55 }}>
+        Chemical prioritization is not ours to claim. {link("enrich2025", "ENRICH")} (Rager et al. 2025) shipped an
+        evidence-weighted neurotoxicant list, and {link("proton2025", "PROTON")} (Noori et al. 2025) a
+        held-out-validated learned ranker, before us. The honest head-to-head:
+      </p>
+      <div style={{ overflowX: "auto", border: "1px solid var(--line)", borderRadius: "var(--radius-sm)" }}>
+        <table style={{ borderCollapse: "collapse", width: "100%", minWidth: 640 }}>
+          <thead>
+            <tr>
+              <th style={{ ...th, color: "var(--ink-dim)" }}></th>
+              <th style={{ ...th, color: "var(--signal)" }}>Aitiome</th>
+              <th style={{ ...th, color: "var(--ink)" }}>PROTON</th>
+              <th style={{ ...th, color: "var(--ink)" }}>ENRICH</th>
+            </tr>
+          </thead>
+          <tbody>
+            {PRIOR_ART_ROWS.map((r) => (
+              <tr key={r.dim}>
+                <td style={{ ...td, color: "var(--ink)", fontWeight: 500, whiteSpace: "nowrap" }}>{r.dim}</td>
+                <td style={{ ...td, color: "var(--ink-dim)", background: "color-mix(in srgb, var(--signal) 6%, transparent)" }}>{r.aitio}</td>
+                <td style={td}>{r.proton}</td>
+                <td style={td}>{r.enrich}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      <div className="panel" style={{ padding: "14px 16px", marginTop: 14, borderColor: "color-mix(in srgb, var(--recovered) 30%, transparent)" }}>
+        <p style={{ fontSize: 13, lineHeight: 1.55, margin: 0, color: "var(--ink)" }}>
+          <b>Independent agreement.</b> PROTON&apos;s held-out top pesticides — <b>endosulfan, dicofol, naled</b> — are
+          all in Aitiome&apos;s Parkinson&apos;s queue, reached from entirely different inputs (iPSC toxicity + epidemiology,
+          no learned embeddings). Two unrelated methods converging on the same candidates is a signal, not a coincidence.
+        </p>
+      </div>
+      <p className="faint" style={{ fontSize: 12, marginTop: 12, maxWidth: "78ch", lineHeight: 1.55 }}>
+        The distinctive bundle is not the queue but the discipline: bioactivity excluded on evidentiary grounds (vs
+        ENRICH, which includes it), a transparent auditable index (vs PROTON&apos;s learned model), ranking kept formally
+        separate from a hard curated gate, and the adversarial decoys carried as a permanent control.
+      </p>
     </div>
   );
 }

@@ -32,8 +32,10 @@ Chemical prioritization for toxicity testing is a **mature field**. Direct prior
 - **OECD IATA** — the standard framework for combining heterogeneous evidence lines to a testing decision.
 - **GenRA / read-across, ToxCast/Tox21 prioritization** — the established "predict/prioritize the untested
   chemical" tools (ToxCast bioactivity is exactly what we deliberately EXCLUDE — anti-diagnostic here).
-- **ENRICH** (Environment International 2024) — a neurotox-specific evidence-weighted prioritized candidate list;
-  the closest analog. Cited inline (authorship not independently confirmed → no fabricated reference entry).
+- **ENRICH** (Rager et al., *Environmental Research* 2025, PMID 39638029) — a Chemical Prioritization Index
+  (1,827→250 chemicals) for biomonitoring. Round-4b correction: NOT "Environment International 2024"; it is
+  general/developmental neuroactivity (not PD/AD-specific) and DOES incorporate HTS bioactivity — so "we exclude
+  bioactivity" differentiates us from ENRICH (which includes it), not from PROTON.
 - **PROTON** (Noori & Zitnik 2025) — a learned graph ranker with a held-out iPSC validation; the strongest foil.
 - **Shan/Homberg npj Parkinson's 2023** — the tiered PD toxin-screening framework our queue instantiates.
 
