@@ -27,7 +27,7 @@ const AXIS: Record<Disease, {
     defaultActive: "DDE", defaultDecoy: "curcumin",
     knownLabel: "curated AD-linked chemicals", decoyLabel: "AD-assay-active decoys",
     headline: "Give it a chemical — Aitiome reconstructs the endorsed causal pathway to Alzheimer's, grades it on curated evidence (never bioactivity), and rates its confidence.",
-    scoreIntro: "On Alzheimer's the engine grades on the same curated predicate. Its decoys are the compounds most active on AD assays — the anti-amyloid drugs and dietary polyphenols — which an activity model would flag as hits. Aitiome does not, because it reasons on curated causation, not activity.",
+    scoreIntro: "On Alzheimer's the engine grades on the same curated predicate. Its decoys are the compounds most active on AD assays — the symptomatic AD drugs and dietary polyphenols — which an activity model would flag as hits. Aitiome does not, because it reasons on curated causation, not activity.",
     recoveredLabel: "curated AD-linked chemicals recovered", decoyScoreLabel: "AD-assay-active decoys not fooled",
   },
 };
@@ -416,9 +416,10 @@ function ADFalsificationNote({ data }: { data: ValidationResult | null }) {
         <div className="panel" style={{ padding: "20px 22px" }}>
           <div className="mono faint" style={{ fontSize: 11, marginBottom: 10 }}>WHY NO QUANTIFIED ASSAY-AUROC (YET)</div>
           <p className="dim" style={{ fontSize: 13.5, marginTop: 0 }}>
-            The compounds most active on AD assays are the anti-amyloid <b>drugs</b> (donepezil, methylene blue)
-            and dietary <b>polyphenols</b> (curcumin, EGCG) — an activity model would flag the cure. None carries
-            curated AD DirectEvidence, so Aitiome withholds the call.
+            The compounds most active on AD assays are symptomatic AD <b>drugs</b> (donepezil and galantamine —
+            cholinergic; methylene blue — investigational anti-tau) and dietary <b>polyphenols</b> (curcumin, EGCG)
+            — an activity model would flag them as hits. None carries curated AD DirectEvidence, so Aitiome
+            withholds the call.
           </p>
           <p className="dim" style={{ fontSize: 13.5, marginBottom: 0 }}>
             A quantified assay-AUROC (as for PD) is <b>pending AD-specific assay data</b>, and is structurally

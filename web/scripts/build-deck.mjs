@@ -60,21 +60,21 @@ slide("title", `
 // 2 - the problem (context)
 slide("", `${eyebrow("The problem")}${h("What causes sporadic Parkinson's and Alzheimer's?")}
   <div class="cols">
-    <p>The large majority of Parkinson's and Alzheimer's is <b>sporadic</b> - not inherited. The
-    leading suspect for the rest is the <b>environmental exposome</b>: the pesticides, metals, and
-    industrial chemicals we're exposed to over a lifetime. In 2024 the field's leaders (Miller,
-    Barouki, Samieri; <i>Nature Neuroscience</i>) called for AI that connects chemicals to
-    disease <i>mechanism</i>.</p>
-    <p class="dim">Which chemicals actually drive neurodegeneration, and through what biological
-    pathway? That is the open question this project takes on.</p>
+    <p>The large majority of Parkinson's and Alzheimer's is <b>sporadic</b> - not inherited. A major,
+    understudied contributor for the rest is the <b>environmental exposome</b> - the pesticides, metals,
+    and industrial chemicals we meet over a lifetime, interacting with genetics, aging, and vascular
+    biology. In 2024 the field's leaders (Miller, Barouki, Samieri; <i>Nature Neuroscience</i>) called
+    for AI that connects chemicals to disease <i>mechanism</i>.</p>
+    <p class="dim">Which chemicals have mechanistically supported links to neurodegeneration, and through
+    what biological pathway? That is the open question this project takes on.</p>
   </div>${foot(N())}`);
 
 // 3 - the hard part
 slide("dark", `${eyebrow("Why it's hard")}${h("Bioactive is not the same as neurotoxic")}
   <div class="cols">
-    <p>Tens of thousands of chemicals are <b>bioactive</b> - they light up assays. Almost none of
-    them cause neurodegeneration. The entire difficulty is telling a true neurotoxicant apart from a
-    compound that is merely bioactive.</p>
+    <p>Tens of thousands of chemicals are <b>bioactive</b> - they light up assays. Very few have curated
+    evidence for human neurodegeneration. The entire difficulty is telling a true neurotoxicant apart from
+    a compound that is merely bioactive.</p>
     <p class="dim">This is the exact failure mode of activity-based screening: it flags everything
     that <i>does something</i>. Beat that, and you have something real. Fail it, and you have a
     watchlist no scientist can trust.</p>
@@ -94,16 +94,12 @@ slide("", `${eyebrow("What we set out to build")}${h("A discovery engine for nov
   </div>${foot(N())}`);
 
 // 5 - the pivot
-slide("", `${eyebrow("The evidence-driven pivot")}${h("The evidence redirected us")}
+slide("", `${eyebrow("Discovery, scoped into engineering + science")}${h("What the data supports - and what it doesn't yet")}
   <div class="two">
-    <div class="card"><div class="k mono">Finding 1</div><p>No shippable unsupervised-discovery
-    signal exists for this chemical class on public data. Seven independent axes tested; all
-    coverage-killed or confounder-killed.</p></div>
-    <div class="card"><div class="k mono">Finding 2</div><p>The discriminating signal is
-    <b>curated mechanism</b>, not assay activity. Bioactivity scores <b>worse than chance</b> against
-    the decoys.</p></div>
+    <div class="card"><div class="k mono">The gap we found</div><p>A full untargeted-discovery engine needs data public sources can't yet supply for this chemical class - seven independent axes tested, all coverage- or confounder-killed. The discriminating signal is <b>curated mechanism</b>, not assay activity (bioactivity scores <b>worse than chance</b> against the decoys).</p></div>
+    <div class="card recovered"><div class="k mono">So we decomposed it</div><p>We <b>built the components the evidence supports</b> - a validation engine and a candidate triage pipeline - and <b>specced the wet-lab experiments</b> needed to complete the discovery half. Engineering where the data is ready; a mapped science agenda where it isn't.</p></div>
   </div>
-  <p class="pull">So we built the thing the data supports - and made that discipline the contribution.</p>
+  <p class="pull">The same discovery goal, scoped to what the evidence can honestly support.</p>
   ${foot(N())}`);
 
 // 6 - what it is (goals)
@@ -140,6 +136,7 @@ slide("dark", `${eyebrow("The result, on the reconnaissance ground truth")}${h("
     <div><div class="n c">0</div><div class="l">false positives + false negatives</div></div>
   </div>
   <p class="dim center">13 Parkinson's positives (6 assay-recovered + 7 curated-anchored, incl. trichloroethylene / Camp Lejeune) - 15 negatives, including 6 mitochondria-active adversarial decoys built to fool an activity model.</p>
+  <p class="dim center small">A curated adversarial benchmark, not a population-generalization study. Recovery is the sanity check; the <b class="c">6/6 decoy rejection</b> is the contribution - always read the two together.</p>
   ${foot(N())}`);
 
 // 10 - product: the live assessment (convergent evidence + reasoning trace)
@@ -223,7 +220,7 @@ shotSlide("candidates", "The candidate pipeline, live", "A ranked queue that tel
 slide("", `${eyebrow("A second axis, the same discipline")}${h("Alzheimer's — calibrated below Parkinson's")}
   <div class="two">
     <div class="card"><div class="k mono">The AD arm</div><p>The identical curated-diagnostic engine, anchored on the <b>endorsed AOP-12/48</b> (aging neurodegeneration + memory; registered stressor: lead) with a non-endorsed Tau/amyloid overlay. Recovers curated AD-linked chemicals (DDE, cadmium, lead), rejects the imposters, and resolves into disease-associated microglia (TREM2/APOE).</p></div>
-    <div class="card recovered"><div class="k mono">The decoys are the treatments</div><p>The compounds most active on AD assays are the anti-amyloid <b>drugs</b> (donepezil, methylene blue) and dietary <b>polyphenols</b> (curcumin, EGCG). An activity model would flag the cure. Aitiome does not - no curated causation.</p></div>
+    <div class="card recovered"><div class="k mono">The decoys are drugs and supplements</div><p>The compounds most active on AD assays are symptomatic <b>drugs</b> (donepezil, galantamine - cholinergic; methylene blue - investigational anti-tau) and dietary <b>polyphenols</b> (curcumin, EGCG). An activity model would flag them. Aitiome does not - no curated causation.</p></div>
   </div>
   <p class="pull">Same rigor; confidence calibrated to the evidence.</p>
   ${foot(N())}`);
@@ -247,7 +244,7 @@ slide("dark", `${eyebrow("Where we sit, measured")}${h("Prioritization is prior 
     <div class="card"><b class="c">PROTON's AI vs ours</b><p class="dim">PROTON (2025) is a learned model whose prediction is the output. Aitiome inverts the role of AI: Claude reconstructs the pathway and grades the evidence, but a <b>curated gate, not the model, makes the call.</b></p></div>
     <div class="card recovered"><b class="g">What the data shows</b><p class="dim">PROTON shares our no-bioactivity discipline and <b>converges</b> - endosulfan, dicofol and naled (its held-out top pesticides) are all in our PD queue. ENRICH uses bioactivity and <b>diverges</b> - 0 of our 43 reach its top-250, and it ranks our decoy propiconazole #6.</p></div>
   </div>
-  <p class="dim center">The queue is prior art (ToxPi, IATA, ENRICH, PROTON). The bundle is ours: bioactivity excluded on evidentiary grounds, a transparent index, ranking separate from a curated gate, decoys as a live control.</p>
+  <p class="dim center">PROTON and Aitiome are complementary - it generates discovery hypotheses, we govern and audit the evidence behind them. The queue itself is prior art (ToxPi, IATA, ENRICH, PROTON); the bundle is ours: bioactivity excluded on evidentiary grounds, a transparent index, ranking separate from a curated gate, decoys as a live control.</p>
   ${foot(N())}`);
 
 // 13f2 - convergence with the mechanistic literature
@@ -308,6 +305,7 @@ slide("", `${eyebrow("How it's built, and how it extends")}${h("Deterministic co
     <ul class="list">
       <li>Every claim links to the original source (CTD, AOP-Wiki, MitoCarta, Kamath, ToxCast/ICE, FAERS, B3DB).</li>
       <li><b>Beyond the 27:</b> Claude Science assembles curated evidence, <span class="mono">POST /assess-curated</span> grades it - an unverified draft is a hypothesis, never a recovery.</li>
+      <li><b>We build on standards, not a new formalism:</b> typed evidence roles (ECO/SEPIO), edge provenance (Biolink/PROV-O), confidence tiers (GRADE), the LLM kept out of the decision path - our contribution is the validation discipline.</li>
       <li>~13 MB container, live on fly.io. Reproducible: same input, same output.</li>
     </ul>
   </div>${foot(N())}`);
@@ -326,6 +324,16 @@ slide("", `${eyebrow("What we learned along the way")}${h("Challenges, and what 
   </div>${foot(N())}`);
 
 // 17 - takeaways
+// 16b - what would falsify Aitiome (the adversarial mindset as the method)
+slide("dark", `${eyebrow("The adversarial test, turned on ourselves")}${h("What would falsify Aitiome?")}
+  <div class="three">
+    <div class="card"><div class="num r">01</div><b>A decoy passes the gate</b><p class="dim">If any adversarial mitochondria-active decoy ever earns a positive call, the curated-diagnostic gate is broken. Six are carried permanently as that control.</p></div>
+    <div class="card"><div class="num r">02</div><b>A blinded benchmark fails</b><p class="dim">On a larger, blinded neural-specific set, if recovery drops or bioactivity starts to discriminate, the anti-diagnostic claim does not hold.</p></div>
+    <div class="card"><div class="num r">03</div><b>An edge won't ground</b><p class="dim">If a pathway edge cannot resolve to a primary source, the reconstruction is asserting, not grounding - and we do not ship it.</p></div>
+  </div>
+  <p class="pull">We state our own failure criteria - the adversarial mindset is the method, not one slide.</p>
+  ${foot(N())}`);
+
 slide("dark", `${eyebrow("The takeaways")}${h("What this hackathon produced")}
   <div class="three">
     <div class="card"><b class="c">Validation that holds</b><p class="dim">Recovery works (13/13 PD; 12/12 AD) and specificity is proven by falsification - bioactivity at or below chance against adversarial decoys. The discovery limits are mapped, not hidden.</p></div>
@@ -334,7 +342,7 @@ slide("dark", `${eyebrow("The takeaways")}${h("What this hackathon produced")}
   </div>${foot(N())}`);
 
 // 18 - limitations
-slide("", `${eyebrow("Said before you ask")}${h("Limitations and next steps")}
+slide("", `${eyebrow("Future directions - Parkinson's & Alzheimer's")}${h("Limitations, and the PD / AD roadmap")}
   <div class="two">
     <ul class="list">
       <li>A curated benchmark with an adversarial control (27), not a population generalization study.</li>
@@ -348,11 +356,23 @@ slide("", `${eyebrow("Said before you ask")}${h("Limitations and next steps")}
     </ul>
   </div>${foot(N())}`);
 
+// 18b - future directions: the method transfers across domains (grounded, not demonstrated)
+slide("dark", `${eyebrow("Future directions - the broader vision")}${h("The discipline transfers where the ingredients exist")}
+  <p class="dim" style="max-width:82ch;margin-bottom:20px">The method - reconstruct an endorsed AOP scaffold, gate strictly on curated causal evidence, carry bioactive-but-non-causal decoys as a falsification control - is not specific to neurodegeneration. It transfers to any domain with those same three ingredients. We have <b>not</b> demonstrated transfer; this is a falsifiable claim about where the ingredients already exist.</p>
+  <div class="grid7">
+    ${dtile("Hepatotoxicity", "readiest", "mature liver AOPs + dense CTD + DILIrank / ProEuroDILI decoy sets")}
+    ${dtile("Skin sensitization", "settled scaffold", "AOP-40 + OECD TG 497; protein-reactive non-sensitizer decoys")}
+    ${dtile("Endocrine disruption", "broadest scaffold", "42-AOP EATS network + OECD EDC framework")}
+    ${dtile("Cardiotoxicity", "close behind", "CiPA-anchored; non-torsadogenic hERG blockers as decoys")}
+  </div>
+  <p class="dim small" style="margin-top:16px">Honest exclusions: ALS / Huntington's (no scaffold, thin curated evidence - the same line we draw for AD), and carcinogenicity (its gold standard, Key Characteristics, deliberately rejects the single-AOP-chain model).</p>
+  ${foot(N())}`);
+
 // 19 - close
 slide("title", `
   <div class="mark">${FAVICON}</div>
-  <h1 class="big2">Less flashy than the original pitch.<br/>Far more trustworthy.</h1>
-  <p class="lede">Validated recovery, adversarial specificity proven by falsification, and a mapped account of the limits - for a mechanism-first audience, that is the point.</p>
+  <h1 class="big2">Honest where the data is thin.<br/>Confident where we earned it.</h1>
+  <p class="lede">Validated recovery, adversarial specificity proven by falsification, a candidate pipeline that guides the bench, and a mapped account of the limits - with a method built to extend wherever the same curated evidence exists.</p>
   <div class="urls mono"><span>aitiome.fly.dev</span><span class="dot">/</span><span>github.com/jonradoff/aitiome</span></div>
   ${foot(N())}`);
 
@@ -378,6 +398,9 @@ function cmp(dim, pd, pn, ad, an) {
 function axis(name, verdict, lead) {
   const tone = lead ? "lead" : verdict.includes("confounder") ? "conf" : "cov";
   return `<div class="axis ${tone}"><div class="an">${name}</div><div class="av mono">${verdict}${lead ? " &#9679;" : ""}</div></div>`;
+}
+function dtile(name, tag, basis) {
+  return `<div class="axis lead"><div class="an">${name}</div><div class="av mono">${tag} &#9679;</div><div class="dim" style="font-size:12px;margin-top:8px;line-height:1.4">${basis}</div></div>`;
 }
 
 const css = `

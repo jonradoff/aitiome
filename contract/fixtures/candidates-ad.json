@@ -239,7 +239,7 @@
             "score": 0,
             "promotion": "n/a \u2014 negative control.",
             "experiment": "None. Carried as a permanent negative control.",
-            "rationale": "AD-assay-active decoy (anti-amyloid/cholinergic drug) \u2014 no curated causal AD signal. Must rank last.",
+            "rationale": "AD-assay-active decoy (symptomatic cholinergic drug, an AChE inhibitor \u2014 not anti-amyloid) \u2014 no curated causal AD signal. Must rank last.",
             "evidence": [],
             "isControl": true
         },
