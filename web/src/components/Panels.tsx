@@ -224,6 +224,7 @@ export function AboutModal({ onClose }: { onClose: () => void }) {
           <p><b style={{ color: "var(--ink)" }}>Why it's hard.</b> Tens of thousands of chemicals are bioactive in assays, yet only a small, curated set are established human neurotoxicants — many characterized for developmental neurotoxicity ({link("grandjean2014", "Grandjean & Landrigan 2014")}). Activity-based screening does not separate them: one 2024 analysis estimates high-throughput assays cover only ~40% of neural-relevant targets and under-cover the oxidative-stress key events behind most neurotoxicity ({link("mack2024", "Mack et al. 2024")}). And on our own validation set (13 positives, 15 negatives including 6 mitochondria-active decoys), bioactivity-derived features fail to separate the known neurotoxicants from the decoys — at or below chance (ToxCast-fingerprint AUROC ≈ 0.53 against the decoys). Bioactivity is anti-diagnostic here.</p>
           <p><b style={{ color: "var(--ink)" }}>Aitiome is a mechanistic reasoning engine.</b> Given a chemical, it reconstructs a disease-specific AOP-style causal path to a neurodegeneration hallmark — using OECD-endorsed AOPs where available and explicitly downgrading paths that are registered but not yet endorsed — and grades it only on curated diagnostic evidence — curated CTD DirectEvidence ({link("ctd", "CTD")}) or a registered AOP stressor ({link("aopwiki", "AOP-Wiki")}), never on bioactivity — grounding each edge in queryable evidence and rating its confidence. In the demo you enter a chemical and Aitiome returns the disease-specific mechanistic path, the evidence behind each edge, confidence grades, missing-evidence flags, and whether the chemical survives adversarial decoy calibration. It runs per disease: Parkinson's and Alzheimer's, the identical machinery.</p>
           <p><b style={{ color: "var(--ink)" }}>Evidence-based, and calibrated.</b> It is a validation-and-calibration engine, not a novel-discovery predictor. It recovers the known neurotoxicants, rejects the imposters, quantifies the falsification, and maps the discovery limits it cannot cross — shown, not hidden. Alzheimer's is calibrated below Parkinson's, where the evidence is thinner and the AD adverse-outcome pathways used here are not yet OECD-endorsed.</p>
+          <p><b style={{ color: "var(--ink)" }}>A pipeline, not an oracle.</b> Where evidence is real but incomplete, Aitiome keeps a calibrated <b style={{ color: "var(--ink)" }}>candidate queue</b> — a triage list of chemicals ranked to guide wet-lab and curation work, with a distance-to-gate and a recommended next experiment each. The distinction from a learned predictor like {link("proton2025", "PROTON")} (Noori et al. 2025) is deliberate: there, an AI model's score <i>is</i> the output; here, AI reconstructs and grades the evidence, but a curated gate — never the model — makes the call. Two checks keep it honest: the six adversarial decoys must rank last, and a held-out backtest recovers a known positive from non-curated evidence alone.</p>
         </div>
         <div className="hair" style={{ margin: "20px 0 14px" }} />
         <p className="faint" style={{ fontSize: 12.5, lineHeight: 1.5 }}>
@@ -562,17 +563,34 @@ export function PriorArtCompare() {
           </tbody>
         </table>
       </div>
-      <div className="panel" style={{ padding: "14px 16px", marginTop: 14, borderColor: "color-mix(in srgb, var(--recovered) 30%, transparent)" }}>
-        <p style={{ fontSize: 13, lineHeight: 1.55, margin: 0, color: "var(--ink)" }}>
-          <b>Independent agreement.</b> PROTON&apos;s held-out top pesticides — <b>endosulfan, dicofol, naled</b> — are
-          all in Aitiome&apos;s Parkinson&apos;s queue, reached from entirely different inputs (iPSC toxicity + epidemiology,
-          no learned embeddings). Two unrelated methods converging on the same candidates is a signal, not a coincidence.
-        </p>
+      <div style={{ display: "grid", gap: 10, marginTop: 14, gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))" }}>
+        <div className="panel" style={{ padding: "14px 16px", borderColor: "color-mix(in srgb, var(--recovered) 32%, transparent)" }}>
+          <p className="mono" style={{ fontSize: 10.5, letterSpacing: "0.05em", textTransform: "uppercase", color: "var(--recovered)", margin: "0 0 6px" }}>Shared discipline → agreement</p>
+          <p style={{ fontSize: 12.5, lineHeight: 1.55, margin: 0, color: "var(--ink-dim)" }}>
+            <b style={{ color: "var(--ink)" }}>PROTON</b> uses no bioactivity either. Its held-out top pesticides —
+            endosulfan, dicofol, naled — are <b style={{ color: "var(--ink)" }}>all in our Parkinson&apos;s queue</b>,
+            reached from different inputs. Methods that share the discipline converge.
+          </p>
+        </div>
+        <div className="panel" style={{ padding: "14px 16px", borderColor: "color-mix(in srgb, var(--reject) 32%, transparent)" }}>
+          <p className="mono" style={{ fontSize: 10.5, letterSpacing: "0.05em", textTransform: "uppercase", color: "var(--reject)", margin: "0 0 6px" }}>Bioactivity-driven → divergence</p>
+          <p style={{ fontSize: 12.5, lineHeight: 1.55, margin: 0, color: "var(--ink-dim)" }}>
+            <b style={{ color: "var(--ink)" }}>ENRICH</b> uses HTS bioactivity. It evaluated 24 of our 43 curated
+            chemicals and ranked <b style={{ color: "var(--ink)" }}>none in its top-250</b> (its list is consumer/
+            industrial chemicals). The one it ranks <b style={{ color: "var(--ink)" }}>#6 — propiconazole — is one of
+            our adversarial decoys.</b> Activity lands on a different population. That is why we exclude it.
+          </p>
+          <p className="faint" style={{ fontSize: 10, marginTop: 8, lineHeight: 1.4 }}>
+            Source: DTXSID/CAS cross-reference of our set against {link("enrich2025", "ENRICH")} Table A.4 (Rager et al. 2025).
+          </p>
+        </div>
       </div>
-      <p className="faint" style={{ fontSize: 12, marginTop: 12, maxWidth: "78ch", lineHeight: 1.55 }}>
-        The distinctive bundle is not the queue but the discipline: bioactivity excluded on evidentiary grounds (vs
-        ENRICH, which includes it), a transparent auditable index (vs PROTON&apos;s learned model), ranking kept formally
-        separate from a hard curated gate, and the adversarial decoys carried as a permanent control.
+      <p className="faint" style={{ fontSize: 12, marginTop: 12, maxWidth: "80ch", lineHeight: 1.55 }}>
+        And the distinctive part is <b style={{ color: "var(--ink-dim)" }}>not that AI makes the call — it doesn&apos;t.</b>{" "}
+        Claude reconstructs the pathway, assembles the evidence, and writes the calibrated synthesis; a curated gate
+        makes the call. The discipline is the differentiator: bioactivity excluded on evidentiary grounds, a
+        transparent auditable index (not PROTON&apos;s learned model), ranking kept formally separate from the gate, and
+        the adversarial decoys carried as a permanent control.
       </p>
     </div>
   );

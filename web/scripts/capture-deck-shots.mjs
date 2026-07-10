@@ -12,8 +12,8 @@ const browser = await puppeteer.launch({
   defaultViewport: { width: 1440, height: 980, deviceScaleFactor: 2 },
 });
 const page = await browser.newPage();
-await page.goto(url, { waitUntil: "networkidle0", timeout: 30000 });
-await new Promise((r) => setTimeout(r, 2500));
+await page.goto(url, { waitUntil: "load", timeout: 60000 });
+await new Promise((r) => setTimeout(r, 4000));
 
 if (PROBE) {
   const map = await page.evaluate(() =>
@@ -45,6 +45,7 @@ await shot("Reasoning trace", "/tmp/deck-app-readout.png");
 await shot("It is not fooled", "/tmp/deck-app-specificity.png");
 await shot("Why not just use bioactivity", "/tmp/deck-app-falsification.png");
 await shot("Where AI-driven discovery", "/tmp/deck-app-discovery.png");
+await shot("The candidate queue", "/tmp/deck-app-candidates.png");
 await shot("Anticipated critiques", "/tmp/deck-app-critiques.png");
 await shot("Sources and references", "/tmp/deck-app-sources.png");
 await shot("An external agent", "/tmp/deck-app-mcp.png");

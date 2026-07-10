@@ -204,6 +204,21 @@ slide("", `${eyebrow("The limits, mapped")}${h("Where AI-driven discovery works,
   <p class="dim">Seven axes coverage- or confounder-killed. Two unproven leads remain (reported with explicit N). Discovery is a map, never a predictor.</p>
   ${foot(N())}`);
 
+// 13a - the candidate pipeline (the honest form of the original discovery goal)
+slide("", `${eyebrow("The honest form of the original goal")}${h("Discovery, done honestly: a triage queue")}
+  <div class="two">
+    <div class="card"><div class="k mono">Validator &#8594; pipeline</div><p>The original pitch was discovery. Its honest form is a <b>triage queue</b>, not a predictor: chemicals with real but incomplete evidence, ranked by an <b>evidence-weighted priority</b> built only on non-bioactivity strands. Each carries a distance-to-gate and a <b>recommended next experiment</b> for a wet lab.</p></div>
+    <div class="card recovered"><div class="k mono">The discipline, kept</div><p>The ranking never decides - <b>only the curated gate promotes</b>. The six adversarial decoys are carried as a permanent control and <b>rank last (0)</b>. A <b>held-out backtest</b> recovers a known positive (TCE / DDE) from non-curated evidence alone, above every decoy: prioritization skill, not causal discovery.</p></div>
+  </div>
+  ${foot(N())}`);
+
+// 13a2 - product: the candidate queue, live
+shotSlide("candidates", "The candidate pipeline, live", "A ranked queue that tells a lab what to test next", [
+  { n: 1, x: 22, y: 21, tone: "g", label: "Held-out backtest: a known positive recovered from non-curated evidence, above every decoy" },
+  { n: 2, x: 87, y: 41, tone: "c", label: "Evidence-weighted priority - gate-ready AOP stressors rank top" },
+  { n: 3, x: 33, y: 59, tone: "c", label: "Each candidate: distance-to-gate + the recommended next experiment" },
+]);
+
 // 13d - second axis: Alzheimer's
 slide("", `${eyebrow("A second axis, the same discipline")}${h("Alzheimer's — calibrated below Parkinson's")}
   <div class="two">
@@ -226,13 +241,13 @@ slide("dark", `${eyebrow("The two axes, compared")}${h("The same method, calibra
   <p class="dim small">Shared: KE-188 neuroinflammation bridges both AOPs; lead is positive for both; mitochondrial dysfunction is an unlinked gap, shown not hidden.</p>
   ${foot(N())}`);
 
-// 13f - positioning vs prior art
-slide("", `${eyebrow("Where we sit")}${h("The field predicts. We validate.")}
+// 13f - positioning vs prior art (empirical; the AI-approach contrast with PROTON)
+slide("dark", `${eyebrow("Where we sit, measured")}${h("Prioritization is prior art. The AI approach is ours.")}
   <div class="two">
-    <div><b class="c">The landscape</b><p class="dim">Graph-AI (PROTON, 2025) and read-across (GenRA) predict <i>novel</i> toxic chemicals from structure and bioactivity; a wave of LLM-for-AOP work is emerging.</p></div>
-    <div><b class="g">Aitiome's inversion</b><p class="dim">Recover the <i>known</i> neurotoxicants on the endorsed scaffold, grade only on curated evidence, and prove via adversarial falsification that bioactivity is anti-diagnostic - the validating counterweight, and a direct answer to the hallucination warnings (ToxReason, ES&T 2024) the LLM-AOP wave raises.</p></div>
+    <div class="card"><b class="c">PROTON's AI vs ours</b><p class="dim">PROTON (2025) is a learned model whose prediction is the output. Aitiome inverts the role of AI: Claude reconstructs the pathway and grades the evidence, but a <b>curated gate, not the model, makes the call.</b></p></div>
+    <div class="card recovered"><b class="g">What the data shows</b><p class="dim">PROTON shares our no-bioactivity discipline and <b>converges</b> - endosulfan, dicofol and naled (its held-out top pesticides) are all in our PD queue. ENRICH uses bioactivity and <b>diverges</b> - 0 of our 43 reach its top-250, and it ranks our decoy propiconazole #6.</p></div>
   </div>
-  <p class="pull">We found no prior adversarial mito-active-decoy neurodegeneration benchmark.</p>
+  <p class="dim center">The queue is prior art (ToxPi, IATA, ENRICH, PROTON). The bundle is ours: bioactivity excluded on evidentiary grounds, a transparent index, ranking separate from a curated gate, decoys as a live control.</p>
   ${foot(N())}`);
 
 // 13f2 - convergence with the mechanistic literature
@@ -313,9 +328,9 @@ slide("", `${eyebrow("What we learned along the way")}${h("Challenges, and what 
 // 17 - takeaways
 slide("dark", `${eyebrow("The takeaways")}${h("What this hackathon produced")}
   <div class="three">
-    <div class="card"><b class="c">A result that holds</b><p class="dim">Recovery works (13/13 PD; 12/12 AD), specificity is proven by falsification (bioactivity at or below chance), and the discovery limits are mapped, not hidden.</p></div>
-    <div class="card"><b class="g">Calibration as the edge</b><p class="dim">For a mechanism-first audience, a calibrated, auditable engine beats an overclaimed watchlist. Every claim is cited to its source.</p></div>
-    <div class="card"><b class="c">Shipped, live, reproducible</b><p class="dim">Built end to end on Claude, deterministic where it must be, running at aitiome.fly.dev with an MCP interface for agents.</p></div>
+    <div class="card"><b class="c">Validation that holds</b><p class="dim">Recovery works (13/13 PD; 12/12 AD) and specificity is proven by falsification - bioactivity at or below chance against adversarial decoys. The discovery limits are mapped, not hidden.</p></div>
+    <div class="card"><b class="g">A pipeline that guides the bench</b><p class="dim">The honest form of discovery: an evidence-weighted triage queue that ranks what to test next, gate-promoted, decoy-controlled, and validated by a held-out backtest. It converges with PROTON, diverges from bioactivity-driven ENRICH.</p></div>
+    <div class="card"><b class="c">Calibrated, shipped, live</b><p class="dim">Built end to end on Claude - which reasons over the evidence but never makes the call - deterministic where it must be, cited to source, live at aitiome.fly.dev with an MCP interface for agents.</p></div>
   </div>${foot(N())}`);
 
 // 18 - limitations
@@ -329,7 +344,7 @@ slide("", `${eyebrow("Said before you ask")}${h("Limitations and next steps")}
     <ul class="list">
       <li><b>Next:</b> a larger, blinded neural-specific reference set to power the one qualified lead (AUROC 0.72, currently perm-p 0.155).</li>
       <li><b>Next:</b> run the bounded Boltz-2 Q-site benchmark - physics, not annotation or activity.</li>
-      <li><b>Next:</b> extend the endorsed scaffold to an Alzheimer's hallmark.</li>
+      <li><b>Next:</b> a time-dated backtest of the candidate queue (rank on pre-dated evidence; show later-curated positives surface) and automated multi-source ingestion.</li>
     </ul>
   </div>${foot(N())}`);
 

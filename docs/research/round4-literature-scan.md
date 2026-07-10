@@ -67,6 +67,23 @@ Chemical prioritization for toxicity testing is a **mature field**. Direct prior
   **Glyphosate** (which has a chemical identity) was added to the AD candidate queue at the association tier
   (animal + mechanistic only, human epidemiology thin; Bhatt et al. 2024).
 
+## Round-4c — ENRICH overlap computed (2026-07-10): divergence, not convergence
+Cross-referenced our 43 curated PD/AD chemicals (positives + candidates) against the ENRICH prioritized list
+(Rager et al. 2025, supplement Table A.4, matched by DTXSID and CASRN):
+- **24 of 43** were in ENRICH's 1,827-chemical evaluated universe (Table A.3) — so ENRICH *scored* most of them.
+- **0 of 43** reached ENRICH's final **top-250** (Table A.4). ENRICH's top-250 is dominated by consumer/industrial
+  chemicals (eugenol #1, 4-nonylphenol #2, bisphenols, phthalates, glycols).
+- **Propiconazole — one of our six PD adversarial decoys — is ENRICH #6.** (Troglitazone, prochloraz, etc. are in
+  ENRICH's scored set but outside its top-250.)
+
+**Interpretation (this corrects an earlier expectation):** ENRICH is NOT a convergence validator for us. Its
+bioactivity + exposure + detectability prioritization (developmental scope) surfaces a *fundamentally different
+population* than curated PD/AD causation, and ranks a chemical we deliberately use as a mito-active non-neurotoxic
+decoy at #6. This is an empirical demonstration of the core thesis — activity/exposure-based prioritization ≠
+neurodegeneration causation — and is a *stronger* point than convergence would have been. By contrast, **PROTON**
+(which shares our no-bioactivity discipline) *does* converge (endosulfan/dicofol/naled in our PD queue). The
+two-sided result is now stated in the app comparison.
+
 ## Net
 No recon finding is contradicted; the recovery predicate, the anti-diagnostic-bioactivity result, and the
 honest-map stance all survive, better defended. Changes this pass were: 3 shipped-data corrections, 1 rename of an
