@@ -313,7 +313,7 @@ slide("", `${eyebrow("How it's built - the system")}${h("One engine, two interfa
   ${foot(N())}`);
 
 // 14b - the reasoning pipeline (per chemical)
-slide("dark", `${eyebrow("How the reasoning works")}${h("Six steps per chemical - the model narrates only the last")}
+slide("dark", `${eyebrow("How the reasoning works")}${h("Six steps per chemical - Claude Code runs the analysis")}
   <div class="pipe">
     ${pstep("1", "Resolve", "Identifier &#8594; DTXSID-first, salt-form-correct compound.")}
     <div class="parrow">&#8594;</div>
@@ -325,13 +325,13 @@ slide("dark", `${eyebrow("How the reasoning works")}${h("Six steps per chemical 
     <div class="parrow">&#8594;</div>
     ${pstep("5", "Falsify", "Decoys rejected on independent lines; bioactivity shown at/below chance.")}
     <div class="parrow">&#8594;</div>
-    ${pstep("6", "Narrate", "Claude writes the calibrated, [E#]-cited prose - explains, never decides.", true)}
+    ${pstep("6", "Narrate", "Claude (Opus 4.8) via the API writes the calibrated, [E#]-cited synthesis - explains, never decides.", true)}
   </div>
-  <div class="two" style="margin-top:28px">
-    <div><b class="c">Steps 1-5 are deterministic and auditable</b><p class="dim">The recovery call is a fixed logical rule over curated evidence - no LLM in the decision path, reproducible byte-for-byte.</p></div>
-    <div><b class="g">Step 6 is the only model step</b><p class="dim">The synthesis explains the decision and cites each strand; it can never change the call or the tier.</p></div>
+  <div class="two" style="margin-top:26px">
+    <div><b class="c">Steps 1-5: the analysis, built with Claude Code</b><p class="dim">Claude Code wrote the Go engine that runs them - resolution, the curated gate, AOP reconstruction, evidence convergence, decoy falsification. At runtime it's a fixed logical rule over curated evidence: deterministic, auditable, reproducible, no model in the decision path.</p></div>
+    <div><b class="g">Step 6: Claude via the API (Opus 4.8)</b><p class="dim">The evidence-reasoner calls Claude to write the calibrated, cited synthesis of the completed assessment. It explains the decision; it can never change the call or the tier.</p></div>
   </div>
-  <p class="dim center small">Every step emits one trace event - the same ordered stream you can read as "the reasoning path" in the live app.</p>
+  <p class="dim center small">Claude Code builds the analysis; the Claude API narrates it - and every step emits a trace event you read as "the reasoning path" in the app.</p>
   ${foot(N())}`);
 
 // 14c - product: the reasoning path, live
