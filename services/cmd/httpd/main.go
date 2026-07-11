@@ -11,6 +11,8 @@ import (
 	"net/http"
 	"os"
 	"path/filepath"
+	"strings"
+	"time"
 
 	contract "aitiome/contract/goapi"
 	"aitiome/services/aitio"
@@ -56,7 +58,7 @@ func main() {
 	}
 
 	addr := envOr("AITIO_HTTP_ADDR", ":8787")
-	srv := &http.Server{Addr: addr, Handler: withCORS(top)}
+	srv := &http.Server{Addr: addr, Handler: withAccessLog(withCORS(top))}
 	log.Printf("aitiome httpd listening on %s", addr)
 	if err := srv.ListenAndServe(); err != nil && err != http.ErrServerClosed {
 		log.Fatalf("httpd: %v", err)
@@ -190,4 +192,61 @@ func envOr(key, def string) string {
 		return v
 	}
 	return def
+}
+
+// logWriter captures the status code and byte count so the access log can report
+// them (net/http's ResponseWriter exposes neither after the fact).
+type logWriter struct {
+	http.ResponseWriter
+	status int
+	bytes  int
+}
+
+func (w *logWriter) WriteHeader(code int) { w.status = code; w.ResponseWriter.WriteHeader(code) }
+func (w *logWriter) Write(b []byte) (int, error) {
+	if w.status == 0 {
+		w.status = http.StatusOK
+	}
+	n, err := w.ResponseWriter.Write(b)
+	w.bytes += n
+	return n, err
+}
+
+// withAccessLog emits one structured line per request so we can see WHO is using
+// Aitiome and WHAT they do (which chemical, which disease, which endpoint). Static
+// asset chatter is dropped to keep the signal high; OPTIONS preflights are skipped.
+// Privacy note: logs client IP + user-agent — appropriate for a research prototype.
+func withAccessLog(h http.Handler) http.Handler {
+	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		if r.Method == http.MethodOptions || strings.HasPrefix(r.URL.Path, "/assets/") {
+			h.ServeHTTP(w, r)
+			return
+		}
+		lw := &logWriter{ResponseWriter: w}
+		start := time.Now()
+		h.ServeHTTP(lw, r)
+		q := r.URL.RawQuery
+		if q != "" {
+			q = "?" + q
+		}
+		log.Printf("access ip=%s method=%s path=%s%s status=%d dur=%s bytes=%d ua=%q ref=%q",
+			clientIP(r), r.Method, r.URL.Path, q, lw.status, time.Since(start).Round(time.Millisecond), lw.bytes,
+			r.UserAgent(), r.Referer())
+	})
+}
+
+// clientIP resolves the real client IP behind Fly's proxy (Fly-Client-IP /
+// X-Forwarded-For), falling back to the socket address.
+func clientIP(r *http.Request) string {
+	if ip := r.Header.Get("Fly-Client-IP"); ip != "" {
+		return ip
+	}
+	if xff := r.Header.Get("X-Forwarded-For"); xff != "" {
+		return strings.TrimSpace(strings.Split(xff, ",")[0])
+	}
+	host := r.RemoteAddr
+	if i := strings.LastIndex(host, ":"); i > 0 {
+		host = host[:i]
+	}
+	return host
 }

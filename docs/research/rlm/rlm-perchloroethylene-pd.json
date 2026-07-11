@@ -1,0 +1,875 @@
+{
+  "chemical": "perchloroethylene",
+  "disease": "PD",
+  "dtxsid": "DTXSID8021397",
+  "systems": [
+    {
+      "system": "RAG",
+      "accepted": 11,
+      "rejected": 0,
+      "role_coverage": {
+        "corroboration": 3,
+        "counterevidence": 1,
+        "diagnostic": 1,
+        "grounding": 6
+      },
+      "counterevidence": 1,
+      "distinct_sources": 10,
+      "diagnostic_recovered": true,
+      "unique_vs_rag": 0,
+      "productive_leaves": 0,
+      "model_calls": 1,
+      "cost_usd": 0.24455800000000003,
+      "web_searches": 4,
+      "duration_sec": 220.768499917,
+      "objects": [
+        {
+          "claim": "Trichloroethylene (TCE), a six-atom chlorinated solvent structurally and metabolically analogous to PCE, is associated with a 500% increased risk of Parkinson's disease; PCE is explicitly described as 'a close chemical cousin' sharing these associations.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID5029612",
+            "name": "Tetrachloroethylene (perchloroethylene)",
+            "form": "parent compound; discussed alongside TCE as chemical analog"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "chlorinated solvent (PCE/TCE) exposure",
+            "target_node": "Parkinson's disease risk (epidemiological)"
+          },
+          "evidence_role": "corroboration",
+          "study_context": {
+            "species": "human",
+            "tissue": "whole organism",
+            "dose": "up to 280\u00d7 safe levels in drinking water (Camp Lejeune)",
+            "route": "ingestion / inhalation"
+          },
+          "direction": "supports",
+          "source": {
+            "doi": "10.1002/mds.29723",
+            "pmid": "38389433",
+            "url": "https://movementdisorders.onlinelibrary.wiley.com/doi/10.1002/mds.29723",
+            "quoted_span": "Trichloroethylene (TCE), a carcinogenic dry-cleaning and degreasing chemical, is associated with a 500% increased risk of Parkinson's disease (PD)."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "Risk estimate derived primarily from TCE, not PCE alone",
+            "PCE effect cannot be isolated from mixed solvent exposures at Camp Lejeune",
+            "Ecological/retrospective design limits causal inference for PCE specifically"
+          ],
+          "verification_status": "schema-validated"
+        },
+        {
+          "claim": "At Camp Lejeune, Marines and civilians were exposed to drinking water containing both TCE and perchloroethylene (PCE) at levels up to 280 times above safe limits; this mixed exposure cohort has been used to study PD risk from chlorinated solvents including PCE.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID5029612",
+            "name": "Tetrachloroethylene (perchloroethylene)",
+            "form": "parent compound dissolved in contaminated drinking water"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "PCE/TCE contaminated drinking water ingestion",
+            "target_node": "Parkinson's disease risk elevation"
+          },
+          "evidence_role": "corroboration",
+          "study_context": {
+            "species": "human",
+            "tissue": "whole organism",
+            "dose": "up to 280\u00d7 EPA safe limits",
+            "route": "oral ingestion"
+          },
+          "direction": "supports",
+          "source": {
+            "url": "https://www.psychiatrist.com/news/500-rise-in-parkinsons-linked-to-a-common-dry-cleaning-chemical/",
+            "quoted_span": "From the 1950s to the 1980s, a million Marines, their families, and civilians that worked or resided at the base were exposed to drinking water levels of TCE and perchloroethylene (PCE), a close chemical cousin, that was up to 280 times above what [are] considered safe levels."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "Co-exposure to TCE, PCE, vinyl chloride, and benzene; PCE-specific contribution to PD cannot be isolated",
+            "Secondary news report quoting study authors; full epidemiological paper required for dose-response data"
+          ],
+          "verification_status": "schema-validated"
+        },
+        {
+          "claim": "The EPA Toxicological Review of Tetrachloroethylene (Perchloroethylene) synthesized epidemiological, animal, and mechanistic studies specifically evaluating PCE's neurological effects, providing regulatory-grade evidence for PCE neurotoxicity.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID5029612",
+            "name": "Tetrachloroethylene (perchloroethylene)",
+            "form": "parent compound"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "PCE exposure",
+            "target_node": "neurological effects (mechanistic synthesis)"
+          },
+          "evidence_role": "corroboration",
+          "study_context": {
+            "species": "human and animal (multi-study synthesis)",
+            "tissue": "nervous system",
+            "dose": "multiple levels reviewed",
+            "route": "inhalation / ingestion"
+          },
+          "direction": "supports",
+          "source": {
+            "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3984230/",
+            "quoted_span": "The updated assessment of PCE synthesized and characterized a substantial database of epidemiological, experimental animal, and mechanistic studies. Key scientific issues were addressed through modeling of PCE toxicokinetics, synthesis of evidence from neurological studies."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "Regulatory review; does not specifically establish a PD AOP for PCE",
+            "Primary mechanistic neurodegeneration data for PCE in SNpc remain sparse compared to TCE",
+            "PCE neurotoxicity endpoint in the review focused on neurobehavioral effects, not Parkinsonism specifically"
+          ],
+          "verification_status": "schema-validated"
+        },
+        {
+          "claim": "Camp Lejeune studies cannot isolate PCE's contribution to PD risk because water also contained high levels of TCE, vinyl chloride, and benzene; other compounds or mixtures could have contributed to the observed PD associations.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID5029612",
+            "name": "Tetrachloroethylene (perchloroethylene)",
+            "form": "parent compound in mixed solvent drinking-water contamination"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "mixed solvent contamination (PCE + TCE + VC + benzene)",
+            "target_node": "PD risk attribution uncertainty"
+          },
+          "evidence_role": "counterevidence",
+          "study_context": {
+            "species": "human",
+            "tissue": "whole organism",
+            "dose": "up to 280\u00d7 EPA safe limits (mixed)",
+            "route": "oral ingestion"
+          },
+          "direction": "limits",
+          "source": {
+            "url": "https://www.chemistryworld.com/news/exposure-to-high-levels-of-tce-could-increase-risk-of-parkinsons-disease-by-70/4017482.article",
+            "quoted_span": "although TCE was the VOC present in the Camp Lejeune water supply at the highest concentrations, the water also contained high levels of [tetrachloroethylene], vinyl chloride and benzene."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "Confounding by co-exposure is a structural limitation of Camp Lejeune epidemiology, not resolvable post-hoc",
+            "Secondary source (Chemistry World) quoting researcher commentary on a published study"
+          ],
+          "verification_status": "schema-validated"
+        },
+        {
+          "claim": "Perchloroethylene (PCE) was identified as a co-contaminant at a dry-cleaning disease hotspot where a cluster of Parkinson's disease cases was observed among attorneys working in proximity to a PCE/TCE-contaminated site.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID5029612",
+            "name": "Tetrachloroethylene (perchloroethylene)",
+            "form": "parent compound, environmental vapor/groundwater contaminant"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "PCE environmental exposure",
+            "target_node": "Parkinson's disease incidence (cluster)"
+          },
+          "evidence_role": "diagnostic",
+          "study_context": {
+            "species": "human",
+            "tissue": "whole organism (population)",
+            "dose": "ambient dry-cleaning site contamination, levels not individually quantified",
+            "route": "inhalation / vapor intrusion"
+          },
+          "direction": "supports",
+          "source": {
+            "doi": "10.1002/mds.29723",
+            "pmid": "38389433",
+            "url": "https://pubmed.ncbi.nlm.nih.gov/38389433/",
+            "quoted_span": "Keywords: Parkinson's disease; disease hotspot; environment; tetrachloroethylene (perchloroethylene); trichloroethylene."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "Retrospective cluster investigation; small N; TCE and PCE exposures co-occurred and cannot be disentangled",
+            "Individual exposure not quantified",
+            "Selection bias possible in attorney cohort"
+          ],
+          "verification_status": "schema-validated"
+        },
+        {
+          "claim": "PCE shares the same six-atom chlorinated alkene core as TCE and is used for dry cleaning and degreasing; both compounds undergo cytochrome P450-mediated oxidative biotransformation producing reactive intermediates capable of inducing mitochondrial dysfunction.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID5029612",
+            "name": "Tetrachloroethylene (perchloroethylene)",
+            "form": "parent compound; biotransformed via CYP450 to reactive metabolites"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "CYP450 oxidative metabolism of PCE",
+            "target_node": "reactive metabolite generation \u2192 mitochondrial dysfunction"
+          },
+          "evidence_role": "grounding",
+          "study_context": {
+            "species": "human / in vitro",
+            "tissue": "liver (primary biotransformation), systemic",
+            "dose": "not specified",
+            "route": "inhalation / ingestion"
+          },
+          "direction": "supports",
+          "source": {
+            "doi": "10.1007/s12035-025-05172-1",
+            "url": "https://link.springer.com/article/10.1007/s12035-025-05172-1",
+            "quoted_span": "TCE undergoes biotransformation primarily via cytochrome P450-mediated oxidation and glutathione conjugation. These pathways generate reactive metabolites capable of disrupting mitochondrial function, inducing oxidative stress, and activating neuroinflammatory cascades."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "Mechanistic pathway described for TCE; PCE shares metabolic route but generates distinct metabolites (trichloroacetic acid, dichloroacetyl chloride) whose neuro-specific toxicity is less well characterized",
+            "Review article; primary experimental data for PCE-specific metabolites is limited"
+          ],
+          "verification_status": "schema-validated"
+        },
+        {
+          "claim": "TCE (the closest structural analog of PCE) inhibits mitochondrial complex I enzyme activity, increases oxidative stress markers, activates microglia, and induces intracellular \u03b1-synuclein accumulation in substantia nigra neurons, recapitulating core PD neuropathology in F344 rats.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID5029612",
+            "name": "Tetrachloroethylene (perchloroethylene)",
+            "form": "mechanistic analog (TCE); PCE is expected to share this pathway via common reactive chloroalkene metabolites"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "mitochondrial complex I inhibition + \u03b1-synuclein accumulation",
+            "target_node": "dopaminergic neuron death in substantia nigra pars compacta"
+          },
+          "evidence_role": "grounding",
+          "study_context": {
+            "species": "rat (Fisher 344)",
+            "tissue": "substantia nigra pars compacta, striatum",
+            "dose": "high-dose systemic TCE exposure",
+            "route": "oral / systemic"
+          },
+          "direction": "supports",
+          "source": {
+            "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3535262/",
+            "quoted_span": "The data that TCE inhibited mitochondrial complex I enzyme activity, increased oxidative stress markers, activated microglia and induced intracellular \u03b1-synuclein accumulation in some specific neurons have helped elucidate the underlying mechanisms for TCE-induced dopaminergic neurodegeneration."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "Study used TCE not PCE directly; direct PCE rodent neurotoxicity studies in SNpc are lacking",
+            "High-dose animal model may not reflect realistic human PCE exposure levels",
+            "Surrogate inference: PCE neuro-mechanism assumed analogous, not directly demonstrated"
+          ],
+          "verification_status": "schema-validated"
+        },
+        {
+          "claim": "TCE and its metabolite TaClo (1-trichloromethyl-1,2,3,4-tetrahydro-\u03b2-carboline) cause degeneration of substantia nigra dopaminergic neurons in both wild-type and human A30P mutant \u03b1-synuclein mice, demonstrating a gene\u2013environment interaction relevant to PCE's chlorinated metabolite pathway.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID5029612",
+            "name": "Tetrachloroethylene (perchloroethylene)",
+            "form": "mechanistic analog (TCE/TaClo); TaClo is a chlorinated metabolite also potentially generated from PCE biotransformation"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "chlorinated metabolite (TaClo) + \u03b1-synuclein A30P mutation",
+            "target_node": "substantia nigra dopaminergic neuron degeneration"
+          },
+          "evidence_role": "grounding",
+          "study_context": {
+            "species": "mouse (wild-type and A30P \u03b1-synuclein transgenic)",
+            "tissue": "substantia nigra pars compacta",
+            "dose": "not specified in excerpt",
+            "route": "systemic"
+          },
+          "direction": "supports",
+          "source": {
+            "doi": "10.1016/j.neulet.2019.134437",
+            "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6892271/",
+            "quoted_span": "Trichloroethylene and its metabolite TaClo lead to degeneration of substantia nigra dopaminergic neurones: Effects in wild type and human A30P mutant \u03b1-synuclein mice."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "TaClo generation from PCE specifically has not been confirmed; pathway established for TCE",
+            "Gene\u2013environment interaction confirmed only for A30P SNCA mutation, not for LRRK2 or other PD-relevant variants",
+            "Mouse model; translational relevance to human PD requires further validation"
+          ],
+          "verification_status": "schema-validated"
+        },
+        {
+          "claim": "TCE (mechanistic proxy for PCE) induces LRRK2 kinase hyperactivation in dopaminergic neurons in a rat model of PD, suggesting a gene\u2013environment interaction between mitochondrial toxicants (including chlorinated solvents) and the most common genetic cause of familial PD.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID5029612",
+            "name": "Tetrachloroethylene (perchloroethylene)",
+            "form": "mechanistic analog (TCE); both are mitochondrial complex I toxicants"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "chlorinated solvent exposure \u2192 mitochondrial toxicity",
+            "target_node": "LRRK2 kinase hyperactivation \u2192 dopaminergic neurodegeneration"
+          },
+          "evidence_role": "grounding",
+          "study_context": {
+            "species": "rat",
+            "tissue": "substantia nigra / striatum",
+            "dose": "800\u20131000 mg/kg TCE (high-dose rodent model)",
+            "route": "systemic"
+          },
+          "direction": "supports",
+          "source": {
+            "doi": "10.1016/j.nbd.2021.105334",
+            "url": "https://www.sciencedirect.com/science/article/pii/S0969996121000619",
+            "quoted_span": "Like some pesticides, certain organic solvents, such as the chlorinated halocarbon trichloroethylene (TCE), are mitochondrial toxicants, which are collectively implicated in the pathogenesis of dopaminergic neurodegeneration."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "LRRK2 activation demonstrated for TCE; PCE-specific LRRK2 data absent",
+            "Rodent model uses supratherapeutic doses not representative of typical human occupational PCE exposure",
+            "Inference that PCE shares this pathway is mechanistically plausible but unconfirmed experimentally"
+          ],
+          "verification_status": "schema-validated"
+        },
+        {
+          "claim": "\u03b1-Synuclein accumulation in substantia nigra dopaminergic neurons following chlorinated solvent (TCE analog) exposure represents a specific neuropathological hallmark of PD also found in TCE-exposed rodents, mechanistically linking PCE's chemical class to Lewy body pathology.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID5029612",
+            "name": "Tetrachloroethylene (perchloroethylene)",
+            "form": "chemical class analog (chlorinated alkene); direct PCE data not available"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "chlorinated solvent exposure \u2192 oxidative stress",
+            "target_node": "\u03b1-synuclein aggregation \u2192 Lewy body formation"
+          },
+          "evidence_role": "grounding",
+          "study_context": {
+            "species": "rat",
+            "tissue": "substantia nigra pars compacta",
+            "dose": "high-dose TCE (rodent model)",
+            "route": "systemic"
+          },
+          "direction": "supports",
+          "source": {
+            "url": "https://www.sciencedirect.com/topics/neuroscience/trichloroethylene",
+            "quoted_span": "Another study demonstrated similar findings of loss of dopamine neurons in the SNpc, again in rats exposed to TCE, in addition to other pathological hallmarks of PD, such as accumulation of alpha-synuclein and an increase in reactive oxygen species."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "Evidence pertains to TCE; PCE's ability to induce \u03b1-synuclein accumulation has not been directly demonstrated",
+            "ScienceDirect overview page, not a primary article; underlying primary study (Liu et al. 2010) should be consulted directly",
+            "Dose in rodent studies far exceeds typical human occupational exposure"
+          ],
+          "verification_status": "schema-validated"
+        },
+        {
+          "claim": "TCE-induced microbiome alterations (increased Akkermansiaceae and Lachnospiraceae, elevated colonic oxidative stress) represent a potential gut-brain axis mechanism for chlorinated solvent-induced PD pathology that may be shared by PCE given its similar gut microbiome exposure route.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID5029612",
+            "name": "Tetrachloroethylene (perchloroethylene)",
+            "form": "chemical analog (TCE); oral route shared with PCE"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "oral chlorinated solvent ingestion",
+            "target_node": "gut microbiome dysbiosis \u2192 neuroinflammation \u2192 PD pathology"
+          },
+          "evidence_role": "grounding",
+          "study_context": {
+            "species": "animal model (experimental)",
+            "tissue": "gut / colon / microbiome",
+            "dose": "0.5 mg/mL TCE in drinking water",
+            "route": "oral"
+          },
+          "direction": "unresolved",
+          "source": {
+            "url": "https://www.biorxiv.org/content/10.1101/2022.02.19.481161.full.pdf",
+            "quoted_span": "TCE-induced microbiome changes were associated with altered gut cytokine levels, elevated colonic oxidative stress."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "Preprint (bioRxiv); not peer-reviewed at time of retrieval",
+            "Gut-brain axis pathway for solvent-induced PD is hypothesis-generating, not confirmed causally",
+            "Direct PCE gut microbiome data are absent; extrapolation from TCE is speculative"
+          ],
+          "verification_status": "schema-validated"
+        }
+      ],
+      "rejected_objects": null
+    },
+    {
+      "system": "RAG+",
+      "accepted": 13,
+      "rejected": 0,
+      "role_coverage": {
+        "corroboration": 4,
+        "counterevidence": 5,
+        "grounding": 4
+      },
+      "counterevidence": 5,
+      "distinct_sources": 7,
+      "diagnostic_recovered": false,
+      "unique_vs_rag": 0,
+      "productive_leaves": 0,
+      "model_calls": 1,
+      "cost_usd": 0.40028575,
+      "web_searches": 4,
+      "duration_sec": 419.674124917,
+      "objects": [
+        {
+          "claim": "Occupational exposure to PERC has been formally investigated as a potential risk factor for Parkinson's disease, motivated by prior observations of solvent\u2013PD associations and the structural similarity of PERC to TCE.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID2021319",
+            "name": "Tetrachloroethylene (Perchloroethylene)",
+            "form": "parent compound, occupational vapour exposure"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "occupational PERC exposure",
+            "target_node": "Parkinson's disease risk"
+          },
+          "evidence_role": "corroboration",
+          "study_context": {
+            "species": "human",
+            "tissue": "substantia nigra / striatum (inferred)",
+            "dose": "occupational (unquantified)",
+            "route": "inhalation"
+          },
+          "direction": "supports",
+          "source": {
+            "url": "https://stacks.cdc.gov/view/cdc/219099",
+            "quoted_span": "The purpose of this study was to investigate the association of occupational exposures to the solvents trichloroethylene (TCE) and tetrachloroethylene (perchloroethylene, PERC) and risk of Parkinson's disease (PD)."
+          },
+          "confidence_basis": [
+            "primary epidemiological study"
+          ],
+          "limitations": [
+            "CDC report extract; full dose-response and OR data not retrievable from snippet",
+            "Occupational exposure assessed retrospectively; recall and exposure-assessment bias"
+          ],
+          "verification_status": "schema-validated"
+        },
+        {
+          "claim": "In a discordant-twin case-control study of WWII veterans, occupational exposure to PERC (and CCl4) showed only a trend toward significantly increased risk of Parkinson's disease; only TCE reached formal statistical significance (>6-fold risk).",
+          "chemical_identity": {
+            "dtxsid": "DTXSID2021319",
+            "name": "Tetrachloroethylene (Perchloroethylene)",
+            "form": "parent compound, occupational inhalation"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "PERC occupational exposure",
+            "target_node": "Parkinson's disease diagnosis"
+          },
+          "evidence_role": "corroboration",
+          "study_context": {
+            "species": "human",
+            "tissue": "clinical diagnosis (PD)",
+            "dose": "occupational (job/hobby inference)",
+            "route": "inhalation"
+          },
+          "direction": "supports",
+          "source": {
+            "url": "https://www.eurekalert.org/news-releases/509114",
+            "quoted_span": "Researchers also found that exposure to PERC and CCI4 tended toward significant risk of developing the disease."
+          },
+          "confidence_basis": [
+            "primary epidemiological study (press release of peer-reviewed publication)"
+          ],
+          "limitations": [
+            "PERC result did not reach formal statistical significance (trend only)",
+            "99 discordant twin pairs \u2014 small sample limits power for PERC sub-analysis",
+            "Exposure inferred from job titles, not biological measurement",
+            "Veterans cohort may not generalise to broader populations"
+          ],
+          "verification_status": "schema-validated"
+        },
+        {
+          "claim": "Small human studies of TCE and PERC motivated launch of the Bay Area Solvent Study (BASS-S), a prospective pilot study using neurological examination and DaTSCAN neuroimaging in occupationally exposed mechanics, designed to formally quantify dopaminergic deficit.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID2021319",
+            "name": "Tetrachloroethylene (Perchloroethylene)",
+            "form": "occupational vapour (mechanics)"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "PERC occupational exposure",
+            "target_node": "dopaminergic deficit (DaTSCAN striatal binding)"
+          },
+          "evidence_role": "corroboration",
+          "study_context": {
+            "species": "human",
+            "tissue": "striatum (DaTSCAN)",
+            "dose": "occupational (mechanics, unquantified)",
+            "route": "inhalation"
+          },
+          "direction": "supports",
+          "source": {
+            "url": "https://www.michaeljfox.org/grant/bay-area-solvent-study-symptoms-bass-s",
+            "quoted_span": "The solvents trichloroethylene (TCE) and perchloroethylene (PERC) have been associated with an increased risk of Parkinson's disease in small studies in humans."
+          },
+          "confidence_basis": [
+            "MJFF-funded pilot study protocol"
+          ],
+          "limitations": [
+            "Pilot study; published results not available in retrieved sources",
+            "Mechanics sub-cohort introduces occupational selection bias",
+            "Rationale explicitly acknowledges only 'small studies' as prior evidence"
+          ],
+          "verification_status": "schema-validated"
+        },
+        {
+          "claim": "The EPA IRIS programme convened a dedicated Neurotoxicity Expert Panel for tetrachloroethylene in 2004 and produced multiple toxicological review drafts (2001, 2011), establishing regulatory recognition of PERC's CNS toxicity potential, but without confirmed specific linkage to dopaminergic neurodegeneration or PD.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID2021319",
+            "name": "Tetrachloroethylene (Perchloroethylene)",
+            "form": "parent compound"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "IRIS neurotoxicity hazard characterisation",
+            "target_node": "regulatory CNS toxicity endpoint (non-specific)"
+          },
+          "evidence_role": "corroboration",
+          "study_context": {
+            "species": "human + rodent (IRIS synthesis)",
+            "tissue": "CNS (general, not dopaminergic-specific)",
+            "dose": "multiple (RfC / RfD derivation)",
+            "route": "inhalation / oral"
+          },
+          "direction": "supports",
+          "source": {
+            "url": "https://cfpub.epa.gov/ncea/iris2/chemicallanding.cfm?substance_nmbr=106",
+            "quoted_span": "Jan 2004: Charge to the Tetrachloroethylene (Perchloroethylene) Neurotoxicity Expert Panel (Other)"
+          },
+          "confidence_basis": [
+            "US EPA IRIS regulatory review programme"
+          ],
+          "limitations": [
+            "IRIS neurotoxicity review addresses general CNS effects, not PD or dopaminergic neurodegeneration specifically",
+            "No retrieved IRIS text directly links PERC to parkinsonian pathology",
+            "Regulatory synthesis; primary studies underlying IRIS conclusions not individually evaluated here"
+          ],
+          "verification_status": "schema-validated"
+        },
+        {
+          "claim": "The AOP for mitochondrial complex I inhibition \u2192 parkinsonism was developed according to OECD guidelines and deposited in the AOP-Wiki database, providing a formal regulatory mechanistic framework, but PERC is absent from its stressor list.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID2021319",
+            "name": "Tetrachloroethylene (Perchloroethylene)",
+            "form": "candidate stressor \u2014 not formally registered"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "AOP regulatory status (stressor registry)",
+            "target_node": "PERC mechanistic gap"
+          },
+          "evidence_role": "counterevidence",
+          "study_context": {
+            "species": "N/A",
+            "tissue": "N/A",
+            "dose": "N/A",
+            "route": "N/A"
+          },
+          "direction": "limits",
+          "source": {
+            "doi": "10.1007/s00204-017-2133-4",
+            "pmid": "29209747",
+            "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5773657/",
+            "quoted_span": "This AOP was developed according to the Organisation for Economic Co-operation and Development guidelines and uploaded to the AOP database."
+          },
+          "confidence_basis": [
+            "primary AOP paper"
+          ],
+          "limitations": [
+            "Absence of PERC from the AOP stressor list is a critical mechanistic gap",
+            "AOP framework designed around pesticide exposure, not chlorinated solvents"
+          ],
+          "verification_status": "schema-validated"
+        },
+        {
+          "claim": "CTD uses literature-based manual curation to assign DirectEvidence (causal/marker) tags to chemical\u2013disease pairs; PERC's DirectEvidence status for PD could not be confirmed from retrieved sources and requires direct query at ctdbase.org.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID2021319",
+            "name": "Tetrachloroethylene (Perchloroethylene)",
+            "form": "parent compound"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "CTD DirectEvidence curation pipeline",
+            "target_node": "PD causal / marker classification"
+          },
+          "evidence_role": "counterevidence",
+          "study_context": {
+            "species": "N/A",
+            "tissue": "N/A",
+            "dose": "N/A",
+            "route": "N/A"
+          },
+          "direction": "unresolved",
+          "source": {
+            "doi": "10.1093/nar/gkaa891",
+            "pmid": "33068428",
+            "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7779006/",
+            "quoted_span": "Literature-based, manually curated interactions are integrated to create a knowledgebase that harmonizes cross-species heterogeneous data for chemical exposures and their biological repercussions."
+          },
+          "confidence_basis": [
+            "primary CTD update paper (2021)"
+          ],
+          "limitations": [
+            "Direct CTD query for PERC + PD DirectEvidence was not retrievable within search constraints",
+            "CTD curated status must be verified at ctdbase.org directly",
+            "Absence of confirmation \u2260 confirmed absence"
+          ],
+          "verification_status": "schema-validated"
+        },
+        {
+          "claim": "In the same discordant-twin study, TCE \u2014 not PERC \u2014 reached formal statistical significance for PD risk (>6-fold), with PERC only showing a non-significant trend; this differential limits causal inference for PERC specifically.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID2021319",
+            "name": "Tetrachloroethylene (Perchloroethylene)",
+            "form": "parent compound \u2014 compared with TCE"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "PERC vs TCE comparative epidemiology",
+            "target_node": "differential statistical significance for PD risk"
+          },
+          "evidence_role": "counterevidence",
+          "study_context": {
+            "species": "human",
+            "tissue": "clinical PD diagnosis",
+            "dose": "occupational (inferred)",
+            "route": "inhalation"
+          },
+          "direction": "limits",
+          "source": {
+            "url": "https://www.eurekalert.org/news-releases/509114",
+            "quoted_span": "The findings are the first to report a significant association between TCE exposure and PD -- a more than 6-fold increased risk. Researchers also found that exposure to PERC and CCI4 tended toward significant risk of developing the disease."
+          },
+          "confidence_basis": [
+            "primary epidemiological study (press release of peer-reviewed publication)"
+          ],
+          "limitations": [
+            "PERC sub-group almost certainly under-powered in a 99-pair cohort",
+            "Non-significance for PERC may reflect power deficit rather than true null effect",
+            "Shared metabolic pathways with TCE do not guarantee equal toxicokinetics or potency"
+          ],
+          "verification_status": "schema-validated"
+        },
+        {
+          "claim": "The broader epidemiological evidence base for PERC\u2013PD was characterised as coming only from 'small studies in humans,' requiring a prospective pilot study (BASS-S) before a definitive investigation could be justified \u2014 indicating evidentiary insufficiency at time of grant award.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID2021319",
+            "name": "Tetrachloroethylene (Perchloroethylene)",
+            "form": "occupational vapour"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "existing epidemiological evidence for PERC",
+            "target_node": "evidence sufficiency threshold for causal inference"
+          },
+          "evidence_role": "counterevidence",
+          "study_context": {
+            "species": "human",
+            "tissue": "N/A",
+            "dose": "occupational",
+            "route": "inhalation"
+          },
+          "direction": "limits",
+          "source": {
+            "url": "https://www.michaeljfox.org/grant/bay-area-solvent-study-symptoms-bass-s",
+            "quoted_span": "The solvents trichloroethylene (TCE) and perchloroethylene (PERC) have been associated with an increased risk of Parkinson's disease in small studies in humans."
+          },
+          "confidence_basis": [
+            "MJFF grant rationale (explicit acknowledgment of evidence gap)"
+          ],
+          "limitations": [
+            "Self-assessment by grant applicants; not a systematic review",
+            "No effect estimate quantified from this source"
+          ],
+          "verification_status": "schema-validated"
+        },
+        {
+          "claim": "The AOP for complex-I-inhibition-linked parkinsonism was built and validated primarily around rotenone and MPTP; the epidemiological basis cited in the AOP paper is pesticide exposure \u2014 not chlorinated solvents \u2014 limiting direct mechanistic attribution of the AOP to PERC.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID2021319",
+            "name": "Tetrachloroethylene (Perchloroethylene)",
+            "form": "candidate stressor (not validated)"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "rotenone / MPTP as validated AOP stressors",
+            "target_node": "PERC as unvalidated candidate stressor"
+          },
+          "evidence_role": "counterevidence",
+          "study_context": {
+            "species": "rodent / human (AOP basis)",
+            "tissue": "substantia nigra",
+            "dose": "N/A",
+            "route": "N/A"
+          },
+          "direction": "limits",
+          "source": {
+            "doi": "10.1007/s00204-017-2133-4",
+            "pmid": "29209747",
+            "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5773657/",
+            "quoted_span": "Epidemiological studies have observed an association between pesticide exposure and the development of Parkinson's disease, but have not established causality."
+          },
+          "confidence_basis": [
+            "primary AOP paper"
+          ],
+          "limitations": [
+            "AOP grounded in pesticide epidemiology, not chlorinated solvent data",
+            "Even for pesticides, causality not established per the AOP paper itself",
+            "PERC not cited anywhere in the AOP as a stressor"
+          ],
+          "verification_status": "schema-validated"
+        },
+        {
+          "claim": "Perchloroethylene (tetrachloroethylene, PERC) has CAS RN 127-18-4, DTXSID DTXSID2021319, and is classified by the EPA IRIS programme as a chlorinated solvent of toxicological concern.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID2021319",
+            "name": "Tetrachloroethylene (Perchloroethylene)",
+            "form": "parent compound, Cl2C=CCl2, CAS 127-18-4"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "chemical identity / regulatory classification",
+            "target_node": "IRIS toxicological review anchor"
+          },
+          "evidence_role": "grounding",
+          "study_context": {
+            "species": "N/A",
+            "tissue": "N/A",
+            "dose": "N/A",
+            "route": "N/A"
+          },
+          "direction": "supports",
+          "source": {
+            "url": "https://cfpub.epa.gov/ncea/iris2/chemicallanding.cfm?substance_nmbr=106",
+            "quoted_span": "Tetrachloroethylene (Perchloroethylene) CASRN 127-18-4 | DTXSID2021319 | IRIS | US EPA, ORD"
+          },
+          "confidence_basis": [
+            "primary regulatory database"
+          ],
+          "limitations": [
+            "Identity record only; no causal claim attached"
+          ],
+          "verification_status": "schema-validated"
+        },
+        {
+          "claim": "Tetrachloroethylene (PERC) is a colorless, volatile, nonflammable chlorinated hydrocarbon (formula Cl2C=CCl2) widely used as an industrial solvent, with synonyms including PCE, PERC, Perk, and perchlorethylene.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID2021319",
+            "name": "Tetrachloroethylene (Perchloroethylene)",
+            "form": "parent compound, CAS 127-18-4"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "physicochemical properties",
+            "target_node": "inhalation / dermal exposure potential"
+          },
+          "evidence_role": "grounding",
+          "study_context": {
+            "species": "N/A",
+            "tissue": "N/A",
+            "dose": "N/A",
+            "route": "inhalation / dermal (occupational)"
+          },
+          "direction": "supports",
+          "source": {
+            "url": "https://www.chemicalbook.com/ChemicalProductProperty_EN_CB7325193.htm",
+            "quoted_span": "Tetrachloroethylene (chemical formula Cl2C=CCl2) is a chlorinate hydrocarbon used as an industrial solvent and cooling liquid in electrical transformers. It is a colorless, volatile, nonflammable liquid with an ether-like odor."
+          },
+          "confidence_basis": [
+            "chemical database record"
+          ],
+          "limitations": [
+            "Physicochemical grounding only; does not establish mechanistic link to PD"
+          ],
+          "verification_status": "schema-validated"
+        },
+        {
+          "claim": "The twin study that generated the PERC\u2013PD trend signal investigated 99 discordant pairs from the NAS/NRC WWII Veteran Twins Cohort, assessing lifetime exposure to six solvents (n-hexane, xylene, toluene, CCl4, TCE, PERC) inferred from occupational and hobby histories.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID2021319",
+            "name": "Tetrachloroethylene (Perchloroethylene)",
+            "form": "occupational vapour"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "study design (discordant twins, lifetime exposure matrix)",
+            "target_node": "confounding control / causal inference"
+          },
+          "evidence_role": "grounding",
+          "study_context": {
+            "species": "human",
+            "tissue": "N/A",
+            "dose": "occupational (inferred from job/hobby)",
+            "route": "inhalation"
+          },
+          "direction": "supports",
+          "source": {
+            "url": "https://www.eurekalert.org/news-releases/509114",
+            "quoted_span": "The team interviewed 99 twin pairs from the National Academy of Sciences/National Research Council World War II Veteran Twins Cohort in which one twin had Parkinson's and one didn't, inquiring about lifetime occupations and hobbies."
+          },
+          "confidence_basis": [
+            "primary epidemiological study methodology description"
+          ],
+          "limitations": [
+            "Twin design controls shared genetics/early environment but co-twin exposure is not confirmed absent",
+            "All-male, veteran cohort limits generalisability",
+            "Job-title inference introduces misclassification bias"
+          ],
+          "verification_status": "schema-validated"
+        },
+        {
+          "claim": "A registered AOP (OECD-compliant, AOP-Wiki) formally links mitochondrial complex I inhibition (MIE) \u2192 oxidative stress \u2192 energy failure \u2192 dopaminergic neurodegeneration \u2192 parkinsonian motor deficits (AO); this pathway is the candidate mechanistic scaffold for chlorinated solvent neurotoxicity.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID2021319",
+            "name": "Tetrachloroethylene (Perchloroethylene)",
+            "form": "oxidative metabolites (candidate stressor, not formally registered on this AOP)"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "mitochondrial complex I inhibition (MIE)",
+            "target_node": "parkinsonian motor deficits (AO)"
+          },
+          "evidence_role": "grounding",
+          "study_context": {
+            "species": "rodent + human epidemiology anchor",
+            "tissue": "substantia nigra pars compacta / striatum",
+            "dose": "N/A (AOP framework)",
+            "route": "N/A"
+          },
+          "direction": "supports",
+          "source": {
+            "doi": "10.1007/s00204-017-2133-4",
+            "pmid": "29209747",
+            "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5773657/",
+            "quoted_span": "Here, we present an AOP covering the toxicological pathways that link the binding of an inhibitor to mitochondrial complex I (i.e., the MIE) with the onset of parkinsonian motor deficits (i.e., the AO)."
+          },
+          "confidence_basis": [
+            "primary AOP paper, OECD-compliant, AOP-Wiki registered"
+          ],
+          "limitations": [
+            "AOP anchor stressors are rotenone and MPTP \u2014 PERC is NOT a registered stressor",
+            "PERC's metabolite-level complex-I inhibition has not been directly demonstrated",
+            "Pathway applicability to PERC requires independent experimental validation"
+          ],
+          "verification_status": "schema-validated"
+        }
+      ],
+      "rejected_objects": null
+    }
+  ],
+  "total_cost_usd": 0.6448
+}
