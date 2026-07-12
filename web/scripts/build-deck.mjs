@@ -367,6 +367,39 @@ slide("", `${eyebrow("How it's built, and how it extends")}${h("Deterministic co
     </ul>
   </div>${foot(N())}`);
 
+// 15b - methods study: how should Claude synthesize the evidence? (RLM vs RAG)
+slide("dark", `${eyebrow("A second question we studied: how should Claude synthesize evidence?")}${h("Beyond RAG - Recursive Language Models")}
+  <div class="two">
+    <div class="card"><b class="c">RAG - one monolithic pass</b><p class="dim">A single web-grounded model call reads the sources and writes the answer. Simple and cheap - but it must hold the whole problem in one context, and one slow or failed retrieval sinks the entire pass.</p></div>
+    <div class="card recovered"><b class="g">RLM - decompose, then recurse</b><p class="dim">An Opus <b>planner</b> splits the task into ~6 bounded sub-investigations; parallel Sonnet <b>leaves</b> each research one; a deterministic merge combines them. Depth-1, per the MIT method.</p></div>
+  </div>
+  <p class="pull">Decomposition buys coverage, a built-in adversarial critic, and graceful degradation.</p>
+  <p class="dim small">Method: Recursive Language Models - Zhang, Kraska &amp; Khattab, MIT CSAIL, arXiv:2512.24601 (2025). Depth fixed at 1; the reproduction study warns deeper recursion inflates cost without accuracy gains.</p>
+  ${foot(N())}`);
+
+// 15c - the four methods, measured on our own task
+slide("dark", `${eyebrow("Four synthesis methods, one deterministic scorer, six chemicals")}${h("What we found: RAG vs RAG+ vs RLM vs adversarial RLM")}
+  <div class="cmp g5">
+    <div class="cmphead"><div class="cmpd mono faint">mean per chemical</div><div class="cmpc"><b>RAG</b></div><div class="cmpc"><b>RAG+</b></div><div class="cmpc"><b class="c">RLM-1</b></div><div class="cmpc"><b class="g">RLM-ADV</b></div></div>
+    <div class="cmpr"><div class="cmpd">what it is</div><div class="cmpc">single pass, plain prompt</div><div class="cmpc">single pass, multi-query + counter-evidence prompt</div><div class="cmpc">planner + parallel leaves</div><div class="cmpc">RLM-1 + adversarial critic</div></div>
+    <div class="cmpr"><div class="cmpd">evidence objects</div><div class="cmpc">13.5</div><div class="cmpc">17.2</div><div class="cmpc">14.2</div><div class="cmpc"><b class="g">17.7</b></div></div>
+    <div class="cmpr"><div class="cmpd">distinct sources</div><div class="cmpc">8.2</div><div class="cmpc">13.6</div><div class="cmpc">8.8</div><div class="cmpc"><b class="g">13.7</b></div></div>
+    <div class="cmpr"><div class="cmpd">counter-evidence found</div><div class="cmpc">1.2</div><div class="cmpc">5.4</div><div class="cmpc">1.8</div><div class="cmpc"><b class="g">12.7</b></div></div>
+    <div class="cmpr"><div class="cmpd">cost, 6 chemicals</div><div class="cmpc">$2.5</div><div class="cmpc">$3.0</div><div class="cmpc">$4.0</div><div class="cmpc">$7.0</div></div>
+  </div>
+  <p class="dim small">RAG+ and RLM-ADV are the strong variant of each family - RAG+ hardens the single pass with a counter-evidence-seeking prompt; RLM-ADV adds a dedicated critic that hunts refutation. RLM numbers are a <b>floor</b>: a slow retrieval window degraded ~2/3 of leaves and they still matched RAG+.</p>
+  ${foot(N())}`);
+
+// 15d - the methods finding + where it transfers
+slide("", `${eyebrow("What the methods study concluded")}${h("Adversarial RLM is the right tool when evidence must be skeptical")}
+  <div class="two">
+    <div class="card recovered"><b class="c">The finding</b><p class="dim">RLM-ADV surfaced <b>~10x more counter-evidence than RAG and ~2.4x more than the strong RAG+ baseline</b>, matching RAG+ on yield and source breadth - while running degraded. For a tool built on calibrated honesty, actively hunting <i>disconfirming</i> evidence is the property that matters most.</p></div>
+    <div class="card"><b class="g">The trade-off, kept honest</b><p class="dim">RLM-ADV's critic refutes rather than confirms - it recovered 0/6 diagnostic anchors - so it pairs with RLM-1, which builds the case. And decomposition <b>degrades gracefully</b>: a stalled leaf loses one sub-question, where a monolithic RAG call loses everything.</p></div>
+  </div>
+  <p class="pull">The pattern transfers wherever "find the counter-evidence" matters as much as "build the case."</p>
+  <p class="dim small">Drug-target validation, pharmacovigilance signal assessment, systematic-review triage, biomarker-disease association grading - any life-science synthesis that must assemble source-grounded evidence and then stress-test it.</p>
+  ${foot(N())}`);
+
 // 16 - challenges & learnings
 slide("", `${eyebrow("What we learned along the way")}${h("Challenges, and what they taught us")}
   <div class="two">
@@ -396,7 +429,8 @@ slide("dark", `${eyebrow("The takeaways")}${h("What this hackathon produced")}
     <div class="card"><b class="c">Validation that holds</b><p class="dim">Recovery works (13/13 PD; 12/12 AD) and specificity is proven by falsification - bioactivity at or below chance against adversarial decoys. The discovery limits are mapped, not hidden.</p></div>
     <div class="card"><b class="g">A pipeline that guides the bench</b><p class="dim">The honest form of discovery: an evidence-weighted triage queue that ranks what to test next, gate-promoted, decoy-controlled, and validated by a held-out backtest. It converges with PROTON, diverges from bioactivity-driven ENRICH.</p></div>
     <div class="card"><b class="c">Calibrated, shipped, live</b><p class="dim">Built end to end on Claude - which reasons over the evidence but never makes the call - deterministic where it must be, cited to source, live at aitiome.fly.dev with an MCP interface for agents.</p></div>
-  </div>${foot(N())}`);
+  </div>
+  <p class="pull">And a methods discovery: studying Claude across RAG vs RLM synthesis patterns, the adversarial RLM surfaced ~10x more counter-evidence than RAG - decomposition makes Claude a measurably better skeptic.</p>${foot(N())}`);
 
 // 18 - limitations
 slide("", `${eyebrow("Future directions - Parkinson's & Alzheimer's")}${h("Limitations, and the PD / AD roadmap")}
@@ -557,6 +591,8 @@ const css = `
   /* compare matrix */
   .cmp{border:1px solid var(--line);border-radius:14px;overflow:hidden;margin:26px 0 16px}
   .cmphead,.cmpr{display:grid;grid-template-columns:1.15fr 1.3fr 1.3fr}
+  .cmp.g5 .cmphead,.cmp.g5 .cmpr{grid-template-columns:1.25fr 1fr 1fr 1fr 1fr}
+  .cmp.g5 .cmpc{font-size:13px}
   .cmphead{background:var(--bg2)}
   .cmpr{border-top:1px solid var(--line)}
   .cmpd{padding:13px 18px;font-size:15px;font-weight:500;border-right:1px solid var(--line);display:flex;align-items:center}
