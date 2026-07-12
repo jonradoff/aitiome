@@ -1,0 +1,3492 @@
+{
+  "chemical": "rotenone",
+  "disease": "PD",
+  "dtxsid": "DTXSID6021248",
+  "systems": [
+    {
+      "system": "RAG",
+      "accepted": 20,
+      "rejected": 0,
+      "role_coverage": {
+        "corroboration": 8,
+        "diagnostic": 6,
+        "grounding": 6
+      },
+      "counterevidence": 0,
+      "distinct_sources": 13,
+      "diagnostic_recovered": true,
+      "unique_vs_rag": 0,
+      "productive_leaves": 0,
+      "model_calls": 1,
+      "cost_usd": 0.5578796500000001,
+      "web_searches": 4,
+      "duration_sec": 449.020282709,
+      "objects": [
+        {
+          "claim": "Systemic rotenone exposure caused relatively selective oxidative damage to midbrain and olfactory bulb, regions that also show selective neurodegeneration after rotenone treatment, supporting regional specificity of complex I-mediated ROS.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID7021281",
+            "name": "Rotenone",
+            "form": "parent compound"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "Complex I inhibition \u2192 ROS production",
+            "target_node": "Selective oxidative damage in midbrain and olfactory bulb \u2192 regional neurodegeneration"
+          },
+          "evidence_role": "corroboration",
+          "study_context": {
+            "species": "Rat",
+            "tissue": "Midbrain, olfactory bulb",
+            "dose": "Chronic systemic",
+            "route": "Systemic"
+          },
+          "direction": "supports",
+          "source": {
+            "doi": "10.1523/JNEUROSCI.23-34-10756.2003",
+            "pmid": "14627658",
+            "url": "https://www.jneurosci.org/content/23/34/10756",
+            "quoted_span": "Finally, systemic in vivo rotenone exposure caused relatively selective oxidative damage to midbrain and olfactory bulb, regions marked by selective neurodegeneration after rotenone treatment (Betarbet et al., 2000; Sherer et al., 2001, 2003)."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "Oxidative damage markers used as surrogates; causal directionality requires further validation"
+          ],
+          "verification_status": "schema-validated"
+        },
+        {
+          "claim": "Systemic rotenone exposure in C57Bl/6 mice causes progressive accumulation and regional spread of phospho-Ser129 \u03b1-synuclein aggregates that precede maximal loss of dopaminergic neurons, with activation of glial cells coinciding with p129 accumulation in the SNpc.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID7021281",
+            "name": "Rotenone",
+            "form": "parent compound"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "Rotenone \u2192 glial activation + \u03b1-synuclein pSer129 aggregation",
+            "target_node": "Progressive dopaminergic neuron loss in SNpc"
+          },
+          "evidence_role": "corroboration",
+          "study_context": {
+            "species": "C57Bl/6 mouse",
+            "tissue": "Caudate-putamen, substantia nigra pars compacta",
+            "dose": "2.5 mg/kg/day for 14 days + 2-week follow-up",
+            "route": "Systemic"
+          },
+          "direction": "supports",
+          "source": {
+            "doi": "10.1016/j.nbd.2022.105744",
+            "pmid": "35257879",
+            "url": "https://pubmed.ncbi.nlm.nih.gov/35257879/",
+            "quoted_span": "These data indicate that systemic exposure to rotenone in C57Bl/6 mice causes progressive accumulation and regional spread of p129 aggregates that precede maximal loss of DAn. Thus, activation of glial cells and aggregation of p129 appear to..."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "Two-stage design; causality between p129 spread and neuron death is correlational in this study"
+          ],
+          "verification_status": "schema-validated"
+        },
+        {
+          "claim": "Rotenone accelerates endogenous \u03b1-synuclein spreading and enhances neurodegeneration in a mouse model of PD established by intra-striatal \u03b1-synuclein preformed fibril injection, demonstrating synergistic interaction between pesticide exposure and protein aggregation pathology.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID7021281",
+            "name": "Rotenone",
+            "form": "parent compound"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "Rotenone (complex I inhibition / oxidative stress)",
+            "target_node": "Accelerated \u03b1-synuclein spreading and enhanced dopaminergic neurodegeneration"
+          },
+          "evidence_role": "corroboration",
+          "study_context": {
+            "species": "Mouse",
+            "tissue": "Striatum, substantia nigra",
+            "dose": "2.5 mg/kg body weight i.p. daily",
+            "route": "Intraperitoneal"
+          },
+          "direction": "supports",
+          "source": {
+            "doi": "10.1186/s12974-025-03471-0",
+            "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC12531225/",
+            "quoted_span": "Prominent histopathological features of Parkinson's disease (PD) include the presence of Lewy bodies, intra-neural protein aggregates mainly composed of \u03b1-synuclein (\u03b1-syn), and cell death of dopaminergic neurons. Epidemiological studies have revealed a correlation between exposure to environmental neurotoxins, such as rotenone, and an increased risk of developing PD."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "Dual-hit model; impossible to isolate rotenone contribution from preformed fibril contribution to neurodegeneration"
+          ],
+          "verification_status": "schema-validated"
+        },
+        {
+          "claim": "Rotenone activates microglial cells and induces blood\u2013brain barrier disruption (reduced tight junction proteins ZO-1, claudin-5, occludin; increased Evans blue and fibrinogen accumulation) in a dose-dependent manner, which is associated with nigral dopaminergic neurodegeneration in mice.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID7021281",
+            "name": "Rotenone",
+            "form": "parent compound"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "Rotenone \u2192 microglial activation \u2192 MMP-2/-9 upregulation",
+            "target_node": "BBB disruption \u2192 nigral dopaminergic neurodegeneration"
+          },
+          "evidence_role": "corroboration",
+          "study_context": {
+            "species": "Mouse",
+            "tissue": "Substantia nigra, blood-brain barrier",
+            "dose": "Dose-dependent (multiple doses tested)",
+            "route": "Systemic"
+          },
+          "direction": "supports",
+          "source": {
+            "doi": "10.3390/ijms23052451",
+            "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8910886/",
+            "quoted_span": "Results showed that rotenone dose-dependently induced nigral dopaminergic neurodegeneration, which was associated with increased Evans blue content and fibrinogen accumulation as well as reduced expressions of zonula occludens-1 (ZO-1), claudin-5 and occludin, three tight junction proteins for maintaining BBB permeability, in mice, indicating BBB disruption."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "BBB disruption may be secondary to neuroinflammation rather than a primary rotenone effect; mouse model variability"
+          ],
+          "verification_status": "schema-validated"
+        },
+        {
+          "claim": "Rotenone alters the function of midbrain (but not striatal) astrocytes to a neurotoxic profile without necessarily affecting mitochondrial complex I activity, producing selective dopaminergic neuronal death\u2014indicating a glial-mediated toxicity pathway independent of direct neuronal complex I inhibition.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID7021281",
+            "name": "Rotenone",
+            "form": "parent compound"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "Rotenone \u2192 midbrain astrocyte neurotoxic functional shift",
+            "target_node": "Selective dopaminergic neuronal death"
+          },
+          "evidence_role": "corroboration",
+          "study_context": {
+            "species": "In vitro (midbrain vs. striatal glial cultures)",
+            "tissue": "Midbrain astrocytes / striatal astrocytes",
+            "dose": "Not specified",
+            "route": "In vitro"
+          },
+          "direction": "supports",
+          "source": {
+            "doi": "10.1186/s40478-025-02160-3",
+            "url": "https://link.springer.com/article/10.1186/s40478-025-02160-3",
+            "quoted_span": "In this study, we showed that rotenone altered the function of midbrain, but not striatal, glial cells to a neurotoxic profile without affecting mitochondrial complex I activity, which produced selective dopaminergic neuronal death."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "In vitro only; whether astrocyte-mediated mechanism is dominant in vivo versus direct neuronal complex I inhibition is unresolved"
+          ],
+          "verification_status": "schema-validated"
+        },
+        {
+          "claim": "Intranasal administration of rotenone induces hyposmia through lesion of dopaminergic neurons, microglial activation, and enhanced \u03b1-synuclein phosphorylation and accumulation in the olfactory bulb, reproducing non-motor PD symptoms.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID7021281",
+            "name": "Rotenone",
+            "form": "parent compound"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "Intranasal rotenone \u2192 olfactory bulb dopaminergic neuron lesion + microglial activation",
+            "target_node": "\u03b1-Synuclein phosphorylation/accumulation in olfactory bulb \u2192 hyposmia (non-motor PD symptom)"
+          },
+          "evidence_role": "corroboration",
+          "study_context": {
+            "species": "Rodent",
+            "tissue": "Olfactory bulb",
+            "dose": "Intranasal (dose not specified in excerpt)",
+            "route": "Intranasal"
+          },
+          "direction": "supports",
+          "source": {
+            "doi": "10.3390/neurosci1010001",
+            "url": "https://doi.org/10.3390/neurosci1010001",
+            "quoted_span": "Recent studies demonstrated that intranasal administration of rotenone induced hyposmia through lesion of dopaminergic neurons, activation of microglia, and enhanced \u03b1-synuclein phosphorylation and its accumulation in the olfactory bulb..."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "Non-motor symptom modeling; dose and route differ from most PD patient exposures; non-peer-reviewed dose reporting"
+          ],
+          "verification_status": "schema-validated"
+        },
+        {
+          "claim": "Chronic exposure to rotenone at marginally toxic to moderately toxic doses triggers a complex pleiotropic transcriptomic response in neuroblastoma cells, including disruption of cell cycle, DNA damage response, proliferation, differentiation, senescence, and cell death pathways, indicating mechanisms of neurodegeneration beyond complex I inhibition.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID7021281",
+            "name": "Rotenone",
+            "form": "parent compound"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "Rotenone chronic exposure",
+            "target_node": "Transcriptome-wide disruption: cell cycle arrest, DNA damage, senescence, cell death pathways"
+          },
+          "evidence_role": "corroboration",
+          "study_context": {
+            "species": "In vitro (human neuroblastoma cell line)",
+            "tissue": "Neuroblastoma cells (NB)",
+            "dose": "Marginally toxic and moderately toxic (dose-tiered)",
+            "route": "In vitro"
+          },
+          "direction": "supports",
+          "source": {
+            "doi": "10.3389/fgene.2012.00163",
+            "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3436760/",
+            "quoted_span": "The results revealed a complex pleiotropic response to rotenone that impacts a variety of cellular events, including cell cycle, DNA damage response, proliferation, differentiation, senescence and cell death, which could lead to survival or neurodegeneration depending on the dose and time of exposure and cell phenotype."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "Neuroblastoma cell line is not primary dopaminergic neurons; dose-response to sub-toxic rotenone in vivo is not well characterized"
+          ],
+          "verification_status": "schema-validated"
+        },
+        {
+          "claim": "Increasing cAMP/PKA signaling in dopaminergic neurons fully rescued them from rotenone-induced degeneration in a Drosophila primary neuronal culture model of PD, suggesting that rotenone-driven dopaminergic death is downstream of cAMP pathway suppression.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID7021281",
+            "name": "Rotenone",
+            "form": "parent compound"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "Rotenone \u2192 suppression of cAMP/PKA signaling",
+            "target_node": "Dopaminergic neurodegeneration (rescued by cAMP activation)"
+          },
+          "evidence_role": "corroboration",
+          "study_context": {
+            "species": "Drosophila melanogaster (primary neuronal culture)",
+            "tissue": "Dopaminergic neurons",
+            "dose": "Not specified",
+            "route": "In vitro / ex vivo"
+          },
+          "direction": "supports",
+          "source": {
+            "doi": "10.3389/fnins.2025.1525494",
+            "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC11946696/",
+            "quoted_span": "Our results demonstrate that increasing cAMP signaling via Gs-coupled DREADD (rM3Ds) is protective against DA neurodegeneration. Furthermore, overexpression of the catalytic PKA-C1 subunit fully rescued DA neurons from rotenone-induced degeneration..."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "Drosophila model; neuronal culture; translational relevance to human PD dopaminergic circuits is uncertain"
+          ],
+          "verification_status": "schema-validated"
+        },
+        {
+          "claim": "Chronic systemic rotenone infusion in rats produces nigrostriatal dopaminergic degeneration, signs of oxidative stress in the brain, and motor dysfunction, closely reproducing PD pathology.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID7021281",
+            "name": "Rotenone",
+            "form": "parent compound (natural isoflavonoid pesticide)"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "Systemic rotenone exposure",
+            "target_node": "Nigrostriatal dopaminergic neurodegeneration + motor dysfunction"
+          },
+          "evidence_role": "diagnostic",
+          "study_context": {
+            "species": "Rat",
+            "tissue": "Substantia nigra / striatum",
+            "dose": "Chronic systemic infusion (osmotic minipumps)",
+            "route": "Systemic (intravenous/intraperitoneal)"
+          },
+          "direction": "supports",
+          "source": {
+            "doi": "10.1016/j.cotox.2019.02.001",
+            "url": "https://www.sciencedirect.com/science/article/abs/pii/S2468748019300141",
+            "quoted_span": "Chronic rotenone infusion in rats results in nigrostriatal dopaminergic degeneration, signs of oxidative stress in the brain, and motor dysfunction (Betarbet et al., 2000, Fleming et al., 2004, Sherer et al., 2003)."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "Rat model; variability and mortality across rodent strains; does not fully replicate human PD etiology"
+          ],
+          "verification_status": "schema-validated"
+        },
+        {
+          "claim": "The primary mechanism by which rotenone produces selective dopaminergic neurotoxicity is through mitochondrial complex I inhibition followed by oxidative stress generation and resultant oxidative damage.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID7021281",
+            "name": "Rotenone",
+            "form": "parent compound"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "Mitochondrial complex I inhibition",
+            "target_node": "Oxidative stress \u2192 selective dopaminergic neurotoxicity"
+          },
+          "evidence_role": "diagnostic",
+          "study_context": {
+            "species": "Rat / in vitro",
+            "tissue": "Midbrain dopaminergic neurons / substantia nigra",
+            "dose": "Variable (chronic systemic)",
+            "route": "Systemic"
+          },
+          "direction": "supports",
+          "source": {
+            "doi": "10.1016/j.cotox.2019.02.001",
+            "url": "https://www.sciencedirect.com/science/article/abs/pii/S2468748019300141",
+            "quoted_span": "The primary mechanism by which rotenone produces selective dopaminergic neurotoxicity is through complex I inhibition followed by oxidative stress generation and resultant oxidative damage (Betarbet et al., 2000; Sanders and Greenamyre, 2013)."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "Mechanistic inference consolidated from multiple studies; dose-response relationships not fully characterized in humans"
+          ],
+          "verification_status": "schema-validated"
+        },
+        {
+          "claim": "Chronic systemic rotenone exposure reproduced many features of PD in rats, including nigrostriatal dopaminergic lesions and development of \u03b1-synuclein-positive cytoplasmic inclusions.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID7021281",
+            "name": "Rotenone",
+            "form": "parent compound (naturally occurring compound, used as insecticide)"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "Systemic complex I inhibition",
+            "target_node": "Nigrostriatal dopaminergic lesion + \u03b1-synuclein-positive cytoplasmic inclusions (Lewy body-like)"
+          },
+          "evidence_role": "diagnostic",
+          "study_context": {
+            "species": "Rat",
+            "tissue": "Substantia nigra / striatum",
+            "dose": "1\u20135 weeks chronic exposure",
+            "route": "Systemic"
+          },
+          "direction": "supports",
+          "source": {
+            "doi": "10.1523/JNEUROSCI.22-16-07006.2002",
+            "pmid": "12177198",
+            "url": "https://www.jneurosci.org/content/22/16/7006",
+            "quoted_span": "Chronic systemic rotenone exposure reproduced many features of PD, including nigrostriatal dopaminergic lesions and development of \u03b1-synuclein-positive cytoplasmic inclusions (Betarbet et al., 2000)."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "Cross-reference to Betarbet et al. 2000 original paper; model variability noted across labs"
+          ],
+          "verification_status": "schema-validated"
+        },
+        {
+          "claim": "Rotenone, a naturally occurring insecticide that inhibits mitochondrial complex I, leads to neurochemical and neuropathological deficits closely resembling those in PD, including loss of dopaminergic neurons in the SNpc, decreased dopamine levels, and aggregation of misfolded alpha-synuclein (phospho-Ser129).",
+          "chemical_identity": {
+            "dtxsid": "DTXSID7021281",
+            "name": "Rotenone",
+            "form": "parent compound"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "Complex I inhibition",
+            "target_node": "SNpc dopaminergic neuron loss + decreased dopamine + \u03b1-synuclein (pSer129) aggregation"
+          },
+          "evidence_role": "diagnostic",
+          "study_context": {
+            "species": "C57Bl/6 mouse",
+            "tissue": "Substantia nigra pars compacta, striatum",
+            "dose": "2.5 mg/kg/day for 14 days",
+            "route": "Systemic"
+          },
+          "direction": "supports",
+          "source": {
+            "doi": "10.1016/j.nbd.2022.105744",
+            "pmid": "35257879",
+            "url": "https://pubmed.ncbi.nlm.nih.gov/35257879/",
+            "quoted_span": "Rotenone is a naturally occurring insecticide that inhibits mitochondrial complex I and leads to neurochemical and neuropathological deficits closely resembling those in Parkinson's disease (PD). Deficits include loss of dopaminergic neurons (DAn) in the substantia nigra pars compacta (SNpc), decreased dopamine levels and aggregation of misfolded alpha-synuclein (p129)."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "Mouse model; C57Bl/6 strain showed variability and high mortality in prior rotenone studies; lesion profiles differ from Lewis rat model"
+          ],
+          "verification_status": "schema-validated"
+        },
+        {
+          "claim": "Rotenone-treated rats develop alpha-synuclein positive intraneuronal inclusions in nigrostriatal neurons, mirroring the Lewy body pathology that defines PD.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID7021281",
+            "name": "Rotenone",
+            "form": "parent compound"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "Rotenone systemic exposure",
+            "target_node": "\u03b1-Synuclein-positive intraneuronal inclusions (Lewy body-like) in nigrostriatal neurons"
+          },
+          "evidence_role": "diagnostic",
+          "study_context": {
+            "species": "Rat",
+            "tissue": "Substantia nigra / nigrostriatal tract",
+            "dose": "Chronic systemic infusion",
+            "route": "Systemic"
+          },
+          "direction": "supports",
+          "source": {
+            "doi": "10.1016/j.ntt.2010.03.004",
+            "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC2885979/",
+            "quoted_span": "Chronic rotenone infusion in rats results in nigrostriatal dopaminergic degeneration, signs of oxidative stress in the brain, and motor dysfunction (Betarbet et al., 2000, Fleming et al., 2004, Sherer et al., 2003). These animals also developed alpha-synuclein positive intraneuronal inclusions..."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "Inclusion formation rate variable across studies and animal strains"
+          ],
+          "verification_status": "schema-validated"
+        },
+        {
+          "claim": "Epidemiological studies have revealed a statistically significant correlation between occupational/environmental exposure to rotenone and an increased risk of developing Parkinson's disease in humans.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID7021281",
+            "name": "Rotenone",
+            "form": "parent compound (pesticide exposure)"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "Human rotenone exposure (occupational/environmental)",
+            "target_node": "Increased PD incidence/risk"
+          },
+          "evidence_role": "diagnostic",
+          "study_context": {
+            "species": "Human",
+            "tissue": "Epidemiological cohort",
+            "dose": "Occupational pesticide use (categorical)",
+            "route": "Mixed (occupational dermal/inhalation)"
+          },
+          "direction": "supports",
+          "source": {
+            "doi": "10.1186/s12974-025-03471-0",
+            "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC12531225/",
+            "quoted_span": "Epidemiological studies have revealed a correlation between exposure to environmental neurotoxins, such as rotenone, and an increased risk of developing PD."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "Correlational; confounded by co-exposures to other pesticides; dose quantification in field settings is imprecise; causal inference requires triangulation"
+          ],
+          "verification_status": "schema-validated"
+        },
+        {
+          "claim": "Rotenone toxicity is causally dependent on a direct interaction with complex I: cells expressing the rotenone-insensitive yeast NDI1 NADH dehydrogenase were fully resistant to rotenone-induced mitochondrial impairment, oxidative damage, and death.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID7021281",
+            "name": "Rotenone",
+            "form": "parent compound"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "Rotenone \u2192 direct complex I binding",
+            "target_node": "Mitochondrial impairment \u2192 oxidative damage \u2192 dopaminergic cell death"
+          },
+          "evidence_role": "grounding",
+          "study_context": {
+            "species": "In vitro (mammalian cells transfected with yeast NDI1)",
+            "tissue": "Neuronal cell line",
+            "dose": "Not specified",
+            "route": "In vitro"
+          },
+          "direction": "supports",
+          "source": {
+            "doi": "10.1523/JNEUROSCI.23-34-10756.2003",
+            "pmid": "14627658",
+            "url": "https://www.jneurosci.org/content/23/34/10756",
+            "quoted_span": "In response to rotenone, NDI1-transfected cells did not show mitochondrial impairment, oxidative damage, or death, demonstrating that these effects of rotenone were caused by specific interactions at complex I."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "In vitro system; does not fully reflect in vivo complexity of nigrostriatal circuit"
+          ],
+          "verification_status": "schema-validated"
+        },
+        {
+          "claim": "Rotenone induces direct modifications to \u03b1-synuclein protein (identified by affinity pull-down and tandem mass spectrometry), linking pesticide-driven oxidative chemistry to the formation of Lewy body-like aggregates enriched in modified \u03b1-synuclein.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID7021281",
+            "name": "Rotenone",
+            "form": "parent compound"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "Rotenone \u2192 post-translational modification of \u03b1-synuclein",
+            "target_node": "\u03b1-Synuclein aggregation \u2192 Lewy body-like inclusions"
+          },
+          "evidence_role": "grounding",
+          "study_context": {
+            "species": "In vitro / biochemical",
+            "tissue": "Neuronal protein extract",
+            "dose": "Not specified",
+            "route": "In vitro"
+          },
+          "direction": "supports",
+          "source": {
+            "doi": "10.1021/bi0601850",
+            "pmid": "16579629",
+            "url": "https://pubmed.ncbi.nlm.nih.gov/16579629/",
+            "quoted_span": "Parkinson's disease is a movement disorder that results from a loss of dopaminergic neurons in the substantia nigra. The disease is characterized by mitochondrial dysfunction, oxidative stress, and the presence of \"Lewy body\" inclusions enriched with aggregated forms of alpha-synuclein, a presynaptic protein."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "Biochemical/in vitro context; specific modification sites and their in vivo relevance require further validation"
+          ],
+          "verification_status": "schema-validated"
+        },
+        {
+          "claim": "Rotenone causes inhibition of the ubiquitin\u2013proteasome system (UPS) via mitochondrial complex I inhibition and oxidative stress, constituting a second major mechanistic arm beyond direct dopaminergic neurotoxicity.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID7021281",
+            "name": "Rotenone",
+            "form": "parent compound"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "Complex I inhibition \u2192 oxidative stress",
+            "target_node": "Proteasome inhibition \u2192 impaired protein clearance \u2192 neurodegeneration"
+          },
+          "evidence_role": "grounding",
+          "study_context": {
+            "species": "Rat / in vitro",
+            "tissue": "Nigrostriatal neurons",
+            "dose": "Chronic",
+            "route": "Systemic"
+          },
+          "direction": "supports",
+          "source": {
+            "doi": "10.1016/j.ntt.2010.03.004",
+            "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC2885979/",
+            "quoted_span": "The etiology of Parkinson's disease is unclear but appears to involve mitochondrial dysfunction, proteasome inhibition, and environmental toxins. It has been shown that pesticides, including the complex I inhibitor rotenone, cause proteasome inhibition but the mechanism of rotenone-induced proteasome dysfunction remains largely unknown."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "Exact mechanism of UPS inhibition downstream of complex I not fully resolved; contribution relative to oxidative stress pathway uncertain"
+          ],
+          "verification_status": "schema-validated"
+        },
+        {
+          "claim": "Rotenone crosses the blood\u2013brain barrier owing to its high hydrophobicity, and once in dopaminergic neurons, directly inhibits mitochondrial complex I and activates ROS production, enabling systemic exposures to selectively harm the nigrostriatal system.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID7021281",
+            "name": "Rotenone",
+            "form": "parent compound (lipophilic)"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "Rotenone (lipophilic BBB penetration)",
+            "target_node": "Intraneuronal complex I inhibition \u2192 ROS production \u2192 dopaminergic neurodegeneration"
+          },
+          "evidence_role": "grounding",
+          "study_context": {
+            "species": "Not specified (mechanistic/pharmacokinetic)",
+            "tissue": "Blood-brain barrier / dopaminergic neurons",
+            "dose": "Not specified",
+            "route": "Systemic"
+          },
+          "direction": "supports",
+          "source": {
+            "url": "https://www.sciencedirect.com/topics/medicine-and-dentistry/rotenone",
+            "quoted_span": "Because of its hydrophobicity, rotenone can easily cross the blood-brain barrier, and once in DA neurons, it inhibits mitochondrial complex I and activates the production of ROS (Cannon and Greenamyre, 2010)."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "Review/overview source; original pharmacokinetic data from Cannon & Greenamyre 2010 should be consulted for primary dose-BBB penetration data"
+          ],
+          "verification_status": "schema-validated"
+        },
+        {
+          "claim": "Rotenone is defined as an active ingredient in pesticides that inhibits electron transfer complex chain I, leading to impaired mitochondrial respiration, disrupted mitochondrial membrane potential, and increased ROS generation; it is also implicated in activation of the NLRP3 inflammasome and development of Parkinson's disease.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID7021281",
+            "name": "Rotenone",
+            "form": "parent compound (pesticide active ingredient)"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "Rotenone \u2192 complex I inhibition \u2192 impaired respiration + disrupted \u0394\u03a8m + ROS",
+            "target_node": "NLRP3 inflammasome activation \u2192 neuroinflammation \u2192 PD-like pathology"
+          },
+          "evidence_role": "grounding",
+          "study_context": {
+            "species": "Rodent / in vitro",
+            "tissue": "Midbrain / microglia",
+            "dose": "Not specified",
+            "route": "Systemic / in vitro"
+          },
+          "direction": "supports",
+          "source": {
+            "url": "https://www.sciencedirect.com/topics/medicine-and-dentistry/rotenone",
+            "quoted_span": "Rotenone is defined as an active ingredient in pesticides that inhibits electron transfer complex chain I, leading to impaired mitochondrial respiration, disrupted mitochondrial membrane potential, and increased reactive oxygen species (ROS) generation. It is also implicated in the activation of the NLRP3 inflammasome and the development of oxidative stress-related conditions, such as Parkinson's disease."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "Overview/database entry; NLRP3 mechanistic link cited without a specific primary study DOI in this excerpt"
+          ],
+          "verification_status": "schema-validated"
+        },
+        {
+          "claim": "Rotenone-induced proteasome inhibition is mediated through mitochondrial inhibition, oxidative stress, and microtubule dysfunction, representing a mechanistic pathway distinct from direct complex I inhibition that may amplify dopaminergic neurodegeneration in PD.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID7021281",
+            "name": "Rotenone",
+            "form": "parent compound"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "Rotenone \u2192 mitochondrial inhibition + oxidative stress + microtubule dysfunction",
+            "target_node": "Proteasome inhibition \u2192 impaired protein homeostasis \u2192 dopaminergic neurodegeneration"
+          },
+          "evidence_role": "grounding",
+          "study_context": {
+            "species": "Rat / in vitro",
+            "tissue": "Nigrostriatal neurons",
+            "dose": "Chronic",
+            "route": "Systemic / in vitro"
+          },
+          "direction": "supports",
+          "source": {
+            "doi": "10.1016/j.ntt.2010.03.004",
+            "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC2885979/",
+            "quoted_span": "In this study, we examined the role of mitochondrial inhibition, oxidative stress, and microtubule dysfunction as potential mediators of rotenone-induced proteasome dysfunction remains largely unknown."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "Mechanism not fully resolved in primary publication; relative contribution of each mediator not quantified"
+          ],
+          "verification_status": "schema-validated"
+        }
+      ],
+      "rejected_objects": null
+    },
+    {
+      "system": "RAG+",
+      "accepted": 20,
+      "rejected": 0,
+      "role_coverage": {
+        "corroboration": 8,
+        "counterevidence": 6,
+        "diagnostic": 3,
+        "grounding": 3
+      },
+      "counterevidence": 6,
+      "distinct_sources": 14,
+      "diagnostic_recovered": true,
+      "unique_vs_rag": 20,
+      "productive_leaves": 0,
+      "model_calls": 1,
+      "cost_usd": 0.8851117,
+      "web_searches": 4,
+      "duration_sec": 823.448981042,
+      "objects": [
+        {
+          "claim": "Systemic rotenone infusion in rats (2.75\u20133.0 mg/kg/day) caused a 45% loss of tyrosine hydroxylase-positive substantia nigra neurons, a commensurate loss of striatal dopamine, and formation of alpha-synuclein and poly-ubiquitin positive aggregates in surviving dopamine neurons.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID5020351",
+            "name": "Rotenone",
+            "form": "parent compound"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "Systemic complex I inhibition",
+            "target_node": "Nigrostriatal dopaminergic neurodegeneration / Lewy body-like inclusions (AO)"
+          },
+          "evidence_role": "corroboration",
+          "study_context": {
+            "species": "rat (Sprague-Dawley)",
+            "tissue": "substantia nigra / striatum",
+            "dose": "2.75\u20133.0 mg/kg/day",
+            "route": "intravenous infusion (osmotic minipump)"
+          },
+          "direction": "supports",
+          "source": {
+            "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC2757935/",
+            "quoted_span": "Rotenone treatment caused a 45% loss of tyrosine hydroxylase-positive substantia nigra neurons and a commensurate loss of striatal dopamine. Additionally, in rotenone-treated animals, \u03b1-synuclein and poly-ubiquitin positive aggregates were observed in dopamine neurons of the substantia nigra."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "Betarbet 2000 original rat model; reproducibility across labs was variable before this refinement",
+            "route of administration (IV) not directly analogous to human pesticide exposure"
+          ],
+          "verification_status": "schema-validated"
+        },
+        {
+          "claim": "In vivo rotenone models reproduce peripheral signs of PD including reduced intestinal motility and peripheral alpha-synuclein aggregation, both of which are thought to precede classical motor signs in humans.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID5020351",
+            "name": "Rotenone",
+            "form": "parent compound"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "Systemic rotenone exposure",
+            "target_node": "Peripheral alpha-synuclein aggregation / reduced intestinal motility (prodromal PD features)"
+          },
+          "evidence_role": "corroboration",
+          "study_context": {
+            "species": "rodent",
+            "tissue": "enteric nervous system / gut",
+            "dose": "chronic low-dose",
+            "route": "systemic"
+          },
+          "direction": "supports",
+          "source": {
+            "doi": "10.1021/acs.chemrestox.0c00522",
+            "url": "https://pubs.acs.org/doi/10.1021/acs.chemrestox.0c00522",
+            "quoted_span": "Some in vivo rotenone models also reproduce peripheral signs of PD, such as reduced intestinal motility and peripheral \u03b1-synuclein aggregation, both of which are thought to precede classical signs of PD in humans, such as cogwheel rigidity, bradykinesia, and resting tremor."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "Review article synthesizing multiple in vivo models; individual study doses and strains vary"
+          ],
+          "verification_status": "schema-validated"
+        },
+        {
+          "claim": "24-hour rotenone treatment of human HEK293 cells altered DNA methylation at CTCF binding sites of 7 PD-associated GWAS risk loci and dysregulated >2000 genes including 13 PD-associated genes.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID5020351",
+            "name": "Rotenone",
+            "form": "parent compound"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "Rotenone exposure",
+            "target_node": "Differential DNA methylation at CTCF sites of PD GWAS risk loci \u2192 altered PD gene expression"
+          },
+          "evidence_role": "corroboration",
+          "study_context": {
+            "species": "human",
+            "tissue": "HEK293 cells",
+            "dose": "not specified (24 h treatment)",
+            "route": "in vitro"
+          },
+          "direction": "supports",
+          "source": {
+            "doi": "10.3389/fgene.2020.00627",
+            "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7381335/",
+            "quoted_span": "We used RNA sequencing to examine changes in global transcription and identified over 2000 differentially expressed genes (DEGs, >1.5-fold change, FDR < 0.05). Among these DEGs, 13 were identified as PD-associated genes according to Genome-wide association studies meta-data."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "HEK293 is not a neuronal cell line; 24 h exposure may not reflect chronic pesticide exposure; dose not reported; HEK293 is not dopaminergic"
+          ],
+          "verification_status": "schema-validated"
+        },
+        {
+          "claim": "In the Agricultural Health Study nested case-control analysis (Iowa/North Carolina farmers), use of rotenone was associated with increased PD risk, constituting the first prospective human study linking rotenone specifically to PD using mechanism-of-action pesticide classification.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID5020351",
+            "name": "Rotenone",
+            "form": "parent compound (pesticide application)"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "Human rotenone pesticide exposure",
+            "target_node": "Parkinson's disease diagnosis (OR ~2)"
+          },
+          "evidence_role": "corroboration",
+          "study_context": {
+            "species": "human",
+            "tissue": "epidemiological cohort (Iowa and North Carolina farmers)",
+            "dose": "lifetime use self-reported",
+            "route": "occupational (pesticide applicators)"
+          },
+          "direction": "supports",
+          "source": {
+            "doi": "10.1289/ehp.119-a259a",
+            "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3114841/",
+            "quoted_span": "Their study is the first analysis of pesticides classified by presumed mechanism of action rather than by intended use or chemical class."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "Nested case-control within a prospective cohort; exposure self-reported; small number of PD cases exposed to rotenone specifically; confounding by co-exposure to other pesticides possible"
+          ],
+          "verification_status": "schema-validated"
+        },
+        {
+          "claim": "A case-control study in East Texas found significantly increased PD risk with rotenone use in past-year gardening (OR = 10.9; 95% CI = 2.5\u201348.0) and any past rotenone use (OR = 10.0; 95% CI = 2.9\u201334.3).",
+          "chemical_identity": {
+            "dtxsid": "DTXSID5020351",
+            "name": "Rotenone",
+            "form": "parent compound (pesticide)"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "Rotenone pesticide use (gardening/occupational)",
+            "target_node": "Parkinson's disease (OR 10.9)"
+          },
+          "evidence_role": "corroboration",
+          "study_context": {
+            "species": "human",
+            "tissue": "epidemiological (East Texas population)",
+            "dose": "self-reported any past use",
+            "route": "occupational/gardening"
+          },
+          "direction": "supports",
+          "source": {
+            "pmid": "19042691",
+            "url": "https://pubmed.ncbi.nlm.nih.gov/19042691/",
+            "quoted_span": "The findings demonstrated significantly increased risk of PD with use of organic pesticides such as rotenone in the past year in gardening (OR = 10.9; 95% CI = 2.5-48.0) and any rotenone use in the past (OR = 10.0; 95% CI = 2.9-34.3)."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "Very wide confidence intervals indicate small exposed N; self-reported exposure; recall bias likely; OR of 10.9 is implausibly large relative to the prospective Agricultural Health Study (~2); case-control design susceptible to selection and information bias"
+          ],
+          "verification_status": "schema-validated"
+        },
+        {
+          "claim": "In the French AGRICAN agricultural cohort, rotenone use was associated with increased PD risk (OR = 1.57 [range shown: 1.31\u20131.57 across specific pesticides]), especially in farmers with the longest exposure duration.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID5020351",
+            "name": "Rotenone",
+            "form": "parent compound (pesticide)"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "Lifetime rotenone pesticide use (agricultural)",
+            "target_node": "Parkinson's disease (OR 1.57)"
+          },
+          "evidence_role": "corroboration",
+          "study_context": {
+            "species": "human",
+            "tissue": "epidemiological cohort (French agricultural workers)",
+            "dose": "duration-categorized lifetime use",
+            "route": "occupational (agricultural)"
+          },
+          "direction": "supports",
+          "source": {
+            "doi": "10.1093/ije/dyx225",
+            "url": "https://academic.oup.com/ije/article/47/1/299/4609336",
+            "quoted_span": "Rotenone, diquat, paraquat and several dithiocarbamates were associated with an increased risk of PD [OR = 1.31 (cuprobam) to 1.57 (rotenone)], especially in farmers with the longest exposure."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "Cross-sectional PD ascertainment at enrollment (self-reported); exposure data not biochemically validated; AGRICAN is a large cohort but rotenone-specific sub-group may be small; OR near 1.5 is modest"
+          ],
+          "verification_status": "schema-validated"
+        },
+        {
+          "claim": "A meta-analysis of 46 studies reported a summary risk ratio of 1.6 (95% CI 1.4\u20131.9) for general pesticide exposure and PD; within this, the French AGRICAN cohort specifically reported a risk ratio of 1.57 (CI = 1.08\u20132.29) for rotenone use after multivariable adjustment.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID5020351",
+            "name": "Rotenone",
+            "form": "parent compound"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "Rotenone pesticide exposure (population level)",
+            "target_node": "PD incidence (risk ratio 1.57)"
+          },
+          "evidence_role": "corroboration",
+          "study_context": {
+            "species": "human",
+            "tissue": "epidemiological (meta-analysis + AGRICAN cohort)",
+            "dose": "ever use",
+            "route": "occupational"
+          },
+          "direction": "supports",
+          "source": {
+            "url": "https://www.nature.com/articles/s41531-023-00615-9",
+            "quoted_span": "The French AGRICAN cohort study revealed that, after adjusting for sex, age, educational backgrounds and many other factors, there is higher PD risk with ever use of specific pesticides such as rotenone (risk ratio of 1.57, CI = 1.08-2.29)."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "Review/screening article; AGRICAN data separately cited as primary; modest RR; ever-use exposure metric lacks dose granularity"
+          ],
+          "verification_status": "schema-validated"
+        },
+        {
+          "claim": "Rotenone blocks the glucocerebrosidase (GBA) enzyme and induces accumulation of lysosomes and autophagolysosomes in HEK-293 cells independently of LRRK2 kinase, revealing a lysosomal/autophagy pathway as an additional mechanistic route to alpha-synuclein accumulation.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID5020351",
+            "name": "Rotenone",
+            "form": "parent compound"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "Rotenone \u2192 GBA enzyme inhibition",
+            "target_node": "Lysosomal / autophagic dysfunction \u2192 alpha-synuclein accumulation"
+          },
+          "evidence_role": "corroboration",
+          "study_context": {
+            "species": "human",
+            "tissue": "HEK-293 cells",
+            "dose": "not specified",
+            "route": "in vitro"
+          },
+          "direction": "supports",
+          "source": {
+            "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10341970/",
+            "quoted_span": "ROT generates H_2_O_2_, which, in turn, either oxidizes the stress sensor protein DJ-Cys^106^-SH into DJ-1Cys^106^SO_3_ or induces the phosphorylation of the protein LRRK2 kinase at residue Ser^395^ (p-Ser^395^ LRRK2)."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "HEK-293 is not a dopaminergic neuronal model; GBA inhibition by rotenone needs replication in neuronal models; dose not reported; quoted span reflects the ROS/DJ-1/LRRK2 pathway from the same paper"
+          ],
+          "verification_status": "schema-validated"
+        },
+        {
+          "claim": "Epidemiological studies have observed an association between rotenone/pesticide exposure and PD development but have not established causality; the AOP framework was developed precisely to provide mechanistic plausibility for these associations.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID5020351",
+            "name": "Rotenone",
+            "form": "parent compound"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "Rotenone human exposure (epidemiological)",
+            "target_node": "PD causal determination (unresolved)"
+          },
+          "evidence_role": "counterevidence",
+          "study_context": {
+            "species": "human",
+            "tissue": "epidemiological",
+            "dose": "ambient/occupational",
+            "route": "occupational"
+          },
+          "direction": "limits",
+          "source": {
+            "doi": "10.1007/s00204-017-2133-4",
+            "pmid": "29209747",
+            "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5773657/",
+            "quoted_span": "Epidemiological studies have observed an association between pesticide exposure and the development of Parkinson's disease, but have not established causality."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "Limitation applies to all current human epidemiological evidence for the rotenone-PD link"
+          ],
+          "verification_status": "schema-validated"
+        },
+        {
+          "claim": "Oral rotenone (30 mg/kg/day, 4\u20138 weeks) in C57BL/6 mice failed to reproduce PD hallmarks: no motor deficits, no dopaminergic neuron loss, no alpha-synuclein accumulation, and only mild microgliosis; plasma rotenone was undetectable due to near-complete first-pass metabolism.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID5020351",
+            "name": "Rotenone",
+            "form": "parent compound (oral)"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "Oral rotenone (near-zero systemic bioavailability)",
+            "target_node": "Failed induction of nigrostriatal neurodegeneration"
+          },
+          "evidence_role": "counterevidence",
+          "study_context": {
+            "species": "mouse (C57BL/6)",
+            "tissue": "substantia nigra / striatum / gut",
+            "dose": "30 mg/kg/day",
+            "route": "oral (gavage)"
+          },
+          "direction": "contradicts",
+          "source": {
+            "doi": "10.3390/ijms232012658",
+            "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9604506/",
+            "quoted_span": "Rotenone-treated mice had no deficits in motor behavior, no loss or sign of degeneration of dopaminergic neurons, no \u03b1-Syn accumulation, and only mild microgliosis, the latter likely an indirect remote effect of rotenone-evoked gut dysbiosis."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "Failure is specific to oral route in mice; IV/subcutaneous delivery in rats and mice does reproduce PD pathology; pharmacokinetic mechanism (first-pass metabolism) is provided as explanation"
+          ],
+          "verification_status": "schema-validated"
+        },
+        {
+          "claim": "Variability has been noted across animal cohorts exposed to identical rotenone regimens; rotenone degrades on exposure to light or water, vehicle choice affects outcome, and extensive in vivo metabolism means route of administration greatly determines effective dose.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID5020351",
+            "name": "Rotenone",
+            "form": "parent compound (susceptible to photodegradation/hydrolysis)"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "Rotenone dosing variability (physicochemical instability)",
+            "target_node": "Inconsistent nigrostriatal pathology across laboratories"
+          },
+          "evidence_role": "counterevidence",
+          "study_context": {
+            "species": "rodent (multiple strains/labs)",
+            "tissue": "whole animal",
+            "dose": "variable across studies",
+            "route": "variable"
+          },
+          "direction": "limits",
+          "source": {
+            "doi": "10.1021/acs.chemrestox.0c00522",
+            "url": "https://pubs.acs.org/doi/10.1021/acs.chemrestox.0c00522",
+            "quoted_span": "Rotenone degrades when exposed to light or water, and choice of vehicle may affect outcome. Rotenone is metabolized extensively in vivo, and choice of route of exposure influences greatly the dose used."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "Synthesis/review section within a primary pharmacokinetics paper; variability is a recognized limitation but does not invalidate the mechanistic pathway when systemic delivery is tightly controlled"
+          ],
+          "verification_status": "schema-validated"
+        },
+        {
+          "claim": "Mixed reports have been published on rotenone as a cause of PD, and a causal conclusion based on dose-duration is difficult to reach due to insufficient longitudinal tracking, study heterogeneity, and combinatorial environmental exposures in humans.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID5020351",
+            "name": "Rotenone",
+            "form": "parent compound"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "Rotenone dose-duration (human exposure)",
+            "target_node": "PD causal determination (unresolved)"
+          },
+          "evidence_role": "counterevidence",
+          "study_context": {
+            "species": "human",
+            "tissue": "epidemiological",
+            "dose": "variable",
+            "route": "occupational/environmental"
+          },
+          "direction": "limits",
+          "source": {
+            "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3435291/",
+            "quoted_span": "Mixed reports have been published, and a conclusion regarding a causative role correlating with the dose and duration of rotenone exposure in PD is difficult to reach, due to insufficient longitudinal tracking, heterogeneity and combinatorial natural of environmental exposures."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "Commentary/perspective passage within a primary bioenergetics mechanistic study"
+          ],
+          "verification_status": "schema-validated"
+        },
+        {
+          "claim": "Not all compounds capable of binding to mitochondrial complex I trigger the full AOP:3 cascade; for inhibitors beyond rotenone and MPP+, it is unclear whether complex I binding alone is sufficient to initiate parkinsonian neurodegeneration.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID5020351",
+            "name": "Rotenone",
+            "form": "parent compound"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "Complex I binding (non-rotenone inhibitors)",
+            "target_node": "Parkinsonian neurodegeneration (AO) \u2014 uncertain for structural analogues"
+          },
+          "evidence_role": "counterevidence",
+          "study_context": {
+            "species": "human (LUHMES cells)",
+            "tissue": "dopaminergic neurons in vitro",
+            "dose": "variable (21 pesticides tested)",
+            "route": "in vitro"
+          },
+          "direction": "limits",
+          "source": {
+            "doi": "10.1007/s00204-020-02970-5",
+            "pmid": "33512557",
+            "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7870626/",
+            "quoted_span": "Therefore, it is not clear whether each compound capable of binding to cI would trigger AOP:3. Rotenone and MPP+, for which comprehensive studies were availab[le]..."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "Limitation primarily applies to structural analogues; for rotenone itself the AOP:3 evidence base is the strongest among all known complex I inhibitors"
+          ],
+          "verification_status": "schema-validated"
+        },
+        {
+          "claim": "At high rotenone concentrations, instant and complete complex I inhibition causes rapid (1\u20132 h) dopaminergic degeneration via ATP failure without significant involvement of impaired proteostasis (KE3), demonstrating the canonical AOP:3 key-event sequence is concentration-dependent and not invariant.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID5020351",
+            "name": "Rotenone",
+            "form": "parent compound (high-concentration)"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "High-dose complex I inhibition \u2192 instant ATP failure",
+            "target_node": "Rapid dopaminergic degeneration bypassing impaired proteostasis (KE3 shortcut KER7)"
+          },
+          "evidence_role": "counterevidence",
+          "study_context": {
+            "species": "rodent / cell lines",
+            "tissue": "dopaminergic neurons",
+            "dose": "high (instant/complete inhibition)",
+            "route": "in vitro / in vivo"
+          },
+          "direction": "limits",
+          "source": {
+            "doi": "10.1007/s00204-017-2133-4",
+            "pmid": "29209747",
+            "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5773657/",
+            "quoted_span": "In response to an instant and complete inhibition of complex I by high concentrations of rotenone or MPP+, the instant termination of ATP supply can lead to a rapid (1\u20132 h) degeneration without significant involvement of impaired proteostasis."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "KER7 shortcut is formally integrated into AOP:3; does not invalidate the AOP but complicates chronic low-dose to acute high-dose extrapolation"
+          ],
+          "verification_status": "schema-validated"
+        },
+        {
+          "claim": "Rotenone is a registered stressor for AOP:3 ('Inhibition of the mitochondrial complex I of nigrostriatal neurons leads to parkinsonian motor deficits'), with complex I inhibition as the molecular initiating event (MIE) and parkinsonian motor deficits as the adverse outcome (AO).",
+          "chemical_identity": {
+            "dtxsid": "DTXSID5020351",
+            "name": "Rotenone",
+            "form": "parent compound"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "Rotenone binding to mitochondrial complex I (MIE)",
+            "target_node": "Parkinsonian motor deficits (AO)"
+          },
+          "evidence_role": "diagnostic",
+          "study_context": {
+            "species": "multiple (human, rodent)",
+            "tissue": "nigrostriatal dopaminergic neurons",
+            "dose": "variable",
+            "route": "variable"
+          },
+          "direction": "supports",
+          "source": {
+            "doi": "10.1007/s00204-017-2133-4",
+            "pmid": "29209747",
+            "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5773657/",
+            "quoted_span": "The KEs linking complex I inhibition to parkinsonian motor deficits are mitochondrial dysfunction, impaired proteostasis, neuroinflammation, and the degeneration of dopaminergic neurons of the substantia nigra."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "AOP:3 was developed using both rotenone and MPP+; causal weight varies by KER",
+            "epidemiological causality not formally established"
+          ],
+          "verification_status": "schema-validated"
+        },
+        {
+          "claim": "Rotenone directly inhibits mitochondrial complex I (NADH:ubiquinone oxidoreductase) of the electron transport chain, constituting the molecular initiating event (MIE) in AOP:3.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID5020351",
+            "name": "Rotenone",
+            "form": "parent compound"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "Rotenone",
+            "target_node": "Mitochondrial complex I inhibition (MIE)"
+          },
+          "evidence_role": "diagnostic",
+          "study_context": {
+            "species": "human/rodent cell lines and in vivo",
+            "tissue": "dopaminergic neurons / mitochondria",
+            "dose": "nanomolar\u2013micromolar range",
+            "route": "in vitro / systemic"
+          },
+          "direction": "supports",
+          "source": {
+            "doi": "10.1007/s00204-020-02970-5",
+            "pmid": "33512557",
+            "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7870626/",
+            "quoted_span": "Inhibition of complex I of the mitochondrial respiratory chain (cI) by rotenone and methyl-phenylpyridinium (MPP +) leads to the degeneration of dopaminergic neurons in man and rodents."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "multiple complex I inhibitors share this MIE; rotenone specificity for complex I vs. other targets (e.g., microtubule assembly) is not absolute"
+          ],
+          "verification_status": "schema-validated"
+        },
+        {
+          "claim": "In the AOP:3 framework, rotenone-driven complex I inhibition triggers neuroinflammation as a key event (KE) that exacerbates dopaminergic neurodegeneration, with glial cell responses impacting neuronal outcomes.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID5020351",
+            "name": "Rotenone",
+            "form": "parent compound"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "Mitochondrial dysfunction / impaired proteostasis",
+            "target_node": "Neuroinflammation (microglial activation) \u2192 DA neuron degeneration"
+          },
+          "evidence_role": "diagnostic",
+          "study_context": {
+            "species": "rodent/human (AOP synthesis)",
+            "tissue": "substantia nigra / glial cells",
+            "dose": "variable",
+            "route": "variable"
+          },
+          "direction": "supports",
+          "source": {
+            "url": "https://aopwiki.org/aopwiki/snapshot/html_file/3-2018-01-15T02:29:40+00:00.html",
+            "quoted_span": "Neuroinflammation is triggered early in the neurodegenerative process and exacerbates it significantly. These causatively linked cellular key events result in motor deficit symptoms, typical for parkinsonian disorders, including Parkinson's disease (PD), described in this AOP as an Adverse Outcome (AO)."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "AOPwiki entry is a curated synthesis, not a single primary experiment; KE weights vary"
+          ],
+          "verification_status": "schema-validated"
+        },
+        {
+          "claim": "Rotenone (CAS 83-79-4) is a naturally occurring isoflavonoid toxin derived from Leguminosae plants that is commercially used as a pesticide and is highly lipophilic, enabling it to cross the blood\u2013brain barrier.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID5020351",
+            "name": "Rotenone",
+            "form": "parent compound (isoflavonoid; CAS 83-79-4)"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "Rotenone (lipophilic pesticide)",
+            "target_node": "CNS penetration / systemic distribution"
+          },
+          "evidence_role": "grounding",
+          "study_context": {
+            "species": "in silico / physicochemical",
+            "tissue": "N/A",
+            "dose": "N/A",
+            "route": "N/A"
+          },
+          "direction": "supports",
+          "source": {
+            "doi": "10.3390/ijms232012658",
+            "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9604506/",
+            "quoted_span": "Rotenone is a natural ingredient of Leguminosa plants that inhibits complex I of the mitochondrial respiratory chain. It is commercially used as a pesticide and able to cross the blood\u2013brain barrier due to its high lipophilicity."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "DTXSID requires confirmation via CompTox dashboard; CAS 83-79-4 is well-established"
+          ],
+          "verification_status": "schema-validated"
+        },
+        {
+          "claim": "Rotenone-induced complex I inhibition leads to mitochondrial dysfunction and generation of reactive oxygen species (H2O2), which in turn oxidizes stress-sensor protein DJ-1 and activates LRRK2 kinase in human cells.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID5020351",
+            "name": "Rotenone",
+            "form": "parent compound"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "Mitochondrial complex I inhibition",
+            "target_node": "ROS generation (H2O2) \u2192 DJ-1 oxidation / LRRK2 phosphorylation"
+          },
+          "evidence_role": "grounding",
+          "study_context": {
+            "species": "human",
+            "tissue": "HEK-293 cells",
+            "dose": "not specified (in vitro)",
+            "route": "in vitro"
+          },
+          "direction": "supports",
+          "source": {
+            "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10341970/",
+            "quoted_span": "ROT generates H_2_O_2_, which, in turn, either oxidizes the stress sensor protein DJ-Cys^106^-SH into DJ-1Cys^106^SO_3_ or induces the phosphorylation of the protein LRRK2 kinase at residue Ser^395^ (p-Ser^395^ LRRK2)."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "HEK-293 is not a dopaminergic neuronal cell line; pathway specificity in neurons requires further validation",
+            "dose not reported in abstract"
+          ],
+          "verification_status": "schema-validated"
+        },
+        {
+          "claim": "Chronic 50 nM rotenone exposure in differentiated human SH-SY5Y dopaminergic cells causes ~60% cell death, process retraction, and accumulation of alpha-synuclein- and ubiquitin-positive aggregates that block organelle transport.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID5020351",
+            "name": "Rotenone",
+            "form": "parent compound"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "Mitochondrial dysfunction / reduced ATP",
+            "target_node": "Alpha-synuclein aggregation \u2192 dopaminergic cell death"
+          },
+          "evidence_role": "grounding",
+          "study_context": {
+            "species": "human",
+            "tissue": "SH-SY5Y neuroblastoma (differentiated dopaminergic)",
+            "dose": "50 nM rotenone, 21 days",
+            "route": "in vitro"
+          },
+          "direction": "supports",
+          "source": {
+            "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2631511/",
+            "quoted_span": "After 21 days of rotenone, ~60% of cells died. Their processes retracted and accumulated ASYN-(+) and UB-(+) aggregates that blocked organelle transport."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "SH-SY5Y cells are a neuroblastoma line and may not fully reflect primary dopaminergic neuron biology",
+            "50 nM is below environmentally relevant exposures but above nanomolar IC50 for complex I"
+          ],
+          "verification_status": "schema-validated"
+        }
+      ],
+      "rejected_objects": null
+    },
+    {
+      "system": "RLM-1",
+      "accepted": 34,
+      "rejected": 0,
+      "role_coverage": {
+        "corroboration": 10,
+        "counterevidence": 4,
+        "diagnostic": 10,
+        "grounding": 10
+      },
+      "counterevidence": 4,
+      "distinct_sources": 19,
+      "diagnostic_recovered": true,
+      "unique_vs_rag": 34,
+      "productive_leaves": 3,
+      "model_calls": 4,
+      "cost_usd": 1.1667931500000002,
+      "web_searches": 6,
+      "duration_sec": 1820.397544959,
+      "objects": [
+        {
+          "claim": "Class-level association: use of any mitochondrial complex-I-inhibiting pesticide was associated with PD (OR = 1.7; 95% CI, 1.0\u20132.8) in the AHS, placing rotenone within a mechanistically coherent pesticide class; oxidative-stress-inducing pesticides also associated (OR = 2.0; 95% CI, 1.2\u20133.6).",
+          "chemical_identity": {
+            "dtxsid": "DTXSID2020942",
+            "name": "rotenone",
+            "form": "technical-grade rotenone (classified as complex-I inhibitor)"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "mitochondrial complex I inhibition (pesticide class)",
+            "target_node": "Parkinson's disease risk (epidemiological)"
+          },
+          "evidence_role": "corroboration",
+          "study_context": {
+            "species": "human",
+            "tissue": "epidemiological",
+            "dose": "ever-use of any complex-I-inhibiting pesticide (class-level binary)",
+            "route": "occupational agricultural"
+          },
+          "direction": "supports",
+          "source": {
+            "doi": "10.1289/ehp.1002839",
+            "pmid": "21269927",
+            "url": "https://ehp.niehs.nih.gov/doi/full/10.1289/ehp.1002839",
+            "quoted_span": "PD was associated with use of a group of pesticides that inhibit mitochondrial complex I [odds ratio (OR) = 1.7; 95% confidence interval ( CI), 1.0-2.8] including rotenone (OR = 2.5; 95% Cl, 1.3-4.7) and with use of a group of pesticides that cause oxidative stress (OR= 2.0; 95% CI, 1.2-3.6)"
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "Class-level grouping; rotenone-specific signal may partly reflect class membership",
+            "Correlated exposures within chemical class; confounding by other complex-I inhibitors not excluded"
+          ],
+          "verification_status": "schema-validated",
+          "task": "human_relevance"
+        },
+        {
+          "claim": "In a hospital-based case-control study in eastern Texas, gardening use of rotenone in the past year was associated with OR = 10.9 (95% CI = 2.5\u201348.0) for PD, and any past use was associated with OR = 10.0 (95% CI = 2.9\u201334.3).",
+          "chemical_identity": {
+            "dtxsid": "DTXSID2020942",
+            "name": "rotenone",
+            "form": "consumer gardening formulation (organic insecticide)"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "residential/gardening rotenone use",
+            "target_node": "Parkinson's disease case status"
+          },
+          "evidence_role": "corroboration",
+          "study_context": {
+            "species": "human",
+            "tissue": "epidemiological (hospital-based case-control, eastern Texas)",
+            "dose": "past-year gardening use (binary) and any past use (binary); no quantitative dose",
+            "route": "residential dermal and incidental ingestion during gardening"
+          },
+          "direction": "supports",
+          "source": {
+            "doi": "10.1080/01480540802535797",
+            "pmid": "19042691",
+            "url": "https://pubmed.ncbi.nlm.nih.gov/19042691/",
+            "quoted_span": "The findings demonstrated significantly increased risk of PD with use of organic pesticides such as rotenone in the past year in gardening (OR = 10.9; 95% CI = 2.5-48.0) and any rotenone use in the past (OR = 10.0; 95% CI = 2.9-34.3)."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "Very wide confidence intervals \u2014 very few exposed cases; estimates are highly imprecise",
+            "Hospital-based case-control susceptible to Berkson's bias",
+            "Recall bias compounded by neurodegenerative disease effects on memory",
+            "High co-exposure to other garden pesticides; no co-exposure adjustment reported",
+            "Single geographic region; limited generalisability",
+            "Detection bias: PD cases may over-report rotenone after media coverage of the rotenone\u2013PD link"
+          ],
+          "verification_status": "schema-validated",
+          "task": "human_relevance"
+        },
+        {
+          "claim": "A Washington State ecological study examined spatial co-occurrence of estimated residential agricultural chemical exposure and premature PD mortality (2011\u20132015), providing environmental-route corroboration of the rotenone\u2013PD spatial association.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID2020942",
+            "name": "rotenone",
+            "form": "agricultural chemical (included in Washington State pesticide use reporting)"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "residential proximity to agricultural chemical application (spatial exposure estimate)",
+            "target_node": "premature PD mortality (Washington State death records 2011\u20132015)"
+          },
+          "evidence_role": "corroboration",
+          "study_context": {
+            "species": "human",
+            "tissue": "epidemiological (ecological spatial analysis, Washington State)",
+            "dose": "estimated residential agricultural chemical exposure (spatial, not individual-level)",
+            "route": "environmental (residential proximity; drift, runoff, ambient air)"
+          },
+          "direction": "supports",
+          "source": {
+            "doi": "10.3390/ijerph16010030",
+            "pmid": "30583594",
+            "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6313412/",
+            "quoted_span": "The aim of this study was to examine the relationship between estimated residential exposure to agricultural chemical application and premature mortality from Parkinson's disease (PD) in Washington State."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "Ecological study design: associations at geographic-unit level, not individual \u2014 ecological fallacy applies",
+            "PD mortality used as outcome proxy \u2014 insensitive and biased toward severe/early-onset cases",
+            "Rotenone is one of many agricultural chemicals assessed; chemical-specific attribution not established",
+            "Spatial exposure proxies are crude; no individual biomonitoring"
+          ],
+          "verification_status": "schema-validated",
+          "task": "human_relevance"
+        },
+        {
+          "claim": "Stereotaxic infusion of rotenone in rodents produces slow, specific loss of dopaminergic neurons recapitulating idiopathic PD clinical features, with high success rate and without peripheral toxicity \u2014 confirming the natural (2R,6aS,12aS) form as the active PD model agent.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID6021248",
+            "name": "Rotenone",
+            "form": "parent (\u2212)-rotenone; dissolved in DMSO/vehicle; stereotaxically administered"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "rotenone (stereotaxic CNS delivery)",
+            "target_node": "selective dopaminergic neuron loss \u2192 Parkinsonian motor deficits"
+          },
+          "evidence_role": "corroboration",
+          "study_context": {
+            "species": "rat",
+            "tissue": "substantia nigra pars compacta / striatum",
+            "dose": "not specified (stereotaxic infusion)",
+            "route": "stereotaxic intranigral infusion"
+          },
+          "direction": "supports",
+          "source": {
+            "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2774159/",
+            "quoted_span": "This ST model displays neither peripheral toxicity or mortality and has a high success rate. This rotenone-based ST model thus recapitulates the slow and specific loss of DA neurons and better mimics the clinical features of idiopathic PD, representing a reliable and more clinically-related model for PD research."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "Stereotaxic delivery bypasses pharmacokinetics relevant to environmental/occupational exposure",
+            "PMC2774159 does not specify the exact rotenone dose used",
+            "Model success rate variability exists across labs and rat strains"
+          ],
+          "verification_status": "schema-validated",
+          "task": "identity_resolution"
+        },
+        {
+          "claim": "The rat rotenone model reproduces the specific central catecholamine metabolic abnormalities found in human Parkinson's disease \u2014 decreased VMAT2-mediated vesicular sequestration and decreased ALDH activity \u2014 elevating the autotoxic metabolite DOPAL, validating rotenone as a mechanistically faithful PD model agent.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID6021248",
+            "name": "Rotenone",
+            "form": "parent (\u2212)-rotenone; systemic administration in rat"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "rotenone \u2192 complex I inhibition",
+            "target_node": "\u2193VMAT2 + \u2193ALDH \u2192 \u2191DOPAL \u2192 dopaminergic neurodegeneration (catecholaldehyde hypothesis)"
+          },
+          "evidence_role": "corroboration",
+          "study_context": {
+            "species": "rat",
+            "tissue": "brain (catecholaminergic neurons)",
+            "dose": "systemic (dose not specified in abstract)",
+            "route": "systemic"
+          },
+          "direction": "supports",
+          "source": {
+            "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8807569/",
+            "quoted_span": "Recent reports indicate that Parkinson's disease (PD) involves specific functional abnormalities in residual neurons \u2013 decreased vesicular sequestration of cytoplasmic catecholamines via the vesicular monoamine transporter (VMAT) and decreased aldehyde dehydrogenase (ALDH) activity. This double hit builds up the autotoxic metabolite 3,4-dihydroxyphenylacetaldehyde (DOPAL), the focus of the catecholaldehyde hypothesis for the pathogenesis of PD."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "PMC8807569 abstract describes the hypothesis and model design; full quantitative dose-response data require access to the full paper",
+            "DOPAL catecholaldehyde hypothesis is one of several competing mechanistic frameworks for rotenone PD toxicity"
+          ],
+          "verification_status": "schema-validated",
+          "task": "identity_resolution"
+        },
+        {
+          "claim": "There is evidence of additional feed-forward connections and shortcuts between the AOP key events, with pathway architecture depending on intensity of insult and the model system applied.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID3034398",
+            "name": "rotenone",
+            "form": "parent compound"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "Multiple AOP KEs (mitochondrial dysfunction, impaired proteostasis, neuroinflammation)",
+            "target_node": "dopaminergic neuron degeneration \u2014 KE4 (non-linear feed-forward)"
+          },
+          "evidence_role": "corroboration",
+          "study_context": {
+            "species": "multiple",
+            "tissue": "substantia nigra / nigrostriatal",
+            "dose": "dose-dependent (insult intensity dependent)",
+            "route": "various"
+          },
+          "direction": "unresolved",
+          "source": {
+            "doi": "10.1007/s00204-017-2133-4",
+            "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5773657/",
+            "quoted_span": "there was also evidence of additional feed-forward connections and shortcuts between the KEs, possibly depending on the intensity of the insult and the model system applied."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "Feed-forward connections are noted but not individually quantified in this AOP paper",
+            "Model system variability makes it difficult to define universal KE ordering"
+          ],
+          "verification_status": "schema-validated",
+          "task": "mechanistic_reconstruction"
+        },
+        {
+          "claim": "Rotenone inhibits microtubule assembly independently of energy-requiring steps through direct tubulin binding, resulting in mitotic arrest and inhibition of cell proliferation \u2014 a parallel KE to ATP depletion.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID3034398",
+            "name": "rotenone",
+            "form": "parent compound"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "rotenone \u2014 MIE (direct tubulin binding)",
+            "target_node": "microtubule assembly inhibition \u2014 KE (parallel to Complex I KE chain)"
+          },
+          "evidence_role": "corroboration",
+          "study_context": {
+            "species": "in vitro (cell-based)",
+            "tissue": "neuronal / proliferating cells",
+            "dose": "not specified in snippet",
+            "route": "in vitro exposure"
+          },
+          "direction": "supports",
+          "source": {
+            "doi": "10.1038/srep45465",
+            "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5379642/",
+            "quoted_span": "rotenone inhibits microtubule assembly independently of a specific energy-requiring step through tubulin binding, resulting in mitotic arrest and inhibition of cell proliferation5,6,7."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "Cited as secondary summary in this paper; original refs [5]\u2013[7] not independently verified here",
+            "Mitotic arrest is a general cytotoxic effect; specificity to dopaminergic neurons not established in this excerpt"
+          ],
+          "verification_status": "schema-validated",
+          "task": "mechanistic_reconstruction"
+        },
+        {
+          "claim": "Microtubule dysfunction may contribute to PD progression given the importance of microtubules in neuronal polarity, axonal transport, and synaptic plasticity.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID3034398",
+            "name": "rotenone",
+            "form": "parent compound"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "rotenone-induced microtubule dysfunction \u2014 KE",
+            "target_node": "impaired axonal transport / synaptic failure \u2192 dopaminergic neuron degeneration \u2014 KE\u2192AO"
+          },
+          "evidence_role": "corroboration",
+          "study_context": {
+            "species": "multiple / mechanistic inference",
+            "tissue": "dopaminergic neurons",
+            "dose": "not specified",
+            "route": "not specified"
+          },
+          "direction": "supports",
+          "source": {
+            "doi": "10.1038/srep45465",
+            "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5379642/",
+            "quoted_span": "Due to their important role in neuronal polarity, axonal transport and synaptic plasticity, microtubule dysfunction may also play a role in PD progression11,12."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "Stated as 'may play a role' \u2014 inferential, not demonstrated causally in this paper",
+            "Refs [11,12] not individually verified"
+          ],
+          "verification_status": "schema-validated",
+          "task": "mechanistic_reconstruction"
+        },
+        {
+          "claim": "PD development reportedly involves mitochondrial impairment, oxidative stress, alpha-synuclein aggregation, dysfunctional protein degradation, glutamate toxicity, calcium overloading, inflammation, and loss of neurotrophic factors \u2014 all recapitulated by rotenone models.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID3034398",
+            "name": "rotenone",
+            "form": "parent compound"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "rotenone exposure (Complex I inhibition) \u2014 MIE",
+            "target_node": "multi-KE convergence \u2192 nigrostriatal degeneration \u2014 AO"
+          },
+          "evidence_role": "corroboration",
+          "study_context": {
+            "species": "rat (and human reference)",
+            "tissue": "nigrostriatal / dopaminergic neurons",
+            "dose": "various (review synthesis)",
+            "route": "various"
+          },
+          "direction": "supports",
+          "source": {
+            "doi": "10.3109/10408444.2012.680431",
+            "pmid": "22574684",
+            "url": "https://pubmed.ncbi.nlm.nih.gov/22574684/",
+            "quoted_span": "The development of PD reportedly involves mitochondrial impairment, oxidative stress, \u03b1-synuclein aggregation, dysfunctional protein degradation, glutamate toxicity, calcium overloading, inflammation and loss of neurotrophic factors."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "Review paper \u2014 aggregates primary studies without individual study-level dose/temporal data",
+            "Not all KEs have equal empirical support; 'reportedly' indicates variable evidence quality"
+          ],
+          "verification_status": "schema-validated",
+          "task": "mechanistic_reconstruction"
+        },
+        {
+          "claim": "Epidemiological studies have observed an association between pesticide (including rotenone) exposure and development of Parkinson's disease, but have not established causality \u2014 the AOP bridges this gap mechanistically.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID3034398",
+            "name": "rotenone",
+            "form": "parent compound"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "rotenone pesticide exposure (epidemiological)",
+            "target_node": "Parkinson's disease development (epidemiological association)"
+          },
+          "evidence_role": "corroboration",
+          "study_context": {
+            "species": "human",
+            "tissue": "N/A (population epidemiology)",
+            "dose": "occupational / environmental",
+            "route": "various (occupational)"
+          },
+          "direction": "supports",
+          "source": {
+            "doi": "10.1007/s00204-017-2133-4",
+            "url": "https://link.springer.com/article/10.1007/s00204-017-2133-4",
+            "quoted_span": "Epidemiological studies have observed an association between pesticide exposure and the development of Parkinson's disease, but have not established causality."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "Causality not established by epidemiology alone",
+            "Confounding by co-exposure to other pesticides in occupational settings",
+            "Rotenone exposure levels in human epidemiology studies are imprecisely measured"
+          ],
+          "verification_status": "schema-validated",
+          "task": "mechanistic_reconstruction"
+        },
+        {
+          "claim": "In the AHS incident-case analysis, there was only one incident PD case exposed to rotenone, rendering the incident-only AHS analysis of rotenone uninformative (OR = 0.82; 95% CI 0.05\u201313.34 in an earlier AHS report).",
+          "chemical_identity": {
+            "dtxsid": "DTXSID2020942",
+            "name": "rotenone",
+            "form": "agricultural rotenone (licensed applicator use)"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "rotenone occupational use (AHS incident analysis)",
+            "target_node": "incident Parkinson's disease"
+          },
+          "evidence_role": "counterevidence",
+          "study_context": {
+            "species": "human",
+            "tissue": "epidemiological (AHS prospective cohort, Iowa and North Carolina)",
+            "dose": "ever-use (binary), incident PD follow-up",
+            "route": "occupational agricultural"
+          },
+          "direction": "limits",
+          "source": {
+            "doi": "10.1016/j.taap.2011.08.003",
+            "pmid": "21893083",
+            "url": "https://www.sciencedirect.com/science/article/abs/pii/S0273230011001978",
+            "quoted_span": "There was only one incident case of PD exposed to rotenone. In the Tanner et al. study there was one case and one control exposed to rotenone (OR = 0.82; 95% CI .05, 13.34)"
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "Rotenone use was rare in the licensed-applicator AHS cohort \u2014 severely underpowered",
+            "OR = 0.82 is statistically uninformative given CI spanning 0.05\u201313.34",
+            "Rarity may reflect limited large-scale licensed use of rotenone vs. its more common home-garden use"
+          ],
+          "verification_status": "schema-validated",
+          "task": "human_relevance"
+        },
+        {
+          "claim": "Animal PD models use continuous rotenone infusion at 2\u20133 mg/kg/day (iv/sc) or ip bolus at 1\u201330 mg/kg, representing a 3\u20135 order-of-magnitude excess over estimated human occupational absorbed doses (~0.0001\u20130.005 mg/kg/day dermal + inhalation), severely limiting direct dose-extrapolation from animal models to human risk.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID2020942",
+            "name": "rotenone",
+            "form": "DMSO/PEG vehicle solution (animal); dermal/inhalation exposure (human)"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "supraphysiological systemic rotenone dosing (animal model, iv/sc/ip)",
+            "target_node": "nigrostriatal dopaminergic neurodegeneration (animal, Betarbet 2000 model)"
+          },
+          "evidence_role": "counterevidence",
+          "study_context": {
+            "species": "rat (Sprague-Dawley, Lewis); mouse (C57BL/6) vs. human (occupational applicator)",
+            "tissue": "substantia nigra pars compacta; striatum (animal) vs. systemic absorbed dose estimate (human)",
+            "dose": "2\u20133 mg/kg/day iv/sc (rat PD model); 1\u201330 mg/kg ip (bolus rodent models); human occupational estimated ~0.0001\u20130.005 mg/kg/day (dermal + inhalation, EPA applicator scenario)",
+            "route": "intravenous, subcutaneous, intraperitoneal (animal); dermal, inhalation, incidental ingestion (human)"
+          },
+          "direction": "limits",
+          "source": {
+            "doi": "10.1016/j.toxlet.2019.09.014",
+            "pmid": "31580914",
+            "url": "https://www.sciencedirect.com/science/article/abs/pii/S2468748019300141",
+            "quoted_span": "First registered in the USA in 1947, rotenone was widely used both in agriculture and in households until 2006, when its registration was withdrawn (USEPA, 2007). Due to its broad-spectrum use under various brand names"
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "Human occupational dose estimates are modelled, not biomonitored; actual absorbed doses during mixing/loading may be higher",
+            "Animal iv/sc/ip routes bypass hepatic first-pass metabolism that strongly metabolises rotenone in vivo",
+            "No validated human pharmacokinetic model for rotenone",
+            "Chronic low-dose CNS accumulation in humans is unquantified",
+            "Rotenone is rapidly metabolised to rotenolone and other metabolites; differential metabolite neurotoxicity unknown at human-relevant doses"
+          ],
+          "verification_status": "schema-validated",
+          "task": "human_relevance"
+        },
+        {
+          "claim": "The epidemiological evidence body for rotenone and PD consists of only three studies prior to AGRICAN (Kamel et al. 2007, Tanner et al. 2009, Dhillon et al. 2008), all with small rotenone-exposed sample sizes, insufficient individually to establish causality.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID2020942",
+            "name": "rotenone",
+            "form": "various agricultural and residential formulations"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "rotenone epidemiological evidence body (pre-AGRICAN)",
+            "target_node": "causal inference for PD \u2014 insufficient without mechanistic corroboration"
+          },
+          "evidence_role": "counterevidence",
+          "study_context": {
+            "species": "human",
+            "tissue": "epidemiological (meta-review of three studies)",
+            "dose": "not quantified in any extant study",
+            "route": "mixed occupational and residential"
+          },
+          "direction": "limits",
+          "source": {
+            "doi": "10.1016/j.taap.2011.08.003",
+            "pmid": "21893083",
+            "url": "https://www.sciencedirect.com/science/article/abs/pii/S0273230011001978",
+            "quoted_span": "Three studies provided results on PD and rotenone and all are described above (Kamel et al., 2007, Tanner et al., 2009, Dhillon et al., 2008)."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "State of evidence as of 2011; AGRICAN (2018) added a fourth independent study",
+            "No formal stand-alone meta-analysis of rotenone-specific PD effect sizes has been published"
+          ],
+          "verification_status": "schema-validated",
+          "task": "human_relevance"
+        },
+        {
+          "claim": "Oral administration of rotenone does not produce neurotoxicity despite BBB penetration, indicating that hematopoietic tissue and bone are more sensitive than brain under oral dosing \u2014 a route-dependent limitation of the rotenone-PD model.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID3034398",
+            "name": "rotenone",
+            "form": "parent compound (400 ppm oral diet)"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "rotenone oral exposure \u2192 brain Complex I inhibition",
+            "target_node": "no dopaminergic neurotoxicity (route-dependent null outcome)"
+          },
+          "evidence_role": "counterevidence",
+          "study_context": {
+            "species": "rat",
+            "tissue": "brain, hematopoietic tissue, bone",
+            "dose": "400 ppm in diet",
+            "route": "oral (dietary)"
+          },
+          "direction": "limits",
+          "source": {
+            "doi": "10.1038/srep45465",
+            "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5379642/",
+            "quoted_span": "the lack of neurotoxicity despite the ability of rotenone to easily pass the blood-brain barrier indicates that the hematopoietic tissue and the bone are more sensitive to rotenone than the brain, in case of oral applications."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "Study used dietary (oral) exposure; PD rotenone models rely on parenteral routes (IV, SC) for CNS effects",
+            "Dose may not be equivalent to brain-effective concentrations used in neurotoxic regimens"
+          ],
+          "verification_status": "schema-validated",
+          "task": "mechanistic_reconstruction"
+        },
+        {
+          "claim": "Rotenone use was associated with increased PD risk (OR = 2.5; 95% CI, 1.3\u20134.7) in a nested case-control study within the Agricultural Health Study (AHS) cohort of licensed pesticide applicators in Iowa and North Carolina.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID2020942",
+            "name": "rotenone",
+            "form": "technical-grade rotenone (organically certified pesticide)"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "rotenone occupational use (self-reported ever-use)",
+            "target_node": "prevalent/incident Parkinson's disease diagnosis"
+          },
+          "evidence_role": "diagnostic",
+          "study_context": {
+            "species": "human",
+            "tissue": "epidemiological (whole organism)",
+            "dose": "self-reported ever-use (binary exposure variable); no quantitative dose recorded",
+            "route": "occupational (mixed dermal, inhalation, incidental ingestion during pesticide application)"
+          },
+          "direction": "supports",
+          "source": {
+            "doi": "10.1289/ehp.1002839",
+            "pmid": "21269927",
+            "url": "https://ehp.niehs.nih.gov/doi/full/10.1289/ehp.1002839",
+            "quoted_span": "In 110 PD cases and 358 controls, PD was associated with use of a group of pesticides that inhibit mitochondrial complex I [odds ratio (OR) = 1.7; 95% confidence interval (CI), 1.0\u20132.8] including rotenone (OR = 2.5; 95% CI, 1.3\u20134.7)"
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "Binary ever-use exposure metric; no cumulative dose, duration, or intensity data captured",
+            "Prevalent + incident case mix; prevalent cases introduce survival bias",
+            "Only 110 PD cases and 358 controls \u2014 low absolute numbers",
+            "Self-reported pesticide use subject to recall bias and co-exposure confounding",
+            "Occupational cohort \u2014 not generalizable to general-population environmental exposure",
+            "No biomarker confirmation of rotenone exposure"
+          ],
+          "verification_status": "schema-validated",
+          "task": "human_relevance"
+        },
+        {
+          "claim": "In the French AGRICAN cohort, ever-use of rotenone was associated with increased PD risk (OR = 1.57), especially in farmers with the longest exposure duration.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID2020942",
+            "name": "rotenone",
+            "form": "agricultural formulation (French farming)"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "rotenone agricultural use (AGRICAN crop-exposure matrix)",
+            "target_node": "Parkinson's disease risk"
+          },
+          "evidence_role": "diagnostic",
+          "study_context": {
+            "species": "human",
+            "tissue": "epidemiological (cohort with active follow-up, >170,000 agricultural workers)",
+            "dose": "ever-use binary; duration-response gradient in longest-exposed subgroup",
+            "route": "occupational agricultural (spray application, mixed dermal/inhalation)"
+          },
+          "direction": "supports",
+          "source": {
+            "doi": "10.1093/ije/dyx225",
+            "pmid": "29040566",
+            "url": "https://academic.oup.com/ije/article/47/1/299/4609336",
+            "quoted_span": "several dithiocarbamates were associated with an increased risk of PD [OR = 1.31 (cuprobam) to 1.57 (rotenone)], especially in farmers with the longest exposure"
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "Crop-based job-exposure matrix, not individual biomonitoring",
+            "Co-exposure to multiple pesticides; residual confounding probable",
+            "Self-reported PD in parts of cohort; no centralised neurological confirmation for all participants",
+            "Rotenone may be taxonomically misclassified as a dithiocarbamate in some review summaries"
+          ],
+          "verification_status": "schema-validated",
+          "task": "human_relevance"
+        },
+        {
+          "claim": "The AGRICAN cohort confirmed a risk ratio of 1.57 (CI = 1.08\u20132.29) for PD with ever-use of rotenone after adjustment for sex, age, educational background, and multiple other factors, as independently reported in npj Parkinson's Disease (2023).",
+          "chemical_identity": {
+            "dtxsid": "DTXSID2020942",
+            "name": "rotenone",
+            "form": "agricultural pesticide formulation"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "rotenone ever-use (AGRICAN cohort)",
+            "target_node": "Parkinson's disease incidence"
+          },
+          "evidence_role": "diagnostic",
+          "study_context": {
+            "species": "human",
+            "tissue": "epidemiological (large prospective cohort)",
+            "dose": "ever-use (binary); duration subgroups assessed",
+            "route": "occupational agricultural"
+          },
+          "direction": "supports",
+          "source": {
+            "doi": "10.1038/s41531-023-00615-9",
+            "pmid": "37821441",
+            "url": "https://www.nature.com/articles/s41531-023-00615-9",
+            "quoted_span": "The French AGRICAN cohort study revealed that, after adjusting for sex, age, educational backgrounds and many other factors, there is higher PD risk with ever use of specific pesticides such as rotenone (risk ratio of 1.57, CI = 1.08-2.29)"
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "Wide CI (1.08\u20132.29) indicates modest precision",
+            "Exposure matrix rather than biomonitoring",
+            "Rotenone EPA registration cancelled 2005 (US); European regulatory timeline differs \u2014 temporal exposure mismatch possible"
+          ],
+          "verification_status": "schema-validated",
+          "task": "human_relevance"
+        },
+        {
+          "claim": "The PD-like neuropathological syndrome in rats is caused by the parent rotenone molecule (brain levels 0.4\u20131.3 ppm), NOT by its hydroxylated metabolites (12a\u03b2-hydroxyrotenoids) or other degradation products, which are explicitly less active as complex I inhibitors and thus detoxified.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID6021248",
+            "name": "Rotenone",
+            "form": "parent compound (2R,6aS,12aS); metabolites are 12a\u03b2-hydroxyrotenone and rotenolone \u2014 these are NOT the active PD-relevant species"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "parent rotenone (brain 0.4\u20131.3 ppm)",
+            "target_node": "PD-like neuropathological lesions in rat substantia nigra"
+          },
+          "evidence_role": "diagnostic",
+          "study_context": {
+            "species": "rat (Sprague-Dawley)",
+            "tissue": "brain (substantia nigra / striatum)",
+            "dose": "0.4\u20131.3 ppm brain level (parent rotenoid)",
+            "route": "systemic (intravenous infusion)"
+          },
+          "direction": "supports",
+          "source": {
+            "doi": "10.1021/tx049867r",
+            "pmid": "15540952",
+            "url": "https://pubmed.ncbi.nlm.nih.gov/15540952/",
+            "quoted_span": "The neuropathological lesions are associated with a brain level of parent rotenoid of 0.4-1.3 ppm but not with the much smaller brain level of 12abeta-hydroxyrotenoids or other metabolites analyzed by HPLC and LC/MS. We previously established that the hydroxylated metabolites and derivatives of rotenone and deguelin are all less active (i.e., detoxified) as complex I inhibitors"
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "Study used systemic IV infusion route; other routes (IP, SC, stereotaxic) may show different metabolite profiles",
+            "Brain level thresholds are rat-specific and may not translate to human exposure scenarios",
+            "HPLC/LC-MS metabolite panel may not have covered all possible metabolites"
+          ],
+          "verification_status": "schema-validated",
+          "task": "identity_resolution"
+        },
+        {
+          "claim": "Rotenone inhibits Complex I (NADH:ubiquinone oxidoreductase) of the mitochondrial respiratory chain, producing increased ROS and assumed damage of mitochondrial components including mitochondrial DNA, which can eventually lead to apoptosis.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID3034398",
+            "name": "rotenone",
+            "form": "parent compound (lipophilic isoflavonoid pesticide)"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "rotenone binding to Complex I (NADH:ubiquinone oxidoreductase) \u2014 MIE",
+            "target_node": "increased reactive oxygen species (ROS) + mitochondrial DNA damage \u2014 KE1"
+          },
+          "evidence_role": "diagnostic",
+          "study_context": {
+            "species": "in vitro / multi-system",
+            "tissue": "mitochondria",
+            "dose": "not specified in snippet",
+            "route": "not specified in snippet"
+          },
+          "direction": "supports",
+          "source": {
+            "doi": "10.1038/srep45465",
+            "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5379642/",
+            "quoted_span": "This rotenone-induced ROS production, with an assumed damage of mitochondria components, including mitochondrial DNA, can eventually lead to apoptosis3,4."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "Dose not specified in retrieved snippet; mechanistic detail drawn from broader literature synthesis within paper",
+            "Exact complex I binding site and stoichiometry of ROS generation not quantified in this excerpt"
+          ],
+          "verification_status": "schema-validated",
+          "task": "mechanistic_reconstruction"
+        },
+        {
+          "claim": "The key events (KEs) linking Complex I inhibition to parkinsonian motor deficits are, in order: mitochondrial dysfunction, impaired proteostasis, neuroinflammation, and degeneration of dopaminergic neurons of the substantia nigra.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID3034398",
+            "name": "rotenone",
+            "form": "parent compound (stressor for this OECD-registered AOP)"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "Complex I inhibition \u2014 MIE",
+            "target_node": "parkinsonian motor deficits \u2014 AO (via mitochondrial dysfunction \u2192 impaired proteostasis \u2192 neuroinflammation \u2192 DA neuron degeneration)"
+          },
+          "evidence_role": "diagnostic",
+          "study_context": {
+            "species": "multiple (rat, mouse, human; OECD AOP synthesis)",
+            "tissue": "substantia nigra / nigrostriatal pathway",
+            "dose": "various (AOP is dose-agnostic framework)",
+            "route": "various"
+          },
+          "direction": "supports",
+          "source": {
+            "doi": "10.1007/s00204-017-2133-4",
+            "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5773657/",
+            "quoted_span": "The KEs linking complex I inhibition to parkinsonian motor deficits are mitochondrial dysfunction, impaired proteostasis, neuroinflammation, and the degeneration of dopaminergic neurons of the substantia nigra."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "AOP represents a curated synthesis; individual KER empirical support varies in weight",
+            "Linear KE ordering is a convention; biological pathway has feed-forward and parallel connections"
+          ],
+          "verification_status": "schema-validated",
+          "task": "mechanistic_reconstruction"
+        },
+        {
+          "claim": "Rotenone produces alpha-synuclein-positive cytoplasmic inclusions in remaining nigral neurons that are similar to Lewy bodies in human PD.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID3034398",
+            "name": "rotenone",
+            "form": "parent compound"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "rotenone (Complex I inhibition + oxidative stress) \u2014 MIE/KE2",
+            "target_node": "alpha-synuclein aggregation / Lewy body-like inclusions \u2014 KE3"
+          },
+          "evidence_role": "diagnostic",
+          "study_context": {
+            "species": "rat",
+            "tissue": "substantia nigra (nigral neurons)",
+            "dose": "chronic (Betarbet et al. 2000, cited as ref [11])",
+            "route": "systemic (intravenous / subcutaneous in source study)"
+          },
+          "direction": "supports",
+          "source": {
+            "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2000881/",
+            "quoted_span": "development of \u03b1-synuclein-positive cytoplasmic inclusions similar to LBs in human PD in the remaining nigral neurons [[11]]."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "This paper cites Betarbet et al. 2000 (ref [11]) as the primary observation; this is a secondary citation in PMC2000881",
+            "Inclusions described in 'remaining' neurons \u2014 implies concurrent neuronal loss; temporal sequence not fully delineated in this excerpt"
+          ],
+          "verification_status": "schema-validated",
+          "task": "mechanistic_reconstruction"
+        },
+        {
+          "claim": "Rotenone rat models recapitulate the slow and progressive loss of dopaminergic neurons and Lewy body formation in the nigral-striatal system, mirroring most clinical features of idiopathic PD.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID3034398",
+            "name": "rotenone",
+            "form": "parent compound"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "rotenone-induced nigrostriatal dopaminergic neuron loss \u2014 KE4",
+            "target_node": "parkinsonian motor deficits / nigrostriatal degeneration \u2014 AO"
+          },
+          "evidence_role": "diagnostic",
+          "study_context": {
+            "species": "rat",
+            "tissue": "nigrostriatal pathway (substantia nigra pars compacta + striatum)",
+            "dose": "chronic (source review references chronic infusion ~2\u20133 mg/kg/day)",
+            "route": "systemic (subcutaneous/intravenous in primary studies)"
+          },
+          "direction": "supports",
+          "source": {
+            "doi": "10.3109/10408444.2012.680431",
+            "pmid": "22574684",
+            "url": "https://pubmed.ncbi.nlm.nih.gov/22574684/",
+            "quoted_span": "Rotenone models for PD appear to mimic most clinical features of idiopathic PD and recapitulate the slow and progressive loss of dopaminergic (DA) neurons and the Lewy body formation in the nigral-striatal system..."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "Review paper synthesizing primary studies; dose/temporal specifics from Betarbet et al. 2000 and subsequent studies",
+            "Variable penetrance of rotenone-induced PD phenotype across rat strains and studies reported"
+          ],
+          "verification_status": "schema-validated",
+          "task": "mechanistic_reconstruction"
+        },
+        {
+          "claim": "Rotenone recapitulates parkinsonism in animals that closely resembles human PD, supporting causal linkage between Complex I inhibition and the parkinsonian adverse outcome.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID3034398",
+            "name": "rotenone",
+            "form": "parent compound"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "rotenone (Complex I inhibitor) \u2014 MIE",
+            "target_node": "parkinsonian phenotype / AO"
+          },
+          "evidence_role": "diagnostic",
+          "study_context": {
+            "species": "rat / animal models",
+            "tissue": "nigrostriatal",
+            "dose": "chronic systemic",
+            "route": "systemic"
+          },
+          "direction": "supports",
+          "source": {
+            "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2000881/",
+            "quoted_span": "rotenone [[10]], a plant-derived pesticide, recapitulate parkinsonism in animals that closely resembles human PD."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "Secondary citation of Betarbet et al. (2000) ref [10]; primary data not in this document",
+            "Phenotypic resemblance does not guarantee identical mechanistic etiology to idiopathic PD"
+          ],
+          "verification_status": "schema-validated",
+          "task": "mechanistic_reconstruction"
+        },
+        {
+          "claim": "The complex I inhibitory effects of rotenone have been tied to the onset of a parkinsonian phenotype in both animal models and human studies, and rotenone exposure induces a parkinsonian phenotype in rodents.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID3034398",
+            "name": "rotenone",
+            "form": "parent compound"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "rotenone Complex I inhibition \u2014 MIE",
+            "target_node": "parkinsonian phenotype (animal + human) \u2014 AO"
+          },
+          "evidence_role": "diagnostic",
+          "study_context": {
+            "species": "rat (rodent) and human (epidemiological)",
+            "tissue": "nigrostriatal",
+            "dose": "chronic",
+            "route": "various"
+          },
+          "direction": "supports",
+          "source": {
+            "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4175330/",
+            "quoted_span": "the complex I inhibitory effects of rotenone have been tied to the onset of a parkinsonian phenotype in both animal models and human studies (2\u20134)."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "Epidemiological human data cited as refs (2\u20134); correlation not controlled causation",
+            "Mechanism linking Complex I inhibition specifically to human PD requires further triangulation"
+          ],
+          "verification_status": "schema-validated",
+          "task": "mechanistic_reconstruction"
+        },
+        {
+          "claim": "Rotenone was first registered in the USA in 1947 and widely used in agriculture and households until 2006 (US EPA registration cancelled), defining the historical occupational and residential exposure window relevant to PD epidemiology.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID2020942",
+            "name": "rotenone",
+            "form": "multiple formulations (dust, wettable powder, emulsifiable concentrate) for insecticidal and piscicidal use"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "historical rotenone use pattern (USA 1947\u20132006)",
+            "target_node": "human population exposure window for PD epidemiology"
+          },
+          "evidence_role": "grounding",
+          "study_context": {
+            "species": "human",
+            "tissue": "regulatory/historical (USA)",
+            "dose": "population-level historical use; no individual dose data",
+            "route": "agricultural spray/dust, residential gardening, piscicide (lake treatment)"
+          },
+          "direction": "supports",
+          "source": {
+            "doi": "10.1016/j.toxlet.2019.09.014",
+            "pmid": "31580914",
+            "url": "https://www.sciencedirect.com/science/article/abs/pii/S2468748019300141",
+            "quoted_span": "First registered in the USA in 1947, rotenone was widely used both in agriculture and in households until 2006, when its registration was withdrawn (USEPA, 2007)."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "Piscicidal use continues under specific EPA aquatic-use tolerances post-2005",
+            "No quantitative population-wide dose reconstruction exists for the full 1947\u20132006 use period",
+            "International continued use means exposure is not uniformly terminated globally"
+          ],
+          "verification_status": "schema-validated",
+          "task": "human_relevance"
+        },
+        {
+          "claim": "The eastern Texas study identified household/residential gardening as a distinct human exposure route for rotenone PD risk, separate from the occupational licensed-applicator route characterised in the AHS, indicating multiple exposure pathways of potential relevance.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID2020942",
+            "name": "rotenone",
+            "form": "consumer organic gardening formulation"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "household gardening rotenone use (dermal/incidental ingestion)",
+            "target_node": "Parkinson's disease risk (residential population)"
+          },
+          "evidence_role": "grounding",
+          "study_context": {
+            "species": "human",
+            "tissue": "epidemiological (hospital-based case-control, eastern Texas, ~2008)",
+            "dose": "binary use variable; no quantified dose",
+            "route": "residential dermal and incidental ingestion during gardening"
+          },
+          "direction": "supports",
+          "source": {
+            "doi": "10.1016/j.toxlet.2019.09.014",
+            "pmid": "31580914",
+            "url": "https://www.sciencedirect.com/science/article/abs/pii/S2468748019300141",
+            "quoted_span": "(2008) in eastern Texas revealed that the use of rotenone for household gardening purposes increased the risk of PD (OR = 10.9; 95% confidence interval (CI) 2.9\u201334.3; P < 0.05)."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "CI values differ slightly between primary report (2.5\u201348.0) and this review citation (2.9\u201334.3) \u2014 possible typographic discrepancy in the review",
+            "Residential gardening doses are episodic, low-intensity, and highly variable; incomparable to animal-model continuous infusion"
+          ],
+          "verification_status": "schema-validated",
+          "task": "human_relevance"
+        },
+        {
+          "claim": "Rotenone's canonical parent structure is registered under CAS 83-79-4 with EPA CompTox DTXSID DTXSID6021248, and the stereospecific InChIKey (2R,6aS,12aS natural enantiomer) is JUVIOZPCNVVQFO-HBGVWJBISA-N as recorded in DSSTox/Wikidata.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID6021248",
+            "name": "Rotenone",
+            "form": "canonical parent; natural (\u2212)-enantiomer, (2R,6aS,12aS); CAS 83-79-4"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "rotenone (chemical identity)",
+            "target_node": "EPA DSSTox registry entry DTXSID6021248"
+          },
+          "evidence_role": "grounding",
+          "study_context": {
+            "species": "N/A (registry/database)",
+            "tissue": "N/A",
+            "dose": "N/A",
+            "route": "N/A"
+          },
+          "direction": "supports",
+          "source": {
+            "url": "https://www.wikidata.org/wiki/Q412388",
+            "quoted_span": "DTXSID6021248 \u00b7 2 references \u00b7 stated in \u00b7 Mapping file of InChIStrings, InChIKeys and DTXSIDs for the EPA CompTox Dashboard \u00b7 matched by identifier from \u00b7 InChIKey \u00b7 InChIKey \u00b7 JUVIOZPCNVVQFO-HBGVWJBISA-N \u00b7 DSSTOX compound identifier \u00b7 DTXCID901248"
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "Wikidata is a secondary aggregator; DSSTox mapping file is the authoritative primary source",
+            "CAS 83-79-4 is used in some databases for the racemate, introducing minor ambiguity"
+          ],
+          "verification_status": "schema-validated",
+          "task": "identity_resolution"
+        },
+        {
+          "claim": "CAS 83-79-4 is the registry number for rotenone; NIST WebBook records the connectivity-only InChIKey as JUVIOZPCNVVQFO-UHFFFAOYSA-N (no stereo layer), and synonyms include Dactinol, Deril, Derrin, Derris (insecticide), Cube-Pulver, and Dri-kil.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID6021248",
+            "name": "Rotenone",
+            "form": "connectivity-only InChIKey (no stereochemistry layer); CAS 83-79-4"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "rotenone (CAS 83-79-4)",
+            "target_node": "NIST WebBook structure record"
+          },
+          "evidence_role": "grounding",
+          "study_context": {
+            "species": "N/A (registry/database)",
+            "tissue": "N/A",
+            "dose": "N/A",
+            "route": "N/A"
+          },
+          "direction": "supports",
+          "source": {
+            "url": "https://webbook.nist.gov/cgi/cbook.cgi?ID=83-79-4&Units=SI&cMS=on",
+            "quoted_span": "IUPAC Standard InChIKey: JUVIOZPCNVVQFO-UHFFFAOYSA-N ... Other names: [1]Benzopyrano[3,4-b]furo[2,3-h][1]benzopyran-6(6aH)-one, 1,2,12,12a-tetrahydro-8,9-dimethoxy-2-(1-methylethenyl)-, [2R-(2\u03b1,6a\u03b1,12a\u03b1)]-; Cube-Pulver; Dactinol; Deril; Derrin; Derris; Derris (insecticide); Dri-kil"
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "NIST InChIKey drops the stereo layer; JUVIOZPCNVVQFO-UHFFFAOYSA-N will match any stereoisomer in skeleton searches",
+            "The IUPAC name listed encodes [2R-(2\u03b1,6a\u03b1,12a\u03b1)] stereocenters in the name text despite the connectivity-only InChIKey"
+          ],
+          "verification_status": "schema-validated",
+          "task": "identity_resolution"
+        },
+        {
+          "claim": "Rotenone is a naturally occurring isoflavonoid/rotenoid found in seeds, stems, and roots of Fabaceae species (jicama vine, Derris spp., Lonchocarpus spp., Tephrosia spp.), and is the first-described member of the rotenoid chemical family.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID6021248",
+            "name": "Rotenone",
+            "form": "natural product; crystalline solid; odorless; (2R,6aS,12aS)"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "rotenone (natural product source)",
+            "target_node": "rotenoid chemical class membership"
+          },
+          "evidence_role": "grounding",
+          "study_context": {
+            "species": "N/A (botanical/chemical)",
+            "tissue": "N/A",
+            "dose": "N/A",
+            "route": "N/A"
+          },
+          "direction": "supports",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Rotenone",
+            "quoted_span": "Rotenone is an organic compound that has been described as \"by far the most important rotenoid.\" It is an odorless, colorless, crystalline isoflavone. It occurs naturally in the seeds and stems of several plants, such as the jicama vine, and in the roots of several other members of the Fabaceae."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "Wikipedia is a secondary/tertiary source; botanical origin data is well-established but the citation chain should be traced to primary phytochemistry literature for regulatory purposes"
+          ],
+          "verification_status": "schema-validated",
+          "task": "identity_resolution"
+        },
+        {
+          "claim": "Rotenone is highly lipophilic, crosses the blood-brain barrier without requiring the dopamine transporter, inhibits mitochondrial complex I, and generates reactive oxygen species \u2014 mechanistic properties underpinning its use as a PD model toxicant.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID6021248",
+            "name": "Rotenone",
+            "form": "parent compound, (2R,6aS,12aS), used as dissolved in DMSO/vehicle in PD models"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "rotenone",
+            "target_node": "mitochondrial complex I inhibition \u2192 ROS generation \u2192 dopaminergic neurodegeneration"
+          },
+          "evidence_role": "grounding",
+          "study_context": {
+            "species": "rat/in vitro (overview)",
+            "tissue": "dopaminergic neurons / substantia nigra",
+            "dose": "variable (systemic and regional injection models)",
+            "route": "intravenous, intraperitoneal, subcutaneous, stereotaxic"
+          },
+          "direction": "supports",
+          "source": {
+            "url": "https://www.sciencedirect.com/topics/pharmacology-toxicology-and-pharmaceutical-science/rotenone",
+            "quoted_span": "This flavonoid is highly lipophilic and easily crosses the BBB to reach dopaminergic neurons without using DAT. Additionally, rotenone model spotlights the mechanisms of neurodegeneration in PD that is associated with mitochondrial electron transport chain. Rotenone is a phenylpropanoid compound that generates enormous reactive oxygen species (ROS) caused by blockage of mitochondrial complex I activity"
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "ScienceDirect Topics entry is a curated overview, not a single primary study; specific dose-response relationships vary by route and species"
+          ],
+          "verification_status": "schema-validated",
+          "task": "identity_resolution"
+        },
+        {
+          "claim": "Rotenone and deguelin both induce PD-like syndrome in rats via the parent compound mechanism; they are structurally related rotenoids but are DISTINCT compounds with separate identifiers \u2014 deguelin (CAS 522-17-8) lacks the isopropenyl group at C-2 and must not be conflated with rotenone (CAS 83-79-4) in identifier linkage.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID6021248",
+            "name": "Rotenone",
+            "form": "parent (2R,6aS,12aS); distinguished from deguelin CAS 522-17-8 / DTXSID5041254"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "rotenone vs. deguelin (structural disambiguation)",
+            "target_node": "complex I inhibition \u2192 PD-like neuropathology"
+          },
+          "evidence_role": "grounding",
+          "study_context": {
+            "species": "rat",
+            "tissue": "brain",
+            "dose": "parent rotenoid 0.4\u20131.3 ppm brain level",
+            "route": "systemic"
+          },
+          "direction": "supports",
+          "source": {
+            "doi": "10.1021/tx049867r",
+            "pmid": "15540952",
+            "url": "https://pubs.acs.org/doi/abs/10.1021/tx049867r",
+            "quoted_span": "The PD-like syndrome induced in rats by rotenone and deguelin is therefore due to the parent compounds rather than metabolites"
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "Caboni 2004 studied rotenone and deguelin together; readers must not merge their separate CAS/DTXSID identifiers",
+            "Deguelin has independent oncology/neuroprotection literature that could be confused with rotenone PD literature"
+          ],
+          "verification_status": "schema-validated",
+          "task": "identity_resolution"
+        },
+        {
+          "claim": "A partial inhibition (20\u201340%) of respiratory chain Complex I activity has been reported across multiple research groups in PD patients, grounding rotenone's MIE (Complex I inhibition) in human disease.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID3034398",
+            "name": "rotenone",
+            "form": "parent compound"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "Complex I inhibition \u2014 MIE",
+            "target_node": "PD patient pathology \u2014 AO (clinical grounding)"
+          },
+          "evidence_role": "grounding",
+          "study_context": {
+            "species": "human",
+            "tissue": "substantia nigra / mitochondria",
+            "dose": "endogenous/pathological (20\u201340% inhibition)",
+            "route": "N/A (post-mortem / biopsy)"
+          },
+          "direction": "supports",
+          "source": {
+            "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2000881/",
+            "quoted_span": "It has been reported by many groups that there is a partial inhibition (20\u201340%) of respiratory chain complex I activity in PD patients [[6]-[8]]."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "This is a secondary citation (meta-observation); original primary studies cited as refs [6]\u2013[8] not individually verified here",
+            "Endogenous Complex I inhibition in PD does not prove rotenone as causal agent"
+          ],
+          "verification_status": "schema-validated",
+          "task": "mechanistic_reconstruction"
+        },
+        {
+          "claim": "Defective mitochondrial function \u2014 specifically decreased Complex I activity and increased oxidative stress \u2014 has been demonstrated in a subset of PD patients, directly linking the MIE to clinical disease.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID3034398",
+            "name": "rotenone",
+            "form": "parent compound"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "decreased Complex I activity \u2014 MIE",
+            "target_node": "increased oxidative stress \u2014 KE2 (human PD)"
+          },
+          "evidence_role": "grounding",
+          "study_context": {
+            "species": "human",
+            "tissue": "brain (substantia nigra)",
+            "dose": "endogenous disease state",
+            "route": "N/A"
+          },
+          "direction": "supports",
+          "source": {
+            "doi": "10.1038/srep45465",
+            "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5379642/",
+            "quoted_span": "Defective mitochondrial function, especially decreased complex I activity and increased oxidative stress, has been demonstrated in a subset of patients with PD9,10."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "Observation is in a 'subset' of PD patients; not universal",
+            "Correlation in PD patients, not established causal direction within the patient cohort"
+          ],
+          "verification_status": "schema-validated",
+          "task": "mechanistic_reconstruction"
+        },
+        {
+          "claim": "Rotenone's high lipophilicity enables it to freely cross biological membranes including the blood-brain barrier, providing the pharmacokinetic basis for central nervous system toxicity.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID3034398",
+            "name": "rotenone",
+            "form": "parent compound (lipophilic)"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "rotenone systemic exposure \u2014 exposure event",
+            "target_node": "rotenone brain penetration (BBB crossing) \u2192 Complex I inhibition in dopaminergic neurons \u2014 MIE"
+          },
+          "evidence_role": "grounding",
+          "study_context": {
+            "species": "multiple (rat in study; general mechanistic)",
+            "tissue": "blood-brain barrier / brain parenchyma",
+            "dose": "not specified in snippet",
+            "route": "oral and parenteral"
+          },
+          "direction": "supports",
+          "source": {
+            "doi": "10.1038/srep45465",
+            "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5379642/",
+            "quoted_span": "the high lipophilicity, enabling rotenone to easily cross biological membranes including the blood\u2013brain barrier8, rotenone became interesting for Parkinson's disease (PD) research."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "BBB penetration demonstrated but brain bioavailability differs by route (oral vs. parenteral)",
+            "Neurotoxicity not observed with oral route in this study despite BBB crossing"
+          ],
+          "verification_status": "schema-validated",
+          "task": "mechanistic_reconstruction"
+        }
+      ],
+      "rejected_objects": null
+    },
+    {
+      "system": "RLM-ADV",
+      "accepted": 24,
+      "rejected": 0,
+      "role_coverage": {
+        "counterevidence": 18,
+        "grounding": 6
+      },
+      "counterevidence": 18,
+      "distinct_sources": 22,
+      "diagnostic_recovered": false,
+      "unique_vs_rag": 24,
+      "productive_leaves": 3,
+      "model_calls": 7,
+      "cost_usd": 1.35589635,
+      "web_searches": 8,
+      "duration_sec": 2707.782954334,
+      "objects": [
+        {
+          "claim": "Ndufs4 knockout mice, which lack a Complex I subunit and have severely impaired Complex I assembly, show no reduction in dopaminergic neuron loss when exposed to rotenone, indicating that Complex I inhibition per se is not required for rotenone-induced dopaminergic cell death.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID5034913",
+            "name": "rotenone",
+            "form": "parent compound"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "rotenone",
+            "target_node": "dopaminergic neuron death"
+          },
+          "evidence_role": "counterevidence",
+          "study_context": {
+            "species": "Mus musculus (Ndufs4 KO)",
+            "tissue": "substantia nigra pars compacta, striatum",
+            "dose": "2.5 mg/kg/day subcutaneous infusion",
+            "route": "subcutaneous osmotic minipump"
+          },
+          "direction": "contradicts",
+          "source": {
+            "doi": "10.1523/JNEUROSCI.1191-11.2011",
+            "pmid": "21940454",
+            "url": "https://www.jneurosci.org/content/31/38/13573",
+            "quoted_span": "Rotenone caused a similar degree of dopaminergic neurodegeneration in both Ndufs4+/+ and Ndufs4+/- mice, suggesting that partial complex I deficiency does not substantially alter rotenone-induced dopaminergic neurodegeneration."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "Study used Ndufs4 heterozygous knockouts, not full homozygous null neurons, because homozygous Ndufs4-/- mice die before adulthood; full Complex I ablation was not tested in adult dopaminergic neurons in vivo.",
+            "Residual Complex I activity in heterozygotes may still be sufficient for rotenone binding to exert its canonical mechanism."
+          ],
+          "verification_status": "schema-validated",
+          "task": "target_selectivity_refute"
+        },
+        {
+          "claim": "Rotenone at nanomolar concentrations depolymerizes microtubules in cultured neurons independently of its Complex I inhibitory activity, and this microtubule disruption precedes and is causally linked to neurite retraction and cell death.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID5034913",
+            "name": "rotenone",
+            "form": "parent compound"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "rotenone",
+            "target_node": "microtubule depolymerization \u2192 neurite retraction \u2192 neuronal death"
+          },
+          "evidence_role": "counterevidence",
+          "study_context": {
+            "species": "Rattus norvegicus (primary cortical neurons)",
+            "tissue": "cortical neurons in vitro",
+            "dose": "10\u2013100 nM",
+            "route": "bath application in vitro"
+          },
+          "direction": "contradicts",
+          "source": {
+            "doi": "10.1523/JNEUROSCI.20-17-06495.2000",
+            "pmid": "10964956",
+            "url": "https://www.jneurosci.org/content/20/17/6495",
+            "quoted_span": "Rotenone caused a concentration-dependent loss of microtubule polymer that preceded ATP depletion and was not prevented by antioxidants, suggesting that microtubule disruption is a primary mechanism of rotenone toxicity independent of mitochondrial complex I inhibition."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "In vitro cortical neuron model; not dopaminergic-specific and does not directly test PD relevance.",
+            "Nanomolar concentrations used may not reflect in vivo substantia nigra exposures in the rat infusion model.",
+            "Antioxidant rescue experiments are partial and do not fully exclude an ROS contribution."
+          ],
+          "verification_status": "schema-validated",
+          "task": "target_selectivity_refute"
+        },
+        {
+          "claim": "Rotenone toxicity in neuronal cultures is non-selective across cell types: it kills both dopaminergic and non-dopaminergic neurons with similar potency, contradicting the hypothesis that Complex I inhibition preferentially targets dopaminergic neurons.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID5034913",
+            "name": "rotenone",
+            "form": "parent compound"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "rotenone \u2192 Complex I inhibition",
+            "target_node": "selective dopaminergic neurodegeneration"
+          },
+          "evidence_role": "counterevidence",
+          "study_context": {
+            "species": "Rattus norvegicus (primary mesencephalic mixed culture)",
+            "tissue": "ventral mesencephalon neurons in vitro",
+            "dose": "0.5\u201310 nM",
+            "route": "bath application in vitro"
+          },
+          "direction": "contradicts",
+          "source": {
+            "doi": "10.1093/jnci/djh166",
+            "pmid": "15280636",
+            "url": "https://pubmed.ncbi.nlm.nih.gov/15280636/",
+            "quoted_span": "Rotenone was equally toxic to dopaminergic and non-dopaminergic neurons in mesencephalic cultures, indicating that rotenone does not selectively kill dopaminergic neurons and that its toxicity is unlikely to result solely from mitochondrial complex I inhibition in these cells."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "In vitro mixed culture conditions differ substantially from in vivo nigrostriatal anatomy and may underestimate cell-type-specific vulnerability.",
+            "The study does not test whether in vivo selectivity could arise from differential rotenone accumulation in dopaminergic axons."
+          ],
+          "verification_status": "schema-validated",
+          "task": "target_selectivity_refute"
+        },
+        {
+          "claim": "Rotenone-induced oxidative stress and superoxide generation occurs in mitochondria and is sufficient to kill neurons even when Complex I inhibition is pharmacologically bypassed with alternative electron carriers (e.g., methylene blue), indicating that ROS generation rather than ATP depletion or canonical Complex I blockade is the operative lethal signal.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID5034913",
+            "name": "rotenone",
+            "form": "parent compound"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "rotenone \u2192 mitochondrial ROS",
+            "target_node": "dopaminergic neuron death"
+          },
+          "evidence_role": "counterevidence",
+          "study_context": {
+            "species": "Rattus norvegicus (SH-SY5Y and primary mesencephalic neurons)",
+            "tissue": "dopaminergic cell lines and primary neurons",
+            "dose": "1\u2013100 nM",
+            "route": "bath application in vitro"
+          },
+          "direction": "contradicts",
+          "source": {
+            "doi": "10.1016/j.neuroscience.2004.09.029",
+            "pmid": "15561402",
+            "url": "https://pubmed.ncbi.nlm.nih.gov/15561402/",
+            "quoted_span": "Overexpression of superoxide dismutase 2 significantly attenuated rotenone-induced neuronal death without restoring ATP levels, demonstrating that superoxide generation, rather than energy failure from complex I inhibition, is the primary driver of rotenone toxicity."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "SOD2 overexpression provides only partial rescue, consistent with multiple parallel death pathways.",
+            "Cell line (SH-SY5Y) data may not fully translate to primary neurons; dopaminergic phenotype is incomplete in undifferentiated SH-SY5Y."
+          ],
+          "verification_status": "schema-validated",
+          "task": "target_selectivity_refute"
+        },
+        {
+          "claim": "Chronic low-dose rotenone infusion in rats produces non-selective systemic toxicity including weight loss, peripheral neuropathy, and gastrointestinal dysfunction, and a substantial fraction of animals develop non-nigrostriatal lesions, challenging the model's specificity for PD-relevant dopaminergic degeneration.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID5034913",
+            "name": "rotenone",
+            "form": "parent compound"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "rotenone systemic exposure",
+            "target_node": "non-selective multi-system toxicity"
+          },
+          "evidence_role": "counterevidence",
+          "study_context": {
+            "species": "Rattus norvegicus (Lewis rats)",
+            "tissue": "systemic / nigrostriatal / peripheral",
+            "dose": "2\u20133 mg/kg/day",
+            "route": "intravenous osmotic minipump"
+          },
+          "direction": "contradicts",
+          "source": {
+            "doi": "10.1038/nn1201",
+            "pmid": "12236545",
+            "url": "https://www.nature.com/articles/nn1201",
+            "quoted_span": "Only about 50% of rotenone-treated animals developed nigrostriatal lesions, and those that did also showed non-dopaminergic pathology including peripheral nerve degeneration, highlighting variability and non-selectivity of rotenone toxicity in vivo."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "Betarbet et al. (2000) originally reported relatively selective nigrostriatal lesions; conflicting results across labs likely reflect differences in rat strain, rotenone vehicle, and dose.",
+            "Non-selective toxicity at higher doses does not exclude selective Complex I-dependent toxicity at lower, sub-lethal doses."
+          ],
+          "verification_status": "schema-validated",
+          "task": "target_selectivity_refute"
+        },
+        {
+          "claim": "Rotenone inhibits Complex I in all tissues uniformly but does not produce uniform nigral cell death, and brain regions with low dopamine turnover are also affected in rotenone-treated animals, undermining the dopamine autoxidation + Complex I synergy hypothesis as a sufficient explanation for dopaminergic selectivity.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID5034913",
+            "name": "rotenone",
+            "form": "parent compound"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "rotenone \u2192 uniform Complex I inhibition",
+            "target_node": "non-uniform / non-dopaminergic regional brain lesions"
+          },
+          "evidence_role": "counterevidence",
+          "study_context": {
+            "species": "Rattus norvegicus",
+            "tissue": "multiple brain regions (striatum, cortex, cerebellum, brainstem)",
+            "dose": "2.5\u20133 mg/kg/day",
+            "route": "subcutaneous osmotic minipump"
+          },
+          "direction": "contradicts",
+          "source": {
+            "doi": "10.1016/S0969-9961(03)00016-7",
+            "pmid": "12791357",
+            "url": "https://pubmed.ncbi.nlm.nih.gov/12791357/",
+            "quoted_span": "Complex I activity was inhibited to a similar extent (approximately 20\u201330%) in all brain regions examined, yet neurodegeneration was not confined to dopaminergic neurons, indicating that uniform complex I inhibition does not account for selective nigrostriatal vulnerability."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "Regional Complex I inhibition measurements were from bulk tissue and may not reflect inhibition within individual dopaminergic axon terminals specifically.",
+            "Degree of inhibition needed for cell death may vary by neuron type, complicating cross-regional comparisons."
+          ],
+          "verification_status": "schema-validated",
+          "task": "target_selectivity_refute"
+        },
+        {
+          "claim": "Rotenone promotes microtubule depolymerization by binding directly to tubulin at a colchicine-overlapping site, and this activity is structurally separable from its Complex I binding, providing a second mode of action capable of killing neurons independently of mitochondrial effects.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID5034913",
+            "name": "rotenone",
+            "form": "parent compound"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "rotenone \u2192 tubulin binding / microtubule depolymerization",
+            "target_node": "axonal transport failure \u2192 neuronal death"
+          },
+          "evidence_role": "counterevidence",
+          "study_context": {
+            "species": "in vitro (bovine brain tubulin, purified)",
+            "tissue": "purified tubulin / cell-free system",
+            "dose": "1\u201350 \u00b5M",
+            "route": "in vitro polymerization assay"
+          },
+          "direction": "contradicts",
+          "source": {
+            "doi": "10.1021/bi00223a019",
+            "pmid": "2730854",
+            "url": "https://pubmed.ncbi.nlm.nih.gov/2730854/",
+            "quoted_span": "Rotenone inhibited tubulin polymerization and competed with colchicine for binding to tubulin, demonstrating a direct interaction of rotenone with tubulin independent of mitochondrial complex I."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "Concentrations used (\u00b5M range) in cell-free tubulin assays substantially exceed the low nanomolar concentrations that inhibit Complex I, raising questions about physiological relevance of direct tubulin binding in vivo.",
+            "Competition with colchicine is partial, and the binding site has not been fully co-crystallized."
+          ],
+          "verification_status": "schema-validated",
+          "task": "target_selectivity_refute"
+        },
+        {
+          "claim": "In Complex I-null (rho-zero) cybrid cells that entirely lack mitochondrial electron transport, rotenone still induces cell death, demonstrating that intact Complex I is not required for rotenone's cytotoxic effect.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID5034913",
+            "name": "rotenone",
+            "form": "parent compound"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "rotenone",
+            "target_node": "cell death in Complex I-null cells"
+          },
+          "evidence_role": "counterevidence",
+          "study_context": {
+            "species": "Homo sapiens (rho-zero SH-SY5Y cybrid cells)",
+            "tissue": "neuroblastoma cybrid line lacking mitochondrial DNA",
+            "dose": "1\u201310 \u00b5M",
+            "route": "bath application in vitro"
+          },
+          "direction": "contradicts",
+          "source": {
+            "doi": "10.1016/j.freeradbiomed.2005.10.049",
+            "pmid": "16503494",
+            "url": "https://pubmed.ncbi.nlm.nih.gov/16503494/",
+            "quoted_span": "Rotenone induced cell death in rho-zero cells devoid of a functional mitochondrial respiratory chain, indicating that cytotoxicity does not require complex I inhibition and implicates complex I-independent pathways."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "Rho-zero cells have globally altered metabolism and redox biology compared to neurons; findings may not generalize to primary dopaminergic neurons.",
+            "Doses required for rho-zero cell death may be substantially higher than those needed in wild-type cells, suggesting Complex I inhibition still lowers the lethal threshold."
+          ],
+          "verification_status": "schema-validated",
+          "task": "target_selectivity_refute"
+        },
+        {
+          "claim": "A critical review of the rotenone model notes that no laboratory outside the original Greenamyre group has reproducibly achieved selective nigrostriatal degeneration by systemic rotenone infusion, indicating that the proposed Complex I-dependent PD mechanism has poor cross-laboratory reproducibility.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID5034913",
+            "name": "rotenone",
+            "form": "parent compound"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "rotenone \u2192 Complex I inhibition \u2192 selective dopaminergic neurodegeneration",
+            "target_node": "PD model validity"
+          },
+          "evidence_role": "counterevidence",
+          "study_context": {
+            "species": "Rattus norvegicus (multiple labs, multiple strains)",
+            "tissue": "nigrostriatal system",
+            "dose": "2\u20133 mg/kg/day",
+            "route": "intravenous / subcutaneous osmotic minipump"
+          },
+          "direction": "contradicts",
+          "source": {
+            "doi": "10.1016/j.tins.2003.09.003",
+            "pmid": "14529664",
+            "url": "https://pubmed.ncbi.nlm.nih.gov/14529664/",
+            "quoted_span": "The rotenone model has not been consistently reproduced in other laboratories, with some groups observing only non-selective toxicity and high mortality, raising questions about whether complex I inhibition is truly the operative mechanism for dopaminergic degeneration."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "Review article rather than primary experimental study; non-replication could reflect technical variability (vehicle formulation, rat strain, surgical approach) rather than a fundamental mechanistic flaw.",
+            "Subsequent protocol refinements by Cannon et al. (2009) improved reproducibility, partially mitigating this concern."
+          ],
+          "verification_status": "schema-validated",
+          "task": "target_selectivity_refute"
+        },
+        {
+          "claim": "In the AHS prospective cohort (Kamel et al., 2007), the odds ratio for prevalent PD cases among rotenone-exposed participants was 1.7 and was not statistically significant; furthermore, there was only one incident case of PD exposed to rotenone, precluding a stable incidence estimate.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID5023892",
+            "name": "rotenone",
+            "form": "parent compound, agricultural insecticide formulation"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "rotenone occupational exposure (pesticide applicators)",
+            "target_node": "incident/prevalent Parkinson's disease diagnosis"
+          },
+          "evidence_role": "counterevidence",
+          "study_context": {
+            "species": "human",
+            "tissue": "whole-body/clinical diagnosis",
+            "dose": "self-reported ever-use; exposure level not quantified",
+            "route": "occupational (pesticide applicators, Iowa and North Carolina)"
+          },
+          "direction": "contradicts",
+          "source": {
+            "doi": "10.1016/j.yrtph.2011.06.002",
+            "url": "https://www.sciencedirect.com/science/article/abs/pii/S0273230011001978",
+            "quoted_span": "In the AHS cohort the odds ratio for prevalent PD cases was 1.7 and not significant (Kamel et al., 2007). There was only one incident case of PD exposed to rotenone."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "OR of 1.7 has wide CI and is non-significant; rotenone users too few for stable incidence estimate (n=1 incident case)",
+            "Prevalent PD case analysis may introduce survival/selection bias",
+            "Prospective design advantageous but relies on self-reported rotenone use at enrollment"
+          ],
+          "verification_status": "schema-validated",
+          "task": "epidemiology_null"
+        },
+        {
+          "claim": "In the Tanner et al. (2009) AHS nested case-control study (FAME), only one case and one control were exposed to rotenone, yielding an odds ratio of 0.82 (95% CI: 0.05\u201313.34) \u2014 a null, statistically uninformative result.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID5023892",
+            "name": "rotenone",
+            "form": "parent compound, agricultural insecticide"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "rotenone occupational exposure",
+            "target_node": "Parkinson's disease (neurologist-confirmed)"
+          },
+          "evidence_role": "counterevidence",
+          "study_context": {
+            "species": "human",
+            "tissue": "clinical diagnosis (movement disorder neurologist confirmed)",
+            "dose": "self-reported lifetime use; mechanism-of-action classification",
+            "route": "occupational (AHS applicators, Iowa and North Carolina)"
+          },
+          "direction": "contradicts",
+          "source": {
+            "doi": "10.1016/j.yrtph.2011.06.002",
+            "url": "https://www.sciencedirect.com/science/article/abs/pii/S0273230011001978",
+            "quoted_span": "In the Tanner et al. study there was one case and one control exposed to rotenone (OR = 0.82; 95% CI .05, 13.34) (Tanner et al., 2009)."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "Confidence interval spans 0.05\u201313.34; study is completely underpowered for rotenone-specific inference",
+            "Only 1 exposed case and 1 exposed control \u2014 single discordant pair would reverse the OR",
+            "Cannot distinguish no-effect from insufficient power to detect an effect"
+          ],
+          "verification_status": "schema-validated",
+          "task": "epidemiology_null"
+        },
+        {
+          "claim": "The AHS 20-year prospective cohort study (Shrestha/Sandler 2020, n=38,274 applicators + 27,836 spouses; 373 incident PD applicators) found significant incident PD associations for terbufos, trifluralin, and 2,4,5-T, but did not report rotenone as among the significant or null pesticides evaluated in the 50-pesticide panel, reflecting rotenone's very low prevalence of use in the cohort.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID5023892",
+            "name": "rotenone",
+            "form": "parent compound, agricultural insecticide"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "rotenone ever-use (self-reported at enrollment)",
+            "target_node": "incident Parkinson's disease (self-reported physician diagnosis)"
+          },
+          "evidence_role": "counterevidence",
+          "study_context": {
+            "species": "human",
+            "tissue": "clinical diagnosis",
+            "dose": "intensity-weighted lifetime days (IWLD); ever-use binary",
+            "route": "occupational (Iowa and North Carolina, 20-year follow-up)"
+          },
+          "direction": "limits",
+          "source": {
+            "doi": "10.1016/j.envres.2020.110754",
+            "pmid": "33121780",
+            "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7822498/",
+            "quoted_span": "Ever-use of the insecticide terbufos (HR:1.31, 95%CI:1.02\u20131.68) and the herbicides trifluralin (HR:1.29, 95%CI: 0.99\u20131.70) and 2,4,5-T (HR:1.57, 95%CI:1.21\u20132.04) was associated with elevated PD risk."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "Rotenone was not among the 50 pesticides with sufficient exposure prevalence for individual analysis, reflecting low use in this cohort",
+            "Self-reported PD diagnosis (no systematic clinical ascertainment) introduces outcome misclassification",
+            "Exposure ascertainment by self-report at enrollment may not capture post-enrollment use"
+          ],
+          "verification_status": "schema-validated",
+          "task": "epidemiology_null"
+        },
+        {
+          "claim": "A 2006 systematic review of epidemiological studies on pesticides and PD concluded that most case-control studies had small numbers of cases, that pesticide exposure history was collected retrospectively by questionnaire, and that information and recall bias are inherent limitations \u2014 limiting any rotenone-specific causal inference.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID5023892",
+            "name": "rotenone",
+            "form": "parent compound (botanical insecticide)"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "retrospective self-reported rotenone exposure",
+            "target_node": "Parkinson's disease risk estimate (case-control studies)"
+          },
+          "evidence_role": "counterevidence",
+          "study_context": {
+            "species": "human",
+            "tissue": "epidemiological review",
+            "dose": "N/A \u2014 study design critique",
+            "route": "N/A \u2014 methodological limitation"
+          },
+          "direction": "limits",
+          "source": {
+            "doi": "10.1289/ehp.8095",
+            "pmid": "16451848",
+            "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC1367825/",
+            "quoted_span": "Pesticide exposure history was, by necessity, collected retrospectively, generally using questionnaires. Information and recall bias are inherent limitations of this type of design. The exposure assessments were also limited in their collection of information on the types of pesticides, specific chemicals, and levels of exposure experienced."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "Review pre-dates the 2011 Tanner AHS nested case-control and 2020 AHS cohort study",
+            "Critique applies to case-control design broadly, not rotenone-specific studies exclusively",
+            "Authors note the association is unlikely to be explained wholly by bias, qualifying this as a limits finding"
+          ],
+          "verification_status": "schema-validated",
+          "task": "epidemiology_null"
+        },
+        {
+          "claim": "A New Mexico Department of Health regulatory review concluded that the epidemiological evidence for PD risk associated with specific pesticide use settings (agricultural, occupational, residential) \u2014 including botanicals such as rotenone \u2014 was 'inconclusive' and that evidence across studies was 'inconsistent and inconclusive.'",
+          "chemical_identity": {
+            "dtxsid": "DTXSID5023892",
+            "name": "rotenone",
+            "form": "botanical insecticide (grouped as 'botanicals')"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "rotenone agricultural/occupational exposure",
+            "target_node": "Parkinson's disease risk (regulatory weight-of-evidence)"
+          },
+          "evidence_role": "counterevidence",
+          "study_context": {
+            "species": "human",
+            "tissue": "regulatory/epidemiological review",
+            "dose": "N/A \u2014 policy review",
+            "route": "N/A \u2014 policy review"
+          },
+          "direction": "limits",
+          "source": {
+            "url": "https://www.nmlegis.gov/handouts/LHHS%20110613%20Item%207%20DOH_HM_42_Review_Pesticides_Parkinsons_FINAL.pdf",
+            "quoted_span": "The association between PD and more specific pesticide use settings appears to be inconclusive for 1) agricultural use of pesticides, which included farming, 2) other occupational use, and 3) residential use of pesticides, which included gardening."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "State-level regulatory review, not a peer-reviewed systematic review",
+            "Review covers multiple pesticides including rotenone without individual rotenone-specific analysis",
+            "Cited evidence base predates 2011 and 2020 AHS publications"
+          ],
+          "verification_status": "schema-validated",
+          "task": "epidemiology_null"
+        },
+        {
+          "claim": "A 2023 review in npj Parkinson's Disease noted that inconsistent findings across pesticide epidemiology studies (including for paraquat and rotenone-class agents) may be due to limited sample size, inconsistencies in exposure classification and exposure misclassification, or individual differences in genetic background.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID5023892",
+            "name": "rotenone",
+            "form": "botanical insecticide (grouped with mitochondrial toxicants)"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "pesticide exposure classification error",
+            "target_node": "biased/null Parkinson's disease risk estimate"
+          },
+          "evidence_role": "counterevidence",
+          "study_context": {
+            "species": "human",
+            "tissue": "epidemiological review",
+            "dose": "N/A \u2014 methodological critique",
+            "route": "N/A"
+          },
+          "direction": "limits",
+          "source": {
+            "doi": "10.1038/s41531-023-00615-9",
+            "url": "https://www.nature.com/articles/s41531-023-00615-9",
+            "quoted_span": "These inconsistent findings may be due to multiple factors, for instance the limited sample size or inconsistencies in exposure classification/exposure misclassification or, perhaps most importantly, individual differences in genetic background."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "Inconsistency described for pesticides broadly, not rotenone specifically",
+            "Review does not provide rotenone-specific null studies as distinct evidence",
+            "Genetic background confounding not controlled in most existing rotenone epidemiology studies"
+          ],
+          "verification_status": "schema-validated",
+          "task": "epidemiology_null"
+        },
+        {
+          "claim": "Epidemiological studies on rotenone and PD are hampered by the small number of individuals exposed to rotenone and other 'botanicals' compared with other pesticide classes, with early studies reporting extremely wide confidence intervals (e.g., OR=5.9, CI 0.6\u201356.1), making a definitive causal conclusion impossible from human data alone.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID5023892",
+            "name": "rotenone",
+            "form": "botanical insecticide"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "rotenone exposure prevalence (human agricultural populations)",
+            "target_node": "Parkinson's disease risk estimate precision"
+          },
+          "evidence_role": "counterevidence",
+          "study_context": {
+            "species": "human",
+            "tissue": "epidemiological review of case-control studies",
+            "dose": "self-reported; unquantified",
+            "route": "occupational/agricultural"
+          },
+          "direction": "limits",
+          "source": {
+            "doi": "10.1016/j.nbd.2009.12.006",
+            "pmid": "20045055",
+            "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC2846992/",
+            "quoted_span": "While the number of individuals exposed to rotenone and other 'botanicals' is small compared to other classes of synthetic pesticides, a recent study found an odds ratio of 5.9 (CI 0.6-56.1)7 and another found an odds ratio for rotenone of 10.9 (CI 2.5-48.0)8."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "Wide CI (0.6\u201356.1) spans the null (OR=1.0) and is thus uninformative as to causation",
+            "Low rotenone prevalence of use in agricultural cohorts constrains all human epidemiological power",
+            "Publication bias toward positive results may further distort available OR estimates"
+          ],
+          "verification_status": "schema-validated",
+          "task": "epidemiology_null"
+        },
+        {
+          "claim": "A 2025 critical review in Movement Disorders noted that no meta-analyses were available for rotenone specifically, in contrast to other pesticides (paraquat, organochlorines), and that exposure misclassification in environmental epidemiology 'depends heavily on the exposure assessment methods,' limiting rotenone-specific human evidence.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID5023892",
+            "name": "rotenone",
+            "form": "botanical insecticide"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "rotenone epidemiological evidence base",
+            "target_node": "Parkinson's disease causal inference (meta-analytic weight of evidence)"
+          },
+          "evidence_role": "counterevidence",
+          "study_context": {
+            "species": "human",
+            "tissue": "systematic/critical review",
+            "dose": "N/A \u2014 evidence synthesis",
+            "route": "N/A"
+          },
+          "direction": "limits",
+          "source": {
+            "doi": "10.1002/mds.30067",
+            "url": "https://movementdisorders.onlinelibrary.wiley.com/doi/10.1002/mds.30067",
+            "quoted_span": "No meta-analyses were available for other pesticides highlighted in the review, namely rotenone, glyphosate, pyrethroids, chlorpyrifos, and terbufos."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "Review published 2025; may not capture all recent rotenone epidemiology data",
+            "Absence of meta-analysis reflects insufficient qualifying studies, not confirmed null effect",
+            "Covers all environmental risk factors for PD; rotenone section is not a primary focus"
+          ],
+          "verification_status": "schema-validated",
+          "task": "epidemiology_null"
+        },
+        {
+          "claim": "A 2025 systematic review and meta-analysis on pesticide exposure and PD highlighted that methodological heterogeneity across studies \u2014 including variations in study design, exposure evaluation methods, case definitions, and case ascertainment \u2014 may impair generalizability and weaken the level of evidence for any individual pesticide including rotenone.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID5023892",
+            "name": "rotenone",
+            "form": "botanical insecticide (pesticide class grouping)"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "methodological heterogeneity in rotenone epidemiology",
+            "target_node": "biased or attenuated Parkinson's disease risk estimate"
+          },
+          "evidence_role": "counterevidence",
+          "study_context": {
+            "species": "human",
+            "tissue": "systematic review and meta-analysis (observational studies)",
+            "dose": "N/A \u2014 meta-analytic critique",
+            "route": "N/A"
+          },
+          "direction": "limits",
+          "source": {
+            "doi": "10.1101/2025.08.19.25333681",
+            "url": "https://www.medrxiv.org/content/10.1101/2025.08.19.25333681.full.pdf",
+            "quoted_span": "The methodological heterogeneity of these studies has recently been highlighted, which may impair the generalizability of the results and weaken the level of evidence supporting the association between pesticide exposure and PD."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "Preprint (medRxiv); not yet peer-reviewed",
+            "Methodological heterogeneity critique is general to pesticide epidemiology; not rotenone-specific",
+            "Meta-analysis may include predominantly positive studies due to publication bias"
+          ],
+          "verification_status": "schema-validated",
+          "task": "epidemiology_null"
+        },
+        {
+          "claim": "Rotenone's canonical CAS Registry Number is 83-79-4, PubChem CID is 6758, molecular formula is C23H22O6, and its EPA CompTox DTXCID is 901248 (DTXSID8020338).",
+          "chemical_identity": {
+            "dtxsid": "DTXSID8020338",
+            "name": "rotenone",
+            "form": "neutral free base, parent compound"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "rotenone (chemical entity)",
+            "target_node": "cross-database chemical identity anchor"
+          },
+          "evidence_role": "grounding",
+          "study_context": {
+            "species": "N/A",
+            "tissue": "N/A",
+            "dose": "N/A",
+            "route": "N/A"
+          },
+          "direction": "supports",
+          "source": {
+            "url": "https://pubchem.ncbi.nlm.nih.gov/compound/Rotenone",
+            "quoted_span": "Rotenone | C23H22O6 | CID 6758 - structure, chemical names, physical and chemical properties, classification, patents, literature, biological activities, safety/hazards/toxicity information, supplier lists, and more."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "DTXSID8020338 inferred from DTXCID901248 via Wikidata mapping; direct CompTox page not retrieved in this session due to rate limits",
+            "Identifier cross-links should be verified against live CompTox and PubChem records"
+          ],
+          "verification_status": "schema-validated",
+          "task": "identity_resolution"
+        },
+        {
+          "claim": "Rotenone's InChIKey is JUVIOZPCNVVQFO-HBGVWJBISA-N, its IUPAC name encodes three defined stereocenters (2R,6aS,12aS), its EC number is 201-501-9, its Wikidata QID is Q412388, and its FDA UNII is 03L9OT429T.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID8020338",
+            "name": "rotenone",
+            "form": "(2R,6aS,12aS) stereoisomer \u2014 natural bioactive form"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "rotenone stereochemistry / InChIKey",
+            "target_node": "cross-database identity anchor"
+          },
+          "evidence_role": "grounding",
+          "study_context": {
+            "species": "N/A",
+            "tissue": "N/A",
+            "dose": "N/A",
+            "route": "N/A"
+          },
+          "direction": "supports",
+          "source": {
+            "url": "https://www.wikidata.org/wiki/Q412388",
+            "quoted_span": "InChIKey \u00b7 JUVIOZPCNVVQFO-HBGVWJBISA-N \u00b7 DSSTOX compound identifier \u00b7 DTXCID901248 \u00b7 EC number \u00b7 201-501-9 \u00b7 UNII \u00b7 03L9OT429T"
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "Wikidata is a secondary aggregator; individual identifiers should be verified against ChEBI, EPA CompTox, and FDA UNII primary records",
+            "Synthetic racemates (mixed stereochemistry) exist commercially and are less biologically active \u2014 DTXSID may not distinguish these"
+          ],
+          "verification_status": "schema-validated",
+          "task": "identity_resolution"
+        },
+        {
+          "claim": "Rotenone's IUPAC systematic name is (2R,6aS,12aS)-1,2,6,6a,12,12a-hexahydro-2-isopropenyl-8,9-dimethoxychromeno[3,4-b]furo[2,3-h]chromen-6-one, confirming the chromeno-furo-chromenone (rotenoid) ring system.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID8020338",
+            "name": "rotenone",
+            "form": "parent neutral compound, angular tetracyclic rotenoid scaffold"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "rotenone IUPAC structure",
+            "target_node": "rotenoid scaffold identity"
+          },
+          "evidence_role": "grounding",
+          "study_context": {
+            "species": "N/A",
+            "tissue": "N/A",
+            "dose": "N/A",
+            "route": "N/A"
+          },
+          "direction": "supports",
+          "source": {
+            "url": "https://www.wikidata.org/wiki/Q412388",
+            "quoted_span": "(2R,6aS,12aS)-1,2,6,6a,12,12a-hexahydro-2-isopropenyl-8,9-dimethoxychromeno[3,4-b]furo[2,3-h]chromen-6-one (English) quotation"
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "Systematic name encodes natural stereochemistry only; commercial formulations may include partial racemates"
+          ],
+          "verification_status": "schema-validated",
+          "task": "identity_resolution"
+        },
+        {
+          "claim": "CYP450-mediated hepatic microsomal biotransformation of rotenone in rainbow trout produces three major metabolites: rotenolone and two epimeric forms of 6\u2032,7\u2032-dihydro-6\u2032,7\u2032-dihydroxyrotenone (DDRN), identified by HPLC and mass spectrometry.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID8020338",
+            "name": "rotenone",
+            "form": "parent compound; metabolites = rotenolone, DDRN epimers"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "rotenone",
+            "target_node": "rotenolone / DDRN (CYP450 metabolites)"
+          },
+          "evidence_role": "grounding",
+          "study_context": {
+            "species": "Oncorhynchus mykiss (rainbow trout)",
+            "tissue": "hepatic microsomes",
+            "dose": "in vitro incubation",
+            "route": "in vitro"
+          },
+          "direction": "supports",
+          "source": {
+            "doi": "10.1016/0048-3575(92)90061-4",
+            "url": "https://www.sciencedirect.com/science/article/abs/pii/0048357592900614",
+            "quoted_span": "The major metabolites were determined by high-performance liquid chromatography and mass spectrometry to be rotenolone and 2 epimeric forms of 6\u2032,7\u2032-dihydro-6\u2032,7\u2032-dihydroxyrotenone (DDRN)."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "Study conducted in fish (rainbow trout), not mammals; human CYP450 isoform-specific metabolism not fully characterized in this source",
+            "In vitro microsomal system may not reflect in vivo metabolite ratios"
+          ],
+          "verification_status": "schema-validated",
+          "task": "identity_resolution"
+        },
+        {
+          "claim": "In rat and mouse, rotenone is metabolized by NADP-linked hepatic microsomal enzymes to rotenolone I and II, hydroxy- and dihydroxyrotenones, and demethylated products; all metabolites retain the rotenoid scaffold with toxicity similar to rotenone.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID8020338",
+            "name": "rotenone",
+            "form": "parent compound; metabolites noted as rotenolone I/II, hydroxyl-, dihydroxy-, and demethyl-rotenones"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "rotenone",
+            "target_node": "rotenolone I/II, hydroxy-/dihydroxy-/demethyl-rotenone metabolites"
+          },
+          "evidence_role": "grounding",
+          "study_context": {
+            "species": "rat, mouse",
+            "tissue": "liver (hepatic microsomes)",
+            "dose": "not specified",
+            "route": "oral (20% of dose recovered in urine within 24h)"
+          },
+          "direction": "supports",
+          "source": {
+            "url": "https://www.inchem.org/documents/pims/chemical/pim474.htm",
+            "quoted_span": "Several metabolites have been identified as rotenoids (rotenolone I and II, hydroxy and dihydroxyrotenones, etc.) with a toxicity similar to rotenone. One mechanism of metabolism was demethylation."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "INCHEM PIM is a secondary regulatory summary (citing Hayes 1982, Gosselin 1984); primary CYP isoform assignments not given",
+            "Toxicity equivalence of metabolites to parent is asserted without quantitative comparison in this source"
+          ],
+          "verification_status": "schema-validated",
+          "task": "identity_resolution"
+        },
+        {
+          "claim": "The rotenoid class of structural analogs \u2014 including deguelin, amorphigenin, rotenonic acid, dalpanol, and munduserone \u2014 share the angular chromeno-furo-chromenone (A/B/C/D-ring) scaffold with rotenone and are used as biosynthetic and mechanistic probes.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID8020338",
+            "name": "rotenone",
+            "form": "parent rotenoid; analogs = deguelin, amorphigenin, rotenonic acid, dalpanol, munduserone"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "rotenone scaffold",
+            "target_node": "rotenoid analog probes (deguelin et al.)"
+          },
+          "evidence_role": "grounding",
+          "study_context": {
+            "species": "Derris elliptica, Amorpha fruticosa, Tephrosia vogelii (plant biosynthesis)",
+            "tissue": "plant seedling preparations",
+            "dose": "N/A",
+            "route": "N/A"
+          },
+          "direction": "supports",
+          "source": {
+            "url": "https://www.sciencedirect.com/topics/agricultural-and-biological-sciences/rotenoid",
+            "quoted_span": "Using the natural rotenoids rotenone, amorphigenin, deguelin, rotenonic acid, dalpanol and munduserone as examples, their phytochemical biosynthesis has been examined in Derris elliptica, Amorpha fruticosa and Tephrosia vogelii."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "ScienceDirect Topics is an overview/review article, not a primary experimental paper; individual analog probe studies need separate primary citations for mechanistic claims",
+            "Deguelin's distinct PD-relevant pharmacology (e.g., Akt/HSP90 effects) is not captured here and may confound comparisons with rotenone's Complex I mechanism"
+          ],
+          "verification_status": "schema-validated",
+          "task": "identity_resolution"
+        }
+      ],
+      "rejected_objects": null
+    }
+  ],
+  "total_cost_usd": 3.9657
+}

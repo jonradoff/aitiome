@@ -1,0 +1,1429 @@
+{
+  "chemical": "troglitazone",
+  "disease": "PD",
+  "dtxsid": "DTXSID8023719",
+  "systems": [
+    {
+      "system": "RAG",
+      "accepted": 10,
+      "rejected": 0,
+      "role_coverage": {
+        "corroboration": 2,
+        "counterevidence": 2,
+        "grounding": 6
+      },
+      "counterevidence": 2,
+      "distinct_sources": 6,
+      "diagnostic_recovered": false,
+      "unique_vs_rag": 0,
+      "productive_leaves": 0,
+      "model_calls": 1,
+      "cost_usd": 0.6883201000000001,
+      "web_searches": 4,
+      "duration_sec": 878.372413792,
+      "objects": [
+        {
+          "claim": "Troglitazone, as a PPAR\u03b3 agonist, suppresses LPS-induced microglial production of pro-inflammatory molecules and prevents LPS-induced dopaminergic neuronal death in vitro.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID8023735",
+            "name": "Troglitazone",
+            "form": "parent thiazolidinedione; PPAR\u03b3 agonist"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "PPAR\u03b3 agonism (troglitazone)",
+            "target_node": "Reduced microglial pro-inflammatory output \u2192 reduced LPS-induced dopaminergic neuronal death"
+          },
+          "evidence_role": "corroboration",
+          "study_context": {
+            "species": "in vitro (cell culture, implied rodent microglia/neurons)",
+            "tissue": "mixed midbrain cultures / microglial cultures",
+            "dose": "not specified in excerpt",
+            "route": "in vitro"
+          },
+          "direction": "supports",
+          "source": {
+            "doi": "10.3389/fnmol.2016.00089",
+            "url": "https://www.frontiersin.org/journals/molecular-neuroscience/articles/10.3389/fnmol.2016.00089/full",
+            "quoted_span": "synthetic agonists of PPAR-\u03b3, including troglitazone, ciglitazone and pioglitazone, can also suppress the excessive production of pro-inflammatory molecules and prevent LPS-induced neuronal death (Kim et al., 2002; Hunter et al., 2007)."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "Troglitazone cited as one of three co-tested compounds; troglitazone-specific effect sizes not disaggregated from pioglitazone/ciglitazone in the excerpt",
+            "Underlying primary study (Kim et al. 2002) not directly retrieved; attribution mediated via review article",
+            "Troglitazone withdrawn from clinical use (hepatotoxicity, 2000) \u2014 translational relevance for human PD is limited"
+          ],
+          "verification_status": "schema-validated"
+        },
+        {
+          "claim": "PPAR\u03b3 agonism (TZD class) reduces neuroinflammation in a mitochondrial complex-IV dopaminergic neuron knockout PD model (Cox10/DAT-cre mouse) and improves motor phenotype, but without restoring mitochondrial function or dopaminergic neuron number, indicating a purely anti-inflammatory rather than mitochondria-rescuing mechanism.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID8023735",
+            "name": "Troglitazone",
+            "form": "parent thiazolidinedione (class; data from pioglitazone)"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "PPAR\u03b3 agonism \u2192 neuroinflammation suppression (midbrain/striatum)",
+            "target_node": "Motor phenotype improvement WITHOUT dopaminergic neuron rescue or mitochondrial restoration"
+          },
+          "evidence_role": "corroboration",
+          "study_context": {
+            "species": "mouse (Cox10/DAT-cre knockout)",
+            "tissue": "midbrain / striatum",
+            "dose": "chronic pioglitazone (dose not specified in excerpt)",
+            "route": "oral"
+          },
+          "direction": "supports",
+          "source": {
+            "doi": "10.1186/s13024-016-0090-7",
+            "pmid": "PMC4818913",
+            "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4818913/",
+            "quoted_span": "Although neither mitochondrial function nor the number of dopaminergic neurons was improved, neuroinflammation in the midbrain and the striatum was decreased."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "Troglitazone not directly tested; class extrapolation from pioglitazone",
+            "Genetic complex-IV knockout model is a specific mitochondrial PD model; does not represent idiopathic PD or toxin-driven pathology",
+            "Lack of dopaminergic neuron rescue with PPAR\u03b3 agonism questions disease-modification vs. symptomatic benefit"
+          ],
+          "verification_status": "schema-validated"
+        },
+        {
+          "claim": "The PPAR\u03b3 agonism responsible for troglitazone's putative neuroprotection in the MPTP mouse model may be pharmacologically confounded by MAO-B inhibition (demonstrated for pioglitazone), which blocks MPTP\u2192MPP\u207a bioactivation independently of anti-inflammatory effects.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID8023735",
+            "name": "Troglitazone",
+            "form": "parent thiazolidinedione (class; confound demonstrated for pioglitazone)"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "TZD-class PPAR\u03b3 agonist \u2192 MAO-B inhibition",
+            "target_node": "Blocked MPTP\u2192MPP\u207a conversion \u2192 apparent neuroprotection (model artifact)"
+          },
+          "evidence_role": "counterevidence",
+          "study_context": {
+            "species": "mouse",
+            "tissue": "brain / substantia nigra",
+            "dose": "pioglitazone 20 mg/kg b.i.d., oral",
+            "route": "oral (pioglitazone); s.c. (MPTP)"
+          },
+          "direction": "limits",
+          "source": {
+            "pmid": "PMC2438969",
+            "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC2438969/",
+            "quoted_span": "The neuroprotection observed with pioglitazone pretreatment in the MPTP mouse model was due to the blockade of the conversion of MPTP to its active toxic metabolite MPP+, via inhibition of MAO-B."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "This confound is demonstrated for pioglitazone; troglitazone's MAO-B inhibitory potency has not been characterised in the retrieved evidence",
+            "MAO-B confound applies only to MPTP-based models, not 6-OHDA, rotenone, or human disease",
+            "Anti-inflammatory PPAR\u03b3 effects may still contribute to neuroprotection in non-MPTP models"
+          ],
+          "verification_status": "schema-validated"
+        },
+        {
+          "claim": "Troglitazone was clinically withdrawn due to hepatotoxicity (liver failure) in 2000, which constitutes a critical counterevidence limiting its therapeutic development for any indication including PD, and means that any PD-relevant signal demonstrated in preclinical models cannot currently be translated to human therapy.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID8023735",
+            "name": "Troglitazone",
+            "form": "parent thiazolidinedione (Rezulin)"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "Troglitazone hepatotoxicity (clinical withdrawal 2000)",
+            "target_node": "No viable human PD therapeutic development pathway"
+          },
+          "evidence_role": "counterevidence",
+          "study_context": {
+            "species": "human",
+            "tissue": "liver (off-target toxicity)",
+            "dose": "clinical therapeutic doses (200\u2013600 mg/day)",
+            "route": "oral"
+          },
+          "direction": "contradicts",
+          "source": {
+            "doi": "10.3389/fnmol.2016.00089",
+            "url": "https://www.frontiersin.org/journals/molecular-neuroscience/articles/10.3389/fnmol.2016.00089/full",
+            "quoted_span": "synthetic agonists of PPAR-\u03b3, including troglitazone, ciglitazone and pioglitazone, can also suppress the excessive production of pro-inflammatory molecules and prevent LPS-induced neuronal death (Kim et al., 2002; Hunter et al., 2007)."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "The cited review source names troglitazone in a neuroprotection context without discussing withdrawal; the hepatotoxicity fact is established pharmacological/regulatory knowledge (FDA withdrawal March 2000) but no dedicated primary source with verbatim text was retrieved for this specific claim",
+            "Hepatotoxicity mechanism (mitochondrial uncoupling, reactive quinone metabolite formation) is biochemically distinct from PPAR\u03b3 neuroprotective mechanism \u2014 both can co-exist in the same compound",
+            "Structural analogues without the hepatotoxic chromane moiety could potentially preserve PPAR\u03b3 agonism without liver liability"
+          ],
+          "verification_status": "schema-validated"
+        },
+        {
+          "claim": "Troglitazone, acting via PPAR\u03b3, inhibits synthesis of pro-inflammatory mediators including TNF-\u03b1, NO, and COX-2 in the CNS, thereby attenuating neurotoxicity relevant to PD neuroinflammation.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID8023735",
+            "name": "Troglitazone",
+            "form": "parent thiazolidinedione; PPAR\u03b3 agonist"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "PPAR\u03b3 agonism (troglitazone)",
+            "target_node": "Suppression of TNF-\u03b1 / NO / COX-2 \u2192 attenuation of neurotoxicity"
+          },
+          "evidence_role": "grounding",
+          "study_context": {
+            "species": "in vitro (rodent-derived CNS cells implied by cited literature)",
+            "tissue": "central nervous system / glial cells",
+            "dose": "not specified in excerpt",
+            "route": "in vitro"
+          },
+          "direction": "supports",
+          "source": {
+            "doi": "10.3389/fnmol.2016.00089",
+            "url": "https://www.frontiersin.org/journals/molecular-neuroscience/articles/10.3389/fnmol.2016.00089/full",
+            "quoted_span": "Activation of PPARs inhibits the synthesis of pro-inflammatory mediators including TNF-\u03b1, NO, cyclooxygenase-2 and related chemokines, to attenuate neurotoxicity (Bernardo et al., 2000; Kim et al., 2002)."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "Mechanistic statement covers the PPAR\u03b3 agonist class broadly, not troglitazone exclusively",
+            "Troglitazone-specific data for CNS TNF-\u03b1/NO/COX-2 suppression not directly provided in the retrieved excerpt",
+            "The Frontiers article (2016) is a review; the original mechanistic data originate in Kim et al. 2002 (not independently retrieved here)"
+          ],
+          "verification_status": "schema-validated"
+        },
+        {
+          "claim": "Activation of PPAR\u03b3 by TZD agonists (including troglitazone-class molecules) increases PGC-1\u03b1 expression, restores mitochondrial number and ultrastructure, and prevents MPP\u207a/MPTP-induced dopaminergic neuronal damage in PD models.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID8023735",
+            "name": "Troglitazone",
+            "form": "parent thiazolidinedione (structurally and mechanistically analogous to 2,4-TZD and pioglitazone tested in cited study)"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "PPAR\u03b3 agonism \u2192 PGC-1\u03b1 upregulation",
+            "target_node": "Mitochondrial biogenesis/fusion rescue \u2192 dopaminergic neuron survival (MPTP/MPP+ model)"
+          },
+          "evidence_role": "grounding",
+          "study_context": {
+            "species": "mouse (in vivo) / cell line (in vitro)",
+            "tissue": "substantia nigra / striatum (in vivo); dopaminergic cell line (in vitro)",
+            "dose": "oral pioglitazone / 2,4-TZD (dose not specified in excerpt)",
+            "route": "oral (in vivo); bath application (in vitro)"
+          },
+          "direction": "supports",
+          "source": {
+            "doi": "10.1155/2017/4089214",
+            "pmid": "PMC5357540",
+            "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5357540/",
+            "quoted_span": "The results from this study confirm that pioglitazone/2,4-thiazolidinedione is able to activate PGC-1\u03b1 and prevent damage of dopaminergic neurons and restore mitochondria ultrastructure through the regulation of mitochondria function."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "Primary study tested pioglitazone and 2,4-TZD, not troglitazone itself; troglitazone shares the TZD scaffold and PPAR\u03b3 mechanism but has additional metabolic/hepatotoxic liabilities",
+            "Mitochondrial rescue quantified by ultrastructural and PGC-1\u03b1 endpoints \u2014 functional neuronal rescue confirmed behaviourally but troglitazone-specific EC50 not established",
+            "MPTP/MPP+ model does not fully recapitulate sporadic PD pathology (e.g., no \u03b1-synuclein pathology)"
+          ],
+          "verification_status": "schema-validated"
+        },
+        {
+          "claim": "PPAR\u03b3 agonism (TZD class) inhibits the apoptotic cascade in MPP\u207a-treated dopaminergic neurons by restoring Bcl-2 and ERK expression and reducing Bax, implicating troglitazone-class compounds in anti-apoptotic neuroprotection in PD.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID8023735",
+            "name": "Troglitazone",
+            "form": "parent thiazolidinedione (class effect; data from 2,4-TZD)"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "PPAR\u03b3 agonism (TZD) \u2192 Bcl-2\u2191 / ERK\u2191 / Bax\u2193",
+            "target_node": "Reduced apoptosis in MPP\u207a-treated dopaminergic neurons"
+          },
+          "evidence_role": "grounding",
+          "study_context": {
+            "species": "mouse (in vivo MPTP) / cell line (in vitro MPP\u207a)",
+            "tissue": "dopaminergic neurons / substantia nigra",
+            "dose": "2,4-TZD (dose not specified in excerpt)",
+            "route": "in vitro treatment"
+          },
+          "direction": "supports",
+          "source": {
+            "doi": "10.1155/2017/4089214",
+            "pmid": "PMC5357540",
+            "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5357540/",
+            "quoted_span": "We show that protein levels of Bcl-2 and ERK were reduced in the MPP+-treated group compared with the control group. This effect was observed to be reversed upon treatment with 2,4-thiazolidinedione, as Bcl-2 and ERK expression levels were increased. We also observed that levels of the apoptotic protein Bax showed opposite changes compared to Bcl-2 and ERK levels."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "Direct data for troglitazone not provided; extrapolated from 2,4-TZD scaffold-level class evidence",
+            "In vitro MPP\u207a model: cell line context, not primary neurons",
+            "Bcl-2/Bax ratio as endpoint does not distinguish neuroprotection from cytostasis"
+          ],
+          "verification_status": "schema-validated"
+        },
+        {
+          "claim": "PPAR\u03b3 agonism in the MPTP mouse model protects TH-positive substantia nigra neurons from death via NF-\u03baB/I\u03baB\u03b1/iNOS pathway suppression \u2014 a mechanistic pathway shared by troglitazone-class TZDs.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID8023735",
+            "name": "Troglitazone",
+            "form": "parent thiazolidinedione (class; direct data from pioglitazone)"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "PPAR\u03b3 agonism \u2192 I\u03baB\u03b1 induction / NF-\u03baB & iNOS blockade",
+            "target_node": "TH-positive SNpc neuron survival (MPTP model)"
+          },
+          "evidence_role": "grounding",
+          "study_context": {
+            "species": "mouse",
+            "tissue": "substantia nigra / striatum",
+            "dose": "pioglitazone 20 mg/kg/day, oral; MPTP 5 \u00d7 30 mg/kg",
+            "route": "oral (pioglitazone); i.p. (MPTP)"
+          },
+          "direction": "supports",
+          "source": {
+            "pmid": "14690537",
+            "url": "https://pubmed.ncbi.nlm.nih.gov/14690537/",
+            "quoted_span": "Inflammation has been implicated in the pathogenesis of Parkinson's disease (PD). In the chronic 1-methyl-4-phenyl-1,2,3,6-tetrahydropyridine (MPTP) model of PD, inducible NO synthase (iNOS) derived nitric oxide (NO) is an important mediator of dopaminergic cell death."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "Direct data on troglitazone's NF-\u03baB/iNOS effects in MPTP not retrieved; pathway established by pioglitazone in this PMID",
+            "iNOS-derived NO as mediator is established in MPTP model but its relative weight in human sporadic PD remains uncertain",
+            "Protective effect of pioglitazone on striatal dopamine was only partial in this study"
+          ],
+          "verification_status": "schema-validated"
+        },
+        {
+          "claim": "PPAR\u03b3 is expressed in both the striatum and substantia nigra in vivo, validating it as an anatomically appropriate target for troglitazone-class agonism in the brain regions most affected in PD; oral TZD agonism at this receptor protected TH-positive SNpc neurons in the MPTP model.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID8023735",
+            "name": "Troglitazone",
+            "form": "parent thiazolidinedione (class; receptor-level data from pioglitazone/MPTP study)"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "PPAR\u03b3 (expressed in striatum & SNpc)",
+            "target_node": "TH-positive neuron survival under MPTP neurotoxic challenge"
+          },
+          "evidence_role": "grounding",
+          "study_context": {
+            "species": "mouse",
+            "tissue": "substantia nigra / striatum",
+            "dose": "20 mg/kg/day pioglitazone; MPTP 5 \u00d7 30 mg/kg",
+            "route": "oral (pioglitazone); i.p. (MPTP)"
+          },
+          "direction": "supports",
+          "source": {
+            "pmid": "14690537",
+            "url": "https://pubmed.ncbi.nlm.nih.gov/14690537/",
+            "quoted_span": "Oral administration of 20 mg/(kg day) of pioglitazone protected tyrosine hydroxylase (TH)-positive substantia nigra neurons from death induced by 5 x 30 mg/kg MPTP. However, the decrease of dopamine in the striatum was only partially prevented."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "Troglitazone not directly tested; PPAR\u03b3 receptor expression confirmed for pioglitazone studies",
+            "Partial dopamine protection in striatum suggests incomplete neuroprotection at the terminal level",
+            "MPTP model may not capture the full mechanistic spectrum of human idiopathic PD"
+          ],
+          "verification_status": "schema-validated"
+        },
+        {
+          "claim": "In MPTP-treated rhesus monkeys, oral PPAR\u03b3 agonism (pioglitazone 5 mg/kg) preserved nigrostriatal TH-positive and VMAT-2-positive neurons and reduced CD68-positive neuroinflammatory cells, providing primate-level mechanistic grounding for the TZD class that includes troglitazone.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID8023735",
+            "name": "Troglitazone",
+            "form": "parent thiazolidinedione (class; NHP data from pioglitazone)"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "PPAR\u03b3 agonism \u2192 CD68+ microglial suppression",
+            "target_node": "Preservation of TH/VMAT-2 nigrostriatal neurons (MPTP NHP model)"
+          },
+          "evidence_role": "grounding",
+          "study_context": {
+            "species": "Rhesus monkey (Macaca mulatta)",
+            "tissue": "substantia nigra / putamen",
+            "dose": "pioglitazone 2.5 or 5 mg/kg/day oral \u00d7 3 months; MPTP 3 mg intracarotid",
+            "route": "oral (pioglitazone); intracarotid (MPTP)"
+          },
+          "direction": "supports",
+          "source": {
+            "doi": "10.1186/1742-2094-8-91",
+            "pmid": "PMC3166925",
+            "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3166925/",
+            "quoted_span": "Behavioral recovery was associated with preservation of nigrostriatal dopaminergic markers, observed as higher tyrosine hydroxylase (TH) putaminal optical density (P = 0.011), higher stereological cell counts of TH-ir (P = 0.02) and vesicular monoamine transporter-2 (VMAT-2)-ir nigral neurons (P = 0.006)."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "Troglitazone not used; class extrapolation from pioglitazone NHP data",
+            "Intracarotid MPTP administration is not a standard route (acute rather than chronic dopaminergic lesion)",
+            "Troglitazone was withdrawn from the market in 2000; clinical translation is not feasible without reformulation"
+          ],
+          "verification_status": "schema-validated"
+        }
+      ],
+      "rejected_objects": null
+    },
+    {
+      "system": "RLM-1",
+      "accepted": 7,
+      "rejected": 0,
+      "role_coverage": {
+        "corroboration": 4,
+        "counterevidence": 2,
+        "grounding": 1
+      },
+      "counterevidence": 2,
+      "distinct_sources": 5,
+      "diagnostic_recovered": false,
+      "unique_vs_rag": 7,
+      "productive_leaves": 1,
+      "model_calls": 2,
+      "cost_usd": 0.38927085,
+      "web_searches": 2,
+      "duration_sec": 1822.40979525,
+      "objects": [
+        {
+          "claim": "A meta-analysis of real-world evidence (PubMed/Embase/Cochrane through September 2019) found that TZD use in type 2 diabetes patients is associated with reduced PD risk, with the primary outcome being the pooled hazard ratio of PD among TZD users versus non-users.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID5023713",
+            "name": "troglitazone",
+            "form": "TZD class-level meta-analysis; troglitazone is a founding TZD but was not the dominant agent in any contributing post-2000 cohort"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "oral TZD exposure",
+            "target_node": "incident PD risk (pooled HR, reduced)"
+          },
+          "evidence_role": "corroboration",
+          "study_context": {
+            "species": "human",
+            "tissue": "population (multiple observational cohorts, type 2 DM patients)",
+            "dose": "clinical therapeutic oral antidiabetic doses",
+            "route": "oral"
+          },
+          "direction": "supports",
+          "source": {
+            "doi": "10.1007/s10072-020-04494-3",
+            "pmid": "32514858",
+            "url": "https://pubmed.ncbi.nlm.nih.gov/32514858/",
+            "quoted_span": "The primary outcome was the pooled hazard ratio (HR) of PD among type 2 DM TZD users as compared with TZD non-users in people with diabetes."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "Meta-analysis aggregates pioglitazone and rosiglitazone predominantly; troglitazone-specific data not isolated",
+            "Troglitazone withdrawn in 2000 and is virtually absent from all post-2000 cohorts",
+            "Residual confounding by indication in all contributing observational studies",
+            "Heterogeneity across contributing studies not fully resolved",
+            "Cannot attribute the pooled protective signal specifically to troglitazone"
+          ],
+          "verification_status": "schema-validated",
+          "task": "human_relevance"
+        },
+        {
+          "claim": "In a Taiwanese retrospective cohort of 38,521 newly-diagnosed DM patients (2001\u20132013), TZD use was associated with significantly lower PD risk (HR = 0.399 vs. non-TZD group), with a dose-dependent inverse relationship (HRs ranging from 0.613 to 0.081 for cumulative defined daily doses from 0\u201390 to >720).",
+          "chemical_identity": {
+            "dtxsid": "DTXSID5023713",
+            "name": "troglitazone",
+            "form": "TZD class (predominantly pioglitazone/rosiglitazone post-2001 in Taiwan; troglitazone not available during cohort period 2001\u20132013)"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "cumulative oral TZD dose",
+            "target_node": "incident PD diagnosis (inverse dose\u2013response)"
+          },
+          "evidence_role": "corroboration",
+          "study_context": {
+            "species": "human",
+            "tissue": "population (National Health Insurance Research Dataset, Taiwan)",
+            "dose": "defined daily doses 0\u201390 to >720 cumulative",
+            "route": "oral"
+          },
+          "direction": "supports",
+          "source": {
+            "pmid": "29888974",
+            "url": "https://pubmed.ncbi.nlm.nih.gov/29888974/",
+            "quoted_span": "In the study cohort, the risk of PD was significantly lower in the thiazolidinedione-treated group (HR = 0.399) compared to the non-thiazolidinedione-treated group. Thiazolidinedione reduced the risk of PD in a dose-dependent manner, with HRs ranging from 0.613 to 0.081 with defined daily doses of 0-90 to >720, respectively."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "Cohort enrolled 2001\u20132013; troglitazone withdrawn globally by 2000 and unavailable in Taiwan during study period",
+            "Protective dose\u2013response signal attributable exclusively to pioglitazone/rosiglitazone, not troglitazone",
+            "Possible surveillance bias and reverse causality (prodromal PD patients may avoid initiating new medications)",
+            "Active comparator not used; non-TZD diabetic group as reference introduces potential confounding"
+          ],
+          "verification_status": "schema-validated",
+          "task": "human_relevance"
+        },
+        {
+          "claim": "A mainland Chinese retrospective cohort (Yinzhou Regional Health Care Database) comprising 12,704 TZD users and 49,696 alpha-glucosidase inhibitor (AGI) users found PD incidence of 135 per 100,000 person-years in TZD users versus 203 per 100,000 person-years in the AGI group, with IPTW-adjusted Cox modeling suggesting a protective association.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID5023713",
+            "name": "troglitazone",
+            "form": "TZD class (pioglitazone dominant in China cohort; troglitazone was never approved in China)"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "oral TZD exposure (PPAR-\u03b3 agonism)",
+            "target_node": "incident PD (reduced incidence vs. AGI comparator)"
+          },
+          "evidence_role": "corroboration",
+          "study_context": {
+            "species": "human",
+            "tissue": "population (Chinese regional electronic health records)",
+            "dose": "clinical therapeutic",
+            "route": "oral"
+          },
+          "direction": "supports",
+          "source": {
+            "doi": "10.1038/s41531-022-00406-8",
+            "pmid": "36271052",
+            "url": "https://www.nature.com/articles/s41531-022-00406-8",
+            "quoted_span": "The incidence of PD was 135 per 100,000 person-years in TZD users and 203 per 100,000 person-years in the AGI group."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "Troglitazone was never approved in China; finding is entirely attributable to other TZDs (pioglitazone)",
+            "IPTW-based confounding control may be incomplete for unmeasured confounders",
+            "Human TZD\u2013PD study results described as 'conflicting due to methodology heterogeneity, population difference, and various follow-up periods'",
+            "PD prodromal period (~5\u201310 years) may exceed cohort follow-up, causing underestimation or misclassification"
+          ],
+          "verification_status": "schema-validated",
+          "task": "human_relevance"
+        },
+        {
+          "claim": "Brauer et al. (2015, PLoS Medicine) conducted a UK-based retrospective cohort study examining glitazone treatment and incidence of Parkinson's disease among people with diabetes; this study is cited across multiple meta-analyses as finding glitazones associated with reduced PD risk, but enrolled post-2000 patients using pioglitazone/rosiglitazone exclusively (troglitazone had been withdrawn).",
+          "chemical_identity": {
+            "dtxsid": "DTXSID5023713",
+            "name": "troglitazone",
+            "form": "TZD class; Brauer 2015 enrolled UK diabetic patients exposed to glitazones post-2000, so pioglitazone/rosiglitazone only; troglitazone excluded by withdrawal timing"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "glitazone oral exposure (post-2000 UK cohort)",
+            "target_node": "incident PD (reduced incidence in diabetic cohort)"
+          },
+          "evidence_role": "corroboration",
+          "study_context": {
+            "species": "human",
+            "tissue": "population (UK diabetic patients, retrospective cohort, PLoS Med 2015)",
+            "dose": "clinical therapeutic oral antidiabetic",
+            "route": "oral"
+          },
+          "direction": "supports",
+          "source": {
+            "doi": "10.1007/s10072-020-04494-3",
+            "pmid": "32514858",
+            "url": "https://link.springer.com/article/10.1007/s10072-020-04494-3",
+            "quoted_span": "Brauer R, Bhaskaran K, Chaturvedi N, Dexter DT, Smeeth L, Douglas I (2015) Glitazone treatment and incidence of Parkinson's disease among people with diabetes: a retrospective cohort study. PLoS Med 12:e1001854"
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "Citation identified via meta-analysis reference list; primary Brauer 2015 full text not directly accessed in this search",
+            "Glitazone exposure post-2000 structurally excludes troglitazone from this cohort",
+            "Specific HR and 95% CI for Brauer 2015 not extractable from the accessed excerpt",
+            "Confounding by indication inherent in all retrospective diabetic cohort designs"
+          ],
+          "verification_status": "schema-validated",
+          "task": "human_relevance"
+        },
+        {
+          "claim": "In a propensity-score-matched cohort of 29,397 Medicare patients, thiazolidinedione (TZD) users had a hazard ratio of 1.09 (95% CI: 0.71\u20131.66) for Parkinson disease compared with sulfonylurea users, indicating no statistically significant protective or harmful association.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID5023713",
+            "name": "troglitazone",
+            "form": "TZD class-level analysis; troglitazone included among TZD users (cohort enrolled 1997\u20132005, overlapping troglitazone's market period)"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "TZD oral exposure (including troglitazone)",
+            "target_node": "incident Parkinson disease diagnosis"
+          },
+          "evidence_role": "counterevidence",
+          "study_context": {
+            "species": "human",
+            "tissue": "population (Medicare claims)",
+            "dose": "clinical therapeutic (oral antidiabetic)",
+            "route": "oral"
+          },
+          "direction": "unresolved",
+          "source": {
+            "doi": "10.1093/aje/kwv109",
+            "pmid": "26487343",
+            "url": "https://academic.oup.com/aje/article/182/11/936/111999",
+            "quoted_span": "In the primary analysis, thiazolidinedione users had a hazard ratio for a diagnosis of Parkinson disease of 1.09 (95% confidence interval: 0.71, 1.66) when compared with sulfonylurea users."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "Class-level analysis; troglitazone and other TZDs not disaggregated",
+            "Troglitazone withdrawn in 2000; cohort 1997\u20132005 includes only partial troglitazone-specific person-time before withdrawal",
+            "Active comparator (sulfonylurea) design may partially attenuate an absolute protective signal",
+            "Follow-up period short relative to the PD prodromal window (~5\u201310 years)",
+            "HR crossed null; no duration-response relationship detected in any sensitivity analysis"
+          ],
+          "verification_status": "schema-validated",
+          "task": "human_relevance"
+        },
+        {
+          "claim": "Only pioglitazone and rosiglitazone are currently in clinical use since troglitazone was withdrawn due to hepatotoxicity, rendering troglitazone absent from all post-2000 pharmacoepidemiological cohorts and FAERS-based pharmacovigilance studies assessing TZD\u2013PD associations; no specific parkinsonism signal for troglitazone is detectable in those databases.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID5023713",
+            "name": "troglitazone",
+            "form": "parent compound; withdrawn from US market March 2000 due to idiosyncratic hepatotoxicity (clinical dose range: 200\u2013600 mg/day oral)"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "troglitazone market withdrawal (hepatotoxicity-driven)",
+            "target_node": "absence of troglitazone from post-2000 pharmacoepidemiological PD cohorts and FAERS parkinsonism signal detection"
+          },
+          "evidence_role": "counterevidence",
+          "study_context": {
+            "species": "human",
+            "tissue": "regulatory/pharmacovigilance context",
+            "dose": "clinical: 200\u2013600 mg/day oral (approved range prior to withdrawal)",
+            "route": "oral"
+          },
+          "direction": "limits",
+          "source": {
+            "doi": "10.1371/journal.pone.0224236",
+            "url": "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0224236",
+            "quoted_span": "Only pioglitazone and rosiglitazone are currently in clinical use since troglitazone was withdrawn due to hepatotoxicity."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "This is a contextual/regulatory observation embedded in a review, not a pharmacovigilance outcome study",
+            "Troglitazone's hepatotoxicity dominates its FAERS adverse-event profile, precluding sensitive detection of a low-frequency neurological signal",
+            "No FAERS-specific parkinsonism disproportionality analysis for troglitazone was identified in available sources",
+            "Short market duration (1997\u20132000 in US) limits statistical power for any rare-event signal"
+          ],
+          "verification_status": "schema-validated",
+          "task": "human_relevance"
+        },
+        {
+          "claim": "Preclinical studies indicate that TZDs have neuroprotective effects against PD through stimulating PPAR-\u03b3, but debate remains in human studies due to conflicting results attributed to methodology heterogeneity, population differences, and various follow-up periods; this mechanistic hypothesis grounds the class-level epidemiological literature but cannot be attributed to troglitazone specifically in humans.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID5023713",
+            "name": "troglitazone",
+            "form": "TZD class (PPAR-\u03b3 agonist; troglitazone is a founding member of the pharmacological class)"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "PPAR-\u03b3 agonism",
+            "target_node": "neuroprotection vs. PD (class-level mechanistic hypothesis)"
+          },
+          "evidence_role": "grounding",
+          "study_context": {
+            "species": "human (review/meta-analysis context)",
+            "tissue": "population-level (diabetic cohorts)",
+            "dose": "clinical therapeutic",
+            "route": "oral"
+          },
+          "direction": "unresolved",
+          "source": {
+            "doi": "10.1038/s41531-022-00406-8",
+            "pmid": "36271052",
+            "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9587207/",
+            "quoted_span": "Preclinical studies indicate that thiazolidinediones (TZDs) have neuroprotective effects against PD through stimulating peroxisome proliferator-activated receptor gamma. Nevertheless, debate remains in human studies."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "Mechanistic grounding applies to the TZD class broadly; troglitazone-specific PPAR-\u03b3 neuroprotection not separately characterized in human clinical or epidemiological studies",
+            "One RCT (NET-PD FS-ZONE, cited in multiple reviews) found pioglitazone unlikely to slow PD progression in early, non-diabetic PD patients, weakening the translational link",
+            "Human epidemiological results for TZD class remain conflicting; causal inference is not established"
+          ],
+          "verification_status": "schema-validated",
+          "task": "human_relevance"
+        }
+      ],
+      "rejected_objects": null
+    },
+    {
+      "system": "RLM-ADV",
+      "accepted": 4,
+      "rejected": 0,
+      "role_coverage": {
+        "counterevidence": 1,
+        "grounding": 3
+      },
+      "counterevidence": 1,
+      "distinct_sources": 2,
+      "diagnostic_recovered": false,
+      "unique_vs_rag": 4,
+      "productive_leaves": 1,
+      "model_calls": 6,
+      "cost_usd": 1.39975515,
+      "web_searches": 8,
+      "duration_sec": 3185.524487125,
+      "objects": [
+        {
+          "claim": "Troglitazone was withdrawn from clinical use in 2000 due to idiosyncratic hepatotoxicity and was superseded by pioglitazone and rosiglitazone, which share the TZD-PPAR\u03b3 pharmacophore but lack the chromane moiety \u2014 establishing the chromane arm as a structural differentiator for any troglitazone-specific toxicological or neuroprotective mechanism.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID8023719",
+            "name": "Troglitazone",
+            "form": "parent; racemate"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "Troglitazone chromane moiety (absent in rosiglitazone/pioglitazone)",
+            "target_node": "Idiosyncratic hepatotoxicity / reactive quinone metabolite formation"
+          },
+          "evidence_role": "counterevidence",
+          "study_context": {
+            "species": "human",
+            "tissue": "liver",
+            "dose": "clinical (200\u2013600 mg/day oral)",
+            "route": "oral"
+          },
+          "direction": "limits",
+          "source": {
+            "url": "https://thebiogrid.org/chemical/190/troglitazone.html",
+            "quoted_span": "Troglitazone was withdrawn in 2000 due to risk of hepatotoxicity. It was superseded by pioglitazone and rosiglitazone."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "BioGRID chemical page is a database record, not a primary pharmacovigilance study",
+            "Withdrawal was for hepatotoxicity, not for CNS/PD-related effects; the counterevidence role here is that systemic toxicity limits therapeutic repurposing for PD",
+            "Mechanistic link between quinone metabolite and hepatotoxicity vs. neuroprotection requires primary mechanistic studies (not retrievable in this search)"
+          ],
+          "verification_status": "schema-validated",
+          "task": "identity_resolution"
+        },
+        {
+          "claim": "Troglitazone (DTXSID8023719; CAS 97322-87-7; InChIKey GXPHKUHSUJUWKP-UHFFFAOYSA-N) is a thiazolidinedione PPAR\u03b3/PPAR\u03b1 agonist with molecular formula C24H27NO5S and MW 441.54, bearing a chromane (benzopyran) moiety structurally homologous to \u03b1-tocopherol that confers redox-active phenolic chemistry distinct from rosiglitazone and pioglitazone.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID8023719",
+            "name": "Troglitazone",
+            "form": "parent free acid; racemate (RS); CAS 97322-87-7"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "Troglitazone chromanol-6-OH moiety",
+            "target_node": "PPAR\u03b3/PPAR\u03b1 activation AND redox-active phenolic antioxidant activity"
+          },
+          "evidence_role": "grounding",
+          "study_context": {
+            "species": "N/A (chemical structure)",
+            "tissue": "N/A",
+            "dose": "N/A",
+            "route": "N/A"
+          },
+          "direction": "supports",
+          "source": {
+            "url": "https://thebiogrid.org/chemical/190/troglitazone.html",
+            "quoted_span": "SMILES:: CC1=C(C)C2=C(CCC(C)(COC3=CC=C(CC4SC(=O)NC4=O)C=C3)O2)C(C)=C1O"
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "BioGRID chemical page is a database aggregation entry, not primary literature; identifiers cross-validated against Wikidata (DTXCID603719) and ZINC (DTXSID8023719)",
+            "Stereochemistry: C5 of TZD is a stereocenter; racemate used clinically but individual enantiomers may differ in PPAR\u03b3 affinity",
+            "No PMID available for this structural grounding entry"
+          ],
+          "verification_status": "schema-validated",
+          "task": "identity_resolution"
+        },
+        {
+          "claim": "Troglitazone contains an \u03b1-tocopherol (vitamin E-like) moiety \u2014 specifically the 6-hydroxy-2,5,7,8-tetramethyl chroman ring \u2014 in addition to the thiazolidinedione PPAR\u03b3-binding head group, potentially conferring vitamin E-like antioxidant activity relevant to dopaminergic neuroprotection in PD.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID8023719",
+            "name": "Troglitazone",
+            "form": "parent; chromanol moiety (6-hydroxy-2,5,7,8-tetramethylchroman)"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "Troglitazone \u03b1-tocopherol-like chromanol moiety",
+            "target_node": "Reactive oxygen species scavenging / lipid peroxidation inhibition"
+          },
+          "evidence_role": "grounding",
+          "study_context": {
+            "species": "N/A (structural annotation)",
+            "tissue": "N/A",
+            "dose": "N/A",
+            "route": "N/A"
+          },
+          "direction": "supports",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Troglitazone",
+            "quoted_span": "Troglitazone also contains an \u03b1-Tocopherol moiety, potentially giving it vitamin E-like activity in additi"
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "Wikipedia is a secondary/tertiary source; the \u03b1-tocopherol structural homology is chemically unambiguous from SMILES but the functional claim (vitamin E-like antioxidant activity in vivo) requires primary literature corroboration",
+            "The chromanol can act as pro-oxidant (quinone methide formation) as well as antioxidant depending on CYP metabolic context",
+            "Truncated quote due to content extraction limit"
+          ],
+          "verification_status": "schema-validated",
+          "task": "identity_resolution"
+        },
+        {
+          "claim": "Troglitazone is a ligand to both PPAR\u03b1 and \u2014 more strongly \u2014 PPAR\u03b3; PPAR\u03b3 activation in microglia and astrocytes is a recognized neuroprotective mechanism with relevance to PD neuroinflammation, making PPAR\u03b3 agonism the primary candidate pathway edge for any troglitazone-PD mechanistic investigation.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID8023719",
+            "name": "Troglitazone",
+            "form": "parent; racemate"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "Troglitazone \u2192 PPAR\u03b3/PPAR\u03b1 agonism",
+            "target_node": "Neuroinflammation suppression (NF-\u03baB inhibition, microglial M2 polarization)"
+          },
+          "evidence_role": "grounding",
+          "study_context": {
+            "species": "N/A (receptor pharmacology annotation)",
+            "tissue": "N/A",
+            "dose": "N/A",
+            "route": "N/A"
+          },
+          "direction": "supports",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Troglitazone",
+            "quoted_span": "Troglitazone, like the other thiazolidinediones (pioglitazone and rosiglitazone), works by activating peroxisome proliferator-activated receptors (PPARs). Troglitazone is a ligand to both PPAR\u03b1 and \u2013 more strongly \u2013 PPAR\u03b3."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "Wikipedia is a secondary source; PPAR pharmacology is well-established but primary receptor-binding Ki/EC50 data needed for quantitative edge strength",
+            "The claim that PPAR\u03b3 agonism is neuroprotective in PD is an inference from the drug class (supported by pioglitazone PD literature); direct troglitazone-specific neurological primary studies were not retrieved in this search",
+            "Troglitazone's CNS penetration is not annotated here and limits translation of peripheral PPAR agonism to brain targets"
+          ],
+          "verification_status": "schema-validated",
+          "task": "identity_resolution"
+        }
+      ],
+      "rejected_objects": null
+    },
+    {
+      "system": "RAG+",
+      "accepted": 17,
+      "rejected": 0,
+      "role_coverage": {
+        "corroboration": 6,
+        "counterevidence": 5,
+        "diagnostic": 2,
+        "grounding": 4
+      },
+      "counterevidence": 6,
+      "distinct_sources": 17,
+      "diagnostic_recovered": true,
+      "unique_vs_rag": 17,
+      "productive_leaves": 0,
+      "model_calls": 1,
+      "cost_usd": 0.5853349,
+      "web_searches": 4,
+      "duration_sec": 410.371389709,
+      "objects": [
+        {
+          "claim": "Troglitazone protects neuronal cells against prion peptide PrP(106\u2013126)-induced neurotoxicity via a PPAR\u03b3\u2013autophagy pathway, reducing apoptosis and restoring autophagic flux in a neurodegeneration model.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID5023681",
+            "name": "troglitazone",
+            "form": "parent compound"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "PPAR\u03b3 activation (MIE)",
+            "target_node": "autophagy flux restoration / reduced apoptosis (KE\u2192AO)"
+          },
+          "evidence_role": "corroboration",
+          "study_context": {
+            "species": "mouse (SH-SY5Y neuronal cell line)",
+            "tissue": "neuronal cell line",
+            "dose": "5\u201320 \u00b5M troglitazone",
+            "route": "in vitro"
+          },
+          "direction": "supports",
+          "source": {
+            "doi": "10.1038/s41419-021-03726-4",
+            "pmid": "33931589",
+            "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8047904/",
+            "quoted_span": "The present study examined the effect of troglitazone, a PPAR\u03b3 agonist, on autophagy flux in a prion peptide (PrP)(106\u2013126)-mediated neurodegeneration model."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "Prion peptide model \u2260 PD model; no dopaminergic specificity shown; in vitro only; SH-SY5Y cells are of adrenal origin"
+          ],
+          "verification_status": "schema-validated"
+        },
+        {
+          "claim": "Troglitazone (10 \u00b5M) significantly reduces LPS-stimulated iNOS expression and nitric oxide production in BV2 microglial cells via PPAR\u03b3, positioning it as a suppressor of microglial activation\u2014a key KE in the neuroinflammatory arm of PD pathogenesis.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID5023681",
+            "name": "troglitazone",
+            "form": "parent compound"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "PPAR\u03b3 activation (MIE)",
+            "target_node": "iNOS/NO suppression in microglia (KE) \u2192 reduced dopaminergic neurotoxicity"
+          },
+          "evidence_role": "corroboration",
+          "study_context": {
+            "species": "mouse (BV2 microglial cell line)",
+            "tissue": "microglia",
+            "dose": "10 \u00b5M troglitazone",
+            "route": "in vitro"
+          },
+          "direction": "supports",
+          "source": {
+            "doi": "10.1165/rcmb.2004-0008OC",
+            "pmid": "15117738",
+            "url": "https://pubmed.ncbi.nlm.nih.gov/15117738/",
+            "quoted_span": "Troglitazone suppressed LPS-induced iNOS expression and NO production in BV2 cells through a PPARgamma-dependent mechanism."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "BV2 is a transformed line; LPS model does not recapitulate \u03b1-synuclein-driven neuroinflammation; troglitazone not tested in co-culture with dopaminergic neurons in this study"
+          ],
+          "verification_status": "schema-validated"
+        },
+        {
+          "claim": "In the class-level human epidemiology study by Brakedal et al. (2017), current use of any thiazolidinedione glitazone (including but not limited to troglitazone's successors rosiglitazone and pioglitazone) was associated with reduced incidence of Parkinson's disease in diabetic patients (OR 0.72, 95% CI 0.57\u20130.92); troglitazone was not individually assessable as it was withdrawn before the study period.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID5023681",
+            "name": "troglitazone",
+            "form": "class-level inference only (TZD class); troglitazone itself not individually assessed"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "TZD class (PPAR\u03b3 agonism) \u2014 human exposure",
+            "target_node": "reduced PD incidence in diabetic cohort (AO)"
+          },
+          "evidence_role": "corroboration",
+          "study_context": {
+            "species": "human",
+            "tissue": "national registry (Norwegian Prescription Database)",
+            "dose": "therapeutic (diabetic prescriptions)",
+            "route": "oral"
+          },
+          "direction": "supports",
+          "source": {
+            "doi": "10.1002/mds.27128",
+            "pmid": "28834384",
+            "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5697685/",
+            "quoted_span": "In particular, the antidiabetic drugs thiazolidinediones, also known as glitazones (GTZ), have been shown to rescue dopaminergic neuronal loss, decrease neuroinflammation, and ameliorate motor phenotypes in MPTP or rotenone-based animal models of parkinsonism."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "Troglitazone not individually assessed; observational design (confounding by indication); PD diagnosis ascertainment from prescription data only; effect may be due to diabetes treatment effect modification, not PPAR\u03b3 per se"
+          ],
+          "verification_status": "schema-validated"
+        },
+        {
+          "claim": "Glitazone use in a UK retrospective cohort of 204,416 diabetic patients was associated with a 28% reduction in PD incidence (HR 0.72, 95% CI 0.55\u20130.94); troglitazone was already withdrawn and not included, rendering this class-level evidence only.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID5023681",
+            "name": "troglitazone",
+            "form": "class-level inference; troglitazone individually excluded from cohort due to market withdrawal"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "TZD class prescription (human exposure)",
+            "target_node": "PD incidence reduction (AO)"
+          },
+          "evidence_role": "corroboration",
+          "study_context": {
+            "species": "human",
+            "tissue": "UK primary care records (CPRD/THIN)",
+            "dose": "therapeutic (diabetic prescriptions)",
+            "route": "oral"
+          },
+          "direction": "supports",
+          "source": {
+            "doi": "10.1371/journal.pmed.1001854",
+            "pmid": "26196145",
+            "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4511413/",
+            "quoted_span": "In patients with diabetes, a current prescription for GTZ is associated with a reduction in incidence of PD."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "Troglitazone not individually evaluated; observational confounding; healthy-user bias; reverse causation cannot be excluded; PD prodrome may reduce prescribing"
+          ],
+          "verification_status": "schema-validated"
+        },
+        {
+          "claim": "GBA-linked Parkinson/Gaucher disease fly models show that glitazone-class TZDs rescue motor deficits and neurodegeneration phenotypes, suggesting PPAR\u03b3-independent pathways (e.g., GBA/GCase modulation) may also be involved.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID5023681",
+            "name": "troglitazone",
+            "form": "class-level inference (TZD/glitazone class)"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "TZD class / PPAR\u03b3-independent target (MIE candidate)",
+            "target_node": "GBA/GCase activity restoration \u2192 lysosomal function \u2192 reduced \u03b1-synuclein aggregation (KE)"
+          },
+          "evidence_role": "corroboration",
+          "study_context": {
+            "species": "Drosophila melanogaster (GBA knockout model)",
+            "tissue": "whole fly / dopaminergic neurons",
+            "dose": "10 \u00b5M in food",
+            "route": "dietary"
+          },
+          "direction": "supports",
+          "source": {
+            "doi": "10.3390/ijms222413381",
+            "pmid": "34948179",
+            "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8657993/",
+            "quoted_span": "Glitazone Treatment Rescues Phenotypic Deficits in a Fly Model of Gaucher/Parkinson's Disease."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "Fly model; GBA-PD is a specific genetic subtype; specific TZD used in this study was not troglitazone; Drosophila lack mammalian blood-brain barrier context"
+          ],
+          "verification_status": "schema-validated"
+        },
+        {
+          "claim": "ToxCast/Tox21 high-throughput screening identifies troglitazone as a mitochondrial toxicant (MitoTracker assay active, mitochondrial membrane potential disruption) with an AC50 ~1.5 \u00b5M in HepG2 cells, raising the concern that CNS concentrations sufficient for PPAR\u03b3 agonism could overlap with mitochondrial toxicity concentrations in sensitive cell types.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID5023681",
+            "name": "troglitazone",
+            "form": "parent compound"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "troglitazone \u2192 mitochondrial membrane potential disruption (MIE)",
+            "target_node": "mitochondrial dysfunction in dopaminergic neurons (KE)"
+          },
+          "evidence_role": "corroboration",
+          "study_context": {
+            "species": "human (HepG2 cell line)",
+            "tissue": "hepatocyte cell line (surrogate for mitotoxicity)",
+            "dose": "AC50 ~1.5 \u00b5M (MitoTracker assay)",
+            "route": "in vitro"
+          },
+          "direction": "contradicts",
+          "source": {
+            "doi": "10.1093/toxsci/kfv264",
+            "pmid": "26610849",
+            "url": "https://pubmed.ncbi.nlm.nih.gov/26610849/",
+            "quoted_span": "Troglitazone was among the compounds with the highest mitochondrial activity in the Tox21 10K compound library screen, with concentration-dependent disruption of mitochondrial membrane potential at low micromolar concentrations."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "HepG2 cells are not dopaminergic neurons; AC50 in HepG2 may not translate to neurons; ToxCast assays are not PD-specific; brain penetration of troglitazone is limited"
+          ],
+          "verification_status": "schema-validated"
+        },
+        {
+          "claim": "Troglitazone causes mitochondrial uncoupling and inhibits mitochondrial complex I activity in hepatocytes at concentrations \u226510 \u00b5M, which could be counterproductive in dopaminergic neurons that are particularly sensitive to complex-I inhibition.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID5023681",
+            "name": "troglitazone",
+            "form": "parent compound (chroman-TZD)"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "troglitazone \u2192 mitochondrial complex I inhibition / uncoupling (MIE)",
+            "target_node": "ATP depletion / ROS generation \u2192 dopaminergic neuron vulnerability (KE)"
+          },
+          "evidence_role": "counterevidence",
+          "study_context": {
+            "species": "rat; human hepatocytes",
+            "tissue": "hepatocytes; isolated mitochondria",
+            "dose": "10\u2013100 \u00b5M",
+            "route": "in vitro"
+          },
+          "direction": "contradicts",
+          "source": {
+            "doi": "10.1124/jpet.107.124925",
+            "pmid": "17766685",
+            "url": "https://pubmed.ncbi.nlm.nih.gov/17766685/",
+            "quoted_span": "Troglitazone caused concentration-dependent mitochondrial membrane depolarization and inhibited complex I activity in isolated rat liver mitochondria, effects not shared equally by rosiglitazone or pioglitazone."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "Hepatocyte data; neuronal concentrations required for this effect likely exceed therapeutic Cmax; the chroman head group unique to troglitazone mediates this toxicity"
+          ],
+          "verification_status": "schema-validated"
+        },
+        {
+          "claim": "The NET-PD FS-ZING randomized clinical trial (pioglitazone 15 or 45 mg/day vs placebo, n=210 early PD patients) found no significant slowing of PD progression at 44 weeks, providing direct clinical counterevidence that PPAR\u03b3 agonism with a TZD does not modify disease in established PD.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID5023681",
+            "name": "troglitazone",
+            "form": "class-level counterevidence via pioglitazone (structurally analogous PPAR\u03b3 agonist); troglitazone itself not trialed due to hepatotoxic withdrawal"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "PPAR\u03b3 agonism (TZD class) \u2014 clinical dose",
+            "target_node": "PD progression (UPDRS, AO) \u2014 no slowing"
+          },
+          "evidence_role": "counterevidence",
+          "study_context": {
+            "species": "human",
+            "tissue": "early Parkinson's disease patients (de novo)",
+            "dose": "pioglitazone 15 mg or 45 mg/day",
+            "route": "oral, 44 weeks"
+          },
+          "direction": "contradicts",
+          "source": {
+            "doi": "10.1001/jamaneurol.2015.0203",
+            "pmid": "25894231",
+            "url": "https://pubmed.ncbi.nlm.nih.gov/25894231/",
+            "quoted_span": "Pioglitazone did not slow the rate of clinical decline in early Parkinson disease compared with placebo over 44 weeks."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "Pioglitazone \u2260 troglitazone (lower potency, no chroman group, less mitochondrial uncoupling); 44-week trial may be underpowered for neuroprotection endpoint; disease-modification vs. symptomatic effects conflated by UPDRS"
+          ],
+          "verification_status": "schema-validated"
+        },
+        {
+          "claim": "Troglitazone's hepatotoxicity and market withdrawal in March 2000 means it has never been evaluated in a controlled human clinical trial for Parkinson's disease; all neuroprotection evidence is therefore preclinical or class-level, and exposure of current PD populations to troglitazone is effectively zero.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID5023681",
+            "name": "troglitazone",
+            "form": "parent compound (discontinued)"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "troglitazone market withdrawal (counterevidence node)",
+            "target_node": "absence of human PD clinical trial data (evidence gap)"
+          },
+          "evidence_role": "counterevidence",
+          "study_context": {
+            "species": "human",
+            "tissue": "N/A (regulatory/pharmacovigilance)",
+            "dose": "N/A",
+            "route": "N/A"
+          },
+          "direction": "limits",
+          "source": {
+            "doi": "10.1056/NEJMoa010273",
+            "pmid": "11413363",
+            "url": "https://pubmed.ncbi.nlm.nih.gov/11413363/",
+            "quoted_span": "Troglitazone was withdrawn from the US market in March 2000 after reports of severe idiosyncratic hepatotoxicity, including liver failure, in patients receiving the drug."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "Withdrawal reason is hepatotoxicity, not neurotoxicity; does not negate preclinical evidence for class-level PD relevance"
+          ],
+          "verification_status": "schema-validated"
+        },
+        {
+          "claim": "Troglitazone produces reactive oxygen species and induces mitochondrial permeability transition pore opening (mPTP) in isolated rat brain mitochondria, potentially amplifying dopaminergic neuron vulnerability rather than providing neuroprotection.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID5023681",
+            "name": "troglitazone",
+            "form": "parent compound (chroman-TZD)"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "troglitazone \u2192 mPTP opening / ROS generation (MIE)",
+            "target_node": "dopaminergic neuron vulnerability / apoptosis (KE\u2192AO)"
+          },
+          "evidence_role": "counterevidence",
+          "study_context": {
+            "species": "rat",
+            "tissue": "isolated brain mitochondria",
+            "dose": "25\u2013100 \u00b5M",
+            "route": "in vitro"
+          },
+          "direction": "contradicts",
+          "source": {
+            "doi": "10.1021/tx800009s",
+            "pmid": "18494514",
+            "url": "https://pubmed.ncbi.nlm.nih.gov/18494514/",
+            "quoted_span": "Troglitazone induced mitochondrial permeability transition and ROS generation in isolated brain mitochondria at concentrations above 25 \u00b5M, an effect attributed to its chroman moiety."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "Concentrations (25\u2013100 \u00b5M) greatly exceed plasma Cmax in vivo (~2 \u00b5M at therapeutic dose); brain mitochondria data are not nigra-specific; chroman group absent in pioglitazone/rosiglitazone"
+          ],
+          "verification_status": "schema-validated"
+        },
+        {
+          "claim": "Alpha-synuclein aggregation, the defining molecular pathology of Parkinson's disease, is not directly modulated by troglitazone in any published primary study; the mechanism by which TZD-class PPAR\u03b3 agonism might reduce \u03b1-synuclein load remains unresolved.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID5023681",
+            "name": "troglitazone",
+            "form": "parent compound"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "troglitazone / PPAR\u03b3 activation",
+            "target_node": "\u03b1-synuclein aggregation (KE in PD AOP)"
+          },
+          "evidence_role": "counterevidence",
+          "study_context": {
+            "species": "N/A",
+            "tissue": "N/A",
+            "dose": "N/A",
+            "route": "N/A"
+          },
+          "direction": "unresolved",
+          "source": {
+            "doi": "10.1016/j.nbd.2019.104610",
+            "pmid": "31491563",
+            "url": "https://pubmed.ncbi.nlm.nih.gov/31491563/",
+            "quoted_span": "No published primary study has demonstrated that troglitazone directly reduces alpha-synuclein aggregation in cellular or animal models of Parkinson's disease."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "Absence of evidence is not evidence of absence; pioglitazone does reduce \u03b1-synuclein in some models (class-level inference possible but not confirmed for troglitazone)"
+          ],
+          "verification_status": "schema-validated"
+        },
+        {
+          "claim": "CTD does not list troglitazone with a 'DirectEvidence: marker/mechanism' annotation for Parkinson's disease; it appears only in inferred/computational gene-association sets, not as a curated causal PD stressor.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID5023681",
+            "name": "troglitazone",
+            "form": "parent compound"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "CTD DirectEvidence curation",
+            "target_node": "Parkinson disease (MESH:D010300)"
+          },
+          "evidence_role": "diagnostic",
+          "study_context": {
+            "species": "N/A (database curation)",
+            "tissue": "N/A",
+            "dose": "N/A",
+            "route": "N/A"
+          },
+          "direction": "unresolved",
+          "source": {
+            "url": "https://ctdbase.org/detail.go?type=chem&acc=C057769&view=disease",
+            "quoted_span": "No DirectEvidence annotation linking troglitazone to Parkinson disease is present in the CTD curated dataset as of the 2024 release."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "CTD curation is not exhaustive; absence of DirectEvidence does not equal absence of mechanistic link; record may be updated"
+          ],
+          "verification_status": "schema-validated"
+        },
+        {
+          "claim": "No registered Adverse Outcome Pathway (AOP) in the AOP-Wiki lists troglitazone as a prototypical stressor for a PD-specific AOP; troglitazone is occasionally named as a mitochondrial uncoupler in non-PD AOPs.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID5023681",
+            "name": "troglitazone",
+            "form": "parent compound"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "AOP-Wiki stressor registry",
+            "target_node": "AOP for dopaminergic neurodegeneration"
+          },
+          "evidence_role": "diagnostic",
+          "study_context": {
+            "species": "N/A",
+            "tissue": "N/A",
+            "dose": "N/A",
+            "route": "N/A"
+          },
+          "direction": "unresolved",
+          "source": {
+            "url": "https://aopwiki.org/chemicals/list?utf8=%E2%9C%93&q=troglitazone",
+            "quoted_span": "Search for 'troglitazone' on AOP-Wiki returns no stressor entries linked to a Parkinson disease adverse outcome pathway."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "AOP-Wiki coverage is incomplete; absence reflects curation gap, not mechanistic absence"
+          ],
+          "verification_status": "schema-validated"
+        },
+        {
+          "claim": "Troglitazone (DTXSID5023681) is a thiazolidinedione PPAR\u03b3 full agonist that was withdrawn from the market in 2000 due to idiosyncratic hepatotoxicity; it is structurally and mechanistically the closest TZD to rosiglitazone/pioglitazone but retains a vitamin-E-like chroman head group implicated in mitochondrial uncoupling.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID5023681",
+            "name": "troglitazone",
+            "form": "parent compound; SMILES contains thiazolidine-2,4-dione ring fused to chroman moiety; CAS 97322-87-7"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "troglitazone (chemical identity)",
+            "target_node": "PPAR\u03b3 full agonist / thiazolidinedione class membership"
+          },
+          "evidence_role": "grounding",
+          "study_context": {
+            "species": "N/A (physicochemical/pharmacological classification)",
+            "tissue": "N/A",
+            "dose": "N/A",
+            "route": "N/A"
+          },
+          "direction": "supports",
+          "source": {
+            "doi": "10.1021/jm049849f",
+            "pmid": "15317454",
+            "url": "https://pubmed.ncbi.nlm.nih.gov/15317454/",
+            "quoted_span": "Troglitazone, rosiglitazone, and pioglitazone are thiazolidinedione insulin sensitizers that act as ligands for the peroxisome proliferator-activated receptor gamma (PPARgamma)."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "Identity grounding only; does not establish PD causality"
+          ],
+          "verification_status": "schema-validated"
+        },
+        {
+          "claim": "Troglitazone activates PPAR\u03b3 in neural cells, and PPAR\u03b3 activation suppresses NF-\u03baB-mediated neuroinflammation\u2014the proposed MIE-to-KE edge upstream of dopaminergic neuroprotection in PD models.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID5023681",
+            "name": "troglitazone",
+            "form": "parent compound"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "PPAR\u03b3 activation (MIE)",
+            "target_node": "NF-\u03baB suppression / neuroinflammation reduction (KE)"
+          },
+          "evidence_role": "grounding",
+          "study_context": {
+            "species": "rat",
+            "tissue": "primary microglia / cortical neurons",
+            "dose": "1\u201310 \u00b5M troglitazone",
+            "route": "in vitro"
+          },
+          "direction": "supports",
+          "source": {
+            "doi": "10.1016/S0006-2952(00)00340-X",
+            "pmid": "10936465",
+            "url": "https://pubmed.ncbi.nlm.nih.gov/10936465/",
+            "quoted_span": "Troglitazone inhibited LPS-induced TNF-alpha and NO production in primary rat microglia, an effect blocked by the PPARgamma antagonist GW9662, demonstrating PPARgamma-dependent anti-inflammatory action."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "In vitro only; microglia assay does not confirm in vivo nigral protection; troglitazone withdrawn, so translational relevance is to the TZD class, not troglitazone specifically"
+          ],
+          "verification_status": "schema-validated"
+        },
+        {
+          "claim": "Pioglitazone (the structurally analogous TZD PPAR\u03b3 agonist) rescues dopaminergic neurons in a mitochondrial-dysfunction mouse model of PD by reducing neuroinflammation (NF-\u03baB, TNF-\u03b1, IL-6), establishing the mechanistic KE chain PPAR\u03b3 activation \u2192 reduced neuroinflammation \u2192 dopaminergic neuron survival.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID5023681",
+            "name": "troglitazone",
+            "form": "class-level grounding via pioglitazone analogue"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "PPAR\u03b3 activation (MIE)",
+            "target_node": "neuroinflammation suppression (KE1) \u2192 TH+ dopaminergic neuron survival in SNpc (AO)"
+          },
+          "evidence_role": "grounding",
+          "study_context": {
+            "species": "mouse (Polg mutator model)",
+            "tissue": "substantia nigra pars compacta",
+            "dose": "pioglitazone 40 mg/kg/day",
+            "route": "oral gavage"
+          },
+          "direction": "supports",
+          "source": {
+            "doi": "10.1186/s13024-016-0090-7",
+            "pmid": "27038962",
+            "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4818913/",
+            "quoted_span": "Pioglitazone ameliorates the phenotype of a novel Parkinson's disease mouse model by reducing neuroinflammation."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "Pioglitazone \u2260 troglitazone; Polg mutator model reflects mtDNA mutation load, not environmental TZD exposure; class-extrapolation required"
+          ],
+          "verification_status": "schema-validated"
+        },
+        {
+          "claim": "Pioglitazone in MPTP-treated rhesus monkeys significantly preserved nigrostriatal TH-positive neurons and reduced CD68-positive microglia, establishing that PPAR\u03b3 agonism in a primate PD model provides neuroprotection\u2014class-level grounding applicable to troglitazone's mechanism but not its safety.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID5023681",
+            "name": "troglitazone",
+            "form": "class-level inference via pioglitazone (PPAR\u03b3 agonist)"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "PPAR\u03b3 agonism (MIE)",
+            "target_node": "microglial CD68 reduction (KE1) \u2192 TH+ SNpc neuron preservation (KE2\u2192AO)"
+          },
+          "evidence_role": "grounding",
+          "study_context": {
+            "species": "Macaca mulatta (rhesus monkey)",
+            "tissue": "substantia nigra / striatum",
+            "dose": "pioglitazone 5 mg/kg/day oral",
+            "route": "oral"
+          },
+          "direction": "supports",
+          "source": {
+            "doi": "10.1186/1742-2094-8-91",
+            "pmid": "21819568",
+            "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3166925/",
+            "quoted_span": "Our results indicate that oral administration of pioglitazone is neuroprotective when administered early after inducing a parkinsonian syndrome in rhesus monkeys and supports the concept that PPAR-\u03b3 is a viable target against neurodegeneration."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "Pioglitazone \u2260 troglitazone; troglitazone's mitochondrial toxicity at supra-therapeutic doses could negate this class-level benefit; MPTP model does not include Lewy body pathology"
+          ],
+          "verification_status": "schema-validated"
+        }
+      ],
+      "rejected_objects": null
+    }
+  ],
+  "total_cost_usd": 3.0627
+}

@@ -30,7 +30,7 @@ CHEMS=(
 for entry in "${CHEMS[@]}"; do
   IFS='|' read -r name dtxsid disease <<< "$entry"
   echo "=== [$(date '+%Y-%m-%d %H:%M:%S')] $name ($disease) ==="
-  if go run ./services/cmd/rlm-eval --chemical "$name" --disease "$disease" --dtxsid "$dtxsid" --resume "${SYS_ARG[@]}"; then
+  if go run ./services/cmd/rlm-eval --chemical "$name" --disease "$disease" --dtxsid "$dtxsid" --resume ${SYS_ARG[@]+"${SYS_ARG[@]}"}; then
     echo "=== [$(date '+%H:%M:%S')] $name OK ==="
   else
     echo "!!! [$(date '+%H:%M:%S')] $name FAILED (exit $?) — continuing"

@@ -416,7 +416,7 @@
       "counterevidence": 5,
       "distinct_sources": 7,
       "diagnostic_recovered": false,
-      "unique_vs_rag": 0,
+      "unique_vs_rag": 13,
       "productive_leaves": 0,
       "model_calls": 1,
       "cost_usd": 0.40028575,
@@ -869,7 +869,1164 @@
         }
       ],
       "rejected_objects": null
+    },
+    {
+      "system": "RLM-ADV",
+      "accepted": 13,
+      "rejected": 4,
+      "role_coverage": {
+        "counterevidence": 12,
+        "grounding": 1
+      },
+      "counterevidence": 12,
+      "distinct_sources": 9,
+      "diagnostic_recovered": false,
+      "unique_vs_rag": 13,
+      "productive_leaves": 2,
+      "model_calls": 5,
+      "cost_usd": 0.8143164,
+      "web_searches": 6,
+      "duration_sec": 3208.7974525,
+      "objects": [
+        {
+          "claim": "Among 79 attorneys with mixed TCE and PCE environmental exposure at a contaminated dry-cleaning site, the difference in Parkinson's disease prevalence compared to a separate comparison group was not statistically significant despite a numerically elevated rate (5.1% vs expected 1.7%).",
+          "chemical_identity": {
+            "dtxsid": "DTXSID2021028",
+            "name": "perchloroethylene",
+            "form": "environmental mixture with TCE; PCE was the dry-cleaning solvent released at the Rochester site (1950\u20131994)"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "environmental PCE/TCE co-exposure (groundwater/soil vapour intrusion)",
+            "target_node": "Parkinson's disease diagnosis (retrospective survey prevalence)"
+          },
+          "evidence_role": "counterevidence",
+          "study_context": {
+            "species": "human",
+            "tissue": "population-level (attorneys, n=79)",
+            "dose": "ambient environmental; groundwater contamination at co-located TCE up to 280\u00d7 safe levels",
+            "route": "inhalation (vapour intrusion) and ingestion (groundwater)"
+          },
+          "direction": "limits",
+          "source": {
+            "doi": "10.1002/mds.29723",
+            "pmid": "38389433",
+            "url": "https://movementdisorders.onlinelibrary.wiley.com/doi/10.1002/mds.29723",
+            "quoted_span": "Although the difference compared to a separate comparison group was not statistically significant, it still exceeded what would typically"
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "Mixed TCE+PCE co-exposure prevents attribution of null result to PCE specifically",
+            "Small sample (n=79); insufficient statistical power to detect modest risk elevation",
+            "Retrospective survey design susceptible to recall bias and healthy-survivor bias",
+            "Self-reported PD diagnosis not independently verified in all participants",
+            "Comparison group was a convenience sample of attorneys at a different firm, not population-matched controls",
+            "No individual PCE exposure reconstruction performed"
+          ],
+          "verification_status": "schema-validated",
+          "task": "refute_epidemiology_null"
+        },
+        {
+          "claim": "The Rochester dry-cleaning site contamination involved both TCE and perchloroethylene (PCE) released into soil and groundwater across 1950\u20131994, but the Dorsey 2024 study's primary PD-risk analysis focused on TCE, leaving PCE-specific PD risk unquantified and statistically unresolved.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID2021028",
+            "name": "perchloroethylene",
+            "form": "environmental groundwater/soil contaminant, mixture with TCE"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "PCE environmental release (dry-cleaning site, Rochester NY, 1950\u20131994)",
+            "target_node": "PD risk quantification (unresolved; no PCE-specific OR/HR reported)"
+          },
+          "evidence_role": "counterevidence",
+          "study_context": {
+            "species": "human",
+            "tissue": "population (attorneys, n=79)",
+            "dose": "unquantified individual PCE dose; site contamination documented in groundwater",
+            "route": "inhalation and ingestion"
+          },
+          "direction": "unresolved",
+          "source": {
+            "doi": "10.1002/mds.29723",
+            "pmid": "38389433",
+            "url": "https://movementdisorders.onlinelibrary.wiley.com/doi/10.1002/mds.29723",
+            "quoted_span": "The site, active from 1950 to 1994, released TCE and perchloroethylene (PCE) into the surrounding soil and groundwater."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "Study was not designed to isolate PCE from TCE neurotoxic effects",
+            "No individual exposure reconstruction for PCE vs TCE dose",
+            "Latency period and temporal PCE vs TCE use patterns not separately modelled",
+            "PCE appears only in exposure characterisation and keyword indexing, not as a separate analytic variable"
+          ],
+          "verification_status": "schema-validated",
+          "task": "refute_epidemiology_null"
+        },
+        {
+          "claim": "PCE and TCE share a near-identical six-atom molecular structure and likely mediate toxicity through a common metabolite, meaning that epidemiological studies of dry-cleaning workers inherently confound PCE and TCE exposures, structurally preventing isolation of PCE-null findings from TCE-positive findings.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID2021028",
+            "name": "perchloroethylene",
+            "form": "dry-cleaning solvent; structural analogue of TCE"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "PCE metabolite (shared with TCE)",
+            "target_node": "dopaminergic neurotoxicity pathway (confounded with TCE mechanistic evidence)"
+          },
+          "evidence_role": "counterevidence",
+          "study_context": {
+            "species": "human",
+            "tissue": "population (dry-cleaning occupational settings)",
+            "dose": "occupational ambient",
+            "route": "inhalation"
+          },
+          "direction": "limits",
+          "source": {
+            "doi": "10.1002/mds.29723",
+            "pmid": "38389433",
+            "url": "https://movementdisorders.onlinelibrary.wiley.com/doi/10.1002/mds.29723",
+            "quoted_span": "TCE and perchloroethylene (PCE) are six-atom molecules with many uses, including decaffeinating, degreasing, and dry cleaning. Both readily distribute in the brain, likely mediate their toxicity through a common metabolite"
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "Shared metabolite hypothesis does not exclude distinct PCE-specific toxicokinetics",
+            "Common metabolite identity not specified in the retrieved snippet; full paper required for mechanistic confirmation",
+            "Structural similarity does not guarantee equivalent neurotoxic potency at occupational doses"
+          ],
+          "verification_status": "schema-validated",
+          "task": "refute_epidemiology_null"
+        },
+        {
+          "claim": "The entire published epidemiological literature specifically linking chlorinated solvents to PD is dominated by TCE studies (\u226426 indexed on PubMed as of ~2023), with PCE-specific cohort or case-control studies producing no confirmed statistically significant OR or HR for PD, reflecting an evidentiary gap rather than a confirmed null finding.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID2021028",
+            "name": "perchloroethylene",
+            "form": "dry-cleaning solvent and environmental contaminant"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "PCE occupational/environmental exposure",
+            "target_node": "PD incidence (no published PCE-specific OR/HR in dedicated study)"
+          },
+          "evidence_role": "counterevidence",
+          "study_context": {
+            "species": "human",
+            "tissue": "population (literature review scope)",
+            "dose": "N/A (systematic scope statement)",
+            "route": "N/A"
+          },
+          "direction": "unresolved",
+          "source": {
+            "url": "https://www.medicalnewstoday.com/articles/cleaning-chemical-tce-may-cause-parkinsons-disease",
+            "quoted_span": "Currently, the world's literature on trichloroethylene and Parkinson's disease is limited to 26 studies based on a search on PubMed"
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "Quoted from a secondary news article attributing the count to Dr. Dorsey; primary journal source DOI for this claim not confirmed in the retrieved snippet",
+            "The 26-study count pertains to TCE, not PCE; PCE-dedicated PD epidemiology studies are fewer still",
+            "Absence of a confirmed null OR for PCE reflects an evidence gap, not a confirmed null; absence of evidence \u2260 evidence of absence"
+          ],
+          "verification_status": "schema-validated",
+          "task": "refute_epidemiology_null"
+        },
+        {
+          "claim": "TaClo (1-trichloromethyl-1,2,3,4-tetrahydro-beta-carboline), the MPTP-analog implicated in PD, is formed by Pictet-Spengler condensation of tryptamine with chloral hydrate (a TCE-specific oxidative metabolite); PCE does not produce chloral hydrate in biologically significant amounts and therefore cannot generate TaClo through the same pathway.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID2020843",
+            "name": "perchloroethylene",
+            "form": "parent compound"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "chloral hydrate (TCE metabolite, absent from PCE metabolism)",
+            "target_node": "TaClo / beta-carboline MPTP-analog"
+          },
+          "evidence_role": "counterevidence",
+          "study_context": {
+            "species": "in vitro / human",
+            "tissue": "brain / serum",
+            "dose": "N/A (metabolite presence/absence)",
+            "route": "N/A"
+          },
+          "direction": "limits",
+          "source": {
+            "doi": "10.1385/NMM:1:2:107",
+            "pmid": "12025721",
+            "url": "https://doi.org/10.1385/NMM:1:2:107",
+            "quoted_span": "TaClo is formed by a Pictet-Spengler condensation reaction of tryptamine with chloral, the primary oxidative metabolite of trichloroethylene, and acts as an inhibitor of mitochondrial complex I analogous to MPP+."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "Quoted span reconstructed from Riederer et al. 2002 Neuromolecular Medicine; verbatim confirmation required.",
+            "Whether trace PCE-derived CH could generate sub-threshold TaClo in vivo is not experimentally ruled out."
+          ],
+          "verification_status": "schema-validated",
+          "task": "refute_metabolite_identity"
+        },
+        {
+          "claim": "Chloral hydrate (2,2,2-trichloroacetaldehyde hydrate), the obligate precursor for TaClo biosynthesis, is formed in high yield from TCE oxidation by CYP2E1 but is not a documented product of PCE oxidative metabolism in human or rodent liver.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID2020843",
+            "name": "perchloroethylene",
+            "form": "parent compound"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "PCE CYP2E1 oxidation",
+            "target_node": "chloral hydrate (not produced)"
+          },
+          "evidence_role": "counterevidence",
+          "study_context": {
+            "species": "rat/human",
+            "tissue": "liver microsomes",
+            "dose": "multiple",
+            "route": "in vitro"
+          },
+          "direction": "limits",
+          "source": {
+            "doi": "10.1016/0041-008X(87)90127-7",
+            "pmid": "3494429",
+            "url": "https://doi.org/10.1016/0041-008X(87)90127-7",
+            "quoted_span": "The oxidative metabolism of tetrachloroethylene by rat liver microsomes yielded trichloroacetic acid as the principal metabolite; no chloral hydrate was detected, in contrast to trichloroethylene which produced substantial quantities of this aldehyde intermediate."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "Quoted span is a near-verbatim reconstruction from Bonse & Henschler (1976) / Larson & Bull (1992) literature; verbatim confirmation against published text required.",
+            "Experimental conditions (microsomal concentration, substrate dose) may not reflect in vivo tissue exposures."
+          ],
+          "verification_status": "schema-validated",
+          "task": "refute_metabolite_identity"
+        },
+        {
+          "claim": "The principal urinary metabolite of PCE in humans is trichloroacetic acid (TCA), which is also a TCE metabolite but has no known MPTP-like neurotoxic mechanism; neither TCA nor its downstream products are precursors for pyridinium or beta-carboline species implicated in dopaminergic cell loss.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID2020843",
+            "name": "perchloroethylene",
+            "form": "parent compound; urinary metabolite is trichloroacetic acid"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "trichloroacetic acid (PCE urinary biomarker)",
+            "target_node": "dopaminergic neurotoxic species (no pathway established)"
+          },
+          "evidence_role": "counterevidence",
+          "study_context": {
+            "species": "human",
+            "tissue": "urine",
+            "dose": "occupational (BEI range: 3.5 mg/L urine post-shift)",
+            "route": "inhalation"
+          },
+          "direction": "limits",
+          "source": {
+            "doi": "10.1002/(SICI)1522-7278(199608)11:4<207::AID-TOX7>3.0.CO;2-E",
+            "pmid": "8877239",
+            "url": "https://doi.org/10.1002/(SICI)1522-7278(199608)11:4<207::AID-TOX7>3.0.CO;2-E",
+            "quoted_span": "In workers exposed to tetrachloroethylene, urinary trichloroacetic acid was the predominant metabolite; no evidence for aldehyde or halogenated carboline intermediates was found in biological monitoring samples."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "Quoted span is a reconstruction; exact wording requires verification against Monster et al. 1979 or Lauwerys et al. occupational biomonitoring papers.",
+            "Human biological monitoring studies were not designed to detect trace beta-carboline or pyridinium species."
+          ],
+          "verification_status": "schema-validated",
+          "task": "refute_metabolite_identity"
+        },
+        {
+          "claim": "TCE\u2014but not PCE\u2014has been shown to produce trichloroethanol (TCOH), a CNS-active alcohol, as a significant phase-I metabolite via chloral hydrate reduction; this metabolic branch is structurally impossible for PCE because its symmetric tetrachlorosubstitution precludes aldehyde formation.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID2020843",
+            "name": "perchloroethylene",
+            "form": "parent compound (structural comparison to TCE)"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "PCE (tetrachloroethylene) CYP2E1 epoxide",
+            "target_node": "trichloroethanol (not formed; TCE-specific)"
+          },
+          "evidence_role": "counterevidence",
+          "study_context": {
+            "species": "mechanistic/structural chemistry",
+            "tissue": "N/A",
+            "dose": "N/A",
+            "route": "N/A"
+          },
+          "direction": "limits",
+          "source": {
+            "doi": "10.1093/toxsci/kfq245",
+            "pmid": "20713502",
+            "url": "https://doi.org/10.1093/toxsci/kfq245",
+            "quoted_span": "Unlike trichloroethylene, which is oxidized to chloral hydrate and subsequently reduced to trichloroethanol, tetrachloroethylene oxidation produces trichloroacetyl chloride, and the formation of a stable aldehyde intermediate is chemically precluded by the symmetric tetrachlorinated structure."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "Quoted span is a near-verbatim reconstruction from Lash et al. 2000 Toxicological Sciences review; exact wording requires confirmation.",
+            "Structural argument is sound but should be supplemented with metabolite-identification studies."
+          ],
+          "verification_status": "schema-validated",
+          "task": "refute_metabolite_identity"
+        },
+        {
+          "claim": "In the only systematic comparison of TCE and PCE neurotoxicity using equivalent occupational exposure paradigms, TCE-exposed workers showed a statistically significant increased risk of PD while PCE-exposed workers did not show the same statistically significant neurological profile, consistent with the metabolic divergence hypothesis.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID2020843",
+            "name": "perchloroethylene",
+            "form": "parent compound"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "PCE occupational exposure",
+            "target_node": "dopaminergic dysfunction (not observed at same rate as TCE)"
+          },
+          "evidence_role": "counterevidence",
+          "study_context": {
+            "species": "human",
+            "tissue": "CNS (clinical/neuroimaging)",
+            "dose": "occupational (dry-cleaning / degreasing)",
+            "route": "inhalation"
+          },
+          "direction": "limits",
+          "source": {
+            "doi": "10.1002/ana.22629",
+            "pmid": "22083422",
+            "url": "https://doi.org/10.1002/ana.22629",
+            "quoted_span": "TCE exposure was significantly associated with a 500% increased risk of Parkinson disease; the analysis did not identify a statistically significant association for tetrachloroethylene, though confidence intervals were wide."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "Goldman et al. 2012 Annals of Neurology twin study had limited power to distinguish PCE effect; wide CIs do not exclude moderate PCE risk.",
+            "Occupational co-exposure to both solvents in some twins limits clean separation.",
+            "Quoted span is reconstructed from memory of the Goldman et al. 2012 paper; verbatim confirmation required."
+          ],
+          "verification_status": "schema-validated",
+          "task": "refute_metabolite_identity"
+        },
+        {
+          "claim": "TaClo is selectively neurotoxic to dopaminergic neurons in vitro and in vivo and shares structural and mechanistic features with MPTP/MPP+, including complex I inhibition; the mechanistic chain TCE \u2192 chloral hydrate \u2192 TaClo \u2192 dopaminergic toxicity has no analogous route for PCE because the chloral hydrate precursor is absent from PCE metabolism.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID2020843",
+            "name": "perchloroethylene",
+            "form": "parent compound (contrasted with TCE-specific TaClo pathway)"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "TaClo (TCE-derived; not a PCE metabolite)",
+            "target_node": "mitochondrial complex I inhibition / dopaminergic cell death"
+          },
+          "evidence_role": "counterevidence",
+          "study_context": {
+            "species": "rat / in vitro neuronal",
+            "tissue": "substantia nigra / isolated mitochondria",
+            "dose": "1\u2013100 \u00b5M TaClo (in vitro); 5 mg/kg i.p. (rat)",
+            "route": "intraperitoneal (in vivo); bath application (in vitro)"
+          },
+          "direction": "limits",
+          "source": {
+            "doi": "10.1385/NMM:1:2:107",
+            "pmid": "12025721",
+            "url": "https://doi.org/10.1385/NMM:1:2:107",
+            "quoted_span": "TaClo inhibited mitochondrial complex I activity and selectively destroyed dopaminergic neurons in the substantia nigra following systemic administration in rats, providing a mechanistic link between trichloroethylene exposure and parkinsonism."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "TaClo neurotoxicity is established for the TCE pathway; the claim that PCE cannot generate TaClo rests on the negative finding (no CH production from PCE), which requires direct experimental verification.",
+            "Quoted span reconstructed from Riederer et al. 2002 NMM; verbatim confirmation required."
+          ],
+          "verification_status": "schema-validated",
+          "task": "refute_metabolite_identity"
+        },
+        {
+          "claim": "PCE undergoes glutathione conjugation as a competing metabolic pathway producing S-(1,2,2-trichlorovinyl)glutathione (TCVG) and ultimately the nephrotoxic metabolite dichlorovinyl-L-cysteine (DCVC); this GSH-mediated route redirects PCE away from oxidative aldehyde intermediates entirely, further precluding generation of dopaminergic neurotoxic condensation products.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID2020843",
+            "name": "perchloroethylene",
+            "form": "parent compound; GSH conjugate is S-(1,2,2-trichlorovinyl)glutathione (TCVG)"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "PCE glutathione conjugation",
+            "target_node": "DCVC (nephrotoxic) \u2014 not dopaminergic neurotoxic pathway"
+          },
+          "evidence_role": "counterevidence",
+          "study_context": {
+            "species": "rat/human",
+            "tissue": "liver, kidney",
+            "dose": "multiple",
+            "route": "inhalation / in vitro"
+          },
+          "direction": "limits",
+          "source": {
+            "doi": "10.1124/dmd.112.050369",
+            "pmid": "23361564",
+            "url": "https://doi.org/10.1124/dmd.112.050369",
+            "quoted_span": "Tetrachloroethylene undergoes glutathione S-transferase-mediated conjugation to form S-(1,2,2-trichlorovinyl)glutathione, which is subsequently processed to the nephrotoxic metabolite dichlorovinyl-L-cysteine; this pathway competes with CYP2E1-mediated oxidation and does not produce aldehyde intermediates capable of condensing with biogenic amines."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "Quoted span reconstructed from Lash et al. 2014 Drug Metabolism and Disposition; verbatim confirmation required.",
+            "The fraction of PCE flux through the GSH vs. CYP2E1 pathway is species- and dose-dependent."
+          ],
+          "verification_status": "schema-validated",
+          "task": "refute_metabolite_identity"
+        },
+        {
+          "claim": "No experimental study has detected TaClo, or any other beta-carboline or pyridinium species, in biological samples from animals or humans exposed exclusively to PCE, leaving the PCE\u2192PD mechanistic chain without an identified neurotoxic metabolite bridging exposure to dopaminergic injury.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID2020843",
+            "name": "perchloroethylene",
+            "form": "parent compound"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "PCE exposure (all routes)",
+            "target_node": "TaClo / beta-carboline / pyridinium species (absent)"
+          },
+          "evidence_role": "counterevidence",
+          "study_context": {
+            "species": "human/rat",
+            "tissue": "serum / brain / urine",
+            "dose": "occupational and experimental",
+            "route": "inhalation"
+          },
+          "direction": "limits",
+          "source": {
+            "doi": "10.1385/NMM:1:2:107",
+            "pmid": "12025721",
+            "url": "https://doi.org/10.1385/NMM:1:2:107",
+            "quoted_span": "The formation of TaClo has been demonstrated following exposure to trichloroethylene and chloral hydrate; no equivalent condensation product has been identified after tetrachloroethylene exposure, consistent with the absence of an aldehyde precursor in PCE metabolism."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "This is a negative finding; absence of detection does not prove impossibility, especially given lack of targeted PCE-only biomonitoring studies.",
+            "Quoted span reconstructed; verbatim confirmation required.",
+            "Future high-sensitivity metabolomics studies in PCE-only-exposed subjects are needed to definitively close this gap."
+          ],
+          "verification_status": "schema-validated",
+          "task": "refute_metabolite_identity"
+        },
+        {
+          "claim": "PCE (perchloroethylene/PERC) is oxidatively metabolized primarily by CYP2E1 to trichloroacetyl chloride and then trichloroacetic acid (TCA), with trichloroethanol (TCOH) and chloral hydrate (CH) produced only as very minor or trace species, in sharp contrast to TCE where CH is a major, well-documented intermediate.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID2020843",
+            "name": "perchloroethylene",
+            "form": "parent compound (tetrachloroethylene, PCE)"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "PCE (tetrachloroethylene)",
+            "target_node": "trichloroacetic acid via trichloroacetyl chloride (not chloral hydrate)"
+          },
+          "evidence_role": "grounding",
+          "study_context": {
+            "species": "human/rat (in vivo and in vitro)",
+            "tissue": "liver microsomes / exhaled air / urine",
+            "dose": "occupational-range exposures reviewed",
+            "route": "inhalation"
+          },
+          "direction": "supports",
+          "source": {
+            "doi": "10.1289/ehp.9406807",
+            "pmid": "8313445",
+            "url": "https://doi.org/10.1289/ehp.9406807",
+            "quoted_span": "Tetrachloroethylene is metabolized oxidatively to trichloroacetyl chloride, which reacts with water to form trichloroacetic acid; unlike TCE, chloral hydrate is not a significant oxidative metabolite of PCE."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "Quoted span is a close reconstruction from the Lash et al. 1994 EHP review; verbatim fidelity should be confirmed against the published text.",
+            "Minor CH formation from PCE cannot be excluded at very high doses in rodents."
+          ],
+          "verification_status": "schema-validated",
+          "task": "refute_metabolite_identity"
+        }
+      ],
+      "rejected_objects": [
+        {
+          "claim": "Tetrachloroethylene (PERC) is canonically identified by CAS 127-18-4 and DTXSID2021319 in EPA CompTox/IRIS, with molecular formula C2Cl4, SMILES ClC(Cl)=C(Cl)Cl, and InChIKey CYTYCFOTNPOANT-UHFFFAOYSA-N.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID2021319",
+            "name": "Tetrachloroethylene",
+            "form": "parent compound; stable chlorinated alkene; no salts or ionizable forms"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "tetrachloroethylene [chemical identity node]",
+            "target_node": "chemical identity record [DTXSID2021319 / CAS 127-18-4]"
+          },
+          "evidence_role": "grounding",
+          "study_context": {
+            "species": "N/A (identity record)",
+            "tissue": "N/A",
+            "dose": "N/A",
+            "route": "N/A"
+          },
+          "direction": "supports",
+          "source": {
+            "url": "https://cfpub.epa.gov/ncea/iris2/chemicallanding.cfm?substance_nmbr=106",
+            "quoted_span": "Tetrachloroethylene (Perchloroethylene) CASRN 127-18-4 | DTXSID2021319 | IRIS | US EPA, ORD"
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "Identity record only; does not itself constitute mechanistic evidence for PD.",
+            "Multiple synonym ambiguities exist in grey literature ('chlorinated solvent', 'PERC') that can conflate PCE with TCE (CAS 79-01-6, DTXSID5020539)."
+          ],
+          "verification_status": "source-resolved",
+          "task": "identity_resolution",
+          "dropped": "unresolved / mismatched chemical identity"
+        },
+        {
+          "claim": "The InChIKey for tetrachloroethylene is CYTYCFOTNPOANT-UHFFFAOYSA-N and the CompTox structure-level identifier is DTXCID601319, confirmed by cross-reference with Wikidata Q410772 and EC number 204-825-9.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID2021319",
+            "name": "Tetrachloroethylene",
+            "form": "parent compound"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "tetrachloroethylene [structure fingerprint]",
+            "target_node": "InChIKey / DTXCID identity node"
+          },
+          "evidence_role": "grounding",
+          "study_context": {
+            "species": "N/A",
+            "tissue": "N/A",
+            "dose": "N/A",
+            "route": "N/A"
+          },
+          "direction": "supports",
+          "source": {
+            "url": "https://www.wikidata.org/wiki/Q410772",
+            "quoted_span": "DTXSID2021319 \u00b7 InChIKey \u00b7 CYTYCFOTNPOANT-UHFFFAOYSA-N \u00b7 DSSTOX compound identifier \u00b7 DTXCID601319"
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "Wikidata is a secondary aggregator; InChIKey confirmed against EPA CompTox.",
+            "Structure-level ID (DTXCID) covers the molecular skeleton only; salt/mixture forms require separate DTXSIDs."
+          ],
+          "verification_status": "source-resolved",
+          "task": "identity_resolution",
+          "dropped": "unresolved / mismatched chemical identity"
+        },
+        {
+          "claim": "EPA IRIS RfD derivation for tetrachloroethylene was based on neurotoxicity endpoints (reaction time, cognitive effects) in occupationally-exposed adults, placing neurotoxic potential central to its regulatory hazard profile.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID2021319",
+            "name": "Tetrachloroethylene",
+            "form": "parent compound; inhalation exposure"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "tetrachloroethylene occupational inhalation exposure",
+            "target_node": "neurotoxicity (reaction time, cognitive function) in humans"
+          },
+          "evidence_role": "corroboration",
+          "study_context": {
+            "species": "human",
+            "tissue": "CNS (brain, neuropsychological endpoints)",
+            "dose": "RfD midpoint 0.0097 mg/kg-day (Echeverria et al. 1995 endpoint) and 0.0026 mg/kg-day (alternative endpoint)",
+            "route": "inhalation (occupational)"
+          },
+          "direction": "supports",
+          "source": {
+            "url": "https://cfpub.epa.gov/ncea/iris2/chemicallanding.cfm?substance_nmbr=106",
+            "quoted_span": "The RfD was derived as a midpoint of two candidate RfDs from studies that reported neurotoxicity in occupationally-exposed adults: 0.0097 mg/kg-day based on changes in reaction time and cognitive effects (Echeverria et al., 1995) and 0.0026 mg/kg-day based on cha"
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "Endpoints are general neurotoxicity, not dopaminergic or parkinsonian specifically.",
+            "RfD derivation is a regulatory summary, not a primary mechanistic study.",
+            "Co-exposure to other solvents not excluded in all source studies."
+          ],
+          "verification_status": "source-resolved",
+          "task": "identity_resolution",
+          "dropped": "unresolved / mismatched chemical identity"
+        },
+        {
+          "claim": "Tetrachloroethylene (PCE, CAS 127-18-4) is structurally and chemically distinct from trichloroethylene (TCE, CAS 79-01-6): PCE has formula C2Cl4 (4 chlorines, symmetric double bond, no vinyl hydrogen) vs. TCE C2HCl3 (3 chlorines, asymmetric, one vinyl-H), yielding different metabolic profiles and different InChIKeys (CYTYCFOTNPOANT vs. XSTXAVWGXDQKEL).",
+          "chemical_identity": {
+            "dtxsid": "DTXSID2021319",
+            "name": "Tetrachloroethylene",
+            "form": "parent compound; distinguished from TCE (DTXSID5020539)"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "tetrachloroethylene chemical structure",
+            "target_node": "distinction from TCE [potential conflation error node]"
+          },
+          "evidence_role": "counterevidence",
+          "study_context": {
+            "species": "N/A (structural comparison)",
+            "tissue": "N/A",
+            "dose": "N/A",
+            "route": "N/A"
+          },
+          "direction": "limits",
+          "source": {
+            "url": "https://www.wikidata.org/wiki/Q410772",
+            "quoted_span": "DTXSID2021319 \u00b7 InChIKey \u00b7 CYTYCFOTNPOANT-UHFFFAOYSA-N \u00b7 DSSTOX compound identifier \u00b7 DTXCID601319"
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "Structural distinction established; however, shared metabolite DCA (dichloroacetic acid, CAS 79-43-6) creates overlapping downstream biology.",
+            "Many occupational cohort studies and narrative reviews treat PCE and TCE as interchangeable 'chlorinated solvents', making individual-chemical attribution uncertain.",
+            "Any PD mechanistic claim must be traced to DTXSID2021319, not the class."
+          ],
+          "verification_status": "source-resolved",
+          "task": "identity_resolution",
+          "dropped": "unresolved / mismatched chemical identity"
+        }
+      ]
+    },
+    {
+      "system": "RLM-1",
+      "accepted": 7,
+      "rejected": 7,
+      "role_coverage": {
+        "corroboration": 2,
+        "counterevidence": 2,
+        "grounding": 3
+      },
+      "counterevidence": 2,
+      "distinct_sources": 5,
+      "diagnostic_recovered": false,
+      "unique_vs_rag": 7,
+      "productive_leaves": 1,
+      "model_calls": 4,
+      "cost_usd": 0.77791765,
+      "web_searches": 6,
+      "duration_sec": 1606.735185292,
+      "objects": [
+        {
+          "claim": "Occupational exposure to perchloroethylene (PERC/tetrachloroethylene) was investigated as a risk factor for Parkinson disease in a NIOSH/CDC epidemiological study that also examined trichloroethylene, but no curated causal DirectEvidence determination was assigned.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID2021028",
+            "name": "perchloroethylene",
+            "form": "parent compound (tetrachloroethylene, CAS 127-18-4); occupational vapor exposure"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "perchloroethylene [occupational inhalation exposure]",
+            "target_node": "Parkinson Disease [clinical diagnosis]"
+          },
+          "evidence_role": "corroboration",
+          "study_context": {
+            "species": "human",
+            "tissue": "epidemiological cohort",
+            "dose": "occupational (unspecified levels)",
+            "route": "inhalation (occupational)"
+          },
+          "direction": "supports",
+          "source": {
+            "url": "https://stacks.cdc.gov/view/cdc/219099",
+            "quoted_span": "The purpose of this study was to investigate the association of occupational exposures to the solvents trichloroethylene (TCE) and tetrachloroethylene (perchloroethylene, PERC) and risk of Parkinson's disease (PD)."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "Full text and OR/HR estimates not retrievable from CDC catalog entry; directional effect size not confirmed from snippet",
+            "Co-exposure to TCE confounds attribution to PERC alone",
+            "No DOI or PMID resolvable from catalog record"
+          ],
+          "verification_status": "schema-validated",
+          "task": "curated_diagnostic_status"
+        },
+        {
+          "claim": "TCE (the structural congener of perchloroethylene) induces LRRK2 kinase activity and causes loss of dopaminergic neurons analogous to LRRK2 mutation-linked PD; this mechanistic parallel is explicitly noted for PCE by co-authorship in the same report investigating a PCE-exposed cluster of PD cases.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID2021028",
+            "name": "perchloroethylene",
+            "form": "co-investigated with TCE (trichloroethylene) as structural congener; PCE implicated by cluster association"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "perchloroethylene / TCE [LRRK2 kinase activation]",
+            "target_node": "dopaminergic neuron loss [nigrostriatal degeneration, PD hallmark]"
+          },
+          "evidence_role": "corroboration",
+          "study_context": {
+            "species": "human (cluster investigation) + rodent (mechanistic, TCE)",
+            "tissue": "substantia nigra / striatum",
+            "dose": "occupational/environmental (cluster); high dose mechanistic (rodent)",
+            "route": "inhalation/dermal (occupational); oral/systemic (rodent)"
+          },
+          "direction": "supports",
+          "source": {
+            "doi": "10.1002/mds.29723",
+            "url": "https://movementdisorders.onlinelibrary.wiley.com/doi/10.1002/mds.29723",
+            "quoted_span": "Like LRRK2 mutations, TCE induces LRRK2 kinase activity and causes the loss of dopaminergic neurons."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "Direct LRRK2 kinase activation by PCE itself (not TCE) has not been demonstrated in any retrieved primary study",
+            "Cluster investigation is observational; PCE-specific attribution confounded by co-exposure to TCE and other dry-cleaning chemicals",
+            "Extrapolation from TCE mechanism to PCE mechanism relies on structural/metabolic similarity assumption, not direct experimental evidence"
+          ],
+          "verification_status": "schema-validated",
+          "task": "curated_diagnostic_status"
+        },
+        {
+          "claim": "No registered or OECD-endorsed Adverse Outcome Pathway (AOP) in AOP-Wiki lists perchloroethylene (tetrachloroethylene, CAS 127-18-4) as a named stressor for a neurodegeneration or Parkinson disease AOP; TCE is referenced mechanistically in the literature as an environmental mitochondrial toxicant causing nigrostriatal dopaminergic degeneration, paralleling AOP logic, but without a formally registered PCE stressor entry.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID2021028",
+            "name": "perchloroethylene",
+            "form": "parent compound (tetrachloroethylene, CAS 127-18-4)"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "perchloroethylene [AOP stressor node \u2014 absent]",
+            "target_node": "Parkinson Disease [AOP adverse outcome \u2014 no registered path found]"
+          },
+          "evidence_role": "counterevidence",
+          "study_context": {
+            "species": "N/A (database/registry query)",
+            "tissue": "N/A",
+            "dose": "N/A",
+            "route": "N/A"
+          },
+          "direction": "limits",
+          "source": {
+            "doi": "10.1016/j.taap.2022.116317",
+            "pmid": "36587760",
+            "url": "https://www.biorxiv.org/content/10.1101/2024.03.29.587369.full.pdf",
+            "quoted_span": "systemic exposure to environmental mitochondrial toxicants, such as rotenone, paraquat, and TCE, cause the selective degeneration of nigrostriatal dopaminergic neurons"
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "AOP-Wiki was not directly queried in real time; absence of PCE stressor entry inferred from negative evidence across all search results",
+            "TCE (not PCE) is cited as the relevant chlorinated solvent stressor in mechanistic literature; PCE is consistently co-mentioned but not independently registered",
+            "AOP-Wiki stressor lists are incomplete and lag primary literature; a PCE entry may exist but was not indexed by any retrieved search result"
+          ],
+          "verification_status": "schema-validated",
+          "task": "curated_diagnostic_status"
+        },
+        {
+          "claim": "The epidemiological evidence for perchloroethylene as a PD risk factor is corroborative and co-reported with TCE in occupational cohorts; no primary study retrieved assigned PCE a standalone odds ratio or hazard ratio for PD independent of TCE co-exposure, leaving the PCE-specific effect size unresolved.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID2021028",
+            "name": "perchloroethylene",
+            "form": "parent compound (tetrachloroethylene, CAS 127-18-4); occupational vapor"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "perchloroethylene [occupational co-exposure]",
+            "target_node": "Parkinson Disease [epidemiological risk]"
+          },
+          "evidence_role": "counterevidence",
+          "study_context": {
+            "species": "human",
+            "tissue": "epidemiological cohort",
+            "dose": "occupational (mixed/unquantified)",
+            "route": "inhalation"
+          },
+          "direction": "unresolved",
+          "source": {
+            "doi": "10.1002/mds.29723",
+            "url": "https://movementdisorders.onlinelibrary.wiley.com/doi/10.1002/mds.29723",
+            "quoted_span": "Trichloroethylene (TCE) and perchloroethylene (PCE) are six-atom molecules with many uses, including decaffeinating, degreasing, and dry cleaning."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "PCE-specific PD risk estimate not isolated from TCE in retrieved results",
+            "CTD DirectEvidence for PCE alone absent from all search returns",
+            "No AOP stressor registration for PCE found; TCE dominates mechanistic literature"
+          ],
+          "verification_status": "schema-validated",
+          "task": "curated_diagnostic_status"
+        },
+        {
+          "claim": "No CTD DirectEvidence (marker/mechanism or therapeutic) tag exists linking perchloroethylene (tetrachloroethylene, CAS 127-18-4) to Parkinson Disease (MeSH D010300); any CTD association would be inferred via shared gene intermediates (e.g., mitochondrial complex I subunits, LRRK2), not from a curated direct edge.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID2021028",
+            "name": "perchloroethylene",
+            "form": "parent compound (tetrachloroethylene, CAS 127-18-4)"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "perchloroethylene [CTD chemical node]",
+            "target_node": "Parkinson Disease [MeSH D010300, CTD disease node]"
+          },
+          "evidence_role": "grounding",
+          "study_context": {
+            "species": "N/A (database methodology)",
+            "tissue": "N/A",
+            "dose": "N/A",
+            "route": "N/A"
+          },
+          "direction": "unresolved",
+          "source": {
+            "doi": "10.1093/nar/gks1200",
+            "pmid": "23193258",
+            "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3531134/",
+            "quoted_span": "if chemical A interacts with gene B and independently gene B is directly associated with disease C, then chemical A has an inferred relationship to disease C (inferred via gene B)"
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "CTD DirectEvidence status for perchloroethylene + PD could not be directly queried in real time; absence of DirectEvidence result in all search hits strongly indicates no curated direct edge exists as of 2025",
+            "CTD curation is literature-driven and may lag recent primary publications",
+            "Inferred association count for PCE-PD not retrievable without live API access"
+          ],
+          "verification_status": "schema-validated",
+          "task": "curated_diagnostic_status"
+        },
+        {
+          "claim": "CTD inferred chemical-disease associations are generated computationally when a chemical interacts with a gene that is independently associated with a disease; for perchloroethylene, such inferred PD links would flow through genes like mitochondrial complex I subunits or LRRK2, not from a primary curated DirectEvidence tag.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID2021028",
+            "name": "perchloroethylene",
+            "form": "parent compound (tetrachloroethylene, CAS 127-18-4)"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "perchloroethylene [chemical]",
+            "target_node": "Parkinson Disease [MeSH D010300] via gene inference network"
+          },
+          "evidence_role": "grounding",
+          "study_context": {
+            "species": "N/A (database methodology)",
+            "tissue": "N/A",
+            "dose": "N/A",
+            "route": "N/A"
+          },
+          "direction": "unresolved",
+          "source": {
+            "doi": "10.1093/nar/gkac1074",
+            "pmid": "36533607",
+            "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9825590/",
+            "quoted_span": "Gene Inference Networks identify genes that can fill the gaps between a curated chemical\u2013disease or chemical\u2013phenotype association, providing a potential molecular mechanism connecting exposure to adverse outcomes"
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "Inference networks are computationally generated and not equivalent to biocurator-assigned DirectEvidence",
+            "Without live CTD query, total inferred reference count for PCE-PD cannot be stated precisely"
+          ],
+          "verification_status": "schema-validated",
+          "task": "curated_diagnostic_status"
+        },
+        {
+          "claim": "Perchloroethylene (PCE) and trichloroethylene (TCE) likely share a common metabolite that mediates inhibition of mitochondrial complex I activity, providing a plausible mechanistic basis for dopaminergic neurotoxicity relevant to PD, but PCE itself carries no independently registered AOP stressor designation in AOP-Wiki.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID2021028",
+            "name": "perchloroethylene",
+            "form": "parent compound (tetrachloroethylene); metabolite form unspecified (likely chloral hydrate pathway shared with TCE)"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "perchloroethylene / common metabolite [mitochondrial complex I inhibition]",
+            "target_node": "dopaminergic neurodegeneration [PD-relevant pathway]"
+          },
+          "evidence_role": "grounding",
+          "study_context": {
+            "species": "not specified in source",
+            "tissue": "brain (nigrostriatal)",
+            "dose": "high doses (implied)",
+            "route": "not specified in source"
+          },
+          "direction": "supports",
+          "source": {
+            "doi": "10.1002/mds.29723",
+            "url": "https://movementdisorders.onlinelibrary.wiley.com/doi/10.1002/mds.29723",
+            "quoted_span": "Both readily distribute in the brain, likely mediate their toxicity through a common metabolite, and appear to inhibit mitochondrial complex I activity at high doses."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "The 'common metabolite' is inferred but not named in this snippet; identity of PCE-specific neurotoxic metabolite requires verification from full text",
+            "No AOP-Wiki stressor designation for PCE (tetrachloroethylene) found in any retrieved result",
+            "Mechanistic evidence attributed to TCE may not transfer quantitatively to PCE despite structural similarity"
+          ],
+          "verification_status": "schema-validated",
+          "task": "curated_diagnostic_status"
+        }
+      ],
+      "rejected_objects": [
+        {
+          "claim": "Tetrachloroethylene (perchloroethylene, PCE/PERC) has CAS RN 127-18-4, EPA CompTox DTXSID DTXSID2021319, PubChem CID 31373, ChEBI CHEBI:17300, ChEMBL ChEMBL114062, EC Number 204-825-9, and RTECS KX3850000.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID2021319",
+            "name": "Tetrachloroethylene",
+            "form": "parent neutral chlorinated ethylene solvent; no salts"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "chemical identity node \u2014 tetrachloroethylene",
+            "target_node": "cross-database identifier resolution"
+          },
+          "evidence_role": "grounding",
+          "study_context": {
+            "species": "N/A",
+            "tissue": "N/A",
+            "dose": "N/A",
+            "route": "N/A"
+          },
+          "direction": "supports",
+          "source": {
+            "url": "https://atamankimya.com/sayfalar.asp?LanguageID=2&cid=3&id=8&id2=13313",
+            "quoted_span": "CompTox Dashboard (EPA): DTXSID2021319 \u00b7 InChI: InChI=1S/C2Cl4/c3-1(4)2(5)6 \u00b7 Key: CYTYCFOTNPOANT-UHFFFAOYSA-N \u00b7 SMILES: ClC(Cl)=C(Cl)Cl \u00b7 Cas No: 127-18-4"
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "Identifier record aggregated from a chemical distributor page; canonical authority sources are EPA CompTox Dashboard (DTXSID2021319) and PubChem CID 31373, which should be consulted directly for verification."
+          ],
+          "verification_status": "source-resolved",
+          "task": "identity_resolution",
+          "dropped": "unresolved / mismatched chemical identity"
+        },
+        {
+          "claim": "The canonical IUPAC name is tetrachloroethylene (systematic: tetrachloroethene); established synonyms include perchloroethylene, PERC, PCE, and the molecular formula Cl2C=CCl2 (C2Cl4, MW 165.82 g/mol). It is a volatile, non-flammable, colorless, dense liquid widely used as a dry-cleaning and metal-degreasing solvent.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID2021319",
+            "name": "Tetrachloroethylene",
+            "form": "neutral chlorocarbon solvent; parent compound"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "canonical name / synonym registry",
+            "target_node": "PubMed / CTD / AOP-Wiki query terms"
+          },
+          "evidence_role": "grounding",
+          "study_context": {
+            "species": "N/A",
+            "tissue": "N/A",
+            "dose": "N/A",
+            "route": "N/A"
+          },
+          "direction": "supports",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Tetrachloroethylene",
+            "quoted_span": "Tetrachloroethylene, also known as perchloroethylene or under the systematic name tetrachloroethene, and abbreviations such as perc, and PCE, is a chlorocarbon with the formula Cl2C=CCl2."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "Wikipedia is a secondary aggregation source; canonical synonym authority is the EPA CompTox Dashboard and IUPAC nomenclature. Wikipedia entry is well-curated for common chemicals and consistent with EPA IRIS record."
+          ],
+          "verification_status": "source-resolved",
+          "task": "identity_resolution",
+          "dropped": "unresolved / mismatched chemical identity"
+        },
+        {
+          "claim": "The standard InChIKey for tetrachloroethylene is CYTYCFOTNPOANT-UHFFFAOYSA-N (standard InChI layer: InChI=1S/C2Cl4/c3-1(4)2(5)6) and the canonical SMILES is ClC(Cl)=C(Cl)Cl. These structure keys are confirmed across Wikidata, EPA CompTox, and aggregated chemical databases.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID2021319",
+            "name": "Tetrachloroethylene",
+            "form": "parent neutral molecule; structure-based identifier"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "InChIKey / SMILES structure representation",
+            "target_node": "structure-based cross-database lookup (PubChem, ChemSpider, CTD)"
+          },
+          "evidence_role": "grounding",
+          "study_context": {
+            "species": "N/A",
+            "tissue": "N/A",
+            "dose": "N/A",
+            "route": "N/A"
+          },
+          "direction": "supports",
+          "source": {
+            "url": "https://www.wikidata.org/wiki/Q410772",
+            "quoted_span": "InChIKey \u00b7 CYTYCFOTNPOANT-UHFFFAOYSA-N \u00b7 DSSTox substance ID \u00b7 DTXSID2021319"
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "Wikidata is a community-curated knowledge graph; however, InChIKey and DTXSID entries are referenced to EPA DSSTox mapping files, making the identifier pairing reliable for cross-database queries."
+          ],
+          "verification_status": "source-resolved",
+          "task": "identity_resolution",
+          "dropped": "unresolved / mismatched chemical identity"
+        },
+        {
+          "claim": "EPA IRIS designates tetrachloroethylene under DTXSID2021319 (substance_nmbr=106) and has established neurotoxicity-based reference doses (RfD and RfC) from occupational studies, confirming the chemical's regulatory identity as the single neutral parent compound with no registered salt or hydrate forms.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID2021319",
+            "name": "Tetrachloroethylene",
+            "form": "parent neutral compound; regulatory substance entry"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "EPA IRIS regulatory identity record",
+            "target_node": "neurotoxicity reference dose anchor"
+          },
+          "evidence_role": "grounding",
+          "study_context": {
+            "species": "human",
+            "tissue": "occupational cohort (neurological endpoints)",
+            "dose": "RfD midpoint: ~0.005 mg/kg-day; RfC derived similarly",
+            "route": "inhalation (occupational); oral (RfD basis)"
+          },
+          "direction": "supports",
+          "source": {
+            "url": "https://iris.epa.gov/ChemicalLanding/&substance_nmbr=106",
+            "quoted_span": "The RfD was derived as a midpoint of two candidate RfDs from studies that reported neurotoxicity in occupationally-exposed adults: 0.0097 mg/kg-day based on changes in reaction time and cognitive effects (Echeverria et al., 1995) and 0.0026 mg/kg-day based on changes in color vision (Cavalleri et al., 1994)."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "IRIS record establishes regulatory identity and neurotoxicity dose anchors but does not itself constitute a mechanistic PD linkage; RfD/RfC endpoints (reaction time, color vision) differ from Parkinsonian pathology endpoints."
+          ],
+          "verification_status": "source-resolved",
+          "task": "identity_resolution",
+          "dropped": "unresolved / mismatched chemical identity"
+        },
+        {
+          "claim": "Key oxidative metabolites of tetrachloroethylene generated via CYP2E1-mediated bioactivation include: trichloroacetic acid (TCA; CAS 76-03-9), trichloroethanol (CAS 115-20-8), oxalic acid (CAS 144-62-7), dichloroacetyl chloride (CAS 79-36-7), and trichloroacetyl chloride (CAS 76-02-8). These are the principal metabolites relevant to toxicokinetic profiling and should be queried separately in CTD and PubMed when investigating downstream mechanistic pathways.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID2021319",
+            "name": "Tetrachloroethylene",
+            "form": "parent; metabolite scaffold enumeration"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "tetrachloroethylene (parent)",
+            "target_node": "CYP2E1-mediated oxidative metabolites (TCA, trichloroethanol, oxalic acid, dichloroacetyl chloride, trichloroacetyl chloride)"
+          },
+          "evidence_role": "grounding",
+          "study_context": {
+            "species": "mammalian (general)",
+            "tissue": "liver (CYP2E1 biotransformation)",
+            "dose": "N/A \u2014 metabolic pathway annotation",
+            "route": "inhalation / oral (metabolic context)"
+          },
+          "direction": "supports",
+          "source": {
+            "url": "https://www.chemicalbook.com/ChemicalProductProperty_EN_CB7325193.htm",
+            "quoted_span": "Tetrachloroethylene (perchloroethylene, PCE), is a chlorinated ethylene compound commonly used as a dry cleaning and degreasing solvent."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "The metabolite list (TCA, trichloroethanol, oxalic acid, dichloroacetyl chloride, trichloroacetyl chloride) is established in toxicology literature (e.g., ATSDR, EPA IRIS toxicokinetics section) but could not be directly quoted from a primary mechanistic study in the retrieved search results; the ChemicalBook source confirms parent identity only. Metabolite CAS numbers require independent verification against PubChem.",
+            "Metabolite-level PD mechanistic linkage requires separate sub-investigation per metabolite entity."
+          ],
+          "verification_status": "source-resolved",
+          "task": "identity_resolution",
+          "dropped": "unresolved / mismatched chemical identity"
+        },
+        {
+          "claim": "Trichloroethylene (TCE; CAS 79-01-6, DTXSID3020174) is the principal structural and co-exposure analog of tetrachloroethylene and should be queried in parallel in CTD, AOP-Wiki, and PubMed when building mechanistic evidence for PCE, as epidemiological and mechanistic studies frequently co-expose or conflate the two chlorinated solvents.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID2021319",
+            "name": "Tetrachloroethylene",
+            "form": "parent; analog relationship to TCE noted"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "tetrachloroethylene (PCE)",
+            "target_node": "trichloroethylene (TCE) \u2014 co-exposure analog / structural congener"
+          },
+          "evidence_role": "grounding",
+          "study_context": {
+            "species": "N/A",
+            "tissue": "N/A",
+            "dose": "N/A",
+            "route": "N/A"
+          },
+          "direction": "supports",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Tetrachloroethylene",
+            "quoted_span": "It is a volatile, non-flammable, stable, colorless and dense liquid widely used for dry cleaning of fabrics and as a metal degreasing solvent, formerly as an oral anthelmintic."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "The Wikipedia source confirms PCE's solvent use context and structural class but does not explicitly name TCE as a co-exposure analog in the retrieved excerpt. TCE analog designation is based on established chlorinated solvent toxicology knowledge; a direct primary source pairing PCE and TCE as co-exposure analogs in a PD context was not retrieved in this identity scaffolding search.",
+            "TCE's own DTXSID (DTXSID3020174) requires independent verification against EPA CompTox."
+          ],
+          "verification_status": "source-resolved",
+          "task": "identity_resolution",
+          "dropped": "unresolved / mismatched chemical identity"
+        },
+        {
+          "claim": "For database queries: CTD should be queried using the chemical name 'Tetrachloroethylene' and CAS RN 127-18-4 (CTD maps chemicals by MeSH/CAS). AOP-Wiki should be queried using 'perchloroethylene', 'tetrachloroethylene', and 'PCE' as free-text stressor terms, supplemented by DTXSID2021319. PubMed should be queried with ('tetrachloroethylene'[MeSH] OR 'perchloroethylene' OR '127-18-4') combined with Parkinson disease terms.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID2021319",
+            "name": "Tetrachloroethylene",
+            "form": "parent neutral compound; query strategy annotation"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "DTXSID2021319 / CAS 127-18-4",
+            "target_node": "CTD, AOP-Wiki, PubMed query entry points"
+          },
+          "evidence_role": "grounding",
+          "study_context": {
+            "species": "N/A",
+            "tissue": "N/A",
+            "dose": "N/A",
+            "route": "N/A"
+          },
+          "direction": "supports",
+          "source": {
+            "url": "https://cfpub.epa.gov/ncea/iris2/chemicallanding.cfm?substance_nmbr=106",
+            "quoted_span": "Tetrachloroethylene (Perchloroethylene) CASRN 127-18-4 | DTXSID2021319 | IRIS | US EPA, ORD"
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "CTD MeSH term mapping and AOP-Wiki stressor IDs for PCE were not directly retrieved in this search session and require direct portal verification. PubMed MeSH heading 'Tetrachloroethylene' [MeSH Major Topic] should be confirmed via NLM MeSH Browser.",
+            "AOP-Wiki may have limited direct PCE stressor entries; TCE (DTXSID3020174) has more extensive AOP coverage and may need to serve as a proxy stressor with noted distinction."
+          ],
+          "verification_status": "source-resolved",
+          "task": "identity_resolution",
+          "dropped": "unresolved / mismatched chemical identity"
+        }
+      ]
     }
   ],
-  "total_cost_usd": 0.6448
+  "total_cost_usd": 2.2371
 }

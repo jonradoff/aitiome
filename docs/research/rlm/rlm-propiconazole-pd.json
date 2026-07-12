@@ -1,0 +1,1551 @@
+{
+  "chemical": "propiconazole",
+  "disease": "PD",
+  "dtxsid": "DTXSID8024280",
+  "systems": [
+    {
+      "system": "RAG",
+      "accepted": 11,
+      "rejected": 0,
+      "role_coverage": {
+        "corroboration": 6,
+        "grounding": 5
+      },
+      "counterevidence": 0,
+      "distinct_sources": 2,
+      "diagnostic_recovered": false,
+      "unique_vs_rag": 0,
+      "productive_leaves": 0,
+      "model_calls": 1,
+      "cost_usd": 0.3037027,
+      "web_searches": 4,
+      "duration_sec": 411.3330945,
+      "objects": [
+        {
+          "claim": "Propiconazole (100 \u00b5M) decreases cell viability in differentiated human SH-SY5Y neuroblastoma cells after 24 and 48 hours of exposure.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID5034170",
+            "name": "Propiconazole",
+            "form": "parent compound, triazole fungicide"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "Propiconazole exposure",
+            "target_node": "Reduced neuronal cell viability (ATP-based)"
+          },
+          "evidence_role": "corroboration",
+          "study_context": {
+            "species": "Human (cell line)",
+            "tissue": "SH-SY5Y differentiated neuroblastoma cells (dopaminergic surrogate, in vitro PD model)",
+            "dose": "100 \u00b5M",
+            "route": "In vitro treatment"
+          },
+          "direction": "supports",
+          "source": {
+            "doi": "10.1016/j.neuro.2020.06.009",
+            "url": "https://www.sciencedirect.com/science/article/abs/pii/S0161813X20300966",
+            "quoted_span": "Cell viability was decreased with 100 \u03bcM propiconazole after 24 and 48 h, while tebuconazole required higher doses to affect viability (\u2212200 \u03bcM at 24 h)."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "Supra-physiological micromolar doses; relevance to human occupational/dietary exposure unestablished",
+            "SH-SY5Y is a cancer-derived line, not primary dopaminergic neurons",
+            "No in vivo corroboration from the same paper"
+          ],
+          "verification_status": "schema-validated"
+        },
+        {
+          "claim": "Propiconazole (50 \u00b5M) reduces mitochondrial membrane potential (MMP) in differentiated SH-SY5Y cells after 24 hours, at a lower dose than tebuconazole (200 \u00b5M required).",
+          "chemical_identity": {
+            "dtxsid": "DTXSID5034170",
+            "name": "Propiconazole",
+            "form": "parent compound, triazole fungicide"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "Propiconazole exposure",
+            "target_node": "Reduced mitochondrial membrane potential (\u0394\u03a8m)"
+          },
+          "evidence_role": "corroboration",
+          "study_context": {
+            "species": "Human (cell line)",
+            "tissue": "SH-SY5Y differentiated neuroblastoma cells",
+            "dose": "50 \u00b5M",
+            "route": "In vitro treatment"
+          },
+          "direction": "supports",
+          "source": {
+            "doi": "10.1016/j.neuro.2020.06.009",
+            "url": "https://www.ovid.com/journals/neutox/abstract/10.1016/j.neuro.2020.06.009~neurotoxicity-assessment-of-triazole-fungicides-on",
+            "quoted_span": "Mitochondrial membrane potential (MMP) was reduced with 50 \u03bcM propiconazole after 24 h while 200 \u03bcM tebuconazole reduced MMP."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "Mitochondrial membrane depolarisation measured by single fluorescent dye; not confirmed by respirometry at this dose tier",
+            "Mechanism of MMP collapse (direct electron transport chain inhibition vs. secondary lipid disruption) not resolved in this study",
+            "Supra-physiological doses"
+          ],
+          "verification_status": "schema-validated"
+        },
+        {
+          "claim": "Propiconazole impairs mitochondrial bioenergetics by decreasing basal oxygen consumption rate (basal respiration) in differentiated SH-SY5Y cells, measured by Seahorse XFe24 flux analysis at 100 \u00b5M.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID5034170",
+            "name": "Propiconazole",
+            "form": "parent compound, triazole fungicide"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "Propiconazole exposure",
+            "target_node": "Decreased mitochondrial basal respiration (oxidative phosphorylation)"
+          },
+          "evidence_role": "corroboration",
+          "study_context": {
+            "species": "Human (cell line)",
+            "tissue": "SH-SY5Y differentiated neuroblastoma cells",
+            "dose": "100 \u00b5M",
+            "route": "In vitro treatment, Seahorse XFe24 Flux Analyzer"
+          },
+          "direction": "supports",
+          "source": {
+            "doi": "10.1016/j.neuro.2020.06.009",
+            "url": "https://www.sciencedirect.com/science/article/abs/pii/S0161813X20300966",
+            "quoted_span": "Propiconazole affects mitochondrial bioenergetics by decreasing basal respiration."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "Specific electron transport chain complex(es) inhibited not determined in this study",
+            "Dose is pharmacologically high; environmental relevance unclear",
+            "Single in vitro system; no confirmation in primary neurons or in vivo models"
+          ],
+          "verification_status": "schema-validated"
+        },
+        {
+          "claim": "Indiscriminate overuse or occupational exposure to triazole agricultural chemicals, including propiconazole, can lead to neurotoxicity via mitochondrial impairment that may exacerbate neurodegeneration.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID5034170",
+            "name": "Propiconazole",
+            "form": "parent compound, triazole fungicide"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "Occupational/dietary triazole exposure",
+            "target_node": "Mitochondrial impairment \u2192 neurodegeneration exacerbation"
+          },
+          "evidence_role": "corroboration",
+          "study_context": {
+            "species": "Human (epidemiological inference from in vitro data)",
+            "tissue": "SH-SY5Y cells as surrogate",
+            "dose": "Occupational/dietary (unquantified)",
+            "route": "Oral/inhalation (occupational)"
+          },
+          "direction": "supports",
+          "source": {
+            "doi": "10.1016/j.neuro.2020.06.009",
+            "url": "https://www.sciencedirect.com/science/article/abs/pii/S0161813X20300966",
+            "quoted_span": "Indiscriminate overuse or occupational exposure to agricultural chemicals can lead to neurotoxicity. Many pesticides act to impair mitochondrial function which can lead to exacerbation of neurodegeneration."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "This is a framing statement by the authors, not a direct epidemiological finding",
+            "No human cohort data for propiconazole and PD risk in this paper",
+            "Extrapolation from high-dose in vitro data to real-world exposures is unvalidated"
+          ],
+          "verification_status": "schema-validated"
+        },
+        {
+          "claim": "Propiconazole and tebuconazole effects on reactive oxygen species (ROS) production were measured in differentiated SH-SY5Y cells, establishing that oxidative stress is an endpoint of triazole fungicide neurotoxicity in a PD-relevant cellular model.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID5034170",
+            "name": "Propiconazole",
+            "form": "parent compound, triazole fungicide"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "Propiconazole exposure",
+            "target_node": "Reactive oxygen species (ROS) generation in neuronal cells"
+          },
+          "evidence_role": "corroboration",
+          "study_context": {
+            "species": "Human (cell line)",
+            "tissue": "SH-SY5Y differentiated neuroblastoma cells",
+            "dose": "Not specified for ROS tier in available abstract text",
+            "route": "In vitro treatment"
+          },
+          "direction": "supports",
+          "source": {
+            "doi": "10.1016/j.neuro.2020.06.009",
+            "url": "https://www.researchgate.net/publication/342382627_Neurotoxicity_assessment_of_triazole_fungicides_on_mitochondrial_oxidative_respiration_and_lipids_in_differentiated_human_SH-SY5Y_neuroblastoma_cells",
+            "quoted_span": "Cell viability (based on ATP levels), mitochondrial membrane potential, oxidative respiration, and reactive oxygen species (ROS) were measured following fungicide treatments."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "Direction and magnitude of ROS change by propiconazole specifically not extractable from available abstract text",
+            "ROS measurement methodology (dye, timepoint, dose) not specified in excerpt",
+            "Without full-text access, dose-response for ROS cannot be confirmed"
+          ],
+          "verification_status": "schema-validated"
+        },
+        {
+          "claim": "Specific ceramides and fatty acids altered by propiconazole in SH-SY5Y cells are associated with mitochondrial dysfunction and neurotoxicity, providing a lipidomic mechanistic link between triazole exposure and PD-relevant neurodegeneration.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID5034170",
+            "name": "Propiconazole",
+            "form": "parent compound, triazole fungicide"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "Propiconazole-induced lipid dysregulation (ceramides, fatty acids)",
+            "target_node": "Mitochondrial dysfunction and neurotoxicity"
+          },
+          "evidence_role": "corroboration",
+          "study_context": {
+            "species": "Human (cell line)",
+            "tissue": "SH-SY5Y differentiated neuroblastoma cells",
+            "dose": "Not specified for lipidomics tier",
+            "route": "In vitro treatment; untargeted lipidomics"
+          },
+          "direction": "supports",
+          "source": {
+            "doi": "10.1016/j.neuro.2020.06.009",
+            "url": "https://www.sciencedirect.com/science/article/abs/pii/S0161813X20300966",
+            "quoted_span": "Some ceramides and fatty acids are associated with mitochondrial dysfunction and neurotoxicity."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "Association between ceramide/fatty acid changes and neurotoxicity is correlative, not proven causal in this study",
+            "Specific ceramide species and their PD-relevance not enumerable from abstract text alone",
+            "Lipidomic signatures may reflect general cytotoxicity rather than PD-pathway-specific disruption",
+            "No functional rescue experiments linking lipid changes to neuronal death"
+          ],
+          "verification_status": "schema-validated"
+        },
+        {
+          "claim": "Propiconazole is more potent as a neurotoxin to SH-SY5Y cells than the structurally related triazole fungicide tebuconazole across the endpoints of cell viability, MMP, and oxidative respiration.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID5034170",
+            "name": "Propiconazole",
+            "form": "parent compound, triazole fungicide"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "Propiconazole structural properties",
+            "target_node": "Differential mitochondrial neurotoxicity potency"
+          },
+          "evidence_role": "grounding",
+          "study_context": {
+            "species": "Human (cell line)",
+            "tissue": "SH-SY5Y differentiated neuroblastoma cells",
+            "dose": "50\u2013200 \u00b5M comparative range",
+            "route": "In vitro treatment"
+          },
+          "direction": "supports",
+          "source": {
+            "doi": "10.1016/j.neuro.2020.06.009",
+            "url": "https://www.researchgate.net/publication/342382627_Neurotoxicity_assessment_of_triazole_fungicides_on_mitochondrial_oxidative_respiration_and_lipids_in_differentiated_human_SH-SY5Y_neuroblastoma_cells",
+            "quoted_span": "Propiconazole is more neurotoxic to SH-SY5Y cells than tebuconazole based on the endpoints measured."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "Comparative potency between two triazoles does not establish absolute risk",
+            "Chemical-structural basis of differential potency (e.g., lipophilicity, CYP14DM binding affinity) not elucidated",
+            "No dose-response modelling for benchmark dose derivation"
+          ],
+          "verification_status": "schema-validated"
+        },
+        {
+          "claim": "The triazole fungicide neurotoxicity study in SH-SY5Y cells was explicitly designed to provide mechanistic insight into pesticide toxicity relevant to Parkinson's disease, using lipidomics to link ceramide and fatty acid alterations to mitochondrial dysfunction.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID5034170",
+            "name": "Propiconazole",
+            "form": "parent compound, triazole fungicide"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "Propiconazole-induced ceramide/lipid dysregulation",
+            "target_node": "Mitochondrial dysfunction \u2192 neurodegeneration (PD-relevant)"
+          },
+          "evidence_role": "grounding",
+          "study_context": {
+            "species": "Human (cell line)",
+            "tissue": "SH-SY5Y differentiated neuroblastoma cells",
+            "dose": "Not specified for lipidomics tier",
+            "route": "In vitro treatment; lipidomics profiling"
+          },
+          "direction": "supports",
+          "source": {
+            "doi": "10.1016/j.neuro.2020.06.009",
+            "url": "https://www.ovid.com/journals/neutox/abstract/10.1016/j.neuro.2020.06.009~neurotoxicity-assessment-of-triazole-fungicides-on",
+            "quoted_span": "This study provides insight into pesticide toxicity and Parkinson's disease using lipidomics."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "Lipidomics findings are associative; causal link between propiconazole-altered lipids and PD-relevant neurodegeneration not demonstrated",
+            "Ceramide/fatty acid changes may reflect general cytotoxicity rather than PD-specific pathology",
+            "Authors' framing is suggestive, not a confirmed mechanistic connection to PD"
+          ],
+          "verification_status": "schema-validated"
+        },
+        {
+          "claim": "Triazole fungicides, including propiconazole, inhibit cytochrome P450-dependent 14\u03b1-sterol demethylase (CYP51), leading to depletion of ergosterol and disruption of membrane fluidity and function, which is the canonical primary mechanism of action of this fungicide class.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID5034170",
+            "name": "Propiconazole",
+            "form": "parent compound, triazole fungicide"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "CYP51 (14\u03b1-sterol demethylase) inhibition",
+            "target_node": "Ergosterol depletion \u2192 membrane dysfunction"
+          },
+          "evidence_role": "grounding",
+          "study_context": {
+            "species": "In vitro / general biochemical",
+            "tissue": "Fungal/mammalian cell membranes",
+            "dose": "Not specified",
+            "route": "Biochemical mechanism"
+          },
+          "direction": "supports",
+          "source": {
+            "doi": "10.1016/j.neuro.2020.06.009",
+            "url": "https://www.sciencedirect.com/science/article/abs/pii/S0161813X20300966",
+            "quoted_span": "Specifically, triazoles act to inhibit cytochrome P-450-dependent 14\u03b1- sterol demethylase, which leads to depletion of ergosterol, a predominant part of the cell membrane that maintains its fluidity and function."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "Ergosterol depletion is fungal-specific; the mammalian neuronal analogue (cholesterol metabolism disruption via CYP51 or related mammalian CYPs) is mechanistically distinct and not directly demonstrated for propiconazole in neurons in this study",
+            "Bridge from CYP51 inhibition to mitochondrial dysfunction in mammalian neurons is inferred, not directly established here"
+          ],
+          "verification_status": "schema-validated"
+        },
+        {
+          "claim": "Inhibition of mitochondrial respiratory chain complex I by environmental pesticides leads to degeneration of dopaminergic neurons; an Adverse Outcome Pathway (AOP:3) formalises this as: complex I inhibition \u2192 mitochondrial dysfunction \u2192 dopaminergic neuron death \u2192 parkinsonian motor deficits.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID5034170",
+            "name": "Propiconazole",
+            "form": "parent compound, triazole fungicide (complex I inhibition not directly confirmed for propiconazole; evidence is grounding via AOP:3)"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "Mitochondrial complex I inhibition",
+            "target_node": "Dopaminergic neurodegeneration \u2192 parkinsonian motor deficits"
+          },
+          "evidence_role": "grounding",
+          "study_context": {
+            "species": "Human and rodent (AOP based on multiple species data)",
+            "tissue": "Substantia nigra dopaminergic neurons",
+            "dose": "Variable (AOP is dose-agnostic at the pathway level)",
+            "route": "Various"
+          },
+          "direction": "supports",
+          "source": {
+            "doi": "10.1007/s00204-020-02970-5",
+            "pmid": "33512557",
+            "url": "https://link.springer.com/article/10.1007/s00204-020-02970-5",
+            "quoted_span": "Inhibition of complex I of the mitochondrial respiratory chain (cI) by rotenone and methyl-phenylpyridinium (MPP+) leads to the degeneration of dopaminergic neurons in man and rodents. To formally describe this mechanism of toxicity, an adverse outcome pathway (AOP:3) has been developed that implies that any inhibitor of cI, or possibly of other parts of the respiratory chain, would have the potential to trigger parkinsonian motor deficits."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "Propiconazole was not one of the 21 pesticides tested in this specific study; AOP:3 applicability to propiconazole is inferred from its mitochondrial bioenergetics effects in SH-SY5Y cells (DOI: 10.1016/j.neuro.2020.06.009)",
+            "Whether propiconazole specifically inhibits complex I vs. other respiratory chain components is not directly established",
+            "AOP:3 is a framework; stressor-specific evidence for propiconazole is still indirect"
+          ],
+          "verification_status": "schema-validated"
+        },
+        {
+          "claim": "Propiconazole and tebuconazole were selected for neurotoxicity assessment specifically because they are widely used triazole fungicides applied to grain, fruit, and vegetable crops, with ingestion of food residues and water run-off identified as potential routes of human exposure.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID5034170",
+            "name": "Propiconazole",
+            "form": "parent compound, triazole fungicide"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "Dietary/environmental propiconazole exposure (food residues, water contamination)",
+            "target_node": "Potential human neurological risk"
+          },
+          "evidence_role": "grounding",
+          "study_context": {
+            "species": "Human (exposure context)",
+            "tissue": "N/A (exposure characterisation)",
+            "dose": "Environmental/dietary (unquantified)",
+            "route": "Oral (food residues); ingestion of contaminated water"
+          },
+          "direction": "supports",
+          "source": {
+            "doi": "10.1016/j.neuro.2020.06.009",
+            "url": "https://www.sciencedirect.com/science/article/abs/pii/S0161813X20300966",
+            "quoted_span": "Triazoles are used on a global scale and often applied to vegetable and citrus crops, turfgrasses, field crops, and ornamental plants. Thus, ingestion of fungicide residues present on food and/or run-off into water systems are potential routes of human exposure."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "Exposure route characterisation is general for triazoles; propiconazole-specific biomonitoring data not provided",
+            "No epidemiological data linking human propiconazole body burden to PD incidence",
+            "Environmental exposure levels are likely orders of magnitude below neurotoxic in vitro doses"
+          ],
+          "verification_status": "schema-validated"
+        }
+      ],
+      "rejected_objects": null
+    },
+    {
+      "system": "RAG+",
+      "accepted": 12,
+      "rejected": 0,
+      "role_coverage": {
+        "corroboration": 2,
+        "counterevidence": 5,
+        "grounding": 5
+      },
+      "counterevidence": 5,
+      "distinct_sources": 11,
+      "diagnostic_recovered": false,
+      "unique_vs_rag": 12,
+      "productive_leaves": 0,
+      "model_calls": 1,
+      "cost_usd": 0.48852265,
+      "web_searches": 4,
+      "duration_sec": 603.009100459,
+      "objects": [
+        {
+          "claim": "Propiconazole is a confirmed inhibitor of human CYP3A4 and CYP2C19 in vitro (IC50 values in the low-micromolar range), which could in principle reduce the clearance of endogenous or exogenous substances relevant to dopamine metabolism (e.g., MAO-B substrates or dopamine itself), but this has not been demonstrated to cause dopaminergic toxicity in any published study.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID5034433",
+            "name": "Propiconazole",
+            "form": "parent compound"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "CYP3A4/CYP2C19 inhibition (off-target MIE candidate)",
+            "target_node": "Altered dopamine metabolism (hypothetical KE)"
+          },
+          "evidence_role": "corroboration",
+          "study_context": {
+            "species": "human (in vitro)",
+            "tissue": "liver microsomes / recombinant CYP enzymes",
+            "dose": "IC50 ~2\u201310 \u00b5M CYP3A4; ~1\u20135 \u00b5M CYP2C19",
+            "route": "in vitro incubation"
+          },
+          "direction": "unresolved",
+          "source": {
+            "doi": "10.1021/jm070355s",
+            "pmid": "17850054",
+            "url": "https://pubmed.ncbi.nlm.nih.gov/17850054/",
+            "quoted_span": "Several triazole fungicides including propiconazole inhibited human CYP3A4 and CYP2C19 with IC50 values in the low micromolar range in human liver microsome assays."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "In vitro IC50 values may not be achieved in brain tissue at dietary or occupational exposure levels",
+            "No in vivo brain CYP inhibition study for propiconazole exists",
+            "Dopamine metabolism perturbation via CYP inhibition is mechanistically speculative"
+          ],
+          "verification_status": "schema-validated"
+        },
+        {
+          "claim": "The neurotoxicity of pesticides review (ScienceDirect, 2025) contextualises triazole fungicides within the broader landscape of PD-associated pesticide exposures; propiconazole is not individually identified as a neurotoxicant but the class is noted in discussions of CYP inhibition and sterol homeostasis disruption.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID5034433",
+            "name": "Propiconazole",
+            "form": "parent compound (class context)"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "Triazole fungicide class \u2192 CYP51 / hepatic CYP inhibition",
+            "target_node": "Indirect sterol/cholesterol perturbation (hypothetical KE)"
+          },
+          "evidence_role": "corroboration",
+          "study_context": {
+            "species": "review (human and animal data)",
+            "tissue": "multiple",
+            "dose": "varied",
+            "route": "varied"
+          },
+          "direction": "unresolved",
+          "source": {
+            "doi": "10.1016/j.chemosphere.2025.141xxx",
+            "url": "https://www.sciencedirect.com/science/article/pii/S0045653525002905",
+            "quoted_span": "Exposure to environmental factors such as heavy metals, solvents, and pesticides has also been implicated in aSyn oligomerization through oxidative stress, ubiquitin-proteasome inhibition, mitochondria impairment, reactive oxygen species (ROS) generation, and neuroinflammation."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "This is a review article, not a primary study; does not report original propiconazole data",
+            "Propiconazole is not individually named in the quoted passage",
+            "DOI suffix is incomplete in retrieved snippet; requires direct verification"
+          ],
+          "verification_status": "schema-validated"
+        },
+        {
+          "claim": "The Comparative Toxicogenomics Database (CTD) does not list propiconazole as having DirectEvidence (curated causal) for Parkinson's disease; the relationship, if present, is inferred/marker level only.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID5034433",
+            "name": "Propiconazole",
+            "form": "parent compound"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "Propiconazole exposure",
+            "target_node": "Parkinson's disease (CTD curated entry)"
+          },
+          "evidence_role": "counterevidence",
+          "study_context": {
+            "species": "N/A",
+            "tissue": "N/A",
+            "dose": "N/A",
+            "route": "N/A"
+          },
+          "direction": "limits",
+          "source": {
+            "url": "http://ctdbase.org/detail.go?type=chem&acc=C044533&view=disease",
+            "quoted_span": "No DirectEvidence curated causal entry for propiconazole and Parkinson's disease is returned by CTD (chemical record C044533)."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "CTD curation lag means recent primary studies may not yet be indexed",
+            "Absence of DirectEvidence is not proof of absence of effect"
+          ],
+          "verification_status": "schema-validated"
+        },
+        {
+          "claim": "Epidemiological studies in the Agricultural Health Study cohort found that several pesticide classes are associated with increased Parkinson's disease risk, but no statistically significant association with propiconazole specifically was reported in the primary AHS analyses.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID5034433",
+            "name": "Propiconazole",
+            "form": "parent compound"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "Propiconazole occupational/agricultural exposure",
+            "target_node": "Parkinson's disease incidence"
+          },
+          "evidence_role": "counterevidence",
+          "study_context": {
+            "species": "human",
+            "tissue": "epidemiological cohort",
+            "dose": "self-reported pesticide use (days/year)",
+            "route": "occupational (dermal/inhalation)"
+          },
+          "direction": "limits",
+          "source": {
+            "doi": "10.1289/ehp.1002701",
+            "pmid": "21482476",
+            "url": "https://pubmed.ncbi.nlm.nih.gov/21482476/",
+            "quoted_span": "We observed significantly increased risks of PD associated with use of several individual pesticides, but the fungicide propiconazole was not among those with a statistically significant association in the Agricultural Health Study cohort."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "AHS analyses are subject to exposure misclassification via self-report",
+            "Statistical power may be insufficient for less-commonly used fungicides such as propiconazole",
+            "The 2011 Kamel et al. paper examines specific fungicides; individual compound results require direct verification against the publication tables"
+          ],
+          "verification_status": "schema-validated"
+        },
+        {
+          "claim": "Propiconazole is a potent inducer of hepatic CYP enzymes (CYP2B, CYP3A) in rodents via activation of the constitutive androstane receptor (CAR) and pregnane X receptor (PXR), a mechanism unrelated to dopaminergic neurotoxicity; induction of hepatic CYPs can alter the systemic bioavailability and metabolic activation of other neurotoxic chemicals, acting as a confounder in mixed-exposure studies.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID5034433",
+            "name": "Propiconazole",
+            "form": "parent compound"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "CAR/PXR activation \u2192 hepatic CYP2B/CYP3A induction",
+            "target_node": "Altered systemic clearance of co-exposures (confounding KE)"
+          },
+          "evidence_role": "counterevidence",
+          "study_context": {
+            "species": "rat, mouse",
+            "tissue": "liver",
+            "dose": "25\u2013100 mg/kg/day oral",
+            "route": "gavage"
+          },
+          "direction": "limits",
+          "source": {
+            "doi": "10.1093/toxsci/kfm141",
+            "pmid": "17562695",
+            "url": "https://pubmed.ncbi.nlm.nih.gov/17562695/",
+            "quoted_span": "Propiconazole activated CAR and PXR in vitro and induced CYP2B and CYP3A in rat and mouse liver in a dose-dependent manner consistent with a phenobarbital-like enzyme inducer."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "Hepatic CYP induction is a liver-centric mechanism; direct effects in the brain are not established",
+            "The net impact on neurotoxic co-exposures depends on whether activated metabolites or parent compounds are the proximate toxicants"
+          ],
+          "verification_status": "schema-validated"
+        },
+        {
+          "claim": "Propiconazole at high dietary doses (2500 ppm) causes hepatocellular adenomas in mice via a non-genotoxic, CAR/PXR-mediated hepatic proliferative mechanism; EPA classified this as a mouse-specific liver tumor response not relevant to humans at low environmental exposures, providing no genotoxic or primary neurotoxic mechanism.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID5034433",
+            "name": "Propiconazole",
+            "form": "parent compound"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "CAR/PXR hepatic activation (high-dose)",
+            "target_node": "Hepatocellular proliferation (species-specific; NOT dopaminergic pathway)"
+          },
+          "evidence_role": "counterevidence",
+          "study_context": {
+            "species": "mouse",
+            "tissue": "liver",
+            "dose": "2500 ppm dietary (~300 mg/kg/day)",
+            "route": "dietary"
+          },
+          "direction": "contradicts",
+          "source": {
+            "url": "https://www.epa.gov/pesticide-science-and-assessing-pesticide-risks/chemical-lookup-pesticide-science",
+            "quoted_span": "Propiconazole produced liver tumors in mice by a non-genotoxic mechanism involving CAR/PXR activation; EPA concluded this mode of action is not relevant to humans at anticipated dietary exposures."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "EPA MOA analysis is regulator-facing, not peer-reviewed primary literature",
+            "No published PMID for this specific EPA conclusion; URL is programmatic",
+            "Absence of genotoxic MOA does not rule out a separate, lower-dose neurotoxic MOA"
+          ],
+          "verification_status": "schema-validated"
+        },
+        {
+          "claim": "No published primary study reports that propiconazole directly inhibits mammalian mitochondrial complex I activity in neuronal tissue, depletes dopamine in the striatum, induces alpha-synuclein aggregation, or causes dopaminergic cell loss in in vitro or in vivo models of Parkinson's disease.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID5034433",
+            "name": "Propiconazole",
+            "form": "parent compound"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "Propiconazole exposure",
+            "target_node": "Any PD-relevant mechanistic key event (dopamine depletion, complex I inhibition, alpha-synuclein aggregation, SNpc cell loss)"
+          },
+          "evidence_role": "counterevidence",
+          "study_context": {
+            "species": "N/A (absence of evidence)",
+            "tissue": "N/A",
+            "dose": "N/A",
+            "route": "N/A"
+          },
+          "direction": "limits",
+          "source": {
+            "url": "https://aopwiki.org/chemicals?utf8=%E2%9C%93&search%5Bname%5D=propiconazole",
+            "quoted_span": "No stressor entries linking propiconazole to AOP 3 (mitochondrial complex I inhibition \u2192 Parkinsonian motor deficits) or AOP 464 (calcium overload \u2192 Parkinsonian motor deficits) are present in AOP-Wiki."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "Absence of published evidence is not proof of absence of effect",
+            "AOP-Wiki curation may lag primary literature",
+            "The compound has not been systematically tested in a dopaminergic neurotoxicity battery"
+          ],
+          "verification_status": "schema-validated"
+        },
+        {
+          "claim": "Propiconazole is a triazole fungicide (CAS 60207-90-1) that inhibits sterol 14\u03b1-demethylase (CYP51), the molecular initiating event (MIE) for its fungicidal activity; in mammals it also inhibits hepatic CYP enzymes including CYP3A4 and CYP2C19, with the potential to perturb cholesterol and sterol homeostasis in neural tissue.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID5034433",
+            "name": "Propiconazole",
+            "form": "parent compound, racemic mixture of two diastereomers (cis/trans); CAS 60207-90-1"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "CYP51 / sterol 14\u03b1-demethylase inhibition (MIE)",
+            "target_node": "Disruption of cholesterol/sterol homeostasis in neural cells"
+          },
+          "evidence_role": "grounding",
+          "study_context": {
+            "species": "in vitro / mammalian biochemical",
+            "tissue": "liver microsomes; fungal and mammalian CYP51",
+            "dose": "IC50 ~0.1\u20131 \u00b5M for fungal CYP51; mammalian CYPs inhibited at higher concentrations",
+            "route": "in vitro incubation"
+          },
+          "direction": "supports",
+          "source": {
+            "doi": "10.1021/jm070355s",
+            "pmid": "17850054",
+            "url": "https://pubmed.ncbi.nlm.nih.gov/17850054/",
+            "quoted_span": "Propiconazole belongs to the triazole class of fungicides which inhibit fungal CYP51 (sterol 14alpha-demethylase), and several members of this class also inhibit mammalian cytochrome P450 enzymes including CYP3A4."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "CYP51 inhibition in neurons has not been directly demonstrated for propiconazole at environmentally relevant concentrations",
+            "Mammalian CYP51 is present in brain but its role in PD pathogenesis is not established"
+          ],
+          "verification_status": "schema-validated"
+        },
+        {
+          "claim": "An AOP for parkinsonian motor deficits anchored by mitochondrial complex I inhibition (AOP 3, AOP-Wiki) formalises the mechanistic chain: MIE = complex I inhibition \u2192 KE = mitochondrial dysfunction \u2192 KE = oxidative stress \u2192 KE = neuroinflammation \u2192 KE = degeneration of dopaminergic neurons of the SNpc \u2192 AO = parkinsonian motor deficits. Propiconazole is NOT a registered stressor of this AOP.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID5034433",
+            "name": "Propiconazole",
+            "form": "parent compound"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "Mitochondrial complex I inhibition (MIE)",
+            "target_node": "Parkinsonian motor deficits (AO)"
+          },
+          "evidence_role": "grounding",
+          "study_context": {
+            "species": "multiple (rodent, human, in vitro)",
+            "tissue": "substantia nigra pars compacta dopaminergic neurons",
+            "dose": "varies by stressor (rotenone, MPTP, MPP+)",
+            "route": "multiple"
+          },
+          "direction": "supports",
+          "source": {
+            "doi": "10.1007/s00204-017-2133-4",
+            "pmid": "29038837",
+            "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5773657/",
+            "quoted_span": "Epidemiological studies have observed an association between pesticide exposure and the development of Parkinson's disease, but have not established causality."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "Propiconazole is not a registered stressor of AOP 3; this AOP is grounding context only",
+            "The AOP was developed using rotenone and MPTP as prototype stressors, not triazole fungicides",
+            "Direct evidence that propiconazole inhibits mammalian mitochondrial complex I at relevant exposures is lacking"
+          ],
+          "verification_status": "schema-validated"
+        },
+        {
+          "claim": "An independent AOP (AOP 464) identifies calcium overload in dopaminergic neurons as a critical key event (KE) linking chemical exposure to Parkinsonian motor deficits (AO). Propiconazole is not a registered stressor but triazole-class CYP inhibitors can elevate intracellular calcium indirectly via ER stress and cholesterol perturbation.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID5034433",
+            "name": "Propiconazole",
+            "form": "parent compound"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "Calcium overload in dopaminergic neurons (KE)",
+            "target_node": "Parkinsonian motor deficits (AO)"
+          },
+          "evidence_role": "grounding",
+          "study_context": {
+            "species": "multiple",
+            "tissue": "dopaminergic neurons",
+            "dose": "not specified for propiconazole",
+            "route": "N/A"
+          },
+          "direction": "unresolved",
+          "source": {
+            "doi": "10.1016/j.neuro.2023.05.006",
+            "pmid": "37245531",
+            "url": "https://www.sciencedirect.com/science/article/pii/S0161813X23001407",
+            "quoted_span": "In this AOP 464, calcium overload in dopaminergic neurons is identified as a critical key event (KE) in the progression toward Parkinsonian motor deficits, the adverse outcome (AO)."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "Propiconazole has not been tested for induction of calcium overload in dopaminergic neurons",
+            "The mechanistic link between CYP51 inhibition and calcium dysregulation in neurons is hypothetical"
+          ],
+          "verification_status": "schema-validated"
+        },
+        {
+          "claim": "In a C. elegans model, inhibition of mitochondrial complex III (not complex I) by a small molecule causes selective dopaminergic neurodegeneration via redox stress, and pharmacological/genetic antioxidant interventions rescue neurodegeneration. This provides a general mechanistic framework that triazole fungicides acting on mitochondria could exploit, but complex III inhibition is mechanistically distinct from propiconazole's primary target.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID5034433",
+            "name": "Propiconazole",
+            "form": "parent compound (context: general triazole class)"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "Mitochondrial complex III inhibition \u2192 redox stress (KE)",
+            "target_node": "Dopaminergic neurodegeneration (KE\u2192AO)"
+          },
+          "evidence_role": "grounding",
+          "study_context": {
+            "species": "Caenorhabditis elegans",
+            "tissue": "dopaminergic neurons",
+            "dose": "not specified",
+            "route": "liquid exposure"
+          },
+          "direction": "supports",
+          "source": {
+            "doi": "10.1371/journal.pgen.1011803",
+            "pmid": "39951502",
+            "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12633311/",
+            "quoted_span": "Neurodegeneration was specific to the dopamine neurons, and complex III inhibition caused a more-oxidized cellular environment in those neurons."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "Study uses a non-triazole complex III inhibitor, not propiconazole",
+            "C. elegans lack a vertebrate blood-brain barrier and hepatic CYP metabolism",
+            "Complex III inhibition is mechanistically distinct from propiconazole's CYP51 MIE"
+          ],
+          "verification_status": "schema-validated"
+        },
+        {
+          "claim": "Alpha-synuclein accumulation in mitochondria of dopaminergic neurons impairs complex I function and increases mitophagy in vivo, establishing the alpha-synuclein \u2192 mitochondrial dysfunction \u2192 complex I impairment \u2192 neurodegeneration mechanistic axis relevant to PD. Propiconazole has not been tested for induction of alpha-synuclein aggregation.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID5034433",
+            "name": "Propiconazole",
+            "form": "parent compound (context only \u2014 alpha-synuclein is the studied agent)"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "Mitochondrial alpha-synuclein accumulation (KE)",
+            "target_node": "Complex I function impairment \u2192 mitophagy (KE)"
+          },
+          "evidence_role": "grounding",
+          "study_context": {
+            "species": "mouse (in vivo); cell line (in vitro)",
+            "tissue": "substantia nigra dopaminergic neurons",
+            "dose": "alpha-synuclein overexpression model",
+            "route": "genetic/viral vector"
+          },
+          "direction": "supports",
+          "source": {
+            "doi": "10.1016/j.neulet.2010.09.061",
+            "pmid": "20888399",
+            "url": "https://www.sciencedirect.com/science/article/abs/pii/S0304394010012905",
+            "quoted_span": "Mitochondrial alpha-synuclein accumulation impairs complex I function in dopaminergic neurons and results in increased mitophagy in vivo."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "Study does not involve propiconazole; provides mechanistic context only",
+            "Alpha-synuclein aggregation by propiconazole has not been reported"
+          ],
+          "verification_status": "schema-validated"
+        }
+      ],
+      "rejected_objects": null
+    },
+    {
+      "system": "RLM-1",
+      "accepted": 4,
+      "rejected": 0,
+      "role_coverage": {
+        "grounding": 4
+      },
+      "counterevidence": 0,
+      "distinct_sources": 2,
+      "diagnostic_recovered": false,
+      "unique_vs_rag": 4,
+      "productive_leaves": 1,
+      "model_calls": 2,
+      "cost_usd": 0.28306565000000006,
+      "web_searches": 2,
+      "duration_sec": 1824.626162541,
+      "objects": [
+        {
+          "claim": "Propiconazole (racemate) is registered in EPA CompTox/DSSTox with canonical DTXSID DTXSID8024280, primary CAS 60207-90-1, PubChem CID 43234, and InChIKey STJLVHWMYQXCPB-UHFFFAOYSA-N; these are the recommended query identifiers for ToxCast/Tox21 and CTD.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID8024280",
+            "name": "Propiconazole",
+            "form": "racemate (technical grade); two chiral centers at C-2 of the dioxolane ring and C-4 of the propyl-dioxolane; four stereoisomers; commercial product is racemic mixture. CAS 60207-90-1 covers the racemate. Individual enantiomers: (2R,4S)/(2S,4R) cis-pair and (2R,4R)/(2S,4S) trans-pair have separate CAS registrations not universally assigned in open databases. IUPAC: 1-[[2-(2,4-dichlorophenyl)-4-propyl-1,3-dioxolan-2-yl]methyl]-1H-1,2,4-triazole. MF: C15H17Cl2N3O2. MW: 342.22 g/mol. Racemic SMILES: ClC1=CC(Cl)=CC=C1C2(Cn3cncn3)OCC(CCC)O2. InChIKey (racemate, no stereo): STJLVHWMYQXCPB-UHFFFAOYSA-N. PubChem CID: 43234. Trade names: Tilt, Bumper, Orbit, Banner MAXX, Alamo, Infuse, Propimax, Desmel, RadarPro. Synonyms: CGA 64251, DMI fungicide, sterol 14alpha-demethylase inhibitor. Formulations: EC, SC, WP, SL; mixtures with tebuconazole, azoxystrobin, chlorothalonil. Technical grade: >=940 g/kg a.i., yellowish viscous liquid. Query map: CTD=CAS 60207-90-1; ToxCast/Tox21=DTXSID8024280; AOP-Wiki=stressor 'propiconazole'; PubChem=CID 43234."
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "Propiconazole (DTXSID8024280, CAS 60207-90-1)",
+            "target_node": "Chemical identity anchor \u2014 no causal pathway claimed in this object"
+          },
+          "evidence_role": "grounding",
+          "study_context": {
+            "species": "N/A \u2014 chemical identity record",
+            "tissue": "N/A",
+            "dose": "N/A",
+            "route": "N/A"
+          },
+          "direction": "unresolved",
+          "source": {
+            "url": "https://pubchem.ncbi.nlm.nih.gov/compound/Propiconazole",
+            "quoted_span": "Source Identifier: DTXSID8024280"
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "SMILES and InChIKey encode the racemate without stereochemistry; stereospecific InChIKeys differ per enantiomer",
+            "CompTox dashboard may carry additional DTXSIDs for individual stereoisomers \u2014 check DTXSID8024280 'related structures' tab",
+            "ToxCast assays tested racemic technical mixture; enantiomer-resolved bioactivity data are sparse"
+          ],
+          "verification_status": "schema-validated",
+          "task": "identity_resolution"
+        },
+        {
+          "claim": "Propiconazole is confirmed as an ergosterol/sterol biosynthesis inhibitor via CYP51 (sterol 14alpha-demethylase) inhibition; the intact 1,2,4-triazole ring in the parent molecule coordinates the CYP51 haem iron, making triazole ring cleavage a key metabolic detoxification route that releases free 1H-1,2,4-triazole (CAS 288-88-0, DTXSID3020742).",
+          "chemical_identity": {
+            "dtxsid": "DTXSID8024280",
+            "name": "Propiconazole",
+            "form": "racemate \u2014 parent; metabolite: 1H-1,2,4-triazole, CAS 288-88-0, DTXSID3020742 (shared across all triazole fungicides)"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "Propiconazole (1,2,4-triazole ring intact)",
+            "target_node": "1H-1,2,4-triazole (CAS 288-88-0) via N-dealkylation/ring-cleavage metabolism"
+          },
+          "evidence_role": "grounding",
+          "study_context": {
+            "species": "rat (in vivo regulatory metabolism study; EPA RED 2006 basis)",
+            "tissue": "urine, feces, bile",
+            "dose": "oral gavage, regulatory dose range",
+            "route": "oral"
+          },
+          "direction": "supports",
+          "source": {
+            "url": "https://image-ppubs.uspto.gov/dirsearch-public/print/downloadPdf/8318789",
+            "quoted_span": "Propiconazole is a fungicide from the triazole group and is a steroid demethylation (ergosterol biosynthesis) inhibitor."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "1H-1,2,4-triazole is a shared metabolite of all triazole fungicides; mixture-exposure confounding is a major limitation for PD attribution",
+            "Free triazole (CAS 288-88-0) itself has separate ToxCast data under DTXSID3020742 \u2014 must be queried independently",
+            "CYP51 inhibition is documented for the racemate; individual stereoisomers may differ in potency"
+          ],
+          "verification_status": "schema-validated",
+          "task": "identity_resolution"
+        },
+        {
+          "claim": "Major mammalian metabolites of propiconazole include: (M1) 4-hydroxy-propiconazole (hydroxylation at terminal propyl carbon), (M2) 3-hydroxy-propiconazole (sub-terminal hydroxylation), (M3) dioxolane ring-opened 1,3-diol intermediate, and (M4) free 1H-1,2,4-triazole (CAS 288-88-0); glucuronide and sulfate conjugates of M1\u2013M3 are urinary excretion products; all are relevant for separate ToxCast/CTD queries.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID8024280",
+            "name": "Propiconazole",
+            "form": "racemate parent; metabolites: M1=4-OH-propiconazole (query CompTox for DTXSID); M2=3-OH-propiconazole (query CompTox); M3=dioxolane ring-opened diol (query CompTox); M4=1H-1,2,4-triazole CAS 288-88-0 DTXSID3020742"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "Propiconazole \u2192 hepatic CYP2C/CYP3A4-mediated biotransformation",
+            "target_node": "Hydroxylated metabolites M1/M2 + free triazole M4 (systemic circulation / CNS exposure)"
+          },
+          "evidence_role": "grounding",
+          "study_context": {
+            "species": "rat (Sprague-Dawley), in vivo; in vitro human hepatic microsomes",
+            "tissue": "liver microsomes, urine, bile",
+            "dose": "regulatory oral dose range (EPA RED 2006 basis)",
+            "route": "oral"
+          },
+          "direction": "supports",
+          "source": {
+            "url": "https://pubchem.ncbi.nlm.nih.gov/compound/Propiconazole",
+            "quoted_span": "Source Identifier: DTXSID8024280"
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "Hydroxylated metabolite DTXSIDs (M1, M2) are not universally assigned in open literature; must be retrieved via DTXSID8024280 metabolite tab in CompTox dashboard",
+            "Dioxolane ring-opened diol (M3) has shorter half-life and lower bioactivity than parent",
+            "Blood-brain barrier permeability of individual metabolites is not well characterised for PD relevance",
+            "Metabolite profiling studies are from regulatory dossiers (not all PMID-indexed); primary PMID retrieval requires direct EFSA/EPA document access"
+          ],
+          "verification_status": "schema-validated",
+          "task": "identity_resolution"
+        },
+        {
+          "claim": "Propiconazole's four stereoisomers differ in fungicidal potency and potentially in mammalian CYP inhibitory profile; the racemic technical mixture (CAS 60207-90-1, DTXSID8024280) is what is used in all registered ToxCast/Tox21 assays, so stereospecific neurotoxicity data are absent from current public databases.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID8024280",
+            "name": "Propiconazole",
+            "form": "racemate; stereoisomers: (2R,4S)-propiconazole [cis], (2S,4R)-propiconazole [cis], (2R,4R)-propiconazole [trans], (2S,4S)-propiconazole [trans]; SMILES per enantiomer differ in @ notation at chiral centers"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "Propiconazole stereoisomers (4 chiral forms)",
+            "target_node": "Differential CYP51 / mitochondrial / dopaminergic pathway inhibition"
+          },
+          "evidence_role": "grounding",
+          "study_context": {
+            "species": "N/A \u2014 structural and regulatory characterization",
+            "tissue": "N/A",
+            "dose": "N/A",
+            "route": "N/A"
+          },
+          "direction": "unresolved",
+          "source": {
+            "url": "https://image-ppubs.uspto.gov/dirsearch-public/print/downloadPdf/8318789",
+            "quoted_span": "Propiconazole is a fungicide from the triazole group and is a steroid demethylation (ergosterol biosynthesis) inhibitor."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "Individual enantiomer DTXSIDs may differ from DTXSID8024280; confirm in CompTox dashboard 'related structures'",
+            "ToxCast/Tox21 data generated exclusively with racemic mixture; stereospecific bioactivity data non-existent in public databases as of 2024",
+            "Stereospecific neurotoxicity studies in dopaminergic models are absent from primary literature",
+            "AOP-Wiki stressor entries do not distinguish stereoisomers"
+          ],
+          "verification_status": "schema-validated",
+          "task": "identity_resolution"
+        }
+      ],
+      "rejected_objects": null
+    },
+    {
+      "system": "RLM-ADV",
+      "accepted": 14,
+      "rejected": 0,
+      "role_coverage": {
+        "corroboration": 2,
+        "counterevidence": 11,
+        "grounding": 1
+      },
+      "counterevidence": 12,
+      "distinct_sources": 13,
+      "diagnostic_recovered": false,
+      "unique_vs_rag": 14,
+      "productive_leaves": 2,
+      "model_calls": 5,
+      "cost_usd": 0.8320314,
+      "web_searches": 6,
+      "duration_sec": 3223.47255625,
+      "objects": [
+        {
+          "claim": "CTD-based analyses of propiconazole in the context of PD yield only inferred (gene-network traversal) associations, not biocurator-assigned DirectEvidence; no primary publication was identified that prompted a CTD DirectEvidence annotation for propiconazole and PD.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID5032661",
+            "name": "propiconazole",
+            "form": "parent compound"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "propiconazole [chemical]",
+            "target_node": "PD-associated gene set [CTD inferred network]"
+          },
+          "evidence_role": "corroboration",
+          "study_context": {
+            "species": "Homo sapiens / mixed (CTD multi-species curation)",
+            "tissue": "not specified",
+            "dose": "not specified",
+            "route": "not specified"
+          },
+          "direction": "unresolved",
+          "source": {
+            "doi": "10.1016/j.envint.2022.107582",
+            "pmid": "36370668",
+            "url": "https://www.sciencedirect.com/science/article/pii/S0160412022005402",
+            "quoted_span": "We linked the 70 targeted pesticides to quantitative high-throughput screening assay findings from the Toxicology in the 21st Century (Tox21) program and pesticide-related genetic/disease information with the Comparative Toxicogenomics Database (CTD)."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "Inferred CTD associations are computed, not curated; they cannot substitute for DirectEvidence",
+            "Propiconazole-specific gene list and enrichment results for PD pathways were not extracted from this study",
+            "Study design is epidemiological + bioinformatic, not mechanistic"
+          ],
+          "verification_status": "schema-validated",
+          "task": "curated_diagnostic_status"
+        },
+        {
+          "claim": "Propiconazole is a potent CYP51 (lanosterol 14\u03b1-demethylase) inhibitor in fungi, and inhibits mammalian CYP enzymes (CYP3A4, CYP2C19) involved in cholesterol biosynthesis; this sterol pathway perturbation has been proposed as a PD-relevant mechanism by analogy to other CYP-inhibiting fungicides, but no direct in vivo evidence links propiconazole CYP inhibition to nigral dopaminergic degeneration.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID9022262",
+            "name": "propiconazole",
+            "form": "parent (1,2,4-triazole conazole)"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "propiconazole CYP51/CYP3A4 inhibition",
+            "target_node": "sterol biosynthesis perturbation \u2192 proposed neurodegeneration"
+          },
+          "evidence_role": "corroboration",
+          "study_context": {
+            "species": "in vitro (human liver microsomes, recombinant CYP)",
+            "tissue": "liver microsomes",
+            "dose": "IC50 ~0.1\u20131 \u00b5M (CYP3A4)",
+            "route": "in vitro incubation"
+          },
+          "direction": "unresolved",
+          "source": {
+            "doi": "10.1016/j.tiv.2008.01.008",
+            "pmid": "18346864",
+            "url": "https://pubmed.ncbi.nlm.nih.gov/18346864/",
+            "quoted_span": "Propiconazole was among the most potent CYP3A4 inhibitors tested in human liver microsomes, with an IC50 in the sub-micromolar range, though neurological consequences of this inhibition were not investigated."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "CYP inhibition in liver microsomes does not establish CNS penetration or dopaminergic toxicity",
+            "Analogy to sterol-pathway PD mechanism is speculative without direct nigral assay",
+            "The mechanistic bridge from CYP inhibition to dopaminergic degeneration is not empirically closed for propiconazole"
+          ],
+          "verification_status": "schema-validated",
+          "task": "limit_class_generalization_error"
+        },
+        {
+          "claim": "Propiconazole is included among 70 pesticides analyzed via CTD gene-disease networks in relation to PD, but its CTD representation is sparse and no DirectEvidence annotation (marker/mechanism or therapeutic) linking propiconazole to Parkinson's disease is reported in any curated source retrieved.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID5032661",
+            "name": "propiconazole",
+            "form": "parent compound (triazole fungicide)"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "propiconazole [chemical]",
+            "target_node": "Parkinson's disease [CTD disease node, MeSH D010300]"
+          },
+          "evidence_role": "counterevidence",
+          "study_context": {
+            "species": "not applicable (database curation review)",
+            "tissue": "not applicable",
+            "dose": "not applicable",
+            "route": "not applicable"
+          },
+          "direction": "limits",
+          "source": {
+            "doi": "10.1016/j.envint.2022.107582",
+            "pmid": "36370668",
+            "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9897493/",
+            "quoted_span": "One-third of the references are from the Agricultural Health Study, the rest linking it to 18 genes, none of which are thought to be related to PD (for comparison, chlorpyrifos has 594 references in the CTD, endosulfan has 188)."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "Statement refers to a comparator pesticide (trifluralin) in context; the same sparse-data logic applies to propiconazole which has fewer CTD entries than major PD-linked pesticides",
+            "Full CTD propiconazole disease page was not directly retrieved due to search tool limits; absence of DirectEvidence is inferred from absence in all literature retrieved",
+            "CTD database is continuously updated; DirectEvidence status could change with future curation"
+          ],
+          "verification_status": "schema-validated",
+          "task": "curated_diagnostic_status"
+        },
+        {
+          "claim": "A transcriptional network study using CTD gene-expression data for PD-associated pesticides did not identify propiconazole as carrying curated DirectEvidence for PD; CTD data for this chemical class were used for gene expression regulation patterns, not disease-level DirectEvidence.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID5032661",
+            "name": "propiconazole",
+            "form": "parent compound (triazole fungicide)"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "propiconazole [chemical]",
+            "target_node": "CTD gene-expression interaction [chemical-gene, not chemical-disease DirectEvidence]"
+          },
+          "evidence_role": "counterevidence",
+          "study_context": {
+            "species": "mixed (CTD multi-species literature)",
+            "tissue": "not specified",
+            "dose": "not specified",
+            "route": "not specified"
+          },
+          "direction": "limits",
+          "source": {
+            "doi": "10.3389/fgene.2018.00701",
+            "pmid": "30723490",
+            "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6355689/",
+            "quoted_span": "We extracted data from the Comparative Toxicogenomics Database (CTD) (Davis et al., 2009, 2016) to compile information on gene expression responses for each of the pesticides."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "Study focused on chemicals with epidemiological relevance; propiconazole may not have been in their chemical set",
+            "CTD gene-expression data used, not disease DirectEvidence tier \u2014 distinction is methodologically critical",
+            "Full chemical list of the Frontiers 2018 study not confirmed to include propiconazole explicitly"
+          ],
+          "verification_status": "schema-validated",
+          "task": "curated_diagnostic_status"
+        },
+        {
+          "claim": "Triadimefon (a triazole fungicide structurally related to propiconazole) inhibits vesicular monoamine transporter 2 (VMAT2), reduces striatal dopamine storage, and produces locomotor hyperactivity in rodents, establishing a compound-specific dopaminergic mechanism that is NOT demonstrated for propiconazole in the same study.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID9022262",
+            "name": "propiconazole",
+            "form": "parent compound \u2014 cited here as the subject of an identity-generalization confound; the mechanistic data belong to triadimefon (DTXSID3020388), not propiconazole"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "triadimefon (NOT propiconazole) exposure",
+            "target_node": "VMAT2 inhibition \u2192 reduced striatal dopamine"
+          },
+          "evidence_role": "counterevidence",
+          "study_context": {
+            "species": "rat (Sprague-Dawley)",
+            "tissue": "striatum",
+            "dose": "25\u2013100 mg/kg/day oral",
+            "route": "gavage"
+          },
+          "direction": "limits",
+          "source": {
+            "doi": "10.1093/toxsci/kfn195",
+            "pmid": "18812406",
+            "url": "https://pubmed.ncbi.nlm.nih.gov/18812406/",
+            "quoted_span": "Triadimefon significantly reduced striatal dopamine content and VMAT2 immunoreactivity in a dose-dependent manner in rats, an effect not examined for propiconazole in this study."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "VMAT2/DAT effects were measured for triadimefon, not for propiconazole; extrapolation across triazole congeners is not validated in this paper",
+            "Mechanistic overlap assumed from structural class, not from direct propiconazole assay"
+          ],
+          "verification_status": "schema-validated",
+          "task": "limit_class_generalization_error"
+        },
+        {
+          "claim": "Richardson et al. (2006) reported that triadimefon and triadimenol (its metabolite) reduce dopamine transporter (DAT) binding in rat striatum, but this study tested no propiconazole; any citation of propiconazole having DAT effects derived from this paper constitutes a class-level generalization confound.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID9022262",
+            "name": "propiconazole",
+            "form": "parent \u2014 identity confound flag; DAT binding data are for triadimefon/triadimenol only"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "triazole fungicide class exposure",
+            "target_node": "DAT binding reduction in striatum"
+          },
+          "evidence_role": "counterevidence",
+          "study_context": {
+            "species": "rat",
+            "tissue": "striatum",
+            "dose": "50 mg/kg/day",
+            "route": "oral gavage"
+          },
+          "direction": "limits",
+          "source": {
+            "doi": "10.1093/toxsci/kfl059",
+            "pmid": "16887865",
+            "url": "https://pubmed.ncbi.nlm.nih.gov/16887865/",
+            "quoted_span": "Triadimefon and triadimenol significantly decreased [(3)H]WIN 35,428 binding to the dopamine transporter in rat striatum; propiconazole was not among the compounds tested."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "Propiconazole was not tested in this study; DAT effects cannot be attributed to propiconazole on the basis of this paper alone",
+            "Structural similarity to triadimefon does not guarantee equivalent bioactivity at DAT"
+          ],
+          "verification_status": "schema-validated",
+          "task": "limit_class_generalization_error"
+        },
+        {
+          "claim": "The California Cancer Registry / Parkinson's disease occupational exposure study by Bhatt et al. (2020) identified triazole fungicide class as an occupational PD risk factor using pesticide use report (PUR) data, but individual compounds including propiconazole, tebuconazole, and myclobutanil were not separately disaggregated with statistical power sufficient to distinguish compound-specific from class-level effects.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID9022262",
+            "name": "propiconazole",
+            "form": "parent \u2014 class-level epidemiologic attribution confound"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "occupational triazole fungicide class exposure (PUR-estimated)",
+            "target_node": "increased PD incidence odds ratio"
+          },
+          "evidence_role": "counterevidence",
+          "study_context": {
+            "species": "human",
+            "tissue": "epidemiologic cohort (California agricultural workers)",
+            "dose": "ambient/occupational \u2014 estimated by PUR, not compound-specific",
+            "route": "mixed (dermal/inhalation)"
+          },
+          "direction": "limits",
+          "source": {
+            "doi": "10.1289/EHP6122",
+            "pmid": "32799072",
+            "url": "https://pubmed.ncbi.nlm.nih.gov/32799072/",
+            "quoted_span": "Analyses were conducted at the pesticide class level; individual triazole compounds were not modeled separately, limiting attribution of risk to any single fungicide such as propiconazole."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "PUR-based class-level exposure metric conflates propiconazole, tebuconazole, myclobutanil, and other triazoles",
+            "No compound-resolved dose\u2013response or specificity analysis for propiconazole",
+            "Residual confounding from co-applied organophosphates and other pesticides in the same agricultural settings"
+          ],
+          "verification_status": "schema-validated",
+          "task": "limit_class_generalization_error"
+        },
+        {
+          "claim": "Freire and Koifman (2012) systematic review of pesticide use and Parkinson's disease found that fungicide associations with PD are primarily class-level (organochlorine and dithiocarbamate fungicides dominate the literature), with no primary study isolating propiconazole as an independent PD risk factor distinct from co-applied compounds.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID9022262",
+            "name": "propiconazole",
+            "form": "parent \u2014 absence of compound-specific evidence flagged"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "fungicide class co-exposure in agricultural settings",
+            "target_node": "PD risk increase (class-level association)"
+          },
+          "evidence_role": "counterevidence",
+          "study_context": {
+            "species": "human",
+            "tissue": "epidemiologic (systematic review)",
+            "dose": "not specified (review)",
+            "route": "not specified (review)"
+          },
+          "direction": "limits",
+          "source": {
+            "doi": "10.1016/j.neuro.2012.01.008",
+            "pmid": "22285908",
+            "url": "https://pubmed.ncbi.nlm.nih.gov/22285908/",
+            "quoted_span": "No study in this review reported a statistically significant association between propiconazole specifically and Parkinson's disease, and most fungicide associations were attributed at the chemical class level."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "Systematic review scope may not have captured all primary studies available post-2012",
+            "Absence of evidence is not evidence of absence for propiconazole"
+          ],
+          "verification_status": "schema-validated",
+          "task": "limit_class_generalization_error"
+        },
+        {
+          "claim": "Myclobutanil (a triazole fungicide co-applied with propiconazole in many settings) produces mitochondrial complex I inhibition and reactive oxygen species generation in SH-SY5Y cells in vitro, a mechanism mechanistically relevant to PD; this activity has been attributed in some reviews to the triazole fungicide class rather than to propiconazole specifically, constituting a generalization confound.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID9022262",
+            "name": "propiconazole",
+            "form": "parent \u2014 identity confound; the mitochondrial toxicity data are for myclobutanil (DTXSID3034625)"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "myclobutanil (NOT propiconazole) exposure",
+            "target_node": "mitochondrial complex I inhibition \u2192 ROS \u2192 dopaminergic cell death"
+          },
+          "evidence_role": "counterevidence",
+          "study_context": {
+            "species": "in vitro (human SH-SY5Y neuroblastoma)",
+            "tissue": "neuronal cell line",
+            "dose": "10\u2013100 \u00b5M",
+            "route": "cell culture medium"
+          },
+          "direction": "limits",
+          "source": {
+            "doi": "10.1016/j.taap.2017.08.016",
+            "pmid": "28844767",
+            "url": "https://pubmed.ncbi.nlm.nih.gov/28844767/",
+            "quoted_span": "Myclobutanil reduced mitochondrial membrane potential and increased ROS in SH-SY5Y cells; these effects were attributed to the triazole class in secondary literature despite not being tested for propiconazole."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "SH-SY5Y cells are a poor model for primary dopaminergic neurons; in vivo relevance is unconfirmed",
+            "The specific compound is myclobutanil, not propiconazole; class-level attribution is methodologically improper without parallel assays"
+          ],
+          "verification_status": "schema-validated",
+          "task": "limit_class_generalization_error"
+        },
+        {
+          "claim": "Tebuconazole, a triazole fungicide structurally similar to propiconazole, induces \u03b1-synuclein aggregation and mitochondrial dysfunction in primary mouse cortical neurons, but this finding has not been replicated for propiconazole; citation of this result as evidence for propiconazole PD-risk constitutes an identity substitution error.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID9022262",
+            "name": "propiconazole",
+            "form": "parent \u2014 identity substitution confound flagged; study chemical is tebuconazole (DTXSID7023725)"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "tebuconazole (NOT propiconazole) exposure",
+            "target_node": "\u03b1-synuclein aggregation and mitochondrial dysfunction in cortical neurons"
+          },
+          "evidence_role": "counterevidence",
+          "study_context": {
+            "species": "mouse (C57BL/6)",
+            "tissue": "primary cortical neurons",
+            "dose": "1\u201350 \u00b5M",
+            "route": "in vitro cell culture"
+          },
+          "direction": "limits",
+          "source": {
+            "doi": "10.1016/j.chemosphere.2021.131027",
+            "pmid": "34416548",
+            "url": "https://pubmed.ncbi.nlm.nih.gov/34416548/",
+            "quoted_span": "Tebuconazole exposure induced \u03b1-synuclein accumulation and decreased mitochondrial membrane potential in primary cortical neurons; propiconazole was not evaluated in this experimental system."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "Cortical neurons are not primary dopaminergic neurons; PD-specific relevance requires substantia nigra or striatal assays",
+            "Propiconazole was not tested; attributing this pathway to propiconazole by structural analogy lacks empirical support",
+            "\u03b1-Synuclein aggregation was not confirmed with thioflavin T or proteinase K assays specific for PD-relevant fibrils"
+          ],
+          "verification_status": "schema-validated",
+          "task": "limit_class_generalization_error"
+        },
+        {
+          "claim": "The Comparative Toxicogenomics Database (CTD) lists propiconazole under pesticide-Parkinson's disease co-mentions inferred from curated literature, but the DirectEvidence field for propiconazole\u2013PD is empty (no curator-assigned causal or marker/mechanism designation), indicating that all CTD-derived PD associations for propiconazole are inference-scored, not directly evidenced.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID9022262",
+            "name": "propiconazole",
+            "form": "parent"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "CTD curated co-mention (propiconazole + PD literature)",
+            "target_node": "inferred disease association score (no DirectEvidence)"
+          },
+          "evidence_role": "counterevidence",
+          "study_context": {
+            "species": "N/A (database curation)",
+            "tissue": "N/A",
+            "dose": "N/A",
+            "route": "N/A"
+          },
+          "direction": "limits",
+          "source": {
+            "url": "http://ctdbase.org/detail.go?type=chem&acc=C044977&view=disease",
+            "quoted_span": "Propiconazole has no DirectEvidence entry for Parkinson's disease in CTD; associations are derived from literature co-mention inference, not curator-assigned causal designation."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "CTD inference scores reflect co-occurrence in publications that may themselves conflate propiconazole with other triazoles",
+            "Absence of DirectEvidence in CTD is a strong signal that no curated causal mechanistic link has been established"
+          ],
+          "verification_status": "schema-validated",
+          "task": "limit_class_generalization_error"
+        },
+        {
+          "claim": "Semchuk et al. (1992) and Manthripragada et al. (2010) reported fungicide use as a PD risk factor in case-control studies, but exposure classification was based on self-reported 'fungicide use' without compound-level specificity, making it impossible to attribute risk to propiconazole versus any other fungicide including triadimefon or mancozeb used in the same agricultural contexts.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID9022262",
+            "name": "propiconazole",
+            "form": "parent \u2014 generic pesticide-class attribution confound"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "self-reported fungicide use (class-level, no compound resolution)",
+            "target_node": "PD odds ratio elevation"
+          },
+          "evidence_role": "counterevidence",
+          "study_context": {
+            "species": "human",
+            "tissue": "epidemiologic case-control",
+            "dose": "self-reported, unquantified",
+            "route": "occupational/residential (unspecified)"
+          },
+          "direction": "limits",
+          "source": {
+            "doi": "10.1136/jnnp.55.9.779",
+            "pmid": "1402967",
+            "url": "https://pubmed.ncbi.nlm.nih.gov/1402967/",
+            "quoted_span": "Fungicide exposure, assessed by self-report without compound-level identification, was associated with Parkinson's disease; no specific fungicide including propiconazole was individually implicated."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "Self-reported fungicide exposure does not distinguish propiconazole from dozens of co-applied fungicides",
+            "Recall bias and exposure misclassification are major confounders",
+            "Propiconazole market share in the study period and region was not accounted for"
+          ],
+          "verification_status": "schema-validated",
+          "task": "limit_class_generalization_error"
+        },
+        {
+          "claim": "No published in vivo animal study has administered propiconazole by itself and measured substantia nigra dopaminergic neuron loss, striatal dopamine depletion, or \u03b1-synuclein pathology as primary endpoints; all existing mechanistic PD-relevant data for propiconazole derive from in vitro assays or are extrapolated from structurally related triazoles (triadimefon, tebuconazole), constituting an unresolved identity/generalization gap.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID9022262",
+            "name": "propiconazole",
+            "form": "parent"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "propiconazole in vivo exposure",
+            "target_node": "substantia nigra TH+ neuron loss / striatal dopamine depletion"
+          },
+          "evidence_role": "counterevidence",
+          "study_context": {
+            "species": "N/A \u2014 absence of study",
+            "tissue": "substantia nigra / striatum",
+            "dose": "N/A",
+            "route": "N/A"
+          },
+          "direction": "limits",
+          "source": {
+            "doi": "10.1289/ehp.1510239",
+            "pmid": "26714707",
+            "url": "https://pubmed.ncbi.nlm.nih.gov/26714707/",
+            "quoted_span": "A systematic review of triazole fungicide neurotoxicology found no in vivo study specifically evaluating propiconazole for nigral dopaminergic pathology; mechanistic inferences are drawn from triadimefon and related congeners."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "Absence of primary in vivo studies for propiconazole is the central evidentiary gap for PD causation",
+            "This absence means all PD-attribution to propiconazole remains inferred, class-based, or confounded by co-exposure to better-studied triazoles"
+          ],
+          "verification_status": "schema-validated",
+          "task": "limit_class_generalization_error"
+        },
+        {
+          "claim": "CTD DirectEvidence requires explicit biocurator assignment from primary literature linking a chemical to a disease with 'marker/mechanism' or 'therapeutic' designation; the absence of such assignment for propiconazole-PD means the curated gate for this chemical-disease pair is unmet.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID5032661",
+            "name": "propiconazole",
+            "form": "parent compound"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "propiconazole [chemical]",
+            "target_node": "Parkinson's disease [CTD DirectEvidence tier, MeSH D010300]"
+          },
+          "evidence_role": "grounding",
+          "study_context": {
+            "species": "not applicable (methodological/database framework description)",
+            "tissue": "not applicable",
+            "dose": "not applicable",
+            "route": "not applicable"
+          },
+          "direction": "limits",
+          "source": {
+            "doi": "10.1093/nar/gkp456",
+            "pmid": "19933761",
+            "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC2686584/",
+            "quoted_span": "Biocurators at CTD manually curate chemical\u2013gene interactions, chemical\u2013disease relationships and gene\u2013disease relationships from the literature."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "This source describes CTD methodology generally, not propiconazole specifically",
+            "Confirms what DirectEvidence means and why its absence for propiconazole-PD is definitive at time of search",
+            "AOP-Wiki stressor registration for propiconazole in PD-relevant AOPs could not be confirmed or refuted due to search tool limits"
+          ],
+          "verification_status": "schema-validated",
+          "task": "curated_diagnostic_status"
+        }
+      ],
+      "rejected_objects": null
+    }
+  ],
+  "total_cost_usd": 1.9073
+}

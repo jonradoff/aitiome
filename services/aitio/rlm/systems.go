@@ -30,7 +30,7 @@ const (
 	// Per-call watchdogs. Single-pass systems emit the whole evidence set (long) so
 	// they get the most; leaves are narrow and degrade fast if web search stalls; the
 	// planner/critic use no web tools and should be quick.
-	singlePassTimeout = 15 * time.Minute
+	singlePassTimeout = 20 * time.Minute // 2 low-signal RAG+ (chlorpyrifos/troglitazone) search exhaustively; give headroom
 	leafTimeout       = 10 * time.Minute
 	orchTimeout       = 3 * time.Minute
 )

@@ -1,0 +1,3344 @@
+{
+  "chemical": "paraquat",
+  "disease": "PD",
+  "dtxsid": "DTXSID3034799",
+  "systems": [
+    {
+      "system": "RAG",
+      "accepted": 19,
+      "rejected": 0,
+      "role_coverage": {
+        "corroboration": 6,
+        "counterevidence": 3,
+        "diagnostic": 5,
+        "grounding": 5
+      },
+      "counterevidence": 3,
+      "distinct_sources": 17,
+      "diagnostic_recovered": true,
+      "unique_vs_rag": 0,
+      "productive_leaves": 0,
+      "model_calls": 1,
+      "cost_usd": 0.42697119999999994,
+      "web_searches": 4,
+      "duration_sec": 424.998918,
+      "objects": [
+        {
+          "claim": "Pre-treatment with water-soluble Coenzyme Q10 prevents paraquat-induced neurodegeneration and rotorod performance deficits in rats, implicating mitochondrial oxidative stress as the mechanistic driver.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID5020977",
+            "name": "Paraquat",
+            "form": "paraquat (PQ)"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "paraquat-induced mitochondrial oxidative stress",
+            "target_node": "nigrostriatal neurodegeneration + motor deficit"
+          },
+          "evidence_role": "corroboration",
+          "study_context": {
+            "species": "Rattus norvegicus",
+            "tissue": "substantia nigra / striatum",
+            "dose": "CoQ10 intervention in drinking water prior to and during paraquat treatment",
+            "route": "paraquat systemic; CoQ10 oral"
+          },
+          "direction": "supports",
+          "source": {
+            "pmid": "PMC2724477",
+            "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC2724477/",
+            "quoted_span": "In contrast, paraquat exposed rats receiving a water-soluble formulation of coenzyme Q10 in their drinking water prior to and during the paraquat treatment neither developed neurodegeneration nor reduced rotorod performance and were indistinguishable from the control paraquat-untreated rats."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "rescue pharmacology does not uniquely identify mechanism",
+            "CoQ10 has pleiotropic effects"
+          ],
+          "verification_status": "schema-validated"
+        },
+        {
+          "claim": "Chronic paraquat exposure induces pathogenic modifications of \u03b1-synuclein in Drosophila, demonstrating evolutionary conservation of the toxicity pathway.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID5020977",
+            "name": "Paraquat",
+            "form": "paraquat (PQ)"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "chronic paraquat exposure",
+            "target_node": "pathogenic \u03b1-synuclein modifications (aggregation/phosphorylation)"
+          },
+          "evidence_role": "corroboration",
+          "study_context": {
+            "species": "Drosophila melanogaster",
+            "tissue": "CNS / dopaminergic neurons",
+            "dose": "chronic exposure",
+            "route": "oral (food)"
+          },
+          "direction": "supports",
+          "source": {
+            "pmid": "PMC8584077",
+            "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8584077/",
+            "quoted_span": "Parkinson's disease (PD) is characterized by the progressive accumulation of neuronal intracellular aggregates largely composed of alpha-Synuclein (\u03b1Syn) protein. The process of \u03b1Syn aggregation is induced during aging and enhanced by environmental stresses, such as the exposure to pesticides."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "Drosophila lacks endogenous \u03b1-synuclein gene; transgenic model",
+            "invertebrate-to-human translational gap"
+          ],
+          "verification_status": "schema-validated"
+        },
+        {
+          "claim": "Paraquat combined with LPS induces upregulation of \u03b1-synuclein and synphilin-1 in dopaminergic neurons; combined oxidative stress and inflammation exacerbates PD-like pathology beyond either insult alone.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID5020977",
+            "name": "Paraquat",
+            "form": "paraquat (PQ)"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "paraquat (ROS generator) + LPS (inflammatory stimulus)",
+            "target_node": "\u03b1-synuclein and synphilin-1 upregulation in dopaminergic neurons"
+          },
+          "evidence_role": "corroboration",
+          "study_context": {
+            "species": "rodent",
+            "tissue": "dopaminergic system (substantia nigra / striatum)",
+            "dose": "subthreshold doses of LPS combined with paraquat",
+            "route": "systemic"
+          },
+          "direction": "supports",
+          "source": {
+            "pmid": "PMC8786770",
+            "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8786770/",
+            "quoted_span": "Prolonged inflammation, oxidative stress, and protein aggregation are important factors contributing to Parkinson's disease (PD) pathology. A known ROS generator, pesticide paraquat (PQ), was indicated as an environmental substance potentially increasing the incidence of PD and is used to model this disease."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "co-exposure confounds paraquat-specific attribution",
+            "LPS is not a real-world co-exposure for most PD patients"
+          ],
+          "verification_status": "schema-validated"
+        },
+        {
+          "claim": "Calycosin prevents dopaminergic neuronal cell death in paraquat-exposed Drosophila by reducing oxidative stress, corroborating that oxidative stress is a key mechanistic node downstream of paraquat.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID5020977",
+            "name": "Paraquat",
+            "form": "paraquat (PQ)"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "paraquat-induced oxidative stress",
+            "target_node": "dopaminergic neuron death + locomotor deficit"
+          },
+          "evidence_role": "corroboration",
+          "study_context": {
+            "species": "Drosophila melanogaster (Canton S)",
+            "tissue": "CNS / dopaminergic neurons",
+            "dose": "PQ-exposed flies",
+            "route": "oral"
+          },
+          "direction": "supports",
+          "source": {
+            "pmid": "PMC8868496",
+            "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8868496/",
+            "quoted_span": "Calycosin-fed PQ-exposed flies exhibit significant resistance against PQ-induced mortality and locomotor deficits in terms of reduced oxidative stress, loss of DA neurons."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "Drosophila model; rescue pharmacology identifies pathway but is not direct mechanistic proof"
+          ],
+          "verification_status": "schema-validated"
+        },
+        {
+          "claim": "Most human epidemiological studies show that rotenone and paraquat are linked to increased PD risk and PD-like neuropathology, supported by a comprehensive literature review through 2016.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID5020977",
+            "name": "Paraquat",
+            "form": "paraquat (environmental)"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "paraquat environmental exposure",
+            "target_node": "PD risk elevation + PD-like neuropathology"
+          },
+          "evidence_role": "corroboration",
+          "study_context": {
+            "species": "Homo sapiens (and animal models, review)",
+            "tissue": "epidemiological / neuropathological",
+            "dose": "various (review)",
+            "route": "environmental / occupational"
+          },
+          "direction": "supports",
+          "source": {
+            "pmid": "PMC5036714",
+            "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5036714/",
+            "quoted_span": "Most studies show that rotenone and paraquat are linked to increased PD risk and PD-like neuropathology."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "review-level synthesis; individual studies vary widely in design quality",
+            "rotenone conflated with paraquat in aggregate statements"
+          ],
+          "verification_status": "schema-validated"
+        },
+        {
+          "claim": "Epidemiological studies have linked paraquat and other pesticide exposures with elevated PD risk; genome-wide analysis in a Drosophila paraquat model further supports a genetic-environment convergence in PD etiology.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID5020977",
+            "name": "Paraquat",
+            "form": "paraquat"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "paraquat environmental exposure (gene \u00d7 environment interaction)",
+            "target_node": "PD risk (genetic modifiers identified)"
+          },
+          "evidence_role": "corroboration",
+          "study_context": {
+            "species": "Drosophila melanogaster + human epidemiological data",
+            "tissue": "CNS / population-level",
+            "dose": "various",
+            "route": "environmental"
+          },
+          "direction": "supports",
+          "source": {
+            "url": "https://www.biorxiv.org/content/10.1101/2025.04.02.646829.full.pdf",
+            "quoted_span": "Epidemiological studies have linked exposure to numerous types of environmental toxins with elevated PD risk, although pesticides have received the most attention due to concerns over the widespread use of these chemicals."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "preprint (biorxiv); not yet peer-reviewed",
+            "Drosophila genetic findings require validation in mammalian systems"
+          ],
+          "verification_status": "schema-validated"
+        },
+        {
+          "claim": "A systematic assessment of recent epidemiological evidence found no statistically significant increased PD risk in occupationally exposed populations and no evidence of an exposure-response relationship for paraquat.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID5020977",
+            "name": "Paraquat",
+            "form": "paraquat (occupational exposure)"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "occupational paraquat exposure",
+            "target_node": "PD risk (null finding)"
+          },
+          "evidence_role": "counterevidence",
+          "study_context": {
+            "species": "Homo sapiens",
+            "tissue": "epidemiological",
+            "dose": "occupational (various)",
+            "route": "occupational"
+          },
+          "direction": "contradicts",
+          "source": {
+            "url": "https://esmed.org/MRA/mra/article/view/5767",
+            "quoted_span": "These studies examined not only general population groups but especially occupationally exposed populations and found no statistically significant increased risk and no evidence of an exposure-response relationship."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "systematic review conclusions depend on which studies are included",
+            "occupational exposure populations differ from general population exposures"
+          ],
+          "verification_status": "schema-validated"
+        },
+        {
+          "claim": "The evidence that human exposure to paraquat results in an increased risk for PD is described as 'rather limited', and mechanistic causal attribution from animal studies to human PD risk remains debated.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID5020977",
+            "name": "Paraquat",
+            "form": "paraquat"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "human paraquat exposure",
+            "target_node": "PD causation (contested)"
+          },
+          "evidence_role": "counterevidence",
+          "study_context": {
+            "species": "Homo sapiens",
+            "tissue": "epidemiological",
+            "dose": "various",
+            "route": "various"
+          },
+          "direction": "limits",
+          "source": {
+            "doi": "10.1038/cdd.2009.217",
+            "pmid": "20094060",
+            "url": "https://www.nature.com/articles/cdd2009217",
+            "quoted_span": "the evidence that human exposure to the chemical results in an increased risk for PD is rather limited."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "published 2010; subsequent meta-analyses have added more data",
+            "limitations of human exposure assessment acknowledged by the authors"
+          ],
+          "verification_status": "schema-validated"
+        },
+        {
+          "claim": "Paraquat-induced dopaminergic neurodegeneration in vivo has yielded contradictory results across studies, limiting confidence in its role as a faithful mechanistic model of human PD.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID5020977",
+            "name": "Paraquat",
+            "form": "paraquat (PQ)"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "paraquat in vivo exposure",
+            "target_node": "dopaminergic degeneration (inconsistent across studies)"
+          },
+          "evidence_role": "counterevidence",
+          "study_context": {
+            "species": "various animal models",
+            "tissue": "nigrostriatal",
+            "dose": "various",
+            "route": "various"
+          },
+          "direction": "unresolved",
+          "source": {
+            "pmid": "PMC5487993",
+            "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5487993/",
+            "quoted_span": "Paraquat is reported to induce dopaminergic degeneration in vivo, which is one of the pathological hallmarks of PD, but contradictory results exist as well."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "source is a metabolic review, not a systematic meta-analysis of animal studies"
+          ],
+          "verification_status": "schema-validated"
+        },
+        {
+          "claim": "Repeated paraquat exposure induces loss of dopaminergic neurons in the nigrostriatal dopamine system in animal models, recapitulating a core pathological feature of Parkinson's disease.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID5020977",
+            "name": "Paraquat",
+            "form": "paraquat dichloride (1,1'-dimethyl-4,4'-bipyridinium dichloride)"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "paraquat systemic exposure",
+            "target_node": "dopaminergic neuron loss in substantia nigra pars compacta"
+          },
+          "evidence_role": "diagnostic",
+          "study_context": {
+            "species": "multiple animal models (rodent, Drosophila)",
+            "tissue": "substantia nigra / nigrostriatal tract",
+            "dose": "repeated exposure (multiple regimens)",
+            "route": "various (i.p., oral)"
+          },
+          "direction": "supports",
+          "source": {
+            "url": "https://www.sciencedirect.com/science/article/pii/S0023683722015094",
+            "quoted_span": "Laboratory studies involving repeated exposure to paraquat (PQ) in different animal models can induce many of the pathological features of Parkinson's disease (PD), such as the loss of dopaminergic neurons in the nigrostriatal dopamine system."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "animal-to-human translational gap",
+            "dose regimens may not reflect typical human exposures"
+          ],
+          "verification_status": "schema-validated"
+        },
+        {
+          "claim": "Paraquat induces oxidative stress and neuronal loss in the substantia nigra region and Parkinsonism-like motor deficits in adult rats, consistent with PD pathology.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID5020977",
+            "name": "Paraquat",
+            "form": "paraquat (PQ, 1,1-dimethyl-4,4-bipyridinium)"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "paraquat-induced oxidative stress",
+            "target_node": "substantia nigra neuronal loss + Parkinsonian motor deficits"
+          },
+          "evidence_role": "diagnostic",
+          "study_context": {
+            "species": "Rattus norvegicus (adult rats)",
+            "tissue": "substantia nigra",
+            "dose": "not specified in excerpt",
+            "route": "not specified in excerpt"
+          },
+          "direction": "supports",
+          "source": {
+            "pmid": "PMC2724477",
+            "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC2724477/",
+            "quoted_span": "Environmental toxins such as rotenone, maneb (MB) and paraquat (PQ, 1,1-dimethyl-4,4-bipyridinium) have been shown to induce PD-like symptoms in experimental animals."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "single species",
+            "motor deficit endpoint only partially maps to human PD"
+          ],
+          "verification_status": "schema-validated"
+        },
+        {
+          "claim": "A meta-analysis of 13 human case-control studies showed an association between paraquat exposure and the risk of PD, though all relied on self-reported exposure information prone to recall bias.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID5020977",
+            "name": "Paraquat",
+            "form": "paraquat (environmental/occupational exposure)"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "human paraquat exposure (agricultural / occupational)",
+            "target_node": "increased PD risk"
+          },
+          "evidence_role": "diagnostic",
+          "study_context": {
+            "species": "Homo sapiens",
+            "tissue": "epidemiological / population",
+            "dose": "self-reported pesticide use",
+            "route": "environmental / occupational"
+          },
+          "direction": "supports",
+          "source": {
+            "doi": "10.1093/ije/dyae126",
+            "url": "https://academic.oup.com/ije/article/53/5/dyae126/7775445",
+            "quoted_span": "In humans, a meta-analysis of 13 case\u2013control studies showed an association between paraquat exposure and the risk of PD. These studies all relied on estimates of paraquat exposure based on self-reported information, which is prone to recall bias."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "recall bias in all 13 source studies",
+            "self-reported exposure is a weak measure of actual dose",
+            "meta-analysis cannot establish causality"
+          ],
+          "verification_status": "schema-validated"
+        },
+        {
+          "claim": "In a human case-control study, participants with PD were 2.5 times more likely than controls to have reported use of rotenone or paraquat.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID5020977",
+            "name": "Paraquat",
+            "form": "paraquat (occupational/agricultural use)"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "reported paraquat use",
+            "target_node": "PD diagnosis (OR ~2.5)"
+          },
+          "evidence_role": "diagnostic",
+          "study_context": {
+            "species": "Homo sapiens",
+            "tissue": "epidemiological",
+            "dose": "self-reported pesticide use",
+            "route": "occupational / environmental"
+          },
+          "direction": "supports",
+          "source": {
+            "doi": "10.1289/ehp.119-a259a",
+            "pmid": "PMC3114841",
+            "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3114841/",
+            "quoted_span": "Participants with PD were 2.5 times more likely than controls to have reported use of rotenone or paraquat."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "paraquat and rotenone combined in the OR estimate; cannot isolate paraquat-specific effect",
+            "self-reported use; no biomarker confirmation of exposure"
+          ],
+          "verification_status": "schema-validated"
+        },
+        {
+          "claim": "Residential exposure to the combination of maneb and paraquat from agricultural applications in California's Central Valley was associated with increased PD risk, particularly in younger subjects and when exposure occurred at younger ages.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID5020977",
+            "name": "Paraquat",
+            "form": "paraquat (agricultural, GIS-estimated exposure)"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "residential proximity to paraquat + maneb agricultural application",
+            "target_node": "increased PD risk (case-control)"
+          },
+          "evidence_role": "diagnostic",
+          "study_context": {
+            "species": "Homo sapiens",
+            "tissue": "epidemiological (Central Valley, California)",
+            "dose": "GIS-estimated agricultural application proximity",
+            "route": "environmental (air/soil/water)"
+          },
+          "direction": "supports",
+          "source": {
+            "pmid": "PMC2727231",
+            "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC2727231/",
+            "quoted_span": "This study provides evidence that exposure to a combination of maneb and paraquat increases PD risk, particularly in younger subjects and/or when exposure occurs at younger ages."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "combined maneb+paraquat exposure; paraquat-alone effect not isolated",
+            "GIS-based exposure proxy, not individual-level biomarker"
+          ],
+          "verification_status": "schema-validated"
+        },
+        {
+          "claim": "Paraquat upregulates and promotes aggregation of \u03b1-synuclein in mice, potentially via oxidative processes that alter the biophysical properties of the protein.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID5020977",
+            "name": "Paraquat",
+            "form": "paraquat (PQ)"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "paraquat-induced free radical / ROS generation via redox cycling",
+            "target_node": "\u03b1-synuclein upregulation and aggregation"
+          },
+          "evidence_role": "grounding",
+          "study_context": {
+            "species": "Mus musculus",
+            "tissue": "brain (nigrostriatal)",
+            "dose": "not specified in excerpt",
+            "route": "systemic"
+          },
+          "direction": "supports",
+          "source": {
+            "url": "https://www.sciencedirect.com/science/article/pii/S0021925820877734",
+            "quoted_span": "It is also possible that oxidative processes triggered by paraquat administration may contribute to the development of \u03b1-synuclein pathology. Paraquat toxicity is known to involve the generation of free radicals via redox cycling reactions that transfer electrons to molecular oxygen."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "causal direction (ROS\u2192\u03b1-syn vs. \u03b1-syn\u2192ROS) not fully resolved",
+            "mouse model may not fully recapitulate Lewy body formation"
+          ],
+          "verification_status": "schema-validated"
+        },
+        {
+          "claim": "Paraquat induces dopaminergic neuron death through the ferroptosis and ferritinophagy pathway, representing a distinct iron-mediated cell death mechanism in PD-relevant cells.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID5020977",
+            "name": "Paraquat",
+            "form": "paraquat (PQ)"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "paraquat-induced oxidative stress + iron dysregulation",
+            "target_node": "ferritinophagy-mediated ferroptosis in dopaminergic neurons"
+          },
+          "evidence_role": "grounding",
+          "study_context": {
+            "species": "in vitro / cell model (dopaminergic neurons)",
+            "tissue": "dopaminergic neurons",
+            "dose": "not specified in excerpt",
+            "route": "in vitro treatment"
+          },
+          "direction": "supports",
+          "source": {
+            "pmid": "PMC8355964",
+            "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8355964/",
+            "quoted_span": "PQ can significantly induce the neurotoxicity of dopaminergic neurons through the ferroptosis and ferritinophagy pathway, indicating that inhibition of the ferroptosis is a new strategy for the prevention of neurotoxicity or PD in the future."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "in vitro model; ferroptosis relevance in human SNc PD neurons not yet confirmed"
+          ],
+          "verification_status": "schema-validated"
+        },
+        {
+          "claim": "Paraquat exposure alters lipid profiles, elevates pro-inflammatory lipid production, and elicits neuroinflammation in the midbrain, inducing motor deficits consistent with parkinsonism.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID5020977",
+            "name": "Paraquat",
+            "form": "paraquat (PQ)"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "paraquat exposure \u2192 altered lipid homeostasis",
+            "target_node": "pro-inflammatory lipid production \u2192 midbrain neuroinflammation \u2192 motor deficits"
+          },
+          "evidence_role": "grounding",
+          "study_context": {
+            "species": "rodent (implied by midbrain tissue reference)",
+            "tissue": "midbrain",
+            "dose": "not specified in excerpt",
+            "route": "systemic"
+          },
+          "direction": "supports",
+          "source": {
+            "url": "https://www.sciencedirect.com/science/article/pii/S0160412022004391",
+            "quoted_span": "our present study demonstrated that PQ exposure alters lipid profile, elevates pro-inflammatory lipid production, elicits neuroinflammation in the midbrain, and induces motor deficits."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "specific inflammatory lipid species not detailed in excerpt",
+            "causality chain from lipids to neuron death needs further study"
+          ],
+          "verification_status": "schema-validated"
+        },
+        {
+          "claim": "Paraquat induces loss of dopaminergic SNc neurons and persistent microglial activation that does not resolve over 6 months after the last injection, suggesting chronic neuroinflammation.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID5020977",
+            "name": "Paraquat",
+            "form": "paraquat (PQ)"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "paraquat exposure",
+            "target_node": "persistent microglial activation + dopaminergic SNc neuron loss"
+          },
+          "evidence_role": "grounding",
+          "study_context": {
+            "species": "Mus musculus",
+            "tissue": "substantia nigra pars compacta (SNc)",
+            "dose": "multiple injections (murine model)",
+            "route": "i.p. (standard murine PQ protocol)"
+          },
+          "direction": "supports",
+          "source": {
+            "url": "https://www.sciencedirect.com/science/article/abs/pii/S019745802030395X",
+            "quoted_span": "paraquat induced a loss of dopaminergic SNc neurons and activation of microglia that surprisingly did not change over 6 months after the last injection."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "time course studied in mice only; chronic neuroinflammatory persistence in humans not directly measured"
+          ],
+          "verification_status": "schema-validated"
+        },
+        {
+          "claim": "Paraquat's primary toxicity is attributed to redox cycling generating ROS rather than direct Complex I inhibition; it is a poor inhibitor of Complex I, unlike MPTP.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID5020977",
+            "name": "Paraquat",
+            "form": "paraquat (PQ)"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "paraquat redox cycling",
+            "target_node": "ROS generation \u2192 dopaminergic degeneration"
+          },
+          "evidence_role": "grounding",
+          "study_context": {
+            "species": "in vivo (general, multiple studies reviewed)",
+            "tissue": "brain / nigrostriatal",
+            "dose": "various",
+            "route": "various"
+          },
+          "direction": "supports",
+          "source": {
+            "pmid": "PMC5487993",
+            "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5487993/",
+            "quoted_span": "Paraquat has a structure similar to MPTP, but is a poor inhibitor of complex I. Instead, paraquat toxicity has been primarily attributed to its redox cycling that generates reactive oxygen species (ROS). Paraquat is reported to induce dopaminergic degeneration in vivo, which is one of the pathological hallmarks of PD, but contradictory results exist as well."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "contradictory in vivo results noted by the source itself",
+            "ROS mechanism may not fully explain all observed pathology"
+          ],
+          "verification_status": "schema-validated"
+        }
+      ],
+      "rejected_objects": null
+    },
+    {
+      "system": "RAG+",
+      "accepted": 24,
+      "rejected": 0,
+      "role_coverage": {
+        "corroboration": 7,
+        "counterevidence": 5,
+        "diagnostic": 5,
+        "grounding": 7
+      },
+      "counterevidence": 5,
+      "distinct_sources": 19,
+      "diagnostic_recovered": true,
+      "unique_vs_rag": 24,
+      "productive_leaves": 0,
+      "model_calls": 1,
+      "cost_usd": 0.6498499,
+      "web_searches": 4,
+      "duration_sec": 569.097874417,
+      "objects": [
+        {
+          "claim": "Pesticides including paraquat have been considered as potential contributing factors to PD development and the AOP demonstrates mechanistic plausibility for epidemiological observations linking pesticide exposure to elevated PD risk.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID7024243",
+            "name": "Paraquat",
+            "form": "paraquat dication"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "pesticide exposure (paraquat)",
+            "target_node": "elevated PD risk (mechanistic plausibility)"
+          },
+          "evidence_role": "corroboration",
+          "study_context": {
+            "species": "multiple",
+            "tissue": "substantia nigra",
+            "dose": "various",
+            "route": "various"
+          },
+          "direction": "supports",
+          "source": {
+            "doi": "10.1007/s00204-017-2133-4",
+            "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5773657/",
+            "quoted_span": "The present AOP demonstrates mechanistic plausibility for epidemiological observations on a relationship between pesticide exposure and an elevated risk for Parkinson's disease development."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "AOP is a framework synthesis; does not itself generate new experimental data; stressor includes multiple pesticides beyond paraquat"
+          ],
+          "verification_status": "schema-validated"
+        },
+        {
+          "claim": "Systemic treatment of mice with paraquat causes selective loss of nigrostriatal dopaminergic neurons, reproducing the primary neurodegenerative feature of PD; no nigral cell loss was observed after the first administration, but a significant reduction followed the second weekly injection.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID7024243",
+            "name": "Paraquat",
+            "form": "paraquat dichloride (systemic injection)"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "paraquat systemic exposure",
+            "target_node": "nigrostriatal dopaminergic neuron loss (AO)"
+          },
+          "evidence_role": "corroboration",
+          "study_context": {
+            "species": "mouse",
+            "tissue": "substantia nigra pars compacta",
+            "dose": "three weekly injections",
+            "route": "systemic (i.p.)"
+          },
+          "direction": "supports",
+          "source": {
+            "doi": "10.1111/j.1471-4159.2005.03088.x",
+            "pmid": "15857406",
+            "url": "https://onlinelibrary.wiley.com/doi/10.1111/j.1471-4159.2005.03088.x",
+            "quoted_span": "Systemic treatment of mice with the herbicide paraquat causes the selective loss of nigrostriatal dopaminergic neurons, reproducing the primary neurodegenerative feature of Parkinson's disease."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "Mouse model; exact dose in mg/kg not captured in snippet; cumulative exposure design may not reflect human chronic low-level exposure; 4-HNE used as lipid peroxidation surrogate"
+          ],
+          "verification_status": "schema-validated"
+        },
+        {
+          "claim": "A paraquat-specific AOP for neuro-immunotoxicity was developed combining in vivo toxicology and in silico predictions; in vivo, paraquat produces early synaptic loss in mouse brain, regarded as a main reason for cognitive impairment.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID7024243",
+            "name": "Paraquat",
+            "form": "paraquat (PQ)"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "paraquat exposure \u2192 synaptic loss (MIE/early KE)",
+            "target_node": "cognitive impairment / neuroinflammation (AO)"
+          },
+          "evidence_role": "corroboration",
+          "study_context": {
+            "species": "mouse",
+            "tissue": "brain (synaptic)",
+            "dose": "not specified in snippet",
+            "route": "not specified"
+          },
+          "direction": "supports",
+          "source": {
+            "url": "https://www.sciencedirect.com/science/article/abs/pii/S1353802023010118",
+            "quoted_span": "In vivo, PQ can microstructurally lead to an early synaptic loss in the brain mice, which is a large degree regarded as a main reason for cognitive impairment to mice behavior."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "AOP focuses on neuro-immunotoxicity rather than classic PD motor pathology; in silico components require separate validation; full DOI not confirmed in snippet"
+          ],
+          "verification_status": "schema-validated"
+        },
+        {
+          "claim": "A meta-analysis of 13 case-control studies (3,231 PD patients, 4,901 controls) showed paraquat exposure was associated with a 1.64-fold increase in PD risk (95% CI 1.27\u20132.13); epidemiologic results have not been unequivocal, and a recent AHS report suggested no association.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID7024243",
+            "name": "Paraquat",
+            "form": "paraquat (various exposure types)"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "paraquat exposure (aggregate epidemiology)",
+            "target_node": "PD risk (meta-analytic estimate)"
+          },
+          "evidence_role": "corroboration",
+          "study_context": {
+            "species": "human",
+            "tissue": "N/A",
+            "dose": "various",
+            "route": "various (agricultural)"
+          },
+          "direction": "supports",
+          "source": {
+            "url": "https://www.medrxiv.org/content/10.1101/2022.12.28.22284022.full.pdf",
+            "quoted_span": "a meta-analysis of 13 case-control studies with 3,231 patients and 4,901 controls showing exposure was associated with a 1.64-fold increase in the risk of PD (95% CI=1.27, 2.13)"
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "medrxiv preprint (not peer-reviewed as of posting date); meta-analysis pools heterogeneous studies with varying exposure assessment quality; the same source notes the AHS null result, signalling genuine uncertainty"
+          ],
+          "verification_status": "schema-validated"
+        },
+        {
+          "claim": "In a 20-year prospective cohort of 38,274 pesticide applicators and 27,836 spouses (AHS), higher PD risk was observed for paraquat and pendimethalin among those who reported head injury, indicating effect modification; the association with paraquat was not uniformly elevated across all subgroups.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID7024243",
+            "name": "Paraquat",
+            "form": "paraquat (self-reported ever-use)"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "paraquat use \u00d7 head injury (effect modifier)",
+            "target_node": "incident PD (20-year follow-up)"
+          },
+          "evidence_role": "corroboration",
+          "study_context": {
+            "species": "human",
+            "tissue": "N/A",
+            "dose": "intensity-weighted lifetime days (IWLD)",
+            "route": "occupational agricultural (Iowa, North Carolina)"
+          },
+          "direction": "unresolved",
+          "source": {
+            "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7822498/",
+            "quoted_span": "indicating higher PD risk for use of certain organochlorine insecticides (chlordane, DDT, and toxaphene), organophosphate insecticides (diazinon and phorate), insecticide permethrin, and herbicides (paraquat and pendimethalin) among those who reported head injury"
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "Effect modification by head injury suggests vulnerability co-factor; main-effect OR for paraquat alone (without head injury interaction) not quoted in retrieved snippet; self-reported pesticide use; PD diagnosis by death certificate or self-report in spouses"
+          ],
+          "verification_status": "schema-validated"
+        },
+        {
+          "claim": "The pathogenic causes of PD include Lewy bodies (intracellular \u03b1synuclein clumps) and degeneration of dopaminergic neurons in the substantia nigra pars compacta; paraquat has been used in laboratory studies to create a variety of PD pathological features in numerous in-vitro and in-vivo animal models.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID7024243",
+            "name": "Paraquat",
+            "form": "paraquat (herbicide)"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "paraquat exposure",
+            "target_node": "Lewy body / \u03b1synuclein pathology + dopaminergic neuron loss (PD hallmarks)"
+          },
+          "evidence_role": "corroboration",
+          "study_context": {
+            "species": "multiple in vitro and in vivo",
+            "tissue": "substantia nigra",
+            "dose": "various",
+            "route": "various"
+          },
+          "direction": "supports",
+          "source": {
+            "pmid": "38008593",
+            "url": "https://pubmed.ncbi.nlm.nih.gov/38008593/",
+            "quoted_span": "The herbicide paraquat has been used in laboratory studies to create a variety of PD pathological features in numerous in-vitro and in-vivo animals."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "PubMed abstract; this is a 2023 review article, not primary experimental data; specific experimental details not accessible from the snippet"
+          ],
+          "verification_status": "schema-validated"
+        },
+        {
+          "claim": "Paraquat (1,1\u2032-dimethyl-4,4\u2032-bipyridinium dichloride) has received particular attention owing to its robust epidemiological and experimental links to PD development; aging, which impairs mitochondrial function and diminishes proteasomal clearance, exacerbates \u03b1-syn aggregation and dopaminergic neuronal degeneration in the context of paraquat exposure.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID7024243",
+            "name": "Paraquat",
+            "form": "dichloride salt (1,1\u2032-dimethyl-4,4\u2032-bipyridinium dichloride)"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "paraquat exposure \u00d7 aging (impaired mitochondria + proteasome)",
+            "target_node": "\u03b1-synuclein aggregation + dopaminergic neuron degeneration"
+          },
+          "evidence_role": "corroboration",
+          "study_context": {
+            "species": "rat (Wistar male, age-dependent model)",
+            "tissue": "substantia nigra",
+            "dose": "not specified in snippet",
+            "route": "not specified"
+          },
+          "direction": "supports",
+          "source": {
+            "doi": "10.1101/2025.11.20.689379",
+            "url": "https://www.biorxiv.org/content/10.1101/2025.11.20.689379.full.pdf",
+            "quoted_span": "paraquat (1,1\u2032-dimethyl-4,4\u2032-bipyridinium dichloride) receiving particular attention owing to its robust epidemiological and experimental links to disease development"
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "bioRxiv preprint (not peer-reviewed); age-dependent model may not reflect typical exposure scenario; \u03b1-syn aggregation in paraquat models varies by strain and protocol"
+          ],
+          "verification_status": "schema-validated"
+        },
+        {
+          "claim": "Mitochondrial complex I inhibition is NOT required for dopaminergic neuron death induced by paraquat; paraquat\u2014unlike rotenone or MPP+\u2014induced transcriptional activation of redox-sensitive antioxidant response elements (ARE) and NF-\u03baB, demonstrating a selective role for mitochondrial superoxide in paraquat-induced cell death distinct from direct complex I inhibition.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID7024243",
+            "name": "Paraquat",
+            "form": "paraquat dication"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "paraquat redox cycling \u2192 mitochondrial superoxide (O2\u2022\u2212)",
+            "target_node": "dopaminergic neuron death (via ROS, NOT complex I blockade)"
+          },
+          "evidence_role": "counterevidence",
+          "study_context": {
+            "species": "mouse / cell culture (Ndufs4\u2212/\u2212 dopaminergic neurons)",
+            "tissue": "dopaminergic neurons",
+            "dose": "not specified",
+            "route": "in vitro / in vivo"
+          },
+          "direction": "contradicts",
+          "source": {
+            "doi": "10.1073/pnas.0807581105",
+            "url": "https://www.pnas.org/doi/10.1073/pnas.0807581105",
+            "quoted_span": "The increased sensitivity of Ndufs4\u2212/\u2212 dopaminergic neurons to rotenone is intriguing. Although one could argue that the loss of complex I activity in Ndufs4\u2212/\u2212 cells leads to altered production of ROS, which sensitizes them to other death stimuli or to oxidative stress, there was no apparent change in ROS production or basal cell death in the Ndufs4\u2212/\u2212 cells under normal conditions."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "Contradicts the simple 'complex I inhibition = MIE' narrative for paraquat specifically; paraquat may act primarily via redox cycling (NADPH oxidoreductase) rather than direct complex I binding; this limits the AOP framework when applied specifically to paraquat vs. rotenone/MPTP"
+          ],
+          "verification_status": "schema-validated"
+        },
+        {
+          "claim": "In the AHS cohort analysis by Kamel et al. (2007), the odds ratio for prevalent PD cases exposed to paraquat was 1.7 and was not statistically significant, representing a null/non-significant result from the same cohort.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID7024243",
+            "name": "Paraquat",
+            "form": "paraquat (self-reported use)"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "paraquat occupational use",
+            "target_node": "prevalent PD (non-significant association)"
+          },
+          "evidence_role": "counterevidence",
+          "study_context": {
+            "species": "human",
+            "tissue": "N/A",
+            "dose": "self-reported lifetime use",
+            "route": "occupational (AHS, Iowa and North Carolina)"
+          },
+          "direction": "limits",
+          "source": {
+            "url": "https://www.sciencedirect.com/science/article/abs/pii/S0273230011001978",
+            "quoted_span": "In the AHS cohort the odds ratio for prevalent PD cases was 1.7 and not significant (Kamel et al., 2007)."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "Prevalent PD cases may suffer survivor bias; reliance on self-reported physician-diagnosed PD without neurological confirmation; result later superseded by Tanner et al. nested case-control with confirmed PD; this source is a secondary review citing Kamel 2007"
+          ],
+          "verification_status": "schema-validated"
+        },
+        {
+          "claim": "A retrospective cohort mortality study of workers engaged in paraquat manufacture at Widnes, England\u2014a study with confirmed exposure via comprehensive job histories and personal monitoring\u2014found no confirmed excess PD mortality, though the cohort was too small to rule out a modest effect.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID7024243",
+            "name": "Paraquat",
+            "form": "paraquat (occupational manufacturing exposure, confirmed by biomonitoring)"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "paraquat manufacturing occupational exposure",
+            "target_node": "PD mortality (null result)"
+          },
+          "evidence_role": "counterevidence",
+          "study_context": {
+            "species": "human",
+            "tissue": "N/A",
+            "dose": "high occupational (manufacturing plant, Widnes, England; personal monitoring available)",
+            "route": "occupational inhalation/dermal"
+          },
+          "direction": "limits",
+          "source": {
+            "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8157632/",
+            "quoted_span": "A mortality study of workers who were engaged in the manufacture of PQ at Widnes in the northwest of England is one of the few cohort studies of PD and exposure to PQ. A key strength of this study was that exposure to PQ was confirmed by comprehensive job histories and the availability of personal monitoring information."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "Mortality endpoint may miss non-fatal PD; manufacturing exposure route (inhalation/dermal) differs from agricultural spray exposure; cohort size may be insufficient to detect elevated SMR for a relatively rare endpoint; healthy worker effect; PMC8157632 is the updated retrospective cohort\u2014exact SMR values not captured in the snippet"
+          ],
+          "verification_status": "schema-validated"
+        },
+        {
+          "claim": "Paraquat has been linked to PD by epidemiological studies and experimental work in rodents in which it causes lesions in the substantia nigra pars compacta; however, as of 2009, the evidence that human exposure results in increased PD risk was described as 'rather limited and based on insufficient epidemiological data.'",
+          "chemical_identity": {
+            "dtxsid": "DTXSID7024243",
+            "name": "Paraquat",
+            "form": "paraquat (PQ)"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "paraquat exposure",
+            "target_node": "substantia nigra lesions / human PD risk"
+          },
+          "evidence_role": "counterevidence",
+          "study_context": {
+            "species": "human + rodent (review)",
+            "tissue": "substantia nigra pars compacta",
+            "dose": "various",
+            "route": "various"
+          },
+          "direction": "limits",
+          "source": {
+            "doi": "10.1038/cdd.2009.217",
+            "url": "https://www.nature.com/articles/cdd2009217",
+            "quoted_span": "However, the evidence that human exposure to the chemical results in an increased risk for PD is rather limited and based on insufficient epidemiological data."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "This assessment is from 2009; subsequent Tanner 2011 and Ritz/California GIS studies have strengthened the epidemiological case; this source is a review in Cell Death & Differentiation"
+          ],
+          "verification_status": "schema-validated"
+        },
+        {
+          "claim": "Paraquat exposure is strongly associated with neurotoxicity; research on neurotoxicity mechanisms of PQ varies in terms of endpoints, making it challenging to understand early neurotoxic effects.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID7024243",
+            "name": "Paraquat",
+            "form": "paraquat (PQ)"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "paraquat exposure",
+            "target_node": "neurotoxicity (mechanistic heterogeneity)"
+          },
+          "evidence_role": "counterevidence",
+          "study_context": {
+            "species": "multiple",
+            "tissue": "brain / neurons",
+            "dose": "various",
+            "route": "various"
+          },
+          "direction": "limits",
+          "source": {
+            "url": "https://www.sciencedirect.com/science/article/abs/pii/S1353802023010118",
+            "quoted_span": "Paraquat (PQ) exposure is strongly associated with neurotoxicity. However, research on the neurotoxicity mechanisms of PQ varies in terms of endpoints of toxic assessment, resulting in a great challenge to understand the early neurotoxic effects of PQ."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "This is a limitation statement from a methods paper developing the AOP; it underscores mechanistic heterogeneity in the field rather than providing a specific disconfirming result"
+          ],
+          "verification_status": "schema-validated"
+        },
+        {
+          "claim": "Paraquat is listed as an IRIS substance (substance number 183) and has received hazard identification and dose-response assessment support for EPA risk management decisions.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID7024243",
+            "name": "Paraquat",
+            "form": "dichloride salt, CAS 1910-42-5"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "EPA IRIS regulatory listing",
+            "target_node": "human hazard identification"
+          },
+          "evidence_role": "diagnostic",
+          "study_context": {
+            "species": "human (regulatory)",
+            "tissue": "N/A",
+            "dose": "N/A",
+            "route": "N/A"
+          },
+          "direction": "supports",
+          "source": {
+            "url": "https://iris.epa.gov/ChemicalLanding/&substance_nmbr=183",
+            "quoted_span": "This IRIS assessment for Paraquat consists of hazard identification and dose-response assessment data and provides support for EPA risk management decisions."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "IRIS does not provide a separate PD-specific DirectEvidence curated entry; curated causal links reside in CTD"
+          ],
+          "verification_status": "schema-validated"
+        },
+        {
+          "claim": "Paraquat is listed as a stressor in the AOP framework AOP for 'parkinsonian motor deficits associated with mitochondrial complex I inhibition,' with the MIE defined as inhibition of mitochondrial complex I and the AO as parkinsonian motor deficits.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID7024243",
+            "name": "Paraquat",
+            "form": "paraquat dication"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "mitochondrial complex I inhibition (MIE)",
+            "target_node": "parkinsonian motor deficits (AO)"
+          },
+          "evidence_role": "diagnostic",
+          "study_context": {
+            "species": "multiple (rodent, human epidemiology context)",
+            "tissue": "substantia nigra",
+            "dose": "not specified",
+            "route": "not specified"
+          },
+          "direction": "supports",
+          "source": {
+            "doi": "10.1007/s00204-017-2133-4",
+            "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5773657/",
+            "quoted_span": "The KEs linking complex I inhibition to parkinsonian motor deficits are mitochondrial dysfunction, impaired proteostasis, neuroinflammation, and the degeneration of dopaminergic neurons of the substantia nigra."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "AOP stressor listing is for the class 'complex I inhibitors'; paraquat's primary mechanism may be redox cycling rather than direct complex I inhibition (see counterevidence object); AOP was published in Archives of Toxicology 2018"
+          ],
+          "verification_status": "schema-validated"
+        },
+        {
+          "claim": "In a nested case-control study within the Agricultural Health Study (AHS), paraquat use was associated with PD with OR 2.5 (95% CI 1.4\u20134.7); this was classified by mechanism of action as an oxidative stressor, making it the first analysis of pesticides by presumed mechanism rather than chemical class.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID7024243",
+            "name": "Paraquat",
+            "form": "paraquat dichloride (self-reported use)"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "paraquat occupational exposure (self-reported use)",
+            "target_node": "incident PD diagnosis (AO, human)"
+          },
+          "evidence_role": "diagnostic",
+          "study_context": {
+            "species": "human",
+            "tissue": "N/A",
+            "dose": "self-reported ever-use",
+            "route": "occupational (pesticide applicators, Iowa and North Carolina)"
+          },
+          "direction": "supports",
+          "source": {
+            "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3114841/",
+            "quoted_span": "The researchers assessed lifetime use of pesticides as reported by participants in the Agricultural Health Study, a prospective study of private pesticide applicators (mostly farmers) and their spouses in Iowa and North Carolina. In the nested case\u2013control study, neurologists specializing in movement disorders identified 110 people with PD and 358 controls without who were frequency matched by age, sex, and state."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "Self-reported pesticide use subject to recall bias; 110 PD cases is a modest number; rotenone exposure had only 1 exposed case; Tanner et al. 2011 AJPH is the primary publication; this PMC page is a secondary news summary of that primary study"
+          ],
+          "verification_status": "schema-validated"
+        },
+        {
+          "claim": "Tanner et al. 2011 found significant associations between PD and use of paraquat (OR 2.5; 95% CI 1.4\u20134.7) and rotenone (OR 2.5; 95% CI 1.3\u20134.7) in the AHS, with PD recognized as an occupational disease among agricultural workers in France for over a decade and a similar recognition recommendation issued in Germany in March 2024.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID7024243",
+            "name": "Paraquat",
+            "form": "paraquat (occupational use)"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "occupational paraquat use",
+            "target_node": "PD diagnosis (human AO) and regulatory occupational disease recognition"
+          },
+          "evidence_role": "diagnostic",
+          "study_context": {
+            "species": "human",
+            "tissue": "N/A",
+            "dose": "ever-use (occupational)",
+            "route": "occupational agricultural"
+          },
+          "direction": "supports",
+          "source": {
+            "doi": "10.1007/s00702-025-03054-3",
+            "url": "https://link.springer.com/article/10.1007/s00702-025-03054-3",
+            "quoted_span": "The study found significant associations between PD and use of paraquat (OR 2.5; 95% CI 1.4\u20134.7) and rotenone (OR 2.5; 95% CI 1.3\u20134.7)."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "Springer 2025 paper is a review citing Tanner 2011 as primary source; OR from the Tanner nested case-control, not the full AHS cohort incidence analysis; regulatory recognition is France/Germany, not universal"
+          ],
+          "verification_status": "schema-validated"
+        },
+        {
+          "claim": "Residential exposure to the combination of paraquat, maneb, and ziram increased PD risk three-fold (OR 3.09; 95% CI 1.69\u20135.64) in occupational address-based analyses; ziram+paraquat alone (excluding maneb) increased risk by 80% (OR 1.82; 95% CI 1.03\u20133.21), using GIS-linked pesticide use reports rather than self-report.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID7024243",
+            "name": "Paraquat",
+            "form": "paraquat (GIS-linked agricultural application)"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "combined pesticide exposure (paraquat + ziram \u00b1 maneb)",
+            "target_node": "PD diagnosis (human AO)"
+          },
+          "evidence_role": "diagnostic",
+          "study_context": {
+            "species": "human",
+            "tissue": "N/A",
+            "dose": "ambient GIS-linked agricultural application",
+            "route": "residential/occupational environmental"
+          },
+          "direction": "supports",
+          "source": {
+            "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3643971/",
+            "quoted_span": "At workplaces, combined exposure to ziram, maneb, and paraquat increased risk of PD three-fold (OR: 3.09; 95% CI: 1.69, 5.64) and combined exposure to ziram and paraquat, excluding maneb exposure, was associated with a 80% increase in risk (OR:1.82; 95% CI: 1.03, 3.21)."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "Mixture exposure; cannot isolate paraquat-only risk from this specific analysis; GIS-linked exposure is an improvement over self-report but still an ecological proxy; California Central Valley population may not generalize"
+          ],
+          "verification_status": "schema-validated"
+        },
+        {
+          "claim": "Paraquat dichloride (paraquat cation, 1,1'-dimethyl-4,4'-bipyridinium) has DTXSID7024243, CAS 1910-42-5, and molecular formula C12H14N2Cl2; a dimethyl sulfate salt form also exists (CAS 2074-50-2).",
+          "chemical_identity": {
+            "dtxsid": "DTXSID7024243",
+            "name": "Paraquat",
+            "form": "dichloride salt (CAS 1910-42-5); dimethyl sulfate salt (CAS 2074-50-2); toxicologically active species is the paraquat dication"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "chemical identity / registry",
+            "target_node": "paraquat dication (active form)"
+          },
+          "evidence_role": "grounding",
+          "study_context": {
+            "species": "N/A",
+            "tissue": "N/A",
+            "dose": "N/A",
+            "route": "N/A"
+          },
+          "direction": "supports",
+          "source": {
+            "url": "https://www.acgih.org/paraquat/",
+            "quoted_span": "PARAQUAT DICHLORIDE \u00b7 CAS number: 1910-42-5 \u00b7 Synonym: 1,1-Dimethyl-4,4-bipyridinium dichloride \u00b7 Molecular formula: C12H14N2Cl2"
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "DTXSID confirmed from EPA IRIS landing page cross-reference; ACGIH page does not list DTXSID directly"
+          ],
+          "verification_status": "schema-validated"
+        },
+        {
+          "claim": "In the paraquat mouse model, the first paraquat exposure, though not sufficient to induce neurodegeneration, primes neurons to damage by subsequent insults; this 'priming' event is associated with microglial activation and oxidative stress.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID7024243",
+            "name": "Paraquat",
+            "form": "paraquat dichloride (systemic injection)"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "paraquat exposure \u2192 microglial activation (neuroinflammation KE)",
+            "target_node": "dopaminergic neuron vulnerability / priming"
+          },
+          "evidence_role": "grounding",
+          "study_context": {
+            "species": "mouse",
+            "tissue": "substantia nigra / microglia",
+            "dose": "repeated injections",
+            "route": "systemic (i.p.)"
+          },
+          "direction": "supports",
+          "source": {
+            "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC2001246/",
+            "quoted_span": "Repeated injections with the herbicide paraquat cause oxidative stress and a selective loss of dopaminergic neurons in mice. In this model, the first paraquat exposure, though not sufficient to induce any neurodegeneration, predisposes neurons to damage by subsequent insults."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "PMC-hosted paper; PMID not captured in snippet; mechanism of priming is partially described; does not establish whether microglial activation is necessary vs. sufficient"
+          ],
+          "verification_status": "schema-validated"
+        },
+        {
+          "claim": "Combined environmental exposure of mice to paraquat and iron modulates microglial activation state; NADPH oxidase-derived superoxide from microglia is a major factor in paraquat-induced dopaminergic neuronal death; apocynin (NADPH oxidase inhibitor) attenuated superoxide release and blocked dopaminergic neuron death.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID7024243",
+            "name": "Paraquat",
+            "form": "paraquat dichloride (combined with neonatal iron exposure)"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "paraquat + iron \u2192 NADPH oxidase activation in microglia \u2192 superoxide production",
+            "target_node": "dopaminergic neuron death"
+          },
+          "evidence_role": "grounding",
+          "study_context": {
+            "species": "mouse",
+            "tissue": "substantia nigra / microglia",
+            "dose": "combined paraquat and neonatal iron",
+            "route": "systemic"
+          },
+          "direction": "supports",
+          "source": {
+            "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC2654268/",
+            "quoted_span": "Apocynin, an NADPH oxidase inhibitor, was found to attenuate the release of superoxide from microglia stimulated by combined paraquat and iron and blocked paraquat-induced dopaminergic neuronal death."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "Co-exposure model with iron; cannot isolate paraquat-only effect on NADPH oxidase; iron is an environmental co-exposure risk factor that may not be universally present"
+          ],
+          "verification_status": "schema-validated"
+        },
+        {
+          "claim": "Paraquat's structural similarity to MPP+ (the toxic metabolite of MPTP) motivated the hypothesis linking it to PD; MPTP causes permanent parkinsonism in humans, non-human primates, and rodents by crossing the blood-brain barrier and generating MPP+ toxicity to dopaminergic neurons.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID7024243",
+            "name": "Paraquat",
+            "form": "paraquat dication (structural analogue of MPP+)"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "paraquat dication (MPP+ structural analogue)",
+            "target_node": "dopaminergic neuron toxicity hypothesis"
+          },
+          "evidence_role": "grounding",
+          "study_context": {
+            "species": "human, non-human primate, rodent (MPTP model context)",
+            "tissue": "substantia nigra dopaminergic neurons",
+            "dose": "N/A (structural analogy)",
+            "route": "N/A"
+          },
+          "direction": "supports",
+          "source": {
+            "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8157632/",
+            "quoted_span": "interest has focused on the quaternary ammonium herbicide paraquat (PQ) in part because of its structural similarity to 1-methyl-4-phenylpyridine (MPP+), a metabolite of 1-methyl-4-phenyl-1,2,3,6-tetrahydropyridine (MPTP)."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "Structural similarity to MPP+ does not confirm identical mechanism; paraquat does not readily cross the blood-brain barrier in the same manner as MPTP; brain entry may require organic cation transporter-mediated uptake"
+          ],
+          "verification_status": "schema-validated"
+        },
+        {
+          "claim": "The AOP KE sequence from MIE (mitochondrial complex I inhibition) to AO (parkinsonian motor deficits) includes the following linearly organized key events: mitochondrial dysfunction \u2192 impaired proteostasis \u2192 neuroinflammation \u2192 degeneration of dopaminergic neurons of the substantia nigra; additional feed-forward connections and shortcuts between KEs also exist.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID7024243",
+            "name": "Paraquat",
+            "form": "paraquat dication (complex I inhibitor / redox cycler)"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "mitochondrial dysfunction (KE1)",
+            "target_node": "impaired proteostasis (KE2) \u2192 neuroinflammation (KE3) \u2192 dopaminergic neuron degeneration (KE4) \u2192 parkinsonian motor deficits (AO)"
+          },
+          "evidence_role": "grounding",
+          "study_context": {
+            "species": "multiple (AOP framework synthesis)",
+            "tissue": "substantia nigra dopaminergic neurons",
+            "dose": "various",
+            "route": "various"
+          },
+          "direction": "supports",
+          "source": {
+            "doi": "10.1007/s00204-017-2133-4",
+            "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5773657/",
+            "quoted_span": "The KEs linking complex I inhibition to parkinsonian motor deficits are mitochondrial dysfunction, impaired proteostasis, neuroinflammation, and the degeneration of dopaminergic neurons of the substantia nigra. These KEs, by convention, were linearly organized. However, there was also evidence of additional feed-forward connections and shortcuts between the KEs, possibly depending on the intensity of the insult and the model system applied."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "AOP framework is a synthesis tool, not a primary study; KE ordering is 'by convention' and feed-forward pathways are acknowledged; paraquat's precise position as a complex I inhibitor vs. redox cycler affects MIE assignment"
+          ],
+          "verification_status": "schema-validated"
+        },
+        {
+          "claim": "Paraquat's lethality is attributed to its enhancement of superoxide anion production; human lung cells can accumulate paraquat, and paraquat exposure has been strongly linked to the development of Parkinson's disease.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID7024243",
+            "name": "Paraquat",
+            "form": "paraquat dication (redox-active)"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "paraquat \u2192 superoxide anion (O2\u2022\u2212) production",
+            "target_node": "PD link (epidemiological + mechanistic)"
+          },
+          "evidence_role": "grounding",
+          "study_context": {
+            "species": "human (lung cell accumulation); general mechanistic",
+            "tissue": "lung / CNS",
+            "dose": "N/A",
+            "route": "N/A"
+          },
+          "direction": "supports",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Paraquat",
+            "quoted_span": "Paraquat's lethality is attributed to its enhancing production of superoxide anions and human lung cells can accumulate paraquat. Paraquat exposure has been strongly linked to the development of Parkinson's disease."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "Wikipedia is a tertiary source; cited here only for the mechanistic summary of superoxide production and PD linkage; all mechanistic claims require primary literature confirmation (provided by McCormack 2005 and PNAS 2008 objects above)"
+          ],
+          "verification_status": "schema-validated"
+        },
+        {
+          "claim": "Paraquat has been shown to damage dopaminergic neurons by promoting oxidative stress and cell death; exposure to maneb selectively produces dopaminergic neurodegeneration by disrupting mitochondrial function, increasing oxidative stress, and inhibiting proteasomal function, and ziram causes dopaminergic neuron damage by inhibiting the E1 ligase of the ubiquitin pathway\u2014indicating that co-occurring pesticides target different mechanistic nodes simultaneously.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID7024243",
+            "name": "Paraquat",
+            "form": "paraquat (mixture exposure context)"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "paraquat \u2192 oxidative stress; maneb \u2192 mitochondrial dysfunction + proteasome inhibition; ziram \u2192 ubiquitin E1 inhibition",
+            "target_node": "dopaminergic neuron death (synergistic, multi-mechanism)"
+          },
+          "evidence_role": "grounding",
+          "study_context": {
+            "species": "human epidemiology + cell culture (mechanistic)",
+            "tissue": "dopaminergic neurons",
+            "dose": "GIS-linked ambient (human); cell culture (mechanistic)",
+            "route": "environmental agricultural (human); in vitro (mechanistic)"
+          },
+          "direction": "supports",
+          "source": {
+            "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3643971/",
+            "quoted_span": "Paraquat has been shown to damage dopaminergic neurons by promoting oxidative stress and cell death."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "The mechanistic detail for maneb and ziram is from background text in the Ritz et al. epidemiological paper; primary mechanistic studies for each are separate; mixture effects cannot be attributed to paraquat alone"
+          ],
+          "verification_status": "schema-validated"
+        }
+      ],
+      "rejected_objects": null
+    },
+    {
+      "system": "RLM-1",
+      "accepted": 22,
+      "rejected": 0,
+      "role_coverage": {
+        "corroboration": 5,
+        "counterevidence": 2,
+        "diagnostic": 5,
+        "grounding": 10
+      },
+      "counterevidence": 2,
+      "distinct_sources": 15,
+      "diagnostic_recovered": true,
+      "unique_vs_rag": 22,
+      "productive_leaves": 2,
+      "model_calls": 3,
+      "cost_usd": 0.6501610499999999,
+      "web_searches": 4,
+      "duration_sec": 1503.243670875,
+      "objects": [
+        {
+          "claim": "Paraquat redox cycling depletes cellular NADPH (a critical antioxidant cofactor), promotes lipid peroxidation, and thereby compromises cell membrane integrity, extending oxidative injury beyond superoxide itself.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID5020953",
+            "name": "paraquat",
+            "form": "paraquat dication / redox cycling intermediate (PQ2+/PQ\u2022+)"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "paraquat redox cycling \u2192 ROS",
+            "target_node": "NADPH depletion + lipid peroxidation \u2192 membrane damage"
+          },
+          "evidence_role": "corroboration",
+          "study_context": {
+            "species": "mammalian cells / tissues",
+            "tissue": "cellular membranes",
+            "dose": "multiple in vitro/in vivo doses",
+            "route": "in vitro / systemic"
+          },
+          "direction": "supports",
+          "source": {
+            "url": "https://www.sciencedirect.com/science/article/pii/S0045653525002905",
+            "quoted_span": "paraquat depletes reduced NADPH, a critical cofactor in cellular antioxidant defence, and promotes lipid peroxidation, further compromising cell membrane integrity and function."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "NADPH depletion data largely from lung and non-neuronal cells; neuronal-specific quantification less well established"
+          ],
+          "verification_status": "schema-validated",
+          "task": "mechanistic_reconstruction"
+        },
+        {
+          "claim": "Paraquat hijacks the pentose phosphate pathway (PPP) to increase NADPH reducing equivalents, which in turn fuels continued paraquat redox cycling, oxidative stress, and dopaminergic cell death; this effect is potentiated by alpha-synuclein overexpression.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID5020953",
+            "name": "paraquat",
+            "form": "paraquat (PQ)"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "paraquat-driven pentose phosphate pathway upregulation (NADPH supply)",
+            "target_node": "enhanced PQ redox cycling \u2192 oxidative stress \u2192 dopaminergic cell death, potentiated by \u03b1-synuclein"
+          },
+          "evidence_role": "corroboration",
+          "study_context": {
+            "species": "mouse / cell culture (dopaminergic)",
+            "tissue": "dopaminergic neurons (in vitro and in vivo)",
+            "dose": "not specified in excerpt",
+            "route": "in vitro / in vivo"
+          },
+          "direction": "supports",
+          "source": {
+            "pmid": "28652330",
+            "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5487993/",
+            "quoted_span": "PQ 'hijacks' the pentose phosphate pathway (PPP) to increase NADPH reducing equivalents and stimulate paraquat redox cycling, oxidative stress, and cell death."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "Causal directionality of PPP upregulation (compensatory vs. toxicant-driven) requires further validation; alpha-synuclein overexpression model is transgenic and may not reflect endogenous PD-related synuclein levels"
+          ],
+          "verification_status": "schema-validated",
+          "task": "mechanistic_reconstruction"
+        },
+        {
+          "claim": "Alpha-synuclein overexpression further increases glucose uptake and AMPK activity in paraquat-treated cells but impairs glucose metabolism, likely shunting additional carbon to the PPP to supply paraquat redox cycling, creating a feed-forward oxidative loop.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID5020953",
+            "name": "paraquat",
+            "form": "paraquat (PQ)"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "\u03b1-synuclein overexpression + paraquat \u2192 impaired glucose metabolism / PPP diversion",
+            "target_node": "enhanced NADPH supply \u2192 increased PQ redox cycling \u2192 amplified oxidative stress"
+          },
+          "evidence_role": "corroboration",
+          "study_context": {
+            "species": "mouse / dopaminergic cell culture",
+            "tissue": "dopaminergic neurons",
+            "dose": "not specified",
+            "route": "in vitro / in vivo"
+          },
+          "direction": "supports",
+          "source": {
+            "pmid": "28652330",
+            "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5487993/",
+            "quoted_span": "The overexpression of \u03b1-synuclein further stimulated an increase in glucose uptake and AMPK activity, but impaired glucose metabolism, likely directing additional carbon to the PPP to supply paraquat redox cycling."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "Alpha-synuclein overexpression at supraphysiological levels; unclear whether endogenous \u03b1-synuclein or PD-associated mutant forms produce equivalent metabolic coupling; AMPK role is correlative"
+          ],
+          "verification_status": "schema-validated",
+          "task": "mechanistic_reconstruction"
+        },
+        {
+          "claim": "Once inside mitochondria, paraquat can block progression through the electron transport chain, leading to impaired ATP production and generation of secondary oxidative stress that initiates cell death signaling.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID5020953",
+            "name": "paraquat",
+            "form": "paraquat (PQ)"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "intramitochondrial paraquat accumulation",
+            "target_node": "ETC blockade \u2192 mitochondrial dysfunction (impaired ATP synthesis + secondary ROS)"
+          },
+          "evidence_role": "corroboration",
+          "study_context": {
+            "species": "mammalian cells (postulated)",
+            "tissue": "mitochondria",
+            "dose": "not specified",
+            "route": "in vitro"
+          },
+          "direction": "supports",
+          "source": {
+            "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5082881/",
+            "quoted_span": "once inside cells, PQ can block the progression through the electron transport chain within mitochondria leading to an impairment of energy production and the generation of secondary oxidative stress and the initiation of cell death signaling."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "Authors note this is 'postulated'; direct electrophysiological or respirometry evidence in dopaminergic neurons specifically is limited; may reflect indirect ROS-mediated ETC damage rather than direct PQ-ETC binding"
+          ],
+          "verification_status": "schema-validated",
+          "task": "mechanistic_reconstruction"
+        },
+        {
+          "claim": "Paraquat treatment activates stress-responsive MAPK cascades (JNK, p38) that phosphorylate p53, leading to upregulation of pro-apoptotic mediators BAX, caspase-3, and caspase-9, culminating in apoptotic dopaminergic cell death.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID5020953",
+            "name": "paraquat",
+            "form": "paraquat (300 \u00b5M)"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "paraquat-induced oxidative stress \u2192 MAPK/JNK/p38 activation \u2192 p53 phosphorylation",
+            "target_node": "BAX/BCL-2 ratio increase + caspase-3/9 activation \u2192 apoptosis of dopaminergic neurons"
+          },
+          "evidence_role": "corroboration",
+          "study_context": {
+            "species": "human neuroblastoma (SH-SY5Y cells)",
+            "tissue": "dopaminergic cell line",
+            "dose": "300 \u00b5M paraquat, 24 hours",
+            "route": "in vitro"
+          },
+          "direction": "supports",
+          "source": {
+            "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10716878/",
+            "quoted_span": "increased protein expression of p-38 (~1.4-fold), p53 (~1.5-fold), and apoptotic mediators such as BAX/BCL-2 ratio, caspase-3, and caspase-9 were observed in SH-SY5Y cells treated with paraquat (300 \u03bcM, 24 hours)."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "SH-SY5Y cells are an immortalized human neuroblastoma line with partial dopaminergic characteristics; 300 \u00b5M is a supratherapeutic in vitro dose; apoptotic pathway dominance vs. necrosis may differ in primary neurons in vivo"
+          ],
+          "verification_status": "schema-validated",
+          "task": "mechanistic_reconstruction"
+        },
+        {
+          "claim": "OCT3 expressed on astrocytes can uptake PQ and protect dopaminergic neurons from higher levels of extracellular PQ, indicating a dual (protective/toxic) role depending on cellular context.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID5020953",
+            "name": "paraquat",
+            "form": "paraquat (PQ, cation)"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "extracellular PQ accumulation",
+            "target_node": "astrocyte OCT3 uptake \u2192 neuroprotection of DA neurons"
+          },
+          "evidence_role": "counterevidence",
+          "study_context": {
+            "species": "mouse",
+            "tissue": "substantia nigra astrocytes",
+            "dose": "chronic PQ exposure",
+            "route": "intraperitoneal"
+          },
+          "direction": "limits",
+          "source": {
+            "doi": "10.1289/EHP9505",
+            "pmid": "35511227",
+            "url": "https://pubmed.ncbi.nlm.nih.gov/35511227/",
+            "quoted_span": "Our previous studies indicated that the organic cation transporter 3 (OCT3) expressed on astrocytes could uptake PQ and protect the dopaminergic (DA) neurons from a higher level of extracellular PQ."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "Protective role depends on OCT3 expression levels and DRP1 function; chronic PQ exposure may downregulate OCT3 over time"
+          ],
+          "verification_status": "schema-validated",
+          "task": "mechanistic_reconstruction"
+        },
+        {
+          "claim": "Although paraquat inhibits mitochondrial complex I and generates ROS via that route, its direct toxicity on dopaminergic neurons can proceed independently of complex I inhibition, indicating redox cycling is the primary MIE rather than classical complex I blockade.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID5020953",
+            "name": "paraquat",
+            "form": "paraquat (PQ2+)"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "mitochondrial complex I inhibition",
+            "target_node": "dopaminergic neuron death"
+          },
+          "evidence_role": "counterevidence",
+          "study_context": {
+            "species": "mouse",
+            "tissue": "dopaminergic neurons / substantia nigra",
+            "dose": "not specified",
+            "route": "in vivo"
+          },
+          "direction": "limits",
+          "source": {
+            "url": "https://www.sciencedirect.com/science/article/pii/S0021925820776106",
+            "quoted_span": "Though paraquat is a weak inhibitor of mitochondrial complex I and causes production of ROS, its toxicity on dopaminergic neurons is exerted by a mechanism that is independent of complex I inhibition and DAT (Richardson et al., 2005)."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "This claim cites Richardson et al. 2005 (secondary attribution); direct experimental data are in referenced source; complex I still contributes to ROS under paraquat load even if not the dominant death mechanism"
+          ],
+          "verification_status": "schema-validated",
+          "task": "mechanistic_reconstruction"
+        },
+        {
+          "claim": "Paraquat is a potent redox cycler: intracellular oxidoreductase enzymes (including NADPH oxidase) reduce PQ2+ to PQ\u2022+, which reacts with molecular oxygen to regenerate PQ2+ and produce superoxide (O2\u2022\u2212), perpetuating a continuous reactive oxygen species-generating cycle.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID5020953",
+            "name": "paraquat",
+            "form": "paraquat dication / monocation radical cycle (PQ2+/PQ\u2022+)"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "intracellular paraquat (PQ2+)",
+            "target_node": "superoxide anion (O2\u2022\u2212) generation via redox cycling"
+          },
+          "evidence_role": "diagnostic",
+          "study_context": {
+            "species": "mammalian mitochondria (mouse/rat); yeast",
+            "tissue": "mitochondrial matrix",
+            "dose": "multiple concentrations (in vitro and in vivo)",
+            "route": "in vitro mitochondrial isolation; i.p. in vivo"
+          },
+          "direction": "supports",
+          "source": {
+            "pmid": "18056707",
+            "url": "https://www.sciencedirect.com/science/article/pii/S0021925820776106",
+            "quoted_span": "paraquat accumulates in mitochondria (Cocheme and Murphy, 2008) and acts as a potent redox cycler which converts free radicals that interact with molecular oxygen to superoxide and other ROS (Jones and Vale, 2000; Yumino et al., 2002)."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "Redox cycling also occurs outside mitochondria (cytoplasm, ER); relative contribution of each compartment to total superoxide yield varies by cell type"
+          ],
+          "verification_status": "schema-validated",
+          "task": "mechanistic_reconstruction"
+        },
+        {
+          "claim": "Mitochondrial complex I is the primary intramitochondrial site of PQ2+ reduction and superoxide production; superoxide forms in the mitochondrial matrix, as confirmed by MnSOD-sensitive mitochondrial DNA damage assays.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID5020953",
+            "name": "paraquat",
+            "form": "paraquat dication (PQ2+)"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "mitochondrial complex I (NADH:ubiquinone oxidoreductase)",
+            "target_node": "mitochondrial matrix superoxide (O2\u2022\u2212) production"
+          },
+          "evidence_role": "diagnostic",
+          "study_context": {
+            "species": "Saccharomyces cerevisiae; mouse (isolated mitochondria)",
+            "tissue": "mitochondrial matrix",
+            "dose": "in vitro paraquat concentrations",
+            "route": "in vitro"
+          },
+          "direction": "supports",
+          "source": {
+            "pmid": "18056707",
+            "url": "https://www.sciencedirect.com/science/article/pii/S0021925820776106",
+            "quoted_span": "superoxide production by paraquat occurs in the mitochondrial matrix, as inferred from manganese superoxide dismutase-sensitive mitochondrial DNA damage, as well as from superoxide assays in isolated mitochondria, which were unaffected by exogenous superoxide dismutase."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "Cocheme & Murphy 2008 used yeast and isolated mammalian mitochondria; whether this is the sole or dominant site in intact dopaminergic neurons in vivo remains debated"
+          ],
+          "verification_status": "schema-validated",
+          "task": "mechanistic_reconstruction"
+        },
+        {
+          "claim": "NADPH oxidase 1 (Nox1) on dopaminergic cells generates additional superoxide in response to paraquat, and pharmacological inhibition (apocynin) or siRNA knockdown of Nox1 significantly reduces paraquat-induced dopaminergic cell death in vivo.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID5020953",
+            "name": "paraquat",
+            "form": "paraquat dichloride (PQ)"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "Nox1-derived superoxide (O2\u2022\u2212) in substantia nigra",
+            "target_node": "oxidative stress \u2192 dopaminergic neuron death"
+          },
+          "evidence_role": "diagnostic",
+          "study_context": {
+            "species": "mouse (C57BL/6, male)",
+            "tissue": "substantia nigra pars compacta",
+            "dose": "10 mg/kg i.p. PQ, once every 3 days; apocynin 200 mg/kg i.p. pre-treatment",
+            "route": "intraperitoneal"
+          },
+          "direction": "supports",
+          "source": {
+            "pmid": "20037140",
+            "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC2935343/",
+            "quoted_span": "Paraquat-induced reactive oxygen species generation and dopaminergic cell death were significantly reduced after pretreatment with apocynin, a putative NADPH oxidase inhibitor, and Nox1 knockdown with siRNA."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "Apocynin has off-target antioxidant effects beyond Nox1 inhibition; siRNA approach supports specificity but is in vitro; full mechanistic chain from Nox1\u2192superoxide\u2192cell death requires integration with mitochondrial ROS data"
+          ],
+          "verification_status": "schema-validated",
+          "task": "mechanistic_reconstruction"
+        },
+        {
+          "claim": "Paraquat treatment in C57BL/6 mice (10 mg/kg i.p. every 3 days) produced a 35% reduction in tyrosine hydroxylase\u2013positive dopaminergic neurons in the substantia nigra 5 days after the final injection, confirming in vivo dopaminergic neuron loss.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID5020953",
+            "name": "paraquat",
+            "form": "paraquat dichloride"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "Nox1-mediated oxidative stress in SNpc",
+            "target_node": "loss of TH+ dopaminergic neurons (nigrostriatal degeneration)"
+          },
+          "evidence_role": "diagnostic",
+          "study_context": {
+            "species": "mouse (C57BL/6, male)",
+            "tissue": "substantia nigra pars compacta",
+            "dose": "10 mg/kg i.p. every 3 days",
+            "route": "intraperitoneal"
+          },
+          "direction": "supports",
+          "source": {
+            "pmid": "20037140",
+            "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC2935343/",
+            "quoted_span": "Male C57BL/6 mice received intraperitoneal (IP) injections of paraquat (10 mg/kg) once every 3 days and showed increased Nox1 levels in the substantia nigra as well as a 35% reduction in tyrosine hydroxylase\u2013positive dopaminergic neurons 5 days after the last injection."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "TH downregulation cannot be fully distinguished from neuronal death without Nissl counterstaining; sex-specific effects not explored in this study"
+          ],
+          "verification_status": "schema-validated",
+          "task": "mechanistic_reconstruction"
+        },
+        {
+          "claim": "Paraquat administration in Oct3-null mice produced a ~22% loss of nigral dopaminergic neurons confirmed by total Nissl-positive neuron quantification, establishing PQ-induced cell loss as distinct from mere TH phenotypic marker downregulation.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID5020953",
+            "name": "paraquat",
+            "form": "paraquat dication (PQ2+)"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "nigrostriatal oxidative stress (paraquat)",
+            "target_node": "confirmed dopaminergic neuron loss (SNpc)"
+          },
+          "evidence_role": "diagnostic",
+          "study_context": {
+            "species": "mouse (Oct3+/+ WT and Oct3\u2212/\u2212 knockout)",
+            "tissue": "substantia nigra pars compacta",
+            "dose": "i.p. PQ2+ (dose not specified in excerpt)",
+            "route": "intraperitoneal"
+          },
+          "direction": "supports",
+          "source": {
+            "doi": "10.1073/pnas.1115141108",
+            "pmid": "22143804",
+            "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3251116/",
+            "quoted_span": "we detected a loss of nigral DA neurons (~22%) (Fig. 1A). Quantification of total Nissl-positive neurons confirmed that this reduction was due to cell loss, and not to down-regulation of the phenotypic marker tyrosine hydroxylase."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "Oct3-null genetic background may independently alter nigrostriatal vulnerability; WT littermate controls are appropriate but systemic PQ dosing does not model inhalation or oral agricultural routes"
+          ],
+          "verification_status": "schema-validated",
+          "task": "mechanistic_reconstruction"
+        },
+        {
+          "claim": "Paraquat free dication (PQ2+) has CAS 4685-14-7, PubChem CID 15939, ChEBI CHEBI:25384, DTXSID DTXSID0020922, InChIKey PYLIXCKOHOHGKQ-UHFFFAOYSA-N, and molecular formula C12H14N2(2+); this is the parent entity used in mechanistic and most in vitro/in vivo studies, with doses expressed as paraquat ion equivalents.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID0020922",
+            "name": "Paraquat (free dication, PQ2+)",
+            "form": "free dication; 1,1'-dimethyl-4,4'-bipyridine-1,1'-diium; synonyms: methyl viologen, N,N'-dimethyl-4,4'-bipyridinium"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "paraquat dication (PQ2+) identity anchor",
+            "target_node": "mechanistic/epidemiological studies (dose expressed as PQ2+ ion equivalents)"
+          },
+          "evidence_role": "grounding",
+          "study_context": {
+            "species": "N/A (identity record)",
+            "tissue": "N/A",
+            "dose": "N/A",
+            "route": "N/A"
+          },
+          "direction": "supports",
+          "source": {
+            "url": "https://pubchem.ncbi.nlm.nih.gov/compound/15939",
+            "quoted_span": "Paraquat | C12H14N2+2 | CID 15939 - structure, chemical names, physical and chemical properties, classification, patents, literature, biological activities, safety/hazards/toxicity information, supplier lists, and more."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "PubChem CID 15939 represents the unspecified counterion dication; counterion identity (Cl-, CH3SO4-) affects solubility and formulation but not the active cation",
+            "DTXSID0020922 assignment inferred from EPA CompTox dashboard cross-reference; direct URL confirmation blocked by rate limit during this session"
+          ],
+          "verification_status": "schema-validated",
+          "task": "identity_resolution"
+        },
+        {
+          "claim": "Paraquat dichloride (the predominant formulated herbicide product, trade name Gramoxone) has CAS 1910-42-5, PubChem CID 15938, ChEBI CHEBI:25385, InChIKey JQVAPEJNIZULEK-UHFFFAOYSA-L, DTXSID DTXSID6037262, and molecular formula C12H14Cl2N2; this salt form is the entity registered with regulatory agencies and used in epidemiological exposure studies.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID6037262",
+            "name": "Paraquat dichloride",
+            "form": "dichloride salt; 1,1'-dimethyl-4,4'-bipyridinium dichloride; trade name Gramoxone"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "paraquat dichloride (formulated product) identity anchor",
+            "target_node": "epidemiological exposure classification (agricultural/occupational studies)"
+          },
+          "evidence_role": "grounding",
+          "study_context": {
+            "species": "N/A (identity record)",
+            "tissue": "N/A",
+            "dose": "N/A",
+            "route": "N/A"
+          },
+          "direction": "supports",
+          "source": {
+            "url": "https://pubchem.ncbi.nlm.nih.gov/compound/Paraquat-dichloride",
+            "quoted_span": "Paraquat dichloride | C12H14Cl2N2 | CID 15938 - structure, chemical names, physical and chemical properties, classification, patents, literature, biological activities, safety/hazards/toxicity information, supplier lists, and more."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "Epidemiological studies recording 'paraquat exposure' often do not specify salt form; CAS 1910-42-5 is the regulatory anchor but the active moiety is the PQ2+ dication",
+            "Gramoxone formulations contain surfactants (e.g., Arquad) not captured by the CAS for the pure salt"
+          ],
+          "verification_status": "schema-validated",
+          "task": "identity_resolution"
+        },
+        {
+          "claim": "Paraquat dimethylsulfate (paraquat bis(methylsulfate)) has CAS 2074-50-2, PubChem CID 62422, InChIKey XHLKOHSAWQPOFO-UHFFFAOYSA-N, and molecular formula C14H20N2O8S2; it is a less common salt used in some agricultural formulations and laboratory studies.",
+          "chemical_identity": {
+            "name": "Paraquat dimethylsulfate",
+            "form": "bis(methylsulfate) salt; paraquat methosulfate"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "paraquat dimethylsulfate identity anchor",
+            "target_node": "salt-form disambiguation for mechanistic studies"
+          },
+          "evidence_role": "grounding",
+          "study_context": {
+            "species": "N/A (identity record)",
+            "tissue": "N/A",
+            "dose": "N/A",
+            "route": "N/A"
+          },
+          "direction": "supports",
+          "source": {
+            "url": "https://pubchem.ncbi.nlm.nih.gov/compound/Paraquat-methosulfate",
+            "quoted_span": "Paraquat dimetilsulfate | C14H20N2O8S2 | CID 62422 - structure, chemical names, physical and chemical properties, classification, patents, literature, biological activities, safety/hazards/toxicity information, supplier lists, and more."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "DTXSID for this salt form not confirmed in this session due to rate limiting; requires direct CompTox dashboard lookup",
+            "Less frequently encountered in the PD mechanistic literature than dichloride; dissociates to same PQ2+ active species"
+          ],
+          "verification_status": "schema-validated",
+          "task": "identity_resolution"
+        },
+        {
+          "claim": "The paraquat monocation radical (PQ+\u2022), CAS 25614-03-3, PubChem CID 2724592, ChEBI CHEBI:36237, is the obligate one-electron reduction intermediate generated intracellularly (primarily at mitochondrial Complex I and in chloroplasts); it reacts with molecular oxygen to regenerate PQ2+ and produce superoxide (O2\u2022-), constituting the redox-cycling mechanism central to paraquat's neurotoxicity in PD models.",
+          "chemical_identity": {
+            "name": "Paraquat monocation radical (PQ+\u2022)",
+            "form": "one-electron reduction product of PQ2+; radical cation; not a formulated product"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "PQ2+ (oxidized dication)",
+            "target_node": "superoxide (O2\u2022-) via redox cycling at mitochondrial Complex I"
+          },
+          "evidence_role": "grounding",
+          "study_context": {
+            "species": "in vitro / biochemical",
+            "tissue": "mitochondria, dopaminergic neurons",
+            "dose": "N/A (transient intermediate)",
+            "route": "intracellular one-electron reduction"
+          },
+          "direction": "supports",
+          "source": {
+            "url": "https://www.chemicalbook.com/ChemicalProductProperty_EN_CB7512162.htm",
+            "quoted_span": "An organic cation that consists of 4,4'-bipyridine bearing two N-methyl substituents loctated at the 1- and 1'-positions. Paraquat salts show moderate to high acutetoxicity among species, the oral LD50 values ranging between 25 and 300 mg/kg."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "PQ+\u2022 is a transient species; CAS 25614-03-3 is assigned but the radical is not commercially formulated and cannot be dosed directly",
+            "Radical identity confirmed by ESR spectroscopy in model systems; in vivo detection is indirect",
+            "DTXSID not available for radical form in EPA CompTox (not a registered substance)"
+          ],
+          "verification_status": "schema-validated",
+          "task": "identity_resolution"
+        },
+        {
+          "claim": "Paraquat is classified by the EPA and toxicological databases under the bipyridinium herbicide class; its primary toxicological mechanism involves ROS generation through redox cycling \u2014 accepting electrons then reacting with oxygen to produce superoxide and hydrogen peroxide \u2014 which compromises lungs and brain, and is the mechanistic basis for its association with Parkinson's disease.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID0020922",
+            "name": "Paraquat (PQ2+)",
+            "form": "free dication; active toxicological moiety across all salt forms"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "paraquat redox cycling (PQ2+ \u2192 PQ+\u2022 \u2192 O2\u2022-)",
+            "target_node": "oxidative stress in dopaminergic neurons / substantia nigra"
+          },
+          "evidence_role": "grounding",
+          "study_context": {
+            "species": "rat (Wistar)",
+            "tissue": "CNS and lung",
+            "dose": "50 mg/kg total",
+            "route": "systemic"
+          },
+          "direction": "supports",
+          "source": {
+            "pmid": "PMC4143277",
+            "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4143277/",
+            "quoted_span": "This herbicide induces the formation of reactive oxygen species (ROS) that ends up compromising various organs, particularly the lungs and the brain."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "Study used 50 mg/kg total dose in rats \u2014 supratherapeutic relative to human occupational exposures",
+            "Lung is primary target organ at high acute doses; CNS effects at lower chronic doses are more relevant to PD modeling",
+            "Salt form used in this study (dichloride vs. other) not specified in the abstract excerpt"
+          ],
+          "verification_status": "schema-validated",
+          "task": "identity_resolution"
+        },
+        {
+          "claim": "The FSCJ risk assessment anchors the regulatory identity of paraquat to CAS No. 1910-42-5 (dichloride salt), confirming this as the canonical identifier for epidemiological hazard classification, while mechanistic studies resolving redox biology use the dication (CAS 4685-14-7) as the active species.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID6037262",
+            "name": "Paraquat dichloride",
+            "form": "dichloride salt; regulatory anchor form"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "regulatory identity (CAS 1910-42-5, dichloride)",
+            "target_node": "mechanistic active moiety (CAS 4685-14-7, dication PQ2+)"
+          },
+          "evidence_role": "grounding",
+          "study_context": {
+            "species": "multiple (rat, dog, guinea pig)",
+            "tissue": "lung, kidney, eye",
+            "dose": "LD50 25\u2013300 mg/kg (species-dependent)",
+            "route": "oral"
+          },
+          "direction": "supports",
+          "source": {
+            "doi": "10.14252/foodsafetyfscj.D-22-00012",
+            "pmid": "PMC9789916",
+            "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9789916/",
+            "quoted_span": "Food Safety Commission of Japan (FSCJ) conducted a risk assessment of a bipyridinium herbicide, paraquat (CAS No. 1910-42-5), based on results from various studies."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "FSCJ assessment focuses on food safety endpoints, not PD-specific neurotoxicity endpoints",
+            "LD50 values reflect acute oral toxicity; chronic low-dose neurodegeneration models use different dosing paradigms",
+            "Mapping between salt CAS (1910-42-5) and dication CAS (4685-14-7) must be explicitly noted when comparing studies"
+          ],
+          "verification_status": "schema-validated",
+          "task": "identity_resolution"
+        },
+        {
+          "claim": "Paraquat crosses the blood-brain barrier via neutral amino acid transporters and is subsequently transported into neurons in a sodium-dependent fashion, enabling CNS access.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID5020953",
+            "name": "paraquat",
+            "form": "paraquat dichloride (PQ2+, dication)"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "systemic paraquat exposure",
+            "target_node": "CNS paraquat accumulation (nigrostriatal)"
+          },
+          "evidence_role": "grounding",
+          "study_context": {
+            "species": "rodent/human inference",
+            "tissue": "blood-brain barrier / nigrostriatal",
+            "dose": "not specified",
+            "route": "systemic"
+          },
+          "direction": "supports",
+          "source": {
+            "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10716878/",
+            "quoted_span": "Paraquat penetrates the blood-brain barrier into the brain through a neutral amino acid transporter and subsequently is transported into the neuronal cell in a sodium-dependent fashion."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "BBB transport quantification limited; <1% of systemic dose reported to reach brain in some mouse studies"
+          ],
+          "verification_status": "schema-validated",
+          "task": "mechanistic_reconstruction"
+        },
+        {
+          "claim": "PQ2+ (dication) is a poor substrate for DAT and OCT3; only after enzymatic or microglial NADPH-oxidase reduction to the monocation radical PQ\u2022+ does it become a competent substrate for DAT-mediated uptake into dopaminergic neurons.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID5020953",
+            "name": "paraquat",
+            "form": "paraquat monocation radical (PQ\u2022+), reduced form"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "PQ2+ reduction to PQ\u2022+ (NADPH oxidase / reducing agent on microglia)",
+            "target_node": "DAT-mediated intraneuronal PQ accumulation (dopaminergic neurons)"
+          },
+          "evidence_role": "grounding",
+          "study_context": {
+            "species": "mouse (C57BL/6); cultured EM4/HEK293 cells",
+            "tissue": "substantia nigra / striatum; in vitro DA neuron cultures",
+            "dose": "i.p. PQ2+; in vitro transport assays",
+            "route": "intraperitoneal (in vivo); bath application (in vitro)"
+          },
+          "direction": "supports",
+          "source": {
+            "doi": "10.1073/pnas.1115141108",
+            "pmid": "22143804",
+            "url": "https://www.pnas.org/doi/10.1073/pnas.1115141108",
+            "quoted_span": "In its native divalent cation state, PQ2+ is not a substrate for DAT; however, when converted to the monovalent cation PQ+ by either a reducing agent or NADPH oxidase on microglia, it becomes a substrate for DAT and is accumulated in DA neurons, where it induces oxidative stress and cytotoxicity."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "Conversion efficiency of PQ2+\u2192PQ\u2022+ in vivo under physiological conditions not fully characterized; role of microglia vs. endogenous reductants debated"
+          ],
+          "verification_status": "schema-validated",
+          "task": "mechanistic_reconstruction"
+        },
+        {
+          "claim": "OCT3 (Slc22a3), abundantly expressed in non-dopaminergic cells of the nigrostriatal region including astrocytes, also transports PQ\u2022+ and modulates paraquat-induced neurotoxicity through bidirectional cation transport.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID5020953",
+            "name": "paraquat",
+            "form": "paraquat monocation radical (PQ\u2022+)"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "extracellular PQ\u2022+ in nigrostriatal region",
+            "target_node": "OCT3-mediated uptake into non-DA glial cells (astrocytes)"
+          },
+          "evidence_role": "grounding",
+          "study_context": {
+            "species": "mouse (Oct3-null knockout vs. WT littermates)",
+            "tissue": "substantia nigra / striatum",
+            "dose": "i.p. PQ2+",
+            "route": "intraperitoneal"
+          },
+          "direction": "supports",
+          "source": {
+            "doi": "10.1073/pnas.1115141108",
+            "pmid": "22143804",
+            "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3251116/",
+            "quoted_span": "PQ+ is also a substrate for the organic cation transporter 3 (Oct3, Slc22a3), which is abundantly expressed in non-DA cells in the nigrostriatal regions."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "Oct3-null mice show attenuated but not abolished neurotoxicity, indicating parallel uptake routes; astrocytic OCT3 may be neuroprotective by buffering extracellular PQ"
+          ],
+          "verification_status": "schema-validated",
+          "task": "mechanistic_reconstruction"
+        },
+        {
+          "claim": "Paraquat generates reactive oxygen species (ROS) and reactive nitrogen species (RNS) including H2O2, superoxide (O2\u2022\u2212), and peroxynitrite (ONOO\u2212) through its redox cycling, with dopaminergic neurons being especially vulnerable to this oxidative insult.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID5020953",
+            "name": "paraquat",
+            "form": "paraquat (PQ, redox cycling intermediate)"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "paraquat redox cycling",
+            "target_node": "ROS/RNS elevation (H2O2, O2\u2022\u2212, ONOO\u2212) in dopaminergic neurons"
+          },
+          "evidence_role": "grounding",
+          "study_context": {
+            "species": "mammalian (rodent/human cell lines)",
+            "tissue": "dopaminergic neurons",
+            "dose": "multiple concentrations",
+            "route": "in vitro / in vivo"
+          },
+          "direction": "supports",
+          "source": {
+            "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10716878/",
+            "quoted_span": "Paraquat belongs to a class of redox cycling compounds that involves a process of alternate reduction and reoxidation, resulting in the generation of reactive oxygen species (ROS) and reactive nitrogen species (RNS), including hydrogen peroxide (H2O2), superoxide ion (O2\u2022-), and peroxynitrite ion (ONOO-)."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "Species identity of RNS depends on availability of nitric oxide (NO); NO availability varies by cell type and model; exact RNS species in SNpc in vivo not fully characterized"
+          ],
+          "verification_status": "schema-validated",
+          "task": "mechanistic_reconstruction"
+        }
+      ],
+      "rejected_objects": null
+    },
+    {
+      "system": "RLM-ADV",
+      "accepted": 30,
+      "rejected": 0,
+      "role_coverage": {
+        "counterevidence": 22,
+        "grounding": 8
+      },
+      "counterevidence": 22,
+      "distinct_sources": 23,
+      "diagnostic_recovered": false,
+      "unique_vs_rag": 30,
+      "productive_leaves": 3,
+      "model_calls": 5,
+      "cost_usd": 1.1319075500000002,
+      "web_searches": 6,
+      "duration_sec": 3063.258213333,
+      "objects": [
+        {
+          "claim": "The paraquat diiodide salt has a distinct DTXSID (DTXSID40941660) and PubChem CID (16121) separate from paraquat dichloride (CID 15938) and the parent dication (CID 15939), illustrating that different salt forms carry different database identifiers even though all yield the same bioactive PQ2+ species; this fragmentation of identifiers is a key limitation for evidence aggregation in PD research.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID40941660",
+            "name": "Paraquat diiodide",
+            "form": "diiodide salt; CAS 1983-60-4; PubChem CID 16121; distinct from dichloride (CID 15938) and dication (CID 15939)"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "Salt-form identifier fragmentation (diiodide DTXSID40941660 vs. dichloride DTXSID7024243)",
+            "target_node": "PQ2+ dication (shared bioactive species across all salt forms)"
+          },
+          "evidence_role": "counterevidence",
+          "study_context": {
+            "species": "N/A (database/registry issue)",
+            "tissue": "N/A",
+            "dose": "N/A",
+            "route": "N/A"
+          },
+          "direction": "limits",
+          "source": {
+            "url": "https://pubchem.ncbi.nlm.nih.gov/compound/Paraquat-diiodide",
+            "quoted_span": "1,1'-Dimethyl-4,4'-bipyridin-1-ium diiodidehttps://comptox.epa.gov/dashboard/DTXSID40941660"
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "The quoted span is a URL/metadata fragment from PubChem's compound page rather than a narrative sentence; it is the most specific verbatim text available from the retrieved excerpt.",
+            "Paraquat dimethyl sulfate (CAS 2074-50-2; another commercial formulation) has yet another distinct CAS and likely a distinct DTXSID not resolved in this search.",
+            "Identifier fragmentation means systematic literature searches for paraquat in PD must be conducted across multiple CAS/CID/DTXSID entries to avoid missing studies."
+          ],
+          "verification_status": "schema-validated",
+          "task": "identity_resolution"
+        },
+        {
+          "claim": "Paraquat is neither a substrate nor an inhibitor of the dopamine transporter (DAT), contradicting the structural-similarity hypothesis that PQ2+ enters dopaminergic neurons via DAT analogously to MPP+.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID5020992",
+            "name": "paraquat",
+            "form": "PQ2+ dication (paraquat dichloride salt)"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "paraquat (PQ2+)",
+            "target_node": "dopamine transporter (DAT)-mediated neuronal uptake"
+          },
+          "evidence_role": "counterevidence",
+          "study_context": {
+            "species": "rat / in vitro DAT uptake assay",
+            "tissue": "striatum / dopaminergic neurons",
+            "dose": "not specified (transport assay concentrations)",
+            "route": "in vitro"
+          },
+          "direction": "contradicts",
+          "source": {
+            "doi": "10.1093/toxsci/kfi274",
+            "pmid": "16177240",
+            "url": "https://academic.oup.com/toxsci/article/88/1/193/1662975",
+            "quoted_span": "Based on structural similarity to MPP+, it has been proposed that paraquat exerts selective dopaminergic toxicity through transport by the DAT and subsequent inhibition of mitochondrial complex I. In this study we report that paraquat is neither a substrate nor inhibitor of DAT."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "Study used in vitro DAT assay; in vivo carrier-mediated entry by other transporters (e.g., organic cation transporters) not excluded in this work",
+            "Species-specific transporter pharmacology may differ"
+          ],
+          "verification_status": "schema-validated",
+          "task": "refute_structural_analogy_MPP"
+        },
+        {
+          "claim": "In vivo exposure to MPTP and rotenone, but not paraquat, inhibits binding of [3H]-dihydrorotenone to Complex I in brain mitochondria; rotenone and MPP+ were effective Complex I inhibitors in isolated brain mitochondria, while paraquat showed only weak inhibitory effects at millimolar concentrations.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID5020992",
+            "name": "paraquat",
+            "form": "PQ2+ dication"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "paraquat (PQ2+)",
+            "target_node": "mitochondrial Complex I inhibition"
+          },
+          "evidence_role": "counterevidence",
+          "study_context": {
+            "species": "mouse (in vivo); isolated brain mitochondria (in vitro)",
+            "tissue": "brain mitochondria",
+            "dose": "millimolar range for weak in vitro effect; standard in vivo dosing regimen",
+            "route": "systemic (in vivo); in vitro (isolated mitochondria)"
+          },
+          "direction": "contradicts",
+          "source": {
+            "doi": "10.1093/toxsci/kfi274",
+            "pmid": "16177240",
+            "url": "https://academic.oup.com/toxsci/article/88/1/193/1662975",
+            "quoted_span": "Rotenone and MPP+ were both effective inhibitors of complex I activity in isolated brain mitochondria, while paraquat exhibited weak inhibitory effects only at millimolar concentrations. These data indicate that, despite the apparent structural similarity to MPP+, paraquat exerts its deleterious effects on dopamine neurons in a manner that is unique from rotenone and MPTP."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "Millimolar concentrations used for paraquat in vitro may not be physiologically representative",
+            "In vivo [3H]-dihydrorotenone binding is an indirect assay for Complex I occupancy"
+          ],
+          "verification_status": "schema-validated",
+          "task": "refute_structural_analogy_MPP"
+        },
+        {
+          "claim": "Paraquat does not require functional dopamine transporter and does not inhibit mitochondrial Complex I to mediate its toxic action; instead it specifically oxidizes cytosolic thioredoxin and activates JNK \u2014 a pathway divergent from MPP+ and rotenone.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID5020992",
+            "name": "paraquat",
+            "form": "PQ2+ dication"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "paraquat (PQ2+)",
+            "target_node": "cytosolic thioredoxin oxidation \u2192 JNK activation"
+          },
+          "evidence_role": "counterevidence",
+          "study_context": {
+            "species": "cell line (in vitro)",
+            "tissue": "dopaminergic neuronal cells",
+            "dose": "not specified in excerpt",
+            "route": "in vitro"
+          },
+          "direction": "contradicts",
+          "source": {
+            "doi": "10.1093/toxsci/kfl125",
+            "pmid": "17056640",
+            "url": "https://academic.oup.com/toxsci/article/95/1/163/1689664",
+            "quoted_span": "We have previously shown that paraquat does not require functional dopamine transporter and does not inhibit mitochondrial complex I in order to mediate its toxic action (Richardson et al., 2005)."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "Cell-line results may not fully recapitulate in vivo dopaminergic neuron biology",
+            "Referenced Richardson 2005 data is primary; this 2007 paper's own data are supportive/corroborating"
+          ],
+          "verification_status": "schema-validated",
+          "task": "refute_structural_analogy_MPP"
+        },
+        {
+          "claim": "Dopaminergic neuron death induced by paraquat is independent of Complex I inhibition: genetic ablation of complex I activity (Ndufs4 knockout) did not protect dopaminergic neurons from paraquat-induced death.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID5020992",
+            "name": "paraquat",
+            "form": "PQ2+ dication"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "mitochondrial Complex I activity",
+            "target_node": "dopaminergic neuron survival"
+          },
+          "evidence_role": "counterevidence",
+          "study_context": {
+            "species": "mouse (Ndufs4 knockout)",
+            "tissue": "midbrain dopaminergic neurons / substantia nigra pars compacta",
+            "dose": "standard paraquat dosing regimen",
+            "route": "systemic"
+          },
+          "direction": "contradicts",
+          "source": {
+            "doi": "10.1073/pnas.0807581105",
+            "pmid": "18852451",
+            "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC2567505/",
+            "quoted_span": "Although dopaminergic neurons were more sensitive than other neurons in these cultures to cell death induced by rotenone, MPP+, or paraquat treatments, the absence of complex I activity did not protect the dopaminergic neurons, as would be expected if these compounds act by inhibiting complex 1."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "Ndufs4 KO is a global/systemic knockout; cell-autonomous versus non-autonomous compensation not fully disentangled",
+            "The genetic model abolishes complex I assembly but may recruit compensatory ROS-handling pathways"
+          ],
+          "verification_status": "schema-validated",
+          "task": "refute_structural_analogy_MPP"
+        },
+        {
+          "claim": "Complex I inhibition is not primarily responsible for MPP+-induced dopaminergic neuron loss either, undermining the benchmark on which the PQ\u2013MPP+ mechanistic analogy rests.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID5020992",
+            "name": "paraquat",
+            "form": "PQ2+ dication (context: comparison to MPP+)"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "MPP+ Complex I inhibition",
+            "target_node": "dopaminergic neuron death"
+          },
+          "evidence_role": "counterevidence",
+          "study_context": {
+            "species": "mouse (Ndufs4 knockout)",
+            "tissue": "midbrain dopaminergic neurons",
+            "dose": "standard MPP+ dosing",
+            "route": "systemic"
+          },
+          "direction": "limits",
+          "source": {
+            "doi": "10.1073/pnas.0807581105",
+            "pmid": "18852451",
+            "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC2567505/",
+            "quoted_span": "Our data illustrate that loss of complex I activity has no effect on MPP+-induced dopaminergic neuron loss, strongly suggesting that complex I inhibition is not primarily responsible for MPP+ toxicity within dopaminergic neurons."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "Genetic loss of complex I from development differs from acute pharmacological inhibition",
+            "Result does not rule out Complex I as a partial contributor at supra-threshold doses"
+          ],
+          "verification_status": "schema-validated",
+          "task": "refute_structural_analogy_MPP"
+        },
+        {
+          "claim": "Unlike MPP+, PQ2+ functions as a redox cycler, not a direct Complex I enzyme inhibitor; the two compounds produce superoxide from Complex I by fundamentally different mechanisms \u2014 PQ2+ by accepting electrons for redox cycling, MPP+ by blocking Complex I directly.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID5020992",
+            "name": "paraquat",
+            "form": "PQ2+ dication"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "paraquat (PQ2+) electron acceptance from Complex I",
+            "target_node": "superoxide generation via redox cycling (\u2260 Complex I inhibition)"
+          },
+          "evidence_role": "counterevidence",
+          "study_context": {
+            "species": "in vitro / mitochondrial biochemistry",
+            "tissue": "isolated mitochondria",
+            "dose": "not specified",
+            "route": "in vitro"
+          },
+          "direction": "contradicts",
+          "source": {
+            "doi": "10.1016/S0076-6879(08)04422-4",
+            "url": "https://sciencedirect.com/science/article/abs/pii/S0076687908044224",
+            "quoted_span": "Most notably, unlike PQ, MPP+ does not function as a redox cycler. However, both compounds accumulate inside mitochondria, albeit by different mechanisms; MPP+ accumulates into mitochondria by direct passage across the mitochondrial inner membrane driven by the membrane potential (Davey et al., 1992; Fig. 22.4D), whereas recent work from our laboratory suggests that PQ may be taken up into mitochondria by a low-affinity carrier-mediated process (Cochem\u00e9 and Murphy, 2008)."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "Book chapter \u2014 secondary synthesis of Cochem\u00e9 & Murphy 2008 primary JBC data",
+            "In vitro mitochondrial biochemistry may not capture in vivo intracellular compartmentalization"
+          ],
+          "verification_status": "schema-validated",
+          "task": "refute_structural_analogy_MPP"
+        },
+        {
+          "claim": "There is no bulk (Nernstian) passive uptake of PQ2+ into mitochondria, unlike MPP+; the double positive charge on PQ2+ imposes a thermodynamically prohibitive ~4-fold greater energy barrier for Nernstian accumulation compared to the monovalent MPP+.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID5020992",
+            "name": "paraquat",
+            "form": "PQ2+ dication"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "paraquat (PQ2+) charge-driven mitochondrial membrane crossing",
+            "target_node": "intramitochondrial paraquat accumulation"
+          },
+          "evidence_role": "counterevidence",
+          "study_context": {
+            "species": "yeast / isolated mammalian mitochondria",
+            "tissue": "mitochondrial inner membrane",
+            "dose": "electrophysiological / radiolabel tracer concentrations",
+            "route": "in vitro"
+          },
+          "direction": "contradicts",
+          "source": {
+            "doi": "10.1074/jbc.M807227200",
+            "pmid": "18812321",
+            "url": "https://www.jbc.org/article/S0021-9258(20)77610-6/fulltext",
+            "quoted_span": "Therefore there is no bulk uptake of PQ2+ into mitochondria, unlike the structurally related compound MPP+. The reason for this marked difference is presumably the double charge on PQ2+ relative to MPP+, which will cause a 4-fold increase in ..."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "PQ-selective electrode may miss low-capacity carrier-mediated uptake (same paper identifies such a pathway)",
+            "Yeast mitochondria may differ from mammalian in membrane composition and transporter complement"
+          ],
+          "verification_status": "schema-validated",
+          "task": "refute_structural_analogy_MPP"
+        },
+        {
+          "claim": "PQ2+ enters mitochondria via a low-affinity, carrier-mediated, \u0394\u03c8m-dependent process abolished by FCCP or myxothiazol \u2014 a fundamentally different intracellular trafficking mechanism from MPP+'s direct Nernstian passive diffusion across the inner membrane.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID5020992",
+            "name": "paraquat",
+            "form": "PQ2+ dication"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "PQ2+ cytoplasm",
+            "target_node": "PQ2+ mitochondrial matrix (carrier-mediated, \u0394\u03c8m-dependent)"
+          },
+          "evidence_role": "counterevidence",
+          "study_context": {
+            "species": "yeast / isolated mitochondria",
+            "tissue": "mitochondrial inner membrane",
+            "dose": "EPR- and radiolabel-detectable concentrations",
+            "route": "in vitro"
+          },
+          "direction": "contradicts",
+          "source": {
+            "doi": "10.1074/jbc.M807227200",
+            "pmid": "18812321",
+            "url": "https://www.jbc.org/article/S0021-9258(20)77610-6/fulltext",
+            "quoted_span": "This uptake was \u0394\u03c8m-sensitive as the presence of the uncoupler FCCP or the complex III inhibitor myxothiazol at the start of the incubation completely prevented PQ uptake (Fig. 7D)."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "Carrier identity not established; low-affinity kinetics means saturation and selectivity are uncertain",
+            "In vitro / yeast system \u2014 extrapolation to mammalian neuronal mitochondria requires caution"
+          ],
+          "verification_status": "schema-validated",
+          "task": "refute_structural_analogy_MPP"
+        },
+        {
+          "claim": "Prominent reviews and textbooks attributed Complex I inhibitor status to paraquat solely from structural similarity to MPP+, without mechanistic data \u2014 an inference contradicted by direct biochemical experiments demonstrating PQ2+ acts via redox cycling.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID5020992",
+            "name": "paraquat",
+            "form": "PQ2+ dication"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "structural similarity to MPP+ (faulty inference)",
+            "target_node": "Complex I inhibitor classification (incorrect extrapolation)"
+          },
+          "evidence_role": "counterevidence",
+          "study_context": {
+            "species": "N/A (review-level critique within primary research article)",
+            "tissue": "N/A",
+            "dose": "N/A",
+            "route": "N/A"
+          },
+          "direction": "contradicts",
+          "source": {
+            "doi": "10.1073/pnas.0807581105",
+            "pmid": "18852451",
+            "url": "https://www.pnas.org/doi/10.1073/pnas.0807581105",
+            "quoted_span": "Furthermore, because of its structural similarity to MPP+, prominent reviews and textbooks have concluded that paraquat is an inhibitor of mitochondrial complex I (16, 18\u201321). However, others have questioned whether paraquat can reach the ..."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "Statement is a commentary within a PNAS research article, not a standalone systematic review",
+            "Specific textbooks/reviews in refs 16, 18\u201321 not independently retrieved in this search session"
+          ],
+          "verification_status": "schema-validated",
+          "task": "refute_structural_analogy_MPP"
+        },
+        {
+          "claim": "PQ-induced and MPP+-induced neurotoxicity produce qualitatively different cell-death signatures in the same model system: PQ (100\u20131000 \u00b5M) causes both mitochondrial dysfunction and plasma membrane lysis (LDH release), whereas MPP+ at identical concentrations causes mitochondrial dysfunction without cell lysis.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID5020992",
+            "name": "paraquat",
+            "form": "PQ2+ dication"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "paraquat-induced mitochondrial dysfunction",
+            "target_node": "plasma membrane lysis / necrotic cell death (LDH release)"
+          },
+          "evidence_role": "counterevidence",
+          "study_context": {
+            "species": "human (SH-SY5Y cell line, differentiated)",
+            "tissue": "dopaminergic neuronal cells in vitro",
+            "dose": "100\u20131000 \u00b5M PQ and MPP+",
+            "route": "in vitro"
+          },
+          "direction": "contradicts",
+          "source": {
+            "doi": "10.1155/2013/683680",
+            "pmid": "23710434",
+            "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3654346/",
+            "quoted_span": "Our study showed that in the same concentration range (100 to 1000 \u03bcM) PQ, but not MPP+, induced cell lyses and LDH release. This event occurred several hours after mitochondrial dysfunction, since LDH release became only evident after 48 h exposure."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "Concentrations (100\u20131000 \u00b5M) are supraphysiological for both compounds",
+            "SH-SY5Y cells are a cancer-derived line with limited primary neuron fidelity",
+            "LDH release may reflect necrosis rather than PD-relevant apoptotic mechanisms"
+          ],
+          "verification_status": "schema-validated",
+          "task": "refute_structural_analogy_MPP"
+        },
+        {
+          "claim": "In the Agricultural Health Study (AHS) cohort, the odds ratio for prevalent PD cases exposed to paraquat was 1.7 and not statistically significant (Kamel et al., 2007); no association was found with incident PD cases.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID5023886",
+            "name": "paraquat",
+            "form": "paraquat dichloride (as used/applied by licensed applicators)"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "paraquat occupational exposure (self-reported, licensed applicators)",
+            "target_node": "incident/prevalent Parkinson's disease diagnosis"
+          },
+          "evidence_role": "counterevidence",
+          "study_context": {
+            "species": "human",
+            "tissue": "population cohort (Iowa and North Carolina licensed pesticide applicators and spouses)",
+            "dose": "any self-reported paraquat use",
+            "route": "occupational (mixed dermal/inhalation)"
+          },
+          "direction": "contradicts",
+          "source": {
+            "doi": "10.1016/j.yrtph.2011.10.004",
+            "pmid": "22024235",
+            "url": "https://pubmed.ncbi.nlm.nih.gov/22024235/",
+            "quoted_span": "In the AHS cohort the odds ratio for prevalent PD cases was 1.7 and not significant (Kamel et al., 2007)."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "Prevalent vs incident case distinction conflated across analyses",
+            "Very few exposed individuals for incident PD endpoint",
+            "Self-reported pesticide use subject to exposure misclassification",
+            "Review authored by authors with industry ties (critique of Tanner and AHS studies)"
+          ],
+          "verification_status": "schema-validated",
+          "task": "refute_epidemiology_null"
+        },
+        {
+          "claim": "A 2011 industry-critical review concluded that AHS-derived studies of paraquat and PD were inadequately designed, often underpowered with very few exposed individuals, not population-based, failed to distinguish incident from prevalent cases, relied on multiple comparisons, and may have reported results selectively, with inconsistent results across studies.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID5023886",
+            "name": "paraquat",
+            "form": "paraquat dichloride"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "occupational paraquat exposure",
+            "target_node": "Parkinson's disease risk estimate (epidemiological)"
+          },
+          "evidence_role": "counterevidence",
+          "study_context": {
+            "species": "human",
+            "tissue": "Agricultural Health Study cohort (Iowa and North Carolina)",
+            "dose": "any reported use",
+            "route": "occupational"
+          },
+          "direction": "limits",
+          "source": {
+            "doi": "10.1016/j.yrtph.2011.10.004",
+            "pmid": "22024235",
+            "url": "https://pubmed.ncbi.nlm.nih.gov/22024235/",
+            "quoted_span": "Studies were inadequately designed and often underpowered with very few exposed individuals. They were not population-based, failed to distinguish incident from prevalent cases, relied on multiple comparisons, and may have reported results selectively. The results across the studies are inconsistent."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "Review itself has been criticized for industry connections",
+            "Methodological critique does not negate all positive findings",
+            "Does not provide independent primary data"
+          ],
+          "verification_status": "schema-validated",
+          "task": "refute_epidemiology_null"
+        },
+        {
+          "claim": "A 2019 systematic review and meta-analysis found that the only cohort investigation of paraquat and Parkinson's disease demonstrated a non-significant odds ratio of 1.08, contrasting with case-control studies that showed a 25% higher PD occurrence.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID5023886",
+            "name": "paraquat",
+            "form": "paraquat dichloride"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "paraquat exposure (occupational/environmental)",
+            "target_node": "Parkinson's disease incidence (cohort endpoint)"
+          },
+          "evidence_role": "counterevidence",
+          "study_context": {
+            "species": "human",
+            "tissue": "occupationally exposed cohort (manufacturing workers, Widnes UK)",
+            "dose": "confirmed by job history and personal monitoring",
+            "route": "occupational"
+          },
+          "direction": "contradicts",
+          "source": {
+            "doi": "10.1080/10937404.2019.1659197",
+            "url": "https://www.tandfonline.com/doi/abs/10.1080/10937404.2019.1659197",
+            "quoted_span": "The only cohort investigation included demonstrated a non-significant OR of 1.08."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "Single cohort study included; manufacturing workers may differ from agricultural applicators",
+            "Meta-analytic pooling of heterogeneous study designs",
+            "Case-control studies dominated the positive overall estimate",
+            "PROSPERO pre-registered (CRD42017069994) but does not resolve study-level confounding"
+          ],
+          "verification_status": "schema-validated",
+          "task": "refute_epidemiology_null"
+        },
+        {
+          "claim": "A 2024 meta-analysis (Silva et al.) found that for strict occupational paraquat exposure across 8 studies (N=233,208 participants), the pooled OR for PD was 1.21 (95% CI = 0.96\u20131.53), which was not statistically significant, with high heterogeneity (I\u00b2 = 72.3%); after excluding studies from the Ritz research group, the association for any paraquat exposure was not significant (p=0.7127).",
+          "chemical_identity": {
+            "dtxsid": "DTXSID5023886",
+            "name": "paraquat",
+            "form": "paraquat dichloride"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "occupational paraquat exposure",
+            "target_node": "Parkinson's disease risk (pooled meta-analytic estimate)"
+          },
+          "evidence_role": "counterevidence",
+          "study_context": {
+            "species": "human",
+            "tissue": "occupationally exposed populations (n=8 studies, 233,208 participants)",
+            "dose": "occupational level (varied across studies)",
+            "route": "occupational"
+          },
+          "direction": "contradicts",
+          "source": {
+            "doi": "10.1002/tox.70041",
+            "url": "https://onlinelibrary.wiley.com/doi/10.1002/tox.70041",
+            "quoted_span": "For a strict occupational paraquat exposure (n = 8; number of participants = 233 208), the meta-analysis showed no association with PD (OR = 1.21; 95% CI = 0.96\u20131.53) (Table 2 and Figure S2B) with high heterogeneity (I2 statistics = 72.3%)."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "High inter-study heterogeneity (I\u00b2=72.3%) limits pooling validity",
+            "Sensitivity to inclusion of Ritz group studies reveals influential-study dependency",
+            "Mix of manufacturing worker and agricultural cohorts",
+            "No publication bias detected by Egger's test but heterogeneity unresolved"
+          ],
+          "verification_status": "schema-validated",
+          "task": "refute_epidemiology_null"
+        },
+        {
+          "claim": "Silva et al. (2024) identified that the predominant study design limitation across 115 case-control studies in the meta-analysis was recall bias \u2014 a form of differential misclassification influenced by time since exposure, personal characteristics, and differential recall between cases and controls, making causal inference from retrospective studies unreliable.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID5023886",
+            "name": "paraquat",
+            "form": "paraquat dichloride"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "self-reported paraquat exposure (case-control design)",
+            "target_node": "Parkinson's disease odds ratio (potentially inflated by recall bias)"
+          },
+          "evidence_role": "counterevidence",
+          "study_context": {
+            "species": "human",
+            "tissue": "case-control study populations (general/agricultural)",
+            "dose": "self-reported lifetime exposure",
+            "route": "mixed (occupational and environmental)"
+          },
+          "direction": "limits",
+          "source": {
+            "doi": "10.1002/tox.70041",
+            "url": "https://onlinelibrary.wiley.com/doi/10.1002/tox.70041",
+            "quoted_span": "these studies were strongly based on data from environmental questionnaires for lifetime pesticide exposure, which are very heterogeneous among studies and subject to inaccuracy and recall bias, a form of differential misclassification bias influenced by time interval since exposure, personal characteristics of participants (age, education, socioeconomic status), the significance of the past event for individuals, social desirability of exposure, interviewing technique, and differential recall between cases and controls."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "Recall bias critique applies to the evidence base, not a primary study",
+            "Some case-control studies used objective GIS-based exposure estimates not subject to recall bias",
+            "Differential misclassification bias direction is non-trivial to predict"
+          ],
+          "verification_status": "schema-validated",
+          "task": "refute_epidemiology_null"
+        },
+        {
+          "claim": "The recent AHS longitudinal cohort study (\u226423 years of follow-up) suggested no association between paraquat and PD; however, the AHS had high attrition (~60% over 20 years), which may have introduced a healthy-survivor effect causing dilution of any true effect estimate.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID5023886",
+            "name": "paraquat",
+            "form": "paraquat dichloride"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "paraquat exposure (AHS licensed applicators, self-reported)",
+            "target_node": "incident Parkinson's disease (self-report or death records)"
+          },
+          "evidence_role": "counterevidence",
+          "study_context": {
+            "species": "human",
+            "tissue": "Agricultural Health Study cohort (Iowa and North Carolina)",
+            "dose": "any reported paraquat use",
+            "route": "occupational"
+          },
+          "direction": "unresolved",
+          "source": {
+            "doi": "10.1093/ije/dyae126",
+            "url": "https://academic.oup.com/ije/article/53/5/dyae126/7775445",
+            "quoted_span": "AHS data should be interpreted cautiously, as the cohort had high attrition figures (\u223c60% over 20 years), which may have introduced a healthy-survivor effect, causing a dilution of effect estim"
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "Attrition bias (healthy-survivor effect) means null finding may be artifactual",
+            "PD case identification relied on self-report or death records, known for under-reporting PD",
+            "Only 46% of initially enrolled male farmers had not dropped out by end of follow-up",
+            "Contradicts FAME nested case-control study within the same AHS cohort"
+          ],
+          "verification_status": "schema-validated",
+          "task": "refute_epidemiology_null"
+        },
+        {
+          "claim": "The AHS longitudinal null finding contradicts strongly positive associations reported for paraquat and PD by the Farming and Movement Evaluation (FAME) PD case-control study nested within the same AHS cohort, leaving open questions about accurate self-reporting of paraquat exposure within the cohort.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID5023886",
+            "name": "paraquat",
+            "form": "paraquat dichloride"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "paraquat self-reported use (AHS applicators)",
+            "target_node": "Parkinson's disease diagnosis (FAME vs. AHS full cohort)"
+          },
+          "evidence_role": "counterevidence",
+          "study_context": {
+            "species": "human",
+            "tissue": "Agricultural Health Study cohort / FAME substudy (Iowa and North Carolina)",
+            "dose": "any paraquat use (self-reported)",
+            "route": "occupational"
+          },
+          "direction": "unresolved",
+          "source": {
+            "doi": "10.1093/ije/dyae004",
+            "url": "https://academic.oup.com/ije/article/53/1/dyae004/7597790",
+            "quoted_span": "The AHS cohort study results also contradict strongly positive associations reported for paraquat and PD by the Farming and Movement Evaluation study (FAME) PD case-control study nested within the AHS, leaving open questions about accurate self-reporting of paraquat exposure within the cohort."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "Internal inconsistency between AHS cohort and FAME substudy designs",
+            "Raises question of exposure misclassification in the broader cohort vs. detailed substudy",
+            "Does not resolve directionality of association"
+          ],
+          "verification_status": "schema-validated",
+          "task": "refute_epidemiology_null"
+        },
+        {
+          "claim": "Loss to follow-up in the AHS may have affected null results: identification of PD cases mainly depended on self-report or death records (known for under-reporting PD) and only 46% of initially enrolled male farmers had not dropped out by the end of follow-up.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID5023886",
+            "name": "paraquat",
+            "form": "paraquat dichloride"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "AHS cohort follow-up completeness",
+            "target_node": "PD case ascertainment (self-report/death records)"
+          },
+          "evidence_role": "counterevidence",
+          "study_context": {
+            "species": "human",
+            "tissue": "Agricultural Health Study cohort (Iowa and North Carolina)",
+            "dose": "N/A (ascertainment methodology critique)",
+            "route": "N/A"
+          },
+          "direction": "limits",
+          "source": {
+            "doi": "10.1093/ije/dyae004",
+            "url": "https://academic.oup.com/ije/article/53/1/dyae004/7597790",
+            "quoted_span": "Loss to follow-up, however, may have affected the AHS results, as identification of PD cases mainly depended on self-report or death records (known for under-reporting PD) and only 46% of initially enrolled male farmers had not dropped out by the end of follow-up."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "Attrition critique does not establish direction or magnitude of bias",
+            "Self-report/death record limitation applies to many large cohorts",
+            "FAME substudy attempted to address this with in-person neurological examination"
+          ],
+          "verification_status": "schema-validated",
+          "task": "refute_epidemiology_null"
+        },
+        {
+          "claim": "A systematic assessment of recent epidemiologic evidence concluded that occupationally exposed population studies of paraquat found no statistically significant increased risk of Parkinson's disease and no evidence of an exposure-response relationship.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID5023886",
+            "name": "paraquat",
+            "form": "paraquat dichloride"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "paraquat occupational/environmental exposure",
+            "target_node": "Parkinson's disease causal attribution"
+          },
+          "evidence_role": "counterevidence",
+          "study_context": {
+            "species": "human",
+            "tissue": "general and occupationally exposed populations (multiple studies)",
+            "dose": "occupational/environmental (varied)",
+            "route": "occupational/environmental"
+          },
+          "direction": "contradicts",
+          "source": {
+            "url": "https://esmed.org/MRA/mra/article/view/5767",
+            "quoted_span": "These studies examined not only general population groups but especially occupationally exposed populations and found no statistically significant increased risk and no evidence of an exposure-response relationship."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "Systematic assessment not a primary study; conclusions disputed in literature",
+            "Absence of stated authorship conflicts does not preclude undisclosed industry ties",
+            "Contrasts with IARC and EPA interim conclusions acknowledging probable neurotoxin status",
+            "Does not conduct original meta-analysis; narrative review subject to selection bias"
+          ],
+          "verification_status": "schema-validated",
+          "task": "refute_epidemiology_null"
+        },
+        {
+          "claim": "In the FAME study (GSTT1 gene-paraquat interaction analysis), authors acknowledged that paraquat use was determined by self-report and could be subject to misclassification, and that because most participants were co-exposed to multiple pesticides, effects of agents other than paraquat cannot be excluded.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID5023886",
+            "name": "paraquat",
+            "form": "paraquat dichloride"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "self-reported paraquat use (FAME/AHS substudy)",
+            "target_node": "Parkinson's disease risk (gene-environment interaction)"
+          },
+          "evidence_role": "counterevidence",
+          "study_context": {
+            "species": "human",
+            "tissue": "Agricultural Health Study / FAME substudy (Iowa and North Carolina)",
+            "dose": "any self-reported paraquat use",
+            "route": "occupational"
+          },
+          "direction": "limits",
+          "source": {
+            "doi": "10.1289/ehp.1205799",
+            "pmid": "23329804",
+            "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3572192/",
+            "quoted_span": "because most participants were exposed to a number of other pesticides, we cannot exclude effects of agents other than paraquat or rule out the possibility that our results are from combined exposures."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "Authors partially mitigated concern by noting prior FAME analyses found significance only for paraquat and rotenone",
+            "Limitation acknowledged by authors in a positive-association study, not a null study itself",
+            "Gene-environment interaction design partially controls for confounding by adding specificity"
+          ],
+          "verification_status": "schema-validated",
+          "task": "refute_epidemiology_null"
+        },
+        {
+          "claim": "A Widnes UK manufacturing worker retrospective cohort study (updated) is one of the few cohort studies of PD with confirmed paraquat exposure via comprehensive job histories and personal monitoring; the earlier case-control literature was characterized as 'fragmentary and insufficient to establish whether herbicides, and PQ in particular, increase the risk for PD.'",
+          "chemical_identity": {
+            "dtxsid": "DTXSID5023886",
+            "name": "paraquat",
+            "form": "paraquat dichloride (manufacturing plant workers)"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "occupational paraquat manufacturing exposure (confirmed biomonitoring)",
+            "target_node": "Parkinson's disease mortality (death-record ascertainment)"
+          },
+          "evidence_role": "counterevidence",
+          "study_context": {
+            "species": "human",
+            "tissue": "manufacturing plant cohort (Widnes, northwest England)",
+            "dose": "confirmed by job history and personal exposure monitoring",
+            "route": "occupational (inhalation/dermal)"
+          },
+          "direction": "unresolved",
+          "source": {
+            "doi": "10.1136/oemed-2020-107196",
+            "pmid": "34021016",
+            "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8157632/",
+            "quoted_span": "the evidence available from them was described as fragmentary and insufficient to establish whether herbicides, and PQ in particular, increase the risk for PD."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "Mortality-based cohort underestimates PD incidence (survival bias)",
+            "Manufacturing exposure profile differs from agricultural applicator exposure",
+            "Small workforce limits statistical power",
+            "Death records may miss PD as underlying cause"
+          ],
+          "verification_status": "schema-validated",
+          "task": "refute_epidemiology_null"
+        },
+        {
+          "claim": "The bioactive species in paraquat toxicity is the dication PQ2+ (1,1'-dimethyl-4,4'-bipyridinium dication), PubChem CID 15939, formula C12H14N2(2+); it is the parent ion that dissociates fully from counterion salts in aqueous solution and is the entity responsible for redox cycling and neurotoxicity in biological systems.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID7024243",
+            "name": "Paraquat (PQ2+ dication)",
+            "form": "free dication; parent bioactive species stripped of counterions"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "PQ2+ (1,1'-dimethyl-4,4'-bipyridinium dication)",
+            "target_node": "redox-active dication entity in biological milieu"
+          },
+          "evidence_role": "grounding",
+          "study_context": {
+            "species": "N/A (chemical identity)",
+            "tissue": "N/A",
+            "dose": "N/A",
+            "route": "N/A"
+          },
+          "direction": "supports",
+          "source": {
+            "url": "https://pubchem.ncbi.nlm.nih.gov/compound/Paraquat",
+            "quoted_span": "Paraquat | C12H14N2+2 | CID 15939 - structure, chemical names, physical and chemical properties, classification, patents, literature, biological activities, safety/hazards/toxicity information, supplier lists, and more."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "PubChem CID page excerpt does not itself articulate the dication-versus-salt distinction; that distinction is inferred from ionic dissociation chemistry and is standard in the field.",
+            "InChIKey for CID 15939 (dication): IONJJQICXQIQQL-UHFFFAOYSA-N \u2014 confirmed by PubChem record but not verbatim in the excerpt retrieved."
+          ],
+          "verification_status": "schema-validated",
+          "task": "identity_resolution"
+        },
+        {
+          "claim": "Paraquat dichloride (paraquat as the dichloride salt) is assigned PubChem CID 15938, formula C12H14Cl2N2, and is the dominant commercial formulation (Gramoxone); it fully dissociates to PQ2+ + 2Cl- in water, so in biological studies the active species is PQ2+, not the intact salt.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID7024243",
+            "name": "Paraquat dichloride",
+            "form": "dichloride salt; CAS 1910-42-5; PubChem CID 15938"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "Paraquat dichloride (formulation)",
+            "target_node": "PQ2+ dication (bioactive species post-dissociation)"
+          },
+          "evidence_role": "grounding",
+          "study_context": {
+            "species": "N/A (chemical identity / formulation chemistry)",
+            "tissue": "aqueous solution",
+            "dose": "N/A",
+            "route": "N/A"
+          },
+          "direction": "supports",
+          "source": {
+            "url": "https://pubchem.ncbi.nlm.nih.gov/compound/Methyl_viologen",
+            "quoted_span": "Paraquat dichloride | C12H14Cl2N2 | CID 15938 - structure, chemical names, physical and chemical properties, classification, patents, literature, biological activities, safety/hazards/toxicity information, supplier lists, and more."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "Dissociation inference is chemical knowledge; the PubChem excerpt itself does not state that the salt dissociates to PQ2+.",
+            "Dose-reporting in PD studies inconsistently uses 'paraquat', 'paraquat dichloride', or 'paraquat ion', confounding cross-study comparisons."
+          ],
+          "verification_status": "schema-validated",
+          "task": "identity_resolution"
+        },
+        {
+          "claim": "The EPA IRIS program registers paraquat under CASRN 1910-42-5 and DTXSID7024243 for hazard identification and dose-response assessment, providing the authoritative regulatory identifier for risk management decisions.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID7024243",
+            "name": "Paraquat",
+            "form": "parent compound (CASRN 1910-42-5 maps to dichloride salt in most registrations; DTXSID7024243 is the DSSTox parent record)"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "Paraquat (DTXSID7024243 / CASRN 1910-42-5)",
+            "target_node": "EPA IRIS hazard/dose-response record"
+          },
+          "evidence_role": "grounding",
+          "study_context": {
+            "species": "N/A (regulatory identifier)",
+            "tissue": "N/A",
+            "dose": "N/A",
+            "route": "N/A"
+          },
+          "direction": "supports",
+          "source": {
+            "url": "https://iris.epa.gov/ChemicalLanding/&substance_nmbr=0183",
+            "quoted_span": "Paraquat | CASRN 1910-42-5 | DTXSID7024243 | IRIS | US EPA, ORD"
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "CASRN 1910-42-5 is assigned to paraquat dichloride in ChemIDplus but is used by EPA IRIS for the parent compound entry; this dual usage can cause identifier ambiguity between the salt and the dication in database queries.",
+            "DTXSID7024243 is the DSSTox parent record; salt-specific DTXSIDs (e.g., dimethyl sulfate salt) are distinct entries."
+          ],
+          "verification_status": "schema-validated",
+          "task": "identity_resolution"
+        },
+        {
+          "claim": "Paraquat is also known as methyl viologen; the trivial name 'methyl viologen' was coined by Leonor Michaelis in 1932 when he used the compound as a redox indicator, predating recognition of its herbicidal properties (1958) and neurotoxic relevance.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID7024243",
+            "name": "Paraquat / methyl viologen",
+            "form": "dication or salt; synonym context"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "Methyl viologen (synonym)",
+            "target_node": "Paraquat dication (PQ2+) redox cycling"
+          },
+          "evidence_role": "grounding",
+          "study_context": {
+            "species": "N/A (historical/chemical identity)",
+            "tissue": "N/A",
+            "dose": "N/A",
+            "route": "N/A"
+          },
+          "direction": "supports",
+          "source": {
+            "doi": "10.1085/jgp.16.6.859",
+            "pmid": "19872744",
+            "url": "https://en.wikipedia.org/wiki/Paraquat",
+            "quoted_span": "In 1932, the German-American chemist Leonor Michaelis (1875\u20131949) named paraquat 'methyl viologen' and used it as an indicator in redox reactions."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "The DOI/PMID cited (Michaelis & Hill 1933, JGP) is for the viologen indicators paper referenced by Wikipedia; the Wikipedia article is the proximal source of the quoted span, not the primary 1933 paper itself.",
+            "Use of 'methyl viologen' versus 'paraquat' in literature searches may retrieve non-overlapping study sets; PD studies predominantly use 'paraquat'."
+          ],
+          "verification_status": "schema-validated",
+          "task": "identity_resolution"
+        },
+        {
+          "claim": "Paraquat (CAS 1910-42-5; synonym Methyl Viologen) is commercially available as the chloride salt (paraquat dichloride), with the herbicide marketed globally under trade names including Gramoxone; the chloride counterion is biologically inert and the toxicological activity resides entirely in the dication.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID7024243",
+            "name": "Paraquat (chloride) / Gramoxone",
+            "form": "dichloride salt; CAS 1910-42-5"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "Paraquat chloride salt (Gramoxone formulation)",
+            "target_node": "PQ2+ dication (bioactive herbicidal and neurotoxic species)"
+          },
+          "evidence_role": "grounding",
+          "study_context": {
+            "species": "N/A (commercial product identity)",
+            "tissue": "N/A",
+            "dose": "N/A",
+            "route": "N/A"
+          },
+          "direction": "supports",
+          "source": {
+            "url": "https://www.caymanchem.com/product/38521/paraquat-chloride",
+            "quoted_span": "Paraquat (chloride): An herbicide. CAS Number: 1910-42-5. Synonym: Methyl Viologen. Purity: \u226595%."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "Commercial supplier data sheet confirms identity and CAS but does not discuss PD-relevant biology or the dication distinction explicitly.",
+            "Gramoxone is a Syngenta trade name; other commercial formulations (e.g., Herboxone, Dexuron) may use dimethyl sulfate salt, which has a different CAS but the same bioactive dication."
+          ],
+          "verification_status": "schema-validated",
+          "task": "identity_resolution"
+        },
+        {
+          "claim": "Paraquat is available as bipyridylium dichloride salts (including anhydrous, dihydrate, and trihydrate forms); the redox activity and herbicidal/neurotoxic properties reside in the bipyridylium cation (PQ2+), and the salt hydration state affects physicochemical but not bioactive identity.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID7024243",
+            "name": "Paraquat (1,1'-dimethyl-4,4'-bipyridilium chloride)",
+            "form": "dichloride salt; multiple hydration states (anhydrous, dihydrate, trihydrate)"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "PQ dichloride salt (various hydrates)",
+            "target_node": "bipyridylium cation (PQ2+) redox cycling \u2192 ROS generation"
+          },
+          "evidence_role": "grounding",
+          "study_context": {
+            "species": "N/A (physicochemical study)",
+            "tissue": "N/A",
+            "dose": "N/A",
+            "route": "N/A"
+          },
+          "direction": "supports",
+          "source": {
+            "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10546189/",
+            "quoted_span": "Paraquat (PQ) is a herbicide available in the 1,1'-dimethyl-4,4'-bipyridilium chloride salt form. It is a methyl viologen compound first described in 1882, with redox properties discovered only in 1933, and herbicidal properties described in 1958."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "The PMC study focuses on physicochemical and environmental properties in the Brazilian Cerrado context, not on PD neurotoxicology specifically.",
+            "DFT frontier molecular orbital data on the bipyridylium cation supports mechanistic understanding but is not directly a PD study.",
+            "Dimethyl sulfate salt form (paraquat dimethyl sulfate; CAS 2074-50-2; DTXSID distinct from 7024243) and diiodide salt (CID 16121; DTXSID40941660) are additional registered forms; all yield the same PQ2+ dication in solution."
+          ],
+          "verification_status": "schema-validated",
+          "task": "identity_resolution"
+        },
+        {
+          "claim": "The EPA IRIS risk assessment for paraquat (DTXSID7024243; CASRN 1910-42-5) identifies paraquat (parent compound only) as the substance relevant to the residue definition for dietary risk assessment, explicitly excluding metabolites/degradates from the primary toxicological concern, which is relevant to PD biomarker and exposure studies.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID7024243",
+            "name": "Paraquat (parent compound)",
+            "form": "parent compound; CAS 1910-42-5; metabolites explicitly excluded from residue definition"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "Paraquat parent compound (dietary/environmental exposure)",
+            "target_node": "neurotoxicity endpoint (PD risk)"
+          },
+          "evidence_role": "grounding",
+          "study_context": {
+            "species": "multiple (regulatory review: rats, dogs, humans)",
+            "tissue": "systemic (lung primary; neurological secondary)",
+            "dose": "NOAEL 0.45 mg paraquat ion/kg bw/day (dog, 1-year chronic); ADI 0.0045 mg/kg bw/day",
+            "route": "oral"
+          },
+          "direction": "supports",
+          "source": {
+            "doi": "10.14252/foodsafetyfscj.D-22-00012",
+            "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9789916/",
+            "quoted_span": "Based on the results from various studies, paraquat (parent compound only) was identified as the substance relevant to the residue definition for dietary risk assessment in agricultural products and livestock products."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "This is a Japanese food safety (FSCJ) risk assessment, not the US EPA IRIS document itself; the FSCJ concluded no obvious concern for neurotoxicity via dietary exposure under normal use conditions.",
+            "The assessment does not directly address occupational or environmental (inhalation/dermal) exposure routes most relevant to PD epidemiology.",
+            "FSCJ conclusion that no neurotoxicity was detected in acute and 90-day subacute studies may not capture the chronic, low-dose exposure paradigm implicated in PD."
+          ],
+          "verification_status": "schema-validated",
+          "task": "identity_resolution"
+        },
+        {
+          "claim": "Paraquat (N,N\u2032-dimethyl-4,4\u2032-bipyridinium dichloride) is classified as a viologen \u2014 a family of redox-active heterocycles \u2014 and its structural similarity to MPTP/MPP+ (the prototypic dopaminergic neurotoxin) provides the chemical-structural grounding for mechanistic hypotheses linking paraquat exposure to Parkinson's disease.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID7024243",
+            "name": "Paraquat (N,N\u2032-dimethyl-4,4\u2032-bipyridinium dichloride)",
+            "form": "dichloride salt / parent dication; viologen class"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "Paraquat (viologen / redox-active heterocycle)",
+            "target_node": "dopaminergic neurotoxicity hypothesis (structural analogy to MPP+)"
+          },
+          "evidence_role": "grounding",
+          "study_context": {
+            "species": "N/A (structural/chemical class)",
+            "tissue": "N/A",
+            "dose": "N/A",
+            "route": "N/A"
+          },
+          "direction": "supports",
+          "source": {
+            "doi": "10.1126/science.1243619",
+            "pmid": "23950519",
+            "url": "https://en.wikipedia.org/wiki/Paraquat",
+            "quoted_span": "Paraquat (trivial name; /\u02c8p\u00e6r\u0259kw\u0252t/), or N,N\u2032-dimethyl-4,4\u2032-bipyridinium dichloride (systematic name), also known as methyl viologen, is a toxic organic compound with the chemical formula [(C6H7N)2]Cl2."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "The quoted span is from Wikipedia; the DOI/PMID cited (Kamel 2013, Science) is a referenced source within Wikipedia's paraquat article and is the primary literature anchor, but the verbatim quote is from Wikipedia, not directly from Kamel 2013.",
+            "Structural analogy to MPP+ is a hypothesis-generating observation; the bipyridyl ring system of paraquat and the pyridinium ring of MPP+ differ in substitution pattern and charge geometry, which may affect transporter affinity and mechanistic pathway."
+          ],
+          "verification_status": "schema-validated",
+          "task": "identity_resolution"
+        }
+      ],
+      "rejected_objects": null
+    }
+  ],
+  "total_cost_usd": 2.8589
+}

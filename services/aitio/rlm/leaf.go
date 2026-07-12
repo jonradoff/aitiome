@@ -60,6 +60,7 @@ const heartbeat = 30 * time.Second
 func streamMessage(ctx context.Context, client sdk.Client, params sdk.MessageNewParams, cost *Cost, label string, timeout time.Duration) (string, error) {
 	const maxAttempts = 3
 	var lastErr error
+	netRetried := false // a network error retries at most once (bounds flaky-wifi waste)
 	for attempt := 0; attempt < maxAttempts; attempt++ {
 		if ctx.Err() != nil {
 			return "", ctx.Err()
@@ -128,8 +129,19 @@ func streamMessage(ctx context.Context, client sdk.Client, params sdk.MessageNew
 			if isDeadline(err) {
 				return "", err
 			}
-			// Transient server error (overload / 5xx) → retry with backoff.
+			// Transient server error (overload / 5xx) → retry with backoff. Network
+			// errors are also retryable but capped at one retry: on flaky wifi they
+			// repeat, and 3× a long attempt wastes 25m+ for nothing.
 			if retryable(err) {
+				// Connect-phase failures ("dial tcp …") fail in seconds — retry them
+				// freely up to maxAttempts. Mid-stream read timeouts ("read tcp …")
+				// fail near the 15m watchdog, so cap those at one retry.
+				if isNetwork(err) && !strings.Contains(strings.ToLower(err.Error()), "dial") {
+					if netRetried {
+						return "", err
+					}
+					netRetried = true
+				}
 				continue
 			}
 			return "", err
@@ -156,12 +168,32 @@ func isDeadline(err error) bool {
 
 // retryable reports whether a streamed error is a transient server-side condition
 // worth retrying (overload / rate limit / 5xx), as opposed to a client error.
+// isNetwork reports whether err is a transient network/socket error (as opposed to
+// a server-side HTTP condition) — these are retried at most once.
+func isNetwork(err error) bool {
+	s := strings.ToLower(err.Error())
+	return strings.Contains(s, "operation timed out") || strings.Contains(s, "i/o timeout") ||
+		strings.Contains(s, "connection reset") || strings.Contains(s, "broken pipe") ||
+		strings.Contains(s, "connection refused") || strings.Contains(s, "no such host") ||
+		strings.Contains(s, "eof")
+}
+
 func retryable(err error) bool {
 	s := strings.ToLower(err.Error())
-	return strings.Contains(s, "overloaded") ||
+	// Server-side transient conditions.
+	if strings.Contains(s, "overloaded") ||
 		strings.Contains(s, "rate_limit") || strings.Contains(s, "429") ||
 		strings.Contains(s, "500") || strings.Contains(s, "502") ||
-		strings.Contains(s, "503") || strings.Contains(s, "529")
+		strings.Contains(s, "503") || strings.Contains(s, "529") {
+		return true
+	}
+	// Transient network errors (flaky/travelling connection): retry these too. Note
+	// our own per-call watchdog surfaces as "context deadline exceeded" and is caught
+	// by isDeadline() BEFORE this, so it is not swept up here.
+	return strings.Contains(s, "operation timed out") || strings.Contains(s, "i/o timeout") ||
+		strings.Contains(s, "connection reset") || strings.Contains(s, "broken pipe") ||
+		strings.Contains(s, "connection refused") || strings.Contains(s, "no such host") ||
+		strings.Contains(s, "unexpected eof") || strings.Contains(s, "eof")
 }
 
 // investigate runs one bounded, web-grounded investigation as a SINGLE streamed

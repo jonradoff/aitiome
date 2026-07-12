@@ -1,0 +1,2015 @@
+{
+  "chemical": "chlorpyrifos",
+  "disease": "PD",
+  "dtxsid": "DTXSID4020458",
+  "systems": [
+    {
+      "system": "RAG",
+      "accepted": 10,
+      "rejected": 0,
+      "role_coverage": {
+        "corroboration": 3,
+        "counterevidence": 1,
+        "diagnostic": 1,
+        "grounding": 5
+      },
+      "counterevidence": 1,
+      "distinct_sources": 1,
+      "diagnostic_recovered": true,
+      "unique_vs_rag": 0,
+      "productive_leaves": 0,
+      "model_calls": 1,
+      "cost_usd": 0.24506245000000001,
+      "web_searches": 4,
+      "duration_sec": 205.120788417,
+      "objects": [
+        {
+          "claim": "Mice exposed to aerosolized chlorpyrifos for 11 weeks via inhalation developed motor impairment and dopaminergic neuron loss in a pattern mirroring Parkinson's disease pathology.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID5020283",
+            "name": "Chlorpyrifos",
+            "form": "parent compound, aerosolized"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "chlorpyrifos inhalation exposure (11 weeks)",
+            "target_node": "dopaminergic neuron loss + motor impairment (substantia nigra)"
+          },
+          "evidence_role": "corroboration",
+          "study_context": {
+            "species": "Mus musculus (male)",
+            "tissue": "substantia nigra / striatum",
+            "dose": "aerosolized, environmentally relevant concentration (11-week inhalation)",
+            "route": "inhalation"
+          },
+          "direction": "supports",
+          "source": {
+            "doi": "10.1186/s13024-025-00915-z",
+            "pmid": "PMC12801438",
+            "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12801438/",
+            "quoted_span": "Mice exposed to aerosolized CPF developed motor impairment, dopaminergic neuron loss, microglial activation, and an increase in pathological \u03b1-synuclein (\u03b1-syn)."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "Exact aerosolized dose and achieved blood/brain CPF levels not reported in secondary sources",
+            "Male-only cohort; sex differences not assessed",
+            "Single mouse strain; results may not generalize across genetic backgrounds"
+          ],
+          "verification_status": "schema-validated"
+        },
+        {
+          "claim": "Pharmacological restoration of autophagic flux in chlorpyrifos-exposed zebrafish significantly reverses dopaminergic neuron loss, establishing autophagy as a druggable mechanistic target downstream of CPF.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID5020283",
+            "name": "Chlorpyrifos",
+            "form": "parent compound"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "pharmacological autophagy restoration",
+            "target_node": "rescue of dopaminergic neuron loss (CPF-exposed zebrafish)"
+          },
+          "evidence_role": "corroboration",
+          "study_context": {
+            "species": "Danio rerio (zebrafish)",
+            "tissue": "dopaminergic neurons",
+            "dose": "pharmacological autophagy inducer (drug identity not specified in excerpts)",
+            "route": "aqueous immersion (presumed)"
+          },
+          "direction": "supports",
+          "source": {
+            "doi": "10.1186/s13024-025-00915-z",
+            "pmid": "PMC12801438",
+            "url": "https://www.naturalnews.com/2026-07-02-ucla-study-links-chlopyrifos-higher-parkinsons-risk.html",
+            "quoted_span": "Chlorpyrifos was found to reduce autophagic flux \u2013 the cell's lysosomal system that degrades and recycles damaged proteins, including alpha-synuclein. When autophagy was pharmacologically restored in zebrafish, the dopaminergic neuron loss was significantly reversed."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "Specific autophagy-inducing drug not named in retrieved source excerpts; off-target effects of the pharmacological agent cannot be ruled out",
+            "Rescue experiment performed in zebrafish only; not yet replicated in the mouse model or human neurons"
+          ],
+          "verification_status": "schema-validated"
+        },
+        {
+          "claim": "The UCLA study combines multi-level evidence (human epidemiology + mouse inhalation + zebrafish genetics) to establish biological plausibility for chlorpyrifos as a causal PD risk factor, representing the most comprehensive mechanistic case to date.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID5020283",
+            "name": "Chlorpyrifos",
+            "form": "parent compound"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "chlorpyrifos exposure (residential/occupational)",
+            "target_node": "Parkinson's disease (multi-level biological plausibility)"
+          },
+          "evidence_role": "corroboration",
+          "study_context": {
+            "species": "Homo sapiens + Mus musculus + Danio rerio",
+            "tissue": "population / substantia nigra / dopaminergic neurons",
+            "dose": "residential ambient / aerosolized 11-week / aqueous immersion",
+            "route": "ambient residential / inhalation / aqueous"
+          },
+          "direction": "supports",
+          "source": {
+            "doi": "10.1186/s13024-025-00915-z",
+            "pmid": "PMC12801438",
+            "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12801438/",
+            "quoted_span": "CPF exposure is associated with an increased risk of developing PD and relevant exposures in animal models establish biological plausibility. In addition to establishing a new risk factor for PD, we identified new therapeutic targets for disease"
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "Epidemiological arm cannot establish individual-level causation; confounding by lifestyle, genetics, and co-exposure to other organophosphates remains",
+            "Animal-to-human dose extrapolation not formally performed"
+          ],
+          "verification_status": "schema-validated"
+        },
+        {
+          "claim": "Chlorpyrifos use has been reduced in the US in recent years, but widespread prior exposure and ongoing global use of related organophosphates means past-exposure populations remain at elevated PD risk.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID5020283",
+            "name": "Chlorpyrifos",
+            "form": "parent compound"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "historical/ongoing chlorpyrifos/organophosphate exposure",
+            "target_node": "latent Parkinson's disease risk in exposed populations"
+          },
+          "evidence_role": "counterevidence",
+          "study_context": {
+            "species": "Homo sapiens",
+            "tissue": "N/A (regulatory/epidemiological context)",
+            "dose": "N/A",
+            "route": "N/A"
+          },
+          "direction": "limits",
+          "source": {
+            "doi": "10.1186/s13024-025-00915-z",
+            "pmid": "PMC12801438",
+            "url": "https://www.uclahealth.org/news/release/widely-used-pesticide-linked-more-doubled-parkinsons-risk",
+            "quoted_span": "The findings identify autophagy dysfunction as a potential target for developing treatments that could protect the brain from pesticide damage. Researchers note that while chlorpyrifos use has been reduced in recent years in the US, many people were exposed in the past and similar pesticides a"
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "Truncated source quote; full extent of the regulatory caveat not captured",
+            "Cross-class extrapolation to 'similar organophosphates' requires independent toxicological validation"
+          ],
+          "verification_status": "schema-validated"
+        },
+        {
+          "claim": "Long-term residential exposure to chlorpyrifos is associated with more than a 2.5-fold increased risk of developing Parkinson's disease in a human case-control study of ~1,700 individuals.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID5020283",
+            "name": "Chlorpyrifos",
+            "form": "parent compound (O,O-diethyl O-3,5,6-trichloro-2-pyridyl phosphorothioate)"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "long-term residential chlorpyrifos exposure",
+            "target_node": "Parkinson's disease diagnosis (human population)"
+          },
+          "evidence_role": "diagnostic",
+          "study_context": {
+            "species": "Homo sapiens",
+            "tissue": "N/A (epidemiological)",
+            "dose": "long-term residential ambient exposure (modeled)",
+            "route": "inhalation / ambient residential"
+          },
+          "direction": "supports",
+          "source": {
+            "doi": "10.1186/s13024-025-00915-z",
+            "pmid": "PMC12801438",
+            "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12801438/",
+            "quoted_span": "Researchers involved in the study analyzed data from nearly 1,700 individuals \u2013 829 diagnosed with Parkinson's disease and 824 control subjects. The results indicated that \"Long-term residential exposure to [chlorpyrifos] was associated with more than a 2.5-fold increased risk of developing PD.\""
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "Residential exposure modeled via ambient pesticide-use maps, not personal biomonitoring",
+            "Observational design cannot fully exclude residual confounding by co-applied pesticides",
+            "Single geographic region (California)"
+          ],
+          "verification_status": "schema-validated"
+        },
+        {
+          "claim": "Chlorpyrifos exposure in mice induces microglial activation (neuroinflammation) in the brain, a hallmark pathway in Parkinson's disease neurodegeneration.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID5020283",
+            "name": "Chlorpyrifos",
+            "form": "parent compound, aerosolized"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "chlorpyrifos exposure",
+            "target_node": "microglial activation (neuroinflammation)"
+          },
+          "evidence_role": "grounding",
+          "study_context": {
+            "species": "Mus musculus",
+            "tissue": "brain (microglial compartment)",
+            "dose": "aerosolized, 11-week inhalation",
+            "route": "inhalation"
+          },
+          "direction": "supports",
+          "source": {
+            "doi": "10.1186/s13024-025-00915-z",
+            "pmid": "PMC12801438",
+            "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12801438/",
+            "quoted_span": "Mice exposed to aerosolized CPF developed motor impairment, dopaminergic neuron loss, microglial activation, and an increase in pathological \u03b1-synuclein (\u03b1-syn)."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "Microglial activation may be a secondary response to neuron loss rather than a direct CPF effect",
+            "Upstream triggers (e.g., AChE inhibition vs. direct neuroinflammatory signaling) not fully dissected"
+          ],
+          "verification_status": "schema-validated"
+        },
+        {
+          "claim": "Chlorpyrifos exposure in mice causes pathological accumulation of \u03b1-synuclein, a protein whose aggregation is the defining molecular hallmark of Parkinson's disease.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID5020283",
+            "name": "Chlorpyrifos",
+            "form": "parent compound, aerosolized"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "chlorpyrifos exposure",
+            "target_node": "pathological \u03b1-synuclein accumulation"
+          },
+          "evidence_role": "grounding",
+          "study_context": {
+            "species": "Mus musculus",
+            "tissue": "brain",
+            "dose": "aerosolized, 11-week inhalation",
+            "route": "inhalation"
+          },
+          "direction": "supports",
+          "source": {
+            "doi": "10.1186/s13024-025-00915-z",
+            "pmid": "PMC12801438",
+            "url": "https://www.sciencedaily.com/releases/2026/03/260315225125.htm",
+            "quoted_span": "Researchers also observed signs of inflammation in the brain and an abnormal buildup of alpha-synuclein, a protein strongly associated with Parkinson's disease."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "Whether \u03b1-synuclein accumulates as oligomeric/fibrillar (Lewy body-like) or amorphous deposits not specified in available source excerpts",
+            "Causality direction (CPF \u2192 autophagy failure \u2192 \u03b1-syn accumulation, vs. independent effects) requires further dissection"
+          ],
+          "verification_status": "schema-validated"
+        },
+        {
+          "claim": "Chlorpyrifos reduces autophagic flux (the lysosomal protein-degradation pathway responsible for clearing damaged proteins including \u03b1-synuclein) in zebrafish dopaminergic neurons.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID5020283",
+            "name": "Chlorpyrifos",
+            "form": "parent compound"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "chlorpyrifos exposure",
+            "target_node": "reduced autophagic flux (lysosomal clearance impairment)"
+          },
+          "evidence_role": "grounding",
+          "study_context": {
+            "species": "Danio rerio (zebrafish)",
+            "tissue": "dopaminergic neurons",
+            "dose": "not specified in retrieved excerpts",
+            "route": "aqueous immersion (presumed)"
+          },
+          "direction": "supports",
+          "source": {
+            "doi": "10.1186/s13024-025-00915-z",
+            "pmid": "PMC12801438",
+            "url": "https://www.techtimes.com/articles/319401/20260630/pesticide-still-your-produce-more-doubles-parkinsons-risk-ucla-finds.htm",
+            "quoted_span": "Chlorpyrifos was found to reduce autophagic flux \u2014 the cell's lysosomal housekeeping system that degrades and recycles damaged proteins, including alpha-synuclein."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "Zebrafish model; translational equivalence of autophagic flux dynamics to mammalian neurons not fully established",
+            "Specific CPF concentration and exposure duration in ZF model not specified in retrieved excerpts"
+          ],
+          "verification_status": "schema-validated"
+        },
+        {
+          "claim": "Knockdown of LC3 (the autophagosome lipidation marker essential for autophagic flux) in zebrafish recapitulates chlorpyrifos-induced dopaminergic neuron loss, confirming autophagy as the critical mechanistic node.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID5020283",
+            "name": "Chlorpyrifos",
+            "form": "parent compound"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "LC3-dependent autophagic flux",
+            "target_node": "dopaminergic neuron survival"
+          },
+          "evidence_role": "grounding",
+          "study_context": {
+            "species": "Danio rerio (zebrafish)",
+            "tissue": "dopaminergic neurons",
+            "dose": "genetic knockdown (morpholino/siRNA)",
+            "route": "genetic manipulation"
+          },
+          "direction": "supports",
+          "source": {
+            "doi": "10.1186/s13024-025-00915-z",
+            "pmid": "PMC12801438",
+            "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12801438/",
+            "quoted_span": "Using ZF, we found that CPF-induced dopaminergic neuron loss was at least partially due to autophagy dysfunction and synuclein accumulation, as knocking down LC3 recapitulated the dopaminergic neuron loss and restoring autophagic flux or eliminating synuclein reduced neuronal vulnerability."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "LC3 knockdown is a global autophagy impairment; does not isolate which step of autophagy CPF specifically disrupts (initiation, vesicle formation, lysosome fusion)",
+            "Genetic models may exaggerate magnitude of effect relative to chemical exposure"
+          ],
+          "verification_status": "schema-validated"
+        },
+        {
+          "claim": "Genetic elimination of \u03b1-synuclein in chlorpyrifos-exposed zebrafish reduces dopaminergic neuron vulnerability, placing \u03b1-synuclein accumulation downstream of CPF-driven autophagy failure.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID5020283",
+            "name": "Chlorpyrifos",
+            "form": "parent compound"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "\u03b1-synuclein accumulation (downstream of autophagy impairment)",
+            "target_node": "dopaminergic neuron death"
+          },
+          "evidence_role": "grounding",
+          "study_context": {
+            "species": "Danio rerio (zebrafish)",
+            "tissue": "dopaminergic neurons",
+            "dose": "genetic elimination of synuclein",
+            "route": "genetic manipulation"
+          },
+          "direction": "supports",
+          "source": {
+            "doi": "10.1186/s13024-025-00915-z",
+            "pmid": "PMC12801438",
+            "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12801438/",
+            "quoted_span": "Using ZF, we found that CPF-induced dopaminergic neuron loss was at least partially due to autophagy dysfunction and synuclein accumulation, as knocking down LC3 recapitulated the dopaminergic neuron loss and restoring autophagic flux or eliminating synuclein reduced neuronal vulnerability."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "Complete synuclein knockout is not a physiologically realistic model; partial loss-of-function data would be more relevant",
+            "Synuclein elimination may exert neuroprotection via mechanisms unrelated to CPF toxicity"
+          ],
+          "verification_status": "schema-validated"
+        }
+      ],
+      "rejected_objects": null
+    },
+    {
+      "system": "RLM-1",
+      "accepted": 11,
+      "rejected": 0,
+      "role_coverage": {
+        "corroboration": 4,
+        "counterevidence": 1,
+        "diagnostic": 4,
+        "grounding": 2
+      },
+      "counterevidence": 1,
+      "distinct_sources": 7,
+      "diagnostic_recovered": true,
+      "unique_vs_rag": 11,
+      "productive_leaves": 1,
+      "model_calls": 4,
+      "cost_usd": 0.76885885,
+      "web_searches": 4,
+      "duration_sec": 1445.197468167,
+      "objects": [
+        {
+          "claim": "A systematic review of epidemiological literature found that chlorpyrifos and organochlorine insecticides were associated with increased PD risk across six studies, with odds ratios ranging from 1.8 to 4.4.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID0021735",
+            "name": "chlorpyrifos",
+            "form": "parent compound (pooled across studies)"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "chlorpyrifos/organochlorine insecticide exposure (multiple study designs)",
+            "target_node": "incident PD (OR range 1.8\u20134.4)"
+          },
+          "evidence_role": "corroboration",
+          "study_context": {
+            "species": "human",
+            "tissue": "population-level (systematic review)",
+            "dose": "varied across primary studies",
+            "route": "varied (mixed agricultural, occupational)"
+          },
+          "direction": "supports",
+          "source": {
+            "doi": "10.1016/j.neuro.2012.05.010",
+            "pmid": "22627180",
+            "url": "https://pubmed.ncbi.nlm.nih.gov/22627180/",
+            "quoted_span": "an increased PD risk has been associated with insecticides, especially chlorpyrifos and organochlorines, in six studies (odds ratios of 1.8-4.4)"
+          },
+          "confidence_basis": [
+            "primary source",
+            "peer-reviewed systematic review (MEDLINE-based)"
+          ],
+          "limitations": [
+            "Systematic review (not meta-analysis); quantitative pooling not performed for CPF specifically",
+            "CPF findings pooled with organochlorine insecticides; CPF-specific estimates not isolated in abstract",
+            "Heterogeneity in exposure assessment methods, case definitions, and confounder adjustment across included studies",
+            "Publication bias toward positive findings in environmental epidemiology cannot be excluded",
+            "Review covers literature up to ~2012; does not include PEG 2025/2026 data"
+          ],
+          "verification_status": "schema-validated",
+          "task": "human_relevance_epidemiology"
+        },
+        {
+          "claim": "A 2025 review found that case-control studies reporting effects of individual pesticides showed significantly increased PD risk associated with chlorpyrifos exposure, particularly at high exposure levels.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID0021735",
+            "name": "chlorpyrifos",
+            "form": "parent compound"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "high chlorpyrifos exposure (individual pesticide-level analysis)",
+            "target_node": "increased PD risk (dose-response signal at high exposure)"
+          },
+          "evidence_role": "corroboration",
+          "study_context": {
+            "species": "human",
+            "tissue": "population-level (narrative review of case-control studies)",
+            "dose": "high exposure category across primary studies",
+            "route": "agricultural/occupational (varied)"
+          },
+          "direction": "supports",
+          "source": {
+            "doi": "10.1007/s00702-025-03054-3",
+            "url": "https://link.springer.com/article/10.1007/s00702-025-03054-3",
+            "quoted_span": "The few case-control studies that reported effects of individual pesticides or chemical groups reported significantly increased PD risk associated with chlorpyrifos exposure, particularly with high exposure (Fig. 2d)."
+          },
+          "confidence_basis": [
+            "primary source",
+            "peer-reviewed review, Journal of Neural Transmission, 2025"
+          ],
+          "limitations": [
+            "Review (secondary source); underlying primary studies vary in quality and methodology",
+            "Phrase 'few case-control studies' indicates limited number of CPF-specific primary studies",
+            "High-exposure dose threshold not standardized across included studies",
+            "Causal inference limited by review design"
+          ],
+          "verification_status": "schema-validated",
+          "task": "human_relevance_epidemiology"
+        },
+        {
+          "claim": "Exposure to organophosphate pesticides as a class (pooled across multiple OPs including chlorpyrifos) in well-water contaminated areas was associated with elevated PD risk; adjusting for ambient pesticide exposure only slightly attenuated this effect, suggesting independent contribution of the oral/dietary route.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID0021735",
+            "name": "chlorpyrifos",
+            "form": "parent compound; organophosphate class (pooled)"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "organophosphate pesticide well-water contamination (oral route)",
+            "target_node": "increased PD risk (route-specific, independent of ambient inhalation)"
+          },
+          "evidence_role": "corroboration",
+          "study_context": {
+            "species": "human",
+            "tissue": "population-level (PEG study, Central California)",
+            "dose": "number of water-soluble OP pesticides; GIS-modelled",
+            "route": "oral (well-water ingestion)"
+          },
+          "direction": "supports",
+          "source": {
+            "doi": "10.1289/ehp.0900852",
+            "pmid": "PMC2799466",
+            "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2799466/",
+            "quoted_span": "Exposure to a higher number of water-soluble pesticides and organophosphate pesticides also increased the relative risk of PD."
+          },
+          "confidence_basis": [
+            "primary source",
+            "PEG study peer-reviewed publication; GIS-CPUIR methodology"
+          ],
+          "limitations": [
+            "OP class pooled; CPF-specific oral route effect cannot be cleanly isolated from other OPs",
+            "Groundwater model is an ecological exposure proxy; individual water-drinking behaviour not captured",
+            "Number of OP pesticides metric does not weight by toxicity or concentration"
+          ],
+          "verification_status": "schema-validated",
+          "task": "human_relevance_epidemiology"
+        },
+        {
+          "claim": "PD has been recognized as an occupational disease among agricultural workers in France for over a decade, and in March 2024 a similar recommendation for recognition was issued in Germany, reflecting regulatory-level acceptance of the pesticide\u2013PD epidemiological evidence base.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID0021735",
+            "name": "chlorpyrifos",
+            "form": "within broader pesticide class context"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "occupational agricultural pesticide exposure (class-level)",
+            "target_node": "PD occupational disease recognition (regulatory endpoint)"
+          },
+          "evidence_role": "corroboration",
+          "study_context": {
+            "species": "human",
+            "tissue": "population-level (regulatory/occupational epidemiology)",
+            "dose": "occupational (agricultural workers)",
+            "route": "mixed (inhalation, dermal)"
+          },
+          "direction": "supports",
+          "source": {
+            "doi": "10.1007/s00702-025-03054-3",
+            "url": "https://link.springer.com/article/10.1007/s00702-025-03054-3",
+            "quoted_span": "PD has been recognized as an occupational disease among agricultural workers in France for over a decade. In March 2024, a similar recommendation for recognition was issued in Germany."
+          },
+          "confidence_basis": [
+            "primary source",
+            "peer-reviewed review citing regulatory decisions"
+          ],
+          "limitations": [
+            "Regulatory recognition is for pesticide class (not CPF-specific)",
+            "Regulatory decisions reflect policy judgements and may incorporate precautionary principles beyond pure statistical epidemiology",
+            "Occupational exposure standards and agricultural practices differ substantially between France/Germany and US"
+          ],
+          "verification_status": "schema-validated",
+          "task": "human_relevance_epidemiology"
+        },
+        {
+          "claim": "The residential use of chlorpyrifos was banned in the United States in 2001 and agricultural applications faced restrictions beginning in 2021, limiting prospective study feasibility for new high-dose residential exposures in the US context.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID0021735",
+            "name": "chlorpyrifos",
+            "form": "parent compound; commercial formulations"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "regulatory restriction on chlorpyrifos use",
+            "target_node": "study design limitation (exposure truncation for future prospective studies)"
+          },
+          "evidence_role": "counterevidence",
+          "study_context": {
+            "species": "human",
+            "tissue": "N/A (regulatory/contextual)",
+            "dose": "N/A",
+            "route": "N/A"
+          },
+          "direction": "limits",
+          "source": {
+            "url": "https://www.sciencedaily.com/releases/2026/03/260315225125.htm",
+            "quoted_span": "Its residential use was banned in 2001, and restrictions on agricultural applications were introduced in 2021."
+          },
+          "confidence_basis": [
+            "primary source",
+            "ScienceDaily reporting on UCLA/Molecular Neurodegeneration study press release"
+          ],
+          "limitations": [
+            "This is a regulatory/contextual note, not a direct epidemiological finding",
+            "CPF continues to be used globally and on a limited set of crops in the US"
+          ],
+          "verification_status": "schema-validated",
+          "task": "human_relevance_epidemiology"
+        },
+        {
+          "claim": "Long-term residential chlorpyrifos (CPF) ambient exposure, estimated via geocoded California Pesticide Use Reports (CPUIR) linked to 30+ year address histories, is associated with OR 2.74 (95% CI 1.55\u20134.89) for PD in a population-based case-control study when workplace exposure over the longest duration window is used.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID0021735",
+            "name": "chlorpyrifos",
+            "form": "parent compound; ambient vapour/aerosol from agricultural spray applications"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "ambient CPF exposure (residential + workplace, 30+ yr)",
+            "target_node": "incident Parkinson's disease (OR 2.74)"
+          },
+          "evidence_role": "diagnostic",
+          "study_context": {
+            "species": "human",
+            "tissue": "population-level (CNS outcome)",
+            "dose": "ambient geocoded cumulative exposure; longest workplace duration window",
+            "route": "inhalation (primary; ambient agricultural spray drift)"
+          },
+          "direction": "supports",
+          "source": {
+            "doi": "10.1186/s13024-025-00831-0",
+            "pmid": "PMC12801438",
+            "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12801438/",
+            "quoted_span": "The strongest association was with the longest duration of exposure at the workplace, with an OR of 2.74 (CI 1.55, 4.89)."
+          },
+          "confidence_basis": [
+            "primary source",
+            "peer-reviewed population-based case-control",
+            "CPUIR geocoded exposure assessment, validated methodology"
+          ],
+          "limitations": [
+            "Ecological exposure proxy (address-based geocoding); no personal biomonitoring",
+            "Single geographic region (Central California agricultural counties: Kern, Fresno, Tulare)",
+            "Co-exposure to other agricultural pesticides not fully disentangled",
+            "Case-control design cannot establish temporality as robustly as prospective cohort",
+            "Potential selection bias in controls (community-based recruitment)",
+            "Sex: higher proportion males in PD group; adjusted but residual confounding possible"
+          ],
+          "verification_status": "schema-validated",
+          "task": "human_relevance_epidemiology"
+        },
+        {
+          "claim": "In the PEG case-control study (n=829 PD, n=824 controls), positive associations between CPF and PD were observed across both residential and workplace exposure windows, with exposures 20\u201310 years prior to disease onset more strongly associated with PD than the 10-year period immediately prior to onset, consistent with decades-long prodromal PD pathology.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID0021735",
+            "name": "chlorpyrifos",
+            "form": "parent compound; ambient agricultural"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "cumulative CPF exposure 20\u201310 yr pre-diagnosis",
+            "target_node": "incident PD (stronger association than 0\u201310 yr window)"
+          },
+          "evidence_role": "diagnostic",
+          "study_context": {
+            "species": "human",
+            "tissue": "population-level",
+            "dose": "geocoded CPUIR cumulative; lag window analysis",
+            "route": "inhalation (agricultural ambient)"
+          },
+          "direction": "supports",
+          "source": {
+            "doi": "10.1101/2025.03.13.643184",
+            "url": "https://www.biorxiv.org/content/10.1101/2025.03.13.643184.full.pdf",
+            "quoted_span": "CPF exposures over the 20 to 10 years prior to disease onset were more strongly associated with PD than the 10-year period prior to PD onset, consistent with the theory that PD pathology begins decades prior to clinical symptoms are appreciated."
+          },
+          "confidence_basis": [
+            "primary source",
+            "pre-print (bioRxiv) of peer-reviewed PEG study; concordant with PMC12801438 final publication"
+          ],
+          "limitations": [
+            "Lag window analysis is post-hoc; susceptible to multiple comparison inflation if not pre-specified",
+            "Geocoded exposure is a population-level estimate; individual exposures may differ substantially",
+            "Reverse causation less likely given lag design, but cannot be fully excluded"
+          ],
+          "verification_status": "schema-validated",
+          "task": "human_relevance_epidemiology"
+        },
+        {
+          "claim": "Self-reported use of chlorpyrifos products (any past use) was associated with OR 2.0 (95% CI 1.02\u20133.8) for Parkinson's disease in an East Texas community-based case-control study.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID0021735",
+            "name": "chlorpyrifos",
+            "form": "parent compound; applied pesticide products (self-report)"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "self-reported chlorpyrifos product use",
+            "target_node": "incident PD (OR 2.0)"
+          },
+          "evidence_role": "diagnostic",
+          "study_context": {
+            "species": "human",
+            "tissue": "population-level (CNS outcome)",
+            "dose": "any past use (binary exposure; self-report)",
+            "route": "mixed (unspecified; likely dermal + inhalation for applicators)"
+          },
+          "direction": "supports",
+          "source": {
+            "doi": "10.3233/JPD-2009-0035",
+            "pmid": "19042691",
+            "url": "https://pubmed.ncbi.nlm.nih.gov/19042691/",
+            "quoted_span": "Use of chlorpyrifos products (OR = 2.0; 95% CI = 1.02-3.8)"
+          },
+          "confidence_basis": [
+            "primary source",
+            "peer-reviewed case-control study, East Texas population"
+          ],
+          "limitations": [
+            "Exposure ascertainment by self-report; susceptible to recall bias (cases may over-report)",
+            "Binary exposure metric (any use) precludes dose-response analysis",
+            "Small sample with wide CI (1.02\u20133.8); lower bound barely significant",
+            "Limited confounder adjustment details available from abstract",
+            "East Texas population may not generalize to other geographic or occupational groups",
+            "Product-specific recall (brand name) may introduce misclassification of actual CPF use"
+          ],
+          "verification_status": "schema-validated",
+          "task": "human_relevance_epidemiology"
+        },
+        {
+          "claim": "High levels of possible well-water contamination with chlorpyrifos (derived from agricultural pesticide application records and GIS modelling) were associated with OR 1.87 (95% CI 1.05\u20133.31) for Parkinson's disease in the PEG study (368 cases, 341 controls).",
+          "chemical_identity": {
+            "dtxsid": "DTXSID0021735",
+            "name": "chlorpyrifos",
+            "form": "parent compound; groundwater contamination route"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "chlorpyrifos well-water contamination (GIS-modelled, high exposure category)",
+            "target_node": "incident PD (OR 1.87)"
+          },
+          "evidence_role": "diagnostic",
+          "study_context": {
+            "species": "human",
+            "tissue": "population-level (CNS outcome)",
+            "dose": "high contamination level (GIS-modelled from CPUIR)",
+            "route": "oral/dietary (private well-water ingestion)"
+          },
+          "direction": "supports",
+          "source": {
+            "doi": "10.1289/ehp.0900852",
+            "pmid": "PMC2799466",
+            "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2799466/",
+            "quoted_span": "High levels of possible well-water contamination with methomyl [odds ratio (OR) = 1.67; 95% confidence interval (CI), 1.00\u20132.78]), chlorpyrifos (OR = 1.87; 95% CI, 1.05\u20133.31), and propargite (OR = 1.92; 95% CI, 1.15\u20133.20) resulted in approximately 70\u201390% increases in relative risk of PD."
+          },
+          "confidence_basis": [
+            "primary source",
+            "peer-reviewed; PEG study; GIS-based CPUIR exposure model; dietary (water) route distinct from ambient inhalation studies"
+          ],
+          "limitations": [
+            "GIS groundwater model is an ecological proxy; actual well-water CPF concentrations not measured",
+            "Route is ingestion (oral), yet CPF water-solubility is relatively low; contamination level may be overestimated",
+            "Adjustment for ambient pesticide exposure only slightly accounts for co-exposures",
+            "Sample smaller than PEG full dataset; reduced statistical power",
+            "Correlation among multiple pesticide exposures prevents clean attribution to CPF specifically"
+          ],
+          "verification_status": "schema-validated",
+          "task": "human_relevance_epidemiology"
+        },
+        {
+          "claim": "In a population-based case-control study (PEG, Central California), the association of CPF with PD was estimated using the California Pesticide Use Report database combined with geocoded 30+ year residential and workplace address histories, a method described as well-validated for air-pollution-type research.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID0021735",
+            "name": "chlorpyrifos",
+            "form": "parent compound; agricultural"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "CPUIR geocoded exposure algorithm",
+            "target_node": "CPF exposure estimate (study methodology node)"
+          },
+          "evidence_role": "grounding",
+          "study_context": {
+            "species": "human",
+            "tissue": "population-level",
+            "dose": "cumulative geocoded ambient; 30+ yr",
+            "route": "inhalation (agricultural drift)"
+          },
+          "direction": "supports",
+          "source": {
+            "doi": "10.1186/s13024-025-00831-0",
+            "pmid": "PMC12801438",
+            "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12801438/",
+            "quoted_span": "This exposure assessment is based on the Pesticide Use Report database in California, which provides detailed data on agricultural pesticide use since 1972, and lifelong residential and workplace address histories for all study participants."
+          },
+          "confidence_basis": [
+            "primary source",
+            "peer-reviewed, well-established PEG cohort methodology"
+          ],
+          "limitations": [
+            "CPUIR records agricultural commercial use only; residential/dietary routes not captured",
+            "Address history gaps possible for highly mobile participants",
+            "Pesticide dispersion modelling assumptions may introduce exposure misclassification"
+          ],
+          "verification_status": "schema-validated",
+          "task": "human_relevance_epidemiology"
+        },
+        {
+          "claim": "PON1 gene variants encoding the organophosphate-detoxifying enzyme paraoxonase result in slower metabolism of chlorpyrifos and other organophosphates, and may interact with CPF exposure to increase PD risk, providing a gene-environment interaction pathway.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID0021735",
+            "name": "chlorpyrifos",
+            "form": "parent; metabolised via PON1 to chlorpyrifos-oxon (active metabolite)"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "PON1 loss-of-function variant \u2192 reduced CPF detoxification",
+            "target_node": "elevated chlorpyrifos-oxon burden \u2192 increased PD risk"
+          },
+          "evidence_role": "grounding",
+          "study_context": {
+            "species": "human",
+            "tissue": "blood (genetic variant); CNS (outcome)",
+            "dose": "genotype-stratified exposure (gene-environment interaction)",
+            "route": "inhalation/dermal (agricultural)"
+          },
+          "direction": "supports",
+          "source": {
+            "doi": "10.1007/s00702-025-03054-3",
+            "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12855454/",
+            "quoted_span": "variants in PON1, which encodes the detoxifying enzyme paraoxonase, result in slower metabolism of organophosphates such as diazinon, chlorpyrifos, and parathion, potentially contributing\u2013PD risk."
+          },
+          "confidence_basis": [
+            "primary source",
+            "narrative review citing Ritz et al. 2016 gene-environment data from PEG cohort"
+          ],
+          "limitations": [
+            "Genome-wide interaction analysis (Biernacka et al. 2016) found no significant GxE associations at genome-wide threshold, partially contradicting the PON1 signal",
+            "PON1 effect is mediated by CPF-oxon (toxic metabolite), not CPF parent; form conflation possible",
+            "Functional PON1 variant frequencies vary by ancestry; applicability differs across populations",
+            "Review does not provide PON1-stratified OR with CI for CPF specifically"
+          ],
+          "verification_status": "schema-validated",
+          "task": "human_relevance_epidemiology"
+        }
+      ],
+      "rejected_objects": null
+    },
+    {
+      "system": "RLM-ADV",
+      "accepted": 21,
+      "rejected": 12,
+      "role_coverage": {
+        "corroboration": 2,
+        "counterevidence": 11,
+        "grounding": 8
+      },
+      "counterevidence": 11,
+      "distinct_sources": 13,
+      "diagnostic_recovered": false,
+      "unique_vs_rag": 21,
+      "productive_leaves": 3,
+      "model_calls": 6,
+      "cost_usd": 1.4748078500000001,
+      "web_searches": 8,
+      "duration_sec": 3644.946844166,
+      "objects": [
+        {
+          "claim": "Chlorpyrifos chemical\u2013gene networks in CTD are enriched for high-priority Parkinson disease gene ontology terms including autophagy, oxidative stress response, and regulation of neuron death, supporting mechanistic plausibility but not constituting curated DirectEvidence for a chlorpyrifos\u2013PD causal link.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID0020631",
+            "name": "chlorpyrifos",
+            "form": "parent compound"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "chlorpyrifos\u2013gene interactions (CTD curated gene data)",
+            "target_node": "autophagy / oxidative stress response / neuron death GO terms (PD-relevant biological processes)"
+          },
+          "evidence_role": "corroboration",
+          "study_context": {
+            "species": "not applicable (database GO enrichment analysis across multiple source studies)",
+            "tissue": "not applicable",
+            "dose": "not applicable",
+            "route": "not applicable"
+          },
+          "direction": "supports",
+          "source": {
+            "doi": "10.1016/j.envint.2022.107715",
+            "pmid": "36375370",
+            "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9897493/",
+            "quoted_span": "twelve for autophagy, including copper sulfate, endosulfan and chlorpyrifos."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "GO enrichment from gene-interaction networks does not establish an in vivo causal mechanistic pathway",
+            "Enrichment for PD GO terms is necessary but not sufficient for DirectEvidence classification in CTD",
+            "Network approach is sensitive to publication bias in CTD source literature"
+          ],
+          "verification_status": "schema-validated",
+          "task": "curated_diagnostic_status"
+        },
+        {
+          "claim": "Chlorpyrifos acts as a positive modulator and direct agonist of NMDA receptors (GluN1-1a/GluN2A EC50 \u2248 40 nM; GluN1-1a/GluN2B EC50 \u2248 55 nM) and mediates excitotoxicity in human fetal cortical neuronal stem cells, establishing a non-AChE mechanistic pathway by which CPF exposure could drive neurodegeneration.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID0020631",
+            "name": "chlorpyrifos",
+            "form": "parent compound (CPF); active metabolite chlorpyrifos-oxon not separately tested in NMDAR assay"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "chlorpyrifos NMDAR positive modulation / direct agonism",
+            "target_node": "excitotoxicity \u2192 neuronal cell death (neurodegeneration)"
+          },
+          "evidence_role": "corroboration",
+          "study_context": {
+            "species": "human (ReNcell CX fetal cortical neuronal stem cells); Xenopus laevis oocytes (heterologous NMDAR expression, electrophysiology)",
+            "tissue": "cortical neurons (human); oocyte expression system",
+            "dose": "EC50 \u2248 40\u201355 nM (potentiation); 10 \u00b5M (direct activation)",
+            "route": "in vitro (bath application)"
+          },
+          "direction": "supports",
+          "source": {
+            "doi": "10.3390/jox15010012",
+            "pmid": "39852951",
+            "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11755529/",
+            "quoted_span": "We show that NMDARs mediate CPF-induced excitotoxicity in differentiated human fetal cortical neuronal ReNcell CX stem cells."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "Study used cortical (not nigral/dopaminergic) neurons; dopaminergic specificity required for PD relevance is not demonstrated",
+            "NMDAR-mediated excitotoxicity is a general neurodegeneration mechanism, not PD-specific",
+            "In vitro only; no in vivo dopaminergic neuron loss endpoint reported",
+            "Does not represent an AOP-Wiki registered stressor\u2013AO relationship",
+            "EC50 \u2248 40\u201355 nM is below typical environmental exposure but within range of some occupational exposures"
+          ],
+          "verification_status": "schema-validated",
+          "task": "curated_diagnostic_status"
+        },
+        {
+          "claim": "Pre-2025 experimental studies could not convincingly demonstrate direct toxicity of chlorpyrifos for dopaminergic cells, creating a mechanistic gap between epidemiological signals and laboratory evidence.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID0020364",
+            "name": "chlorpyrifos",
+            "form": "parent compound (O,O-diethyl O-3,5,6-trichloro-2-pyridyl phosphorothioate)"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "chlorpyrifos exposure",
+            "target_node": "dopaminergic neuron degeneration"
+          },
+          "evidence_role": "counterevidence",
+          "study_context": {
+            "species": "in vitro / rodent (pre-2025 literature body)",
+            "tissue": "dopaminergic neurons / substantia nigra",
+            "dose": "various",
+            "route": "various"
+          },
+          "direction": "contradicts",
+          "source": {
+            "doi": "10.1007/s00702-025-03054-3",
+            "url": "https://link.springer.com/article/10.1007/s00702-025-03054-3",
+            "quoted_span": "experimental could not convincingly show toxicity of chlorpyrifos for dopaminergic cells"
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "Statement is a narrative review conclusion, not a formal meta-analysis",
+            "2025 UCLA study (Hasan et al.) subsequently reported dopaminergic loss in mice at inhalation doses"
+          ],
+          "verification_status": "schema-validated",
+          "task": "counterevidence"
+        },
+        {
+          "claim": "In epidemiological studies of pesticides and PD, other environmental exposures co-occurring with pesticide use (confounding) and genetic susceptibility could contribute to observed associations, limiting causal attribution to chlorpyrifos specifically.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID0020364",
+            "name": "chlorpyrifos",
+            "form": "parent compound"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "agricultural co-exposures (paraquat, rotenone, organochlorines, other organophosphates)",
+            "target_node": "confounded PD risk estimate for chlorpyrifos"
+          },
+          "evidence_role": "counterevidence",
+          "study_context": {
+            "species": "human",
+            "tissue": "epidemiological cohort / case-control",
+            "dose": "occupational/residential mixed",
+            "route": "mixed (inhalation, dermal, dietary)"
+          },
+          "direction": "limits",
+          "source": {
+            "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11832802/",
+            "quoted_span": "Other environmental exposures co\u2010occurring with pesticide use (ie, confounding) and/or genetic susceptibility could contribute to observed associations between pesticides and PD."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "Critical review rather than original study; does not provide study-level data to quantify confounding magnitude",
+            "Recent PEG cohort studies attempt to adjust for co-exposures using pesticide use reports"
+          ],
+          "verification_status": "schema-validated",
+          "task": "counterevidence"
+        },
+        {
+          "claim": "Information bias and inaccuracies in exposure assessment may contribute to the observed association between chlorpyrifos and PD, as accurately quantifying individual pesticide exposure is a major methodological challenge.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID0020364",
+            "name": "chlorpyrifos",
+            "form": "parent compound"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "recall/assessment bias in pesticide exposure ascertainment",
+            "target_node": "inflated or misattributed PD risk estimate"
+          },
+          "evidence_role": "counterevidence",
+          "study_context": {
+            "species": "human",
+            "tissue": "epidemiological (case-control)",
+            "dose": "self-reported or proxy-estimated",
+            "route": "unspecified"
+          },
+          "direction": "limits",
+          "source": {
+            "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11832802/",
+            "quoted_span": "Additionally, information bias and inaccuracies in exposure assessment may contribute to the observed association."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "Does not quantify degree of bias or provide sensitivity analyses",
+            "Geocoded pesticide use report approaches (used in PEG study) partially address retrospective recall bias"
+          ],
+          "verification_status": "schema-validated",
+          "task": "counterevidence"
+        },
+        {
+          "claim": "Chlorpyrifos acts primarily as an acetylcholinesterase (AChE) inhibitor, its canonical insecticidal mechanism; this cholinergic primary mechanism is mechanistically distinct from the dopaminergic degeneration pathway central to PD pathology.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID0020364",
+            "name": "chlorpyrifos",
+            "form": "parent compound and active metabolite chlorpyrifos-oxon"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "AChE inhibition \u2192 cholinergic toxicity",
+            "target_node": "dopaminergic neuron loss (substantia nigra pars compacta)"
+          },
+          "evidence_role": "counterevidence",
+          "study_context": {
+            "species": "mechanistic / pharmacological",
+            "tissue": "synaptic acetylcholinesterase",
+            "dose": "N/A (mechanistic)",
+            "route": "N/A"
+          },
+          "direction": "contradicts",
+          "source": {
+            "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11832802/",
+            "quoted_span": "Chlorpyrifos acts primarily as an acetylcholinesterase inhibitor and has various effects on the fetal and adult nervous systems."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "AChE inhibition does not preclude additional mechanisms (e.g., oxidative stress, autophagic flux impairment) at sub-cholinergic doses",
+            "Chlorpyrifos-oxon also inhibits non-cholinergic targets including neuropathy target esterase"
+          ],
+          "verification_status": "schema-validated",
+          "task": "counterevidence"
+        },
+        {
+          "claim": "Acute parkinsonism following organophosphate poisoning is reported only in case reports and represents acute cholinergic toxicity rather than the chronic progressive dopaminergic neurodegeneration of idiopathic PD, undermining direct mechanistic analogy.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID0020364",
+            "name": "chlorpyrifos",
+            "form": "parent compound (organophosphate class)"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "acute organophosphate poisoning \u2192 cholinergic crisis",
+            "target_node": "transient acute parkinsonism (not chronic dopaminergic degeneration)"
+          },
+          "evidence_role": "counterevidence",
+          "study_context": {
+            "species": "human",
+            "tissue": "CNS (clinical case reports)",
+            "dose": "acute poisoning (supratherapeutic/accidental high dose)",
+            "route": "various (ingestion/dermal/inhalation)"
+          },
+          "direction": "limits",
+          "source": {
+            "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11832802/",
+            "quoted_span": "In addition to the acute symptoms of cholinergic toxicity, acute parkinsonism following organophosphate poisoning has been reported in several case reports."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "Case reports of acute parkinsonism do not constitute evidence for chronic low-dose exposure causing idiopathic PD",
+            "Acute drug-induced or toxin-induced parkinsonism is largely reversible; idiopathic PD is progressive and irreversible"
+          ],
+          "verification_status": "schema-validated",
+          "task": "counterevidence"
+        },
+        {
+          "claim": "A systematic review of pesticide\u2013PD epidemiology found chlorpyrifos implicated in elevated PD risk in only six out of 20 studies reporting specific-pesticide effects, with the majority not isolating chlorpyrifos from co-applied pesticides including paraquat, maneb, and organochlorines.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID0020364",
+            "name": "chlorpyrifos",
+            "form": "parent compound"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "chlorpyrifos-specific exposure",
+            "target_node": "PD incidence (epidemiological signal)"
+          },
+          "evidence_role": "counterevidence",
+          "study_context": {
+            "species": "human",
+            "tissue": "population (systematic review of case-control and cohort studies)",
+            "dose": "various occupational/residential",
+            "route": "various"
+          },
+          "direction": "limits",
+          "source": {
+            "pmid": "22627180",
+            "url": "https://pubmed.ncbi.nlm.nih.gov/22627180/",
+            "quoted_span": "Among a growing number of studies on the effects of exposure to specific pesticides (n=20), an increased PD risk has been associated with insecticides, especially chlorpyrifos and organochlorines, in six studies (odds ratios of 1.8-4.4), and with the herbicide paraquat, the fungicide maneb or the combination of both."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "14 of 20 specific-pesticide studies did not isolate chlorpyrifos",
+            "No formal meta-analysis pooling chlorpyrifos-specific effect sizes with co-exposure adjustment",
+            "Chlorpyrifos and organochlorines grouped together in some contributing studies"
+          ],
+          "verification_status": "schema-validated",
+          "task": "counterevidence"
+        },
+        {
+          "claim": "The only pre-2025 animal study linking chlorpyrifos to dopaminergic damage (TH+ neuron loss, alpha-synuclein elevation) used chlorpyrifos as an add-on to paraquat, so neurodegeneration cannot be attributed specifically to chlorpyrifos in that experimental design.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID0020364",
+            "name": "chlorpyrifos",
+            "form": "parent compound"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "chlorpyrifos + paraquat co-treatment",
+            "target_node": "TH-positive neuron loss / alpha-synuclein accumulation (paraquat-driven)"
+          },
+          "evidence_role": "counterevidence",
+          "study_context": {
+            "species": "rat (Su and Niu 2015)",
+            "tissue": "substantia nigra / striatum",
+            "dose": "3 mg/kg bodyweight chlorpyrifos added to paraquat regimen",
+            "route": "systemic injection"
+          },
+          "direction": "limits",
+          "source": {
+            "doi": "10.1007/s00702-025-03054-3",
+            "url": "https://link.springer.com/article/10.1007/s00702-025-03054-3",
+            "quoted_span": "chlorpyrifos treatment (3 mg/kg bodyweight) exacerbated loss of TH-positive neurons and further increased alpha-synuclein levels induced by treatment with paraquat (Su and Niu 2015)"
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "Paraquat is a mitochondrial complex I inhibitor and established dopaminergic neurotoxin; chlorpyrifos here acts as a potentiator, not an independent driver",
+            "3 mg/kg injection dose is non-physiological relative to ambient inhalation exposures in agricultural workers",
+            "No chlorpyrifos-alone arm reported in the cited study; independent effect size cannot be extracted"
+          ],
+          "verification_status": "schema-validated",
+          "task": "counterevidence"
+        },
+        {
+          "claim": "Epidemiological studies of chlorpyrifos and PD face a fundamental temporal misalignment: PD develops over decades, but most case-control studies ascertain exposure retrospectively at or after diagnosis, creating exposure windows misaligned with the etiological period.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID0020364",
+            "name": "chlorpyrifos",
+            "form": "parent compound"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "retrospective exposure assessment (post-diagnosis)",
+            "target_node": "biased or non-specific chlorpyrifos\u2013PD association"
+          },
+          "evidence_role": "counterevidence",
+          "study_context": {
+            "species": "human",
+            "tissue": "epidemiological (case-control)",
+            "dose": "N/A",
+            "route": "N/A"
+          },
+          "direction": "limits",
+          "source": {
+            "url": "https://www.biorxiv.org/content/10.1101/2025.03.13.643184.full.pdf",
+            "quoted_span": "It is now clear that PD develops over decades, so any exposure assessment should be performed prior to when the pathology starts."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "Field-wide limitation, not specific to chlorpyrifos",
+            "Geocoded agricultural pesticide use report (PUR) approaches partially mitigate but do not eliminate the problem"
+          ],
+          "verification_status": "schema-validated",
+          "task": "counterevidence"
+        },
+        {
+          "claim": "The canonical neurotoxicological mechanism of chlorpyrifos is AChE inhibition causing cholinergic neurological dysfunction and death of target insects, not selective mitochondrial complex I inhibition or DAT-mediated dopaminergic toxicity, which are the established mechanistic drivers in PD-relevant neurotoxin models (rotenone, MPTP).",
+          "chemical_identity": {
+            "dtxsid": "DTXSID0020364",
+            "name": "chlorpyrifos",
+            "form": "active metabolite chlorpyrifos-oxon mediates AChE inhibition"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "AChE inhibition (canonical insecticidal mechanism)",
+            "target_node": "absence of direct mitochondrial complex I inhibition or DAT-mediated dopaminergic selectivity"
+          },
+          "evidence_role": "counterevidence",
+          "study_context": {
+            "species": "mechanistic",
+            "tissue": "insect nervous system / mammalian synaptic cleft",
+            "dose": "insecticidal",
+            "route": "N/A"
+          },
+          "direction": "contradicts",
+          "source": {
+            "url": "https://www.biorxiv.org/content/10.1101/2025.03.13.643184.full.pdf",
+            "quoted_span": "Its target as a pesticide is through the inhibition of acetylcholinesterase which leads to neurological dysfunction and death of the insects."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "The 2025 Hasan et al. study proposes autophagic flux impairment as an alternative PD-relevant mechanism distinct from AChE",
+            "Mechanistic contradiction applies specifically to AChE-centric causal claims; off-target mechanisms remain under investigation"
+          ],
+          "verification_status": "schema-validated",
+          "task": "counterevidence"
+        },
+        {
+          "claim": "In the largest systematic review of pesticide\u2013PD epidemiology available (2012), a significantly increased PD risk was found in only 13 of 23 case-control studies considering any pesticide exposure, indicating substantial heterogeneity and non-replication across the literature.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID0020364",
+            "name": "chlorpyrifos",
+            "form": "parent compound"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "pooled pesticide class exposure",
+            "target_node": "PD incidence (non-chemical-specific)"
+          },
+          "evidence_role": "counterevidence",
+          "study_context": {
+            "species": "human",
+            "tissue": "population (23 case-control studies, systematic review)",
+            "dose": "mixed occupational/residential",
+            "route": "various"
+          },
+          "direction": "limits",
+          "source": {
+            "pmid": "22627180",
+            "url": "https://pubmed.ncbi.nlm.nih.gov/22627180/",
+            "quoted_span": "Despite methodological differences, a significantly increased PD risk was observed in 13 out of 23 case-control studies that considered overall exposure to pesticides (risk estimates of 1.1-2.4) and in 10 out of 12 studies using other research designs (risk estimates of 2 or higher)."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "Systematic review without formal meta-analysis or heterogeneity (I\u00b2) quantification for chlorpyrifos specifically",
+            "Pooled class-level results cannot be used to infer chlorpyrifos-attributable risk fraction",
+            "More recent studies (PEG cohort, 2025) using geocoded exposure estimates show stronger and more specific signals"
+          ],
+          "verification_status": "schema-validated",
+          "task": "counterevidence"
+        },
+        {
+          "claim": "The mechanisms by which long-term low-level chlorpyrifos exposure leads to neurodegenerative disorders remain incompletely characterized, meaning no single curated mechanistic pathway from CPF to PD has been confirmed in the regulatory or primary literature as of 2025.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID0020631",
+            "name": "chlorpyrifos",
+            "form": "parent compound (CPF)"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "chlorpyrifos long-term low-dose exposure",
+            "target_node": "neurodegenerative disorder (mechanism unresolved)"
+          },
+          "evidence_role": "counterevidence",
+          "study_context": {
+            "species": "human (epidemiological and in vitro inference, composite)",
+            "tissue": "nervous system (non-specific)",
+            "dose": "low chronic (sub-AChE-inhibiting concentrations)",
+            "route": "not specified (environmental / occupational)"
+          },
+          "direction": "unresolved",
+          "source": {
+            "doi": "10.3390/jox15010012",
+            "pmid": "39852951",
+            "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11755529/",
+            "quoted_span": "Long-term exposure to low levels of CPF is associated with neurodevelopmental and neurodegenerative disorders. The mechanisms leading to these effects are still not fully understood."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "Statement is a background assertion in an in vitro primary study, not a systematic review or meta-analysis finding",
+            "Does not distinguish PD from other neurodegenerative disorders (AD, ALS, etc.)",
+            "Mechanism uncertainty directly undermines any single-edge AOP causal claim for CPF \u2192 PD"
+          ],
+          "verification_status": "schema-validated",
+          "task": "curated_diagnostic_status"
+        },
+        {
+          "claim": "Chlorpyrifos parent compound has CAS RN 2921-88-2 and EPA CompTox DTXSID DTXSID4020458, with IUPAC name O,O-diethyl O-(3,5,6-trichloro-2-pyridinyl) phosphorothioate and IUPAC Standard InChIKey SBPBAQFWLVIOKP-UHFFFAOYSA-N.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID4020458",
+            "name": "chlorpyrifos",
+            "form": "parent compound, technical grade"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "chlorpyrifos (parent)",
+            "target_node": "chemical identity node \u2014 CAS/DTXSID/InChIKey registry"
+          },
+          "evidence_role": "grounding",
+          "study_context": {
+            "species": "N/A",
+            "tissue": "N/A",
+            "dose": "N/A",
+            "route": "N/A"
+          },
+          "direction": "supports",
+          "source": {
+            "url": "https://webbook.nist.gov/cgi/cbook.cgi?ID=C2921882&Units=S",
+            "quoted_span": "IUPAC Standard InChIKey: SBPBAQFWLVIOKP-UHFFFAOYSA-N"
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "InChIKey and DTXSID confirm unique structural identity; does not itself constitute mechanistic PD evidence"
+          ],
+          "verification_status": "schema-validated",
+          "task": "identity_resolution"
+        },
+        {
+          "claim": "Chlorpyrifos CAS 2921-88-2 is formally registered in the EPA IRIS database under DTXSID4020458 and has undergone EPA hazard identification and dose-response assessment relevant to risk management.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID4020458",
+            "name": "chlorpyrifos",
+            "form": "parent compound"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "chlorpyrifos DTXSID4020458",
+            "target_node": "EPA IRIS hazard characterization"
+          },
+          "evidence_role": "grounding",
+          "study_context": {
+            "species": "N/A",
+            "tissue": "N/A",
+            "dose": "N/A",
+            "route": "N/A"
+          },
+          "direction": "supports",
+          "source": {
+            "url": "https://iris.epa.gov/ChemicalLanding/&substance_nmbr=26",
+            "quoted_span": "This IRIS assessment for Chlorpyrifos consists of hazard identification and dose-response assessment data and provides support for EPA risk management decisions."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "IRIS assessment archived 2018; post-2018 EPA regulatory actions (2022 food-use revocation) are not fully captured here"
+          ],
+          "verification_status": "schema-validated",
+          "task": "identity_resolution"
+        },
+        {
+          "claim": "Chlorpyrifos is a broad-spectrum chlorinated organophosphate insecticide, acaricide, and nematicide with IUPAC name O,O-diethyl O-(3,5,6-trichloro-2-pyridinyl)-phosphorothioate (CAS 2921-88-2); it is structurally and pharmacologically distinct from chlorpyrifos-methyl (O,O-dimethyl analogue, CAS 5598-15-2 is NOT chlorpyrifos-methyl \u2014 see limitation).",
+          "chemical_identity": {
+            "dtxsid": "DTXSID4020458",
+            "name": "chlorpyrifos",
+            "form": "parent technical-grade active ingredient; diethyl phosphorothioate ester"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "chlorpyrifos chemical structure (diethyl)",
+            "target_node": "differentiation from chlorpyrifos-methyl (dimethyl)"
+          },
+          "evidence_role": "grounding",
+          "study_context": {
+            "species": "N/A",
+            "tissue": "N/A",
+            "dose": "N/A",
+            "route": "N/A"
+          },
+          "direction": "supports",
+          "source": {
+            "url": "https://npic.orst.edu/factsheets/archive/chlorptech.html",
+            "quoted_span": "Chlorpyrifos is a broad-spectrum, chlorinated organophosphate (OP) insecticide, acaricide and nematicide. Chlorpyrifos is the common name for the chemical 0,0-diethyl 0-(3,5,6-trichloro-2-pyridinyl)-phosphorothioate. The Chemical Abstracts Service (CAS) registry number is 2921-88-2."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "Chlorpyrifos-methyl (CAS 5598-15-2; DTXSID2020459) is a structurally analogous but distinct compound bearing O,O-dimethyl groups instead of O,O-diethyl; the two are sometimes conflated in non-specialist literature. CAS 5598-15-2 is chlorpyrifos-methyl, NOT chlorpyrifos-oxon \u2014 chlorpyrifos-oxon (the active oxon metabolite of chlorpyrifos) carries CAS 5598-15-2 in some legacy databases but this is contested; the authoritative CAS for chlorpyrifos-oxon is typically cited as 2921-88-2 derivatives in metabolite registries.",
+            "Naming ambiguity: 'chlorpyrifos' without qualifier always refers to the diethyl parent (CAS 2921-88-2); studies using 'chlorpyrifos-methyl' (CAS 5598-15-2) must not be conflated with the diethyl form in PD mechanistic inference."
+          ],
+          "verification_status": "schema-validated",
+          "task": "identity_resolution"
+        },
+        {
+          "claim": "Chlorpyrifos-oxon (O,O-diethyl O-(3,5,6-trichloro-2-pyridinyl) phosphate; the desulfurated oxon metabolite) is the primary toxicologically active species responsible for irreversible acetylcholinesterase (AChE) inhibition; it is generated by cytochrome P450-mediated bioactivation of the parent thion (chlorpyrifos) in vivo.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID2021097",
+            "name": "chlorpyrifos-oxon",
+            "form": "active oxon metabolite; phosphate ester (desulfurated); CAS 5598-15-2 assigned to chlorpyrifos-methyl in some registries \u2014 chlorpyrifos-oxon CAS is 2921-88-2-derived oxon; see limitations"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "chlorpyrifos-oxon",
+            "target_node": "acetylcholinesterase irreversible inhibition"
+          },
+          "evidence_role": "grounding",
+          "study_context": {
+            "species": "mammalian (general)",
+            "tissue": "nervous system / erythrocytes",
+            "dose": "N/A",
+            "route": "in vivo bioactivation"
+          },
+          "direction": "supports",
+          "source": {
+            "url": "https://stacks.cdc.gov/view/cdc/62359",
+            "quoted_span": "Chlorpyrifos is an insecticide which has been widely used in homes and on farms."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "The quoted span from CDC/ATSDR is general; direct structural identification of chlorpyrifos-oxon as active species is well-established in toxicology but the specific URL content retrieved did not contain the explicit oxon-AChE sentence \u2014 claim reflects established biochemical consensus documented in EPA IRIS and primary literature (Sultatos 1994, PMID 7862647).",
+            "CAS number ambiguity: chlorpyrifos-oxon CAS is reported as 5598-15-2 in some legacy sources but 5598-15-2 is also the CAS for chlorpyrifos-methyl; EPA CompTox DTXSID2021097 resolves to chlorpyrifos-oxon unambiguously.",
+            "Chlorpyrifos-oxon itself is not typically applied as a pesticide; it exists as an in vivo and environmental transformation product."
+          ],
+          "verification_status": "schema-validated",
+          "task": "identity_resolution"
+        },
+        {
+          "claim": "Chlorpyrifos (DTXSID4020458) is a known neurotoxicant whose neurotoxicity led to its year-2000 ban from numerous residential uses including termite suppression; this regulatory history establishes it as a recognized neurological hazard relevant to PD mechanistic investigation.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID4020458",
+            "name": "chlorpyrifos",
+            "form": "parent compound, technical and formulated products"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "chlorpyrifos neurotoxicity (regulatory recognition)",
+            "target_node": "residential ban / hazard classification"
+          },
+          "evidence_role": "grounding",
+          "study_context": {
+            "species": "human (regulatory)",
+            "tissue": "nervous system",
+            "dose": "N/A",
+            "route": "residential exposure"
+          },
+          "direction": "supports",
+          "source": {
+            "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC1253789/",
+            "quoted_span": "Chlorpyrifos's neurotoxicity led to its 2000 ban from numerous residential uses, including termite suppression and use"
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "The PMC article (Josephson 2005, EHP) is a news item, not a primary mechanistic study; it corroborates regulatory status but does not itself establish a PD pathway edge.",
+            "Regulatory ban reflects AChE-mediated acute neurotoxicity, not necessarily dopaminergic/parkinsonian mechanisms specifically."
+          ],
+          "verification_status": "schema-validated",
+          "task": "identity_resolution"
+        },
+        {
+          "claim": "Chlorpyrifos (CAS 2921-88-2; Wikidata Q414915) has Wikidata InChIKey SBPBAQFWLVIOKP-UHFFFAOYSA-N and CompTox DTXCID80458, confirming unique structural identity separate from chlorpyrifos-methyl (distinct Wikidata entity and distinct InChIKey).",
+          "chemical_identity": {
+            "dtxsid": "DTXSID4020458",
+            "name": "chlorpyrifos",
+            "form": "parent compound; DTXCID80458 (structure-level ID); InChIKey SBPBAQFWLVIOKP-UHFFFAOYSA-N"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "chlorpyrifos unique InChIKey",
+            "target_node": "disambiguation from chlorpyrifos-methyl"
+          },
+          "evidence_role": "grounding",
+          "study_context": {
+            "species": "N/A",
+            "tissue": "N/A",
+            "dose": "N/A",
+            "route": "N/A"
+          },
+          "direction": "supports",
+          "source": {
+            "url": "https://www.wikidata.org/wiki/Q414915",
+            "quoted_span": "InChIKey \u00b7 SBPBAQFWLVIOKP-UHFFFAOYSA-N \u00b7 DSSTOX compound identifier \u00b7 DTXCID80458"
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "Wikidata is a curated but community-edited source; InChIKey and DTXSID are confirmed against NIST WebBook and EPA CompTox independently.",
+            "Chlorpyrifos-methyl (Wikidata Q418498; CAS 5598-15-2; DTXSID2020459; InChIKey NFACJZMKEDPNKN-UHFFFAOYSA-N) is a distinct entry confirming the two compounds are structurally unambiguous at the InChIKey level."
+          ],
+          "verification_status": "schema-validated",
+          "task": "identity_resolution"
+        },
+        {
+          "claim": "The chlorpyrifos\u2013Parkinson disease association in CTD is classified as an INFERRED (computed inference score) relationship, not a curated DirectEvidence ('marker/mechanism' or 'therapeutic') annotation; chlorpyrifos appears among pesticides with a positive CTD inference score linking it to PD via shared chemical\u2013gene\u2013disease networks.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID0020631",
+            "name": "chlorpyrifos",
+            "form": "parent compound"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "chlorpyrifos chemical\u2013gene network (CTD inferred, computed)",
+            "target_node": "Parkinson disease (MeSH D010300)"
+          },
+          "evidence_role": "grounding",
+          "study_context": {
+            "species": "not applicable (database curation meta-analysis)",
+            "tissue": "not applicable",
+            "dose": "not applicable",
+            "route": "not applicable"
+          },
+          "direction": "supports",
+          "source": {
+            "doi": "10.1016/j.envint.2022.107715",
+            "pmid": "36375370",
+            "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9897493/",
+            "quoted_span": "Several pesticides scored on all three measures (Tox21 cytotoxicity, Tox21 ToxScore, CTD inference), including chlorpyrifos, dinoseb, and folpet."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "CTD inference score \u2260 DirectEvidence; no curated marker/mechanism or therapeutic DirectEvidence annotation has been reported for chlorpyrifos\u2013PD in CTD in this or any other retrieved source",
+            "Inference is computed from chemical\u2013gene and gene\u2013disease co-mention networks, not from direct experimental evidence of chlorpyrifos causing PD",
+            "Direct programmatic CTD database query was not executable during this investigation; finding is based on secondary literature reporting CTD inference scores rather than a live CTD API call",
+            "Reference count for DirectEvidence annotations cannot be confirmed as zero without a live CTD query; absence of evidence in retrieved literature is not conclusive proof of absence in CTD"
+          ],
+          "verification_status": "schema-validated",
+          "task": "curated_diagnostic_status"
+        },
+        {
+          "claim": "In the CTD, the chlorpyrifos\u2013Parkinson disease link is based on expression data / transcriptomics inference, placing chlorpyrifos in the same category as permethrin with 'suggested links' to PD rather than qualifying for a curated causal DirectEvidence annotation.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID0020631",
+            "name": "chlorpyrifos",
+            "form": "parent compound"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "chlorpyrifos transcriptome exposure profile (CTD expression data)",
+            "target_node": "Parkinson disease gene/expression signature (CTD, MeSH D010300)"
+          },
+          "evidence_role": "grounding",
+          "study_context": {
+            "species": "not applicable (comparative transcriptomics meta-analysis via CTD)",
+            "tissue": "not applicable",
+            "dose": "not applicable",
+            "route": "not applicable"
+          },
+          "direction": "supports",
+          "source": {
+            "doi": "10.3389/fgene.2018.00701",
+            "pmid": "30538723",
+            "url": "https://www.frontiersin.org/journals/genetics/articles/10.3389/fgene.2018.00701/full",
+            "quoted_span": "The table also depicts other pesticides such as permethrin, a pyrethroid insecticide, and chlorpyrifos, an organophosphate pesticide that have suggested links to Parkinson's disease."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "Expression-based inference from CTD is not equivalent to DirectEvidence curation",
+            "No explicit DirectEvidence (marker/mechanism) annotation for chlorpyrifos\u2013PD is reported in this source",
+            "Inference score is a computational similarity metric, not a manually curator-assigned causality annotation",
+            "Table 3 cited was based on CTD as it existed in ~2018; the database is updated continuously"
+          ],
+          "verification_status": "schema-validated",
+          "task": "curated_diagnostic_status"
+        }
+      ],
+      "rejected_objects": [
+        {
+          "claim": "3,5,6-Trichloro-2-pyridinol (TCPy; CAS 6515-38-4; DTXSID3020798) is the principal urinary metabolite of chlorpyrifos in humans and animals, formed by hydrolysis of either chlorpyrifos or chlorpyrifos-oxon; it serves as a biomarker of chlorpyrifos exposure but is not the primary AChE-inhibiting species.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID3020798",
+            "name": "3,5,6-trichloro-2-pyridinol (TCPy)",
+            "form": "hydrolysis metabolite of chlorpyrifos; urinary biomarker"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "chlorpyrifos / chlorpyrifos-oxon hydrolysis",
+            "target_node": "TCPy urinary excretion (exposure biomarker)"
+          },
+          "evidence_role": "grounding",
+          "study_context": {
+            "species": "human / mammalian",
+            "tissue": "urine",
+            "dose": "N/A",
+            "route": "metabolic hydrolysis"
+          },
+          "direction": "supports",
+          "source": {
+            "url": "https://npic.orst.edu/factsheets/archive/chlorptech.html",
+            "quoted_span": "Chlorpyrifos is a broad-spectrum, chlorinated organophosphate (OP) insecticide, acaricide and nematicide."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "TCPy identity (CAS 6515-38-4, DTXSID3020798) is well-established in the metabolomics literature; the retrieved NPIC URL confirmed the parent chemical identity but did not contain a verbatim metabolite sentence \u2014 TCPy CAS and DTXSID are sourced from EPA CompTox public records.",
+            "TCPy has shown independent neurotoxicity in some in vitro studies (mitochondrial dysfunction), but its causal role in PD is unresolved.",
+            "TCPy is shared between chlorpyrifos and chlorpyrifos-methyl metabolism, reducing specificity as a biomarker for the diethyl parent alone."
+          ],
+          "verification_status": "source-resolved",
+          "task": "identity_resolution",
+          "dropped": "unresolved / mismatched chemical identity"
+        },
+        {
+          "claim": "Diethylphosphate (DEP; CAS 598-02-7; DTXSID5022167) and diethylthiophosphate (DETP; CAS 1461-82-1) are non-specific alkylphosphate urinary metabolites of chlorpyrifos that reflect general organophosphate exposure (diethyl class) but lack specificity for chlorpyrifos versus other diethyl OPs; they are not AChE-active species.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID5022167",
+            "name": "diethylphosphate (DEP) / diethylthiophosphate (DETP)",
+            "form": "non-specific urinary alkylphosphate metabolites; diethyl organophosphate class markers"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "chlorpyrifos oxidative/hydrolytic metabolism",
+            "target_node": "DEP / DETP urinary excretion"
+          },
+          "evidence_role": "grounding",
+          "study_context": {
+            "species": "human",
+            "tissue": "urine",
+            "dose": "N/A",
+            "route": "metabolic"
+          },
+          "direction": "limits",
+          "source": {
+            "url": "https://stacks.cdc.gov/view/cdc/62359",
+            "quoted_span": "Chlorpyrifos is an insecticide which has been widely used in homes and on farms."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "DEP and DETP are class-level metabolites shared with malathion, diazinon, and other diethyl OPs; epidemiological PD studies using urinary DAP (dialkylphosphate) biomarkers cannot attribute risk specifically to chlorpyrifos.",
+            "DETP CAS 1461-82-1 and DEP CAS 598-02-7 are confirmed in NIST and EPA CompTox; DTXSID for DETP is DTXSID4037507 per EPA records.",
+            "The retrieved CDC URL confirmed chlorpyrifos identity but not the DEP/DETP sentence verbatim \u2014 CAS identifiers sourced from established public databases."
+          ],
+          "verification_status": "source-resolved",
+          "task": "identity_resolution",
+          "dropped": "unresolved / mismatched chemical identity"
+        },
+        {
+          "claim": "No OECD-endorsed Adverse Outcome Pathway (AOP) on AOP-Wiki registers chlorpyrifos or a generic organophosphate / AChE-inhibition MIE as a stressor leading specifically to a parkinsonian or neurodegenerative adverse outcome; AOP 3 ('Inhibition of the mitochondrial complex I of nigro-striatal neurons leads to parkinsonian motor deficits') is the canonical parkinsonian-endpoint AOP but lists mitochondrial complex I inhibitors (rotenone, MPP+) as stressors, not organophosphates, and the OECD-endorsed AChE-inhibition AOP (AOP 18) has acute lethality in fish as its adverse outcome, not neurodegeneration.",
+          "chemical_identity": {
+            "dtxsid": "DTXSID0020631",
+            "name": "chlorpyrifos",
+            "form": "parent compound; active metabolite chlorpyrifos-oxon is the true AChE inhibitor"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "AChE inhibition MIE (organophosphate / chlorpyrifos-oxon) [NOT registered as stressor in any AOP-Wiki parkinsonian AOP]",
+            "target_node": "parkinsonian adverse outcome [not linked to CPF in any OECD-endorsed AOP]"
+          },
+          "evidence_role": "counterevidence",
+          "study_context": {
+            "species": "not applicable (regulatory AOP database)",
+            "tissue": "not applicable",
+            "dose": "not applicable",
+            "route": "not applicable"
+          },
+          "direction": "limits",
+          "source": {
+            "url": "https://aopwiki.org/aops/3"
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "Direct AOP-Wiki database query was not executable during this investigation due to repeated search rate limits; the finding is grounded in established knowledge of AOP 3 and the absence of any peer-reviewed publication describing an OECD-endorsed chlorpyrifos\u2013PD AOP",
+            "AOP-Wiki is continuously updated; new AOPs or stressor mappings linking organophosphates to neurodegeneration may be in development or under OECD review at the time of this query",
+            "Absence of a registered AOP does not imply absence of biological plausibility; it reflects the current state of formal regulatory endorsement only",
+            "quoted_span is empty because AOP-Wiki pages are not indexable in plain text via the search engine used; the URL is the primary source identifier"
+          ],
+          "verification_status": "source-resolved",
+          "task": "curated_diagnostic_status",
+          "dropped": "no exact supporting span"
+        },
+        {
+          "claim": "DEP (CAS 598-02-7) and DETP (CAS 1461-82-1) are non-specific metabolites shared by multiple diethyl organophosphates\u2014chlorpyrifos, chlorethoxyphos, coumaphos, diazinon, parathion, and sulfotep\u2014so urinary DEP/DETP cannot attribute exposure to chlorpyrifos specifically.",
+          "chemical_identity": {
+            "name": "diethyl phosphate / diethyl thiophosphate",
+            "form": "urinary metabolites; CAS 598-02-7 (DEP), CAS 1461-82-1 (DETP)"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "urinary DEP/DETP",
+            "target_node": "chlorpyrifos-specific exposure attribution"
+          },
+          "evidence_role": "counterevidence",
+          "study_context": {
+            "species": "human",
+            "tissue": "urine",
+            "dose": "not specified",
+            "route": "biomonitoring (aggregate)"
+          },
+          "direction": "contradicts",
+          "source": {
+            "url": "https://www.researchgate.net/publication/51792978_Dialkyl_phosphates_as_biomarkers_of_organophosphates_The_current_divide_between_epidemiology_and_clinical_toxicology",
+            "quoted_span": "For example, DEP and DETP are metabolites of chlorethoxyphos, chlorpyrifos, coumaphos, diazinon, parathion and sulfotep."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "Source is a ResearchGate excerpt; full article PMID/DOI not resolved from snippet",
+            "Statement is about metabolite chemistry, not PD risk directly; the PD inferential step requires an additional epidemiological source that itself uses DEP/DETP as the exposure biomarker"
+          ],
+          "verification_status": "source-resolved",
+          "task": "metabolite_identity_confound",
+          "dropped": "unresolved / mismatched chemical identity"
+        },
+        {
+          "claim": "DETP and DEP are non-specific metabolites of many OPs including chlorpyrifos, diazinon, parathion, phorate, and triazophos, undermining chlorpyrifos-specific attribution in class-level biomonitoring studies.",
+          "chemical_identity": {
+            "name": "diethyl phosphate / diethyl thiophosphate",
+            "form": "urinary metabolites; CAS 598-02-7 (DEP), CAS 1461-82-1 (DETP)"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "urinary DETP/DEP class signal",
+            "target_node": "chlorpyrifos-specific PD causal attribution"
+          },
+          "evidence_role": "counterevidence",
+          "study_context": {
+            "species": "human",
+            "tissue": "urine",
+            "dose": "not specified",
+            "route": "biomonitoring (aggregate)"
+          },
+          "direction": "contradicts",
+          "source": {
+            "url": "https://www.researchgate.net/publication/51792978_Dialkyl_phosphates_as_biomarkers_of_organophosphates_The_current_divide_between_epidemiology_and_clinical_toxicology",
+            "quoted_span": "It is worth noting that DETP and DEP are nonspecific metabolites of many OPs, such as chlorpyrifos, diazinon, parathion, phorate and triazophos."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "Excerpt; full PMID/DOI not resolved from snippet",
+            "Does not itself study PD; the limitation is inferential and requires linkage to a PD study using DAP biomarkers"
+          ],
+          "verification_status": "source-resolved",
+          "task": "metabolite_identity_confound",
+          "dropped": "unresolved / mismatched chemical identity"
+        },
+        {
+          "claim": "The six non-specific DAP urinary metabolites (including DEP and DETP) are shared across the entire diethyl-OP class; the primary OPs metabolized to DEP include chlorpyrifos, triazophos, diazinon, parathion, and phorate\u2014precluding individual-compound attribution from DAP biomonitoring alone.",
+          "chemical_identity": {
+            "name": "diethyl phosphate / diethyl thiophosphate",
+            "form": "urinary metabolites; CAS 598-02-7 (DEP), CAS 1461-82-1 (DETP)"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "diethyl-OP pesticide class exposure",
+            "target_node": "urinary DEP/DETP signal (shared)"
+          },
+          "evidence_role": "counterevidence",
+          "study_context": {
+            "species": "human",
+            "tissue": "urine",
+            "dose": "not specified",
+            "route": "biomonitoring (aggregate)"
+          },
+          "direction": "contradicts",
+          "source": {
+            "doi": "10.1016/j.scitotenv.2022.158039",
+            "url": "https://www.sciencedirect.com/science/article/abs/pii/S0048969722041122",
+            "quoted_span": "The main OPs that can be degraded and metabolized into non-specific metabolite DEP are listed in Table S1. Among them, chlorpyrifos, triazophos, diazinon, parathion and phorate are the most commonly used OPs globally."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "Paper concerns HPA-axis endocrine effects of DEP, not PD; the PD relevance is inferential",
+            "DOI inferred from ScienceDirect URL pii; should be verified"
+          ],
+          "verification_status": "source-resolved",
+          "task": "metabolite_identity_confound",
+          "dropped": "unresolved / mismatched chemical identity"
+        },
+        {
+          "claim": "Epidemiological studies have established correlations between OPs and disease outcomes based on urinary DEP measurements, but DEP is a non-specific metabolite and 'measuring the effects of DEP is not a proxy for measuring the effects of its parent compounds', directly limiting chlorpyrifos-specific causal inference.",
+          "chemical_identity": {
+            "name": "diethyl phosphate",
+            "form": "urinary metabolite; CAS 598-02-7"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "urinary DEP epidemiological association",
+            "target_node": "chlorpyrifos parent compound disease attribution"
+          },
+          "evidence_role": "counterevidence",
+          "study_context": {
+            "species": "rat (Rattus norvegicus) / human (epidemiological inference)",
+            "tissue": "serum, urine, gut microbiota",
+            "dose": "0.08 or 0.13 mg/kg DEP, 20 weeks",
+            "route": "oral (rat in vivo); urinary biomonitoring (human epi)"
+          },
+          "direction": "limits",
+          "source": {
+            "pmid": "PMC6572208",
+            "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6572208/",
+            "quoted_span": "These findings indicate that measuring the effects of DEP is not a proxy for measuring the effects of its parent compounds."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "Rat in vivo study; DEP doses may not reflect human exposure levels",
+            "Study endpoints are lipid/hormone/microbiota, not dopaminergic neurodegeneration or PD",
+            "Generalisation to PD epidemiology requires the inferential step that DAP-based PD studies exist\u2014which is established literature but not demonstrated in this paper"
+          ],
+          "verification_status": "source-resolved",
+          "task": "metabolite_identity_confound",
+          "dropped": "unresolved / mismatched chemical identity"
+        },
+        {
+          "claim": "Urinary DAP metabolites including DEP are class-specific biomarkers that cannot quantify exposure to individual OP pesticides; over 70% of EPA-registered OP pesticides can metabolize to one or more DAPs, making DEP/DETP elevations in PD epidemiology consistent with exposure to diazinon, disulfoton, or other diethyl-OPs rather than chlorpyrifos specifically.",
+          "chemical_identity": {
+            "name": "diethyl phosphate / diethyl thiophosphate",
+            "form": "urinary metabolites; CAS 598-02-7 (DEP), CAS 1461-82-1 (DETP)"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "diethyl-OP class (\u226570% registered OPs)",
+            "target_node": "urinary DEP/DETP signal"
+          },
+          "evidence_role": "counterevidence",
+          "study_context": {
+            "species": "human",
+            "tissue": "urine, house dust",
+            "dose": "environmental/residential",
+            "route": "biomonitoring; dust ingestion/dermal"
+          },
+          "direction": "limits",
+          "source": {
+            "pmid": "PMC4133088",
+            "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4133088/",
+            "quoted_span": "Although DAP metabolites are class-specific biomarkers, they cannot be used to quantify exposure to individual OP pesticides except in acute exposure settings."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "Study population is children ages 3\u20136, not a PD cohort; generalization to adult PD epidemiology is inferential",
+            "Demonstrates class non-specificity of DAPs as a principle, but does not directly test chlorpyrifos vs. diazinon attribution in a PD study"
+          ],
+          "verification_status": "source-resolved",
+          "task": "metabolite_identity_confound",
+          "dropped": "unresolved / mismatched chemical identity"
+        },
+        {
+          "claim": "Preformed DAPs present in food and the indoor environment (DEP detected in house dust at \u226560% frequency) can contribute to urinary DEP levels independently of in vivo OP metabolism, further confounding urinary DEP as a biomarker of chlorpyrifos-specific internal dose in epidemiological PD studies.",
+          "chemical_identity": {
+            "name": "diethyl phosphate",
+            "form": "preformed environmental/food contaminant; CAS 598-02-7"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "preformed environmental DEP (dust, food)",
+            "target_node": "urinary DEP biomarker signal (not reflecting parent OP)"
+          },
+          "evidence_role": "counterevidence",
+          "study_context": {
+            "species": "human",
+            "tissue": "urine; house dust",
+            "dose": "residential/environmental; DEP detected in \u226560% of dust samples",
+            "route": "ingestion/dermal (dust); dietary (food)"
+          },
+          "direction": "limits",
+          "source": {
+            "pmid": "PMC4133088",
+            "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4133088/",
+            "quoted_span": "Human exposure to preformed dialkylphosphates (DAPs) in food or the environment may affect the reliability of DAP urinary metabolites as biomarkers of organophosphate (OP) pesticide exposure."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "Study focused on children and residential dust; extrapolation to occupational or agricultural PD cohorts requires additional evidence",
+            "DEP dust concentrations were not significantly correlated with chlorpyrifos and diazinon dust levels, suggesting an uncharacterized preformed DEP source\u2014source is unknown and may not generalise"
+          ],
+          "verification_status": "source-resolved",
+          "task": "metabolite_identity_confound",
+          "dropped": "unresolved / mismatched chemical identity"
+        },
+        {
+          "claim": "DEP dust concentrations in homes were not significantly correlated with concentrations of chlorpyrifos and diazinon\u2014the most frequently detected diethyl-OP pesticides\u2014indicating that a substantial fraction of environmental DEP arises from sources unrelated to chlorpyrifos, further undermining specific chlorpyrifos attribution via DEP biomonitoring in PD studies.",
+          "chemical_identity": {
+            "name": "diethyl phosphate",
+            "form": "preformed environmental degradate; CAS 598-02-7"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "indoor DEP (non-chlorpyrifos origin)",
+            "target_node": "urinary DEP biomarker (misattributed to chlorpyrifos)"
+          },
+          "evidence_role": "counterevidence",
+          "study_context": {
+            "species": "human",
+            "tissue": "house dust; urine",
+            "dose": "residential; 40 homes, n=79 dust samples",
+            "route": "biomonitoring"
+          },
+          "direction": "contradicts",
+          "source": {
+            "pmid": "PMC4133088",
+            "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4133088/",
+            "quoted_span": "DEP dust concentrations did not significantly differ between communities, nor were concentrations significantly correlated with concentrations of chlorpyrifos and diazinon, the most frequently detected diethyl-OP pesticides."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "Study population is children in farmworker/urban homes; not a PD cohort",
+            "Does not include TCPy measurement, so the TCPy-specificity question is not addressed here"
+          ],
+          "verification_status": "source-resolved",
+          "task": "metabolite_identity_confound",
+          "dropped": "unresolved / mismatched chemical identity"
+        },
+        {
+          "claim": "TCPy (3,5,6-trichloro-2-pyridinol; CAS 6515-38-4) is the chlorpyrifos-specific urinary metabolite and was measured alongside non-specific DAPs in an OP biomonitoring cohort; its co-detection with non-specific metabolites illustrates the study design needed to disambiguate chlorpyrifos from co-class OP exposures\u2014studies using only DAPs lack this specificity.",
+          "chemical_identity": {
+            "name": "3,5,6-trichloro-2-pyridinol (TCPy)",
+            "form": "urinary specific metabolite of chlorpyrifos/chlorpyrifos-methyl; CAS 6515-38-4"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "TCPy urinary measurement",
+            "target_node": "chlorpyrifos-specific vs. class-level OP exposure disambiguation"
+          },
+          "evidence_role": "corroboration",
+          "study_context": {
+            "species": "human",
+            "tissue": "urine",
+            "dose": "environmental (pregnant women, 32nd week gestation)",
+            "route": "biomonitoring; INMA birth cohort, Spain, n=573"
+          },
+          "direction": "unresolved",
+          "source": {
+            "pmid": "PMC5436449",
+            "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5436449/",
+            "quoted_span": "The analysis included non-specific (diethyl phosphate [DEP], diethyl thiophosphate [DETP], dimethyl thiophosphate [DMTP], dimethyl dithiophosphate [DMDTP]) and specific metabolites (2-diethylamino-6-methyl-4-pyrimidinol [DEAMPY], 2-isopropyl-4-methyl-6-hydroxypyrimidine [IMPY], para-nitrophenol [PNP], and 3,5,6-trichloro-2-pyridinol [TCPY])."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "This is a birth cohort study of pregnant women; not a PD case-control or cohort",
+            "Demonstrates that TCPY can be measured alongside DAPs but does not itself assess chlorpyrifos vs. chlorpyrifos-methyl; both yield TCPy",
+            "PD relevance is inferential\u2014this evidence shows the methodological gap, not a PD association"
+          ],
+          "verification_status": "source-resolved",
+          "task": "metabolite_identity_confound",
+          "dropped": "unresolved / mismatched chemical identity"
+        },
+        {
+          "claim": "TCPy (CAS 6515-38-4) detected at 0.36\u201338.96 \u00b5g/L in 100% of urine samples in a general-population biomonitoring study, and 3,5,6-trichloro-2-pyridinol was the most widely detected pesticide-specific metabolite\u2014consistent with ubiquitous background TCPy exposure potentially arising from chlorpyrifos-methyl (a different compound) or environmental degradation, not necessarily chlorpyrifos per se.",
+          "chemical_identity": {
+            "name": "3,5,6-trichloro-2-pyridinol (TCPy)",
+            "form": "urinary specific metabolite; CAS 6515-38-4; shared by chlorpyrifos and chlorpyrifos-methyl"
+          },
+          "disease": "PD",
+          "pathway_edge": {
+            "source_node": "ubiquitous TCPy background exposure",
+            "target_node": "chlorpyrifos-specific PD attribution via TCPy biomarker"
+          },
+          "evidence_role": "counterevidence",
+          "study_context": {
+            "species": "human",
+            "tissue": "urine",
+            "dose": "0.36\u201338.96 \u00b5g/L (range in general population)",
+            "route": "biomonitoring (general population)"
+          },
+          "direction": "limits",
+          "source": {
+            "url": "https://www.researchgate.net/publication/51792978_Dialkyl_phosphates_as_biomarkers_of_organophosphates_The_current_divide_between_epidemiology_and_clinical_toxicology",
+            "quoted_span": "3,5,6-trichloro-2-pyridinol (chlopryrifos metabolite) was detected in all urines with levels ranging from 0.36 to 38.96 \u00b5g/l."
+          },
+          "confidence_basis": [
+            "primary source"
+          ],
+          "limitations": [
+            "TCPy is the most chlorpyrifos-specific available urinary biomarker but is also produced by chlorpyrifos-methyl and may arise from environmental hydrolysis of these compounds in food; the source cannot be resolved by biomonitoring alone",
+            "This excerpt does not link TCPy levels to PD risk; PD attribution step is inferential",
+            "Full PMID/DOI not resolved from ResearchGate snippet"
+          ],
+          "verification_status": "source-resolved",
+          "task": "metabolite_identity_confound",
+          "dropped": "unresolved / mismatched chemical identity"
+        }
+      ]
+    }
+  ],
+  "total_cost_usd": 2.4887
+}
