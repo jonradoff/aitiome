@@ -13,7 +13,7 @@ const browser = await puppeteer.launch({
 });
 const page = await browser.newPage();
 await page.goto(url, { waitUntil: "load", timeout: 60000 });
-await new Promise((r) => setTimeout(r, 4000));
+await new Promise((r) => setTimeout(r, 8000));
 
 if (PROBE) {
   const map = await page.evaluate(() =>
@@ -40,14 +40,14 @@ async function shot(text, file, headroom = 70) {
   console.log("wrote", file);
 }
 
-await shot("It reconstructs the endorsed", "/tmp/deck-app-hero.png", 0);
-await shot("Reasoning trace", "/tmp/deck-app-readout.png");
+await shot("Give it a chemical", "/tmp/deck-app-hero.png", 0);
+await shot("Convergent evidence", "/tmp/deck-app-readout.png");
 await shot("It is not fooled", "/tmp/deck-app-specificity.png");
 await shot("Why not just use bioactivity", "/tmp/deck-app-falsification.png");
 await shot("Where AI-driven discovery", "/tmp/deck-app-discovery.png");
 await shot("The candidate queue", "/tmp/deck-app-candidates.png");
 await shot("The reasoning path", "/tmp/deck-app-reasoningpath.png");
 await shot("Anticipated critiques", "/tmp/deck-app-critiques.png");
-await shot("Sources and references", "/tmp/deck-app-sources.png");
+await shot("References", "/tmp/deck-app-sources.png");
 await shot("An external agent", "/tmp/deck-app-mcp.png");
 await browser.close();

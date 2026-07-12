@@ -369,12 +369,12 @@ slide("", `${eyebrow("How it's built, and how it extends")}${h("Deterministic co
 
 // 15b - methods study: how should Claude synthesize the evidence? (RLM vs RAG)
 slide("dark", `${eyebrow("A second question we studied: how should Claude synthesize evidence?")}${h("Beyond RAG - Recursive Language Models")}
-  <div class="two">
+  <div class="two" style="margin-top:26px">
     <div class="card"><b class="c">RAG - one monolithic pass</b><p class="dim">A single web-grounded model call reads the sources and writes the answer. Simple and cheap - but it must hold the whole problem in one context, and one slow or failed retrieval sinks the entire pass.</p></div>
     <div class="card recovered"><b class="g">RLM - decompose, then recurse</b><p class="dim">An Opus <b>planner</b> splits the task into ~6 bounded sub-investigations; parallel Sonnet <b>leaves</b> each research one; a deterministic merge combines them. Depth-1, per the MIT method.</p></div>
   </div>
-  <p class="pull">Decomposition buys coverage, a built-in adversarial critic, and graceful degradation.</p>
-  <p class="dim small">Method: Recursive Language Models - Zhang, Kraska &amp; Khattab, MIT CSAIL, arXiv:2512.24601 (2025). Depth fixed at 1; the reproduction study warns deeper recursion inflates cost without accuracy gains.</p>
+  <p class="pull" style="margin-top:20px">Decomposition buys coverage, a built-in adversarial critic, and graceful degradation.</p>
+  <p class="dim small" style="margin-top:10px">Method: Recursive Language Models - Zhang, Kraska &amp; Khattab, MIT CSAIL, arXiv:2512.24601 (2025). Depth fixed at 1; the reproduction study warns deeper recursion inflates cost without accuracy gains.</p>
   ${foot(N())}`);
 
 // 15c - the four methods, measured on our own task
@@ -392,12 +392,12 @@ slide("dark", `${eyebrow("Four synthesis methods, one deterministic scorer, six 
 
 // 15d - the methods finding + where it transfers
 slide("", `${eyebrow("What the methods study concluded")}${h("Adversarial RLM is the right tool when evidence must be skeptical")}
-  <div class="two">
+  <div class="two" style="margin-top:26px">
     <div class="card recovered"><b class="c">The finding</b><p class="dim">RLM-ADV surfaced <b>~10x more counter-evidence than RAG and ~2.4x more than the strong RAG+ baseline</b>, matching RAG+ on yield and source breadth - while running degraded. For a tool built on calibrated honesty, actively hunting <i>disconfirming</i> evidence is the property that matters most.</p></div>
     <div class="card"><b class="g">The trade-off, kept honest</b><p class="dim">RLM-ADV's critic refutes rather than confirms - it recovered 0/6 diagnostic anchors - so it pairs with RLM-1, which builds the case. And decomposition <b>degrades gracefully</b>: a stalled leaf loses one sub-question, where a monolithic RAG call loses everything.</p></div>
   </div>
-  <p class="pull">The pattern transfers wherever "find the counter-evidence" matters as much as "build the case."</p>
-  <p class="dim small">Drug-target validation, pharmacovigilance signal assessment, systematic-review triage, biomarker-disease association grading - any life-science synthesis that must assemble source-grounded evidence and then stress-test it.</p>
+  <p class="pull" style="margin-top:16px;font-size:20px">The pattern transfers wherever "find the counter-evidence" matters as much as "build the case."</p>
+  <p class="dim small" style="margin-top:8px">Drug-target validation, pharmacovigilance signal assessment, systematic-review triage, biomarker-disease grading - any life-science synthesis that assembles source-grounded evidence, then stress-tests it.</p>
   ${foot(N())}`);
 
 // 16 - challenges & learnings

@@ -9,7 +9,7 @@ const browser = await puppeteer.launch({
   defaultViewport: { width: 1600, height: 1000, deviceScaleFactor: 2 },
 });
 const page = await browser.newPage();
-await page.goto(url, { waitUntil: "networkidle0", timeout: 30000 });
+await page.goto(url, { waitUntil: "load", timeout: 60000 });
 
 async function shot(label, file) {
   await page.evaluate((t) => {
