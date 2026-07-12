@@ -175,6 +175,23 @@ rendering is out of scope** (don't out-render Mol*/Drew Berry).
 **Hero shot:** validation recovery + the three-line adversarial rejection as motion, resolving into the
 vulnerable dopaminergic-neuron population. The single screenshot that travels — polish to a mirror finish.
 
+## RLM-vs-RAG evidence harness (ADR-0007, `services/aitio/rlm/` — OFFLINE ONLY)
+
+Offline experiment comparing four evidence-assembly systems (RAG, RAG+, RLM-1, RLM-ADV) on a shared
+deterministic validator. **Never on the live request path; never touches the recovery gate.** Results +
+method in `docs/research/rlm/` (`FINDINGS.md`, per-chemical JSON). Run via `scripts/rlm-eval-all.sh`
+(resumable: `--resume` skips banked systems, `--systems` filters, incremental per-system persistence).
+**Durable gotchas (violating these re-breaks fixed bugs):**
+- **Hand-accumulate streamed responses** — anthropic-sdk-go v1.56.0 `Message.Accumulate` crashes
+  re-marshaling empty `web_search_tool_result` blocks. We pull text/usage/stop-reason off the event stream.
+- **Server-side `web_search` is org-rate-limited** — keep `leafConcurrency` low (2); 4 concurrent leaves
+  starve each other (single-pass RAG succeeds while parallel leaves time out).
+- **Planner/critic (`callJSON`) run thinking DISABLED** — else thinking tokens eat the JSON budget → empty plan.
+- **Never pass `ANTHROPIC_API_KEY` with shell-escaped quotes** — `loadKey()` reads ambient env then `.env`; a
+  garbage override = 401. Inherit the ambient env.
+- **Deck PDF build needs the capture pipeline first** (`/tmp/deck-*.png`); `build-deck.mjs` alone fails at load.
+- Live RLM (future) must be **BYOK + gated + rate-limited + fixtured** — casual app use must not spend our key.
+
 ## Working agreement (rule for the agent)
 
 - When any design/implementation choice touches the above, **cite the relevant `docs/` file** in your reasoning.
