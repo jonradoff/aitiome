@@ -8,6 +8,11 @@
 *.test
 *.prof
 coverage.out
+# root-level compiled binaries (make curate / build outputs)
+/curate
+/httpd
+/mcpd
+/rlm-eval
 
 # node / frontend
 node_modules/

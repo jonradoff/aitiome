@@ -19,9 +19,9 @@ read-only tools). README overhauled (hero screenshot `docs/assets/screenshot-her
 **react-router** with real routes: `/` (main), **`/rlm`** (RLM methods page, `web/src/pages/RlmPage.tsx`),
 **`/mcp`** (`McpPage.tsx`); shared chrome in `web/src/site.tsx` (SiteHeader/SiteFooter + first-visit Welcome
 modal + end-of-tour modal; global footer = "© 2026 Jon Radoff — MIT License | Built with Claude: Life
-Sciences Hackathon" + nav links). **The deck PDF is served at `/presentation.pdf`** from a COPY at
-`web/public/presentation.pdf` — when you rebuild `docs/aitiome-presentation.pdf`, re-copy it into
-`web/public/` or the hosted deck goes stale. **Identity gotcha (test-locked discipline):** rotenone =
+Sciences Hackathon" + nav links). **The deck PDF is served at `/presentation.pdf`**; `build-deck.mjs` writes it DIRECTLY to
+`web/public/presentation.pdf` (the single tracked, served copy — Vite bundles `web/public/` into
+`dist/`). No separate `docs/` copy anymore. **Identity gotcha (test-locked discipline):** rotenone =
 `DTXSID6021248`, chlorpyrifos = `DTXSID4020458` — don't swap them (validation_set.csv is ground truth).
 
 **Candidate pipeline shipped (2026-07-09, ADR-0006):** Aitiome is now a triage pipeline, not only a validator.
@@ -52,7 +52,7 @@ defensible line: the *flagship multi-disease* exposome atlases (Patel & Manrai, 
 population exposure→disease inference ≠ per-chemical neurotoxicity prediction (the recon-killed thing). **Open
 candidate (pending gate):** perchloroethylene/PCE as a 14th PD positive — needs manual **CTD-PD DirectEvidence**
 verification (CTD batch API now ALTCHA-walled); logged in `docs/excluded-sources.md`. Next up (planned, not built):
-a **candidate-tracking pipeline** with value-of-information ranking to guide wet labs.
+a **candidate-tracking pipeline** with evidence-weighted priority ranking to guide wet labs.
 
 **Round-2 literature scan + TCE (2026-07-08):** a second deep-research pass (`docs/research/round2-literature-scan.md`)
 added **trichloroethylene** as the **13th** curated PD positive (verified CTD-PD DirectEvidence; Camp Lejeune,
@@ -138,7 +138,7 @@ core first):
    ground the adverse outcome; also the **hero visual's terminal frame**. Keep this even under cuts.
 2. **FAERS pharmacovigilance** (`faers_coverage.csv`): openFDA disproportionality; **0/4 assessable adversarial
    drugs show any parkinsonism signal across ~20M reports** (haloperidol control ROR 39.6).
-3. **Human epidemiology** (`epidemiology_coverage.csv`): paraquat ~2.5×, rotenone OR ~10 for ~8/12 positives.
+3. **Human epidemiology** (`epidemiology_coverage.csv`): paraquat ~2.5×, rotenone OR ~2.5 (Tanner 2011 FAME) for ~8/12 positives.
    This is a **Claude Science literature-curation task, not an API pull**.
 4. **BBB / brain-exposure** (`bbb_coverage.csv`): supporting plausibility gate, not a discriminator. 3/6
    adversarials are low-brain-exposure (warfarin protein-bound, fenofibrate BBB−, troglitazone non-penetrant,

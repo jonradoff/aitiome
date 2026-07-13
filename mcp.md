@@ -135,7 +135,7 @@ the cross-disease verdict for the other axis.
 neurotoxicants + 15 negatives incl. 6 adversarial decoys; AD: curated AD-linked chemicals + AD-assay-active
 decoys) and returns the scoreboard (expect fp=0, fn=0).
 
-**`list_candidates`** — `disease?`. Returns the value-of-information-ranked candidate queue: chemicals
+**`list_candidates`** — `disease?`. Returns the evidence-weighted priority-ranked candidate queue: chemicals
 with real but incomplete evidence, each with its evidence strands, promotion distance, and recommended
 next experiment. A triage layer, **not a predictor** — only the curated gate promotes; the adversarial
 decoys are carried as a control and rank last. Includes a held-out prioritization backtest.
@@ -229,7 +229,7 @@ appears only as corroboration — never as the reason for the call.
     { "id": "E1", "strand": "curated",       "status": "diagnostic",    "finding": "CTD PD DirectEvidence (marker/mechanism)" },
     { "id": "E2", "strand": "aop_stressor",  "status": "diagnostic",    "finding": "registered stressor of AOP-3 (complex-I)" },
     { "id": "E3", "strand": "assay",         "status": "corroboration", "finding": "mitochondrial/MMP assay activity — illustrative, NOT the decision" },
-    { "id": "E4", "strand": "epidemiology",  "status": "corroboration", "finding": "human PD association, OR ~10" },
+    { "id": "E4", "strand": "epidemiology",  "status": "corroboration", "finding": "human PD association, OR ~2.5 (Tanner 2011)" },
     { "id": "E5", "strand": "bbb",           "status": "supporting",    "finding": "brain-penetrant" }
   ],
   "crossDisease": { "disease": "ad", "positive": false },

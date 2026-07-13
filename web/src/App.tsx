@@ -70,7 +70,11 @@ export function App() {
 }
 
 function MainExperience() {
-  const [theme, setTheme] = useState<"dark" | "light">("dark");
+  const [theme, setTheme] = useState<"dark" | "light">(() => {
+    try { return localStorage.getItem("aitiome_theme") === "light" ? "light" : "dark"; } catch { return "dark"; }
+  });
+  // Apply the theme to the document (also picks up a theme persisted from another route).
+  useEffect(() => { document.documentElement.setAttribute("data-theme", theme); }, [theme]);
   const [disease, setDiseaseState] = useState<Disease>(initialDisease());
   const [activeId, setActiveId] = useState(AXIS[initialDisease()].defaultActive);
   const [provenance, setProvenance] = useState<EvidenceStrand | null>(null);
@@ -122,6 +126,7 @@ function MainExperience() {
   function toggleTheme() {
     const next = theme === "dark" ? "light" : "dark";
     setTheme(next);
+    try { localStorage.setItem("aitiome_theme", next); } catch { /* ignore */ }
     document.documentElement.setAttribute("data-theme", next);
   }
 
@@ -358,8 +363,8 @@ function CompareSection() {
     { dim: "Curated recovery (ground truth)", pd: [recPD, 3], ad: [recAD, 3] },
     { dim: "Predictive power / falsification", pd: ["Quantified: every bioactivity signal at or below chance vs decoys — anti-diagnostic", 3], ad: ["Qualitative: the decoys are the AD drugs & polyphenols; quantified assay-AUROC pending AD-assay data", 1] },
     { dim: "Curated data quality", pd: ["CTD PD DirectEvidence + AOP-Wiki — two independent curations", 3], ad: ["CTD AD DirectEvidence (pulled live); AOP leg thinner; endogenous-metabolite noise filtered by scope", 2] },
-    { dim: "Circularity defense", pd: ["Two independent curations converge: 8/12 + 8/12 → 12/12", 3], ad: ["Leans mostly on CTD-alone (weaker AOP leg) — disclosed, not claimed", 1] },
-    { dim: "Human epidemiology", pd: ["Quantified (paraquat ~2.5×, rotenone OR ~10)", 3], ad: ["DDE (Richardson 2014), lead cohort HR~3; aluminum contested", 2] },
+    { dim: "Circularity defense", pd: ["Two independent curations converge: 9/13 + 8/13 → 13/13", 3], ad: ["Leans mostly on CTD-alone (weaker AOP leg) — disclosed, not claimed", 1] },
+    { dim: "Human epidemiology", pd: ["Quantified (paraquat ~2.5×, rotenone OR ~2.5; Tanner 2011 FAME)", 3], ad: ["DDE (Richardson 2014), lead cohort HR~3; aluminum contested", 2] },
   ];
 
   return (

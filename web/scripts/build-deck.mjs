@@ -1,5 +1,6 @@
 // Builds the Aitiome presentation as a 16:9 PDF, on-brand (embedded fonts + hero
-// screenshot). Renders via the system Chrome. Output: docs/aitiome-presentation.pdf
+// screenshot). Renders via the system Chrome. Output: web/public/presentation.pdf
+// (the tracked, served copy — Vite bundles web/public into dist at /presentation.pdf).
 //
 // Arc (self-contained for a general hackathon audience): problem -> the hard part
 // -> the original goal -> the pivot -> what it is -> the recovery rule -> the hero
@@ -264,7 +265,7 @@ slide("dark", `${eyebrow("The two axes, compared")}${h("The same method, calibra
     ${cmp("Curated recovery", "13/13, 0 err", 3, "12/12, 0 err", 3)}
     ${cmp("Predictive power / falsification", "quantified: activity at or below chance", 3, "qualitative; assay-AUROC pending data", 1)}
     ${cmp("Circularity defense", "two curations converge (9/13 + 8/13)", 3, "leans on CTD alone (~11/12)", 1)}
-    ${cmp("Human epidemiology", "quantified (paraquat 2.5x, rotenone OR ~10)", 3, "DDE OR 4.18; aluminum contested", 2)}
+    ${cmp("Human epidemiology", "quantified (paraquat 2.5x, rotenone OR ~2.5; Tanner 2011)", 3, "DDE OR 4.18; aluminum contested", 2)}
   </div>
   <p class="dim small">Shared: KE-188 neuroinflammation bridges both AOPs; lead is positive for both; mitochondrial dysfunction is an unlinked gap, shown not hidden.</p>
   ${foot(N())}`);
@@ -711,7 +712,7 @@ const browser = await puppeteer.launch({
 const page = await browser.newPage();
 await page.setContent(html, { waitUntil: "load" });
 await page.evaluate(async () => { await document.fonts.ready; });
-const out = join(root, "docs/aitiome-presentation.pdf");
+const out = join(root, "web/public/presentation.pdf");
 await page.pdf({ path: out, width: "1280px", height: "720px", printBackground: true, pageRanges: `1-${slides.length}` });
 console.log("wrote", out, `(${slides.length} slides)`);
 await browser.close();

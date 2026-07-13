@@ -10,7 +10,7 @@ import (
 // loads for both axes, every adversarial decoy (control) scores 0 and ranks
 // after every real candidate, and the held-out prioritization backtest passes
 // (a known positive, scored on non-curated strands alone, outranks every decoy).
-// If the VOI ranker ever lets a decoy float up, this fails.
+// If the evidence-weighted ranker ever lets a decoy float up, this fails.
 func TestCandidateQueueInvariants(t *testing.T) {
 	svc, err := New()
 	if err != nil {
@@ -33,6 +33,14 @@ func TestCandidateQueueInvariants(t *testing.T) {
 			} else {
 				if seenControl {
 					t.Errorf("%s: real candidate %q ranked after a control (index %d)", d, c.Name, i)
+				}
+				// HARD invariant (ADR-0006): every real candidate must carry at least one
+				// non-bioactivity evidence strand and therefore a positive derived score.
+				if len(c.Evidence) == 0 {
+					t.Errorf("%s: real candidate %q has no evidence strand (needs >=1 non-bioactivity strand)", d, c.Name)
+				}
+				if c.Score <= 0 {
+					t.Errorf("%s: real candidate %q scored %.1f, want > 0", d, c.Name, c.Score)
 				}
 				// real candidates must be in non-increasing score order
 				if lastReal >= 0 && c.Score > lastReal {

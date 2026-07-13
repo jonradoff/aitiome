@@ -2,8 +2,8 @@ package contract
 
 // The candidate queue turns Aitiome from a pure validator into a triage pipeline:
 // a ranked list of chemicals that are NOT yet confirmed positives but carry
-// partial or pending evidence worth curation or wet-lab attention. It is a
-// value-of-information layer, NOT a predictor — a candidate only enters with at
+// partial or pending evidence worth curation or wet-lab attention. It is an
+// evidence-weighted priority layer, NOT a predictor — a candidate only enters with at
 // least one real (non-bioactivity) evidence strand, and only the curated gate
 // (CTD DirectEvidence OR a registered in-scope AOP stressor) can ever promote it
 // to a positive. General bioactivity is barred (it is anti-diagnostic here), and
@@ -25,7 +25,7 @@ type Candidate struct {
 	CAS        string              `json:"cas,omitempty"`
 	DTXSID     string              `json:"dtxsid,omitempty"`
 	State      string              `json:"state"`      // aop_stressor_ready | mechanistic | association | pending_verification
-	Score      float64             `json:"score"`      // value-of-information priority (DERIVED from evidence, not stored)
+	Score      float64             `json:"score"`      // evidence-weighted priority (DERIVED from evidence, not stored)
 	Promotion  string              `json:"promotion"`  // human phrase: distance to the curated gate
 	Experiment string              `json:"experiment"` // recommended next experiment (the wet-lab guidance)
 	Rationale  string              `json:"rationale"`
