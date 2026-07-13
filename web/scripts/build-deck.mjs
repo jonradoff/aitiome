@@ -65,10 +65,10 @@ slide("hl", `${eyebrow("Hackathon highlights")}
   <div class="hlgrid">
     <div class="hlshot"><img src="data:image/png;base64,${highlightsShot}"/></div>
     <div class="hlpts">
-      <div class="hlpt"><div class="hk c">What it is</div><p>Give it a chemical; it reconstructs the OECD-endorsed causal pathway to Parkinson's or Alzheimer's, grades it on <b>curated evidence - never bioactivity</b>, and rates its confidence.</p></div>
-      <div class="hlpt"><div class="hk c">Who it's for</div><p>Exposome &amp; neurodegeneration researchers, mechanism-focused labs, and AOP / regulatory toxicologists - the community that in 2024 called for AI linking chemicals to disease <i>mechanism</i>.</p></div>
-      <div class="hlpt"><div class="hk r">Why it's hard</div><p>Tens of thousands of chemicals are bioactive; almost none are curated neurotoxicants. Telling a true one from a bioactive decoy is the whole game - and <b>bioactivity scores worse than chance</b> at it.</p></div>
-      <div class="hlpt"><div class="hk g">How it's made</div><p>Deterministic Go engine, <b>Claude Opus 4.8</b> narrating the evidence (adversarial-RLM synthesis), <b>built with Claude Code</b>, and an <b>MCP server</b> that opens the same engine to agentic workflows.</p></div>
+      <div class="hlpt"><div class="hk c">What it is</div><p>Give it a chemical; it reconstructs the endorsed causal pathway to Parkinson's or Alzheimer's, graded on <b>curated evidence - never bioactivity</b>.</p></div>
+      <div class="hlpt"><div class="hk c">Who it's for</div><p>Exposome researchers and mechanism-focused labs - the community that called for AI linking chemicals to disease <i>mechanism</i>.</p></div>
+      <div class="hlpt"><div class="hk r">Why it's hard</div><p>Thousands of chemicals are bioactive; almost none are curated neurotoxicants - and <b>bioactivity scores worse than chance</b> at telling them apart.</p></div>
+      <div class="hlpt"><div class="hk g">How it's made</div><p>Deterministic Go engine; <b>Claude Opus 4.8</b> narrates the evidence, <b>built with Claude Code</b>, with an <b>MCP server</b> for agents.</p></div>
     </div>
   </div>
   <p class="hlcta">Try it live at <b class="c">aitiome.fly.dev</b></p>
@@ -665,12 +665,12 @@ const css = `
   /* hackathon highlights */
   .slide.hl{padding:44px 64px 22px}
   .hl .eyebrow{margin-bottom:16px}
-  .hlgrid{display:grid;grid-template-columns:1.02fr 1fr;gap:36px;flex:1;align-items:start;min-height:0;margin-top:8px}
+  .hlgrid{display:grid;grid-template-columns:1.42fr 1fr;gap:36px;flex:1;align-items:center;min-height:0;margin-top:8px}
   .hlshot{border:1px solid var(--line);border-radius:12px;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,.5)}
   .hlshot img{display:block;width:100%;height:auto}
-  .hlpts{display:flex;flex-direction:column;gap:15px}
-  .hlpt .hk{font-family:'PlexMono';font-size:12px;letter-spacing:.09em;text-transform:uppercase;margin-bottom:5px}
-  .hlpt p{font-size:15px;line-height:1.42;color:var(--dim)}
+  .hlpts{display:flex;flex-direction:column;gap:22px}
+  .hlpt .hk{font-family:'PlexMono';font-size:13px;letter-spacing:.09em;text-transform:uppercase;margin-bottom:6px}
+  .hlpt p{font-size:17.5px;line-height:1.45;color:var(--dim)}
   .hlpt p b{color:var(--ink);font-weight:600}
   .hlcta{text-align:center;font-size:21px;color:var(--dim);margin-top:14px}
   .slide.hl .foot span:nth-child(2){display:none}
