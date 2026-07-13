@@ -156,3 +156,24 @@ a.cite-link:hover { border-color: var(--signal); color: var(--ink); }
   .cmp-row { grid-template-columns: 1fr; }
   .cmp-dim, .cmp-cell { border-right: none; }
 }
+
+/* RLM four-method grid (Recursive Language Models page) */
+.rlm-grid { display: grid; grid-template-columns: 1.3fr 1fr 1fr 1fr 1fr; border-top: 1px solid var(--line); }
+.rlm-grid:first-child { border-top: none; }
+.rlm-head { background: color-mix(in srgb, var(--bg-2) 60%, transparent); }
+.rlm-grid > div { padding: 14px 16px; display: flex; align-items: center; border-right: 1px solid var(--line); }
+.rlm-grid > div:last-child { border-right: none; }
+
+/* MCP tool table (MCP page) */
+.mcp-row { display: grid; grid-template-columns: 0.9fr 0.7fr 2.4fr; border-top: 1px solid var(--line); }
+.mcp-row:first-child { border-top: none; }
+.mcp-head { background: color-mix(in srgb, var(--bg-2) 60%, transparent); }
+.mcp-row > div { padding: 12px 16px; display: flex; align-items: center; border-right: 1px solid var(--line); }
+.mcp-row > div:last-child { border-right: none; }
+@media (max-width: 760px) {
+  .rlm-grid, .mcp-row { grid-template-columns: 1fr; }
+  .rlm-grid > div, .mcp-row > div { border-right: none; }
+}
+
+/* keep the masthead uncluttered on smaller screens — the footer carries the same nav */
+@media (max-width: 1120px) { .masthead-nav { display: none; } }

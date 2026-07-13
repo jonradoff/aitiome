@@ -22,23 +22,21 @@ arXiv:2512.24601, 2025). Depth fixed at 1 per the reproduction caution (Wang 202
 | system | avg evidence | avg sources | avg counter-evidence | diagnostic recovered | cost |
 |---|---|---|---|---|---|
 | RAG     | 13.5 | 8.2  | 1.2  | 4/6 | $2.47 |
-| RAG+ \* | 17.2 | 13.6 | 5.4  | 3/5 | $3.01 |
+| RAG+    | 17.2 | 12.7 | 5.7  | 4/6 | $3.58 |
 | RLM-1   | 14.2 | 8.8  | 1.8  | 3/6 | $4.04 |
 | RLM-ADV | 17.7 | 13.7 | 12.7 | 0/6 | $7.01 |
 
-\* **RAG+ means are over n=5 chemicals** — the chlorpyrifos RAG+ cell did not complete
-(the single web-grounded pass timed out at 20 min with 0 searches during a throttled
-web-search window; retried 2026-07-13, same failure — backend-limited, not a code bug).
-All other rows are n=6. Full matrix = 23/24 cells; chlorpyrifos RAG+ pending a healthy
-web-search window.
+Full matrix = **24/24 cells** — all four systems complete over the six chemicals.
+(The chlorpyrifos RAG+ cell initially timed out under a throttled web-search backend;
+it completed on retry 2026-07-13, so the RAG+ row is now n=6 like the others.)
 
 ## Headline findings
-1. **RLM-ADV surfaces dramatically more counter-evidence** — 12.7/chem vs RAG+ 5.4
-   (~2.4×) and plain RAG 1.2 (~10×). For a tool whose thesis is *calibrated honesty*
+1. **RLM-ADV surfaces dramatically more counter-evidence** — 12.7/chem vs RAG+ 5.7
+   (~2.2×) and plain RAG 1.2 (~10×). For a tool whose thesis is *calibrated honesty*
    (surface disconfirming evidence, don't just build a case), this is the property
    that matters most — and it's the adversarial-RLM's decisive win.
 2. **RLM-ADV matches the strong RAG+ baseline on yield and source breadth** (17.7 vs
-   17.2 objects; 13.7 vs 13.6 sources) — while doing so under a SEVERELY degraded
+   17.2 objects; 13.7 vs 12.7 sources) — while doing so under a SEVERELY degraded
    backend (only ~2.3/6 leaves productive due to a slow web-search window; a healthy
    backend would raise RLM further). So these RLM numbers are a floor.
 3. **Trade-off — RLM-ADV recovered 0/6 diagnostic-tier confirmations**: its critic is

@@ -1,8 +1,12 @@
 import { useEffect, useState } from "react";
+import { Routes, Route, Link } from "react-router-dom";
 import { getValidation, getHealth, getPathway, getDiscoveryMap, getCandidates, getBenchmark, getDiseases, getCompounds, assess, synthesize, resolveCompound } from "./data";
 import { useAsync } from "./useAsync";
 import { Hero } from "./hero/Hero";
 import { EvidencePanel, TracePanel, ValidationPanel, DiscoveryPanel, CandidatePanel, MCPPanel, SynthesisPanel, ProvenanceDrawer, SpecificityCenterpiece, FalsificationPanel, AnticipatedCritiques, ReferencesPanel, ConvergencePanel, AboutModal } from "./components/Panels";
+import { SiteNav, SiteFooter, WelcomeModal, EndOfTourModal, hasSeenWelcome, markWelcomeSeen } from "./site";
+import { RlmPage, METHODS, GRID } from "./pages/RlmPage";
+import { McpPage } from "./pages/McpPage";
 import type { EvidenceStrand, Disease, DiseaseInfo, CompoundResult, ValidationResult, Compound } from "@contract";
 
 // Per-disease showcase sets + copy. PD is the validated anchor; AD is the second
@@ -37,17 +41,35 @@ function initialDisease(): Disease {
   return p === "ad" ? "ad" : "pd";
 }
 
-// The 30-second guided path for a cold judge: recover -> reject imposter ->
-// falsify -> second axis -> convergence. Presenter-paced (click to advance).
+// The guided path for a cold judge: recover -> reject imposter -> falsify ->
+// candidate queue -> second axis -> convergence -> dual (human + agent) interface.
+// Presenter-paced (click to advance); ends in the end-of-tour modal.
 const TOUR: { cap: string; d?: Disease; a?: string; decoy?: string; scroll: string }[] = [
-  { cap: "Recover a known neurotoxicant on the OECD-endorsed pathway.", d: "pd", a: "rotenone", scroll: "sec-hero" },
+  { cap: "Recover a known neurotoxicant on the OECD-endorsed pathway — grounded edge by edge.", d: "pd", a: "rotenone", scroll: "sec-hero" },
   { cap: "...and reject a bioactive imposter — no curated cause, so no call.", d: "pd", decoy: "warfarin", scroll: "sec-specificity" },
   { cap: "Why not just bioactivity? Every activity signal is at or below chance vs the decoys.", d: "pd", scroll: "sec-falsification" },
+  { cap: "Discovery, done honestly: a ranked candidate queue that tells a lab what to test next.", d: "pd", scroll: "sec-candidates" },
   { cap: "A second disease, same method — Alzheimer's, calibrated below Parkinson's where the evidence is thinner.", d: "ad", a: "DDE", scroll: "sec-compare" },
   { cap: "Grounded in the mechanistic literature — and explicit about what we refuse to use.", scroll: "sec-convergence" },
+  { cap: "A methods study: RAG vs RAG+ vs RLM vs adversarial RLM — RLM-ADV surfaces ~10× the counter-evidence of RAG.", scroll: "sec-rlm" },
+  { cap: "One engine, two interfaces — a scientist and an agent query the same tools over MCP.", scroll: "sec-mcp" },
 ];
 
+// The App shell wires client-side routes. The main experience lives at "/",
+// with standalone pages for the RLM methods study and the MCP interface. Go's
+// static handler falls back to index.html, so deep links to these routes work.
 export function App() {
+  return (
+    <Routes>
+      <Route path="/" element={<MainExperience />} />
+      <Route path="/rlm" element={<RlmPage />} />
+      <Route path="/mcp" element={<McpPage />} />
+      <Route path="*" element={<MainExperience />} />
+    </Routes>
+  );
+}
+
+function MainExperience() {
   const [theme, setTheme] = useState<"dark" | "light">("dark");
   const [disease, setDiseaseState] = useState<Disease>(initialDisease());
   const [activeId, setActiveId] = useState(AXIS[initialDisease()].defaultActive);
@@ -83,6 +105,8 @@ export function App() {
 
   const [aboutOpen, setAboutOpen] = useState(false);
   const [tour, setTour] = useState<number | null>(null);
+  const [welcome, setWelcome] = useState<boolean>(() => !hasSeenWelcome());
+  const [tourDone, setTourDone] = useState(false);
   function runStep(i: number) {
     const st = TOUR[i];
     if (st.d) setDisease(st.d);
@@ -91,6 +115,9 @@ export function App() {
     setTour(i);
     window.setTimeout(() => document.getElementById(st.scroll)?.scrollIntoView({ behavior: "smooth", block: "start" }), 260);
   }
+  function startTour() { markWelcomeSeen(); setWelcome(false); runStep(0); }
+  function skipWelcome() { markWelcomeSeen(); setWelcome(false); }
+  function finishTour() { setTour(null); setTourDone(true); }
 
   function toggleTheme() {
     const next = theme === "dark" ? "light" : "dark";
@@ -224,12 +251,18 @@ export function App() {
           <ReferencesPanel />
         </section>
 
-        <section className="wrap section">
+        <section id="sec-rlm" className="wrap section">
+          <RlmMethodsSection />
+        </section>
+
+        <section id="sec-mcp" className="wrap section">
           <MCPPanel example={result} />
         </section>
       </main>
 
-      <Footer source={source} />
+      <SiteFooter note={`Evidence-ranked mechanistic hypotheses. Never claims of causation.  ·  data source: ${source}`} />
+      {welcome && <WelcomeModal onTour={startTour} onSkip={skipWelcome} />}
+      {tourDone && <EndOfTourModal onClose={() => setTourDone(false)} />}
       {aboutOpen && <AboutModal onClose={() => setAboutOpen(false)} />}
       <ProvenanceDrawer strand={provenance} onClose={() => setProvenance(null)} />
       {tour !== null && (
@@ -245,7 +278,7 @@ export function App() {
           <span className="mono faint" style={{ fontSize: 11, flex: "none" }}>{tour + 1}/{TOUR.length}</span>
           <span style={{ fontSize: 13.5, lineHeight: 1.35 }}>{TOUR[tour].cap}</span>
           <div style={{ display: "flex", gap: 8, flex: "none" }}>
-            <button className="btn primary" style={{ padding: "6px 14px" }} onClick={() => (tour < TOUR.length - 1 ? runStep(tour + 1) : setTour(null))}>
+            <button className="btn primary" style={{ padding: "6px 14px" }} onClick={() => (tour < TOUR.length - 1 ? runStep(tour + 1) : finishTour())}>
               {tour < TOUR.length - 1 ? "Next" : "Done"}
             </button>
             <button className="btn" style={{ padding: "6px 12px" }} onClick={() => setTour(null)}>Close</button>
@@ -359,6 +392,55 @@ function CompareSection() {
             <b>KE-188 (neuroinflammation)</b> is the identical node bridging both AOPs; <b>lead is positive for both</b> (PD broad leg, AD endorsed AOP-12); mitochondrial dysfunction is an <b>unlinked gap</b> (PD KE-177 vs AD placeholder KE-1816) — shown on the discovery map, not papered over.
           </span>
         </div>
+      </div>
+    </div>
+  );
+}
+
+// RlmMethodsSection: the RAG/RAG+/RLM/RLM-ADV methods study, surfaced on the main
+// page (and covered by the guided tour) so a presenter can narrate the methodology.
+// Data is shared with the full /rlm page (METHODS, GRID) — single source of truth.
+function RlmMethodsSection() {
+  return (
+    <div>
+      <p className="eyebrow" style={{ marginBottom: 12 }}>A methods study — how should Claude synthesize evidence?</p>
+      <h2 style={{ fontSize: "clamp(22px,2.6vw,30px)", maxWidth: "26ch", marginBottom: 12 }}>
+        Beyond RAG: RAG vs RAG+ vs RLM vs adversarial RLM
+      </h2>
+      <p className="dim" style={{ fontSize: 15, maxWidth: "72ch", marginBottom: 20 }}>
+        Aitiome grades on a deterministic gate — but assembling the surrounding evidence is a reasoning task, and
+        how a model does it matters. We compared four evidence-synthesis methods on one shared deterministic
+        scorer across six chemicals. Each method, in one line:
+      </p>
+      <div style={{ display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gap: 12, marginBottom: 22 }} className="two-col">
+        {METHODS.map((m) => (
+          <div key={m.key} style={{ display: "flex", gap: 10, alignItems: "baseline" }}>
+            <span className="mono" style={{ color: m.tone, fontWeight: 600, fontSize: 13.5, minWidth: 74, flex: "none" }}>{m.name}</span>
+            <span className="dim" style={{ fontSize: 13.5, lineHeight: 1.45 }}>{m.what}</span>
+          </div>
+        ))}
+      </div>
+      <div className="panel" style={{ padding: 0, overflow: "hidden" }}>
+        <div className="rlm-grid rlm-head">
+          <div className="mono faint">mean per chemical</div>
+          {METHODS.map((m) => (<div key={m.key} className="mono" style={{ fontWeight: 600, color: m.tone }}>{m.name}</div>))}
+        </div>
+        {GRID.map((row) => (
+          <div className="rlm-grid" key={row.label}>
+            <div style={{ fontSize: 14, fontWeight: 500 }}>{row.label}</div>
+            {row.vals.map((v, i) => (
+              <div key={i} className="mono" style={{ fontSize: 15, color: row.highlight === i ? "var(--reject)" : "var(--ink-dim)", fontWeight: row.highlight === i ? 700 : 400 }}>{v}</div>
+            ))}
+          </div>
+        ))}
+      </div>
+      <p style={{ fontSize: 16, color: "var(--signal)", lineHeight: 1.45, marginTop: 18, maxWidth: "70ch" }}>
+        The finding: adversarial RLM surfaced <b style={{ color: "var(--ink)" }}>~10× more counter-evidence than
+        RAG and ~2.2× more than the strong RAG+ baseline</b> — the property a calibrated-honesty tool needs most.
+        Its critic refutes (0/6 diagnostic recovery), so it pairs with RLM-1, which builds the case.
+      </p>
+      <div style={{ marginTop: 16 }}>
+        <Link to="/rlm" className="btn primary" style={{ textDecoration: "none" }}>Full methodology &amp; comparison →</Link>
       </div>
     </div>
   );
@@ -688,15 +770,16 @@ function Masthead(props: { live: boolean; theme: "dark" | "light"; onToggle: () 
         borderBottom: "1px solid var(--line)",
       }}
     >
-      <div style={{ display: "flex", alignItems: "baseline", gap: 14 }}>
+      <Link to="/" style={{ display: "flex", alignItems: "baseline", gap: 14, textDecoration: "none", color: "inherit" }}>
         <span style={{ fontWeight: 600, letterSpacing: "-0.02em", fontSize: 18 }}>Aitiome</span>
         <span className="mono faint" style={{ fontSize: 12 }}>exposome / neurodegeneration</span>
-      </div>
-      <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
+      </Link>
+      <div style={{ display: "flex", alignItems: "center", gap: 16 }}>
+        <div className="masthead-nav"><SiteNav compact /></div>
         <span className={`chip ${props.live ? "recovered" : "signal"}`}>
           <span className="dot" />{props.live ? "engine live" : "fixtures"}
         </span>
-        <button className="btn primary" onClick={props.onTour} title="A 30-second guided path through the thesis">&#9654; Guided tour</button>
+        <button className="btn primary" onClick={props.onTour} title="A guided path through the thesis">&#9654; Guided tour</button>
         <button className="btn" onClick={props.onToggle}>{props.theme === "dark" ? "Light" : "Dark"}</button>
       </div>
     </header>
@@ -722,14 +805,3 @@ function Scoreboard(props: { recovered: string; rejected: string; decoys: string
   );
 }
 
-function Footer(props: { source: "live" | "fixture" }) {
-  return (
-    <footer className="wrap section" style={{ paddingBottom: 44 }}>
-      <div className="hair" style={{ marginBottom: 20 }} />
-      <div style={{ display: "flex", justifyContent: "space-between", flexWrap: "wrap", gap: 12 }}>
-        <span className="faint mono" style={{ fontSize: 12 }}>Evidence-ranked mechanistic hypotheses. Never claims of causation.</span>
-        <span className="faint mono" style={{ fontSize: 12 }}>data source: {props.source} / contract v1.0.0</span>
-      </div>
-    </footer>
-  );
-}

@@ -84,7 +84,7 @@ slide("dark", `${eyebrow("What we accomplished, up front")}${h("A validated engi
   </div>
   <div class="two" style="margin-top:22px">
     <div class="card"><b class="c">Why what we built matters</b><p class="dim">The field asked for AI that links chemicals to <i>mechanism</i>, not another activity screen. Aitiome is that validated prototype: it recovers the known neurotoxicants on the endorsed pathway, <b>rejects the bioactive decoys that fool activity models</b>, calibrates its confidence, and maps the discovery limits honestly instead of overclaiming.</p></div>
-    <div class="card recovered"><b class="g">The methods result</b><p class="dim">Studying how Claude should synthesize evidence, <b>adversarial RLM surfaced ~10x more counter-evidence than RAG and ~2.4x more than the strong RAG+ baseline</b> - matching RAG+ on yield while running degraded. Decomposition makes Claude a measurably better skeptic: the property a calibrated-honesty tool needs most.</p></div>
+    <div class="card recovered"><b class="g">The methods result</b><p class="dim">Studying how Claude should synthesize evidence, <b>adversarial RLM surfaced ~10x more counter-evidence than RAG and ~2.2x more than the strong RAG+ baseline</b> - matching RAG+ on yield while running degraded. Decomposition makes Claude a measurably better skeptic: the property a calibrated-honesty tool needs most.</p></div>
   </div>
   ${foot(N())}`);
 
@@ -414,17 +414,17 @@ slide("dark", `${eyebrow("Four synthesis methods, one deterministic scorer, six 
     <div class="cmphead"><div class="cmpd mono faint">mean per chemical</div><div class="cmpc"><b>RAG</b></div><div class="cmpc"><b>RAG+</b></div><div class="cmpc"><b class="c">RLM-1</b></div><div class="cmpc"><b class="g">RLM-ADV</b></div></div>
     <div class="cmpr"><div class="cmpd">what it is</div><div class="cmpc">single pass, plain prompt</div><div class="cmpc">single pass, multi-query + counter-evidence prompt</div><div class="cmpc">planner + parallel leaves</div><div class="cmpc">RLM-1 + adversarial critic</div></div>
     <div class="cmpr"><div class="cmpd">evidence objects</div><div class="cmpc">13.5</div><div class="cmpc">17.2</div><div class="cmpc">14.2</div><div class="cmpc"><b class="g">17.7</b></div></div>
-    <div class="cmpr"><div class="cmpd">distinct sources</div><div class="cmpc">8.2</div><div class="cmpc">13.6</div><div class="cmpc">8.8</div><div class="cmpc"><b class="g">13.7</b></div></div>
-    <div class="cmpr"><div class="cmpd">counter-evidence found</div><div class="cmpc">1.2</div><div class="cmpc">5.4</div><div class="cmpc">1.8</div><div class="cmpc"><b class="g">12.7</b></div></div>
-    <div class="cmpr"><div class="cmpd">cost, 6 chemicals</div><div class="cmpc">$2.5</div><div class="cmpc">$3.0</div><div class="cmpc">$4.0</div><div class="cmpc">$7.0</div></div>
+    <div class="cmpr"><div class="cmpd">distinct sources</div><div class="cmpc">8.2</div><div class="cmpc">12.7</div><div class="cmpc">8.8</div><div class="cmpc"><b class="g">13.7</b></div></div>
+    <div class="cmpr"><div class="cmpd">counter-evidence found</div><div class="cmpc">1.2</div><div class="cmpc">5.7</div><div class="cmpc">1.8</div><div class="cmpc"><b class="g">12.7</b></div></div>
+    <div class="cmpr"><div class="cmpd">cost, 6 chemicals</div><div class="cmpc">$2.5</div><div class="cmpc">$3.6</div><div class="cmpc">$4.0</div><div class="cmpc">$7.0</div></div>
   </div>
-  <p class="dim small">RAG+ and RLM-ADV are the strong variant of each family - RAG+ hardens the single pass with a counter-evidence-seeking prompt; RLM-ADV adds a dedicated critic that hunts refutation. RLM numbers are a <b>floor</b>: a slow retrieval window degraded ~2/3 of leaves and they still matched RAG+. RAG+ means are over n=5 (chlorpyrifos RAG+ timed out on a throttled web-search backend; 23/24 cells filled).</p>
+  <p class="dim small">RAG+ and RLM-ADV are the strong variant of each family - RAG+ hardens the single pass with a counter-evidence-seeking prompt; RLM-ADV adds a dedicated critic that hunts refutation. RLM numbers are a <b>floor</b>: a slow retrieval window degraded ~2/3 of leaves and they still matched RAG+. All four systems are complete over the six chemicals (24/24 cells).</p>
   ${foot(N())}`);
 
 // 15d - the methods finding + where it transfers
 slide("", `${eyebrow("What the methods study concluded")}${h("Adversarial RLM is the right tool when evidence must be skeptical")}
   <div class="two" style="margin-top:26px">
-    <div class="card recovered"><b class="c">The finding</b><p class="dim">RLM-ADV surfaced <b>~10x more counter-evidence than RAG and ~2.4x more than the strong RAG+ baseline</b>, matching RAG+ on yield and source breadth - while running degraded. For a tool built on calibrated honesty, actively hunting <i>disconfirming</i> evidence is the property that matters most.</p></div>
+    <div class="card recovered"><b class="c">The finding</b><p class="dim">RLM-ADV surfaced <b>~10x more counter-evidence than RAG and ~2.2x more than the strong RAG+ baseline</b>, matching RAG+ on yield and source breadth - while running degraded. For a tool built on calibrated honesty, actively hunting <i>disconfirming</i> evidence is the property that matters most.</p></div>
     <div class="card"><b class="g">The trade-off, kept honest</b><p class="dim">RLM-ADV's critic refutes rather than confirms - it recovered 0/6 diagnostic anchors - so it pairs with RLM-1, which builds the case. And decomposition <b>degrades gracefully</b>: a stalled leaf loses one sub-question, where a monolithic RAG call loses everything.</p></div>
   </div>
   <p class="pull" style="margin-top:16px;font-size:20px">The pattern transfers wherever "find the counter-evidence" matters as much as "build the case."</p>
@@ -500,7 +500,7 @@ slide("closefull", `
       <ul class="cllist">
         <li>Validated recovery (13/13 PD, 12/12 AD) with adversarial specificity <b>proven by falsification</b> - bioactivity at or below chance against the decoys.</li>
         <li>A candidate pipeline that <b>guides the bench</b> <span class="dim">(shown live, left)</span> - gate-promoted, decoy-controlled, backtest-validated.</li>
-        <li>A methods finding: <b>adversarial RLM surfaced ~10x more counter-evidence than RAG</b> (~2.4x vs RAG+) - decomposition makes Claude a measurably better skeptic.</li>
+        <li>A methods finding: <b>adversarial RLM surfaced ~10x more counter-evidence than RAG</b> (~2.2x vs RAG+) - decomposition makes Claude a measurably better skeptic.</li>
       </ul>
       <p class="clcta">Try it live at <b class="c">aitiome.fly.dev</b> <span class="dim">/ github.com/jonradoff/aitiome</span></p>
     </div>

@@ -8,9 +8,21 @@
 
 **Current state (2026-07-08):** engine + hero + panels + Claude evidence-reasoner shipped; deployed live
 at https://aitiome.fly.dev (single Go binary serves web + `/api/*` + MCP sibling). Contract at **v1.2.0**.
-Private repo `jonradoff/aitiome`. A **falsification harness** (`make validate`, `/benchmark`) quantifies
+A **falsification harness** (`make validate`, `/benchmark`) quantifies
 the anti-diagnostic claim: bioactivity is at-or-below-chance vs the adversarial decoys while the curated
 rule is perfect. Red-team findings and open critiques (esp. circularity) are logged in `learnings.md`.
+
+**Repo + docs + site pages (2026-07-13):** repo is now **PUBLIC** (`github.com/jonradoff/aitiome`) —
+`.env` is gitignored/never-committed; only `sk-ant-...` *placeholders* live in docs. MIT `LICENSE` (© 2026
+Jon Radoff). Canonical MCP docs = **`mcp.md`** (repo root; grounded in `services/cmd/mcpd/main.go`, 13
+read-only tools). README overhauled (hero screenshot `docs/assets/screenshot-hero.png`). The web app now uses
+**react-router** with real routes: `/` (main), **`/rlm`** (RLM methods page, `web/src/pages/RlmPage.tsx`),
+**`/mcp`** (`McpPage.tsx`); shared chrome in `web/src/site.tsx` (SiteHeader/SiteFooter + first-visit Welcome
+modal + end-of-tour modal; global footer = "© 2026 Jon Radoff — MIT License | Built with Claude: Life
+Sciences Hackathon" + nav links). **The deck PDF is served at `/presentation.pdf`** from a COPY at
+`web/public/presentation.pdf` — when you rebuild `docs/aitiome-presentation.pdf`, re-copy it into
+`web/public/` or the hosted deck goes stale. **Identity gotcha (test-locked discipline):** rotenone =
+`DTXSID6021248`, chlorpyrifos = `DTXSID4020458` — don't swap them (validation_set.csv is ground truth).
 
 **Candidate pipeline shipped (2026-07-09, ADR-0006):** Aitiome is now a triage pipeline, not only a validator.
 `/candidates?disease=` + MCP `list_candidates` return an **evidence-weighted-priority queue** of chemicals with
