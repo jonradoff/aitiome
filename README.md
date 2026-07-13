@@ -6,7 +6,7 @@
 
 ![Aitiome](docs/assets/screenshot-hero.png)
 
-> Submitted by **Jon Radoff** for the **Built with Claude: Life Sciences** hackathon (judged with the Gladstone Institutes).
+> Submitted by **Jon Radoff** for the **Built with Claude: Life Sciences** hackathon.
 
 Give Aitiome a chemical and it reconstructs the OECD-endorsed causal pathway — molecular initiating
 event (MIE) → key events (KE) → adverse outcome (AO) — to a Parkinson's or Alzheimer's hallmark, grades it
