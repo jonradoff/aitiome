@@ -23,6 +23,8 @@ const b64 = (p) => readFileSync(p).toString("base64");
 const grotesk = b64(join(dir, "../node_modules/@fontsource-variable/space-grotesk/files/space-grotesk-latin-wght-normal.woff2"));
 const mono = b64(join(dir, "../node_modules/@fontsource/ibm-plex-mono/files/ibm-plex-mono-latin-400-normal.woff2"));
 const hero = b64("/tmp/deck-hero-rotenone.png");
+const highlightsShot = b64(join(dir, "deck-assets/highlights-app.png"));
+const closeShot = b64(join(dir, "deck-assets/close-candidates.png"));
 
 const FAVICON = readFileSync(join(dir, "../public/favicon.svg"), "utf8");
 const shotB64 = (name) => b64(`/tmp/deck-app-${name}.png`);
@@ -54,7 +56,36 @@ slide("title", `
   <h1 class="big">Aitiome</h1>
   <p class="lede">A mechanistic reasoning engine for the environmental exposome of neurodegeneration.</p>
   <p class="tag mono">It recovers the real ones, resolves to the real neurons, and isn't fooled by the imposters.</p>
+  <p class="submit">Submitted by <b>Jon Radoff</b> for the <b>Built with Claude: Life Sciences</b> Hackathon.</p>
   <div class="urls mono"><span>aitiome.fly.dev</span><span class="dot">/</span><span>Built with Claude: Life Sciences</span></div>
+  ${foot(N())}`);
+
+// 1b - hackathon highlights (the fast read: what/who/why/how + a live CTA)
+slide("hl", `${eyebrow("Hackathon highlights")}
+  <div class="hlgrid">
+    <div class="hlshot"><img src="data:image/png;base64,${highlightsShot}"/></div>
+    <div class="hlpts">
+      <div class="hlpt"><div class="hk c">What it is</div><p>Give it a chemical; it reconstructs the OECD-endorsed causal pathway to Parkinson's or Alzheimer's, grades it on <b>curated evidence - never bioactivity</b>, and rates its confidence.</p></div>
+      <div class="hlpt"><div class="hk c">Who it's for</div><p>Exposome &amp; neurodegeneration researchers, mechanism-focused labs, and AOP / regulatory toxicologists - the community that in 2024 called for AI linking chemicals to disease <i>mechanism</i>.</p></div>
+      <div class="hlpt"><div class="hk r">Why it's hard</div><p>Tens of thousands of chemicals are bioactive; almost none are curated neurotoxicants. Telling a true one from a bioactive decoy is the whole game - and <b>bioactivity scores worse than chance</b> at it.</p></div>
+      <div class="hlpt"><div class="hk g">How it's made</div><p>Deterministic Go engine, <b>Claude Opus 4.8</b> narrating the evidence (adversarial-RLM synthesis), <b>built with Claude Code</b>, and an <b>MCP server</b> that opens the same engine to agentic workflows.</p></div>
+    </div>
+  </div>
+  <p class="hlcta">Try it live at <b class="c">aitiome.fly.dev</b></p>
+  ${foot(N())}`);
+
+// 1c - results up front (what we accomplished + the methods result)
+slide("dark", `${eyebrow("What we accomplished, up front")}${h("A validated engine - and a methods result")}
+  <div class="statline">
+    <span><b class="c">13/13</b> PD recovered <span class="faint">(12/12 AD)</span></span>
+    <span><b class="r">6/6</b> decoys rejected</span>
+    <span><b>0</b> false pos + neg</span>
+    <span><b class="c">live</b> + MCP</span>
+  </div>
+  <div class="two" style="margin-top:22px">
+    <div class="card"><b class="c">Why what we built matters</b><p class="dim">The field asked for AI that links chemicals to <i>mechanism</i>, not another activity screen. Aitiome is that validated prototype: it recovers the known neurotoxicants on the endorsed pathway, <b>rejects the bioactive decoys that fool activity models</b>, calibrates its confidence, and maps the discovery limits honestly instead of overclaiming.</p></div>
+    <div class="card recovered"><b class="g">The methods result</b><p class="dim">Studying how Claude should synthesize evidence, <b>adversarial RLM surfaced ~10x more counter-evidence than RAG and ~2.4x more than the strong RAG+ baseline</b> - matching RAG+ on yield while running degraded. Decomposition makes Claude a measurably better skeptic: the property a calibrated-honesty tool needs most.</p></div>
+  </div>
   ${foot(N())}`);
 
 // 2 - the problem (context)
@@ -258,18 +289,18 @@ slide("", `${eyebrow("Grounded in established mechanism")}${h("Convergent with t
   ${foot(N())}`);
 
 // 13g - principled exclusions
-slide("dark", `${eyebrow("The exclusions are the discipline")}${h("What we deliberately do not use")}
+slide("dark exclu", `${eyebrow("The exclusions are the discipline")}${h("What we deliberately do not use")}
   <div class="two">
     <ul class="list">
-      <li><b>Bioactivity as a discriminator</b> (ToxCast/Tox21 hitcalls, GenRA, DeepTox) - anti-diagnostic here; ToxCast covers only ~40% neural-relevant targets (Mack 2024).</li>
-      <li><b>Circular knowledge graphs</b> (ComptoxAI, AlzKB, PrimeKG, Hetionet) - edges are CTD/AOP-derived or drug-keyed.</li>
+      <li><b>Bioactivity as a discriminator</b> (ToxCast / Tox21 hitcalls, GenRA, DeepTox) - anti-diagnostic here; ToxCast covers only ~40% of neural-relevant targets (Mack 2024).</li>
+      <li><b>Circular knowledge graphs</b> (ComptoxAI, AlzKB, PrimeKG, Hetionet) - their edges are CTD / AOP-derived or drug-keyed, so they would confirm our own inputs.</li>
     </ul>
     <ul class="list">
-      <li><b>Structure / QSAR & morphology</b> - general similarity is not neurotoxicity.</li>
-      <li><b>CTD inferred associations</b> - inference by study volume (acetaminophen: 80 inferred PD links). Only curated DirectEvidence counts.</li>
+      <li><b>Structure / QSAR &amp; morphology</b> - general chemical similarity is not neurotoxicity.</li>
+      <li><b>CTD inferred associations</b> - inference by study volume (acetaminophen alone has 80 inferred PD links). Only curated DirectEvidence counts.</li>
     </ul>
   </div>
-  <p class="dim center">Anything that smuggles general bioactivity back in, or is circular with our own curation, is disqualified.</p>
+  <p class="pull center">Anything that smuggles general bioactivity back in, or is circular with our own curation, is disqualified.</p>
   ${foot(N())}`);
 
 // 13b - product: sources & references (nothing is asserted uncited)
@@ -279,9 +310,9 @@ shotSlide("sources", "Auditable end to end", "Every claim links to its primary s
 ]);
 
 // 13c - product: the dual (human + agent) interface over one engine
-shotSlide("mcp", "One engine, two interfaces", "A scientist and an agent query the same tools", [
-  { n: 1, x: 12, y: 52, tone: "c", label: "Eight MCP tools - the same engine, exposed to agents" },
-  { n: 2, x: 62, y: 52, tone: "g", label: "An agent gets the same graded, cited call" },
+shotSlide("mcp", "One engine, usable by humans and agents", "An MCP server makes the platform usable by agents, not just people", [
+  { n: 1, x: 12, y: 52, tone: "c", label: "A built-in MCP server exposes eight tools - the exact same engine an agent can drive" },
+  { n: 2, x: 62, y: 52, tone: "g", label: "An agent gets the same graded, cited call a scientist does - human + agentic in one platform" },
 ]);
 
 // 14 - built on Claude (the three-layer fusion)
@@ -346,9 +377,9 @@ slide("dark", `${eyebrow("The three roles of Claude - precisely")}${h("Claude bu
   <div class="three">
     <div class="card"><b class="c">Claude Code - builds it</b><p class="dim">Two parallel streams (engine + visualization) over a versioned contract; the deterministic core, the falsification harness, the hero, the deploy.</p></div>
     <div class="card"><b class="g">Claude API (Opus 4.8) - explains it</b><p class="dim">The in-app evidence-reasoner: writes the calibrated, [E#]-cited synthesis of a completed assessment. Explains, and never changes the call.</p></div>
-    <div class="card recovered"><b class="c">Claude Science - assembles + verifies</b><p class="dim">For a chemical beyond the embedded 27, <span class="mono">make curate</span> assembles a curated-evidence draft (Claude + web search), verified against the primary sources; then <span class="mono">/assess-curated</span> grades it with the same deterministic gate. An unverified draft stays a hypothesis, never a curated positive.</p></div>
+    <div class="card recovered"><b class="c">Claude Science - assembles + verifies</b><p class="dim">Beyond the embedded 27, <span class="mono">make curate</span> assembles a curated-evidence draft (Claude + web search) verified against primary sources; <span class="mono">/assess-curated</span> then grades it with the same deterministic gate. An unverified draft stays a hypothesis.</p></div>
   </div>
-  <p class="dim center small" style="margin-top:18px">Claude builds, assembles, verifies, and explains - the deterministic gate still makes every call.</p>
+  <p class="dim center small" style="margin-top:14px">Claude builds, assembles, verifies, and explains - the deterministic gate still makes every call.</p>
   ${foot(N())}`);
 
 // 15 - architecture / beyond the benchmark
@@ -387,7 +418,7 @@ slide("dark", `${eyebrow("Four synthesis methods, one deterministic scorer, six 
     <div class="cmpr"><div class="cmpd">counter-evidence found</div><div class="cmpc">1.2</div><div class="cmpc">5.4</div><div class="cmpc">1.8</div><div class="cmpc"><b class="g">12.7</b></div></div>
     <div class="cmpr"><div class="cmpd">cost, 6 chemicals</div><div class="cmpc">$2.5</div><div class="cmpc">$3.0</div><div class="cmpc">$4.0</div><div class="cmpc">$7.0</div></div>
   </div>
-  <p class="dim small">RAG+ and RLM-ADV are the strong variant of each family - RAG+ hardens the single pass with a counter-evidence-seeking prompt; RLM-ADV adds a dedicated critic that hunts refutation. RLM numbers are a <b>floor</b>: a slow retrieval window degraded ~2/3 of leaves and they still matched RAG+.</p>
+  <p class="dim small">RAG+ and RLM-ADV are the strong variant of each family - RAG+ hardens the single pass with a counter-evidence-seeking prompt; RLM-ADV adds a dedicated critic that hunts refutation. RLM numbers are a <b>floor</b>: a slow retrieval window degraded ~2/3 of leaves and they still matched RAG+. RAG+ means are over n=5 (chlorpyrifos RAG+ timed out on a throttled web-search backend; 23/24 cells filled).</p>
   ${foot(N())}`);
 
 // 15d - the methods finding + where it transfers
@@ -459,12 +490,21 @@ slide("dark", `${eyebrow("Future directions - the broader vision")}${h("The disc
   <p class="dim small" style="margin-top:16px">Honest exclusions: ALS / Huntington's (no scaffold, thin curated evidence - the same line we draw for AD), and carcinogenicity (its gold standard, Key Characteristics, deliberately rejects the single-AOP-chain model).</p>
   ${foot(N())}`);
 
-// 19 - close
-slide("title", `
-  <div class="mark">${FAVICON}</div>
-  <h1 class="big2">Honest where the data is thin.<br/>Confident where we earned it.</h1>
-  <p class="lede">Validated recovery, adversarial specificity proven by falsification, a candidate pipeline that guides the bench, and a mapped account of the limits - with a method built to extend wherever the same curated evidence exists.</p>
-  <div class="urls mono"><span>aitiome.fly.dev</span><span class="dot">/</span><span>github.com/jonradoff/aitiome</span></div>
+// 19 - close (with the live candidate queue + the conclusions reiterated)
+slide("closefull", `
+  <div class="clgrid">
+    <div class="clshot"><img src="data:image/png;base64,${closeShot}"/></div>
+    <div class="clbody">
+      <div class="mark sm">${FAVICON}</div>
+      <h1>Honest where the data is thin.<br/>Confident where we earned it.</h1>
+      <ul class="cllist">
+        <li>Validated recovery (13/13 PD, 12/12 AD) with adversarial specificity <b>proven by falsification</b> - bioactivity at or below chance against the decoys.</li>
+        <li>A candidate pipeline that <b>guides the bench</b> <span class="dim">(shown live, left)</span> - gate-promoted, decoy-controlled, backtest-validated.</li>
+        <li>A methods finding: <b>adversarial RLM surfaced ~10x more counter-evidence than RAG</b> (~2.4x vs RAG+) - decomposition makes Claude a measurably better skeptic.</li>
+      </ul>
+      <p class="clcta">Try it live at <b class="c">aitiome.fly.dev</b> <span class="dim">/ github.com/jonradoff/aitiome</span></p>
+    </div>
+  </div>
   ${foot(N())}`);
 
 function bar(name, v) {
@@ -528,7 +568,7 @@ const css = `
   .card{background:linear-gradient(180deg,var(--bg2),var(--bg));border:1px solid var(--line);border-radius:14px;padding:26px}
   .card .k{font-size:12px;letter-spacing:.05em;text-transform:uppercase;color:var(--faint);margin-bottom:12px}
   .card .num{font-family:'PlexMono';font-size:30px;margin-bottom:10px}
-  .card b{font-size:20px;display:block;margin-bottom:8px}
+  .card>b{font-size:20px;display:block;margin-bottom:8px}
   .card.recovered{border-color:color-mix(in srgb,var(--c) 40%,transparent)}
   .card.uncertain{border-color:color-mix(in srgb,var(--u) 40%,transparent)}
   .pull{margin-top:34px;font-size:24px;color:var(--c)}
@@ -619,6 +659,47 @@ const css = `
   .legend{display:flex;gap:30px;justify-content:center;flex-wrap:wrap;padding:0 20px}
   .lg{display:flex;align-items:center;gap:10px;font-size:14px;color:var(--dim);max-width:34ch}
   .lg span:last-child{line-height:1.32}
+  /* cover submission line */
+  .submit{font-size:16px;color:var(--dim);margin:2px 0 26px}
+  .submit b{color:var(--ink)}
+  /* hackathon highlights */
+  .slide.hl{padding:44px 64px 22px}
+  .hl .eyebrow{margin-bottom:16px}
+  .hlgrid{display:grid;grid-template-columns:1.02fr 1fr;gap:36px;flex:1;align-items:start;min-height:0;margin-top:8px}
+  .hlshot{border:1px solid var(--line);border-radius:12px;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,.5)}
+  .hlshot img{display:block;width:100%;height:auto}
+  .hlpts{display:flex;flex-direction:column;gap:15px}
+  .hlpt .hk{font-family:'PlexMono';font-size:12px;letter-spacing:.09em;text-transform:uppercase;margin-bottom:5px}
+  .hlpt p{font-size:15px;line-height:1.42;color:var(--dim)}
+  .hlpt p b{color:var(--ink);font-weight:600}
+  .hlcta{text-align:center;font-size:21px;color:var(--dim);margin-top:14px}
+  .slide.hl .foot span:nth-child(2){display:none}
+  /* results: compact one-line stat strip */
+  .statline{display:flex;gap:34px;flex-wrap:wrap;align-items:baseline;margin:30px 0 6px}
+  .statline>span{font-size:19px;color:var(--dim)}
+  .statline b{font-family:'PlexMono';font-size:27px;margin-right:7px}
+  /* exclusions - enlarged to fill the page */
+  .exclu .two{margin-top:46px;gap:40px}
+  .exclu .list{gap:26px}
+  .exclu .list li{font-size:22px;line-height:1.5}
+  .exclu .list li::before{top:11px;width:8px;height:8px}
+  .exclu .pull{margin-top:48px}
+  /* close - live candidate queue beside the conclusions */
+  .slide.closefull{padding:0}
+  .clgrid{display:grid;grid-template-columns:1fr 1.06fr;height:100%}
+  .clshot{overflow:hidden;border-right:1px solid var(--line);background:#090b0f}
+  .clshot img{width:100%;height:100%;object-fit:cover;object-position:left top}
+  .clbody{padding:52px 60px;display:flex;flex-direction:column;justify-content:center}
+  .clbody .mark.sm{width:44px;height:44px;margin-bottom:20px}
+  .clbody .mark.sm svg{width:44px;height:44px;border-radius:12px}
+  .clbody h1{font-size:33px;max-width:22ch;margin-bottom:22px;line-height:1.12}
+  .cllist{list-style:none;display:flex;flex-direction:column;gap:14px;margin-bottom:24px}
+  .cllist li{font-size:16px;line-height:1.45;color:var(--dim);padding-left:18px;position:relative}
+  .cllist li::before{content:"";position:absolute;left:0;top:8px;width:6px;height:6px;border-radius:99px;background:var(--c)}
+  .cllist li b{color:var(--ink)}
+  .clcta{font-size:18px;color:var(--ink)}
+  .slide.closefull .foot span:nth-child(1),.slide.closefull .foot span:nth-child(2){display:none}
+  .slide.closefull .foot{justify-content:flex-end}
 `;
 
 const html = `<!doctype html><html><head><meta charset="utf-8"><style>${css}</style></head><body>${slides.join("")}</body></html>`;

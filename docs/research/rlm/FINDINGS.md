@@ -19,12 +19,18 @@ Method = depth-1 Recursive Language Models (Zhang, Kraska & Khattab, MIT CSAIL,
 arXiv:2512.24601, 2025). Depth fixed at 1 per the reproduction caution (Wang 2026).
 
 ## Aggregate (mean per chemical)
-| system | avg evidence | avg sources | avg counter-evidence | diagnostic recovered | cost (6 chem) |
+| system | avg evidence | avg sources | avg counter-evidence | diagnostic recovered | cost |
 |---|---|---|---|---|---|
 | RAG     | 13.5 | 8.2  | 1.2  | 4/6 | $2.47 |
-| RAG+    | 17.2 | 13.6 | 5.4  | 3/6 | $3.01 |
+| RAG+ \* | 17.2 | 13.6 | 5.4  | 3/5 | $3.01 |
 | RLM-1   | 14.2 | 8.8  | 1.8  | 3/6 | $4.04 |
 | RLM-ADV | 17.7 | 13.7 | 12.7 | 0/6 | $7.01 |
+
+\* **RAG+ means are over n=5 chemicals** — the chlorpyrifos RAG+ cell did not complete
+(the single web-grounded pass timed out at 20 min with 0 searches during a throttled
+web-search window; retried 2026-07-13, same failure — backend-limited, not a code bug).
+All other rows are n=6. Full matrix = 23/24 cells; chlorpyrifos RAG+ pending a healthy
+web-search window.
 
 ## Headline findings
 1. **RLM-ADV surfaces dramatically more counter-evidence** — 12.7/chem vs RAG+ 5.4
