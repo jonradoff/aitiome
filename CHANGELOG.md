@@ -3,6 +3,24 @@
 Notable changes to Aitiome — a *Built with Claude: Life Sciences* hackathon submission
 by Jon Radoff. Live at https://aitiome.fly.dev.
 
+## 2026-07-14 — Post-launch audit fixes
+
+### Fixed
+- Compare matrix showed a stale circularity ratio (`8/12 → 12/12`); corrected to
+  `9/13 + 8/13 → 13/13` (PD has been 13/13 since trichloroethylene was added).
+- Rotenone epidemiology harmonized to its cited source — **OR ~2.5 (Tanner 2011 FAME)**,
+  previously an uncited "~10" — across the app, deck, and MCP docs.
+- Aluminum PAQUID citation corrected to the 2009 15-year follow-up (was 2000).
+- Theme selection now persists across routes (localStorage).
+
+### Changed
+- The deck builds **directly** to `web/public/presentation.pdf` (the single served copy).
+- Retired "value-of-information" wording in favor of "evidence-weighted priority."
+- Test-locked the candidate invariant (every real candidate has ≥1 evidence strand, score > 0).
+
+### Removed
+- Untracked a 14.5 MB build binary (`curate`) and the duplicate deck PDF from git.
+
 ## 2026-07-13 — Public launch
 
 ### Added
